@@ -48,6 +48,7 @@
     <Reference Include="Samsara.ProjectsAndTendering.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.ProjectsAndTendering.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Samsara.ProjectsAndTendering.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
@@ -152,10 +153,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Samsara.ProjectsAndTendering.Controls\Samsara.ProjectsAndTendering.Controls.csproj">
-      <Project>{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}</Project>
-      <Name>Samsara.ProjectsAndTendering.Controls</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
