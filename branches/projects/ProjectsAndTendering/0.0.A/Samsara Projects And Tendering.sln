@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Dao", "Samsara.ProjectsAndTendering.Dao\Samsara.ProjectsAndTendering.Dao.csproj", "{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F57FA43-5325-496C-AAD7-C63AB0DE8456} = {0F57FA43-5325-496C-AAD7-C63AB0DE8456}
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8} = {3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Service", "Samsara.ProjectsAndTendering.Service\Samsara.ProjectsAndTendering.Service.csproj", "{E9479852-2A1C-4F62-88FB-0F53B6A9D75C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8} = {3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}
+		{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02} = {BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Core", "Samsara.ProjectsAndTendering.Core\Samsara.ProjectsAndTendering.Core.csproj", "{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Common", "Samsara.ProjectsAndTendering.Common\Samsara.ProjectsAndTendering.Common.csproj", "{E1A5262A-B520-4FC1-85E5-30192522E13E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Forms", "Samsara.ProjectsAndTendering.Forms\Samsara.ProjectsAndTendering.Forms.csproj", "{8A7F1100-1077-4319-AB51-4FD8302AF79B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E1A5262A-B520-4FC1-85E5-30192522E13E} = {E1A5262A-B520-4FC1-85E5-30192522E13E}
+		{E9479852-2A1C-4F62-88FB-0F53B6A9D75C} = {E9479852-2A1C-4F62-88FB-0F53B6A9D75C}
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8} = {3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}
+		{D4BB7166-F77E-420B-AE66-EA341BB104C4} = {D4BB7166-F77E-420B-AE66-EA341BB104C4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Application", "Samsara.ProjectsAndTendering.Application\Samsara.ProjectsAndTendering.Application.csproj", "{E957E14E-11A8-4109-AEC0-1608C8554048}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A7F1100-1077-4319-AB51-4FD8302AF79B} = {8A7F1100-1077-4319-AB51-4FD8302AF79B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Support.Util", "Samsara.Support.Util\Samsara.Support.Util.csproj", "{D4BB7166-F77E-420B-AE66-EA341BB104C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.BaseDao", "Samsara.ProjectsAndTendering.BaseDao\Samsara.ProjectsAndTendering.BaseDao.csproj", "{0F57FA43-5325-496C-AAD7-C63AB0DE8456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Controls", "Samsara.ProjectsAndTendering.Controls\Samsara.ProjectsAndTendering.Controls.csproj", "{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9479852-2A1C-4F62-88FB-0F53B6A9D75C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9479852-2A1C-4F62-88FB-0F53B6A9D75C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9479852-2A1C-4F62-88FB-0F53B6A9D75C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9479852-2A1C-4F62-88FB-0F53B6A9D75C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A5262A-B520-4FC1-85E5-30192522E13E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A5262A-B520-4FC1-85E5-30192522E13E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A5262A-B520-4FC1-85E5-30192522E13E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A5262A-B520-4FC1-85E5-30192522E13E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7F1100-1077-4319-AB51-4FD8302AF79B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7F1100-1077-4319-AB51-4FD8302AF79B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7F1100-1077-4319-AB51-4FD8302AF79B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7F1100-1077-4319-AB51-4FD8302AF79B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E957E14E-11A8-4109-AEC0-1608C8554048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E957E14E-11A8-4109-AEC0-1608C8554048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E957E14E-11A8-4109-AEC0-1608C8554048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E957E14E-11A8-4109-AEC0-1608C8554048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4BB7166-F77E-420B-AE66-EA341BB104C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BB7166-F77E-420B-AE66-EA341BB104C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4BB7166-F77E-420B-AE66-EA341BB104C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BB7166-F77E-420B-AE66-EA341BB104C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F57FA43-5325-496C-AAD7-C63AB0DE8456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F57FA43-5325-496C-AAD7-C63AB0DE8456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F57FA43-5325-496C-AAD7-C63AB0DE8456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F57FA43-5325-496C-AAD7-C63AB0DE8456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

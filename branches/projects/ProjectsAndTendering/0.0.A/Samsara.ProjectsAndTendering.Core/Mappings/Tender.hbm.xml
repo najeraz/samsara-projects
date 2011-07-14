@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="Tender" table="Tenders">
+    
+    <id name="TenderId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="RegistrationDate"/>
+    <property name="BidderId"/>
+    <property name="DependencyId"/>
+    <property name="Name"/>
+    <property name="AsesorId"/>
+    <property name="ClarificationDate"/>
+    <property name="Deadline"/>
+    <property name="PricingStrategy"/>
+    <property name="Results"/>
+    <property name="VerdictDate"/>
+    <property name="FolioReference"/>
+    <property name="ManufacturerId"/>
+    <property name="TenderStatusId"/>
+    <property name="ApprovedBy"/>
+    <property name="ManufacturerSupport"/>
+    <property name="PreviousTenderId"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+  </class>
+
+  <query name="LoadTenders">
+    <![CDATA[
+        from Tender where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="SearchTenders">
+    <![CDATA[
+        from Tender where Deleted = 0 and Activated = 1
+        AND (AsesorId = :AsesorId OR :AsesorId = -1)
+        AND (BidderId = :BidderId OR :BidderId = -1)
+        AND (DependencyId = :DependencyId OR :DependencyId = -1)
+        AND (TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
+        AND (:DateTypeSearchId = 1 and :MinDate >= RegistrationDate and :MaxDate <= RegistrationDate
+          OR :DateTypeSearchId = 2 and :MinDate >= Deadline and :MaxDate <= Deadline
+          OR :DateTypeSearchId = 3 and :MinDate >= VerdictDate and :MaxDate <= VerdictDate
+          OR :DateTypeSearchId = 4 and :MinDate >= ClarificationDate and :MaxDate <= ClarificationDate
+          OR :DateTypeSearchId = 5 and :MinDate >= PreRevisionDate and :MaxDate <= PreRevisionDate
+          OR :DateTypeSearchId = -1)
+    ]]>
+  </query>
+
+</hibernate-mapping>
