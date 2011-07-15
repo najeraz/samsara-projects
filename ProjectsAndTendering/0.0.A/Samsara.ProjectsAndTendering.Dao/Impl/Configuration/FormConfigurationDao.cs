@@ -19,6 +19,15 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Configuration
             return this.GetAll().ToDictionary(x => x.FormConfigurationId, x => x);
         }
 
+        public FormConfiguration SearchFormConfigurationByName(string formName)
+        {
+            DetachedNamedQuery dnq = new DetachedNamedQuery("SearchFormConfigurationByName");
+
+            dnq.SetString("FormName", formName);
+
+            return this.GetList(dnq).SingleOrDefault();
+        }
+
         #endregion Methods
     }
 }

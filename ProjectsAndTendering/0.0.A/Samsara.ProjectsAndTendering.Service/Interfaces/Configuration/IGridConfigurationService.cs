@@ -7,7 +7,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, GridConfiguration> LoadGridConfigurations();
         GridConfiguration LoadGridConfiguration(int GridConfigurationId);
-        void SaveOrUpdateGridConfiguration(GridConfiguration asesor);
-        void DeleteGridConfiguration(GridConfiguration asesor);
+        void SaveOrUpdateGridConfiguration(GridConfiguration entity);
+        void DeleteGridConfiguration(GridConfiguration entity);
     }
 }

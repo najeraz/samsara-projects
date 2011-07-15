@@ -33,21 +33,21 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.DependencyDao.GetById(DependencyId);
         }
 
-        public void SaveOrUpdateDependency(Dependency asesor)
+        public void SaveOrUpdateDependency(Dependency entity)
         {
-            if (asesor.DependencyId > 0)
+            if (entity.DependencyId > 0)
             {
-                this.DependencyDao.Save(asesor);
+                this.DependencyDao.Save(entity);
             }
             else
             {
-                this.DependencyDao.Update(asesor);
+                this.DependencyDao.Update(entity);
             }
         }
 
-        public void DeleteDependency(Dependency asesor)
+        public void DeleteDependency(Dependency entity)
         {
-            this.DependencyDao.Delete(asesor);
+            this.DependencyDao.Delete(entity);
         }
 
         #endregion Methods

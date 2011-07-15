@@ -9,7 +9,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, BidderType> LoadBidderTypes();
         BidderType LoadBidderType(int BidderTypeId);
-        void SaveOrUpdateBidderType(BidderType asesor);
-        void DeleteBidderType(BidderType asesor);
+        void SaveOrUpdateBidderType(BidderType entity);
+        void DeleteBidderType(BidderType entity);
     }
 }

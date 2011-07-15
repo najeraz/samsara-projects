@@ -7,7 +7,8 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, FormConfiguration> LoadFormConfigurations();
         FormConfiguration LoadFormConfiguration(int FormConfigurationId);
-        void SaveOrUpdateFormConfiguration(FormConfiguration asesor);
-        void DeleteFormConfiguration(FormConfiguration asesor);
+        void SaveOrUpdateFormConfiguration(FormConfiguration formConfiguration);
+        void DeleteFormConfiguration(FormConfiguration formConfiguration);
+        FormConfiguration SearchFormConfigurationByName(string formName);
     }
 }

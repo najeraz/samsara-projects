@@ -5,8 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using NUnit.Framework;
+using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
+using Samsara.ProjectsAndTendering.Common;
 
 namespace Samsara.ProjectsAndTendering.Controls
 {
@@ -21,12 +24,38 @@ namespace Samsara.ProjectsAndTendering.Controls
         {
             base.OnInitializeLayout(e);
 
+            FormConfiguration formConfiguration = null;
+            IFormConfigurationService srvFormConfiguration = ApplicationContext.Resolve<IFormConfigurationService>();
+            Assert.IsNotNull(srvFormConfiguration);
+
             if (this.DataSource != null && this.DataSource is DataTable)
             {
-                DataTable dtGrid = (DataTable)this.DataSource;
+                string parentFormName = this.GetParentFormName(this.Parent);
 
-                string a = dtGrid.TableName;
+                if (parentFormName != null)
+                    formConfiguration = srvFormConfiguration.SearchFormConfigurationByName(parentFormName);
+                else 
+                    return;
+
+                if (formConfiguration == null)
+                {
+                    formConfiguration = new FormConfiguration();
+
+                    formConfiguration.FormName = parentFormName;
+
+                    srvFormConfiguration.SaveOrUpdateFormConfiguration(formConfiguration);
+                }
             }
+        }
+
+        private string GetParentFormName(System.Windows.Forms.Control control) 
+        {
+            if (control is System.Windows.Forms.Form)
+                return control.Name;
+            if (control == null)
+                return null;
+
+            return GetParentFormName(control.Parent);
         }
     }
 }

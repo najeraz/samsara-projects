@@ -85,6 +85,19 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderStatusDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  
+  <object id="IFormConfigurationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IGridColumnConfigurationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.GridColumnConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IGridConfigurationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.GridConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 
