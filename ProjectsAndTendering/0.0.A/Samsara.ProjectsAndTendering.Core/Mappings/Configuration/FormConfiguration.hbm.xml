@@ -9,17 +9,17 @@
       <generator class="native"/>
     </id>
     
-    <property name="FormName"/>
+    <property name="FormName" not-null="true"/>
 
     <!--<one-to-many name="GridConfigurations" 
                  column="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, NHibernateOneToMany"/>-->
 
   </class>
 
-  <query name="SearchFormConfigurationByName">
+  <!--<query name="SearchFormConfigurationByName">
     <![CDATA[
         from FormConfiguration where FormName = :FormName
     ]]>
-  </query>
+  </query>-->
 
 </hibernate-mapping>

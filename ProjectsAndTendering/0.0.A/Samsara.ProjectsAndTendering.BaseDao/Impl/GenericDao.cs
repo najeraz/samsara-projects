@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Reflection;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Spring.Data.NHibernate.Generic.Support;
-using uNhAddIns.NH.Expression;
-using uNhAddIns.NH.Impl;
 using System.Data;
 using Samsara.Support.Util;
+using NHibernate.Criterion;
+using NHibernate.Impl;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 {

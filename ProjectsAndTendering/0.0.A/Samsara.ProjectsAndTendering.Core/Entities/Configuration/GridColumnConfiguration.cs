@@ -16,11 +16,11 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
-        public virtual GridConfiguration GridConfiguration
-        {
-            get;
-            set;
-        }
+        //public virtual GridConfiguration GridConfiguration
+        //{
+        //    get;
+        //    set;
+        //}
 
         public virtual string ColumnName
         {

@@ -9,8 +9,8 @@
       <generator class="native"/>
     </id>
 
-    <one-to-one name="GridConfiguration"
-			class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration"/>
+    <!--<one-to-one name="GridConfiguration"
+			class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration"/>-->
     
     <property name="ColumnName"/>
     <property name="ColumnEndUserName"/>
