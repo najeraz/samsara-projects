@@ -33,21 +33,21 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.ManufacturerDao.GetById(ManufacturerId);
         }
 
-        public void SaveOrUpdateManufacturer(Manufacturer asesor)
+        public void SaveOrUpdateManufacturer(Manufacturer entity)
         {
-            if (asesor.ManufacturerId > 0)
+            if (entity.ManufacturerId > 0)
             {
-                this.ManufacturerDao.Save(asesor);
+                this.ManufacturerDao.Save(entity);
             }
             else
             {
-                this.ManufacturerDao.Update(asesor);
+                this.ManufacturerDao.Update(entity);
             }
         }
 
-        public void DeleteManufacturer(Manufacturer asesor)
+        public void DeleteManufacturer(Manufacturer entity)
         {
-            this.ManufacturerDao.Delete(asesor);
+            this.ManufacturerDao.Delete(entity);
         }
 
         #endregion Methods

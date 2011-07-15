@@ -33,21 +33,21 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.BidderDao.GetById(BidderId);
         }
 
-        public void SaveOrUpdateBidder(Bidder asesor)
+        public void SaveOrUpdateBidder(Bidder entity)
         {
-            if (asesor.BidderId > 0)
+            if (entity.BidderId > 0)
             {
-                this.BidderDao.Save(asesor);
+                this.BidderDao.Save(entity);
             }
             else
             {
-                this.BidderDao.Update(asesor);
+                this.BidderDao.Update(entity);
             }
         }
 
-        public void DeleteBidder(Bidder asesor)
+        public void DeleteBidder(Bidder entity)
         {
-            this.BidderDao.Delete(asesor);
+            this.BidderDao.Delete(entity);
         }
 
         #endregion Methods

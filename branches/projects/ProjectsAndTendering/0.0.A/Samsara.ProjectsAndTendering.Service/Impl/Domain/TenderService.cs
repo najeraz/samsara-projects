@@ -40,21 +40,21 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.TenderDao.GetById(TenderId);
         }
 
-        public void SaveOrUpdateTender(Tender asesor)
+        public void SaveOrUpdateTender(Tender entity)
         {
-            if (asesor.TenderId > 0)
+            if (entity.TenderId > 0)
             {
-                this.TenderDao.Save(asesor);
+                this.TenderDao.Save(entity);
             }
             else
             {
-                this.TenderDao.Update(asesor);
+                this.TenderDao.Update(entity);
             }
         }
 
-        public void DeleteTender(Tender asesor)
+        public void DeleteTender(Tender entity)
         {
-            this.TenderDao.Delete(asesor);
+            this.TenderDao.Delete(entity);
         }
 
         #endregion Methods

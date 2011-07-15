@@ -9,7 +9,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, Dependency> LoadDependencies();
         Dependency LoadDependency(int DependencyId);
-        void SaveOrUpdateDependency(Dependency asesor);
-        void DeleteDependency(Dependency asesor);
+        void SaveOrUpdateDependency(Dependency entity);
+        void DeleteDependency(Dependency entity);
     }
 }

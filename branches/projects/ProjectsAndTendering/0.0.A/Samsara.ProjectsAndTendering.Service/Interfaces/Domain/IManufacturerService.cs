@@ -9,7 +9,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, Manufacturer> LoadManufacturers();
         Manufacturer LoadManufacturer(int ManufacturerId);
-        void SaveOrUpdateManufacturer(Manufacturer asesor);
-        void DeleteManufacturer(Manufacturer asesor);
+        void SaveOrUpdateManufacturer(Manufacturer entity);
+        void DeleteManufacturer(Manufacturer entity);
     }
 }

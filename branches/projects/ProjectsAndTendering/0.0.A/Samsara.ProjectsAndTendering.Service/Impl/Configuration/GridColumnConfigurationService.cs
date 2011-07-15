@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Dao.Impl.Configuration;
+using Samsara.ProjectsAndTendering.Service.Impl.Domain;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
-namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
+namespace Samsara.ProjectsAndTendering.Service.Impl.Configuration
 {
     public class GridColumnConfigurationService : BaseService, IGridColumnConfigurationService
     {
@@ -33,21 +34,21 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.GridColumnConfigurationDao.GetById(GridColumnConfigurationId);
         }
 
-        public void SaveOrUpdateGridColumnConfiguration(GridColumnConfiguration asesor)
+        public void SaveOrUpdateGridColumnConfiguration(GridColumnConfiguration entity)
         {
-            if (asesor.GridColumnConfigurationId > 0)
+            if (entity.GridColumnConfigurationId > 0)
             {
-                this.GridColumnConfigurationDao.Save(asesor);
+                this.GridColumnConfigurationDao.Save(entity);
             }
             else
             {
-                this.GridColumnConfigurationDao.Update(asesor);
+                this.GridColumnConfigurationDao.Update(entity);
             }
         }
 
-        public void DeleteGridColumnConfiguration(GridColumnConfiguration asesor)
+        public void DeleteGridColumnConfiguration(GridColumnConfiguration entity)
         {
-            this.GridColumnConfigurationDao.Delete(asesor);
+            this.GridColumnConfigurationDao.Delete(entity);
         }
 
         #endregion Methods

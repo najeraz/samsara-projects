@@ -9,7 +9,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, TenderLine> LoadTenderLines();
         TenderLine LoadTenderLine(int TenderLineId);
-        void SaveOrUpdateTenderLine(TenderLine asesor);
-        void DeleteTenderLine(TenderLine asesor);
+        void SaveOrUpdateTenderLine(TenderLine entity);
+        void DeleteTenderLine(TenderLine entity);
     }
 }

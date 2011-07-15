@@ -10,7 +10,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, TenderStatus> LoadTenderStatuses();
         TenderStatus LoadTenderStatus(int TenderStatusId);
-        void SaveOrUpdateTenderStatus(TenderStatus asesor);
-        void DeleteTenderStatus(TenderStatus asesor);
+        void SaveOrUpdateTenderStatus(TenderStatus entity);
+        void DeleteTenderStatus(TenderStatus entity);
     }
 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Dao.Impl.Configuration;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using Samsara.ProjectsAndTendering.Service.Impl.Domain;
 
-namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
+namespace Samsara.ProjectsAndTendering.Service.Impl.Configuration
 {
     public class FormConfigurationService : BaseService, IFormConfigurationService
     {
@@ -33,21 +34,26 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.FormConfigurationDao.GetById(FormConfigurationId);
         }
 
-        public void SaveOrUpdateFormConfiguration(FormConfiguration asesor)
+        public void SaveOrUpdateFormConfiguration(FormConfiguration entity)
         {
-            if (asesor.FormConfigurationId > 0)
+            if (entity.FormConfigurationId > 0)
             {
-                this.FormConfigurationDao.Save(asesor);
+                this.FormConfigurationDao.Save(entity);
             }
             else
             {
-                this.FormConfigurationDao.Update(asesor);
+                this.FormConfigurationDao.Update(entity);
             }
         }
 
-        public void DeleteFormConfiguration(FormConfiguration asesor)
+        public void DeleteFormConfiguration(FormConfiguration entity)
         {
-            this.FormConfigurationDao.Delete(asesor);
+            this.FormConfigurationDao.Delete(entity);
+        }
+
+        public FormConfiguration SearchFormConfigurationByName(string formName)
+        {
+            return this.FormConfigurationDao.SearchFormConfigurationByName(formName);
         }
 
         #endregion Methods

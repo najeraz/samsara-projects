@@ -9,7 +9,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         Dictionary<int, Asesor> LoadAsesors();
         Asesor LoadAsesor(int AsesorId);
-        void SaveOrUpdateAsesor(Asesor asesor);
-        void DeleteAsesor(Asesor asesor);
+        void SaveOrUpdateAsesor(Asesor entity);
+        void DeleteAsesor(Asesor entity);
     }
 }

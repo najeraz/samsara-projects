@@ -13,4 +13,10 @@
 
   </class>
 
+  <query name="SearchFormConfigurationByName">
+    <![CDATA[
+        from FormConfiguration where FormName = :FormName
+    ]]>
+  </query>
+
 </hibernate-mapping>
