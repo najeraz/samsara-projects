@@ -1,16 +1,16 @@
 ﻿
 
 
-namespace Samsara.ProjectsAndTendering.Core.Entities
+namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class Dependency : GenericEntity
+    public class Bidder : GenericEntity
     {
-        public Dependency()
+        public Bidder()
         {
-            DependencyId = -1;
+            BidderId = -1;
         }
 
-        public virtual int DependencyId
+        public virtual int BidderId
         {
             get;
             set;
@@ -22,7 +22,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual int BidderId
+        public virtual int BidderTypeId
         {
             get;
             set;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
-using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
@@ -101,6 +101,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             ITenderService srvTender = ApplicationContext.Resolve<ITenderService>();
             Assert.IsNotNull(srvTender);
             DataTable dtTenders = srvTender.SearchTenders(pmtTenderSearch);
+
+            this.frmTendering.grdSchSearch.DataSource = null;
+            this.frmTendering.grdSchSearch.DataSource = dtTenders;
         }
 
         #endregion Events

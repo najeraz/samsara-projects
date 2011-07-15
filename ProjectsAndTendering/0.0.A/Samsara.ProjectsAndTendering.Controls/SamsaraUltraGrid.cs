@@ -17,9 +17,16 @@ namespace Samsara.ProjectsAndTendering.Controls
             InitializeComponent();
         }
 
-        protected override void OnPaint(PaintEventArgs pe)
+        protected override void OnInitializeLayout(InitializeLayoutEventArgs e)
         {
-            base.OnPaint(pe);
+            base.OnInitializeLayout(e);
+
+            if (this.DataSource != null && this.DataSource is DataTable)
+            {
+                DataTable dtGrid = (DataTable)this.DataSource;
+
+                string a = dtGrid.TableName;
+            }
         }
     }
 }

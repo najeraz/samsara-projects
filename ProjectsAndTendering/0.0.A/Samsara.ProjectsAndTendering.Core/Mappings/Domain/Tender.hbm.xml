@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.ProjectsAndTendering.Core" 
+  assembly="Samsara.ProjectsAndTendering.Core.Domain" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
   <class name="Tender" table="Tenders">

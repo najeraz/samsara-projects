@@ -1,5 +1,5 @@
 ﻿
-using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;
 using uNhAddIns.NH.Impl;
 using System.Linq;

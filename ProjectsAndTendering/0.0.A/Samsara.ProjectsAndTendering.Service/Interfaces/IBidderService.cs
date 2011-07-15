@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {

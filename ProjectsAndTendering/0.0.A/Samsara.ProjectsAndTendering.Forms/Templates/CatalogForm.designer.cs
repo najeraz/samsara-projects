@@ -366,6 +366,6 @@
         public System.Windows.Forms.Button btnSchEdit;
         private Infragistics.Win.Misc.UltraPanel ultraPanel1;
         public System.Windows.Forms.Button btnSchCreate;
-        protected Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid grdSchSearch;
+        internal Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid grdSchSearch;
     }
 }

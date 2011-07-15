@@ -1,7 +1,7 @@
 ﻿
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;
-using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using System.Data;
