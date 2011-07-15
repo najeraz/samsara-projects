@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlDetButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
@@ -151,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(492, 266);
             this.Name = "StatusForm";
             this.Text = "StatusForm";
-            this.panel1.ResumeLayout(false);
+            this.pnlDetButtons.ResumeLayout(false);
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
