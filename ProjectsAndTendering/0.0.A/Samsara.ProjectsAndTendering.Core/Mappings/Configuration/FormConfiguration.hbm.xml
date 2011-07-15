@@ -11,6 +11,9 @@
     
     <property name="FormName"/>
 
+    <!--<one-to-many name="GridConfigurations" 
+                 column="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, NHibernateOneToMany"/>-->
+
   </class>
 
   <query name="SearchFormConfigurationByName">
