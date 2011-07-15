@@ -61,6 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\Configuration\GridConfigurationService.cs" />
+    <Compile Include="Impl\Configuration\GridColumnConfigurationService.cs" />
+    <Compile Include="Impl\Configuration\FormConfigurationService.cs" />
     <Compile Include="Impl\Domain\BaseService.cs" />
     <Compile Include="Impl\Domain\AsesorService.cs" />
     <Compile Include="Impl\Domain\BidderService.cs" />
@@ -70,6 +73,9 @@
     <Compile Include="Impl\Domain\TenderService.cs" />
     <Compile Include="Impl\Domain\ManufacturerService.cs" />
     <Compile Include="Impl\Domain\DependencyService.cs" />
+    <Compile Include="Interfaces\Configuration\IGridConfigurationService.cs" />
+    <Compile Include="Interfaces\Configuration\IGridColumnConfigurationService.cs" />
+    <Compile Include="Interfaces\Configuration\IFormConfigurationService.cs" />
     <Compile Include="Interfaces\Domain\ITenderStatusService.cs" />
     <Compile Include="Interfaces\Domain\ITenderLineService.cs" />
     <Compile Include="Interfaces\Domain\ITenderService.cs" />
