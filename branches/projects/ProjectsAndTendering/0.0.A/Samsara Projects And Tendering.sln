@@ -41,7 +41,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTenderin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Controls", "Samsara.ProjectsAndTendering.Controls\Samsara.ProjectsAndTendering.Controls.csproj", "{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}"
 	ProjectSection(ProjectDependencies) = postProject
+		{E1A5262A-B520-4FC1-85E5-30192522E13E} = {E1A5262A-B520-4FC1-85E5-30192522E13E}
 		{E9479852-2A1C-4F62-88FB-0F53B6A9D75C} = {E9479852-2A1C-4F62-88FB-0F53B6A9D75C}
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8} = {3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}
 	EndProjectSection
 EndProject
 Global

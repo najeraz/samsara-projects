@@ -3,8 +3,8 @@ using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 using System.Collections.Generic;
 using System.Linq;
-using uNhAddIns.NH.Impl;
 using Samsara.ProjectsAndTendering.BaseDao.Impl;
+using NHibernate.Impl;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
