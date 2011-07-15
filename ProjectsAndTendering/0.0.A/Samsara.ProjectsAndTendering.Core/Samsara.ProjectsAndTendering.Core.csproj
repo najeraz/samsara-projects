@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Configuration\GridConfiguration.cs" />
+    <Compile Include="Entities\Configuration\FormConfiguration.cs" />
     <Compile Include="Entities\Domain\Asesor.cs" />
     <Compile Include="Entities\Domain\Bidder.cs" />
     <Compile Include="Entities\Domain\BidderType.cs" />
@@ -106,6 +108,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Configuration\GridColumnConfiguration.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Configuration\GridConfiguration.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Configuration\FormConfiguration.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
