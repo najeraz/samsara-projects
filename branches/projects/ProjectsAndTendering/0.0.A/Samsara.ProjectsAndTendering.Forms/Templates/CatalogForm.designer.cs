@@ -40,49 +40,49 @@
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.Buscar = new System.Windows.Forms.TabPage();
             this.grdSchSearch = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.upButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraPanel5 = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchClose = new System.Windows.Forms.Button();
-            this.ultraPanel4 = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchEdit = new System.Windows.Forms.Button();
-            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparator3 = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchCreate = new System.Windows.Forms.Button();
-            this.ultraPanel3 = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparator4 = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchSearch = new System.Windows.Forms.Button();
-            this.ultraPanel2 = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparator5 = new Infragistics.Win.Misc.UltraPanel();
             this.gbxSearchParameters = new System.Windows.Forms.GroupBox();
             this.Nuevo = new System.Windows.Forms.TabPage();
             this.gbxDetDetail = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDetCtgButtons = new System.Windows.Forms.Panel();
             this.btnDetAccept = new System.Windows.Forms.Button();
             this.btnDetCancel = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.tabPrincipal.SuspendLayout();
             this.Buscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             this.upButtons.ClientArea.SuspendLayout();
             this.upButtons.SuspendLayout();
-            this.ultraPanel5.SuspendLayout();
-            this.ultraPanel4.SuspendLayout();
-            this.ultraPanel1.SuspendLayout();
-            this.ultraPanel3.SuspendLayout();
-            this.ultraPanel2.SuspendLayout();
+            this.upSchSeparator1.SuspendLayout();
+            this.upSchSeparator2.SuspendLayout();
+            this.upSchSeparator3.SuspendLayout();
+            this.upSchSeparator4.SuspendLayout();
+            this.upSchSeparator5.SuspendLayout();
             this.Nuevo.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlDetCtgButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabPrincipal
             // 
-            this.tabControl1.Controls.Add(this.Buscar);
-            this.tabControl1.Controls.Add(this.Nuevo);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(640, 443);
-            this.tabControl1.TabIndex = 20;
+            this.tabPrincipal.Controls.Add(this.Buscar);
+            this.tabPrincipal.Controls.Add(this.Nuevo);
+            this.tabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tabPrincipal.Name = "tabPrincipal";
+            this.tabPrincipal.SelectedIndex = 0;
+            this.tabPrincipal.Size = new System.Drawing.Size(640, 443);
+            this.tabPrincipal.TabIndex = 20;
             // 
             // Buscar
             // 
@@ -165,28 +165,28 @@
             // 
             // upButtons.ClientArea
             // 
-            this.upButtons.ClientArea.Controls.Add(this.ultraPanel5);
+            this.upButtons.ClientArea.Controls.Add(this.upSchSeparator1);
             this.upButtons.ClientArea.Controls.Add(this.btnSchClose);
-            this.upButtons.ClientArea.Controls.Add(this.ultraPanel4);
+            this.upButtons.ClientArea.Controls.Add(this.upSchSeparator2);
             this.upButtons.ClientArea.Controls.Add(this.btnSchEdit);
-            this.upButtons.ClientArea.Controls.Add(this.ultraPanel1);
+            this.upButtons.ClientArea.Controls.Add(this.upSchSeparator3);
             this.upButtons.ClientArea.Controls.Add(this.btnSchCreate);
-            this.upButtons.ClientArea.Controls.Add(this.ultraPanel3);
+            this.upButtons.ClientArea.Controls.Add(this.upSchSeparator4);
             this.upButtons.ClientArea.Controls.Add(this.btnSchSearch);
-            this.upButtons.ClientArea.Controls.Add(this.ultraPanel2);
+            this.upButtons.ClientArea.Controls.Add(this.upSchSeparator5);
             this.upButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.upButtons.Location = new System.Drawing.Point(3, 389);
             this.upButtons.Name = "upButtons";
             this.upButtons.Size = new System.Drawing.Size(626, 25);
             this.upButtons.TabIndex = 21;
             // 
-            // ultraPanel5
+            // upSchSeparator1
             // 
-            this.ultraPanel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel5.Location = new System.Drawing.Point(246, 0);
-            this.ultraPanel5.Name = "ultraPanel5";
-            this.ultraPanel5.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel5.TabIndex = 8;
+            this.upSchSeparator1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparator1.Location = new System.Drawing.Point(246, 0);
+            this.upSchSeparator1.Name = "upSchSeparator1";
+            this.upSchSeparator1.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparator1.TabIndex = 8;
             // 
             // btnSchClose
             // 
@@ -198,13 +198,13 @@
             this.btnSchClose.Text = "Cerrar";
             this.btnSchClose.UseVisualStyleBackColor = true;
             // 
-            // ultraPanel4
+            // upSchSeparator2
             // 
-            this.ultraPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel4.Location = new System.Drawing.Point(337, 0);
-            this.ultraPanel4.Name = "ultraPanel4";
-            this.ultraPanel4.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel4.TabIndex = 6;
+            this.upSchSeparator2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparator2.Location = new System.Drawing.Point(337, 0);
+            this.upSchSeparator2.Name = "upSchSeparator2";
+            this.upSchSeparator2.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparator2.TabIndex = 6;
             // 
             // btnSchEdit
             // 
@@ -216,13 +216,13 @@
             this.btnSchEdit.Text = "Modificar";
             this.btnSchEdit.UseVisualStyleBackColor = true;
             // 
-            // ultraPanel1
+            // upSchSeparator3
             // 
-            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel1.Location = new System.Drawing.Point(428, 0);
-            this.ultraPanel1.Name = "ultraPanel1";
-            this.ultraPanel1.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel1.TabIndex = 4;
+            this.upSchSeparator3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparator3.Location = new System.Drawing.Point(428, 0);
+            this.upSchSeparator3.Name = "upSchSeparator3";
+            this.upSchSeparator3.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparator3.TabIndex = 4;
             // 
             // btnSchCreate
             // 
@@ -234,13 +234,13 @@
             this.btnSchCreate.Text = "Nuevo";
             this.btnSchCreate.UseVisualStyleBackColor = true;
             // 
-            // ultraPanel3
+            // upSchSeparator4
             // 
-            this.ultraPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel3.Location = new System.Drawing.Point(519, 0);
-            this.ultraPanel3.Name = "ultraPanel3";
-            this.ultraPanel3.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel3.TabIndex = 2;
+            this.upSchSeparator4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparator4.Location = new System.Drawing.Point(519, 0);
+            this.upSchSeparator4.Name = "upSchSeparator4";
+            this.upSchSeparator4.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparator4.TabIndex = 2;
             // 
             // btnSchSearch
             // 
@@ -252,13 +252,13 @@
             this.btnSchSearch.Text = "Buscar";
             this.btnSchSearch.UseVisualStyleBackColor = true;
             // 
-            // ultraPanel2
+            // upSchSeparator5
             // 
-            this.ultraPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel2.Location = new System.Drawing.Point(610, 0);
-            this.ultraPanel2.Name = "ultraPanel2";
-            this.ultraPanel2.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel2.TabIndex = 1;
+            this.upSchSeparator5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparator5.Location = new System.Drawing.Point(610, 0);
+            this.upSchSeparator5.Name = "upSchSeparator5";
+            this.upSchSeparator5.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparator5.TabIndex = 1;
             // 
             // gbxSearchParameters
             // 
@@ -273,7 +273,7 @@
             // Nuevo
             // 
             this.Nuevo.Controls.Add(this.gbxDetDetail);
-            this.Nuevo.Controls.Add(this.panel1);
+            this.Nuevo.Controls.Add(this.pnlDetCtgButtons);
             this.Nuevo.Location = new System.Drawing.Point(4, 22);
             this.Nuevo.Name = "Nuevo";
             this.Nuevo.Padding = new System.Windows.Forms.Padding(3);
@@ -292,15 +292,15 @@
             this.gbxDetDetail.TabStop = false;
             this.gbxDetDetail.Text = "Datos del Registro:";
             // 
-            // panel1
+            // pnlDetCtgButtons
             // 
-            this.panel1.Controls.Add(this.btnDetAccept);
-            this.panel1.Controls.Add(this.btnDetCancel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 383);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(626, 31);
-            this.panel1.TabIndex = 0;
+            this.pnlDetCtgButtons.Controls.Add(this.btnDetAccept);
+            this.pnlDetCtgButtons.Controls.Add(this.btnDetCancel);
+            this.pnlDetCtgButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 383);
+            this.pnlDetCtgButtons.Name = "pnlDetCtgButtons";
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 31);
+            this.pnlDetCtgButtons.TabIndex = 0;
             // 
             // btnDetAccept
             // 
@@ -327,44 +327,44 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 443);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabPrincipal);
             this.Name = "CatalogForm";
             this.Text = "CatalogForm";
-            this.tabControl1.ResumeLayout(false);
+            this.tabPrincipal.ResumeLayout(false);
             this.Buscar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             this.upButtons.ClientArea.ResumeLayout(false);
             this.upButtons.ResumeLayout(false);
-            this.ultraPanel5.ResumeLayout(false);
-            this.ultraPanel4.ResumeLayout(false);
-            this.ultraPanel1.ResumeLayout(false);
-            this.ultraPanel3.ResumeLayout(false);
-            this.ultraPanel2.ResumeLayout(false);
+            this.upSchSeparator1.ResumeLayout(false);
+            this.upSchSeparator2.ResumeLayout(false);
+            this.upSchSeparator3.ResumeLayout(false);
+            this.upSchSeparator4.ResumeLayout(false);
+            this.upSchSeparator5.ResumeLayout(false);
             this.Nuevo.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlDetCtgButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabPrincipal;
         private System.Windows.Forms.TabPage Buscar;
         private System.Windows.Forms.TabPage Nuevo;
-        protected System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.Panel pnlDetCtgButtons;
         protected System.Windows.Forms.Button btnDetCancel;
         protected System.Windows.Forms.Button btnDetAccept;
         protected System.Windows.Forms.GroupBox gbxSearchParameters;
         protected System.Windows.Forms.GroupBox gbxDetDetail;
         public System.Windows.Forms.Button btnSchSearch;
         private Infragistics.Win.Misc.UltraPanel upButtons;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel3;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel2;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel5;
+        private Infragistics.Win.Misc.UltraPanel upSchSeparator4;
+        private Infragistics.Win.Misc.UltraPanel upSchSeparator5;
+        private Infragistics.Win.Misc.UltraPanel upSchSeparator1;
         public System.Windows.Forms.Button btnSchClose;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel4;
+        private Infragistics.Win.Misc.UltraPanel upSchSeparator2;
         public System.Windows.Forms.Button btnSchEdit;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
+        private Infragistics.Win.Misc.UltraPanel upSchSeparator3;
         public System.Windows.Forms.Button btnSchCreate;
         internal Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid grdSchSearch;
     }
