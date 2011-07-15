@@ -77,22 +77,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\AsesorDao.cs" />
-    <Compile Include="Impl\BidderDao.cs" />
-    <Compile Include="Impl\BidderTypeDao.cs" />
-    <Compile Include="Impl\TenderStatusDao.cs" />
-    <Compile Include="Impl\TenderLineDao.cs" />
-    <Compile Include="Impl\TenderDao.cs" />
-    <Compile Include="Impl\ManufacturerDao.cs" />
-    <Compile Include="Impl\DependencyDao.cs" />
-    <Compile Include="Interfaces\ITenderStatusDao.cs" />
-    <Compile Include="Interfaces\ITenderLineDao.cs" />
-    <Compile Include="Interfaces\ITenderDao.cs" />
-    <Compile Include="Interfaces\IManufacturerDao.cs" />
-    <Compile Include="Interfaces\IDependencyDao.cs" />
-    <Compile Include="Interfaces\IBidderTypeDao.cs" />
-    <Compile Include="Interfaces\IBidderDao.cs" />
-    <Compile Include="Interfaces\IAsesorDao.cs" />
+    <Compile Include="Impl\Domain\AsesorDao.cs" />
+    <Compile Include="Impl\Domain\BidderDao.cs" />
+    <Compile Include="Impl\Domain\BidderTypeDao.cs" />
+    <Compile Include="Impl\Domain\TenderStatusDao.cs" />
+    <Compile Include="Impl\Domain\TenderLineDao.cs" />
+    <Compile Include="Impl\Domain\TenderDao.cs" />
+    <Compile Include="Impl\Domain\ManufacturerDao.cs" />
+    <Compile Include="Impl\Domain\DependencyDao.cs" />
+    <Compile Include="Interfaces\Domain\ITenderStatusDao.cs" />
+    <Compile Include="Interfaces\Domain\ITenderLineDao.cs" />
+    <Compile Include="Interfaces\Domain\ITenderDao.cs" />
+    <Compile Include="Interfaces\Domain\IManufacturerDao.cs" />
+    <Compile Include="Interfaces\Domain\IDependencyDao.cs" />
+    <Compile Include="Interfaces\Domain\IBidderTypeDao.cs" />
+    <Compile Include="Interfaces\Domain\IBidderDao.cs" />
+    <Compile Include="Interfaces\Domain\IAsesorDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

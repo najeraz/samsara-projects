@@ -61,23 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\BaseService.cs" />
-    <Compile Include="Impl\AsesorService.cs" />
-    <Compile Include="Impl\BidderService.cs" />
-    <Compile Include="Impl\BidderTypeService.cs" />
-    <Compile Include="Impl\TenderStatusService.cs" />
-    <Compile Include="Impl\TenderLineService.cs" />
-    <Compile Include="Impl\TenderService.cs" />
-    <Compile Include="Impl\ManufacturerService.cs" />
-    <Compile Include="Impl\DependencyService.cs" />
-    <Compile Include="Interfaces\ITenderStatusService.cs" />
-    <Compile Include="Interfaces\ITenderLineService.cs" />
-    <Compile Include="Interfaces\ITenderService.cs" />
-    <Compile Include="Interfaces\IManufacturerService.cs" />
-    <Compile Include="Interfaces\IDependencyService.cs" />
-    <Compile Include="Interfaces\IBidderTypeService.cs" />
-    <Compile Include="Interfaces\IBidderService.cs" />
-    <Compile Include="Interfaces\IAsesorService.cs" />
+    <Compile Include="Impl\Domain\BaseService.cs" />
+    <Compile Include="Impl\Domain\AsesorService.cs" />
+    <Compile Include="Impl\Domain\BidderService.cs" />
+    <Compile Include="Impl\Domain\BidderTypeService.cs" />
+    <Compile Include="Impl\Domain\TenderStatusService.cs" />
+    <Compile Include="Impl\Domain\TenderLineService.cs" />
+    <Compile Include="Impl\Domain\TenderService.cs" />
+    <Compile Include="Impl\Domain\ManufacturerService.cs" />
+    <Compile Include="Impl\Domain\DependencyService.cs" />
+    <Compile Include="Interfaces\Domain\ITenderStatusService.cs" />
+    <Compile Include="Interfaces\Domain\ITenderLineService.cs" />
+    <Compile Include="Interfaces\Domain\ITenderService.cs" />
+    <Compile Include="Interfaces\Domain\IManufacturerService.cs" />
+    <Compile Include="Interfaces\Domain\IDependencyService.cs" />
+    <Compile Include="Interfaces\Domain\IBidderTypeService.cs" />
+    <Compile Include="Interfaces\Domain\IBidderService.cs" />
+    <Compile Include="Interfaces\Domain\IAsesorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
