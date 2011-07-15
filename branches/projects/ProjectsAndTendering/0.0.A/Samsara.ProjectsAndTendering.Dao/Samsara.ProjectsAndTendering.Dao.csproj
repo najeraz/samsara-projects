@@ -77,6 +77,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\Configuration\GridConfigurationDao.cs" />
+    <Compile Include="Impl\Configuration\GridColumnConfiguratioDao.cs" />
+    <Compile Include="Impl\Configuration\FormConfigurationDao.cs" />
     <Compile Include="Impl\Domain\AsesorDao.cs" />
     <Compile Include="Impl\Domain\BidderDao.cs" />
     <Compile Include="Impl\Domain\BidderTypeDao.cs" />
@@ -85,6 +88,9 @@
     <Compile Include="Impl\Domain\TenderDao.cs" />
     <Compile Include="Impl\Domain\ManufacturerDao.cs" />
     <Compile Include="Impl\Domain\DependencyDao.cs" />
+    <Compile Include="Interfaces\Configuration\IGridConfigurationDao.cs" />
+    <Compile Include="Interfaces\Configuration\IGridColumnConfigurationDao.cs" />
+    <Compile Include="Interfaces\Configuration\IFormConfigurationDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderStatusDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderLineDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderDao.cs" />

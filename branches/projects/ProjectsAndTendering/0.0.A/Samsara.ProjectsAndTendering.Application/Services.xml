@@ -38,6 +38,19 @@
     <property name="TenderStatusDao" ref="ITenderStatusDao"/>
   </object>
   
+  <object id="IFormConfigurationService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
+    <property name="FormConfigurationDao" ref="IFormConfigurationDao"/>
+  </object>
+  <object id="IGridColumnConfigurationService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.GridColumnConfigurationService, Samsara.ProjectsAndTendering.Service">
+    <property name="GridColumnConfigurationDao" ref="IGridColumnConfigurationDao"/>
+  </object>
+  <object id="IGridConfigurationService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.GridConfigurationService, Samsara.ProjectsAndTendering.Service">
+    <property name="GridConfigurationDao" ref="IGridConfigurationDao"/>
+  </object>
+  
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 
 </objects>
