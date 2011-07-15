@@ -50,56 +50,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Asesor.cs" />
-    <Compile Include="Entities\Bidder.cs" />
-    <Compile Include="Entities\BidderType.cs" />
+    <Compile Include="Entities\Domain\Asesor.cs" />
+    <Compile Include="Entities\Domain\Bidder.cs" />
+    <Compile Include="Entities\Domain\BidderType.cs" />
+    <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\GenericEntity.cs" />
-    <Compile Include="Entities\TenderStatus.cs" />
-    <Compile Include="Entities\TenderLine.cs" />
-    <Compile Include="Entities\Tender.cs" />
-    <Compile Include="Entities\Manufacturer.cs" />
-    <Compile Include="Entities\Dependency.cs" />
+    <Compile Include="Entities\Domain\TenderStatus.cs" />
+    <Compile Include="Entities\Domain\TenderLine.cs" />
+    <Compile Include="Entities\Domain\Tender.cs" />
+    <Compile Include="Entities\Domain\Manufacturer.cs" />
+    <Compile Include="Entities\Domain\Dependency.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
     <Compile Include="Parameters\TenderSearchParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Asesor.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\Asesor.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Bidder.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\Bidder.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\BidderType.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\BidderType.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Dependency.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\Dependency.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Manufacturer.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\Manufacturer.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Tender.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\Tender.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\TenderLine.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\TenderLine.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\TenderStatus.hbm.xml">
+    <EmbeddedResource Include="Mappings\Domain\TenderStatus.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Configuration\GridColumnConfiguration.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

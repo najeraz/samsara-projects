@@ -1,26 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.ProjectsAndTendering.Core" 
+  assembly="Samsara.ProjectsAndTendering.Core.Domain" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="Dependency" table="Dependencies">
+  <class name="Manufacturer" table="Manufacturers">
     
-    <id name="DependencyId" type="int">
+    <id name="ManufacturerId" type="int">
       <generator class="native"/>
     </id>
 
     <property name="Name"/>
-    <property name="BidderId"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
   </class>
 
-  <query name="LoadDependencies">
+  <query name="LoadManufacturers">
     <![CDATA[
-        from Dependency where Deleted = 0 and Activated = 1
+        from Manufacturer where Deleted = 0 and Activated = 1
     ]]>
   </query>
-
 
 </hibernate-mapping>

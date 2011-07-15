@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Samsara.ProjectsAndTendering.Core.Entities
+namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
     public class Tender : GenericEntity
     {

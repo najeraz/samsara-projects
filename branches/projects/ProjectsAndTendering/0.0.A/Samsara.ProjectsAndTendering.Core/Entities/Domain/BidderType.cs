@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace Samsara.ProjectsAndTendering.Core.Entities
+namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
     public class BidderType : GenericEntity
     {

@@ -1,16 +1,16 @@
 ﻿
 
 
-namespace Samsara.ProjectsAndTendering.Core.Entities
+namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class Asesor : GenericEntity
+    public class Dependency : GenericEntity
     {
-        public Asesor()
+        public Dependency()
         {
-            AsesorId = -1;
+            DependencyId = -1;
         }
 
-        public virtual int AsesorId
+        public virtual int DependencyId
         {
             get;
             set;
@@ -22,7 +22,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual bool CanApprove
+        public virtual int BidderId
         {
             get;
             set;
