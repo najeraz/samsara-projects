@@ -11,6 +11,9 @@
     
     <one-to-one name="FormConfiguration"
 			class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.FormConfiguration"/>
+
+    <<!--one-to-many name="GridColumnConfigurations"
+                 column="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridColumnConfiguration, NHibernateOneToMany"/>-->
     
     <property name="GridName"/>
   </class>
