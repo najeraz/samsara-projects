@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database">
+
+  
+  <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="ConfigSections" value="databaseSettings"/>
+  </object>
+
+  <db:provider id="DbProvider"
+                   provider="SqlServer-2.0"
+                   connectionString="Data Source=(local);Database=ProjectsAndTendering;User ID=sa;Password=49024030;Trusted_Connection=False"/>
+                   <!--connectionString="Data Source=192.168.10.4;Database=Comisiones;User ID=javier;Password=javier;Trusted_Connection=False"/>-->
+                   <!--connectionString="Data Source=${db.datasource};Database=${db.database};User ID=${db.user};Password=${db.password};Trusted_Connection=False"/>-->
+
+  <object id="SessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate12">
+    <property name="DbProvider" ref="DbProvider"/>
+    
+    <property name="MappingAssemblies">
+      <list>
+        <value>Samsara.ProjectsAndTendering.Core</value>
+      </list>
+    </property>
+    
+    <property name="HibernateProperties">
+      <dictionary>
+
+        <entry key="hibernate.connection.provider"
+               value="NHibernate.Connection.DriverConnectionProvider"/>
+
+        <entry key="hibernate.dialect"
+               value="NHibernate.Dialect.MsSql2005Dialect"/>
+
+        <entry key="hibernate.connection.driver_class"
+               value="NHibernate.Driver.SqlClientDriver"/>
+
+        <!--<entry key="hibernate.hbm2ddl.auto" value="create-drop" />-->
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="HibernateTransactionManager"
+        type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate12">
+
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="SessionFactory" ref="SessionFactory"/>
+
+  </object>
+
+  <object id="HibernateTemplate" type="Spring.Data.NHibernate.Generic.HibernateTemplate">
+    <property name="SessionFactory" ref="SessionFactory" />
+    <property name="TemplateFlushMode" value="Auto" />
+    <property name="CacheQueries" value="true"/>
+  </object>
+
+  <object id="IAsesorDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.AsesorDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IBidderDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.BidderDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IBidderTypeDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.BidderTypeDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IDependencyDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.DependencyDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IManufacturerDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.ManufacturerDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITenderDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITenderLineDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderLineDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITenderStatusDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderStatusDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+  <object id="IFormConfigurationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IGridColumnConfigurationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.GridColumnConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IGridConfigurationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.GridConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
+</objects>
+
