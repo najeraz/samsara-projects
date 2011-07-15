@@ -90,8 +90,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             TenderSearchParameters pmtTenderSearch = new TenderSearchParameters();
 
-            pmtTenderSearch.MinDate = (DateTime)this.frmTendering.dteBusFechaInicio.Value;
-            pmtTenderSearch.MaxDate = (DateTime)this.frmTendering.dteBusFechaInicio.Value;
+            pmtTenderSearch.MinDate = (DateTime)this.frmTendering.dteSchMinDate.Value;
+            pmtTenderSearch.MaxDate = (DateTime)this.frmTendering.dteSchMaxDate.Value;
             pmtTenderSearch.AsesorId = (int)this.frmTendering.uceSchAsesor.Value;
             pmtTenderSearch.BidderId = (int)this.frmTendering.uceSchBidder.Value;
             pmtTenderSearch.DependencyId = (int)this.frmTendering.uceSchDependency.Value;

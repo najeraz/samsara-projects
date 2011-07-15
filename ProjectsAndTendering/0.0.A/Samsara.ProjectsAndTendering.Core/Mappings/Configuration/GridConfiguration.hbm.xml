@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.ProjectsAndTendering.Core.Configuration" 
-  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Configuration">
   
   <class name="GridConfiguration" table="GridConfigurations">
 
@@ -10,7 +10,7 @@
     </id>
     
     <one-to-one name="FormConfiguration"
-			class="Samsara.ProjectsAndTendering.Core.Configuration.Configuration.FormConfiguration"/>
+			class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.FormConfiguration"/>
     
     <property name="GridName"/>
   </class>
