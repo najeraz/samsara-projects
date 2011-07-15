@@ -25,13 +25,13 @@
     <property name="HibernateProperties">
       <dictionary>
 
-        <entry key="hibernate.connection.provider"
+        <entry key="connection.provider"
                value="NHibernate.Connection.DriverConnectionProvider"/>
 
-        <entry key="hibernate.dialect"
+        <entry key="dialect"
                value="NHibernate.Dialect.MsSql2005Dialect"/>
 
-        <entry key="hibernate.connection.driver_class"
+        <entry key="connection.driver_class"
                value="NHibernate.Driver.SqlClientDriver"/>
 
         <!--<entry key="hibernate.hbm2ddl.auto" value="create-drop" />-->
