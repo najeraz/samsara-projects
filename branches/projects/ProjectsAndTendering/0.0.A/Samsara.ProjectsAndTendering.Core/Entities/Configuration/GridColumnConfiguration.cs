@@ -7,15 +7,16 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
     {
         public GridColumnConfiguration()
         {
+            GridColumnConfigurationId = -1;
         }
 
-        public virtual string FormName
+        public virtual int GridColumnConfigurationId
         {
             get;
             set;
         }
 
-        public virtual string GridName
+        public virtual GridConfiguration GridConfiguration
         {
             get;
             set;

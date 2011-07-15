@@ -5,8 +5,13 @@
   
   <class name="GridColumnConfiguration" table="GridColumnConfigurations">
 
-    <property name="FormName"/>
-    <property name="GridName"/>
+    <id name="GridColumnConfigurationId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <one-to-one name="GridConfiguration"
+			class="Samsara.ProjectsAndTendering.Core.Configuration.Configuration.GridConfiguration"/>
+    
     <property name="ColumnName"/>
     <property name="ColumnEndUserName"/>
     <property name="Visible"/>
