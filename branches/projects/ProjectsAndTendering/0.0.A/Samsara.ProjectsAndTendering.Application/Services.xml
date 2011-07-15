@@ -6,35 +6,35 @@
   </description>
 
   <object id="IAsesorService" 
-          type="Samsara.ProjectsAndTendering.Service.Impl.AsesorService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.AsesorService, Samsara.ProjectsAndTendering.Service">
     <property name="AsesorDao" ref="IAsesorDao"/>
   </object>
   <object id="IBidderService" 
-          type="Samsara.ProjectsAndTendering.Service.Impl.BidderService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.BidderService, Samsara.ProjectsAndTendering.Service">
     <property name="BidderDao" ref="IBidderDao"/>
   </object>
   <object id="IBidderTypeService" 
-          type="Samsara.ProjectsAndTendering.Service.Impl.BidderTypeService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.BidderTypeService, Samsara.ProjectsAndTendering.Service">
     <property name="BidderTypeDao" ref="IBidderTypeDao"/>
   </object>
   <object id="IDependencyService" 
-          type="Samsara.ProjectsAndTendering.Service.Impl.DependencyService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.DependencyService, Samsara.ProjectsAndTendering.Service">
     <property name="DependencyDao" ref="IDependencyDao"/>
   </object>
   <object id="IManufacturerService" 
-          type="Samsara.ProjectsAndTendering.Service.Impl.ManufacturerService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.ManufacturerService, Samsara.ProjectsAndTendering.Service">
     <property name="ManufacturerDao" ref="IManufacturerDao"/>
   </object>
   <object id="ITenderService" 
-          type="Samsara.ProjectsAndTendering.Service.Impl.TenderService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderService, Samsara.ProjectsAndTendering.Service">
     <property name="TenderDao" ref="ITenderDao"/>
   </object>
   <object id="ITenderLineService"
-          type="Samsara.ProjectsAndTendering.Service.Impl.TenderLineService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderLineService, Samsara.ProjectsAndTendering.Service">
     <property name="TenderLineDao" ref="ITenderLineDao"/>
   </object>
   <object id="ITenderStatusService"
-          type="Samsara.ProjectsAndTendering.Service.Impl.TenderStatusService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderStatusService, Samsara.ProjectsAndTendering.Service">
     <property name="TenderStatusDao" ref="ITenderStatusDao"/>
   </object>
   

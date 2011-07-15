@@ -54,35 +54,35 @@
   </object>
 
   <object id="IAsesorDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.AsesorDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.AsesorDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IBidderDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.BidderDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.BidderDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IBidderTypeDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.BidderTypeDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.BidderTypeDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IDependencyDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.DependencyDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.DependencyDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IManufacturerDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.ManufacturerDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.ManufacturerDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="ITenderDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="ITenderLineDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderLineDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderLineDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="ITenderStatusDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderStatusDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderStatusDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 

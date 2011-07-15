@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
-using Samsara.ProjectsAndTendering.Service.Interfaces;
+using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
 using System.Data;
 using Samsara.ProjectsAndTendering.Core.Enums;
