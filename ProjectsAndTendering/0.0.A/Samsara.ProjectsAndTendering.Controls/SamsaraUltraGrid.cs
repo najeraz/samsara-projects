@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using Infragistics.Win.UltraWinGrid;
-using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using NUnit.Framework;
-using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Common;
+using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
+using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using Iesi.Collections;
+using System.Linq;
+
 
 namespace Samsara.ProjectsAndTendering.Controls
 {
@@ -40,20 +38,18 @@ namespace Samsara.ProjectsAndTendering.Controls
                 if (formConfiguration == null)
                 {
                     formConfiguration = new FormConfiguration();
-
                     formConfiguration.FormName = parentFormName;
-
                     srvFormConfiguration.SaveOrUpdateFormConfiguration(formConfiguration);
                 }
             }
         }
 
-        private string GetParentFormName(System.Windows.Forms.Control control) 
+        private string GetParentFormName(System.Windows.Forms.Control control)
         {
-            if (control is System.Windows.Forms.Form)
-                return control.Name;
             if (control == null)
                 return null;
+            if (control is System.Windows.Forms.Form)
+                return control.Name;
 
             return GetParentFormName(control.Parent);
         }

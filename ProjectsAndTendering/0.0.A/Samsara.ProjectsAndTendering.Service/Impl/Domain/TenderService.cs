@@ -42,7 +42,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateTender(Tender entity)
         {
-            if (entity.TenderId > 0)
+            if (entity.TenderId < 0)
             {
                 this.TenderDao.Save(entity);
             }

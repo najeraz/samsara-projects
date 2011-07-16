@@ -16,11 +16,11 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
-        //public virtual FormConfiguration FormConfiguration
-        //{
-        //    get;
-        //    set;
-        //}
+        public virtual FormConfiguration FormConfiguration
+        {
+            get;
+            set;
+        }
 
         public virtual string GridName
         {

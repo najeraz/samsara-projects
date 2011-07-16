@@ -35,7 +35,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateManufacturer(Manufacturer entity)
         {
-            if (entity.ManufacturerId > 0)
+            if (entity.ManufacturerId < 0)
             {
                 this.ManufacturerDao.Save(entity);
             }

@@ -1,5 +1,8 @@
 ﻿
-
+using System.Collections;
+using System.Linq;
+using System.Collections.Generic;
+using Iesi.Collections;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
 {
@@ -22,5 +25,10 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
+        public virtual ISet GridConfigurations
+        {
+            get;
+            set;
+        }
     }
 }

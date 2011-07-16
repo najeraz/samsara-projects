@@ -35,7 +35,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateBidder(Bidder entity)
         {
-            if (entity.BidderId > 0)
+            if (entity.BidderId < 0)
             {
                 this.BidderDao.Save(entity);
             }

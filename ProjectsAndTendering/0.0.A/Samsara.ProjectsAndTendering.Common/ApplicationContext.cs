@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using Spring.Context;
 using Spring.Context.Support;
 

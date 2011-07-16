@@ -36,7 +36,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Configuration
 
         public void SaveOrUpdateFormConfiguration(FormConfiguration entity)
         {
-            if (entity.FormConfigurationId > 0)
+            if (entity.FormConfigurationId < 0)
             {
                 this.FormConfigurationDao.Save(entity);
             }

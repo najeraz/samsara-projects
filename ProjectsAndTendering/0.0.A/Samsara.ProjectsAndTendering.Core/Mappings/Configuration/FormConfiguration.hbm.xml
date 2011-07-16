@@ -11,15 +11,24 @@
     
     <property name="FormName" not-null="true"/>
 
-    <!--<one-to-many name="GridConfigurations" 
-                 column="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, NHibernateOneToMany"/>-->
-
+    <list name="GridConfigurations1" lazy="true">
+      <key column="FormConfigurationId"/>
+      <index column="GridConfigurationId"/>
+      <one-to-many class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, Samsara.ProjectsAndTendering.Core"/>
+    </list>
+    
+    <set name="GridConfigurations" table="GridConfigurations" lazy="true">
+      <key column="FormConfigurationId"/>
+      <one-to-many 
+        class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
   </class>
 
-  <!--<query name="SearchFormConfigurationByName">
+  <query name="SearchFormConfigurationByName">
     <![CDATA[
         from FormConfiguration where FormName = :FormName
     ]]>
-  </query>-->
+  </query>
 
 </hibernate-mapping>
