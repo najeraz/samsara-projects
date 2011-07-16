@@ -9,11 +9,15 @@
       <generator class="native"/>
     </id>
     
-    <one-to-one name="FormConfiguration"
-			class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.FormConfiguration"/>
+    <many-to-one name="FormConfiguration" 
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.FormConfiguration, Samsara.ProjectsAndTendering.Core"
+                 column="FormConfigurationId"/>
 
-    <!--<one-to-many name="GridColumnConfigurations"
-                 column="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridColumnConfiguration, NHibernateOneToMany"/>-->
+    <set name="GridColumnConfigurations" table="GridColumnConfigurations" lazy="true">
+      <key column="GridConfigurationId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridColumnConfiguration, Samsara.ProjectsAndTendering.Core"/>
+    </set>
     
     <property name="GridName"/>
   </class>

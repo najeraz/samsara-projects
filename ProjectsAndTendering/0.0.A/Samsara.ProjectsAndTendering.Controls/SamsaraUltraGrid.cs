@@ -25,6 +25,10 @@ namespace Samsara.ProjectsAndTendering.Controls
             FormConfiguration formConfiguration = null;
             IFormConfigurationService srvFormConfiguration = ApplicationContext.Resolve<IFormConfigurationService>();
             Assert.IsNotNull(srvFormConfiguration);
+            IGridConfigurationService srvGridConfiguration = ApplicationContext.Resolve<IGridConfigurationService>();
+            Assert.IsNotNull(srvGridConfiguration);
+            IGridColumnConfigurationService srvGridColumnConfiguration = ApplicationContext.Resolve<IGridColumnConfigurationService>();
+            Assert.IsNotNull(srvGridColumnConfiguration);
 
             if (this.DataSource != null && this.DataSource is DataTable)
             {
@@ -40,6 +44,47 @@ namespace Samsara.ProjectsAndTendering.Controls
                     formConfiguration = new FormConfiguration();
                     formConfiguration.FormName = parentFormName;
                     srvFormConfiguration.SaveOrUpdateFormConfiguration(formConfiguration);
+                    formConfiguration = srvFormConfiguration.LoadFormConfiguration(
+                        formConfiguration.FormConfigurationId);
+                }
+
+                GridConfiguration gridConfiguration = formConfiguration.GridConfigurations
+                    .SingleOrDefault(x => x.GridName == this.Name);
+
+                if (gridConfiguration == null)
+                {
+                    gridConfiguration = new GridConfiguration();
+                    gridConfiguration.GridName = this.Name;
+                    gridConfiguration.FormConfiguration = formConfiguration;
+                    srvGridConfiguration.SaveOrUpdateGridConfiguration(gridConfiguration);
+                }
+
+                foreach (UltraGridBand band in this.DisplayLayout.Bands)
+                {
+                    foreach (UltraGridColumn column in band.Columns)
+                    {
+                        GridColumnConfiguration gridColumnConfiguration = null;
+
+                        if (gridConfiguration .GridColumnConfigurations != null)
+                            gridColumnConfiguration = gridConfiguration
+                                .GridColumnConfigurations.SingleOrDefault(x => x.ColumnName == column.Key);
+
+                        if (gridColumnConfiguration == null)
+                        {
+                            gridColumnConfiguration = new GridColumnConfiguration();
+                            gridColumnConfiguration.ColumnName = column.Key;
+                            gridColumnConfiguration.ColumnEndUserName = column.Key;
+                            gridColumnConfiguration.GridConfiguration = gridConfiguration;
+                            gridColumnConfiguration.Visible = true;
+
+                            srvGridColumnConfiguration.SaveOrUpdateGridColumnConfiguration(gridColumnConfiguration);
+                        }
+                        else
+                        {
+                            column.Hidden = !gridColumnConfiguration.Visible;
+                            column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
+                        }
+                    }
                 }
             }
         }

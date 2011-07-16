@@ -1,6 +1,9 @@
 ﻿
 
 
+using Iesi.Collections;
+using System.Collections.Generic;
+using Iesi.Collections.Generic;
 namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
 {
     public class GridConfiguration
@@ -23,6 +26,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
         }
 
         public virtual string GridName
+        {
+            get;
+            set;
+        }
+
+        public virtual ISet<GridColumnConfiguration> GridColumnConfigurations
         {
             get;
             set;

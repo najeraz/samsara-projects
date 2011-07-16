@@ -9,11 +9,13 @@
       <generator class="native"/>
     </id>
 
-    <one-to-one name="GridConfiguration"
-			class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration"/>
+    <many-to-one name="GridConfiguration"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, Samsara.ProjectsAndTendering.Core"
+                 column="GridConfigurationId"/>
     
     <property name="ColumnName"/>
     <property name="ColumnEndUserName"/>
+    <property name="Band"/>
     <property name="Visible"/>
 
   </class>

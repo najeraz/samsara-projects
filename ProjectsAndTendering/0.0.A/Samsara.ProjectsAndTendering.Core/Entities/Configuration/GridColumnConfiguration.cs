@@ -22,6 +22,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
+        public virtual bool Band
+        {
+            get;
+            set;
+        }
+
         public virtual string ColumnName
         {
             get;
