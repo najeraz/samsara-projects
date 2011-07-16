@@ -10,12 +10,6 @@
     </id>
     
     <property name="FormName" not-null="true"/>
-
-    <list name="GridConfigurations1" lazy="true">
-      <key column="FormConfigurationId"/>
-      <index column="GridConfigurationId"/>
-      <one-to-many class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, Samsara.ProjectsAndTendering.Core"/>
-    </list>
     
     <set name="GridConfigurations" table="GridConfigurations" lazy="true">
       <key column="FormConfigurationId"/>
