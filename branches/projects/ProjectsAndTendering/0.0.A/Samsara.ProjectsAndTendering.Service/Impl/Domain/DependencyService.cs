@@ -35,7 +35,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateDependency(Dependency entity)
         {
-            if (entity.DependencyId > 0)
+            if (entity.DependencyId < 0)
             {
                 this.DependencyDao.Save(entity);
             }

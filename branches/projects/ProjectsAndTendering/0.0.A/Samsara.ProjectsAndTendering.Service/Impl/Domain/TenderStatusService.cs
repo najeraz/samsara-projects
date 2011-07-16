@@ -35,7 +35,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateTenderStatus(TenderStatus entity)
         {
-            if (entity.TenderStatusId > 0)
+            if (entity.TenderStatusId < 0)
             {
                 this.TenderStatusDao.Save(entity);
             }

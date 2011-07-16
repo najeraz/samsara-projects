@@ -36,7 +36,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Configuration
 
         public void SaveOrUpdateGridConfiguration(GridConfiguration entity)
         {
-            if (entity.GridConfigurationId > 0)
+            if (entity.GridConfigurationId < 0)
             {
                 this.GridConfigurationDao.Save(entity);
             }

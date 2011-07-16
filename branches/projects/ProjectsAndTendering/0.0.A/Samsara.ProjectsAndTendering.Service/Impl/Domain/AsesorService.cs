@@ -36,7 +36,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateAsesor(Asesor entity)
         {
-            if (entity.AsesorId > 0)
+            if (entity.AsesorId < 0)
             {
                 this.AsesorDao.Save(entity);
             }

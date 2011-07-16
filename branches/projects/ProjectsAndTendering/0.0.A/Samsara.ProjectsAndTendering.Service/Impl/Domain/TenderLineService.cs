@@ -35,7 +35,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateTenderLine(TenderLine entity)
         {
-            if (entity.TenderLineId > 0)
+            if (entity.TenderLineId < 0)
             {
                 this.TenderLineDao.Save(entity);
             }
