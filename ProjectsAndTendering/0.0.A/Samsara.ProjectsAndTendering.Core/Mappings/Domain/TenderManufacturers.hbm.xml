@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
+  
+  <class name="TenderManufacturers" table="TenderManufacturers">
+
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
+    <many-to-one name="Manufacturer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
+                 column="ManufacturerId"/>
+    
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+  </class>
+
+  <query name="LoadTenderManufacturers">
+    <![CDATA[
+        from TenderManufacturers where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>
