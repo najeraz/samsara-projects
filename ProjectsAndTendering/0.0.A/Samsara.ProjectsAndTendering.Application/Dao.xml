@@ -33,6 +33,9 @@
 
         <entry key="connection.driver_class"
                value="NHibernate.Driver.SqlClientDriver"/>
+        
+        <entry key="show_sql"
+               value="True"/>
 
         <!--<entry key="hibernate.hbm2ddl.auto" value="create-drop" />-->
       </dictionary>
@@ -85,7 +88,11 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderStatusDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  
+  <object id="IBeneficiaryDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.BeneficiaryDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+
   <object id="IFormConfigurationDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>

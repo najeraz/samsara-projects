@@ -7,6 +7,7 @@ using System.Data;
 using Samsara.Support.Util;
 using NHibernate.Criterion;
 using NHibernate.Impl;
+using System.Collections;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 {
@@ -45,7 +46,13 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return dq.GetExecutableQuery(Session).List<TType>();
         }
 
-        public IList<T> GetList(DetachedNamedQuery dnq) {
+        public IList GetObjectList(DetachedNamedQuery dnq)
+        {
+            return dnq.GetExecutableQuery(Session).List();
+        }
+        
+        public IList<T> GetList(DetachedNamedQuery dnq)
+        {
             return dnq.GetExecutableQuery(Session).List<T>();
         }
 
@@ -71,6 +78,8 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
                 {
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
                         dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(obj, null));
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
+                        dnq.SetString(pInfo.Name, (string)pInfo.GetValue(obj, null));
                     else
                         dnq.SetParameter(pInfo.Name, pInfo.GetValue(obj, null));
                 }
@@ -79,9 +88,27 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return this.GetList<T>(dnq);
         }
 
+        public IList GetObjectListByObjectProperties(string queryName, object obj)
+        {
+            DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
+
+            foreach (PropertyInfo pInfo in obj.GetType().GetProperties())
+            {
+                if (pInfo.GetValue(obj, null) != null)
+                {
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
+                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(obj, null));
+                    else
+                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(obj, null));
+                }
+            }
+
+            return this.GetObjectList(dnq);
+        }
+
         public DataTable DataTableByObjectProperties(string queryName, object obj)
         {
-            IList<T> lstResult = GetListByObjectProperties(queryName, obj);
+            IList lstResult = GetObjectListByObjectProperties(queryName, obj);
             return CollectionsUtil.ConvertToDataTable(lstResult);
         }
         

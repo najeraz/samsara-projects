@@ -37,6 +37,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderStatusService, Samsara.ProjectsAndTendering.Service">
     <property name="TenderStatusDao" ref="ITenderStatusDao"/>
   </object>
+  <object id="IBeneficiaryService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.BeneficiaryService, Samsara.ProjectsAndTendering.Service">
+    <property name="BeneficiaryDao" ref="IBeneficiaryDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">

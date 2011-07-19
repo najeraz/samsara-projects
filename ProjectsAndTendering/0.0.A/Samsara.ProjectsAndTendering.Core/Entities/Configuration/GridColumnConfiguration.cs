@@ -22,7 +22,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
-        public virtual bool Band
+        public virtual int Band
         {
             get;
             set;

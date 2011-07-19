@@ -22,13 +22,19 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int BidderId
+        public virtual Bidder Bidder
         {
             get;
             set;
         }
 
-        public virtual int DependencyId
+        public virtual Beneficiary Beneficiary
+        {
+            get;
+            set;
+        }
+
+        public virtual Dependency Dependency
         {
             get;
             set;
@@ -40,7 +46,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int AsesorId
+        public virtual Asesor Asesor
         {
             get;
             set;
@@ -88,25 +94,31 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual string Address
+        {
+            get;
+            set;
+        }
+
         public virtual string FolioReference
         {
             get;
             set;
         }
 
-        public virtual int ManufacturerId
+        public virtual Manufacturer Manufacturer
         {
             get;
             set;
         }
 
-        public virtual int TenderStatusId
+        public virtual TenderStatus TenderStatus
         {
             get;
             set;
         }
 
-        public virtual int ApprovedBy
+        public virtual Asesor ApprovedBy
         {
             get;
             set;
@@ -118,7 +130,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int PreviousTenderId
+        public virtual Tender PreviousTender
         {
             get;
             set;
