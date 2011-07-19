@@ -10,20 +10,21 @@ namespace Samsara.ProjectsAndTendering.Common
     /// and help to get the objects for the application making IoC with Spring.Net
     /// The methods wrapps the singleton.
     /// </summary>
-    public class ApplicationContext
+    public class SamsaraAppContext
     {
         /// <summary>
         /// Needed recursive declaration to implement a singleton
         /// </summary>
-        private static ApplicationContext _AppContext;
+        private static SamsaraAppContext _AppContext;
 
         /// <summary>
         /// Object that gonna content the context of the app
         /// </summary>
         private IApplicationContext _SpringContext = null;
 
-
-        private ApplicationContext() {
+        [System.Diagnostics.DebuggerStepThrough]
+        private SamsaraAppContext()
+        {
             try
             {
                 _SpringContext = ContextRegistry.GetContext();
@@ -37,12 +38,15 @@ namespace Samsara.ProjectsAndTendering.Common
         /// <summary>
         /// Provide a Unique instance of AppContext
         /// </summary>
-        private static ApplicationContext Instance {
-            get {
+        private static SamsaraAppContext Instance
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get
+            {
                 //return _AppContext = _AppContext ?? new AppContext();
                 if (_AppContext == null)
                 {
-                    _AppContext = new ApplicationContext();
+                    _AppContext = new SamsaraAppContext();
                 }
 
                 return _AppContext;
@@ -66,7 +70,9 @@ namespace Samsara.ProjectsAndTendering.Common
         /// Return a instance that correspond with the interface
         /// </summary>
         /// <returns></returns>
-        public static T Resolve<T>() {
+        [System.Diagnostics.DebuggerStepThrough]
+        public static T Resolve<T>()
+        {
             //Console.Out.WriteLine("type to resolve: " + typeof(T).Name);
             return (T) Instance._SpringContext.GetObject(typeof (T).Name);
         }

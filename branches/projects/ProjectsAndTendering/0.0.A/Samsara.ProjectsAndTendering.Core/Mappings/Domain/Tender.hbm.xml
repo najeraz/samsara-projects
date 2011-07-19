@@ -10,23 +10,42 @@
     </id>
 
     <property name="RegistrationDate"/>
-    <property name="BidderId"/>
-    <property name="DependencyId"/>
     <property name="Name"/>
-    <property name="AsesorId"/>
     <property name="ClarificationDate"/>
     <property name="Deadline"/>
     <property name="PricingStrategy"/>
     <property name="Results"/>
+    <property name="Address"/>
     <property name="VerdictDate"/>
     <property name="FolioReference"/>
-    <property name="ManufacturerId"/>
-    <property name="TenderStatusId"/>
-    <property name="ApprovedBy"/>
     <property name="ManufacturerSupport"/>
-    <property name="PreviousTenderId"/>
     <property name="Deleted"/>
     <property name="Activated"/>
+
+    <many-to-one name="Bidder"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Bidder, Samsara.ProjectsAndTendering.Core"
+                 column="BidderId"/>
+    <many-to-one name="Dependency"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Dependency, Samsara.ProjectsAndTendering.Core"
+                 column="DependencyId"/>
+    <many-to-one name="Beneficiary"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Beneficiary, Samsara.ProjectsAndTendering.Core"
+                 column="BeneficiaryId"/>
+    <many-to-one name="Asesor"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
+                 column="AsesorId"/>
+    <many-to-one name="Manufacturer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
+                 column="ManufacturerId"/>
+    <many-to-one name="TenderStatus"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderStatus, Samsara.ProjectsAndTendering.Core"
+                 column="TenderStatusId"/>
+    <many-to-one name="ApprovedBy"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
+                 column="ApprovedBy"/>
+    <many-to-one name="PreviousTender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="PreviousTenderId"/>
 
   </class>
 
@@ -39,6 +58,8 @@
   <sql-query name="SearchTenders" cacheable="false" read-only="true">
     <return-scalar column="TenderId" type="int"/>
     <return-scalar column="RegistrationDate" type="DateTime"/>
+    <return-scalar column="BidderName" type="string"/>
+    <return-scalar column="TenderName" type="string"/>
     <return-scalar column="DependencyName" type="string"/>
     <return-scalar column="AsesorName" type="string"/>
     <return-scalar column="ClarificationDate" type="DateTime"/>
@@ -64,15 +85,16 @@
       LEFT JOIN	Asesors ap		  	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
       LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.ApprovedBy AND pt.Deleted = 0 and pt.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
-      AND (AsesorId = :AsesorId OR :AsesorId = -1)
-      AND (BidderId = :BidderId OR :BidderId = -1)
-      AND (DependencyId = :DependencyId OR :DependencyId = -1)
-      AND (TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
-      AND (:DateTypeSearchId = 1 and :MinDate >= RegistrationDate and :MaxDate <= RegistrationDate
-        OR :DateTypeSearchId = 2 and :MinDate >= Deadline and :MaxDate <= Deadline
-        OR :DateTypeSearchId = 3 and :MinDate >= VerdictDate and :MaxDate <= VerdictDate
-        OR :DateTypeSearchId = 4 and :MinDate >= ClarificationDate and :MaxDate <= ClarificationDate
-        OR :DateTypeSearchId = 5 and :MinDate >= PreRevisionDate and :MaxDate <= PreRevisionDate
+      AND (t.Name like :TenderName)
+      AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
+      AND (t.BidderId = :BidderId OR :BidderId = -1)
+      AND (t.DependencyId = :DependencyId OR :DependencyId = -1)
+      AND (t.TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
+      AND (:DateTypeSearchId = 1 and :MinDate >= t.RegistrationDate and :MaxDate <= t.RegistrationDate
+        OR :DateTypeSearchId = 2 and :MinDate >= t.Deadline and :MaxDate <= t.Deadline
+        OR :DateTypeSearchId = 3 and :MinDate >= t.VerdictDate and :MaxDate <= t.VerdictDate
+        OR :DateTypeSearchId = 4 and :MinDate >= t.ClarificationDate and :MaxDate <= t.ClarificationDate
+        OR :DateTypeSearchId = 5 and :MinDate >= t.PreRevisionDate and :MaxDate <= t.PreRevisionDate
         OR :DateTypeSearchId = -1)
     ]]>
   </sql-query>

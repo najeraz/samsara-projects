@@ -14,6 +14,7 @@ namespace Samsara.ProjectsAndTendering.Application
         public MainForm()
         {
             InitializeComponent();
+            
         }
     }
 }

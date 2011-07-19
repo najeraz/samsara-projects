@@ -23,11 +23,11 @@ namespace Samsara.ProjectsAndTendering.Controls
             base.OnInitializeLayout(e);
 
             FormConfiguration formConfiguration = null;
-            IFormConfigurationService srvFormConfiguration = ApplicationContext.Resolve<IFormConfigurationService>();
+            IFormConfigurationService srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
             Assert.IsNotNull(srvFormConfiguration);
-            IGridConfigurationService srvGridConfiguration = ApplicationContext.Resolve<IGridConfigurationService>();
+            IGridConfigurationService srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
             Assert.IsNotNull(srvGridConfiguration);
-            IGridColumnConfigurationService srvGridColumnConfiguration = ApplicationContext.Resolve<IGridColumnConfigurationService>();
+            IGridColumnConfigurationService srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
             Assert.IsNotNull(srvGridColumnConfiguration);
 
             if (this.DataSource != null && this.DataSource is DataTable)
@@ -76,6 +76,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                             gridColumnConfiguration.ColumnEndUserName = column.Key;
                             gridColumnConfiguration.GridConfiguration = gridConfiguration;
                             gridColumnConfiguration.Visible = true;
+                            gridColumnConfiguration.Band = band.Index;
 
                             srvGridColumnConfiguration.SaveOrUpdateGridColumnConfiguration(gridColumnConfiguration);
                         }

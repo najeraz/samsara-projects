@@ -41,7 +41,7 @@
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
             this.tabPrincipal = new System.Windows.Forms.TabControl();
-            this.Buscar = new System.Windows.Forms.TabPage();
+            this.Search = new System.Windows.Forms.TabPage();
             this.grdSchSearch = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.upButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upSchSeparator1 = new Infragistics.Win.Misc.UltraPanel();
@@ -54,13 +54,16 @@
             this.btnSchSearch = new System.Windows.Forms.Button();
             this.upSchSeparator5 = new Infragistics.Win.Misc.UltraPanel();
             this.gbxSearchParameters = new System.Windows.Forms.GroupBox();
-            this.Nuevo = new System.Windows.Forms.TabPage();
+            this.New = new System.Windows.Forms.TabPage();
             this.gbxDetDetail = new System.Windows.Forms.GroupBox();
             this.pnlDetCtgButtons = new System.Windows.Forms.Panel();
+            this.upDetSeparator3 = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetAccept = new System.Windows.Forms.Button();
+            this.upDetSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetCancel = new System.Windows.Forms.Button();
+            this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPrincipal.SuspendLayout();
-            this.Buscar.SuspendLayout();
+            this.Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             this.upButtons.ClientArea.SuspendLayout();
             this.upButtons.SuspendLayout();
@@ -69,14 +72,17 @@
             this.upSchSeparator3.SuspendLayout();
             this.upSchSeparator4.SuspendLayout();
             this.upSchSeparator5.SuspendLayout();
-            this.Nuevo.SuspendLayout();
+            this.New.SuspendLayout();
             this.pnlDetCtgButtons.SuspendLayout();
+            this.upDetSeparator3.SuspendLayout();
+            this.upDetSeparator2.SuspendLayout();
+            this.upDetSeparator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPrincipal
             // 
-            this.tabPrincipal.Controls.Add(this.Buscar);
-            this.tabPrincipal.Controls.Add(this.Nuevo);
+            this.tabPrincipal.Controls.Add(this.Search);
+            this.tabPrincipal.Controls.Add(this.New);
             this.tabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tabPrincipal.Name = "tabPrincipal";
@@ -84,18 +90,18 @@
             this.tabPrincipal.Size = new System.Drawing.Size(640, 443);
             this.tabPrincipal.TabIndex = 20;
             // 
-            // Buscar
+            // Search
             // 
-            this.Buscar.Controls.Add(this.grdSchSearch);
-            this.Buscar.Controls.Add(this.upButtons);
-            this.Buscar.Controls.Add(this.gbxSearchParameters);
-            this.Buscar.Location = new System.Drawing.Point(4, 22);
-            this.Buscar.Name = "Buscar";
-            this.Buscar.Padding = new System.Windows.Forms.Padding(3);
-            this.Buscar.Size = new System.Drawing.Size(632, 417);
-            this.Buscar.TabIndex = 0;
-            this.Buscar.Text = "Buscar";
-            this.Buscar.UseVisualStyleBackColor = true;
+            this.Search.Controls.Add(this.grdSchSearch);
+            this.Search.Controls.Add(this.upButtons);
+            this.Search.Controls.Add(this.gbxSearchParameters);
+            this.Search.Location = new System.Drawing.Point(4, 22);
+            this.Search.Name = "Search";
+            this.Search.Padding = new System.Windows.Forms.Padding(3);
+            this.Search.Size = new System.Drawing.Size(632, 417);
+            this.Search.TabIndex = 0;
+            this.Search.Text = "Buscar";
+            this.Search.UseVisualStyleBackColor = true;
             // 
             // grdSchSearch
             // 
@@ -270,57 +276,86 @@
             this.gbxSearchParameters.TabStop = false;
             this.gbxSearchParameters.Text = "Parámetros de búsqueda:";
             // 
-            // Nuevo
+            // New
             // 
-            this.Nuevo.Controls.Add(this.gbxDetDetail);
-            this.Nuevo.Controls.Add(this.pnlDetCtgButtons);
-            this.Nuevo.Location = new System.Drawing.Point(4, 22);
-            this.Nuevo.Name = "Nuevo";
-            this.Nuevo.Padding = new System.Windows.Forms.Padding(3);
-            this.Nuevo.Size = new System.Drawing.Size(632, 417);
-            this.Nuevo.TabIndex = 1;
-            this.Nuevo.Text = "Nuevo";
-            this.Nuevo.UseVisualStyleBackColor = true;
+            this.New.Controls.Add(this.gbxDetDetail);
+            this.New.Controls.Add(this.pnlDetCtgButtons);
+            this.New.Location = new System.Drawing.Point(4, 22);
+            this.New.Name = "New";
+            this.New.Padding = new System.Windows.Forms.Padding(3);
+            this.New.Size = new System.Drawing.Size(632, 417);
+            this.New.TabIndex = 1;
+            this.New.Text = "Nuevo";
+            this.New.UseVisualStyleBackColor = true;
             // 
             // gbxDetDetail
             // 
             this.gbxDetDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDetDetail.Location = new System.Drawing.Point(3, 3);
             this.gbxDetDetail.Name = "gbxDetDetail";
-            this.gbxDetDetail.Size = new System.Drawing.Size(626, 380);
+            this.gbxDetDetail.Size = new System.Drawing.Size(626, 386);
             this.gbxDetDetail.TabIndex = 18;
             this.gbxDetDetail.TabStop = false;
             this.gbxDetDetail.Text = "Datos del Registro:";
             // 
             // pnlDetCtgButtons
             // 
+            this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator3);
             this.pnlDetCtgButtons.Controls.Add(this.btnDetAccept);
+            this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator2);
             this.pnlDetCtgButtons.Controls.Add(this.btnDetCancel);
+            this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator1);
             this.pnlDetCtgButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 383);
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 389);
+            this.pnlDetCtgButtons.MaximumSize = new System.Drawing.Size(0, 25);
+            this.pnlDetCtgButtons.MinimumSize = new System.Drawing.Size(0, 25);
             this.pnlDetCtgButtons.Name = "pnlDetCtgButtons";
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 31);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
             this.pnlDetCtgButtons.TabIndex = 0;
+            // 
+            // upDetSeparator3
+            // 
+            this.upDetSeparator3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator3.Location = new System.Drawing.Point(428, 0);
+            this.upDetSeparator3.Name = "upDetSeparator3";
+            this.upDetSeparator3.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator3.TabIndex = 9;
             // 
             // btnDetAccept
             // 
-            this.btnDetAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDetAccept.Location = new System.Drawing.Point(467, 5);
+            this.btnDetAccept.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetAccept.Location = new System.Drawing.Point(444, 0);
             this.btnDetAccept.Name = "btnDetAccept";
-            this.btnDetAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnDetAccept.Size = new System.Drawing.Size(75, 25);
             this.btnDetAccept.TabIndex = 0;
             this.btnDetAccept.Text = "Aceptar";
             this.btnDetAccept.UseVisualStyleBackColor = true;
             // 
+            // upDetSeparator2
+            // 
+            this.upDetSeparator2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator2.Location = new System.Drawing.Point(519, 0);
+            this.upDetSeparator2.Name = "upDetSeparator2";
+            this.upDetSeparator2.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator2.TabIndex = 8;
+            // 
             // btnDetCancel
             // 
-            this.btnDetCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDetCancel.Location = new System.Drawing.Point(548, 5);
+            this.btnDetCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetCancel.Location = new System.Drawing.Point(535, 0);
             this.btnDetCancel.Name = "btnDetCancel";
-            this.btnDetCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnDetCancel.Size = new System.Drawing.Size(75, 25);
             this.btnDetCancel.TabIndex = 0;
             this.btnDetCancel.Text = "Cancelar";
             this.btnDetCancel.UseVisualStyleBackColor = true;
+            // 
+            // upDetSeparator1
+            // 
+            this.upDetSeparator1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator1.Location = new System.Drawing.Point(610, 0);
+            this.upDetSeparator1.Name = "upDetSeparator1";
+            this.upDetSeparator1.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator1.TabIndex = 7;
             // 
             // CatalogForm
             // 
@@ -331,7 +366,7 @@
             this.Name = "CatalogForm";
             this.Text = "CatalogForm";
             this.tabPrincipal.ResumeLayout(false);
-            this.Buscar.ResumeLayout(false);
+            this.Search.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             this.upButtons.ClientArea.ResumeLayout(false);
             this.upButtons.ResumeLayout(false);
@@ -340,20 +375,20 @@
             this.upSchSeparator3.ResumeLayout(false);
             this.upSchSeparator4.ResumeLayout(false);
             this.upSchSeparator5.ResumeLayout(false);
-            this.Nuevo.ResumeLayout(false);
+            this.New.ResumeLayout(false);
             this.pnlDetCtgButtons.ResumeLayout(false);
+            this.upDetSeparator3.ResumeLayout(false);
+            this.upDetSeparator2.ResumeLayout(false);
+            this.upDetSeparator1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabPrincipal;
-        private System.Windows.Forms.TabPage Buscar;
-        private System.Windows.Forms.TabPage Nuevo;
+        private System.Windows.Forms.TabPage Search;
+        private System.Windows.Forms.TabPage New;
         protected System.Windows.Forms.Panel pnlDetCtgButtons;
-        protected System.Windows.Forms.Button btnDetCancel;
-        protected System.Windows.Forms.Button btnDetAccept;
         protected System.Windows.Forms.GroupBox gbxSearchParameters;
         protected System.Windows.Forms.GroupBox gbxDetDetail;
         public System.Windows.Forms.Button btnSchSearch;
@@ -367,5 +402,11 @@
         private Infragistics.Win.Misc.UltraPanel upSchSeparator3;
         public System.Windows.Forms.Button btnSchCreate;
         internal Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid grdSchSearch;
+        internal System.Windows.Forms.TabControl tabPrincipal;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator3;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator2;
+        internal System.Windows.Forms.Button btnDetCancel;
+        internal System.Windows.Forms.Button btnDetAccept;
     }
 }
