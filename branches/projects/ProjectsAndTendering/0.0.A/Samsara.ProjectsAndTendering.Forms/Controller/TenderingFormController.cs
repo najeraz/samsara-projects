@@ -26,7 +26,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderStatusService srvTenderStatus;
         private IDependencyService srvDependency;
         private ITenderService srvTender;
-        private IBeneficiaryService srvBeneficiary;
+        private IEndUserService srvEndUser;
         private IManufacturerService srvManufacturer;
 
         #endregion Attributes
@@ -46,8 +46,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvDependency);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
             Assert.IsNotNull(srvTender);
-            this.srvBeneficiary = SamsaraAppContext.Resolve<IBeneficiaryService>();
-            Assert.IsNotNull(srvBeneficiary);
+            this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
+            Assert.IsNotNull(srvEndUser);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
             Assert.IsNotNull(srvManufacturer);
             this.InitializeFormControls();
@@ -86,12 +86,26 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicBidders.Values.ToList(), "BidderId", "Name");
 
             // Dependency
-            Dictionary<int, Dependency> dicDependencys = srvDependency.LoadDependencies();
+            Dictionary<int, Dependency> dicDependencies = srvDependency.LoadDependencies();
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
-                dicDependencys.Values.ToList(), "DependencyId", "Name");
+                dicDependencies.Values.ToList(), "DependencyId", "Name");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
-                dicDependencys.Values.ToList(), "DependencyId", "Name");
+                dicDependencies.Values.ToList(), "DependencyId", "Name");
+
+            // EndUser
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers();
+
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
+                dicEndUsers.Values.ToList(), "EndUserId", "Name");
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
+                dicEndUsers.Values.ToList(), "EndUserId", "Name");
+
+            // Manufacturer
+            Dictionary<int, Manufacturer> dicManufacturers = srvManufacturer.LoadManufacturers();
+
+            //WindowsFormsUtil.LoadCombo<Manufacturer>(this.frmTendering.uceDetManufacturer,
+            //    dicManufacturers.Values.ToList(), "ManufacturerId", "Name");
 
             this.frmTendering.uosSchDates.Value = -1;
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -138,12 +152,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.tender.Dependency = dependency;
             }
 
-            if (Convert.ToInt32(this.frmTendering.uceDetBeneficiary.Value) > 0)
+            if (Convert.ToInt32(this.frmTendering.uceDetEndUser.Value) > 0)
             {
-                Beneficiary beneficiary = srvBeneficiary.LoadBeneficiary(
-                    Convert.ToInt32(this.frmTendering.uceDetBeneficiary.Value));
+                EndUser beneficiary = srvEndUser.LoadEndUser(
+                    Convert.ToInt32(this.frmTendering.uceDetEndUser.Value));
                 Assert.IsNotNull(beneficiary);
-                this.tender.Beneficiary = beneficiary;
+                this.tender.EndUser = beneficiary;
             }
 
             if (Convert.ToInt32(this.frmTendering.uceDetAsesor.Value) > 0)
@@ -162,13 +176,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.tender.ApprovedBy = asesor;
             }
 
-            if (Convert.ToInt32(this.frmTendering.ucdDetManufacturer.Value) > 0)
-            {
-                Manufacturer manufacturer = srvManufacturer.LoadManufacturer(
-                    Convert.ToInt32(this.frmTendering.ucdDetManufacturer.Value));
-                Assert.IsNotNull(manufacturer);
-                this.tender.Manufacturer = manufacturer;
-            }
+            //if (Convert.ToInt32(this.frmTendering.uceDetManufacturer.Value) > 0)
+            //{
+            //    Manufacturer manufacturer = srvManufacturer.LoadManufacturer(
+            //        Convert.ToInt32(this.frmTendering.uceDetManufacturer.Value));
+            //    Assert.IsNotNull(manufacturer);
+            //    this.tender.Manufacturer = manufacturer;
+            //}
 
             if (Convert.ToInt32(this.frmTendering.uceDetTenderStatus.Value) > 0)
             {

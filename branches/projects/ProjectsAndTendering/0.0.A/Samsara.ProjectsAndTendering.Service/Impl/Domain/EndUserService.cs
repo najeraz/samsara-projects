@@ -7,14 +7,14 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
-    public class BeneficiaryService : BaseService, IBeneficiaryService
+    public class EndUserService : BaseService, IEndUserService
     {
         #region Properties
 
         /// <summary>
         /// This field is inyected by IoC through the property.
         /// </summary>
-        public IBeneficiaryDao BeneficiaryDao
+        public IEndUserDao EndUserDao
         {
             get;
             set;
@@ -24,31 +24,31 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public Dictionary<int, Beneficiary> LoadBeneficiaries()
+        public Dictionary<int, EndUser> LoadEndUsers()
         {
-            return this.BeneficiaryDao.LoadBeneficiaries();
+            return this.EndUserDao.LoadEndUsers();
         }
 
-        public Beneficiary LoadBeneficiary(int BeneficiaryId)
+        public EndUser LoadEndUser(int EndUserId)
         {
-            return this.BeneficiaryDao.GetById(BeneficiaryId);
+            return this.EndUserDao.GetById(EndUserId);
         }
 
-        public void SaveOrUpdateBeneficiary(Beneficiary entity)
+        public void SaveOrUpdateEndUser(EndUser entity)
         {
-            if (entity.BeneficiaryId < 0)
+            if (entity.EndUserId < 0)
             {
-                this.BeneficiaryDao.Save(entity);
+                this.EndUserDao.Save(entity);
             }
             else
             {
-                this.BeneficiaryDao.Update(entity);
+                this.EndUserDao.Update(entity);
             }
         }
 
-        public void DeleteBeneficiary(Beneficiary entity)
+        public void DeleteEndUser(EndUser entity)
         {
-            this.BeneficiaryDao.Delete(entity);
+            this.EndUserDao.Delete(entity);
         }
 
         #endregion Methods

@@ -6,8 +6,8 @@ using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
-    public interface IBeneficiaryDao : IGenericDao<Beneficiary,int>
+    public interface IEndUserDao : IGenericDao<EndUser,int>
     {
-        Dictionary<int, Beneficiary> LoadBeneficiaries();
+        Dictionary<int, EndUser> LoadEndUsers();
     }
 }

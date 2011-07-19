@@ -3,14 +3,14 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class Beneficiary : GenericEntity
+    public class EndUser : GenericEntity
     {
-        public Beneficiary()
+        public EndUser()
         {
-            BeneficiaryId = -1;
+            EndUserId = -1;
         }
 
-        public virtual int BeneficiaryId
+        public virtual int EndUserId
         {
             get;
             set;

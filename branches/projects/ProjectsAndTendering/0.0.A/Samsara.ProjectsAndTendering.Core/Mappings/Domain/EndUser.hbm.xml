@@ -3,9 +3,9 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="Beneficiary" table="Beneficiaries">
+  <class name="EndUser" table="EndUsers">
     
-    <id name="BeneficiaryId" type="int">
+    <id name="EndUserId" type="int">
       <generator class="native"/>
     </id>
 
@@ -15,9 +15,9 @@
 
   </class>
 
-  <query name="LoadBeneficiaries">
+  <query name="LoadEndUsers">
     <![CDATA[
-        from Beneficiary where Deleted = 0 and Activated = 1
+        from EndUser where Deleted = 0 and Activated = 1
     ]]>
   </query>
 

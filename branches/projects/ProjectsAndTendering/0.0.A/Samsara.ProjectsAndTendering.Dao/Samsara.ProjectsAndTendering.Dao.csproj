@@ -76,7 +76,7 @@
     <Compile Include="Impl\Domain\AsesorDao.cs" />
     <Compile Include="Impl\Domain\BidderDao.cs" />
     <Compile Include="Impl\Domain\BidderTypeDao.cs" />
-    <Compile Include="Impl\Domain\BeneficiaryDao.cs" />
+    <Compile Include="Impl\Domain\EndUserDao.cs" />
     <Compile Include="Impl\Domain\TenderStatusDao.cs" />
     <Compile Include="Impl\Domain\TenderLineDao.cs" />
     <Compile Include="Impl\Domain\TenderDao.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationDao.cs" />
-    <Compile Include="Interfaces\Domain\IBeneficiaryDao.cs" />
+    <Compile Include="Interfaces\Domain\IEndUserDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderStatusDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderLineDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderDao.cs" />

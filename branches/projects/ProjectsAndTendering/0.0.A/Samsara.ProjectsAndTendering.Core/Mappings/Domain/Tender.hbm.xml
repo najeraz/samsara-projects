@@ -28,9 +28,9 @@
     <many-to-one name="Dependency"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Dependency, Samsara.ProjectsAndTendering.Core"
                  column="DependencyId"/>
-    <many-to-one name="Beneficiary"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Beneficiary, Samsara.ProjectsAndTendering.Core"
-                 column="BeneficiaryId"/>
+    <many-to-one name="EndUser"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.EndUser, Samsara.ProjectsAndTendering.Core"
+                 column="EndUserId"/>
     <many-to-one name="Asesor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
                  column="AsesorId"/>
@@ -47,6 +47,11 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="PreviousTenderId"/>
 
+    <set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.TenderManufacturers, Samsara.ProjectsAndTendering.Core"/>
+    </set>
   </class>
 
   <query name="LoadTenders">

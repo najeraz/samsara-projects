@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Iesi.Collections.Generic;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -28,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual Beneficiary Beneficiary
+        public virtual EndUser EndUser
         {
             get;
             set;
@@ -100,7 +101,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual string FolioReference
+        public virtual Set<TenderManufacturers> TenderManufacturers
         {
             get;
             set;

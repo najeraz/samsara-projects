@@ -9,15 +9,15 @@ using NHibernate.Impl;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
-    public class BeneficiaryDao : GenericDao<Beneficiary, int>, IBeneficiaryDao
+    public class EndUserDao : GenericDao<EndUser, int>, IEndUserDao
     {
         #region Methods
 
-        public Dictionary<int, Beneficiary> LoadBeneficiaries()
+        public Dictionary<int, EndUser> LoadEndUsers()
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadBeneficiaries");
+            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadEndUsers");
 
-            return this.GetList(dnq).ToDictionary(x => x.BeneficiaryId, x => x);
+            return this.GetList(dnq).ToDictionary(x => x.EndUserId, x => x);
         }
 
         #endregion Methods
