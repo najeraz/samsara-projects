@@ -119,12 +119,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual string ManufacturerSupport
-        {
-            get;
-            set;
-        }
-
         public virtual Tender PreviousTender
         {
             get;

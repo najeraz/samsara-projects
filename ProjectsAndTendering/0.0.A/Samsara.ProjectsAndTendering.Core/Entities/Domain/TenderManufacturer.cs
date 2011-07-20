@@ -32,6 +32,13 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             get;
             set;
         }
+
+        public virtual string ManufacturerSupport
+        {
+            get;
+            set;
+        }
+
         public override int GetHashCode()
         {
             int hash = 13;
