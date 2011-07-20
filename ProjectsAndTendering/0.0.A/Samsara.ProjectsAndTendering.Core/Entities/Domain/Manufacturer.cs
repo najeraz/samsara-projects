@@ -21,5 +21,23 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             get;
             set;
         }
+
+        public override int GetHashCode()
+        {
+            return 0 ^ this.ManufacturerId.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj))
+                return true;
+
+            if (this.ManufacturerId == ((Manufacturer)obj).ManufacturerId)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

@@ -130,5 +130,23 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             get;
             set;
         }
+
+        public override int GetHashCode()
+        {
+            return 0 ^ this.TenderId.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (base.Equals(obj))
+                return true;
+
+            if (this.TenderId == ((Tender) obj).TenderId)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
