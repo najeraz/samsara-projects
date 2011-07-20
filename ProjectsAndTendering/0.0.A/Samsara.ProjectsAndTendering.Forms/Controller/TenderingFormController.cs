@@ -114,6 +114,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 new EventHandler(ubtnDetDeleteManufacturer_Click);
             this.frmTendering.ubtnDetNewManufacturer.Click += 
                 new EventHandler(ubtnDetNewManufacturer_Click);
+            this.frmTendering.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
+            this.frmTendering.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
             
             //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
@@ -287,6 +289,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void grdDetTenderManufacturers_AfterCellUpdate(object sender, CellEventArgs e)
         {
             UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
+            if (activeRow == null) return;
             activeRow.PerformAutoSize();
         }
 
@@ -296,12 +299,48 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderManufacturers.Rows.Add(newRow);
             newRow["ManufacturerId"] = -1;
             this.dtTenderManufacturers.AcceptChanges();
-            this.grdDetTenderManufacturers_InitializeLayout(null, null);
         }
 
         private void ubtnDetDeleteManufacturer_Click(object sender, EventArgs e)
         {
+            UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
 
+            if (activeRow == null) return;
+
+            if (activeRow.Cells["ManufacturerId"].Value != null &&
+                Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value) > 0)
+            {
+                int manufacturerId = Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value);
+                this.tender.TenderManufacturers.Remove(this.tender.TenderManufacturers
+                    .Single(x => x.ManufacturerId == manufacturerId));
+            }
+
+            this.dtTenderManufacturers.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+        }
+
+        private void ubtnDetCreateLine_Click(object sender, EventArgs e)
+        {
+            DataRow newRow = this.dtTenderLines.NewRow();
+            this.dtTenderLines.Rows.Add(newRow);
+            newRow["TenderLineId"] = -1;
+            this.dtTenderLines.AcceptChanges();
+        }
+
+        private void ubtnDetDeleteLine_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTendering.grdTenderLines.ActiveRow;
+
+            if (activeRow == null) return;
+
+            if (activeRow.Cells["TenderLineId"].Value != null &&
+                Convert.ToInt32(activeRow.Cells["TenderLineId"].Value) > 0)
+            {
+                int tenderLineId = Convert.ToInt32(activeRow.Cells["TenderLineId"].Value);
+                this.tender.TenderLines.Remove(this.tender.TenderLines
+                    .Single(x => x.TenderLineId == tenderLineId));
+            }
+
+            this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
         }
 
         #endregion Events

@@ -111,7 +111,11 @@
             this.Lines = new System.Windows.Forms.TabPage();
             this.grdTenderLines = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.pnlDetLineButtons = new System.Windows.Forms.Panel();
-            this.ubtnDetSaveTenderLines = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator4534 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDeleteLine = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator4327 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCreateLine = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator532 = new Infragistics.Win.Misc.UltraPanel();
             this.txtSchTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchAsesor = new System.Windows.Forms.Label();
@@ -172,6 +176,9 @@
             this.Lines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenderLines)).BeginInit();
             this.pnlDetLineButtons.SuspendLayout();
+            this.upDetSeparator4534.SuspendLayout();
+            this.upDetSeparator4327.SuspendLayout();
+            this.upDetSeparator532.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).BeginInit();
@@ -663,7 +670,7 @@
             // upDetSeparator123
             // 
             this.upDetSeparator123.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator123.Location = new System.Drawing.Point(370, 0);
+            this.upDetSeparator123.Location = new System.Drawing.Point(334, 0);
             this.upDetSeparator123.Name = "upDetSeparator123";
             this.upDetSeparator123.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator123.TabIndex = 7;
@@ -671,11 +678,11 @@
             // ubtnDetDeleteManufacturer
             // 
             this.ubtnDetDeleteManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteManufacturer.Location = new System.Drawing.Point(386, 0);
+            this.ubtnDetDeleteManufacturer.Location = new System.Drawing.Point(350, 0);
             this.ubtnDetDeleteManufacturer.Name = "ubtnDetDeleteManufacturer";
-            this.ubtnDetDeleteManufacturer.Size = new System.Drawing.Size(75, 25);
+            this.ubtnDetDeleteManufacturer.Size = new System.Drawing.Size(111, 25);
             this.ubtnDetDeleteManufacturer.TabIndex = 0;
-            this.ubtnDetDeleteManufacturer.Text = "Borrar";
+            this.ubtnDetDeleteManufacturer.Text = "Borrar Fabricante";
             // 
             // upDetSeparator143
             // 
@@ -767,7 +774,7 @@
             this.Lines.Location = new System.Drawing.Point(4, 22);
             this.Lines.Name = "Lines";
             this.Lines.Padding = new System.Windows.Forms.Padding(3);
-            this.Lines.Size = new System.Drawing.Size(728, 310);
+            this.Lines.Size = new System.Drawing.Size(604, 315);
             this.Lines.TabIndex = 5;
             this.Lines.Text = "Partidas";
             this.Lines.UseVisualStyleBackColor = true;
@@ -831,27 +838,64 @@
             this.grdTenderLines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdTenderLines.Location = new System.Drawing.Point(3, 3);
             this.grdTenderLines.Name = "grdTenderLines";
-            this.grdTenderLines.Size = new System.Drawing.Size(722, 279);
+            this.grdTenderLines.Size = new System.Drawing.Size(598, 284);
             this.grdTenderLines.TabIndex = 1;
             this.grdTenderLines.Text = "samsaraUltraGrid1";
             // 
             // pnlDetLineButtons
             // 
-            this.pnlDetLineButtons.Controls.Add(this.ubtnDetSaveTenderLines);
+            this.pnlDetLineButtons.Controls.Add(this.upDetSeparator4534);
+            this.pnlDetLineButtons.Controls.Add(this.ubtnDetDeleteLine);
+            this.pnlDetLineButtons.Controls.Add(this.upDetSeparator4327);
+            this.pnlDetLineButtons.Controls.Add(this.ubtnDetCreateLine);
+            this.pnlDetLineButtons.Controls.Add(this.upDetSeparator532);
             this.pnlDetLineButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 282);
+            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 287);
             this.pnlDetLineButtons.Name = "pnlDetLineButtons";
-            this.pnlDetLineButtons.Size = new System.Drawing.Size(722, 25);
+            this.pnlDetLineButtons.Size = new System.Drawing.Size(598, 25);
             this.pnlDetLineButtons.TabIndex = 0;
             // 
-            // ubtnDetSaveTenderLines
+            // upDetSeparator4534
             // 
-            this.ubtnDetSaveTenderLines.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetSaveTenderLines.Location = new System.Drawing.Point(617, 0);
-            this.ubtnDetSaveTenderLines.Name = "ubtnDetSaveTenderLines";
-            this.ubtnDetSaveTenderLines.Size = new System.Drawing.Size(105, 25);
-            this.ubtnDetSaveTenderLines.TabIndex = 0;
-            this.ubtnDetSaveTenderLines.Text = "Guardar Cambios";
+            this.upDetSeparator4534.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator4534.Location = new System.Drawing.Point(328, 0);
+            this.upDetSeparator4534.Name = "upDetSeparator4534";
+            this.upDetSeparator4534.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator4534.TabIndex = 12;
+            // 
+            // ubtnDetDeleteLine
+            // 
+            this.ubtnDetDeleteLine.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeleteLine.Location = new System.Drawing.Point(344, 0);
+            this.ubtnDetDeleteLine.Name = "ubtnDetDeleteLine";
+            this.ubtnDetDeleteLine.Size = new System.Drawing.Size(111, 25);
+            this.ubtnDetDeleteLine.TabIndex = 9;
+            this.ubtnDetDeleteLine.Text = "Borrar Partida";
+            // 
+            // upDetSeparator4327
+            // 
+            this.upDetSeparator4327.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator4327.Location = new System.Drawing.Point(455, 0);
+            this.upDetSeparator4327.Name = "upDetSeparator4327";
+            this.upDetSeparator4327.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator4327.TabIndex = 10;
+            // 
+            // ubtnDetCreateLine
+            // 
+            this.ubtnDetCreateLine.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreateLine.Location = new System.Drawing.Point(471, 0);
+            this.ubtnDetCreateLine.Name = "ubtnDetCreateLine";
+            this.ubtnDetCreateLine.Size = new System.Drawing.Size(111, 25);
+            this.ubtnDetCreateLine.TabIndex = 8;
+            this.ubtnDetCreateLine.Text = "Nueva Partida";
+            // 
+            // upDetSeparator532
+            // 
+            this.upDetSeparator532.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator532.Location = new System.Drawing.Point(582, 0);
+            this.upDetSeparator532.Name = "upDetSeparator532";
+            this.upDetSeparator532.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator532.TabIndex = 11;
             // 
             // txtSchTenderName
             // 
@@ -1077,6 +1121,9 @@
             this.Lines.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTenderLines)).EndInit();
             this.pnlDetLineButtons.ResumeLayout(false);
+            this.upDetSeparator4534.ResumeLayout(false);
+            this.upDetSeparator4327.ResumeLayout(false);
+            this.upDetSeparator532.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).EndInit();
@@ -1161,12 +1208,16 @@
         private System.Windows.Forms.TabPage Lines;
         internal Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid grdTenderLines;
         private System.Windows.Forms.Panel pnlDetLineButtons;
-        private Infragistics.Win.Misc.UltraButton ubtnDetSaveTenderLines;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetIsOpportunity;
         private System.Windows.Forms.GroupBox gbDetAcquisitionReason;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteManufacturer;
         internal Infragistics.Win.Misc.UltraButton ubtnDetNewManufacturer;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator4534;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteLine;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator4327;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLine;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator532;
 
 
 
