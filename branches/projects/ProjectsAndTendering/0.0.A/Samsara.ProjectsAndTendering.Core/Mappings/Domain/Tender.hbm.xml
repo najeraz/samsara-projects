@@ -17,7 +17,6 @@
     <property name="Results"/>
     <property name="Address"/>
     <property name="VerdictDate"/>
-    <property name="ManufacturerSupport"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
