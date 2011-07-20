@@ -25,23 +25,23 @@ namespace Samsara.Support.Util
             combo.Value = -1;
         }
 
-        public static void SetUltraGridValueList<T>(InitializeLayoutEventArgs e, IEnumerable<T> collection,
+        public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
             int bandIndex, string valueMember, string displayMember)
         {
             ValueList vl;
 
-            if (!e.Layout.ValueLists.Exists(typeof(T).Name + valueMember + displayMember))
+            if (!layout.ValueLists.Exists(typeof(T).Name + valueMember + displayMember))
             {
-                vl = e.Layout.ValueLists.Add(typeof(T).Name + valueMember + displayMember);
-
+                vl = layout.ValueLists.Add(typeof(T).Name + valueMember + displayMember);
+                vl.ValueListItems.Add(-1, "Seleccione");
                 foreach (T entity in collection)
                 {
                     vl.ValueListItems.Add(entity.GetType().GetProperty(valueMember).GetValue(entity, null),
                         entity.GetType().GetProperty(displayMember).GetValue(entity, null).ToString());
                 }
             }
-            e.Layout.Bands[bandIndex].Columns[valueMember].ValueList
-                = e.Layout.ValueLists[typeof(T).Name + valueMember + displayMember];
+            layout.Bands[bandIndex].Columns[valueMember].ValueList
+                = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
         }
     }
 }

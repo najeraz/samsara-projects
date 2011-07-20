@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Iesi.Collections.Generic;
+using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
@@ -12,7 +14,6 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
-using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
@@ -30,6 +31,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderService srvTender;
         private IEndUserService srvEndUser;
         private IManufacturerService srvManufacturer;
+        private DataTable dtTenderLines;
+        private DataTable dtTenderManufacturers;
 
         #endregion Attributes
 
@@ -107,26 +110,32 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTendering.btnDetAccept.Click += new EventHandler(btnDetAccept_Click);
+            this.frmTendering.ubtnDetDeleteManufacturer.Click += 
+                new EventHandler(ubtnDetDeleteManufacturer_Click);
+            this.frmTendering.ubtnDetNewManufacturer.Click += 
+                new EventHandler(ubtnDetNewManufacturer_Click);
             
             //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
             SearchTenderLinesParameters pmtSearchTenderLines = new SearchTenderLinesParameters();
             pmtSearchTenderLines.TenderId = -1;
-            DataTable dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
+            this.dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
             this.frmTendering.grdTenderLines.DataSource = null;
             this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
 
             //grdDetTenderManufacturers
             this.frmTendering.grdDetTenderManufacturers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
+            this.frmTendering.grdDetTenderManufacturers.AfterCellUpdate
+                += new CellEventHandler(grdDetTenderManufacturers_AfterCellUpdate);
             SearchTenderManufacturerParameters pmtSearchTenderManufacturers
                 = new SearchTenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = -1;
-            DataTable dtTenderManofacturers =
+            this.dtTenderManufacturers =
                 this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);
             this.frmTendering.grdDetTenderManufacturers.DataSource = null;
-            this.frmTendering.grdDetTenderManufacturers.DataSource = dtTenderManofacturers;
+            this.frmTendering.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 
             this.frmTendering.HiddenDetail(true);
         }
@@ -247,14 +256,52 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void grdTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
+            UltraGridLayout layout = this.frmTendering.grdTenderLines.DisplayLayout;
+            Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
+            IEnumerable<Manufacturer> availableManufacturers = this.tender == null || 
+                this.tender.TenderManufacturers == null ? manufacturers.Values.Where(x => false) : 
+                manufacturers.Values.Where(x => this.tender.TenderManufacturers
+                    .Select(y => y.ManufacturerId).Contains(x.ManufacturerId));
 
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout,
+                availableManufacturers, 0, "ManufacturerId", "Name");
         }
 
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
+            UltraGridLayout layout = this.frmTendering.grdDetTenderManufacturers.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["ManufacturerSupport"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["ManufacturerSupport"].VertScrollBar = true;
             Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
 
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(e, manufacturers.Values, 0, "ManufacturerId", "Name");
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, manufacturers.Values, 0,
+                "ManufacturerId", "Name");
+        }
+
+        private void grdDetTenderManufacturers_AfterCellUpdate(object sender, CellEventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
+            activeRow.PerformAutoSize();
+        }
+
+        private void ubtnDetNewManufacturer_Click(object sender, EventArgs e)
+        {
+            DataRow newRow = this.dtTenderManufacturers.NewRow();
+            this.dtTenderManufacturers.Rows.Add(newRow);
+            newRow["ManufacturerId"] = -1;
+            this.dtTenderManufacturers.AcceptChanges();
+            this.grdDetTenderManufacturers_InitializeLayout(null, null);
+        }
+
+        private void ubtnDetDeleteManufacturer_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion Events
