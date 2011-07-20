@@ -3,9 +3,9 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class TenderManufacturers
+    public class TenderManufacturer
     {
-        public TenderManufacturers()
+        public TenderManufacturer()
         {
         }
 
@@ -47,7 +47,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
                 return true;
 
             if (this.TenderId == ((Tender)obj).TenderId &&
-                this.ManufacturerId == ((TenderManufacturers)obj).ManufacturerId)
+                this.ManufacturerId == ((TenderManufacturer)obj).ManufacturerId)
             {
                 return true;
             }

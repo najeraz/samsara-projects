@@ -113,8 +113,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetTenderManufacturers
             this.frmTendering.grdDetTenderManufacturers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
-            SearchTenderManufacturersParameters pmtSearchTenderManufacturers
-                = new SearchTenderManufacturersParameters();
+            SearchTenderManufacturerParameters pmtSearchTenderManufacturers
+                = new SearchTenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = -1;
             DataTable dtTenderManofacturers =
                 this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);

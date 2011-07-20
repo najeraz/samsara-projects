@@ -46,7 +46,7 @@
     <set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
       <key column="TenderId"/>
       <one-to-many
-        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturers, Samsara.ProjectsAndTendering.Core"/>
+        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturer, Samsara.ProjectsAndTendering.Core"/>
     </set>
   </class>
 
@@ -58,7 +58,7 @@
 
   <query name="SearchTenderManufacturers">
     <![CDATA[
-        from TenderManufacturers where TenderId = :TenderId
+        from TenderManufacturer where TenderId = :TenderId
     ]]>
   </query>
 

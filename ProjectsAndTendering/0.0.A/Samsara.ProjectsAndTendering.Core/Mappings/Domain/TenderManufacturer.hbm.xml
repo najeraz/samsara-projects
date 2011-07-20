@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="TenderManufacturers" table="TenderManufacturers">
+  <class name="TenderManufacturer" table="TenderManufacturers">
     
     <composite-id>
       <key-property name="TenderId" column="TenderId" type="int"></key-property>

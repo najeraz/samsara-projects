@@ -12,7 +12,7 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
     {
         Dictionary<int, Tender> LoadTenders();
         DataTable SearchTenders(SearchTendersParameters pmtSearchTenders);
-        DataTable SearchTenderManufacturers(SearchTenderManufacturersParameters
-            pmtSearchTenderManufacturers);
+        DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
+            pmtSearchTenderManufacturer);
     }
 }
