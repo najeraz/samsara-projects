@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Infragistics.Win;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
@@ -16,7 +10,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         public CatalogForm()
         {
             InitializeComponent();
-            this.grdSchSearch.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
             this.hiddedTabPage = this.tabPrincipal.TabPages["New"];
         }
 

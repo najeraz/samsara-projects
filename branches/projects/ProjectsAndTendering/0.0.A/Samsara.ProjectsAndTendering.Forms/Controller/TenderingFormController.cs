@@ -1,17 +1,19 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.Core.Enums;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
-using System.Data;
-using Samsara.ProjectsAndTendering.Core.Enums;
-using System.Windows.Forms;
+using Infragistics.Win.UltraWinGrid;
+using Infragistics.Win;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -101,16 +103,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
                 dicEndUsers.Values.ToList(), "EndUserId", "Name");
 
-            // Manufacturer
-            Dictionary<int, Manufacturer> dicManufacturers = srvManufacturer.LoadManufacturers();
-
-            //WindowsFormsUtil.LoadCombo<Manufacturer>(this.frmTendering.uceDetManufacturer,
-            //    dicManufacturers.Values.ToList(), "ManufacturerId", "Name");
-
             this.frmTendering.uosSchDates.Value = -1;
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTendering.btnDetAccept.Click += new EventHandler(btnDetAccept_Click);
+            this.frmTendering.grdTenderLines.InitializeLayout 
+                += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
+            
+            //grdDetTenderManufacturers
+            this.frmTendering.grdDetTenderManufacturers.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
+            SearchTenderManufacturersParameters pmtSearchTenderManufacturers
+                = new SearchTenderManufacturersParameters();
+            pmtSearchTenderManufacturers.TenderId = -1;
+            DataTable dtTenderManofacturers =
+                this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);
+            this.frmTendering.grdDetTenderManufacturers.DataSource = null;
+            this.frmTendering.grdDetTenderManufacturers.DataSource = dtTenderManofacturers;
+
             this.frmTendering.HiddenDetail(true);
         }
 
@@ -176,14 +186,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.tender.ApprovedBy = asesor;
             }
 
-            //if (Convert.ToInt32(this.frmTendering.uceDetManufacturer.Value) > 0)
-            //{
-            //    Manufacturer manufacturer = srvManufacturer.LoadManufacturer(
-            //        Convert.ToInt32(this.frmTendering.uceDetManufacturer.Value));
-            //    Assert.IsNotNull(manufacturer);
-            //    this.tender.Manufacturer = manufacturer;
-            //}
-
             if (Convert.ToInt32(this.frmTendering.uceDetTenderStatus.Value) > 0)
             {
                 TenderStatus tenderStatus = srvTenderStatus.LoadTenderStatus(
@@ -208,18 +210,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void btnSchSearch_Click(object sender, EventArgs e)
         {
-            TenderSearchParameters pmtTenderSearch = new TenderSearchParameters();
+            SearchTendersParameters pmtSearchTenders = new SearchTendersParameters();
 
-            pmtTenderSearch.MinDate = (DateTime)this.frmTendering.dteSchMinDate.Value;
-            pmtTenderSearch.MaxDate = (DateTime)this.frmTendering.dteSchMaxDate.Value;
-            pmtTenderSearch.AsesorId = (int)this.frmTendering.uceSchAsesor.Value;
-            pmtTenderSearch.BidderId = (int)this.frmTendering.uceSchBidder.Value;
-            pmtTenderSearch.DependencyId = (int)this.frmTendering.uceSchDependency.Value;
-            pmtTenderSearch.TenderStatusId = (int)this.frmTendering.uceSchTenderStatus.Value;
-            pmtTenderSearch.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
-            pmtTenderSearch.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
+            pmtSearchTenders.MinDate = (DateTime)this.frmTendering.dteSchMinDate.Value;
+            pmtSearchTenders.MaxDate = (DateTime)this.frmTendering.dteSchMaxDate.Value;
+            pmtSearchTenders.AsesorId = (int)this.frmTendering.uceSchAsesor.Value;
+            pmtSearchTenders.BidderId = (int)this.frmTendering.uceSchBidder.Value;
+            pmtSearchTenders.DependencyId = (int)this.frmTendering.uceSchDependency.Value;
+            pmtSearchTenders.TenderStatusId = (int)this.frmTendering.uceSchTenderStatus.Value;
+            pmtSearchTenders.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
+            pmtSearchTenders.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
 
-            DataTable dtTenders = srvTender.SearchTenders(pmtTenderSearch);
+            DataTable dtTenders = srvTender.SearchTenders(pmtSearchTenders);
 
             this.frmTendering.grdSchSearch.DataSource = null;
             this.frmTendering.grdSchSearch.DataSource = dtTenders;
@@ -234,6 +236,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnDetAccept_Click(object sender, EventArgs e)
         {
             this.ValidateFormInformation();
+        }
+        
+        private void grdTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+
+        }
+
+        private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
+
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(e, manufacturers.Values, 0, "ManufacturerId", "Name");
         }
 
         #endregion Events

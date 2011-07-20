@@ -4,6 +4,7 @@ using System.Reflection;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Spring.Data.NHibernate.Generic.Support;
 using System.Data;
+using System.Linq;
 using Samsara.Support.Util;
 using NHibernate.Criterion;
 using NHibernate.Impl;
@@ -98,6 +99,8 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
                 {
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
                         dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(obj, null));
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
+                        dnq.SetAnsiString(pInfo.Name, (string)pInfo.GetValue(obj, null));
                     else
                         dnq.SetParameter(pInfo.Name, pInfo.GetValue(obj, null));
                 }
@@ -110,6 +113,12 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
         {
             IList lstResult = GetObjectListByObjectProperties(queryName, obj);
             return CollectionsUtil.ConvertToDataTable(lstResult);
+        }
+
+        public DataTable DataTableTypedByObjectProperties<TType>(string queryName, object obj)
+        {
+            IList lstResult = GetObjectListByObjectProperties(queryName, obj);
+            return CollectionsUtil.ConvertToDataTable<TType>(lstResult.Cast<TType>().ToList());
         }
         
         #endregion
