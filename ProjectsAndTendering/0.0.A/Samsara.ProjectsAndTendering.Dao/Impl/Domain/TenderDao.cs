@@ -14,9 +14,16 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
-        public DataTable SearchTenders(TenderSearchParameters pmtTenderSearch)
+        public DataTable SearchTenders(SearchTendersParameters pmtSearchTenders)
         {
-            return this.DataTableByObjectProperties("SearchTenders", pmtTenderSearch);
+            return this.DataTableByObjectProperties("SearchTenders", pmtSearchTenders);
+        }
+
+        public DataTable SearchTenderManufacturers(SearchTenderManufacturersParameters
+            pmtSearchTenderManufacturers)
+        {
+            return this.DataTableTypedByObjectProperties<TenderManufacturers>(
+                "SearchTenderManufacturers", pmtSearchTenderManufacturers);
         }
 
         public Dictionary<int, Tender> LoadTenders()

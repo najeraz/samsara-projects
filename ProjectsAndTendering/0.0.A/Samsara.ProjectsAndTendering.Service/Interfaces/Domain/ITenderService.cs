@@ -14,6 +14,8 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
         Tender LoadTender(int TenderId);
         void SaveOrUpdateTender(Tender entity);
         void DeleteTender(Tender entity);
-        DataTable SearchTenders(TenderSearchParameters pmtTenderSearch);
+        DataTable SearchTenders(SearchTendersParameters pmtSearchTenders);
+        DataTable SearchTenderManufacturers(SearchTenderManufacturersParameters
+            pmtSearchTenderManufacturers);
     }
 }

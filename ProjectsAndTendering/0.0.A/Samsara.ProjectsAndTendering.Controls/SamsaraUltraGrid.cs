@@ -65,9 +65,10 @@ namespace Samsara.ProjectsAndTendering.Controls
                     {
                         GridColumnConfiguration gridColumnConfiguration = null;
 
-                        if (gridConfiguration .GridColumnConfigurations != null)
+                        if (gridConfiguration.GridColumnConfigurations != null)
                             gridColumnConfiguration = gridConfiguration
-                                .GridColumnConfigurations.SingleOrDefault(x => x.ColumnName == column.Key);
+                                .GridColumnConfigurations.SingleOrDefault(x => x.ColumnName == column.Key
+                                && x.Band == band.Index);
 
                         if (gridColumnConfiguration == null)
                         {
