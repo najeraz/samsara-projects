@@ -282,7 +282,7 @@
             this.gbDetManufacturers.Controls.Add(this.ultraGrid1);
             this.gbDetManufacturers.Location = new System.Drawing.Point(7, 223);
             this.gbDetManufacturers.Name = "gbDetManufacturers";
-            this.gbDetManufacturers.Size = new System.Drawing.Size(360, 92);
+            this.gbDetManufacturers.Size = new System.Drawing.Size(353, 95);
             this.gbDetManufacturers.TabIndex = 74;
             this.gbDetManufacturers.TabStop = false;
             this.gbDetManufacturers.Text = "Fabricantes:";
@@ -345,7 +345,7 @@
             this.ultraGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ultraGrid1.Location = new System.Drawing.Point(3, 16);
             this.ultraGrid1.Name = "ultraGrid1";
-            this.ultraGrid1.Size = new System.Drawing.Size(354, 73);
+            this.ultraGrid1.Size = new System.Drawing.Size(347, 76);
             this.ultraGrid1.TabIndex = 2;
             // 
             // gbDetAddress

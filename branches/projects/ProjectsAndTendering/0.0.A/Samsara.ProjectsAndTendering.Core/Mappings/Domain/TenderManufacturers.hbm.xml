@@ -4,21 +4,17 @@
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
   <class name="TenderManufacturers" table="TenderManufacturers">
-
-    <property name="TenderId"/>
-    <!--<many-to-one name="Manufacturer"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
-                 column="ManufacturerId"/>-->
     
-    <property name="Deleted"/>
-    <property name="Activated"/>
-
+    <composite-id>
+      <key-property name="TenderId" column="TenderId" type="int"></key-property>
+      <key-property name="ManufacturerId" column="ManufacturerId" type="int"></key-property>
+    </composite-id>
+    
+    <property name="FolioReference"/>
+    <many-to-one name="Manufacturer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
+                 column="ManufacturerId"/>
+    
   </class>
-
-  <query name="LoadTenderManufacturers">
-    <![CDATA[
-        from TenderManufacturers where Deleted = 0 and Activated = 1
-    ]]>
-  </query>
 
 </hibernate-mapping>
