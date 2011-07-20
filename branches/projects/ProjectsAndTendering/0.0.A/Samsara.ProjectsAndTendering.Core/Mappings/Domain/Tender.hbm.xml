@@ -17,7 +17,6 @@
     <property name="Results"/>
     <property name="Address"/>
     <property name="VerdictDate"/>
-    <property name="FolioReference"/>
     <property name="ManufacturerSupport"/>
     <property name="Deleted"/>
     <property name="Activated"/>
@@ -34,9 +33,6 @@
     <many-to-one name="Asesor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
                  column="AsesorId"/>
-    <many-to-one name="Manufacturer"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
-                 column="ManufacturerId"/>
     <many-to-one name="TenderStatus"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderStatus, Samsara.ProjectsAndTendering.Core"
                  column="TenderStatusId"/>
@@ -47,11 +43,11 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="PreviousTenderId"/>
 
-    <set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
+    <!--<set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
       <key column="TenderId"/>
       <one-to-many
-        class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.TenderManufacturers, Samsara.ProjectsAndTendering.Core"/>
-    </set>
+        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturers, Samsara.ProjectsAndTendering.Core"/>
+    </set>-->
   </class>
 
   <query name="LoadTenders">

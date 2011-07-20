@@ -5,12 +5,10 @@
   
   <class name="TenderManufacturers" table="TenderManufacturers">
 
-    <many-to-one name="Tender"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
-                 column="TenderId"/>
-    <many-to-one name="Manufacturer"
+    <property name="TenderId"/>
+    <!--<many-to-one name="Manufacturer"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
-                 column="ManufacturerId"/>
+                 column="ManufacturerId"/>-->
     
     <property name="Deleted"/>
     <property name="Activated"/>

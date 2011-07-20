@@ -9,17 +9,17 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
         }
 
-        public virtual Tender Tender
+        public virtual int TenderId
         {
             get;
             set;
         }
 
-        public virtual Manufacturer Manufacturer
-        {
-            get;
-            set;
-        }
+        //public virtual Manufacturer Manufacturer
+        //{
+        //    get;
+        //    set;
+        //}
 
         public virtual string FolioReference
         {
