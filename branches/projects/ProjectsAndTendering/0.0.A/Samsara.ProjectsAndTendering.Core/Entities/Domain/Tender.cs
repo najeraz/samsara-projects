@@ -113,6 +113,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual Set<TenderLine> TenderLines
+        {
+            get;
+            set;
+        }
+
         public virtual TenderStatus TenderStatus
         {
             get;

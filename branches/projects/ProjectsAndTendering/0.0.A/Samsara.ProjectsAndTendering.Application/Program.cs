@@ -12,6 +12,7 @@ namespace Samsara.ProjectsAndTendering.Application
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
+        [System.Diagnostics.DebuggerStepThrough]
         static void Main()
         {
             System.Windows.Forms.Application.EnableVisualStyles();
