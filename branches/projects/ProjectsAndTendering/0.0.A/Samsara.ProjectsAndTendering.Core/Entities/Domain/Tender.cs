@@ -101,11 +101,11 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        //public virtual Set<TenderManufacturers> TenderManufacturers
-        //{
-        //    get;
-        //    set;
-        //}
+        public virtual Set<TenderManufacturers> TenderManufacturers
+        {
+            get;
+            set;
+        }
 
         public virtual TenderStatus TenderStatus
         {

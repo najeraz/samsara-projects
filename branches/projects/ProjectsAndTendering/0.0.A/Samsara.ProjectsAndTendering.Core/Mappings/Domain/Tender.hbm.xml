@@ -43,11 +43,11 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="PreviousTenderId"/>
 
-    <!--<set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
+    <set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturers, Samsara.ProjectsAndTendering.Core"/>
-    </set>-->
+    </set>
   </class>
 
   <query name="LoadTenders">
