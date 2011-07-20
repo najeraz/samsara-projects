@@ -107,9 +107,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTendering.btnDetAccept.Click += new EventHandler(btnDetAccept_Click);
+            
+            //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
-            
+            SearchTenderLinesParameters pmtSearchTenderLines = new SearchTenderLinesParameters();
+            pmtSearchTenderLines.TenderId = -1;
+            DataTable dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
+            this.frmTendering.grdTenderLines.DataSource = null;
+            this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
+
             //grdDetTenderManufacturers
             this.frmTendering.grdDetTenderManufacturers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
@@ -164,10 +171,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (Convert.ToInt32(this.frmTendering.uceDetEndUser.Value) > 0)
             {
-                EndUser beneficiary = srvEndUser.LoadEndUser(
+                EndUser endUser = srvEndUser.LoadEndUser(
                     Convert.ToInt32(this.frmTendering.uceDetEndUser.Value));
-                Assert.IsNotNull(beneficiary);
-                this.tender.EndUser = beneficiary;
+                Assert.IsNotNull(endUser);
+                this.tender.EndUser = endUser;
             }
 
             if (Convert.ToInt32(this.frmTendering.uceDetAsesor.Value) > 0)
