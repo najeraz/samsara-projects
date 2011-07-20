@@ -14,5 +14,6 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
         DataTable SearchTenders(SearchTendersParameters pmtSearchTenders);
         DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
             pmtSearchTenderManufacturer);
+        DataTable SearchTenderLines(SearchTenderLinesParameters pmtSearchTenderLines);
     }
 }

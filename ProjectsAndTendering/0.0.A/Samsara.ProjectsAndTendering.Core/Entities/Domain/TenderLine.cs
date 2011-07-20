@@ -16,6 +16,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual int TenderId
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
@@ -35,6 +41,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         }
 
         public virtual string Description
+        {
+            get;
+            set;
+        }
+
+        public virtual int ManufacturerId
         {
             get;
             set;
