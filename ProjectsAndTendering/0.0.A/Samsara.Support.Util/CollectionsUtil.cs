@@ -30,7 +30,7 @@ namespace Samsara.Support.Util
 
                 return table;
             }
-            catch (Exception ex){ }
+            catch { }
             return null;
         }
 

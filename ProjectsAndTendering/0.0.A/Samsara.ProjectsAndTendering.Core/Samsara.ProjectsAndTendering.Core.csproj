@@ -61,7 +61,6 @@
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\Domain\EndUser.cs" />
-    <Compile Include="Entities\Domain\TenderManufacturers.cs" />
     <Compile Include="Entities\GenericEntity.cs" />
     <Compile Include="Entities\Domain\TenderStatus.cs" />
     <Compile Include="Entities\Domain\TenderLine.cs" />
@@ -129,11 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\EndUser.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Domain\TenderManufacturers.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
