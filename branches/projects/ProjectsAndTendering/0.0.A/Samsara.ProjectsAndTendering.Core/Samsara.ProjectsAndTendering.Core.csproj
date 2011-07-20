@@ -61,7 +61,7 @@
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\Domain\EndUser.cs" />
-    <Compile Include="Entities\Domain\TenderManufacturers.cs">
+    <Compile Include="Entities\Domain\TenderManufacturer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\GenericEntity.cs" />
@@ -134,7 +134,7 @@
     <EmbeddedResource Include="Mappings\Domain\EndUser.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mappings\Domain\TenderManufacturers.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Domain\TenderManufacturer.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

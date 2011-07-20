@@ -25,10 +25,10 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public DataTable SearchTenderManufacturers(SearchTenderManufacturersParameters
-            pmtSearchTenderManufacturers)
+        public DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
+            pmtSearchTenderManufacturer)
         {
-            return this.TenderDao.SearchTenderManufacturers(pmtSearchTenderManufacturers);
+            return this.TenderDao.SearchTenderManufacturers(pmtSearchTenderManufacturer);
         }
 
         public DataTable SearchTenders(SearchTendersParameters pmtSearchTenders)

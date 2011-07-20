@@ -19,11 +19,11 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
             return this.DataTableByObjectProperties("SearchTenders", pmtSearchTenders);
         }
 
-        public DataTable SearchTenderManufacturers(SearchTenderManufacturersParameters
-            pmtSearchTenderManufacturers)
+        public DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
+            pmtSearchTenderManufacturer)
         {
-            return this.DataTableTypedByObjectProperties<TenderManufacturers>(
-                "SearchTenderManufacturers", pmtSearchTenderManufacturers);
+            return this.DataTableTypedByObjectProperties<TenderManufacturer>(
+                "SearchTenderManufacturers", pmtSearchTenderManufacturer);
         }
 
         public Dictionary<int, Tender> LoadTenders()

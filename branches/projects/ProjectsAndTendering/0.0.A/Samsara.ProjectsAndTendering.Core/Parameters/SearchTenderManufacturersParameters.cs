@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchTenderManufacturersParameters
+    public class SearchTenderManufacturerParameters
     {
         public int? TenderId
         {
