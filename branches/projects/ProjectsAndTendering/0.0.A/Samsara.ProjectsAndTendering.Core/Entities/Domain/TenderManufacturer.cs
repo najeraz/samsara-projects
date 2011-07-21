@@ -21,12 +21,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual Manufacturer Manufacturer
-        {
-            get;
-            set;
-        }
-
         public virtual string FolioReference
         {
             get;
@@ -43,7 +37,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             int hash = 13;
             hash = hash + this.TenderId.GetHashCode();
-            hash = hash + this.Manufacturer.ManufacturerId.GetHashCode();
+            hash = hash + this.ManufacturerId.GetHashCode();
             return hash;
         }
 
