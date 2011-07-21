@@ -17,10 +17,12 @@ namespace Samsara.Support.Util
 
             blankEntity.GetType().GetProperty(valueMember).SetValue(blankEntity, -1, null);
             blankEntity.GetType().GetProperty(displayMember).SetValue(blankEntity, "Seleccione", null);
-            collection.ToList().Insert(0, blankEntity);
+            
+            IList<T> list = collection.ToList();
+            list.Insert(0, blankEntity);
 
             combo.DataSource = null;
-            combo.DataSource = collection;
+            combo.DataSource = list;
             combo.ValueMember = valueMember;
             combo.DisplayMember = displayMember;
             combo.Value = -1;
