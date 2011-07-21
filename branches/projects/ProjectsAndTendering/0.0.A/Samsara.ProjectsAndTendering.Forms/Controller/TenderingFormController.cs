@@ -154,7 +154,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.tabDetDetail.SelectedTab = this.frmTendering.tabDetDetail.TabPages["Principal"];
         }
 
-        private void ValidateFormInformation()
+        private bool ValidateFormInformation()
         {
             if (this.frmTendering.uceDetBidder.Value != null ||
                 Convert.ToInt32(this.frmTendering.uceDetBidder.Value) <= 0)
@@ -162,7 +162,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 MessageBox.Show("Favor de seleccionar el Licitante", 
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmTendering.uceDetBidder.Focus();
+                return false;
             }
+
+            return true;
         }
 
         private void LoadEntity()
@@ -213,12 +216,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 Assert.IsNotNull(tenderStatus);
                 this.tender.TenderStatus = tenderStatus;
             }
-            
+
+            this.tender.IsOpportunity = this.frmTendering.uchkDetIsOpportunity.Checked;
             this.tender.ClarificationDate = this.frmTendering.dteDetClarificationDate.DateTime;
             this.tender.Deadline = this.frmTendering.dteDetDeadline.DateTime;
             this.tender.PreRevisionDate = this.frmTendering.dteDetPrerevisionDate.DateTime;
             this.tender.RegistrationDate = this.frmTendering.dteDetRegistrationDate.DateTime;
             this.tender.VerdictDate = this.frmTendering.dteDetVeredictDate.DateTime;
+            this.tender.AcquisitionReason = this.frmTendering.txtDetAcquisitionReason.Text;
+            this.tender.Address = this.frmTendering.txtDetAddress.Text;
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
