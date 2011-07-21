@@ -100,7 +100,7 @@
       LEFT JOIN	Dependencies d		ON d.DependencyId = t.DependencyId AND d.Deleted = 0 and d.Activated = 1
       LEFT JOIN	TenderStatuses ts	ON ts.TenderStatusId = t.TenderStatusId AND ts.Deleted = 0 and ts.Activated = 1
       LEFT JOIN	Asesors ap		  	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
-      LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.ApprovedBy AND pt.Deleted = 0 and pt.Activated = 1
+      LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
       AND (t.Name like :TenderName)
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
