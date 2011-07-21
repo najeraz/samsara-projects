@@ -120,6 +120,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
+            this.frmTendering.grdTenderLines.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
             SearchTenderLinesParameters pmtSearchTenderLines = new SearchTenderLinesParameters();
             pmtSearchTenderLines.TenderId = -1;
             this.dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
@@ -129,8 +131,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetTenderManufacturers
             this.frmTendering.grdDetTenderManufacturers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
-            this.frmTendering.grdDetTenderManufacturers.AfterCellUpdate
-                += new CellEventHandler(grdDetTenderManufacturers_AfterCellUpdate);
+            this.frmTendering.grdDetTenderManufacturers.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(grdDetTenderManufacturers_BeforeCellUpdate);
             SearchTenderManufacturerParameters pmtSearchTenderManufacturers
                 = new SearchTenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = -1;
@@ -259,14 +261,31 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void grdTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTendering.grdTenderLines.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
             Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["TenderLineId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+
             IEnumerable<Manufacturer> availableManufacturers = this.tender == null || 
                 this.tender.TenderManufacturers == null ? manufacturers.Values.Where(x => false) : 
                 manufacturers.Values.Where(x => this.tender.TenderManufacturers
                     .Select(y => y.ManufacturerId).Contains(x.ManufacturerId));
 
             WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout,
-                availableManufacturers, 0, "ManufacturerId", "Name");
+                availableManufacturers, band, "ManufacturerId", "Name");
+        }
+
+        private void grdTenderLines_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTendering.grdTenderLines.ActiveRow;
+            if (activeRow == null) return;
+            activeRow.PerformAutoSize();                       
         }
 
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -282,15 +301,40 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["ManufacturerSupport"].VertScrollBar = true;
             Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
 
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, manufacturers.Values, 0,
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, manufacturers.Values, band,
                 "ManufacturerId", "Name");
         }
 
-        private void grdDetTenderManufacturers_AfterCellUpdate(object sender, CellEventArgs e)
+        private void grdDetTenderManufacturers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
             if (activeRow == null) return;
             activeRow.PerformAutoSize();
+
+            if (e.Cell.Column.Key == "ManufacturerId" && Convert.ToInt32(e.NewValue) != -1)
+            {
+                if (this.dtTenderManufacturers.AsEnumerable().SingleOrDefault(x =>
+                    Convert.ToInt32(x["ManufacturerId"]) == Convert.ToInt32(e.NewValue)) != null)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Ya se encuentra ese Fabricante en esta Licitación!", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
+                        .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(e.Cell.Value));
+
+                    if (tenderManufacturer != null)
+                        tenderManufacturer.ManufacturerId = Convert.ToInt32(e.NewValue);
+                    else
+                    {
+                        tenderManufacturer = new TenderManufacturer();
+                        tenderManufacturer.ManufacturerId = Convert.ToInt32(e.NewValue);
+                        this.tender.TenderManufacturers.Add(tenderManufacturer);
+                    }
+                }
+            }
         }
 
         private void ubtnDetNewManufacturer_Click(object sender, EventArgs e)
@@ -307,7 +351,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow == null) return;
 
-            if (activeRow.Cells["ManufacturerId"].Value != null &&
+            if (activeRow.Cells["ManufacturerId"].Value != DBNull.Value &&
                 Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value) > 0)
             {
                 int manufacturerId = Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value);
@@ -320,9 +364,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetCreateLine_Click(object sender, EventArgs e)
         {
+            this.grdTenderLines_InitializeLayout(null, null);
             DataRow newRow = this.dtTenderLines.NewRow();
             this.dtTenderLines.Rows.Add(newRow);
-            newRow["TenderLineId"] = -1;
+            newRow["ManufacturerId"] = -1;
             this.dtTenderLines.AcceptChanges();
         }
 
@@ -332,7 +377,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow == null) return;
 
-            if (activeRow.Cells["TenderLineId"].Value != null &&
+            if (activeRow.Cells["TenderLineId"].Value != DBNull.Value &&
                 Convert.ToInt32(activeRow.Cells["TenderLineId"].Value) > 0)
             {
                 int tenderLineId = Convert.ToInt32(activeRow.Cells["TenderLineId"].Value);

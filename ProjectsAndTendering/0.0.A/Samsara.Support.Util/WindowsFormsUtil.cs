@@ -26,22 +26,24 @@ namespace Samsara.Support.Util
         }
 
         public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
-            int bandIndex, string valueMember, string displayMember)
+            UltraGridBand band, string valueMember, string displayMember)
         {
             ValueList vl;
 
             if (!layout.ValueLists.Exists(typeof(T).Name + valueMember + displayMember))
-            {
                 vl = layout.ValueLists.Add(typeof(T).Name + valueMember + displayMember);
-                vl.ValueListItems.Add(-1, "Seleccione");
-                foreach (T entity in collection)
-                {
-                    vl.ValueListItems.Add(entity.GetType().GetProperty(valueMember).GetValue(entity, null),
-                        entity.GetType().GetProperty(displayMember).GetValue(entity, null).ToString());
-                }
+
+            vl = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
+            vl.ValueListItems.Clear();
+            vl.ValueListItems.Add(-1, "Seleccione");
+
+            foreach (T entity in collection)
+            {
+                vl.ValueListItems.Add(entity.GetType().GetProperty(valueMember).GetValue(entity, null),
+                    entity.GetType().GetProperty(displayMember).GetValue(entity, null).ToString());
             }
-            layout.Bands[bandIndex].Columns[valueMember].ValueList
-                = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
+
+            band.Columns[valueMember].ValueList = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
         }
     }
 }

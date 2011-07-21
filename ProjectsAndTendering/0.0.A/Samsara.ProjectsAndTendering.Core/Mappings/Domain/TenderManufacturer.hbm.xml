@@ -13,10 +13,6 @@
     <property name="FolioReference"/>
     <property name="ManufacturerSupport"/>
     
-    <many-to-one name="Manufacturer"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
-                 column="ManufacturerId"/>
-    
   </class>
 
 </hibernate-mapping>

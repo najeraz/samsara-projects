@@ -6,6 +6,9 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
     public class Tender : GenericEntity
     {
+        private ISet<TenderManufacturer> tenderManufacturers;
+        private ISet<TenderLine> tenderLines;
+
         public Tender()
         {
             TenderId = -1;
@@ -107,16 +110,34 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual Set<TenderManufacturer> TenderManufacturers
+        public virtual ISet<TenderManufacturer> TenderManufacturers
         {
-            get;
-            set;
+            get
+            {
+                if (this.tenderManufacturers == null)
+                    this.tenderManufacturers = new HashedSet<TenderManufacturer>();
+
+                return this.tenderManufacturers;
+            }
+            set
+            {
+                this.tenderManufacturers = value;
+            }
         }
 
-        public virtual Set<TenderLine> TenderLines
+        public virtual ISet<TenderLine> TenderLines
         {
-            get;
-            set;
+            get
+            {
+                if (this.tenderLines == null)
+                    this.tenderLines = new HashedSet<TenderLine>();
+
+                return this.tenderLines;
+            }
+            set
+            {
+                this.tenderLines = value;
+            }
         }
 
         public virtual TenderStatus TenderStatus
