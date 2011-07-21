@@ -86,6 +86,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual string AcquisitionReason
+        {
+            get;
+            set;
+        }
+
         public virtual string PreResults
         {
             get;
