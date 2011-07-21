@@ -90,6 +90,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceDetBidder,
                 dicBidders.Values, "BidderId", "Name");
 
+            this.frmTendering.uceSchBidder.ValueChanged += new EventHandler(uceSchBidder_ValueChanged);
+            this.frmTendering.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
+
             // Dependency
             LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
             pmtLoadDependencies.BidderId = -1;
@@ -100,6 +103,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicDependencies.Values, "DependencyId", "Name");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
                 dicDependencies.Values, "DependencyId", "Name");
+
+            this.frmTendering.uceSchDependency.ValueChanged += new EventHandler(uceSchDependency_ValueChanged);
+            this.frmTendering.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
 
             // EndUser
             LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
@@ -539,6 +545,48 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTendering.tabDetDetail.TabPages.Remove(this.hiddenTenderDetailTab);
             else if (!this.frmTendering.tabDetDetail.TabPages.ContainsKey("TenderDetails"))
                 this.frmTendering.tabDetDetail.TabPages.Add(this.hiddenTenderDetailTab);
+        }
+
+        private void uceSchBidder_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
+            pmtLoadDependencies.BidderId = Convert.ToInt32(this.frmTendering.uceSchBidder.Value);
+            Dictionary<int, Dependency> dicDependencies =
+                srvDependency.LoadDependencies(pmtLoadDependencies);
+
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
+                dicDependencies.Values, "DependencyId", "Name");
+        }
+
+        private void uceDetBidder_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
+            pmtLoadDependencies.BidderId = Convert.ToInt32(this.frmTendering.uceDetBidder.Value);
+            Dictionary<int, Dependency> dicDependencies =
+                srvDependency.LoadDependencies(pmtLoadDependencies);
+
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
+                dicDependencies.Values, "DependencyId", "Name");
+        }
+
+        private void uceSchDependency_ValueChanged(object sender, EventArgs e)
+        {
+            LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
+            pmtLoadEndUsers.DependencyId = Convert.ToInt32(this.frmTendering.uceSchDependency.Value);
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
+
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
+                dicEndUsers.Values, "EndUserId", "Name");
+        }
+
+        private void uceDetDependency_ValueChanged(object sender, EventArgs e)
+        {
+            LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
+            pmtLoadEndUsers.DependencyId = Convert.ToInt32(this.frmTendering.uceDetDependency.Value);
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
+
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
+                dicEndUsers.Values, "EndUserId", "Name");
         }
         #endregion Events
     }
