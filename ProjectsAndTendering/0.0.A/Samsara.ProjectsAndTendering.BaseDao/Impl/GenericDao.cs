@@ -9,6 +9,7 @@ using Samsara.Support.Util;
 using NHibernate.Criterion;
 using NHibernate.Impl;
 using System.Collections;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 {
@@ -69,55 +70,55 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return detachedCriteria.GetExecutableCriteria(Session).List<TType>();
         }
 
-        public IList<T> GetListByObjectProperties(string queryName, object obj)
+        public IList<T> GetListByParameters(string queryName, GenericParameters parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
 
-            foreach (PropertyInfo pInfo in obj.GetType().GetProperties())
+            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
             {
-                if (pInfo.GetValue(obj, null) != null)
+                if (pInfo.GetValue(parameters, null) != null)
                 {
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(obj, null));
+                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                        dnq.SetString(pInfo.Name, (string)pInfo.GetValue(obj, null));
+                        dnq.SetString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
                     else
-                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(obj, null));
+                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
                 }
             }
 
             return this.GetList<T>(dnq);
         }
 
-        public IList GetObjectListByObjectProperties(string queryName, object obj)
+        public IList GetGenericListByParameters(string queryName, GenericParameters parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
 
-            foreach (PropertyInfo pInfo in obj.GetType().GetProperties())
+            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
             {
-                if (pInfo.GetValue(obj, null) != null)
+                if (pInfo.GetValue(parameters, null) != null)
                 {
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(obj, null));
+                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                        dnq.SetAnsiString(pInfo.Name, (string)pInfo.GetValue(obj, null));
+                        dnq.SetAnsiString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
                     else
-                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(obj, null));
+                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
                 }
             }
 
             return this.GetObjectList(dnq);
         }
 
-        public DataTable DataTableByObjectProperties(string queryName, object obj)
+        public DataTable DataTableByParameters(string queryName, GenericParameters parameters)
         {
-            IList lstResult = GetObjectListByObjectProperties(queryName, obj);
+            IList lstResult = GetGenericListByParameters(queryName, parameters);
             return CollectionsUtil.ConvertToDataTable(lstResult);
         }
 
-        public DataTable DataTableTypedByObjectProperties<TType>(string queryName, object obj)
+        public DataTable DataTableTypedByParameters<TType>(string queryName, GenericParameters parameters)
         {
-            IList lstResult = GetObjectListByObjectProperties(queryName, obj);
+            IList lstResult = GetGenericListByParameters(queryName, parameters);
             return CollectionsUtil.ConvertToDataTable<TType>(lstResult.Cast<TType>().ToList());
         }
         

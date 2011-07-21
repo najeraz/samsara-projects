@@ -108,7 +108,7 @@
             this.upDetSeparator143 = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetNewManufacturer = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator432 = new Infragistics.Win.Misc.UltraPanel();
-            this.Lines = new System.Windows.Forms.TabPage();
+            this.TenderLines = new System.Windows.Forms.TabPage();
             this.grdTenderLines = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.pnlDetLineButtons = new System.Windows.Forms.Panel();
             this.upDetSeparator4534 = new Infragistics.Win.Misc.UltraPanel();
@@ -172,7 +172,7 @@
             this.upDetSeparator123.SuspendLayout();
             this.upDetSeparator143.SuspendLayout();
             this.upDetSeparator432.SuspendLayout();
-            this.Lines.SuspendLayout();
+            this.TenderLines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenderLines)).BeginInit();
             this.pnlDetLineButtons.SuspendLayout();
             this.upDetSeparator4534.SuspendLayout();
@@ -560,7 +560,7 @@
             this.tcDetTextControls.Controls.Add(this.Preresultados);
             this.tcDetTextControls.Controls.Add(this.Resultados);
             this.tcDetTextControls.Controls.Add(this.Manufacturers);
-            this.tcDetTextControls.Controls.Add(this.Lines);
+            this.tcDetTextControls.Controls.Add(this.TenderLines);
             this.tcDetTextControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcDetTextControls.Location = new System.Drawing.Point(0, 0);
             this.tcDetTextControls.Name = "tcDetTextControls";
@@ -778,17 +778,17 @@
             this.upDetSeparator432.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator432.TabIndex = 6;
             // 
-            // Lines
+            // TenderLines
             // 
-            this.Lines.Controls.Add(this.grdTenderLines);
-            this.Lines.Controls.Add(this.pnlDetLineButtons);
-            this.Lines.Location = new System.Drawing.Point(4, 22);
-            this.Lines.Name = "Lines";
-            this.Lines.Padding = new System.Windows.Forms.Padding(3);
-            this.Lines.Size = new System.Drawing.Size(728, 290);
-            this.Lines.TabIndex = 5;
-            this.Lines.Text = "Partidas";
-            this.Lines.UseVisualStyleBackColor = true;
+            this.TenderLines.Controls.Add(this.grdTenderLines);
+            this.TenderLines.Controls.Add(this.pnlDetLineButtons);
+            this.TenderLines.Location = new System.Drawing.Point(4, 22);
+            this.TenderLines.Name = "TenderLines";
+            this.TenderLines.Padding = new System.Windows.Forms.Padding(3);
+            this.TenderLines.Size = new System.Drawing.Size(728, 290);
+            this.TenderLines.TabIndex = 5;
+            this.TenderLines.Text = "Partidas";
+            this.TenderLines.UseVisualStyleBackColor = true;
             // 
             // grdTenderLines
             // 
@@ -1132,7 +1132,7 @@
             this.upDetSeparator123.ResumeLayout(false);
             this.upDetSeparator143.ResumeLayout(false);
             this.upDetSeparator432.ResumeLayout(false);
-            this.Lines.ResumeLayout(false);
+            this.TenderLines.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTenderLines)).EndInit();
             this.pnlDetLineButtons.ResumeLayout(false);
             this.upDetSeparator4534.ResumeLayout(false);
@@ -1198,7 +1198,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetAsesor;
         internal System.Windows.Forms.TabControl tabDetDetail;
         private System.Windows.Forms.TabPage TenderDetails;
-        private System.Windows.Forms.TabControl tcDetTextControls;
         private System.Windows.Forms.TabPage EstrategiaPrecios;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPricingStrategy;
         private System.Windows.Forms.TabPage Preresultados;
@@ -1217,7 +1216,7 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator123;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator143;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator432;
-        private System.Windows.Forms.TabPage Lines;
+        private System.Windows.Forms.TabPage TenderLines;
         internal Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid grdTenderLines;
         private System.Windows.Forms.Panel pnlDetLineButtons;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteManufacturer;
@@ -1232,6 +1231,7 @@
         private Samsara.ProjectsAndTendering.Controls.SamsaraTenderControl stcPreviousTender;
         private System.Windows.Forms.TabPage Reason;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
+        internal System.Windows.Forms.TabControl tcDetTextControls;
 
 
 

@@ -6,9 +6,9 @@ using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchTenderManufacturerParameters : GenericParameters
+    public class LoadDependenciesParameters : GenericParameters
     {
-        public int? TenderId
+        public int? BidderId
         {
             get;
             set;

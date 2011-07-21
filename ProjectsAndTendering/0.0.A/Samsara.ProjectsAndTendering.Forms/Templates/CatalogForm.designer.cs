@@ -58,7 +58,7 @@
             this.gbxDetDetail = new System.Windows.Forms.GroupBox();
             this.pnlDetCtgButtons = new System.Windows.Forms.Panel();
             this.upDetSeparator3 = new Infragistics.Win.Misc.UltraPanel();
-            this.btnDetAccept = new System.Windows.Forms.Button();
+            this.btnDetSave = new System.Windows.Forms.Button();
             this.upDetSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetCancel = new System.Windows.Forms.Button();
             this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
@@ -301,7 +301,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator3);
-            this.pnlDetCtgButtons.Controls.Add(this.btnDetAccept);
+            this.pnlDetCtgButtons.Controls.Add(this.btnDetSave);
             this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator2);
             this.pnlDetCtgButtons.Controls.Add(this.btnDetCancel);
             this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator1);
@@ -321,15 +321,15 @@
             this.upDetSeparator3.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator3.TabIndex = 9;
             // 
-            // btnDetAccept
+            // btnDetSave
             // 
-            this.btnDetAccept.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDetAccept.Location = new System.Drawing.Point(444, 0);
-            this.btnDetAccept.Name = "btnDetAccept";
-            this.btnDetAccept.Size = new System.Drawing.Size(75, 25);
-            this.btnDetAccept.TabIndex = 0;
-            this.btnDetAccept.Text = "Aceptar";
-            this.btnDetAccept.UseVisualStyleBackColor = true;
+            this.btnDetSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetSave.Location = new System.Drawing.Point(444, 0);
+            this.btnDetSave.Name = "btnDetSave";
+            this.btnDetSave.Size = new System.Drawing.Size(75, 25);
+            this.btnDetSave.TabIndex = 0;
+            this.btnDetSave.Text = "Guardar";
+            this.btnDetSave.UseVisualStyleBackColor = true;
             // 
             // upDetSeparator2
             // 
@@ -407,6 +407,6 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator3;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator2;
         internal System.Windows.Forms.Button btnDetCancel;
-        internal System.Windows.Forms.Button btnDetAccept;
+        internal System.Windows.Forms.Button btnDetSave;
     }
 }

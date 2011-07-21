@@ -16,20 +16,20 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 
         public DataTable SearchTenders(SearchTendersParameters pmtSearchTenders)
         {
-            return this.DataTableByObjectProperties("SearchTenders", pmtSearchTenders);
+            return this.DataTableByParameters("SearchTenders", pmtSearchTenders);
         }
 
         public DataTable SearchTenderLines(SearchTenderLinesParameters
             pmtSearchTenderLines)
         {
-            return this.DataTableTypedByObjectProperties<TenderLine>(
+            return this.DataTableTypedByParameters<TenderLine>(
                 "SearchTenderLines", pmtSearchTenderLines);
         }
 
         public DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
             pmtSearchTenderManufacturer)
         {
-            return this.DataTableTypedByObjectProperties<TenderManufacturer>(
+            return this.DataTableTypedByParameters<TenderManufacturer>(
                 "SearchTenderManufacturers", pmtSearchTenderManufacturer);
         }
 

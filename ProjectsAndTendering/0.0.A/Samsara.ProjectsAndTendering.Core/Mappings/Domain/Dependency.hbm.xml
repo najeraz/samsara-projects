@@ -22,5 +22,11 @@
     ]]>
   </query>
 
+  <query name="LoadDependenciesByBidderId">
+    <![CDATA[
+        from Dependency where BidderId = :BidderId and Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
 
 </hibernate-mapping>
