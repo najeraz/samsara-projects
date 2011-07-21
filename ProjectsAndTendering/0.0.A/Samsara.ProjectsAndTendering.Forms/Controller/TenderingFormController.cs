@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using Iesi.Collections.Generic;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
@@ -14,7 +14,6 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
-using Infragistics.Win;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -33,6 +32,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IManufacturerService srvManufacturer;
         private DataTable dtTenderLines;
         private DataTable dtTenderManufacturers;
+        private TabPage hiddenTenderDetailTab;
 
         #endregion Attributes
 
@@ -105,17 +105,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicEndUsers.Values.ToList(), "EndUserId", "Name");
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
                 dicEndUsers.Values.ToList(), "EndUserId", "Name");
-
-            this.frmTendering.uosSchDates.Value = -1;
-            this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
-            this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
-            this.frmTendering.btnDetAccept.Click += new EventHandler(btnDetAccept_Click);
-            this.frmTendering.ubtnDetDeleteManufacturer.Click += 
-                new EventHandler(ubtnDetDeleteManufacturer_Click);
-            this.frmTendering.ubtnDetNewManufacturer.Click += 
-                new EventHandler(ubtnDetNewManufacturer_Click);
-            this.frmTendering.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
-            this.frmTendering.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
             
             //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
@@ -141,6 +130,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.grdDetTenderManufacturers.DataSource = null;
             this.frmTendering.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 
+            this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
+            this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
+            this.frmTendering.btnDetAccept.Click += new EventHandler(btnDetAccept_Click);
+            this.frmTendering.ubtnDetDeleteManufacturer.Click +=
+                new EventHandler(ubtnDetDeleteManufacturer_Click);
+            this.frmTendering.ubtnDetNewManufacturer.Click +=
+                new EventHandler(ubtnDetNewManufacturer_Click);
+            this.frmTendering.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
+            this.frmTendering.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
+            this.frmTendering.uchkDetIsOpportunity.CheckedChanged +=
+                new EventHandler(uchkDetIsOpportunity_CheckedChanged);
+
+            this.hiddenTenderDetailTab = this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
+            this.frmTendering.uosSchDates.Value = -1;
+            this.frmTendering.uchkDetIsOpportunity.Checked = true;
             this.frmTendering.HiddenDetail(true);
         }
 
@@ -159,9 +163,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.frmTendering.uceDetBidder.Value != null ||
                 Convert.ToInt32(this.frmTendering.uceDetBidder.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar el Licitante", 
+                MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmTendering.tabDetDetail.SelectedTab = this.frmTendering.tabDetDetail.TabPages["Principal"];
                 this.frmTendering.uceDetBidder.Focus();
+                return false;
+            }
+
+            if (this.frmTendering.txtDetTenderName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Favor de elegir un nombre para la Licitación.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmTendering.tabDetDetail.SelectedTab = this.frmTendering.tabDetDetail.TabPages["Principal"];
+                this.frmTendering.txtDetTenderName.Focus();
                 return false;
             }
 
@@ -223,11 +237,84 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PreRevisionDate = this.frmTendering.dteDetPrerevisionDate.DateTime;
             this.tender.RegistrationDate = this.frmTendering.dteDetRegistrationDate.DateTime;
             this.tender.VerdictDate = this.frmTendering.dteDetVeredictDate.DateTime;
-            this.tender.AcquisitionReason = this.frmTendering.txtDetAcquisitionReason.Text;
             this.tender.Address = this.frmTendering.txtDetAddress.Text;
+            this.tender.AcquisitionReason = this.frmTendering.txtDetAcquisitionReason.Text;
+            this.tender.PricingStrategy = this.frmTendering.txtDetPricingStrategy.Text;
+            this.tender.Results = this.frmTendering.txtDetResults.Text;
+            this.tender.PreResults = this.frmTendering.txtDetPreResults.Text;
+
+            this.LoadManufacturers();
+            this.LoadTenderLines();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
+        }
+
+        private void LoadTenderLines()
+        {
+            foreach (DataRow row in this.dtTenderLines.Rows)
+            {
+                TenderLine tenderLine = new TenderLine();
+
+                tenderLine.Cost = Convert.ToDecimal(row["Cost"]);
+                tenderLine.Description = row["Description"].ToString();
+                tenderLine.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
+                tenderLine.Name = row["Name"].ToString();
+                tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
+                tenderLine.Activated = true;
+                tenderLine.Deleted = false;
+            }
+        }
+
+        private void LoadManufacturers()
+        {
+            foreach (DataRow row in this.dtTenderManufacturers.Rows)
+            {
+                TenderManufacturer tenderManufacturer = new TenderManufacturer();
+
+                tenderManufacturer.FolioReference = row["FolioReference"].ToString();
+                tenderManufacturer.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
+                tenderManufacturer.ManufacturerSupport = row["ManufacturerSupport"].ToString();
+
+                this.tender.TenderManufacturers.Add(tenderManufacturer);
+            }
+        }
+
+        private void CleanDetailControls()
+        {
+            this.frmTendering.uceDetApprovedBy.Value = -1;
+            this.frmTendering.uceDetAsesor.Value = -1;
+            this.frmTendering.uceDetBidder.Value = -1;
+            this.frmTendering.uceDetDependency.Value = -1;
+            this.frmTendering.uceDetEndUser.Value = -1;
+            this.frmTendering.uceDetTenderStatus.Value = -1;
+            this.frmTendering.txtDetAcquisitionReason.Text = string.Empty;
+            this.frmTendering.txtDetAddress.Text = string.Empty;
+            this.frmTendering.txtDetPreResults.Text = string.Empty;
+            this.frmTendering.txtDetPricingStrategy.Text = string.Empty;
+            this.frmTendering.txtDetResults.Text = string.Empty;
+            this.frmTendering.txtDetTenderName.Text = string.Empty;
+            this.frmTendering.dteDetClarificationDate.DateTime = DateTime.Now;
+            this.frmTendering.dteDetDeadline.DateTime = DateTime.Now;
+            this.frmTendering.dteDetPrerevisionDate.DateTime = DateTime.Now;
+            this.frmTendering.dteDetRegistrationDate.DateTime = DateTime.Now;
+            this.frmTendering.dteDetVeredictDate.DateTime = DateTime.Now;
+            this.frmTendering.uchkDetIsOpportunity.Checked = true;
+            this.dtTenderLines.Rows.Clear();
+            this.dtTenderManufacturers.Rows.Clear();
+        }
+
+        private void ClearSearchControls()
+        {
+            this.frmTendering.txtSchTenderName.Text = string.Empty;
+            this.frmTendering.uceSchAsesor.Value = -1;
+            this.frmTendering.uceSchBidder.Value = -1;
+            this.frmTendering.uceSchDependency.Value = -1;
+            this.frmTendering.uceSchEndUser.Value = -1;
+            this.frmTendering.uceSchTenderStatus.Value = -1;
+            this.frmTendering.uosSchDates.Value = -1;
+            this.frmTendering.dteSchMaxDate.DateTime = DateTime.Now;
+            this.frmTendering.dteSchMinDate.DateTime = DateTime.Now;
         }
 
         #endregion Methods
@@ -255,8 +342,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
-            this.ShowDetail(true);
             this.tender = new Tender();
+            this.CleanDetailControls();
+            this.ShowDetail(true);
         }
 
         private void btnDetAccept_Click(object sender, EventArgs e)
@@ -394,6 +482,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
         }
 
+        private void uchkDetIsOpportunity_CheckedChanged(object sender, EventArgs e)
+        {
+            this.frmTendering.dteDetDeadline.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.txtDetAddress.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetVeredictDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.uceDetApprovedBy.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetClarificationDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetPrerevisionDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetClarificationDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+
+            if (this.frmTendering.uchkDetIsOpportunity.Checked)
+                this.frmTendering.tabDetDetail.TabPages.Remove(this.hiddenTenderDetailTab);
+            else if (!this.frmTendering.tabDetDetail.TabPages.ContainsKey("TenderDetails"))
+                this.frmTendering.tabDetDetail.TabPages.Add(this.hiddenTenderDetailTab);
+        }
         #endregion Events
     }
 }
