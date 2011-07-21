@@ -8,7 +8,8 @@
     <id name="EndUserId" type="int">
       <generator class="native"/>
     </id>
-
+    
+    <property name="DependencyId"/>
     <property name="Name"/>
     <property name="Deleted"/>
     <property name="Activated"/>
@@ -18,6 +19,12 @@
   <query name="LoadEndUsers">
     <![CDATA[
         from EndUser where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="LoadEndUsersByDependencyId">
+    <![CDATA[
+        from EndUser where DependencyId = :DependencyId and Deleted = 0 and Activated = 1
     ]]>
   </query>
 

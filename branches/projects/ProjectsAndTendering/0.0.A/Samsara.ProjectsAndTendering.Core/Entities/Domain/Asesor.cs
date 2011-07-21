@@ -22,6 +22,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual string FullName
+        {
+            get;
+            set;
+        }
+
         public virtual bool CanApprove
         {
             get;

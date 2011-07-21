@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Infragistics.Win.UltraWinEditors;
 using Infragistics.Win.UltraWinGrid;
@@ -9,14 +10,14 @@ namespace Samsara.Support.Util
 {
     public class WindowsFormsUtil
     {
-        public static void LoadCombo<T>(UltraComboEditor combo, IList<T> collection, 
+        public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection, 
             string valueMember, string displayMember)
         {
             T blankEntity = (T)Activator.CreateInstance(typeof(T));
 
             blankEntity.GetType().GetProperty(valueMember).SetValue(blankEntity, -1, null);
             blankEntity.GetType().GetProperty(displayMember).SetValue(blankEntity, "Seleccione", null);
-            collection.Insert(0, blankEntity);
+            collection.ToList().Insert(0, blankEntity);
 
             combo.DataSource = null;
             combo.DataSource = collection;

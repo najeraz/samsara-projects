@@ -3,6 +3,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using System.Collections.Generic;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
@@ -22,6 +23,11 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
         #endregion Properties
 
         #region Methods
+
+        public Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies)
+        {
+            return this.DependencyDao.LoadDependencies(pmtLoadDependencies);
+        }
 
         public Dictionary<int, Dependency> LoadDependencies()
         {

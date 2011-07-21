@@ -4,6 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using System.Linq;
 using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
@@ -23,6 +24,11 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
         #endregion Properties
 
         #region Methods
+
+        public Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers)
+        {
+            return this.EndUserDao.LoadEndUsers(pmtLoadEndUsers);
+        }
 
         public Dictionary<int, EndUser> LoadEndUsers()
         {

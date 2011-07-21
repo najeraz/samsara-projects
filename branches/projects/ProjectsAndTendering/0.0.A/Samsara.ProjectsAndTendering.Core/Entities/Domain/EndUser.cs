@@ -16,6 +16,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual int DependencyId
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;

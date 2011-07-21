@@ -10,6 +10,7 @@
     </id>
 
     <property name="Name"/>
+    <property name="FullName"/>
     <property name="CanApprove"/>
     <property name="Deleted"/>
     <property name="Activated"/>

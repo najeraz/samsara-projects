@@ -71,6 +71,9 @@
     <Compile Include="Entities\Domain\Manufacturer.cs" />
     <Compile Include="Entities\Domain\Dependency.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
+    <Compile Include="Parameters\GenericParameters.cs" />
+    <Compile Include="Parameters\LoadEndUsersParameters.cs" />
+    <Compile Include="Parameters\LoadDependenciesParameters.cs" />
     <Compile Include="Parameters\SearchTenderLinesParameters.cs" />
     <Compile Include="Parameters\SearchTenderManufacturersParameters.cs" />
     <Compile Include="Parameters\SearchTendersParameters.cs" />

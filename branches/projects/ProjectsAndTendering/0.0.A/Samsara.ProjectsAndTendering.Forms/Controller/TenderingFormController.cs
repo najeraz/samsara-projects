@@ -68,9 +68,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Dictionary<int, Asesor> dicAsesors = srvAsesor.LoadAsesors();
 
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceSchAsesor,
-                dicAsesors.Values.ToList(), "AsesorId", "Name");
+                dicAsesors.Values, "AsesorId", "Name");
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetAsesor,
-                dicAsesors.Values.ToList(), "AsesorId", "Name");
+                dicAsesors.Values, "AsesorId", "Name");
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetApprovedBy,
                 dicAsesors.Values.Where(x => x.CanApprove == true).ToList(), "AsesorId", "Name");
 
@@ -78,33 +78,38 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Dictionary<int, TenderStatus> dicTenderStatuses = srvTenderStatus.LoadTenderStatuses();
 
             WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTendering.uceSchTenderStatus,
-                dicTenderStatuses.Values.ToList(), "TenderStatusId", "Name");
+                dicTenderStatuses.Values, "TenderStatusId", "Name");
             WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTendering.uceDetTenderStatus,
-                dicTenderStatuses.Values.ToList(), "TenderStatusId", "Name");
+                dicTenderStatuses.Values, "TenderStatusId", "Name");
 
             // Bidder
             Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders();
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceSchBidder,
-                dicBidders.Values.ToList(), "BidderId", "Name");
+                dicBidders.Values, "BidderId", "Name");
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceDetBidder,
-                dicBidders.Values.ToList(), "BidderId", "Name");
+                dicBidders.Values, "BidderId", "Name");
 
             // Dependency
-            Dictionary<int, Dependency> dicDependencies = srvDependency.LoadDependencies();
+            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
+            pmtLoadDependencies.BidderId = -1;
+            Dictionary<int, Dependency> dicDependencies = 
+                srvDependency.LoadDependencies(pmtLoadDependencies);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
-                dicDependencies.Values.ToList(), "DependencyId", "Name");
+                dicDependencies.Values, "DependencyId", "Name");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
-                dicDependencies.Values.ToList(), "DependencyId", "Name");
+                dicDependencies.Values, "DependencyId", "Name");
 
             // EndUser
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers();
+            LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
+            pmtLoadEndUsers.DependencyId = -1;
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
-                dicEndUsers.Values.ToList(), "EndUserId", "Name");
+                dicEndUsers.Values, "EndUserId", "Name");
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
-                dicEndUsers.Values.ToList(), "EndUserId", "Name");
+                dicEndUsers.Values, "EndUserId", "Name");
             
             //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
@@ -132,7 +137,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
-            this.frmTendering.btnDetAccept.Click += new EventHandler(btnDetAccept_Click);
+            this.frmTendering.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmTendering.ubtnDetDeleteManufacturer.Click +=
                 new EventHandler(ubtnDetDeleteManufacturer_Click);
             this.frmTendering.ubtnDetNewManufacturer.Click +=
@@ -165,7 +170,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmTendering.tabDetDetail.SelectedTab = this.frmTendering.tabDetDetail.TabPages["Principal"];
+                this.frmTendering.tabDetDetail.SelectedTab = 
+                    this.frmTendering.tabDetDetail.TabPages["Principal"];
                 this.frmTendering.uceDetBidder.Focus();
                 return false;
             }
@@ -174,9 +180,39 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 MessageBox.Show("Favor de elegir un nombre para la Licitación.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmTendering.tabDetDetail.SelectedTab = this.frmTendering.tabDetDetail.TabPages["Principal"];
+                this.frmTendering.tabDetDetail.SelectedTab = 
+                    this.frmTendering.tabDetDetail.TabPages["Principal"];
                 this.frmTendering.txtDetTenderName.Focus();
                 return false;
+            }
+
+            foreach (DataRow row in this.dtTenderLines.Rows)
+            {
+                if (Convert.ToInt32(row["ManufacturerId"]) == -1)
+                {
+                    MessageBox.Show(
+                        "Debe seleccionar un fabricante por renglon en la lista de fabricantes.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTendering.tabDetDetail.SelectedTab =
+                        this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTendering.tcDetTextControls.SelectedTab =
+                        this.frmTendering.tcDetTextControls.TabPages["Manufacturers"];
+                    return false;
+                }
+            }
+
+            foreach (DataRow row in this.dtTenderManufacturers.Rows)
+            {
+                if (Convert.ToInt32(row["ManufacturerId"]) == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un fabricante por partida.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTendering.tabDetDetail.SelectedTab =
+                        this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTendering.tcDetTextControls.SelectedTab =
+                        this.frmTendering.tcDetTextControls.TabPages["TenderLines"];
+                    return false;
+                }
             }
 
             return true;
@@ -254,11 +290,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
-                TenderLine tenderLine = new TenderLine();
+                TenderLine tenderLine = this.tender.TenderLines
+                    .Single(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
 
                 tenderLine.Cost = Convert.ToDecimal(row["Cost"]);
                 tenderLine.Description = row["Description"].ToString();
-                tenderLine.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
                 tenderLine.Name = row["Name"].ToString();
                 tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
                 tenderLine.Activated = true;
@@ -317,6 +353,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.dteSchMinDate.DateTime = DateTime.Now;
         }
 
+        private void SaveTender()
+        {
+            if (this.ValidateFormInformation())
+            {
+                this.LoadEntity();
+                this.srvTender.SaveOrUpdateTender(this.tender);
+            }
+        }
+
         #endregion Methods
         
         #region Events
@@ -347,9 +392,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.ShowDetail(true);
         }
 
-        private void btnDetAccept_Click(object sender, EventArgs e)
+        private void btnDetSave_Click(object sender, EventArgs e)
         {
-            this.ValidateFormInformation();
+            this.SaveTender();
         }
         
         private void grdTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -377,9 +422,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void grdTenderLines_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
-            UltraGridRow activeRow = this.frmTendering.grdTenderLines.ActiveRow;
-            if (activeRow == null) return;
-            activeRow.PerformAutoSize();                       
+            e.Cell.Row.PerformAutoSize();
         }
 
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -401,9 +444,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void grdDetTenderManufacturers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
+            e.Cell.Row.PerformAutoSize();
             UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
             if (activeRow == null) return;
-            activeRow.PerformAutoSize();
 
             if (e.Cell.Column.Key == "ManufacturerId" && Convert.ToInt32(e.NewValue) != -1)
             {
