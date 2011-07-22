@@ -15,10 +15,16 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 {
     public class GenericDao<T, TId> : HibernateDaoSupport, IGenericDao<T, TId>
     {
-        #region IGenericDao<T,TId> Members
+        #region Constructor
 
         public void GetConfiguration() {
         }
+
+        #endregion Constructor
+
+        #region Methods
+        
+        #region Public
 
         public IList<T> GetAll() {
             return HibernateTemplate.LoadAll<T>();
@@ -78,44 +84,13 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         public IList<T> GetListByParameters(string queryName, GenericParameters parameters)
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
-
-            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
-            {
-                if (pInfo.GetValue(parameters, null) != null)
-                {
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                        dnq.SetString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
-                    else
-                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
-                }
-            }
-
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetList<T>(dnq);
         }
 
         public IList GetGenericListByParameters(string queryName, GenericParameters parameters)
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
-
-            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
-            {
-                if (pInfo.GetValue(parameters, null) != null)
-                {
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                        dnq.SetAnsiString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
-                    if (Nullable.GetUnderlyingType(pInfo.PropertyType) != null
-                        && Nullable.GetUnderlyingType(pInfo.PropertyType).IsEnum)
-                        dnq.SetInt32(pInfo.Name, (int)pInfo.GetValue(parameters, null));
-                    else
-                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
-                }
-            }
-
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetObjectList(dnq);
         }
 
@@ -130,7 +105,36 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             IList lstResult = GetGenericListByParameters(queryName, parameters);
             return CollectionsUtil.ConvertToDataTable<TType>(lstResult.Cast<TType>().ToList());
         }
-        
-        #endregion
+
+        #endregion Public
+
+        #region Private
+
+        private DetachedNamedQuery GetDetachedNamedQuery(string queryName, GenericParameters parameters)
+        {
+            DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
+
+            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
+            {
+                if (pInfo.GetValue(parameters, null) != null)
+                {
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
+                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
+                        dnq.SetString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
+                    if (Nullable.GetUnderlyingType(pInfo.PropertyType) != null
+                        && Nullable.GetUnderlyingType(pInfo.PropertyType).IsEnum)
+                        dnq.SetInt32(pInfo.Name, (int)pInfo.GetValue(parameters, null));
+                    else
+                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
+                }
+            }
+
+            return dnq;
+        }
+
+        #endregion Private
+
+        #endregion Methods
     }
 }
