@@ -22,7 +22,7 @@ namespace Samsara.Support.Util
 
                     foreach (Object obj in objs)
                     {
-                        row[i++] = obj;
+                        row[i++] = obj == null ? DBNull.Value : obj;
                     }
 
                     table.Rows.Add(row);
@@ -30,7 +30,7 @@ namespace Samsara.Support.Util
 
                 return table;
             }
-            catch { }
+            catch (Exception ex) { ex.ToString(); }
             return null;
         }
 
