@@ -120,8 +120,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             get
             {
-                if (this.tenderManufacturers == null)
-                    this.tenderManufacturers = new HashedSet<TenderManufacturer>();
+                //if (this.tenderManufacturers == null)
+                //    this.tenderManufacturers = new HashedSet<TenderManufacturer>();
 
                 return this.tenderManufacturers;
             }
@@ -135,8 +135,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             get
             {
-                if (this.tenderLines == null)
-                    this.tenderLines = new HashedSet<TenderLine>();
+                //if (this.tenderLines == null)
+                //    this.tenderLines = new HashedSet<TenderLine>();
 
                 return this.tenderLines;
             }

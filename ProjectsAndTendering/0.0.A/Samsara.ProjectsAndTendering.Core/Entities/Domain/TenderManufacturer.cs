@@ -3,7 +3,7 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class TenderManufacturer
+    public class TenderManufacturer : GenericEntity
     {
         public TenderManufacturer()
         {
@@ -47,7 +47,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             if (base.Equals(obj))
                 return true;
 
-            if (this.TenderId == ((Tender)obj).TenderId &&
+            if (this.TenderId == ((TenderManufacturer)obj).TenderId &&
                 this.ManufacturerId == ((TenderManufacturer)obj).ManufacturerId)
             {
                 return true;

@@ -128,6 +128,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.grdTenderLines.DataSource = null;
             this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
 
+            this.frmTendering.grdSchSearch.DoubleClickRow += 
+                new DoubleClickRowEventHandler(grdSchSearch_DoubleClickRow);
+
             //grdDetTenderManufacturers
             this.frmTendering.grdDetTenderManufacturers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
@@ -144,6 +147,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTendering.btnDetSave.Click += new EventHandler(btnDetSave_Click);
+            this.frmTendering.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmTendering.ubtnDetDeleteManufacturer.Click +=
                 new EventHandler(ubtnDetDeleteManufacturer_Click);
             this.frmTendering.ubtnDetNewManufacturer.Click +=
@@ -171,7 +175,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmTendering.uceDetBidder.Value != null ||
+            if (this.frmTendering.uceDetBidder.Value == null ||
                 Convert.ToInt32(this.frmTendering.uceDetBidder.Value) <= 0)
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
@@ -284,6 +288,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PricingStrategy = this.frmTendering.txtDetPricingStrategy.Text;
             this.tender.Results = this.frmTendering.txtDetResults.Text;
             this.tender.PreResults = this.frmTendering.txtDetPreResults.Text;
+            this.tender.Name = this.frmTendering.txtDetTenderName.Text;
 
             this.LoadManufacturers();
             this.LoadTenderLines();
@@ -317,6 +322,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 tenderManufacturer.FolioReference = row["FolioReference"].ToString();
                 tenderManufacturer.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
                 tenderManufacturer.ManufacturerSupport = row["ManufacturerSupport"].ToString();
+                tenderManufacturer.Deleted = false;
+                tenderManufacturer.Activated = true;
 
                 this.tender.TenderManufacturers.Add(tenderManufacturer);
             }
@@ -365,6 +372,70 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 this.LoadEntity();
                 this.srvTender.SaveOrUpdateTender(this.tender);
+                this.frmTendering.HiddenDetail(true);
+            }
+        }
+
+        private void EditTender(int tenderId)
+        {
+            this.tender = this.srvTender.LoadTender(tenderId);
+
+            this.CleanDetailControls();
+            this.LoadFormFromEntity();
+            this.frmTendering.HiddenDetail(false);
+            this.ShowDetail(true);
+        }
+
+        private void LoadFormFromEntity()
+        {
+            this.frmTendering.uceDetApprovedBy.Value = 
+                this.tender.ApprovedBy == null ? -1 : this.tender.ApprovedBy.AsesorId;
+            this.frmTendering.uceDetAsesor.Value =
+                this.tender.Asesor == null ? -1 : this.tender.Asesor.AsesorId;
+            this.frmTendering.uceDetBidder.Value =
+                this.tender.Bidder == null ? -1 : this.tender.Bidder.BidderId;
+            this.frmTendering.uceDetDependency.Value =
+                this.tender.Dependency == null ? -1 : this.tender.Dependency.DependencyId;
+            this.frmTendering.uceDetEndUser.Value =
+                this.tender.EndUser == null ? -1 : this.tender.EndUser.EndUserId;
+            this.frmTendering.uceDetTenderStatus.Value =
+                this.tender.TenderStatus == null ? -1 : this.tender.TenderStatus.TenderStatusId;
+            this.frmTendering.txtDetAcquisitionReason.Text = this.tender.AcquisitionReason;
+            this.frmTendering.txtDetAddress.Text = this.tender.Address;
+            this.frmTendering.txtDetPreResults.Text = this.tender.PreResults;
+            this.frmTendering.txtDetPricingStrategy.Text = this.tender.PricingStrategy;
+            this.frmTendering.txtDetResults.Text = this.tender.Results;
+            this.frmTendering.txtDetTenderName.Text = this.tender.Name;
+            this.frmTendering.dteDetClarificationDate.DateTime = this.tender.ClarificationDate;
+            this.frmTendering.dteDetDeadline.DateTime = this.tender.Deadline;
+            this.frmTendering.dteDetPrerevisionDate.DateTime = this.tender.PreRevisionDate;
+            this.frmTendering.dteDetRegistrationDate.DateTime = this.tender.RegistrationDate;
+            this.frmTendering.dteDetVeredictDate.DateTime = this.tender.VerdictDate;
+            this.frmTendering.uchkDetIsOpportunity.Checked = this.tender.IsOpportunity;
+
+            foreach (TenderLine tenderLine in this.tender.TenderLines)
+            {
+                DataRow row = this.dtTenderLines.NewRow();
+                this.dtTenderLines.Rows.Add(row);
+
+                row["Cost"] = tenderLine.Cost;
+                row["Description"] = tenderLine.Description;
+                row["ManufacturerId"] = tenderLine.ManufacturerId;
+                row["Name"] = tenderLine.Name;
+                row["Quantity"] = tenderLine.Quantity;
+                row["TenderId"] = tenderLine.TenderId;
+                row["TenderLineId"] = tenderLine.TenderLineId;
+            }
+
+            foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
+            {
+                DataRow row = this.dtTenderManufacturers.NewRow();
+                this.dtTenderManufacturers.Rows.Add(row);
+
+                row["FolioReference"] = tenderManufacturer.FolioReference;
+                row["ManufacturerId"] = tenderManufacturer.ManufacturerId;
+                row["ManufacturerSupport"] = tenderManufacturer.ManufacturerSupport;
+                row["TenderId"] = tenderManufacturer.TenderId;
             }
         }
 
@@ -531,6 +602,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
         }
 
+        private void btnDetCancel_Click(object sender, EventArgs e)
+        {
+            this.frmTendering.HiddenDetail(true);
+        }
+        
         private void uchkDetIsOpportunity_CheckedChanged(object sender, EventArgs e)
         {
             this.frmTendering.dteDetDeadline.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
@@ -587,6 +663,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");
+        }
+
+        private void grdSchSearch_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
+        {
+            this.EditTender(Convert.ToInt32(e.Row.Cells["Column1"].Value));
         }
         #endregion Events
     }

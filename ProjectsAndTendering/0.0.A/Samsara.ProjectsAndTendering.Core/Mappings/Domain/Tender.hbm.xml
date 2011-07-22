@@ -8,11 +8,14 @@
     <id name="TenderId" type="int">
       <generator class="native"/>
     </id>
-
+    
+    <property name="PreResults"/>
     <property name="IsOpportunity"/>
+    <property name="AcquisitionReason"/>
     <property name="RegistrationDate"/>
     <property name="Name"/>
     <property name="ClarificationDate"/>
+    <property name="PreRevisionDate"/>
     <property name="Deadline"/>
     <property name="PricingStrategy"/>
     <property name="Results"/>
@@ -43,12 +46,12 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="PreviousTenderId"/>
 
-    <set name="TenderManufacturers" table="TenderManufacturers" lazy="true">
+    <set name="TenderManufacturers" table="TenderManufacturers" lazy="false">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturer, Samsara.ProjectsAndTendering.Core"/>
     </set>
-    <set name="TenderLines" table="TenderLines" lazy="true">
+    <set name="TenderLines" table="TenderLines" lazy="false">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"/>
