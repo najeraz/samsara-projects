@@ -302,7 +302,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
                 TenderLine tenderLine = this.tender.TenderLines
-                    .Single(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
+                    .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
+
+                if (tenderLine == null)
+                    tenderLine = new TenderLine();
 
                 tenderLine.Cost = Convert.ToDecimal(row["Cost"]);
                 tenderLine.Description = row["Description"].ToString();
@@ -317,7 +320,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             foreach (DataRow row in this.dtTenderManufacturers.Rows)
             {
-                TenderManufacturer tenderManufacturer = new TenderManufacturer();
+                TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
+                    .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
+
+                if (tenderManufacturer == null)
+                    tenderManufacturer = new TenderManufacturer();
 
                 tenderManufacturer.FolioReference = row["FolioReference"].ToString();
                 tenderManufacturer.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
