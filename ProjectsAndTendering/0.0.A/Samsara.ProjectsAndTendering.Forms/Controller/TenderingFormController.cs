@@ -305,7 +305,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
 
                 if (tenderLine == null)
+                {
                     tenderLine = new TenderLine();
+                    this.tender.TenderLines.Add(tenderLine);
+                }
 
                 tenderLine.Cost = Convert.ToDecimal(row["Cost"]);
                 tenderLine.Description = row["Description"].ToString();
@@ -313,6 +316,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
                 tenderLine.Activated = true;
                 tenderLine.Deleted = false;
+
             }
         }
 

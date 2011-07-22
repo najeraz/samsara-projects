@@ -24,7 +24,13 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return HibernateTemplate.LoadAll<T>();
         }
 
-        public void Save(T obj) {
+        public void SaveOrUpdate(T obj)
+        {
+            HibernateTemplate.SaveOrUpdate(obj);
+        }
+
+        public void Save(T obj)
+        {
             HibernateTemplate.Save(obj);
         }
 
@@ -102,6 +108,9 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
                         dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
                         dnq.SetAnsiString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
+                    if (Nullable.GetUnderlyingType(pInfo.PropertyType) != null
+                        && Nullable.GetUnderlyingType(pInfo.PropertyType).IsEnum)
+                        dnq.SetInt32(pInfo.Name, (int)pInfo.GetValue(parameters, null));
                     else
                         dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
                 }

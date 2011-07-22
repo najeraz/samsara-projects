@@ -15,6 +15,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
         IList<T> GetList(DetachedCriteria detachedCriteria);
         IList<T> GetList(DetachedQuery dq);
         IList<TType> GetList<TType>(DetachedQuery dq);
+        void SaveOrUpdate(T obj);
         void Save(T obj);
         void Update(T obj);
     }

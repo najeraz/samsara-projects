@@ -46,12 +46,14 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="PreviousTenderId"/>
 
-    <set name="TenderManufacturers" table="TenderManufacturers" lazy="false">
+    <set name="TenderManufacturers" table="TenderManufacturers" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" inverse="true" lazy="false">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturer, Samsara.ProjectsAndTendering.Core"/>
     </set>
-    <set name="TenderLines" table="TenderLines" lazy="false">
+    <set name="TenderLines" table="TenderLines" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" inverse="true" lazy="false">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"/>
