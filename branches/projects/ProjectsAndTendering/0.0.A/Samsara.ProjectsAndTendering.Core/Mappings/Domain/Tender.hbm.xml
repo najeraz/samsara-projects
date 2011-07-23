@@ -47,13 +47,13 @@
                  column="PreviousTenderId"/>
 
     <set name="TenderManufacturers" table="TenderManufacturers" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan" inverse="true" lazy="false">
+         cascade="all-delete-orphan" lazy="false">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturer, Samsara.ProjectsAndTendering.Core"/>
     </set>
     <set name="TenderLines" table="TenderLines" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan" inverse="true" lazy="false">
+         cascade="all-delete-orphan" lazy="false">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"/>
@@ -112,11 +112,11 @@
       AND (t.BidderId = :BidderId OR :BidderId = -1)
       AND (t.DependencyId = :DependencyId OR :DependencyId = -1)
       AND (t.TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
-      AND (:DateTypeSearchId = 1 and :MinDate >= t.RegistrationDate and :MaxDate <= t.RegistrationDate
-        OR :DateTypeSearchId = 2 and :MinDate >= t.Deadline and :MaxDate <= t.Deadline
-        OR :DateTypeSearchId = 3 and :MinDate >= t.VerdictDate and :MaxDate <= t.VerdictDate
-        OR :DateTypeSearchId = 4 and :MinDate >= t.ClarificationDate and :MaxDate <= t.ClarificationDate
-        OR :DateTypeSearchId = 5 and :MinDate >= t.PreRevisionDate and :MaxDate <= t.PreRevisionDate
+      AND (:DateTypeSearchId = 1 and :MinDate <= t.RegistrationDate and :MaxDate >= t.RegistrationDate
+        OR :DateTypeSearchId = 2 and :MinDate <= t.Deadline and :MaxDate >= t.Deadline
+        OR :DateTypeSearchId = 3 and :MinDate <= t.VerdictDate and :MaxDate >= t.VerdictDate
+        OR :DateTypeSearchId = 4 and :MinDate <= t.ClarificationDate and :MaxDate >= t.ClarificationDate
+        OR :DateTypeSearchId = 5 and :MinDate <= t.PreRevisionDate and :MaxDate >= t.PreRevisionDate
         OR :DateTypeSearchId = -1)
     ]]>
   </sql-query>

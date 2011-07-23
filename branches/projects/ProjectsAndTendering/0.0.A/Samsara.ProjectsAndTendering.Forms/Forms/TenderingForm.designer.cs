@@ -193,7 +193,8 @@
             // 
             // pnlDetCtgButtons
             // 
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 364);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -215,6 +216,7 @@
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.tabDetDetail);
+            this.gbxDetDetail.Size = new System.Drawing.Size(750, 361);
             // 
             // btnSchSearch
             // 
@@ -240,7 +242,7 @@
             this.tabDetDetail.Location = new System.Drawing.Point(3, 16);
             this.tabDetDetail.Name = "tabDetDetail";
             this.tabDetDetail.SelectedIndex = 0;
-            this.tabDetDetail.Size = new System.Drawing.Size(620, 367);
+            this.tabDetDetail.Size = new System.Drawing.Size(744, 342);
             this.tabDetDetail.TabIndex = 0;
             // 
             // Principal
@@ -249,7 +251,7 @@
             this.Principal.Location = new System.Drawing.Point(4, 22);
             this.Principal.Name = "Principal";
             this.Principal.Padding = new System.Windows.Forms.Padding(3);
-            this.Principal.Size = new System.Drawing.Size(612, 341);
+            this.Principal.Size = new System.Drawing.Size(736, 316);
             this.Principal.TabIndex = 0;
             this.Principal.Text = "Principal";
             this.Principal.UseVisualStyleBackColor = true;
@@ -290,7 +292,7 @@
             this.upDetControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upDetControls.Location = new System.Drawing.Point(3, 3);
             this.upDetControls.Name = "upDetControls";
-            this.upDetControls.Size = new System.Drawing.Size(606, 335);
+            this.upDetControls.Size = new System.Drawing.Size(730, 310);
             this.upDetControls.TabIndex = 57;
             // 
             // stcPreviousTender
@@ -1084,7 +1086,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 418);
             this.Name = "TenderingForm";
-            this.Text = "Licitación";
+            this.Text = "Catálogo de Licitaciones y Oportunidades";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);

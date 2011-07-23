@@ -299,10 +299,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadTenderLines()
         {
+            foreach (TenderLine tenderLine in this.tender.TenderLines)
+            {
+                tenderLine.Deleted = true;
+                tenderLine.Activated = false;
+            }
+
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
                 TenderLine tenderLine = this.tender.TenderLines
-                    .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
+                    .SingleOrDefault(x => row["TenderLineId"] != DBNull.Value &&
+                        x.TenderId == Convert.ToInt32(row["TenderLineId"]));
 
                 if (tenderLine == null)
                 {
@@ -312,16 +319,22 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 tenderLine.Cost = Convert.ToDecimal(row["Cost"]);
                 tenderLine.Description = row["Description"].ToString();
+                tenderLine.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
                 tenderLine.Name = row["Name"].ToString();
                 tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
                 tenderLine.Activated = true;
                 tenderLine.Deleted = false;
-
             }
         }
 
         private void LoadManufacturers()
         {
+            foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
+            {
+                tenderManufacturer.Deleted = true;
+                tenderManufacturer.Activated = false;
+            }
+
             foreach (DataRow row in this.dtTenderManufacturers.Rows)
             {
                 TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
@@ -575,13 +588,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
 
             if (activeRow == null) return;
-
+                        
             if (activeRow.Cells["ManufacturerId"].Value != DBNull.Value &&
                 Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value) > 0)
             {
                 int manufacturerId = Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value);
-                this.tender.TenderManufacturers.Remove(this.tender.TenderManufacturers
-                    .Single(x => x.ManufacturerId == manufacturerId));
+
+                if (this.dtTenderLines.AsEnumerable()
+                    .Count(x => Convert.ToInt32(x["ManufacturerId"]) == manufacturerId) > 0)
+                {
+                    MessageBox.Show(
+                        "No puede borrar el registro debido a que existen Partidas con ese Fabricante.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
             this.dtTenderManufacturers.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
@@ -606,8 +625,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 Convert.ToInt32(activeRow.Cells["TenderLineId"].Value) > 0)
             {
                 int tenderLineId = Convert.ToInt32(activeRow.Cells["TenderLineId"].Value);
-                this.tender.TenderLines.Remove(this.tender.TenderLines
-                    .Single(x => x.TenderLineId == tenderLineId));
             }
 
             this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
