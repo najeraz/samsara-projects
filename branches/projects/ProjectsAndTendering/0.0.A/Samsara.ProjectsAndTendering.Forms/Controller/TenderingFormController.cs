@@ -116,8 +116,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicEndUsers.Values, "EndUserId", "Name");
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");
-            
+
             //grdTenderLines
+            this.frmTendering.grdSchSearch.DoubleClickRow +=
+                new DoubleClickRowEventHandler(grdSchSearch_DoubleClickRow);
             this.frmTendering.grdTenderLines.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
             this.frmTendering.grdTenderLines.BeforeCellUpdate
@@ -127,9 +129,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
             this.frmTendering.grdTenderLines.DataSource = null;
             this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
-
-            this.frmTendering.grdSchSearch.DoubleClickRow += 
-                new DoubleClickRowEventHandler(grdSchSearch_DoubleClickRow);
 
             //grdDetTenderManufacturers
             this.frmTendering.grdDetTenderManufacturers.InitializeLayout
@@ -144,6 +143,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.grdDetTenderManufacturers.DataSource = null;
             this.frmTendering.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 
+            this.frmTendering.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTendering.btnDetSave.Click += new EventHandler(btnDetSave_Click);
@@ -161,6 +161,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.uosSchDates.Value = -1;
             this.frmTendering.uchkDetIsOpportunity.Checked = true;
             this.frmTendering.HiddenDetail(true);
+
+            if (this.frmTendering.ParentForm != null)
+            {
+
+            }
         }
 
         private void ShowDetail(bool show)
@@ -299,11 +304,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadTenderLines()
         {
-            foreach (TenderLine tenderLine in this.tender.TenderLines)
-            {
-                tenderLine.Deleted = true;
-                tenderLine.Activated = false;
-            }
+            if (this.tender.TenderLines != null)
+                foreach (TenderLine tenderLine in this.tender.TenderLines)
+                {
+                    tenderLine.Deleted = true;
+                    tenderLine.Activated = false;
+                }
 
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
@@ -329,11 +335,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadManufacturers()
         {
-            foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
-            {
-                tenderManufacturer.Deleted = true;
-                tenderManufacturer.Activated = false;
-            }
+            if (this.tender.TenderManufacturers != null)
+                foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
+                {
+                    tenderManufacturer.Deleted = true;
+                    tenderManufacturer.Activated = false;
+                }
 
             foreach (DataRow row in this.dtTenderManufacturers.Rows)
             {
@@ -600,6 +607,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     MessageBox.Show(
                         "No puede borrar el registro debido a que existen Partidas con ese Fabricante.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
             }
 
@@ -682,7 +690,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");
         }
-
+        
         private void uceDetDependency_ValueChanged(object sender, EventArgs e)
         {
             LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
@@ -696,6 +704,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void grdSchSearch_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
             this.EditTender(Convert.ToInt32(e.Row.Cells["Column1"].Value));
+        }
+
+        private void btnSchEdit_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTendering.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.EditTender(Convert.ToInt32(activeRow.Cells["Column1"].Value));
         }
         #endregion Events
     }

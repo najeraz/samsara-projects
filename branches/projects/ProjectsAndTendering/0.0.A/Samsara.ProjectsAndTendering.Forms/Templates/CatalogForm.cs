@@ -1,10 +1,17 @@
 ﻿using System.Windows.Forms;
 using Infragistics.Win;
+using Samsara.ProjectsAndTendering.Forms.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
-    public partial class CatalogForm : Form
+    public partial class CatalogForm : Form, ISearchForm
     {
+        public bool IsCalledForSearch
+        {
+            get;
+            set;
+        }
+
         private TabPage hiddedTabPage = null;
 
         public CatalogForm()
@@ -12,6 +19,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.grdSchSearch.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
             this.hiddedTabPage = this.tabPrincipal.TabPages["New"];
+            this.IsCalledForSearch = false;
         }
 
         public void HiddenDetail(bool hidden)
