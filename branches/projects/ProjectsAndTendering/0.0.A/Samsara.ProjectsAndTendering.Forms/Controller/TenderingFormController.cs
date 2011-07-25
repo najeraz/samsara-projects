@@ -164,7 +164,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (this.frmTendering.ParentForm != null)
             {
-
+                
             }
         }
 
