@@ -26,7 +26,7 @@ namespace Samsara.ProjectsAndTendering.Controls
         {
             if (this.SearchForm != null)
             {
-
+                this.SearchForm.ShowDialog(this);
             }
         }
     }

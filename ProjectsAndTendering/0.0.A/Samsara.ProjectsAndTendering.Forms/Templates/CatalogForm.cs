@@ -1,10 +1,9 @@
 ﻿using System.Windows.Forms;
 using Infragistics.Win;
-using Samsara.ProjectsAndTendering.Forms.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
-    public partial class CatalogForm : Form, ISearchForm
+    public partial class CatalogForm : Form
     {
         public bool IsCalledForSearch
         {
