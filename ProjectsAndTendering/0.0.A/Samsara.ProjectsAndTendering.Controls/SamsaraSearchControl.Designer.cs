@@ -1,6 +1,6 @@
 ﻿namespace Samsara.ProjectsAndTendering.Controls
 {
-    partial class SamsaraTenderControl
+    partial class SamsaraSearchControl
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -28,34 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SamsaraTenderControl));
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SamsaraSearchControl));
+            this.btnSearch = new System.Windows.Forms.Button();
             this.upSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.upBody = new Infragistics.Win.Misc.UltraPanel();
-            this.upSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.upSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.upSeparator1.SuspendLayout();
             this.upBody.ClientArea.SuspendLayout();
             this.upBody.SuspendLayout();
             this.upSeparator2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 22);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.Location = new System.Drawing.Point(0, 0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(32, 24);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // upSeparator1
             // 
             this.upSeparator1.Dock = System.Windows.Forms.DockStyle.Left;
             this.upSeparator1.Location = new System.Drawing.Point(32, 0);
             this.upSeparator1.Name = "upSeparator1";
-            this.upSeparator1.Size = new System.Drawing.Size(10, 22);
+            this.upSeparator1.Size = new System.Drawing.Size(10, 24);
             this.upSeparator1.TabIndex = 3;
             // 
             // upBody
@@ -68,16 +69,8 @@
             this.upBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upBody.Location = new System.Drawing.Point(42, 0);
             this.upBody.Name = "upBody";
-            this.upBody.Size = new System.Drawing.Size(287, 22);
+            this.upBody.Size = new System.Drawing.Size(287, 24);
             this.upBody.TabIndex = 4;
-            // 
-            // upSeparator2
-            // 
-            this.upSeparator2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.upSeparator2.Location = new System.Drawing.Point(0, 0);
-            this.upSeparator2.Name = "upSeparator2";
-            this.upSeparator2.Size = new System.Drawing.Size(287, 2);
-            this.upSeparator2.TabIndex = 5;
             // 
             // txtName
             // 
@@ -88,16 +81,23 @@
             this.txtName.Size = new System.Drawing.Size(287, 20);
             this.txtName.TabIndex = 6;
             // 
-            // SamsaraTenderControl
+            // upSeparator2
+            // 
+            this.upSeparator2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upSeparator2.Location = new System.Drawing.Point(0, 0);
+            this.upSeparator2.Name = "upSeparator2";
+            this.upSeparator2.Size = new System.Drawing.Size(287, 2);
+            this.upSeparator2.TabIndex = 5;
+            // 
+            // SamsaraSearchControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.upBody);
             this.Controls.Add(this.upSeparator1);
-            this.Controls.Add(this.button1);
-            this.Name = "SamsaraTenderControl";
-            this.Size = new System.Drawing.Size(329, 22);
-            this.SizeChanged += new System.EventHandler(this.SamsaraTenderControl_SizeChanged);
+            this.Controls.Add(this.btnSearch);
+            this.Name = "SamsaraSearchControl";
+            this.Size = new System.Drawing.Size(329, 24);
             this.upSeparator1.ResumeLayout(false);
             this.upBody.ClientArea.ResumeLayout(false);
             this.upBody.ClientArea.PerformLayout();
@@ -109,7 +109,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private Infragistics.Win.Misc.UltraPanel upSeparator1;
         private Infragistics.Win.Misc.UltraPanel upBody;
         private System.Windows.Forms.TextBox txtName;
