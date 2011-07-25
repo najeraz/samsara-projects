@@ -15,13 +15,6 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 {
     public class GenericDao<T, TId> : HibernateDaoSupport, IGenericDao<T, TId>
     {
-        #region Constructor
-
-        public void GetConfiguration() {
-        }
-
-        #endregion Constructor
-
         #region Methods
         
         #region Public

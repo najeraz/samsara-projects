@@ -56,9 +56,6 @@
             this.gbxSearchParameters.Controls.Add(this.txtSchName);
             this.gbxSearchParameters.Controls.Add(this.label3);
             this.gbxSearchParameters.Size = new System.Drawing.Size(478, 51);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.btnSchSearch, 0);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.label3, 0);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.txtSchName, 0);
             // 
             // gbxDetDetail
             // 
