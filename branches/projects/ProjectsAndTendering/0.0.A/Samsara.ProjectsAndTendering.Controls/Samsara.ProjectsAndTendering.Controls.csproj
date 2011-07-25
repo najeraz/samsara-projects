@@ -77,37 +77,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\SamsaraComponentResourceManager.cs" />
+    <Compile Include="Controls\SamsaraSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraSearchControl.designer.cs">
+      <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraGrid.designer.cs">
+      <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ISearchForm.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SamsaraSearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SamsaraSearchControl.Designer.cs">
-      <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SamsaraUltraGrid.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="SamsaraUltraGrid.Designer.cs">
-      <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SamsaraSearchControl.resx">
+    <EmbeddedResource Include="Controls\SamsaraSearchControl.resx">
       <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SamsaraUltraGrid.resx">
+    <EmbeddedResource Include="Controls\SamsaraUltraGrid.resx">
       <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

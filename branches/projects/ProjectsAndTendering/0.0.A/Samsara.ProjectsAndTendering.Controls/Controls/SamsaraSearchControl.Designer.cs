@@ -1,6 +1,7 @@
-﻿namespace Samsara.ProjectsAndTendering.Controls
+﻿using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+namespace Samsara.ProjectsAndTendering.Controls
 {
-    partial class SamsaraSearchControl
+    partial class SamsaraSearchControl<T>
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -28,7 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SamsaraSearchControl));
+            System.ComponentModel.ComponentResourceManager resources =
+                new SamsaraComponentResourceManager(typeof(SamsaraSearchControl<Tender>), "SamsaraSearchControl");
             this.btnSearch = new System.Windows.Forms.Button();
             this.upSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.upBody = new Infragistics.Win.Misc.UltraPanel();
