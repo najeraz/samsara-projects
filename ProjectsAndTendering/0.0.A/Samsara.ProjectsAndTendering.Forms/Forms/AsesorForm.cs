@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
-    public partial class AsesorForm : CatalogForm
+    public partial class AsesorForm : CatalogForm//<Asesor>
     {
         public AsesorForm()
         {

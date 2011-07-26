@@ -1,34 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿
 using Samsara.ProjectsAndTendering.Forms.Controller;
+using Samsara.ProjectsAndTendering.Forms.Templates;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
-using Samsara.ProjectsAndTendering.Controls.Interfaces;
+using Infragistics.Win.UltraWinGrid;
+using System;
+using Samsara.ProjectsAndTendering.Common;
+using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using NUnit.Framework;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
-    public partial class TenderingForm : CatalogForm, ISearchForm<Tender>
+    public partial class TenderingForm : TenderSearchForm
     {
         #region Attributes
 
         private TenderingFormController ctrlTenderingForm;
+        private ITenderService srvTender;
 
         #endregion Attributes
-
-        #region Properties
-
-        public Tender SearchResult
-        {
-            get;
-            set;
-        }
-
-        #endregion Properties
 
         #region Constructor
 
@@ -36,8 +25,28 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             InitializeComponent();
             this.ctrlTenderingForm = new TenderingFormController(this);
+            this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
+            Assert.IsNotNull(srvTender);
         }
 
         #endregion Constructor
+
+        #region Methods
+
+        internal override Tender GetSerchResult()
+        {
+            Tender tender = null;
+            UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+            {
+                int tenderId = Convert.ToInt32(activeRow.Cells[0].Value);
+                tender = this.srvTender.LoadTender(tenderId);
+            }
+
+            return tender;
+        }
+
+        #endregion Methods
     }
 }

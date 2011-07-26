@@ -12,5 +12,13 @@ namespace Samsara.ProjectsAndTendering.Controls.Interfaces
             get;
             set;
         }
+
+        ISearchForm<T> ParentSearchForm
+        {
+            get;
+            set;
+        }
+
+        void PrepareSearchControls();
     }
 }
