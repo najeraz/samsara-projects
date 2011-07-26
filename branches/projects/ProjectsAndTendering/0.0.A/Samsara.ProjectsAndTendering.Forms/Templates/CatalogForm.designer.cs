@@ -226,6 +226,7 @@
             this.btnSchClose.TabIndex = 7;
             this.btnSchClose.Text = "Cerrar";
             this.btnSchClose.UseVisualStyleBackColor = true;
+            this.btnSchClose.Click += new System.EventHandler(this.btnSchClose_Click);
             // 
             // upSchSeparatorEdit
             // 

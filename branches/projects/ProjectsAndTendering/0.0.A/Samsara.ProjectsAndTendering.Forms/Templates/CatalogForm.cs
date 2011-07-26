@@ -40,5 +40,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         }
 
         #endregion Methods
+
+        #region Events
+
+        private void btnSchClose_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion Events
     }
 }
