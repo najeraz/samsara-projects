@@ -14,6 +14,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
+using Samsara.ProjectsAndTendering.Controls.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -118,8 +119,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicEndUsers.Values, "EndUserId", "Name");
 
             //grdTenderLines
-            this.frmTendering.grdSchSearch.DoubleClickRow +=
-                new DoubleClickRowEventHandler(grdSchSearch_DoubleClickRow);
             this.frmTendering.grdTenderLines.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
             this.frmTendering.grdTenderLines.BeforeCellUpdate
@@ -162,10 +161,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.uchkDetIsOpportunity.Checked = true;
             this.frmTendering.HiddenDetail(true);
 
-            if (this.frmTendering.ParentForm != null)
-            {
-                
-            }
+            this.frmTendering.tscPreviousTender.DisplayMember = "Name";
+            this.frmTendering.tscPreviousTender.SearchForm = this.frmTendering;
         }
 
         private void ShowDetail(bool show)
@@ -699,11 +696,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");
-        }
-
-        private void grdSchSearch_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
-        {
-            this.EditTender(Convert.ToInt32(e.Row.Cells["Column1"].Value));
         }
 
         private void btnSchEdit_Click(object sender, EventArgs e)
