@@ -79,16 +79,9 @@
   <ItemGroup>
     <Compile Include="Components\SamsaraComponentResourceManager.cs" />
     <Compile Include="Controls\TenderSearchControl.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\TenderSearchControl.designer.cs">
       <DependentUpon>TenderSearchControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\SamsaraSearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SamsaraSearchControl.designer.cs">
-      <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\SamsaraUltraGrid.cs">
       <SubType>Component</SubType>
@@ -103,14 +96,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\SamsaraSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Templates\SamsaraSearchControl.Designer.cs">
+      <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\TenderSearchControl.resx">
       <DependentUpon>TenderSearchControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SamsaraSearchControl.resx">
-      <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SamsaraUltraGrid.resx">
@@ -123,9 +118,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Templates\" />
+    <EmbeddedResource Include="Templates\SamsaraSearchControl.resx">
+      <DependentUpon>SamsaraSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
