@@ -73,7 +73,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetAsesor,
                 dicAsesors.Values, "AsesorId", "Name");
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetApprovedBy,
-                dicAsesors.Values.Where(x => x.CanApprove == true).ToList(), "AsesorId", "Name");
+                dicAsesors.Values.Where(x => x.CanApprove == true), "AsesorId", "Name");
 
             // TenderStatus
             Dictionary<int, TenderStatus> dicTenderStatuses = srvTenderStatus.LoadTenderStatuses();
@@ -705,6 +705,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (activeRow != null)
                 this.EditTender(Convert.ToInt32(activeRow.Cells["Column1"].Value));
         }
+
         #endregion Events
     }
 }

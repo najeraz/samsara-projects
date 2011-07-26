@@ -40,8 +40,11 @@ namespace Samsara.ProjectsAndTendering.Controls
         {
             if (this.SearchForm != null && !string.IsNullOrEmpty(this.DisplayMember))
             {
-                ((Form)this.SearchForm).ShowDialog(this);
-                this.Value = this.SearchForm.SearchResult;
+                ISearchForm<T> form = (ISearchForm<T>)Activator.CreateInstance(this.SearchForm.GetType());
+                form.ParentSearchForm = (ISearchForm<T>)this.ParentForm;
+                form.PrepareSearchControls();
+                ((Form)form).ShowDialog(this);
+                this.Value = form.SearchResult;
                 if (this.Value != null)
                 {
                     this.txtName.Text = this.Value.GetType()
