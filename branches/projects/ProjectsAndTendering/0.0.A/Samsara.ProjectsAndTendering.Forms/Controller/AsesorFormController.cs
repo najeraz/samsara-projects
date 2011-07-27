@@ -60,7 +60,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmAsesor.txtDetName.Text == null || this.frmAsesor.txtDetName.Text.Trim() == string.Empty)
+            if (this.frmAsesor.txtDetName.Text == null || 
+                this.frmAsesor.txtDetName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Favor de elegir un nombre para el Asesor.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);

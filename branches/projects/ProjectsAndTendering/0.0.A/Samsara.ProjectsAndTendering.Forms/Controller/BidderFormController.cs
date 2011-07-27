@@ -72,11 +72,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmBidder.txtDetName.Text == null || this.frmBidder.txtDetName.Text.Trim() == string.Empty)
+            if (this.frmBidder.txtDetName.Text == null || 
+                this.frmBidder.txtDetName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Favor de elegir un nombre para el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmBidder.txtDetName.Focus();
+                return false;
+            }
+
+            if (this.frmBidder.uceDetType.Value == null ||
+                Convert.ToInt32(this.frmBidder.uceDetType.Value) <= 0)
+            {
+                MessageBox.Show("Favor de seleccionar el Tipo de Licitante.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmBidder.uceDetType.Focus();
                 return false;
             }
 
