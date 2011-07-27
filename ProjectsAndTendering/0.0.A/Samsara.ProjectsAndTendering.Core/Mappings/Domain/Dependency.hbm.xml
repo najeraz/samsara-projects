@@ -10,10 +10,12 @@
     </id>
 
     <property name="Name"/>
-    <property name="BidderId"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
+    <many-to-one name="Bidder"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Bidder, Samsara.ProjectsAndTendering.Core"
+                 column="BidderId"/>
   </class>
 
   <query name="LoadDependencies">
@@ -28,5 +30,18 @@
     ]]>
   </query>
 
+  <sql-query name="SearchDependencies" cacheable="false" read-only="true">
+    <return-scalar column="DependencyId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <return-scalar column="BidderName" type="string"/>
+    <![CDATA[
+      SELECT d.DependencyId, d.Name, b.Name BidderName
+      FROM Dependencies d
+      INNER JOIN Bidders b ON b.BidderId = d.BidderId
+      WHERE d.Deleted = 0 and d.Activated = 1 AND b.Deleted = 0 and b.Activated = 1
+      AND d.Name like :Name
+      AND (:BidderId = -1 OR d.BidderId = :BidderId)
+    ]]>
+  </sql-query>
 
 </hibernate-mapping>

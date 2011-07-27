@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Data;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
@@ -23,6 +24,11 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
         #endregion Properties
 
         #region Methods
+
+        public DataTable SearchDependencies(SearchDependenciesParameters pmtSearchDependencies)
+        {
+            return this.DependencyDao.SearchDependencies(pmtSearchDependencies);
+        }
 
         public Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies)
         {
