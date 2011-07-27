@@ -1,12 +1,11 @@
 ﻿
 using System.Data;
+using System.Linq;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
-using Iesi.Collections;
-using System.Linq;
 
 
 namespace Samsara.ProjectsAndTendering.Controls

@@ -1,10 +1,10 @@
 ﻿
-using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
-using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
-using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using System.Collections.Generic;
-using Samsara.ProjectsAndTendering.Core.Parameters;
 using System.Data;
+using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
+using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {

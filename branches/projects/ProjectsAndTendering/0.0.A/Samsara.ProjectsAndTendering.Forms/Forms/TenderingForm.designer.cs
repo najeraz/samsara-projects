@@ -1,6 +1,4 @@
-﻿using Samsara.ProjectsAndTendering.Core.Entities.Domain;
-using Samsara.ProjectsAndTendering.Controls.Interfaces;
-namespace Samsara.ProjectsAndTendering.Forms.Forms
+﻿namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
     partial class TenderingForm
     {

@@ -1,9 +1,6 @@
 ﻿
-using Samsara.ProjectsAndTendering.Core.Entities.Domain;
-using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
-using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Samsara.ProjectsAndTendering.BaseDao.Impl;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 
