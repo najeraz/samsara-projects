@@ -28,167 +28,187 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             this.chkSchShowApprovers = new System.Windows.Forms.CheckBox();
             this.txtDetName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDetName = new System.Windows.Forms.Label();
             this.txtSchName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblSchName = new System.Windows.Forms.Label();
             this.chkDetCanApprove = new System.Windows.Forms.CheckBox();
-            this.pnlDetCtgButtons.SuspendLayout();
+            this.lblDetFullName = new System.Windows.Forms.Label();
+            this.txtDetFullName = new System.Windows.Forms.TextBox();
+            this.txtSchFullName = new System.Windows.Forms.TextBox();
+            this.lclSchFullName = new System.Windows.Forms.Label();
+            this.chkSchShowAll = new System.Windows.Forms.CheckBox();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSchSearch
+            // pnlDetCtgButtons
             // 
-            this.btnSchSearch.Location = new System.Drawing.Point(397, 39);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
             // 
             // gbxSearchParameters
             // 
+            this.gbxSearchParameters.Controls.Add(this.txtSchFullName);
+            this.gbxSearchParameters.Controls.Add(this.lclSchFullName);
             this.gbxSearchParameters.Controls.Add(this.txtSchName);
-            this.gbxSearchParameters.Controls.Add(this.label3);
+            this.gbxSearchParameters.Controls.Add(this.lblSchName);
+            this.gbxSearchParameters.Controls.Add(this.chkSchShowAll);
             this.gbxSearchParameters.Controls.Add(this.chkSchShowApprovers);
-            this.gbxSearchParameters.Size = new System.Drawing.Size(478, 68);
+            this.gbxSearchParameters.Size = new System.Drawing.Size(505, 94);
             // 
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.chkDetCanApprove);
+            this.gbxDetDetail.Controls.Add(this.txtDetFullName);
+            this.gbxDetDetail.Controls.Add(this.lblDetFullName);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
-            this.gbxDetDetail.Controls.Add(this.label2);
+            this.gbxDetDetail.Controls.Add(this.lblDetName);
             // 
-            // grdSchSearch
+            // btnSchSearch
             // 
-            appearance1.BackColor = System.Drawing.SystemColors.Window;
-            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdSchSearch.DisplayLayout.Appearance = appearance1;
-            this.grdSchSearch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdSchSearch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.grdSchSearch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdSchSearch.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdSchSearch.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance2.BackColor = System.Drawing.SystemColors.Window;
-            appearance2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdSchSearch.DisplayLayout.Override.ActiveCellAppearance = appearance2;
-            appearance3.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdSchSearch.DisplayLayout.Override.ActiveRowAppearance = appearance3;
-            this.grdSchSearch.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdSchSearch.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance4.BackColor = System.Drawing.SystemColors.Window;
-            this.grdSchSearch.DisplayLayout.Override.CardAreaAppearance = appearance4;
-            appearance5.BorderColor = System.Drawing.Color.Silver;
-            appearance5.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdSchSearch.DisplayLayout.Override.CellAppearance = appearance5;
-            this.grdSchSearch.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdSchSearch.DisplayLayout.Override.CellPadding = 0;
-            appearance6.BackColor = System.Drawing.SystemColors.Control;
-            appearance6.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance6.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance6.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance6.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdSchSearch.DisplayLayout.Override.GroupByRowAppearance = appearance6;
-            appearance7.TextHAlignAsString = "Left";
-            this.grdSchSearch.DisplayLayout.Override.HeaderAppearance = appearance7;
-            this.grdSchSearch.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdSchSearch.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance8.BackColor = System.Drawing.SystemColors.Window;
-            appearance8.BorderColor = System.Drawing.Color.Silver;
-            this.grdSchSearch.DisplayLayout.Override.RowAppearance = appearance8;
-            this.grdSchSearch.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance9.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdSchSearch.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
-            this.grdSchSearch.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdSchSearch.Location = new System.Drawing.Point(3, 71);
-            this.grdSchSearch.Size = new System.Drawing.Size(478, 166);
+            this.btnSchSearch.Location = new System.Drawing.Point(414, 0);
+            // 
+            // btnSchClose
+            // 
+            this.btnSchClose.Location = new System.Drawing.Point(141, 0);
+            // 
+            // btnSchEdit
+            // 
+            this.btnSchEdit.Location = new System.Drawing.Point(232, 0);
+            // 
+            // btnSchCreate
+            // 
+            this.btnSchCreate.Location = new System.Drawing.Point(323, 0);
+            // 
+            // btnSchAccept
+            // 
+            this.btnSchAccept.Location = new System.Drawing.Point(50, 0);
             // 
             // chkSchShowApprovers
             // 
             this.chkSchShowApprovers.AutoSize = true;
-            this.chkSchShowApprovers.Location = new System.Drawing.Point(57, 45);
+            this.chkSchShowApprovers.Enabled = false;
+            this.chkSchShowApprovers.Location = new System.Drawing.Point(336, 44);
             this.chkSchShowApprovers.Name = "chkSchShowApprovers";
-            this.chkSchShowApprovers.Size = new System.Drawing.Size(207, 17);
+            this.chkSchShowApprovers.Size = new System.Drawing.Size(104, 17);
             this.chkSchShowApprovers.TabIndex = 23;
-            this.chkSchShowApprovers.Text = "Solo mostrar los que pueden dar VoBo";
+            this.chkSchShowApprovers.Text = "Puede dar VoBo";
             this.chkSchShowApprovers.UseVisualStyleBackColor = true;
             // 
             // txtDetName
             // 
-            this.txtDetName.Location = new System.Drawing.Point(60, 19);
+            this.txtDetName.Location = new System.Drawing.Point(107, 19);
             this.txtDetName.Name = "txtDetName";
             this.txtDetName.Size = new System.Drawing.Size(226, 20);
             this.txtDetName.TabIndex = 24;
             // 
-            // label2
+            // lblDetName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Nombre:";
+            this.lblDetName.AutoSize = true;
+            this.lblDetName.Location = new System.Drawing.Point(7, 22);
+            this.lblDetName.Name = "lblDetName";
+            this.lblDetName.Size = new System.Drawing.Size(47, 13);
+            this.lblDetName.TabIndex = 23;
+            this.lblDetName.Text = "Nombre:";
             // 
             // txtSchName
             // 
-            this.txtSchName.Location = new System.Drawing.Point(57, 19);
+            this.txtSchName.Location = new System.Drawing.Point(104, 19);
             this.txtSchName.Name = "txtSchName";
             this.txtSchName.Size = new System.Drawing.Size(226, 20);
             this.txtSchName.TabIndex = 25;
             // 
-            // label3
+            // lblSchName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Nombre:";
+            this.lblSchName.AutoSize = true;
+            this.lblSchName.Location = new System.Drawing.Point(4, 22);
+            this.lblSchName.Name = "lblSchName";
+            this.lblSchName.Size = new System.Drawing.Size(47, 13);
+            this.lblSchName.TabIndex = 24;
+            this.lblSchName.Text = "Nombre:";
             // 
             // chkDetCanApprove
             // 
             this.chkDetCanApprove.AutoSize = true;
-            this.chkDetCanApprove.Location = new System.Drawing.Point(60, 45);
+            this.chkDetCanApprove.Location = new System.Drawing.Point(358, 21);
             this.chkDetCanApprove.Name = "chkDetCanApprove";
             this.chkDetCanApprove.Size = new System.Drawing.Size(104, 17);
             this.chkDetCanApprove.TabIndex = 25;
             this.chkDetCanApprove.Text = "Puede dar VoBo";
             this.chkDetCanApprove.UseVisualStyleBackColor = true;
             // 
+            // lblDetFullName
+            // 
+            this.lblDetFullName.AutoSize = true;
+            this.lblDetFullName.Location = new System.Drawing.Point(7, 48);
+            this.lblDetFullName.Name = "lblDetFullName";
+            this.lblDetFullName.Size = new System.Drawing.Size(94, 13);
+            this.lblDetFullName.TabIndex = 23;
+            this.lblDetFullName.Text = "Nombre Completo:";
+            // 
+            // txtDetFullName
+            // 
+            this.txtDetFullName.Location = new System.Drawing.Point(107, 45);
+            this.txtDetFullName.Name = "txtDetFullName";
+            this.txtDetFullName.Size = new System.Drawing.Size(226, 20);
+            this.txtDetFullName.TabIndex = 24;
+            // 
+            // txtSchFullName
+            // 
+            this.txtSchFullName.Location = new System.Drawing.Point(104, 45);
+            this.txtSchFullName.Name = "txtSchFullName";
+            this.txtSchFullName.Size = new System.Drawing.Size(226, 20);
+            this.txtSchFullName.TabIndex = 27;
+            // 
+            // lclSchFullName
+            // 
+            this.lclSchFullName.AutoSize = true;
+            this.lclSchFullName.Location = new System.Drawing.Point(4, 48);
+            this.lclSchFullName.Name = "lclSchFullName";
+            this.lclSchFullName.Size = new System.Drawing.Size(94, 13);
+            this.lclSchFullName.TabIndex = 26;
+            this.lclSchFullName.Text = "Nombre Completo:";
+            // 
+            // chkSchShowAll
+            // 
+            this.chkSchShowAll.AutoSize = true;
+            this.chkSchShowAll.Checked = true;
+            this.chkSchShowAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSchShowAll.Location = new System.Drawing.Point(336, 21);
+            this.chkSchShowAll.Name = "chkSchShowAll";
+            this.chkSchShowAll.Size = new System.Drawing.Size(90, 17);
+            this.chkSchShowAll.TabIndex = 23;
+            this.chkSchShowAll.Text = "Mostrar todos";
+            this.chkSchShowAll.UseVisualStyleBackColor = true;
+            // 
             // AsesorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 266);
+            this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "AsesorForm";
             this.Text = "AsesorForm";
-            this.pnlDetCtgButtons.ResumeLayout(false);
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.CheckBox chkSchShowApprovers;
-        private System.Windows.Forms.TextBox txtDetName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSchName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox chkDetCanApprove;
+        private System.Windows.Forms.Label lblDetName;
+        private System.Windows.Forms.Label lblSchName;
+        public System.Windows.Forms.TextBox txtDetName;
+        internal System.Windows.Forms.CheckBox chkDetCanApprove;
+        public System.Windows.Forms.TextBox txtDetFullName;
+        private System.Windows.Forms.Label lblDetFullName;
+        public System.Windows.Forms.TextBox txtSchFullName;
+        private System.Windows.Forms.Label lclSchFullName;
+        internal System.Windows.Forms.CheckBox chkSchShowApprovers;
+        internal System.Windows.Forms.TextBox txtSchName;
+        internal System.Windows.Forms.CheckBox chkSchShowAll;
     }
 }

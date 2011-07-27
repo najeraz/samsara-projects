@@ -22,5 +22,19 @@
         from Asesor where Deleted = 0 and Activated = 1
     ]]>
   </query>
+  
+  <sql-query name="SearchAsesors" cacheable="false" read-only="true">
+    <return-scalar column="AsesorId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <return-scalar column="FullName" type="string"/>
+    <![CDATA[
+      SELECT a.AsesorId, a.Name, a.FullName
+      FROM Asesors a
+      WHERE a.Deleted = 0 and a.Activated = 1
+      AND a.Name like :Name
+      AND a.FullName like :FullName
+      AND (:ShowAll = 1 OR a.CanApprove = :ShowApprovers)
+    ]]>
+  </sql-query>
 
 </hibernate-mapping>
