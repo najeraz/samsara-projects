@@ -1,8 +1,5 @@
 ﻿using System.Windows.Forms;
 using Infragistics.Win;
-using Samsara.ProjectsAndTendering.Controls.Interfaces;
-using Samsara.ProjectsAndTendering.Core.Entities;
-using Samsara.ProjectsAndTendering.BaseDao.Impl;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {

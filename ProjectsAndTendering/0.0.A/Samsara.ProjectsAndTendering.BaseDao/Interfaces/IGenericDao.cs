@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using NHibernate.Impl;
 using NHibernate.Criterion;
+using NHibernate.Impl;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
 {

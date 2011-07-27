@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 

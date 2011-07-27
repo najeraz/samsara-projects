@@ -1,6 +1,5 @@
 ﻿
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
-using Samsara.ProjectsAndTendering.Forms.Forms;
 
 namespace Samsara.ProjectsAndTendering.Forms.Templates
 {
