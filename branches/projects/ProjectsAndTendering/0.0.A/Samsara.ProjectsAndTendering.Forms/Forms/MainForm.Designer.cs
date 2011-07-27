@@ -1,4 +1,4 @@
-﻿namespace Samsara.ProjectsAndTendering.Application
+﻿namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
     partial class MainForm
     {
@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.licitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +38,7 @@
             this.fabricanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaLicitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,45 +66,35 @@
             this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
             this.tsmiMainMenu.Text = "Catálogos";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(811, 351);
-            this.panel1.TabIndex = 1;
-            // 
             // licitaciónToolStripMenuItem
             // 
             this.licitaciónToolStripMenuItem.Name = "licitaciónToolStripMenuItem";
-            this.licitaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.licitaciónToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.licitaciónToolStripMenuItem.Text = "Licitación";
+            this.licitaciónToolStripMenuItem.Click += new System.EventHandler(this.licitaciónToolStripMenuItem_Click);
             // 
             // licitanteToolStripMenuItem
             // 
             this.licitanteToolStripMenuItem.Name = "licitanteToolStripMenuItem";
-            this.licitanteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.licitanteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.licitanteToolStripMenuItem.Text = "Licitante";
             // 
             // dependenciaToolStripMenuItem
             // 
             this.dependenciaToolStripMenuItem.Name = "dependenciaToolStripMenuItem";
-            this.dependenciaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dependenciaToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.dependenciaToolStripMenuItem.Text = "Dependencia";
             // 
             // usuarioFinalToolStripMenuItem
             // 
             this.usuarioFinalToolStripMenuItem.Name = "usuarioFinalToolStripMenuItem";
-            this.usuarioFinalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioFinalToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.usuarioFinalToolStripMenuItem.Text = "Usuario Final";
             // 
             // fabricanteToolStripMenuItem
             // 
             this.fabricanteToolStripMenuItem.Name = "fabricanteToolStripMenuItem";
-            this.fabricanteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fabricanteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.fabricanteToolStripMenuItem.Text = "Fabricante";
             // 
             // asesorToolStripMenuItem
@@ -118,6 +108,17 @@
             this.estatusDeLaLicitaciónToolStripMenuItem.Name = "estatusDeLaLicitaciónToolStripMenuItem";
             this.estatusDeLaLicitaciónToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.estatusDeLaLicitaciónToolStripMenuItem.Text = "Estatus de la Licitación";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(811, 351);
+            this.panel1.TabIndex = 1;
             // 
             // MainForm
             // 

@@ -21,7 +21,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
     {
         #region Attributes
 
-        private TenderingForm frmTendering;
+        private TenderForm frmTendering;
         private Tender tender;
         private IBidderService srvBidder;
         private IAsesorService srvAsesor;
@@ -38,7 +38,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         #region Constructor
 
-        public TenderingFormController(TenderingForm instance)
+        public TenderingFormController(TenderForm instance)
         {
             this.frmTendering = instance;
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
