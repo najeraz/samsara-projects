@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Samsara.ProjectsAndTendering.Core.Enums;
+﻿
+
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
@@ -14,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
-        public int BidderTypeId
+        public int? BidderTypeId
         {
             get;
             set;

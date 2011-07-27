@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using NHibernate.Impl;
 using Samsara.ProjectsAndTendering.BaseDao.Impl;
@@ -13,10 +14,15 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
+        public DataTable SearchEndUsers(SearchEndUsersParameters pmtSearchEndUsers)
+        {
+            return this.DataTableByParameters("SearchEndUsers", pmtSearchEndUsers);
+        }
+
         public Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers)
         {
             return this.GetListByParameters("LoadEndUsersByDependencyId", pmtLoadEndUsers)
-                .ToDictionary(x => x.DependencyId, x => x);
+                .ToDictionary(x => x.Dependency.DependencyId, x => x);
         }
 
         public Dictionary<int, EndUser> LoadEndUsers()

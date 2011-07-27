@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using System.Diagnostics;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 
 namespace Samsara.ProjectsAndTendering.Application
@@ -9,12 +11,12 @@ namespace Samsara.ProjectsAndTendering.Application
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         static void Main()
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new TenderStatusForm());
+            System.Windows.Forms.Application.Run(new ManufacturerForm());
         }
     }
 }
