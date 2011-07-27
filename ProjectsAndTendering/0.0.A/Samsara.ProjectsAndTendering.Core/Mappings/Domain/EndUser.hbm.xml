@@ -9,10 +9,13 @@
       <generator class="native"/>
     </id>
     
-    <property name="DependencyId"/>
     <property name="Name"/>
     <property name="Deleted"/>
     <property name="Activated"/>
+
+    <many-to-one name="Dependency"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Dependency, Samsara.ProjectsAndTendering.Core"
+                 column="DependencyId"/>
 
   </class>
 
@@ -27,5 +30,19 @@
         from EndUser where DependencyId = :DependencyId and Deleted = 0 and Activated = 1
     ]]>
   </query>
+
+  <sql-query name="SearchEndUsers" cacheable="false" read-only="true">
+    <return-scalar column="EndUserId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <return-scalar column="DependencyName" type="string"/>
+    <![CDATA[
+      SELECT eu.EndUserId, eu.Name, d.Name DependencyName
+      FROM EndUsers eu
+      INNER JOIN Dependencies d ON d.DependencyId = eu.DependencyId
+      WHERE eu.Deleted = 0 and eu.Activated = 1 AND d.Deleted = 0 and d.Activated = 1
+      AND eu.Name like :Name
+      AND (:DependencyId = -1 OR eu.DependencyId = :DependencyId)
+    ]]>
+  </sql-query>
 
 </hibernate-mapping>

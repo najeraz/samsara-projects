@@ -3,7 +3,7 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchDependenciesParameters : GenericParameters
+    public class SearchEndUsersParameters : GenericParameters
     {
         public string Name
         {
@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
-        public int? BidderId
+        public int? DependencyId
         {
             get;
             set;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using System.Data;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
@@ -22,6 +24,11 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
         #endregion Properties
 
         #region Methods
+
+        public DataTable SearchManufacturers(SearchManufacturersParameters pmtSearchManufacturers)
+        {
+            return this.ManufacturerDao.SearchManufacturers(pmtSearchManufacturers);
+        }
 
         public Dictionary<int, Manufacturer> LoadManufacturers()
         {

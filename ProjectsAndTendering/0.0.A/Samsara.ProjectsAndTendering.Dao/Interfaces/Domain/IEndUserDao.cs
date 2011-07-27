@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
+using System.Data;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
@@ -7,6 +9,7 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface IEndUserDao : IGenericDao<EndUser,int>
     {
+        DataTable SearchEndUsers(SearchEndUsersParameters pmtSearchEndUsers);
         Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers);
         Dictionary<int, EndUser> LoadEndUsers();
     }
