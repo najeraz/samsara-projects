@@ -1,14 +1,16 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.Support.Util;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -41,6 +43,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void InitializeFormControls()
         {
+            // BidderType
+            Dictionary<int, BidderType> dicBidderTypes = srvBidderType.LoadBidderTypes();
+
+            WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceSchType,
+                dicBidderTypes.Values, "BidderTypeId", "Name");
+            WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceDetType,
+                dicBidderTypes.Values, "BidderTypeId", "Name");
+
             this.frmBidder.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmBidder.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmBidder.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
@@ -136,7 +146,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             SearchBiddersParameters pmtSearchBidders = new SearchBiddersParameters();
 
             pmtSearchBidders.Name = "%" + this.frmBidder.txtSchName.Text + "%";
-            pmtSearchBidders.BidderTypeId = (int)this.frmBidder.uceDetType.Value;
+            pmtSearchBidders.BidderTypeId = (int)this.frmBidder.uceSchType.Value;
 
             DataTable dtBidders = srvBidder.SearchBidders(pmtSearchBidders);
 

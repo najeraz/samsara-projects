@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsarb.ProjectsAndTendering.Core" 
-  namespace="Samsarb.ProjectsAndTendering.Core.Entities.Domain">
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
   <class name="Bidder" table="Bidders">
     
@@ -14,7 +14,7 @@
     <property name="Activated"/>
 
     <many-to-one name="BidderType"
-                 class="Samsarb.ProjectsAndTendering.Core.Entities.Domain.BidderType, Samsarb.ProjectsAndTendering.Core"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.BidderType, Samsara.ProjectsAndTendering.Core"
                  column="BidderTypeId"/>
 
   </class>
