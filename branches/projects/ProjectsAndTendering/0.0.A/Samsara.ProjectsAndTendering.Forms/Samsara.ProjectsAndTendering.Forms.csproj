@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AsesorFormController.cs" />
     <Compile Include="Controller\TenderingFormController.cs" />
     <Compile Include="Forms\AsesorForm.cs">
       <SubType>Form</SubType>

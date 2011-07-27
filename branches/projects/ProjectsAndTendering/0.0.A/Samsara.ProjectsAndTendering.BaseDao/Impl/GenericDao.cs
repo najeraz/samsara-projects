@@ -111,6 +111,8 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             {
                 if (pInfo.GetValue(parameters, null) != null)
                 {
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
+                        dnq.SetBoolean(pInfo.Name, (bool)pInfo.GetValue(parameters, null));
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
                         dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
