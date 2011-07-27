@@ -57,6 +57,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmDependency.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmDependency.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmDependency.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmDependency.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
             this.frmDependency.HiddenDetail(true);
         }
@@ -128,6 +129,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.LoadEntity();
                 this.srvDependency.SaveOrUpdateDependency(this.dependency);
                 this.frmDependency.HiddenDetail(true);
+                this.Search();
             }
         }
 
@@ -139,6 +141,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmDependency.HiddenDetail(false);
             this.ShowDetail(true);
+            this.Search();
         }
 
         private void LoadFormFromEntity()
@@ -147,11 +150,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmDependency.txtDetName.Text = this.dependency.Name;
         }
 
-        #endregion Methods
-        
-        #region Events
-        
-        private void btnSchSearch_Click(object sender, EventArgs e)
+        private void DeleteEntity(int dependencyId)
+        {
+            if (MessageBox.Show("¿Esta seguro de eliminar la Dependencia?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                return;
+            this.dependency = this.srvDependency.LoadDependency(dependencyId);
+            this.dependency.Activated = false;
+            this.dependency.Deleted = true;
+            this.srvDependency.SaveOrUpdateDependency(this.dependency);
+            this.Search();
+        }
+
+        private void Search()
         {
             SearchDependenciesParameters pmtSearchDependencies = new SearchDependenciesParameters();
 
@@ -162,6 +173,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmDependency.grdSchSearch.DataSource = null;
             this.frmDependency.grdSchSearch.DataSource = dtDependencies;
+        }
+
+        #endregion Methods
+        
+        #region Events
+        
+        private void btnSchSearch_Click(object sender, EventArgs e)
+        {
+            this.Search();
         }
 
         private void btnSchCreate_Click(object sender, EventArgs e)
@@ -181,7 +201,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmDependency.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
-                this.EditDependency(Convert.ToInt32(activeRow.Cells["Column1"].Value));
+                this.EditDependency(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -192,6 +212,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchClear_Click(object sender, EventArgs e)
         {
             this.ClearSearchControls();
+        }
+
+        private void btnSchDelete_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmDependency.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
         }
         #endregion Events
     }
