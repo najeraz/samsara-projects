@@ -1,8 +1,6 @@
 ﻿
 
 
-using Iesi.Collections;
-using System.Collections.Generic;
 using Iesi.Collections.Generic;
 namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
 {
