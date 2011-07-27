@@ -39,8 +39,11 @@
             this.txtSchFullName = new System.Windows.Forms.TextBox();
             this.lclSchFullName = new System.Windows.Forms.Label();
             this.chkSchShowAll = new System.Windows.Forms.CheckBox();
+            this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
+            this.ultraGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -49,13 +52,12 @@
             // 
             // gbxSearchParameters
             // 
+            this.gbxSearchParameters.Controls.Add(this.ultraGroupBox1);
             this.gbxSearchParameters.Controls.Add(this.txtSchFullName);
             this.gbxSearchParameters.Controls.Add(this.lclSchFullName);
             this.gbxSearchParameters.Controls.Add(this.txtSchName);
             this.gbxSearchParameters.Controls.Add(this.lblSchName);
-            this.gbxSearchParameters.Controls.Add(this.chkSchShowAll);
-            this.gbxSearchParameters.Controls.Add(this.chkSchShowApprovers);
-            this.gbxSearchParameters.Size = new System.Drawing.Size(505, 94);
+            this.gbxSearchParameters.Size = new System.Drawing.Size(505, 71);
             // 
             // gbxDetDetail
             // 
@@ -65,35 +67,39 @@
             this.gbxDetDetail.Controls.Add(this.txtDetName);
             this.gbxDetDetail.Controls.Add(this.lblDetName);
             // 
-            // btnSchSearch
-            // 
-            this.btnSchSearch.Location = new System.Drawing.Point(414, 0);
-            // 
             // btnSchClose
             // 
-            this.btnSchClose.Location = new System.Drawing.Point(141, 0);
+            this.btnSchClose.Location = new System.Drawing.Point(232, 0);
             // 
             // btnSchEdit
             // 
-            this.btnSchEdit.Location = new System.Drawing.Point(232, 0);
+            this.btnSchEdit.Location = new System.Drawing.Point(323, 0);
             // 
             // btnSchCreate
             // 
-            this.btnSchCreate.Location = new System.Drawing.Point(323, 0);
+            this.btnSchCreate.Location = new System.Drawing.Point(414, 0);
             // 
             // btnSchAccept
             // 
-            this.btnSchAccept.Location = new System.Drawing.Point(50, 0);
+            this.btnSchAccept.Location = new System.Drawing.Point(141, 0);
+            // 
+            // btnSchClear
+            // 
+            this.btnSchClear.Location = new System.Drawing.Point(323, 0);
+            // 
+            // btnSchSearch
+            // 
+            this.btnSchSearch.Location = new System.Drawing.Point(414, 0);
             // 
             // chkSchShowApprovers
             // 
             this.chkSchShowApprovers.AutoSize = true;
             this.chkSchShowApprovers.Enabled = false;
-            this.chkSchShowApprovers.Location = new System.Drawing.Point(336, 44);
+            this.chkSchShowApprovers.Location = new System.Drawing.Point(6, 39);
             this.chkSchShowApprovers.Name = "chkSchShowApprovers";
-            this.chkSchShowApprovers.Size = new System.Drawing.Size(104, 17);
+            this.chkSchShowApprovers.Size = new System.Drawing.Size(110, 17);
             this.chkSchShowApprovers.TabIndex = 23;
-            this.chkSchShowApprovers.Text = "Puede dar VoBo";
+            this.chkSchShowApprovers.Text = "Puede dar Vo.Bo.";
             this.chkSchShowApprovers.UseVisualStyleBackColor = true;
             // 
             // txtDetName
@@ -133,9 +139,9 @@
             this.chkDetCanApprove.AutoSize = true;
             this.chkDetCanApprove.Location = new System.Drawing.Point(358, 21);
             this.chkDetCanApprove.Name = "chkDetCanApprove";
-            this.chkDetCanApprove.Size = new System.Drawing.Size(104, 17);
+            this.chkDetCanApprove.Size = new System.Drawing.Size(110, 17);
             this.chkDetCanApprove.TabIndex = 25;
-            this.chkDetCanApprove.Text = "Puede dar VoBo";
+            this.chkDetCanApprove.Text = "Puede dar Vo.Bo.";
             this.chkDetCanApprove.UseVisualStyleBackColor = true;
             // 
             // lblDetFullName
@@ -175,12 +181,22 @@
             this.chkSchShowAll.AutoSize = true;
             this.chkSchShowAll.Checked = true;
             this.chkSchShowAll.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSchShowAll.Location = new System.Drawing.Point(336, 21);
+            this.chkSchShowAll.Location = new System.Drawing.Point(6, 16);
             this.chkSchShowAll.Name = "chkSchShowAll";
             this.chkSchShowAll.Size = new System.Drawing.Size(90, 17);
             this.chkSchShowAll.TabIndex = 23;
             this.chkSchShowAll.Text = "Mostrar todos";
             this.chkSchShowAll.UseVisualStyleBackColor = true;
+            // 
+            // ultraGroupBox1
+            // 
+            this.ultraGroupBox1.Controls.Add(this.chkSchShowAll);
+            this.ultraGroupBox1.Controls.Add(this.chkSchShowApprovers);
+            this.ultraGroupBox1.Location = new System.Drawing.Point(343, 6);
+            this.ultraGroupBox1.Name = "ultraGroupBox1";
+            this.ultraGroupBox1.Size = new System.Drawing.Size(114, 62);
+            this.ultraGroupBox1.TabIndex = 28;
+            this.ultraGroupBox1.Text = "Vo.Bo.";
             // 
             // AsesorForm
             // 
@@ -188,11 +204,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "AsesorForm";
-            this.Text = "AsesorForm";
+            this.Text = "Caatálogo de Asesores";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
+            this.ultraGroupBox1.ResumeLayout(false);
+            this.ultraGroupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +229,6 @@
         internal System.Windows.Forms.CheckBox chkSchShowApprovers;
         internal System.Windows.Forms.TextBox txtSchName;
         internal System.Windows.Forms.CheckBox chkSchShowAll;
+        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
     }
 }

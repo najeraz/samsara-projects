@@ -43,6 +43,12 @@
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.Search = new System.Windows.Forms.TabPage();
             this.grdSchSearch = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.upSchSearchButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
+            this.btnSchClear = new System.Windows.Forms.Button();
+            this.upSchSeparatorSearch = new Infragistics.Win.Misc.UltraPanel();
+            this.btnSchSearch = new System.Windows.Forms.Button();
+            this.upSchSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
             this.upButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upSeparatorAccept = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchAccept = new System.Windows.Forms.Button();
@@ -52,8 +58,6 @@
             this.btnSchEdit = new System.Windows.Forms.Button();
             this.upSchSeparatorCreate = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchCreate = new System.Windows.Forms.Button();
-            this.upSchSeparatorSearch = new Infragistics.Win.Misc.UltraPanel();
-            this.btnSchSearch = new System.Windows.Forms.Button();
             this.upSchSeparatorBottom = new Infragistics.Win.Misc.UltraPanel();
             this.gbxSearchParameters = new System.Windows.Forms.GroupBox();
             this.New = new System.Windows.Forms.TabPage();
@@ -67,13 +71,17 @@
             this.tabPrincipal.SuspendLayout();
             this.Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
+            this.upSchSearchButtons.ClientArea.SuspendLayout();
+            this.upSchSearchButtons.SuspendLayout();
+            this.upSchSeparatorClean.SuspendLayout();
+            this.upSchSeparatorSearch.SuspendLayout();
+            this.upSchSeparatorBottonSearch.SuspendLayout();
             this.upButtons.ClientArea.SuspendLayout();
             this.upButtons.SuspendLayout();
             this.upSeparatorAccept.SuspendLayout();
             this.upSchSeparatorClose.SuspendLayout();
             this.upSchSeparatorEdit.SuspendLayout();
             this.upSchSeparatorCreate.SuspendLayout();
-            this.upSchSeparatorSearch.SuspendLayout();
             this.upSchSeparatorBottom.SuspendLayout();
             this.New.SuspendLayout();
             this.pnlDetCtgButtons.SuspendLayout();
@@ -96,6 +104,7 @@
             // Search
             // 
             this.Search.Controls.Add(this.grdSchSearch);
+            this.Search.Controls.Add(this.upSchSearchButtons);
             this.Search.Controls.Add(this.upButtons);
             this.Search.Controls.Add(this.gbxSearchParameters);
             this.Search.Location = new System.Drawing.Point(4, 22);
@@ -163,11 +172,71 @@
             this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
             this.grdSchSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdSchSearch.Location = new System.Drawing.Point(3, 97);
+            this.grdSchSearch.Location = new System.Drawing.Point(3, 122);
             this.grdSchSearch.Name = "grdSchSearch";
-            this.grdSchSearch.Size = new System.Drawing.Size(626, 292);
+            this.grdSchSearch.Size = new System.Drawing.Size(626, 267);
             this.grdSchSearch.TabIndex = 22;
             this.grdSchSearch.Text = "samsaraUltraGrid1";
+            // 
+            // upSchSearchButtons
+            // 
+            // 
+            // upSchSearchButtons.ClientArea
+            // 
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorClean);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.btnSchClear);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorSearch);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.btnSchSearch);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorBottonSearch);
+            this.upSchSearchButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upSchSearchButtons.Location = new System.Drawing.Point(3, 97);
+            this.upSchSearchButtons.Name = "upSchSearchButtons";
+            this.upSchSearchButtons.Size = new System.Drawing.Size(626, 25);
+            this.upSchSearchButtons.TabIndex = 23;
+            // 
+            // upSchSeparatorClean
+            // 
+            this.upSchSeparatorClean.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorClean.Location = new System.Drawing.Point(428, 0);
+            this.upSchSeparatorClean.Name = "upSchSeparatorClean";
+            this.upSchSeparatorClean.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorClean.TabIndex = 6;
+            // 
+            // btnSchClear
+            // 
+            this.btnSchClear.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchClear.Location = new System.Drawing.Point(444, 0);
+            this.btnSchClear.Name = "btnSchClear";
+            this.btnSchClear.Size = new System.Drawing.Size(75, 25);
+            this.btnSchClear.TabIndex = 3;
+            this.btnSchClear.Text = "Limpiar";
+            this.btnSchClear.UseVisualStyleBackColor = true;
+            // 
+            // upSchSeparatorSearch
+            // 
+            this.upSchSeparatorSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorSearch.Location = new System.Drawing.Point(519, 0);
+            this.upSchSeparatorSearch.Name = "upSchSeparatorSearch";
+            this.upSchSeparatorSearch.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorSearch.TabIndex = 5;
+            // 
+            // btnSchSearch
+            // 
+            this.btnSchSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchSearch.Location = new System.Drawing.Point(535, 0);
+            this.btnSchSearch.Name = "btnSchSearch";
+            this.btnSchSearch.Size = new System.Drawing.Size(75, 25);
+            this.btnSchSearch.TabIndex = 4;
+            this.btnSchSearch.Text = "Buscar";
+            this.btnSchSearch.UseVisualStyleBackColor = true;
+            // 
+            // upSchSeparatorBottonSearch
+            // 
+            this.upSchSeparatorBottonSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorBottonSearch.Location = new System.Drawing.Point(610, 0);
+            this.upSchSeparatorBottonSearch.Name = "upSchSeparatorBottonSearch";
+            this.upSchSeparatorBottonSearch.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorBottonSearch.TabIndex = 1;
             // 
             // upButtons
             // 
@@ -182,8 +251,6 @@
             this.upButtons.ClientArea.Controls.Add(this.btnSchEdit);
             this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorCreate);
             this.upButtons.ClientArea.Controls.Add(this.btnSchCreate);
-            this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorSearch);
-            this.upButtons.ClientArea.Controls.Add(this.btnSchSearch);
             this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorBottom);
             this.upButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.upButtons.Location = new System.Drawing.Point(3, 389);
@@ -194,7 +261,7 @@
             // upSeparatorAccept
             // 
             this.upSeparatorAccept.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSeparatorAccept.Location = new System.Drawing.Point(155, 0);
+            this.upSeparatorAccept.Location = new System.Drawing.Point(246, 0);
             this.upSeparatorAccept.Name = "upSeparatorAccept";
             this.upSeparatorAccept.Size = new System.Drawing.Size(16, 25);
             this.upSeparatorAccept.TabIndex = 10;
@@ -202,7 +269,7 @@
             // btnSchAccept
             // 
             this.btnSchAccept.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchAccept.Location = new System.Drawing.Point(171, 0);
+            this.btnSchAccept.Location = new System.Drawing.Point(262, 0);
             this.btnSchAccept.Name = "btnSchAccept";
             this.btnSchAccept.Size = new System.Drawing.Size(75, 25);
             this.btnSchAccept.TabIndex = 9;
@@ -212,7 +279,7 @@
             // upSchSeparatorClose
             // 
             this.upSchSeparatorClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorClose.Location = new System.Drawing.Point(246, 0);
+            this.upSchSeparatorClose.Location = new System.Drawing.Point(337, 0);
             this.upSchSeparatorClose.Name = "upSchSeparatorClose";
             this.upSchSeparatorClose.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorClose.TabIndex = 8;
@@ -220,7 +287,7 @@
             // btnSchClose
             // 
             this.btnSchClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchClose.Location = new System.Drawing.Point(262, 0);
+            this.btnSchClose.Location = new System.Drawing.Point(353, 0);
             this.btnSchClose.Name = "btnSchClose";
             this.btnSchClose.Size = new System.Drawing.Size(75, 25);
             this.btnSchClose.TabIndex = 7;
@@ -231,7 +298,7 @@
             // upSchSeparatorEdit
             // 
             this.upSchSeparatorEdit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorEdit.Location = new System.Drawing.Point(337, 0);
+            this.upSchSeparatorEdit.Location = new System.Drawing.Point(428, 0);
             this.upSchSeparatorEdit.Name = "upSchSeparatorEdit";
             this.upSchSeparatorEdit.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorEdit.TabIndex = 6;
@@ -239,7 +306,7 @@
             // btnSchEdit
             // 
             this.btnSchEdit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchEdit.Location = new System.Drawing.Point(353, 0);
+            this.btnSchEdit.Location = new System.Drawing.Point(444, 0);
             this.btnSchEdit.Name = "btnSchEdit";
             this.btnSchEdit.Size = new System.Drawing.Size(75, 25);
             this.btnSchEdit.TabIndex = 5;
@@ -249,7 +316,7 @@
             // upSchSeparatorCreate
             // 
             this.upSchSeparatorCreate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorCreate.Location = new System.Drawing.Point(428, 0);
+            this.upSchSeparatorCreate.Location = new System.Drawing.Point(519, 0);
             this.upSchSeparatorCreate.Name = "upSchSeparatorCreate";
             this.upSchSeparatorCreate.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorCreate.TabIndex = 4;
@@ -257,30 +324,12 @@
             // btnSchCreate
             // 
             this.btnSchCreate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchCreate.Location = new System.Drawing.Point(444, 0);
+            this.btnSchCreate.Location = new System.Drawing.Point(535, 0);
             this.btnSchCreate.Name = "btnSchCreate";
             this.btnSchCreate.Size = new System.Drawing.Size(75, 25);
             this.btnSchCreate.TabIndex = 3;
             this.btnSchCreate.Text = "Nuevo";
             this.btnSchCreate.UseVisualStyleBackColor = true;
-            // 
-            // upSchSeparatorSearch
-            // 
-            this.upSchSeparatorSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorSearch.Location = new System.Drawing.Point(519, 0);
-            this.upSchSeparatorSearch.Name = "upSchSeparatorSearch";
-            this.upSchSeparatorSearch.Size = new System.Drawing.Size(16, 25);
-            this.upSchSeparatorSearch.TabIndex = 2;
-            // 
-            // btnSchSearch
-            // 
-            this.btnSchSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchSearch.Location = new System.Drawing.Point(535, 0);
-            this.btnSchSearch.Name = "btnSchSearch";
-            this.btnSchSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnSchSearch.TabIndex = 0;
-            this.btnSchSearch.Text = "Buscar";
-            this.btnSchSearch.UseVisualStyleBackColor = true;
             // 
             // upSchSeparatorBottom
             // 
@@ -392,13 +441,17 @@
             this.tabPrincipal.ResumeLayout(false);
             this.Search.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
+            this.upSchSearchButtons.ClientArea.ResumeLayout(false);
+            this.upSchSearchButtons.ResumeLayout(false);
+            this.upSchSeparatorClean.ResumeLayout(false);
+            this.upSchSeparatorSearch.ResumeLayout(false);
+            this.upSchSeparatorBottonSearch.ResumeLayout(false);
             this.upButtons.ClientArea.ResumeLayout(false);
             this.upButtons.ResumeLayout(false);
             this.upSeparatorAccept.ResumeLayout(false);
             this.upSchSeparatorClose.ResumeLayout(false);
             this.upSchSeparatorEdit.ResumeLayout(false);
             this.upSchSeparatorCreate.ResumeLayout(false);
-            this.upSchSeparatorSearch.ResumeLayout(false);
             this.upSchSeparatorBottom.ResumeLayout(false);
             this.New.ResumeLayout(false);
             this.pnlDetCtgButtons.ResumeLayout(false);
@@ -416,7 +469,6 @@
         protected System.Windows.Forms.Panel pnlDetCtgButtons;
         protected System.Windows.Forms.GroupBox gbxSearchParameters;
         protected System.Windows.Forms.GroupBox gbxDetDetail;
-        public System.Windows.Forms.Button btnSchSearch;
         private Infragistics.Win.Misc.UltraPanel upButtons;
         public System.Windows.Forms.Button btnSchClose;
         public System.Windows.Forms.Button btnSchEdit;
@@ -429,11 +481,16 @@
         internal System.Windows.Forms.Button btnDetCancel;
         internal System.Windows.Forms.Button btnDetSave;
         public System.Windows.Forms.Button btnSchAccept;
-        internal Infragistics.Win.Misc.UltraPanel upSchSeparatorSearch;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorBottom;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorClose;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorEdit;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorCreate;
         internal Infragistics.Win.Misc.UltraPanel upSeparatorAccept;
+        private Infragistics.Win.Misc.UltraPanel upSchSearchButtons;
+        internal Infragistics.Win.Misc.UltraPanel upSchSeparatorClean;
+        public System.Windows.Forms.Button btnSchClear;
+        internal Infragistics.Win.Misc.UltraPanel upSchSeparatorSearch;
+        public System.Windows.Forms.Button btnSchSearch;
+        internal Infragistics.Win.Misc.UltraPanel upSchSeparatorBottonSearch;
     }
 }

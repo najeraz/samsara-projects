@@ -8,7 +8,6 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class BidderTypeService : BaseService, IBidderTypeService
     {
-
         #region Properties
 
         /// <summary>
@@ -36,14 +35,7 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         public void SaveOrUpdateBidderType(BidderType entity)
         {
-            if (entity.BidderTypeId < 0)
-            {
-                this.BidderTypeDao.Save(entity);
-            }
-            else
-            {
-                this.BidderTypeDao.Update(entity);
-            }
+            this.BidderTypeDao.SaveOrUpdate(entity);
         }
 
         public void DeleteBidderType(BidderType entity)

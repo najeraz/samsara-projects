@@ -146,6 +146,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTendering.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmTendering.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
+            this.frmTendering.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmTendering.ubtnDetDeleteManufacturer.Click +=
                 new EventHandler(ubtnDetDeleteManufacturer_Click);
             this.frmTendering.ubtnDetNewManufacturer.Click +=
@@ -356,7 +357,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void CleanDetailControls()
+        private void ClearDetailControls()
         {
             this.frmTendering.uceDetApprovedBy.Value = -1;
             this.frmTendering.uceDetAsesor.Value = -1;
@@ -407,7 +408,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.tender = this.srvTender.LoadTender(tenderId);
 
-            this.CleanDetailControls();
+            this.ClearDetailControls();
             this.LoadFormFromEntity();
             this.frmTendering.HiddenDetail(false);
             this.ShowDetail(true);
@@ -492,7 +493,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
             this.tender = new Tender();
-            this.CleanDetailControls();
+            this.ClearDetailControls();
             this.ShowDetail(true);
         }
 
@@ -703,6 +704,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow != null)
                 this.EditTender(Convert.ToInt32(activeRow.Cells["Column1"].Value));
+        }
+
+        private void btnSchClear_Click(object sender, EventArgs e)
+        {
+            this.ClearSearchControls();
         }
 
         #endregion Events

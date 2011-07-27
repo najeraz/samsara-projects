@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.ProjectsAndTendering.Core" 
-  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
+  assembly="Samsarb.ProjectsAndTendering.Core" 
+  namespace="Samsarb.ProjectsAndTendering.Core.Entities.Domain">
   
   <class name="Bidder" table="Bidders">
     
@@ -10,9 +10,12 @@
     </id>
 
     <property name="Name"/>
-    <property name="BidderTypeId"/>
     <property name="Deleted"/>
     <property name="Activated"/>
+
+    <many-to-one name="BidderType"
+                 class="Samsarb.ProjectsAndTendering.Core.Entities.Domain.BidderType, Samsarb.ProjectsAndTendering.Core"
+                 column="BidderTypeId"/>
 
   </class>
 
@@ -22,5 +25,18 @@
     ]]>
   </query>
 
+  <sql-query name="SearchBidders" cacheable="false" read-only="true">
+    <return-scalar column="BidderId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <return-scalar column="BidderTypeName" type="string"/>
+    <![CDATA[
+      SELECT b.BidderId, b.Name, bt.Name BidderTypeName
+      FROM Bidders b
+      INNER JOIN BidderTypes bt ON bt.BidderTypeId = b.BidderTypeId
+      WHERE b.Deleted = 0 and b.Activated = 1 AND bt.Deleted = 0 and bt.Activated = 1
+      AND b.Name like :Name
+      AND (:BidderTypeId = -1 OR b.BidderTypeId = :BidderTypeId)
+    ]]>
+  </sql-query>
 
 </hibernate-mapping>

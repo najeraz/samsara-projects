@@ -22,7 +22,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int BidderTypeId
+        public virtual BidderType BidderType
         {
             get;
             set;
