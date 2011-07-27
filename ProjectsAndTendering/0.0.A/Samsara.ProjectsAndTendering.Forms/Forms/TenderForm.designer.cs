@@ -1,6 +1,6 @@
 ﻿namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
-    partial class TenderingForm
+    partial class TenderForm
     {
         /// <summary>
         /// Variable del diseñador requerida.

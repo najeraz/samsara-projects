@@ -10,7 +10,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
-    public partial class TenderingForm : TenderSearchForm
+    public partial class TenderForm : TenderSearchForm
     {
         #region Attributes
 
@@ -21,7 +21,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Constructor
 
-        public TenderingForm()
+        public TenderForm()
         {
             InitializeComponent();
             this.ctrlTenderingForm = new TenderingFormController(this);
