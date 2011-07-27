@@ -44,8 +44,7 @@
             // 
             // pnlDetCtgButtons
             // 
-            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 263);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(478, 25);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
             // 
             // gbxSearchParameters
             // 
@@ -61,7 +60,6 @@
             this.gbxDetDetail.Controls.Add(this.lblDetBidder);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
             this.gbxDetDetail.Controls.Add(this.lbDetName);
-            this.gbxDetDetail.Size = new System.Drawing.Size(478, 260);
             // 
             // btnSchClose
             // 
@@ -157,7 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 317);
             this.Name = "DependencyForm";
-            this.Text = "DependenciaForm";
+            this.Text = "Catálogo de Dependencias";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);

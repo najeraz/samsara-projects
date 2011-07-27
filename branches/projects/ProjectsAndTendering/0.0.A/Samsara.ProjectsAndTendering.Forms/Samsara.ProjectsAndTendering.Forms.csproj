@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Controller\AsesorFormController.cs" />
     <Compile Include="Controller\BidderFormController.cs" />
+    <Compile Include="Controller\TenderStatusFormController.cs" />
     <Compile Include="Controller\DependencyFormController.cs" />
     <Compile Include="Controller\TenderingFormController.cs" />
     <Compile Include="Forms\AsesorForm.cs">
@@ -113,6 +114,12 @@
     <Compile Include="Forms\TenderingForm.designer.cs">
       <DependentUpon>TenderingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TenderStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TenderStatusForm.designer.cs">
+      <DependentUpon>TenderStatusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +143,12 @@
     </Compile>
     <Compile Include="Templates\BidderSearchForm.Designer.cs">
       <DependentUpon>BidderSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TenderStatusSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TenderStatusSearchForm.Designer.cs">
+      <DependentUpon>TenderStatusSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Templates\DependencySearchForm.cs">
       <SubType>Form</SubType>
@@ -171,6 +184,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TenderingForm.resx">
       <DependentUpon>TenderingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TenderStatusForm.resx">
+      <DependentUpon>TenderStatusForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
