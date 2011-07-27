@@ -28,106 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.cbxSchType = new System.Windows.Forms.ComboBox();
             this.txtSchName = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxDeType = new System.Windows.Forms.ComboBox();
+            this.lblSchType = new System.Windows.Forms.Label();
+            this.lblSchName = new System.Windows.Forms.Label();
             this.txtDetName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pnlDetCtgButtons.SuspendLayout();
+            this.lblDetType = new System.Windows.Forms.Label();
+            this.lblDetName = new System.Windows.Forms.Label();
+            this.uceDetType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.uceSchType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceSchType)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSchSearch
+            // pnlDetCtgButtons
             // 
-            this.btnSchSearch.Location = new System.Drawing.Point(397, 47);
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 254);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(502, 25);
             // 
             // gbxSearchParameters
             // 
-            this.gbxSearchParameters.Controls.Add(this.cbxSchType);
+            this.gbxSearchParameters.Controls.Add(this.uceSchType);
             this.gbxSearchParameters.Controls.Add(this.txtSchName);
-            this.gbxSearchParameters.Controls.Add(this.label5);
-            this.gbxSearchParameters.Controls.Add(this.label3);
-            this.gbxSearchParameters.Size = new System.Drawing.Size(478, 76);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.label3, 0);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.label5, 0);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.txtSchName, 0);
-            this.gbxSearchParameters.Controls.SetChildIndex(this.cbxSchType, 0);
+            this.gbxSearchParameters.Controls.Add(this.lblSchType);
+            this.gbxSearchParameters.Controls.Add(this.lblSchName);
+            this.gbxSearchParameters.Size = new System.Drawing.Size(502, 76);
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Controls.Add(this.cbxDeType);
+            this.gbxDetDetail.Controls.Add(this.uceDetType);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
-            this.gbxDetDetail.Controls.Add(this.label1);
-            this.gbxDetDetail.Controls.Add(this.label2);
+            this.gbxDetDetail.Controls.Add(this.lblDetType);
+            this.gbxDetDetail.Controls.Add(this.lblDetName);
+            this.gbxDetDetail.Size = new System.Drawing.Size(502, 251);
             // 
-            // grdSchSearch
+            // btnSchClose
             // 
-            appearance1.BackColor = System.Drawing.SystemColors.Window;
-            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdSchSearch.DisplayLayout.Appearance = appearance1;
-            this.grdSchSearch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdSchSearch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.grdSchSearch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdSchSearch.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdSchSearch.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance2.BackColor = System.Drawing.SystemColors.Window;
-            appearance2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdSchSearch.DisplayLayout.Override.ActiveCellAppearance = appearance2;
-            appearance3.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdSchSearch.DisplayLayout.Override.ActiveRowAppearance = appearance3;
-            this.grdSchSearch.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdSchSearch.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance4.BackColor = System.Drawing.SystemColors.Window;
-            this.grdSchSearch.DisplayLayout.Override.CardAreaAppearance = appearance4;
-            appearance5.BorderColor = System.Drawing.Color.Silver;
-            appearance5.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdSchSearch.DisplayLayout.Override.CellAppearance = appearance5;
-            this.grdSchSearch.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdSchSearch.DisplayLayout.Override.CellPadding = 0;
-            appearance6.BackColor = System.Drawing.SystemColors.Control;
-            appearance6.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance6.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance6.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance6.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdSchSearch.DisplayLayout.Override.GroupByRowAppearance = appearance6;
-            appearance7.TextHAlignAsString = "Left";
-            this.grdSchSearch.DisplayLayout.Override.HeaderAppearance = appearance7;
-            this.grdSchSearch.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdSchSearch.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance8.BackColor = System.Drawing.SystemColors.Window;
-            appearance8.BorderColor = System.Drawing.Color.Silver;
-            this.grdSchSearch.DisplayLayout.Override.RowAppearance = appearance8;
-            this.grdSchSearch.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance9.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdSchSearch.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
-            this.grdSchSearch.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdSchSearch.Location = new System.Drawing.Point(3, 79);
-            this.grdSchSearch.Size = new System.Drawing.Size(478, 158);
+            this.btnSchClose.Location = new System.Drawing.Point(229, 0);
             // 
-            // cbxSchType
+            // btnSchEdit
             // 
-            this.cbxSchType.FormattingEnabled = true;
-            this.cbxSchType.Location = new System.Drawing.Point(60, 45);
-            this.cbxSchType.Name = "cbxSchType";
-            this.cbxSchType.Size = new System.Drawing.Size(226, 21);
-            this.cbxSchType.TabIndex = 21;
+            this.btnSchEdit.Location = new System.Drawing.Point(320, 0);
+            // 
+            // btnSchCreate
+            // 
+            this.btnSchCreate.Location = new System.Drawing.Point(411, 0);
+            // 
+            // btnSchAccept
+            // 
+            this.btnSchAccept.Location = new System.Drawing.Point(138, 0);
+            // 
+            // btnSchClear
+            // 
+            this.btnSchClear.Location = new System.Drawing.Point(320, 0);
+            // 
+            // btnSchSearch
+            // 
+            this.btnSchSearch.Location = new System.Drawing.Point(411, 0);
             // 
             // txtSchName
             // 
@@ -136,31 +94,23 @@
             this.txtSchName.Size = new System.Drawing.Size(226, 20);
             this.txtSchName.TabIndex = 20;
             // 
-            // label5
+            // lblSchType
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Tipo:";
+            this.lblSchType.AutoSize = true;
+            this.lblSchType.Location = new System.Drawing.Point(7, 49);
+            this.lblSchType.Name = "lblSchType";
+            this.lblSchType.Size = new System.Drawing.Size(31, 13);
+            this.lblSchType.TabIndex = 18;
+            this.lblSchType.Text = "Tipo:";
             // 
-            // label3
+            // lblSchName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Nombre:";
-            // 
-            // cbxDeType
-            // 
-            this.cbxDeType.FormattingEnabled = true;
-            this.cbxDeType.Location = new System.Drawing.Point(57, 45);
-            this.cbxDeType.Name = "cbxDeType";
-            this.cbxDeType.Size = new System.Drawing.Size(226, 21);
-            this.cbxDeType.TabIndex = 21;
+            this.lblSchName.AutoSize = true;
+            this.lblSchName.Location = new System.Drawing.Point(7, 22);
+            this.lblSchName.Name = "lblSchName";
+            this.lblSchName.Size = new System.Drawing.Size(47, 13);
+            this.lblSchName.TabIndex = 19;
+            this.lblSchName.Text = "Nombre:";
             // 
             // txtDetName
             // 
@@ -169,50 +119,64 @@
             this.txtDetName.Size = new System.Drawing.Size(226, 20);
             this.txtDetName.TabIndex = 20;
             // 
-            // label1
+            // lblDetType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Tipo:";
+            this.lblDetType.AutoSize = true;
+            this.lblDetType.Location = new System.Drawing.Point(6, 49);
+            this.lblDetType.Name = "lblDetType";
+            this.lblDetType.Size = new System.Drawing.Size(31, 13);
+            this.lblDetType.TabIndex = 18;
+            this.lblDetType.Text = "Tipo:";
             // 
-            // label2
+            // lblDetName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Nombre:";
+            this.lblDetName.AutoSize = true;
+            this.lblDetName.Location = new System.Drawing.Point(4, 22);
+            this.lblDetName.Name = "lblDetName";
+            this.lblDetName.Size = new System.Drawing.Size(47, 13);
+            this.lblDetName.TabIndex = 19;
+            this.lblDetName.Text = "Nombre:";
+            // 
+            // uceDetType
+            // 
+            this.uceDetType.Location = new System.Drawing.Point(57, 45);
+            this.uceDetType.Name = "uceDetType";
+            this.uceDetType.Size = new System.Drawing.Size(226, 21);
+            this.uceDetType.TabIndex = 22;
+            // 
+            // uceSchType
+            // 
+            this.uceSchType.Location = new System.Drawing.Point(60, 45);
+            this.uceSchType.Name = "uceSchType";
+            this.uceSchType.Size = new System.Drawing.Size(226, 21);
+            this.uceSchType.TabIndex = 23;
             // 
             // BidderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 266);
+            this.ClientSize = new System.Drawing.Size(516, 308);
             this.Name = "BidderForm";
-            this.Text = "LicitanteForm";
-            this.pnlDetCtgButtons.ResumeLayout(false);
+            this.Text = "Catálogo de Licitantes";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceSchType)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbxSchType;
-        private System.Windows.Forms.TextBox txtSchName;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbxDeType;
-        private System.Windows.Forms.TextBox txtDetName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSchType;
+        private System.Windows.Forms.Label lblSchName;
+        private System.Windows.Forms.Label lblDetType;
+        private System.Windows.Forms.Label lblDetName;
+        internal System.Windows.Forms.TextBox txtSchName;
+        internal System.Windows.Forms.TextBox txtDetName;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchType;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetType;
     }
 }

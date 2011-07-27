@@ -1,20 +1,14 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
-using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
-using Samsara.ProjectsAndTendering.Controls.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
-using Samsara.ProjectsAndTendering.Core.Enums;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
-using Samsara.Support.Util;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -50,6 +44,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmAsesor.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmAsesor.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmAsesor.chkSchShowAll.CheckedChanged += new EventHandler(chkSchShowAll_CheckedChanged);
+            this.frmAsesor.btnSchClear.Click += new EventHandler(btnSchClear_Click);
 
             this.frmAsesor.HiddenDetail(true);
         }
@@ -67,7 +62,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (this.frmAsesor.txtDetName.Text == null || this.frmAsesor.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elejir un nombre para el Asesor.",
+                MessageBox.Show("Favor de elegir un nombre para el Asesor.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmAsesor.txtDetName.Focus();
                 return false;
@@ -86,7 +81,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.asesor.Deleted = false;
         }
 
-        private void CleanDetailControls()
+        private void ClearDetailControls()
         {
             this.frmAsesor.chkDetCanApprove.Checked = false;
             this.frmAsesor.txtDetName.Text = string.Empty;
@@ -95,6 +90,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ClearSearchControls()
         {
+            this.frmAsesor.chkSchShowAll.Checked = true;
             this.frmAsesor.chkSchShowApprovers.Checked = false;
             this.frmAsesor.txtSchFullName.Text = string.Empty;
             this.frmAsesor.txtSchName.Text = string.Empty;
@@ -114,7 +110,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.asesor = this.srvAsesor.LoadAsesor(asesorId);
 
-            this.CleanDetailControls();
+            this.ClearDetailControls();
             this.LoadFormFromEntity();
             this.frmAsesor.HiddenDetail(false);
             this.ShowDetail(true);
@@ -149,7 +145,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
             this.asesor = new Asesor();
-            this.CleanDetailControls();
+            this.ClearDetailControls();
             this.ShowDetail(true);
         }
 
@@ -175,6 +171,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmAsesor.chkSchShowApprovers.Checked = false;
             this.frmAsesor.chkSchShowApprovers.Enabled = !this.frmAsesor.chkSchShowAll.Checked;
+        }
+
+        private void btnSchClear_Click(object sender, EventArgs e)
+        {
+            this.ClearSearchControls();
         }
         #endregion Events
     }
