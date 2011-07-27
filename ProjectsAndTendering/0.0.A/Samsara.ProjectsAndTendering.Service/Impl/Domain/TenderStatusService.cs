@@ -1,6 +1,8 @@
 ﻿
 using System.Collections.Generic;
+using System.Data;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
@@ -22,6 +24,11 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
         #endregion Properties
 
         #region Methods
+
+        public DataTable SearchTenderStatuses(SearchTenderStatusesParameters pmtSearchTenderStatuses)
+        {
+            return this.TenderStatusDao.SearchTenderStatuses(pmtSearchTenderStatuses);
+        }
 
         public Dictionary<int, TenderStatus> LoadTenderStatuses()
         {
