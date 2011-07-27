@@ -105,6 +105,7 @@
       <DependentUpon>BidderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ManufacturerForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ManufacturerForm.designer.cs">
       <DependentUpon>ManufacturerForm.cs</DependentUpon>

@@ -45,6 +45,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmAsesor.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmAsesor.chkSchShowAll.CheckedChanged += new EventHandler(chkSchShowAll_CheckedChanged);
             this.frmAsesor.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmAsesor.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
             this.frmAsesor.HiddenDetail(true);
         }
@@ -104,6 +105,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.LoadEntity();
                 this.srvAsesor.SaveOrUpdateAsesor(this.asesor);
                 this.frmAsesor.HiddenDetail(true);
+                this.Search();
             }
         }
 
@@ -115,6 +117,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmAsesor.HiddenDetail(false);
             this.ShowDetail(true);
+            this.Search();
         }
 
         private void LoadFormFromEntity()
@@ -124,11 +127,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmAsesor.txtDetFullName.Text = this.asesor.FullName;
         }
 
-        #endregion Methods
-        
-        #region Events
-        
-        private void btnSchSearch_Click(object sender, EventArgs e)
+        private void DeleteEntity(int asesorId)
+        {
+            if (MessageBox.Show("¿Esta seguro de eliminar el Asesor?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                return;
+            this.asesor = this.srvAsesor.LoadAsesor(asesorId);
+            this.asesor.Activated = false;
+            this.asesor.Deleted = true;
+            this.srvAsesor.SaveOrUpdateAsesor(this.asesor);
+            this.Search();
+        }
+
+        private void Search()
         {
             SearchAsesorsParameters pmtSearchAsesors = new SearchAsesorsParameters();
 
@@ -141,6 +152,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmAsesor.grdSchSearch.DataSource = null;
             this.frmAsesor.grdSchSearch.DataSource = dtAsesors;
+        }
+
+        #endregion Methods
+        
+        #region Events
+        
+        private void btnSchSearch_Click(object sender, EventArgs e)
+        {
+            this.Search();
         }
 
         private void btnSchCreate_Click(object sender, EventArgs e)
@@ -160,7 +180,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmAsesor.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
-                this.EditAsesor(Convert.ToInt32(activeRow.Cells["Column1"].Value));
+                this.EditAsesor(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -177,6 +197,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchClear_Click(object sender, EventArgs e)
         {
             this.ClearSearchControls();
+        }
+
+        private void btnSchDelete_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmAsesor.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
         }
         #endregion Events
     }

@@ -44,6 +44,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmManufacturer.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmManufacturer.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmManufacturer.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmManufacturer.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
             this.frmManufacturer.HiddenDetail(true);
         }
@@ -96,6 +97,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.LoadEntity();
                 this.srvManufacturer.SaveOrUpdateManufacturer(this.manufacturer);
                 this.frmManufacturer.HiddenDetail(true);
+                this.Search();
             }
         }
 
@@ -107,6 +109,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmManufacturer.HiddenDetail(false);
             this.ShowDetail(true);
+            this.Search();
         }
 
         private void LoadFormFromEntity()
@@ -114,11 +117,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmManufacturer.txtDetName.Text = this.manufacturer.Name;
         }
 
-        #endregion Methods
-        
-        #region Events
-        
-        private void btnSchSearch_Click(object sender, EventArgs e)
+        private void DeleteEntity(int manufacturerId)
+        {
+            if (MessageBox.Show("¿Esta seguro de eliminar el Fabricante?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                return;
+            this.manufacturer = this.srvManufacturer.LoadManufacturer(manufacturerId);
+            this.manufacturer.Activated = false;
+            this.manufacturer.Deleted = true;
+            this.srvManufacturer.SaveOrUpdateManufacturer(this.manufacturer);
+            this.Search();
+        }
+
+        private void Search()
         {
             SearchManufacturersParameters pmtSearchManufacturers = new SearchManufacturersParameters();
 
@@ -128,6 +139,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmManufacturer.grdSchSearch.DataSource = null;
             this.frmManufacturer.grdSchSearch.DataSource = dtManufacturers;
+        }
+
+        #endregion Methods
+        
+        #region Events
+        
+        private void btnSchSearch_Click(object sender, EventArgs e)
+        {
+            this.Search();
         }
 
         private void btnSchCreate_Click(object sender, EventArgs e)
@@ -147,7 +167,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmManufacturer.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
-                this.EditManufacturer(Convert.ToInt32(activeRow.Cells["Column1"].Value));
+                this.EditManufacturer(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -158,6 +178,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchClear_Click(object sender, EventArgs e)
         {
             this.ClearSearchControls();
+        }
+
+        private void btnSchDelete_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmManufacturer.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
         }
         #endregion Events
     }

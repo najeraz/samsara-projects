@@ -57,6 +57,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmBidder.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmBidder.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmBidder.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmBidder.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
             this.frmBidder.HiddenDetail(true);
         }
@@ -128,6 +129,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.LoadEntity();
                 this.srvBidder.SaveOrUpdateBidder(this.bidder);
                 this.frmBidder.HiddenDetail(true);
+                this.Search();
             }
         }
 
@@ -139,6 +141,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmBidder.HiddenDetail(false);
             this.ShowDetail(true);
+            this.Search();
         }
 
         private void LoadFormFromEntity()
@@ -147,11 +150,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmBidder.uceDetType.Value = this.bidder.BidderType.BidderTypeId;
         }
 
-        #endregion Methods
-        
-        #region Events
-        
-        private void btnSchSearch_Click(object sender, EventArgs e)
+        private void DeleteEntity(int bidderId)
+        {
+            if (MessageBox.Show("¿Esta seguro de eliminar el Licitante?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                return;
+            this.bidder = this.srvBidder.LoadBidder(bidderId);
+            this.bidder.Activated = false;
+            this.bidder.Deleted = true;
+            this.srvBidder.SaveOrUpdateBidder(this.bidder);
+            this.Search();
+        }
+
+        private void Search()
         {
             SearchBiddersParameters pmtSearchBidders = new SearchBiddersParameters();
 
@@ -162,6 +173,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmBidder.grdSchSearch.DataSource = null;
             this.frmBidder.grdSchSearch.DataSource = dtBidders;
+        }
+
+        #endregion Methods
+        
+        #region Events
+        
+        private void btnSchSearch_Click(object sender, EventArgs e)
+        {
+            this.Search();
         }
 
         private void btnSchCreate_Click(object sender, EventArgs e)
@@ -181,7 +201,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmBidder.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
-                this.EditBidder(Convert.ToInt32(activeRow.Cells["Column1"].Value));
+                this.EditBidder(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -192,6 +212,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchClear_Click(object sender, EventArgs e)
         {
             this.ClearSearchControls();
+        }
+
+        private void btnSchDelete_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmBidder.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
         }
         #endregion Events
     }
