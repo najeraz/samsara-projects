@@ -44,7 +44,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void InitializeFormControls()
         {
             // Dependency
-            Dictionary<int, Dependency> dicDependencies = srvDependency.LoadDependencies();
+            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
+            pmtLoadDependencies.BidderId = ParameterConstants.IntDefault;
+            Dictionary<int, Dependency> dicDependencies = 
+                srvDependency.LoadDependencies(pmtLoadDependencies);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceSchDependency,
                 dicDependencies.Values, "DependencyId", "Name");

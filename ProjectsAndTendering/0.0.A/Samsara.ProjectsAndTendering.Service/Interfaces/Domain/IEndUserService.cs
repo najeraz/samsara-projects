@@ -10,7 +10,6 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         DataTable SearchEndUsers(SearchEndUsersParameters pmtSearchEndUsers);
         Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers);
-        Dictionary<int, EndUser> LoadEndUsers();
         EndUser LoadEndUser(int EndUserId);
         void SaveOrUpdateEndUser(EndUser entity);
         void DeleteEndUser(EndUser entity);

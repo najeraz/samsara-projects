@@ -44,7 +44,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void InitializeFormControls()
         {
             // Bidder
-            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders();
+            LoadBiddersParameters pmtLoadBidders = new LoadBiddersParameters();
+            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtLoadBidders);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceSchBidder,
                 dicBidders.Values, "BidderId", "Name");
