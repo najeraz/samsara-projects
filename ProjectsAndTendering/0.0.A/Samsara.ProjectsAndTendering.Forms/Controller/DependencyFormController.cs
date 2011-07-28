@@ -158,7 +158,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int dependencyId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Dependencia?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.dependency = this.srvDependency.LoadDependency(dependencyId);
             this.dependency.Activated = false;

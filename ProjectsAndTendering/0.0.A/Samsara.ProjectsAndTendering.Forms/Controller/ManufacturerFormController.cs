@@ -124,7 +124,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int manufacturerId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Fabricante?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.manufacturer = this.srvManufacturer.LoadManufacturer(manufacturerId);
             this.manufacturer.Activated = false;
