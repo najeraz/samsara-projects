@@ -164,6 +164,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTendering.tscPreviousTender.DisplayMember = "Name";
             this.frmTendering.tscPreviousTender.SearchForm = this.frmTendering;
+            this.ClearSearchControls();
         }
 
         private void ShowDetail(bool show)
