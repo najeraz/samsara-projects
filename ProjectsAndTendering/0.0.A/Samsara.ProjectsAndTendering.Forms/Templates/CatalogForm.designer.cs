@@ -54,6 +54,8 @@
             this.btnSchAccept = new System.Windows.Forms.Button();
             this.upSchSeparatorClose = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchClose = new System.Windows.Forms.Button();
+            this.upSchSeparatorDelete = new Infragistics.Win.Misc.UltraPanel();
+            this.btnSchDelete = new System.Windows.Forms.Button();
             this.upSchSeparatorEdit = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchEdit = new System.Windows.Forms.Button();
             this.upSchSeparatorCreate = new Infragistics.Win.Misc.UltraPanel();
@@ -68,8 +70,6 @@
             this.upDetSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetCancel = new System.Windows.Forms.Button();
             this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
-            this.upSchSeparatorDelete = new Infragistics.Win.Misc.UltraPanel();
-            this.btnSchDelete = new System.Windows.Forms.Button();
             this.tabPrincipal.SuspendLayout();
             this.Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
@@ -82,6 +82,7 @@
             this.upButtons.SuspendLayout();
             this.upSeparatorAccept.SuspendLayout();
             this.upSchSeparatorClose.SuspendLayout();
+            this.upSchSeparatorDelete.SuspendLayout();
             this.upSchSeparatorEdit.SuspendLayout();
             this.upSchSeparatorCreate.SuspendLayout();
             this.upSchSeparatorBottom.SuspendLayout();
@@ -90,7 +91,6 @@
             this.upDetSeparator3.SuspendLayout();
             this.upDetSeparator2.SuspendLayout();
             this.upDetSeparator1.SuspendLayout();
-            this.upSchSeparatorDelete.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -270,6 +270,7 @@
             this.upSeparatorAccept.Name = "upSeparatorAccept";
             this.upSeparatorAccept.Size = new System.Drawing.Size(16, 25);
             this.upSeparatorAccept.TabIndex = 10;
+            this.upSeparatorAccept.Visible = false;
             // 
             // btnSchAccept
             // 
@@ -280,6 +281,7 @@
             this.btnSchAccept.TabIndex = 9;
             this.btnSchAccept.Text = "Aceptar";
             this.btnSchAccept.UseVisualStyleBackColor = true;
+            this.btnSchAccept.Visible = false;
             // 
             // upSchSeparatorClose
             // 
@@ -299,6 +301,24 @@
             this.btnSchClose.Text = "Cerrar";
             this.btnSchClose.UseVisualStyleBackColor = true;
             this.btnSchClose.Click += new System.EventHandler(this.btnSchClose_Click);
+            // 
+            // upSchSeparatorDelete
+            // 
+            this.upSchSeparatorDelete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorDelete.Location = new System.Drawing.Point(337, 0);
+            this.upSchSeparatorDelete.Name = "upSchSeparatorDelete";
+            this.upSchSeparatorDelete.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorDelete.TabIndex = 12;
+            // 
+            // btnSchDelete
+            // 
+            this.btnSchDelete.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchDelete.Location = new System.Drawing.Point(353, 0);
+            this.btnSchDelete.Name = "btnSchDelete";
+            this.btnSchDelete.Size = new System.Drawing.Size(75, 25);
+            this.btnSchDelete.TabIndex = 11;
+            this.btnSchDelete.Text = "Eliminar";
+            this.btnSchDelete.UseVisualStyleBackColor = true;
             // 
             // upSchSeparatorEdit
             // 
@@ -435,24 +455,6 @@
             this.upDetSeparator1.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator1.TabIndex = 7;
             // 
-            // upSchSeparatorDelete
-            // 
-            this.upSchSeparatorDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorDelete.Location = new System.Drawing.Point(337, 0);
-            this.upSchSeparatorDelete.Name = "upSchSeparatorDelete";
-            this.upSchSeparatorDelete.Size = new System.Drawing.Size(16, 25);
-            this.upSchSeparatorDelete.TabIndex = 12;
-            // 
-            // btnSchDelete
-            // 
-            this.btnSchDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchDelete.Location = new System.Drawing.Point(353, 0);
-            this.btnSchDelete.Name = "btnSchDelete";
-            this.btnSchDelete.Size = new System.Drawing.Size(75, 25);
-            this.btnSchDelete.TabIndex = 11;
-            this.btnSchDelete.Text = "Eliminar";
-            this.btnSchDelete.UseVisualStyleBackColor = true;
-            // 
             // CatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,6 +475,7 @@
             this.upButtons.ResumeLayout(false);
             this.upSeparatorAccept.ResumeLayout(false);
             this.upSchSeparatorClose.ResumeLayout(false);
+            this.upSchSeparatorDelete.ResumeLayout(false);
             this.upSchSeparatorEdit.ResumeLayout(false);
             this.upSchSeparatorCreate.ResumeLayout(false);
             this.upSchSeparatorBottom.ResumeLayout(false);
@@ -481,7 +484,6 @@
             this.upDetSeparator3.ResumeLayout(false);
             this.upDetSeparator2.ResumeLayout(false);
             this.upDetSeparator1.ResumeLayout(false);
-            this.upSchSeparatorDelete.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
