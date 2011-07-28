@@ -29,10 +29,10 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
         {
             return this.BidderDao.SearchBidders(pmtSearchBidders);
         }
-        
-        public Dictionary<int, Bidder> LoadBidders()
+
+        public Dictionary<int, Bidder> LoadBidders(LoadBiddersParameters pmtLoadBidders)
         {
-            return this.BidderDao.LoadBidders();
+            return this.BidderDao.LoadBidders(pmtLoadBidders);
         }
 
         public Bidder LoadBidder(int BidderId)

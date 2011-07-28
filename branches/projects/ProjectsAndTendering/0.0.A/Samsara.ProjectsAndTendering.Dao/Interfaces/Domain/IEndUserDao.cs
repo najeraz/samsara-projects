@@ -11,6 +11,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
     {
         DataTable SearchEndUsers(SearchEndUsersParameters pmtSearchEndUsers);
         Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers);
-        Dictionary<int, EndUser> LoadEndUsers();
     }
 }

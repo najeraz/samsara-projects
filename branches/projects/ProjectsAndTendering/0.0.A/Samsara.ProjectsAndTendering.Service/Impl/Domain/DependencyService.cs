@@ -35,11 +35,6 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.DependencyDao.LoadDependencies(pmtLoadDependencies);
         }
 
-        public Dictionary<int, Dependency> LoadDependencies()
-        {
-            return this.DependencyDao.LoadDependencies();
-        }
-
         public Dependency LoadDependency(int DependencyId)
         {
             return this.DependencyDao.GetById(DependencyId);

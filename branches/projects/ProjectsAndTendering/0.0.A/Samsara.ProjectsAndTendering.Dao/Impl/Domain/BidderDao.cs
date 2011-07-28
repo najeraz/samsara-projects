@@ -19,7 +19,7 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
             return this.DataTableByParameters("SearchBidders", pmtSearchBidders);
         }
 
-        public Dictionary<int, Bidder> LoadBidders()
+        public Dictionary<int, Bidder> LoadBidders(LoadBiddersParameters pmtLoadBidders)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery("LoadBidders");
 

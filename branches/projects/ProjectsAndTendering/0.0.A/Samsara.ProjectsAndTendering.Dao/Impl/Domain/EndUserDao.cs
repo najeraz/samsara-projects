@@ -21,17 +21,9 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 
         public Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers)
         {
-            return this.GetListByParameters("LoadEndUsersByDependencyId", pmtLoadEndUsers)
-                .ToDictionary(x => x.Dependency.DependencyId, x => x);
+            return this.GetListByParameters("LoadEndUsers", pmtLoadEndUsers)
+                .ToDictionary(x => x.EndUserId, x => x);
         }
-
-        public Dictionary<int, EndUser> LoadEndUsers()
-        {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadEndUsers");
-
-            return this.GetList(dnq).ToDictionary(x => x.EndUserId, x => x);
-        }
-
         #endregion Methods
     }
 }

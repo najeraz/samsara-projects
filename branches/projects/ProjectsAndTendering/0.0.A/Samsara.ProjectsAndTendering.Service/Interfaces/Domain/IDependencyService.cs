@@ -10,7 +10,6 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
     {
         DataTable SearchDependencies(SearchDependenciesParameters pmtSearchDependencies);
         Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies);
-        Dictionary<int, Dependency> LoadDependencies();
         Dependency LoadDependency(int DependencyId);
         void SaveOrUpdateDependency(Dependency entity);
         void DeleteDependency(Dependency entity);

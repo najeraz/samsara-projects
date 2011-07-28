@@ -11,6 +11,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
     {
         DataTable SearchDependencies(SearchDependenciesParameters pmtSearchDependencies);
         Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies);
-        Dictionary<int, Dependency> LoadDependencies();
     }
 }

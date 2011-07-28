@@ -22,15 +22,10 @@
   <query name="LoadEndUsers">
     <![CDATA[
         from EndUser where Deleted = 0 and Activated = 1
+        and (:DependencyId = -1 or DependencyId = :DependencyId)
     ]]>
   </query>
-
-  <query name="LoadEndUsersByDependencyId">
-    <![CDATA[
-        from EndUser where DependencyId = :DependencyId and Deleted = 0 and Activated = 1
-    ]]>
-  </query>
-
+  
   <sql-query name="SearchEndUsers" cacheable="false" read-only="true">
     <return-scalar column="EndUserId" type="int"/>
     <return-scalar column="Name" type="string"/>

@@ -35,11 +35,6 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.EndUserDao.LoadEndUsers(pmtLoadEndUsers);
         }
 
-        public Dictionary<int, EndUser> LoadEndUsers()
-        {
-            return this.EndUserDao.LoadEndUsers();
-        }
-
         public EndUser LoadEndUser(int EndUserId)
         {
             return this.EndUserDao.GetById(EndUserId);

@@ -83,7 +83,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicTenderStatuses.Values, "TenderStatusId", "Name");
 
             // Bidder
-            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders();
+            LoadBiddersParameters pmtLoadBidders = new LoadBiddersParameters();
+            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtLoadBidders);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceSchBidder,
                 dicBidders.Values, "BidderId", "Name");

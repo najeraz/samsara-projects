@@ -21,12 +21,7 @@
   <query name="LoadDependencies">
     <![CDATA[
         from Dependency where Deleted = 0 and Activated = 1
-    ]]>
-  </query>
-
-  <query name="LoadDependenciesByBidderId">
-    <![CDATA[
-        from Dependency where BidderId = :BidderId and Deleted = 0 and Activated = 1
+        and (:BidderId = -1 or BidderId = :BidderId)
     ]]>
   </query>
 

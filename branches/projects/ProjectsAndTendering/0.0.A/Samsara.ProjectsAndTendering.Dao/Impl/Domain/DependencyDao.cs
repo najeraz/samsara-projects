@@ -21,15 +21,8 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 
         public Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies)
         {
-            return this.GetListByParameters("LoadDependenciesByBidderId", pmtLoadDependencies)
+            return this.GetListByParameters("LoadDependencies", pmtLoadDependencies)
                 .ToDictionary(x => x.DependencyId, x => x);
-        }
-
-        public Dictionary<int, Dependency> LoadDependencies()
-        {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadDependencies");
-
-            return this.GetList(dnq).ToDictionary(x => x.DependencyId, x => x);
         }
 
         #endregion Methods
