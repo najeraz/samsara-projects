@@ -22,14 +22,14 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
         public DataTable SearchTenderLines(SearchTenderLinesParameters
             pmtSearchTenderLines)
         {
-            return this.DataTableTypedByParameters<TenderLine>(
+            return this.DataTableByParameters<TenderLine>(
                 "SearchTenderLines", pmtSearchTenderLines);
         }
 
         public DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
             pmtSearchTenderManufacturer)
         {
-            return this.DataTableTypedByParameters<TenderManufacturer>(
+            return this.DataTableByParameters<TenderManufacturer>(
                 "SearchTenderManufacturers", pmtSearchTenderManufacturer);
         }
 

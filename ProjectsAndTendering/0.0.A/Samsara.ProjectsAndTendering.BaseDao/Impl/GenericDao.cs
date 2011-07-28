@@ -93,7 +93,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return CollectionsUtil.ConvertToDataTable(lstResult);
         }
 
-        public DataTable DataTableTypedByParameters<TType>(string queryName, GenericParameters parameters)
+        public DataTable DataTableByParameters<TType>(string queryName, GenericParameters parameters)
         {
             IList lstResult = GetGenericListByParameters(queryName, parameters);
             return CollectionsUtil.ConvertToDataTable<TType>(lstResult.Cast<TType>().ToList());
