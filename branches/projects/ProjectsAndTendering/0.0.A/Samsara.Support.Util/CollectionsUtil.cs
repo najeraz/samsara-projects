@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Samsara.Support.Util
 {
@@ -95,6 +97,20 @@ namespace Samsara.Support.Util
             }
 
             return table;
+        }
+
+        //TODO: Verificar si funciona y es viable.
+        DataSet SerializedDataSet(IList list)
+        {
+            Object dataArray = list.Cast<Object[]>().ToArray();
+            XmlSerializer serializer = new XmlSerializer(dataArray.GetType());
+            StringWriter sw = new StringWriter();
+            serializer.Serialize(sw, dataArray);
+
+            DataSet ds = new DataSet();
+            StringReader reader = new StringReader(sw.ToString());
+            ds.ReadXml(reader);
+            return ds;
         }
     }
 }
