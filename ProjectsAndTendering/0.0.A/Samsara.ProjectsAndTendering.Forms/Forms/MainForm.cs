@@ -29,6 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 BidderForm frmBidder = new BidderForm();
                 frmBidder.Show();
             }
@@ -42,6 +43,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 DependencyForm frmDependency = new DependencyForm();
                 frmDependency.Show();
             }
@@ -55,6 +57,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 EndUserForm frmEndUser = new EndUserForm();
                 frmEndUser.Show();
             }
@@ -68,6 +71,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 ManufacturerForm frmManufacturer = new ManufacturerForm();
                 frmManufacturer.Show();
             }
@@ -81,6 +85,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 AsesorForm frmAsesor = new AsesorForm();
                 frmAsesor.Show();
             }
@@ -94,6 +99,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 TenderStatusForm frmTenderStatus = new TenderStatusForm();
                 frmTenderStatus.Show();
             }
