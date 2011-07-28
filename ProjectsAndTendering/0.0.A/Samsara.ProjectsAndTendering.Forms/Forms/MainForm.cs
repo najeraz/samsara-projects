@@ -11,20 +11,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
         }
 
-        private void licitaciónToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                TenderForm frmTender = new TenderForm();
-                frmTender.Show();
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
         private void licitanteToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             try
@@ -102,6 +88,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
                 this.Cursor = Cursors.WaitCursor;
                 TenderStatusForm frmTenderStatus = new TenderStatusForm();
                 frmTenderStatus.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void licitacionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                TenderForm frmTender = new TenderForm();
+                frmTender.Show();
             }
             finally
             {
