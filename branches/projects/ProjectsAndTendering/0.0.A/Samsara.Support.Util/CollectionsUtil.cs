@@ -13,7 +13,7 @@ namespace Samsara.Support.Util
         {
             try
             {
-                DataTable table = CreateTable((Object[])list[0], list);
+                DataTable table = CreateTable(list);
 
                 foreach (Object[] objs in list)
                 {
@@ -69,17 +69,29 @@ namespace Samsara.Support.Util
             return table;
         }
 
-        public static DataTable CreateTable(Object[] objs, IList list)
+        public static DataTable CreateTable(IList list)
         {
             DataTable table = new DataTable();
+            int numberCoumns = list.Cast<Object[]>()
+                .Select(x => x.Cast<Object>().Count()).First();
             int i = 0;
 
-            foreach (Object obj in objs)
+            for (i = 0; i < numberCoumns; i++)
             {
-                Object[] objTemplate = ((Object[])list.Cast<Object>().FirstOrDefault(x => ((Object[])x)[i] != null));
-                table.Columns.Add(null, obj == null ?
-                    objTemplate == null || objTemplate[i] == null ? typeof(string) 
-                    : objTemplate.GetType() : obj.GetType());
+                Object objTemplate = null;
+
+                foreach (var array in list.Cast<Object[]>())
+                {
+                    if (array[i] != null)
+                    {
+                        objTemplate = array[i];
+                        break;
+                    }
+                    if (objTemplate != null) break;
+                }
+
+                table.Columns.Add(null, objTemplate == null ? typeof(string)
+                    : objTemplate.GetType());
             }
 
             return table;

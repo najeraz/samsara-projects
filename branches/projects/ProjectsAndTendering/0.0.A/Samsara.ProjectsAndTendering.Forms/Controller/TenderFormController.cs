@@ -17,7 +17,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
-    public class TenderingFormController
+    public class TenderFormController
     {
         #region Attributes
 
@@ -38,7 +38,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         #region Constructor
 
-        public TenderingFormController(TenderForm instance)
+        public TenderFormController(TenderForm instance)
         {
             this.frmTendering = instance;
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
@@ -397,6 +397,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveTender()
         {
+            if (MessageBox.Show("¿Esta seguro de guardar la Licitación?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                return;
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
@@ -473,7 +476,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int tenderId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Licitación?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.tender = this.srvTender.LoadTender(tenderId);
             this.tender.Activated = false;

@@ -78,36 +78,42 @@
             this.licitanteToolStripMenuItem.Name = "licitanteToolStripMenuItem";
             this.licitanteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.licitanteToolStripMenuItem.Text = "Licitante";
+            this.licitanteToolStripMenuItem.Click += new System.EventHandler(this.licitanteToolStripMenuItem_Click);
             // 
             // dependenciaToolStripMenuItem
             // 
             this.dependenciaToolStripMenuItem.Name = "dependenciaToolStripMenuItem";
             this.dependenciaToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.dependenciaToolStripMenuItem.Text = "Dependencia";
+            this.dependenciaToolStripMenuItem.Click += new System.EventHandler(this.dependenciaToolStripMenuItem_Click);
             // 
             // usuarioFinalToolStripMenuItem
             // 
             this.usuarioFinalToolStripMenuItem.Name = "usuarioFinalToolStripMenuItem";
             this.usuarioFinalToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.usuarioFinalToolStripMenuItem.Text = "Usuario Final";
+            this.usuarioFinalToolStripMenuItem.Click += new System.EventHandler(this.usuarioFinalToolStripMenuItem_Click);
             // 
             // fabricanteToolStripMenuItem
             // 
             this.fabricanteToolStripMenuItem.Name = "fabricanteToolStripMenuItem";
             this.fabricanteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.fabricanteToolStripMenuItem.Text = "Fabricante";
+            this.fabricanteToolStripMenuItem.Click += new System.EventHandler(this.fabricanteToolStripMenuItem_Click);
             // 
             // asesorToolStripMenuItem
             // 
             this.asesorToolStripMenuItem.Name = "asesorToolStripMenuItem";
             this.asesorToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.asesorToolStripMenuItem.Text = "Asesor";
+            this.asesorToolStripMenuItem.Click += new System.EventHandler(this.asesorToolStripMenuItem_Click);
             // 
             // estatusDeLaLicitaciónToolStripMenuItem
             // 
             this.estatusDeLaLicitaciónToolStripMenuItem.Name = "estatusDeLaLicitaciónToolStripMenuItem";
             this.estatusDeLaLicitaciónToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.estatusDeLaLicitaciónToolStripMenuItem.Text = "Estatus de la Licitación";
+            this.estatusDeLaLicitaciónToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaLicitaciónToolStripMenuItem_Click);
             // 
             // panel1
             // 

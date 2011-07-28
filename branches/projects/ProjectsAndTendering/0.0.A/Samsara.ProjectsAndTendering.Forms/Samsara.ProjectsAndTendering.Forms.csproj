@@ -89,9 +89,9 @@
     <Compile Include="Controller\BidderFormController.cs" />
     <Compile Include="Controller\ManufacturerFormController.cs" />
     <Compile Include="Controller\EndUserFormController.cs" />
+    <Compile Include="Controller\TenderFormController.cs" />
     <Compile Include="Controller\TenderStatusFormController.cs" />
     <Compile Include="Controller\DependencyFormController.cs" />
-    <Compile Include="Controller\TenderingFormController.cs" />
     <Compile Include="Forms\AsesorForm.cs">
       <SubType>Form</SubType>
     </Compile>
