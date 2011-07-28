@@ -44,10 +44,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void InitializeFormControls()
         {
             // Dependency
-            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
-            pmtLoadDependencies.BidderId = ParameterConstants.IntDefault;
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = ParameterConstants.IntDefault;
             Dictionary<int, Dependency> dicDependencies = 
-                srvDependency.LoadDependencies(pmtLoadDependencies);
+                srvDependency.LoadDependencies(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceSchDependency,
                 dicDependencies.Values, "DependencyId", "Name");
@@ -171,12 +171,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchEndUsersParameters pmtSearchEndUsers = new SearchEndUsersParameters();
+            EndUserParameters pmtEndUser = new EndUserParameters();
 
-            pmtSearchEndUsers.Name = "%" + this.frmEndUser.txtSchName.Text + "%";
-            pmtSearchEndUsers.DependencyId = (int)this.frmEndUser.uceSchDependency.Value;
+            pmtEndUser.Name = "%" + this.frmEndUser.txtSchName.Text + "%";
+            pmtEndUser.DependencyId = (int)this.frmEndUser.uceSchDependency.Value;
 
-            DataTable dtEndUsers = srvEndUser.SearchEndUsers(pmtSearchEndUsers);
+            DataTable dtEndUsers = srvEndUser.SearchEndUsers(pmtEndUser);
 
             this.frmEndUser.grdSchSearch.DataSource = null;
             this.frmEndUser.grdSchSearch.DataSource = dtEndUsers;

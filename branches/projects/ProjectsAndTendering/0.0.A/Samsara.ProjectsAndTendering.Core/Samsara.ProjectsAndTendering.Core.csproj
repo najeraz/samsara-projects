@@ -71,20 +71,16 @@
     <Compile Include="Entities\Domain\Manufacturer.cs" />
     <Compile Include="Entities\Domain\Dependency.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
-    <Compile Include="Parameters\LoadEndUserParameters.cs" />
-    <Compile Include="Parameters\LoadBiddersParameters.cs" />
-    <Compile Include="Parameters\SearchEndUsersParameters.cs" />
-    <Compile Include="Parameters\SearchManufactureresParameters.cs" />
-    <Compile Include="Parameters\SearchTenderStatusesParameters.cs" />
-    <Compile Include="Parameters\SearchDependenciesParameters.cs" />
-    <Compile Include="Parameters\SearchBiddersParameters.cs" />
-    <Compile Include="Parameters\SearchAsesorsParameters.cs" />
+    <Compile Include="Parameters\BidderParameters.cs" />
+    <Compile Include="Parameters\AsesorParameters.cs" />
+    <Compile Include="Parameters\DependencyParameters.cs" />
+    <Compile Include="Parameters\EndUserParameters.cs" />
     <Compile Include="Parameters\GenericParameters.cs" />
-    <Compile Include="Parameters\LoadEndUsersParameters.cs" />
-    <Compile Include="Parameters\LoadDependenciesParameters.cs" />
-    <Compile Include="Parameters\SearchTenderLinesParameters.cs" />
-    <Compile Include="Parameters\SearchTenderManufacturersParameters.cs" />
-    <Compile Include="Parameters\SearchTendersParameters.cs" />
+    <Compile Include="Parameters\ManufacturerParameters.cs" />
+    <Compile Include="Parameters\TenderLineParameters.cs" />
+    <Compile Include="Parameters\TenderManufacturerParameters.cs" />
+    <Compile Include="Parameters\TenderParameters.cs" />
+    <Compile Include="Parameters\TenderStatusParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

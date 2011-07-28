@@ -3,9 +3,15 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchTenderStatusesParameters : GenericParameters
+    public class EndUserParameters : GenericParameters
     {
         public string Name
+        {
+            get;
+            set;
+        }
+
+        public int? DependencyId
         {
             get;
             set;

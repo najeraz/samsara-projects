@@ -145,14 +145,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchAsesorsParameters pmtSearchAsesors = new SearchAsesorsParameters();
+            AsesorParameters pmtAsesor = new AsesorParameters();
 
-            pmtSearchAsesors.ShowAll = this.frmAsesor.chkSchShowAll.Checked;
-            pmtSearchAsesors.ShowApprovers = this.frmAsesor.chkSchShowApprovers.Checked;
-            pmtSearchAsesors.Name = "%" + this.frmAsesor.txtSchName.Text + "%";
-            pmtSearchAsesors.FullName = "%" + this.frmAsesor.txtSchFullName.Text + "%";
+            pmtAsesor.ShowAll = this.frmAsesor.chkSchShowAll.Checked;
+            pmtAsesor.ShowApprovers = this.frmAsesor.chkSchShowApprovers.Checked;
+            pmtAsesor.Name = "%" + this.frmAsesor.txtSchName.Text + "%";
+            pmtAsesor.FullName = "%" + this.frmAsesor.txtSchFullName.Text + "%";
 
-            DataTable dtAsesors = srvAsesor.SearchAsesors(pmtSearchAsesors);
+            DataTable dtAsesors = srvAsesor.SearchAsesors(pmtAsesor);
 
             this.frmAsesor.grdSchSearch.DataSource = null;
             this.frmAsesor.grdSchSearch.DataSource = dtAsesors;

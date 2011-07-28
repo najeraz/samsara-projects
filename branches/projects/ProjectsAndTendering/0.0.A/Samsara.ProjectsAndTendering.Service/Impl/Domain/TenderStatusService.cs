@@ -25,9 +25,9 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public DataTable SearchTenderStatuses(SearchTenderStatusesParameters pmtSearchTenderStatuses)
+        public DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus)
         {
-            return this.TenderStatusDao.SearchTenderStatuses(pmtSearchTenderStatuses);
+            return this.TenderStatusDao.SearchTenderStatuses(pmtTenderStatus);
         }
 
         public Dictionary<int, TenderStatus> LoadTenderStatuses()

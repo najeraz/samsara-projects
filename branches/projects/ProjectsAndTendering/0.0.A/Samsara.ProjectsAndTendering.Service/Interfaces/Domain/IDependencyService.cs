@@ -8,8 +8,8 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IDependencyService
     {
-        DataTable SearchDependencies(SearchDependenciesParameters pmtSearchDependencies);
-        Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies);
+        DataTable SearchDependencies(DependencyParameters pmtDependency);
+        Dictionary<int, Dependency> LoadDependencies(DependencyParameters pmtDependency);
         Dependency LoadDependency(int DependencyId);
         void SaveOrUpdateDependency(Dependency entity);
         void DeleteDependency(Dependency entity);

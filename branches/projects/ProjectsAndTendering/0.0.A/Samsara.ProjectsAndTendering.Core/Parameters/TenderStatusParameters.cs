@@ -1,9 +1,11 @@
 ﻿
+
+
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchTenderLinesParameters : GenericParameters
+    public class TenderStatusParameters : GenericParameters
     {
-        public int? TenderId
+        public string Name
         {
             get;
             set;

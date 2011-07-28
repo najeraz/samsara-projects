@@ -7,6 +7,14 @@ namespace Samsara.Support.Util
 {
     public class ParameterConstants
     {
+        public static int IntNone
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
         public static int IntDefault
         {
             get

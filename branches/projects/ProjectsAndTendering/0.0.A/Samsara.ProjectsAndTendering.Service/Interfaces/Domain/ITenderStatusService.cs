@@ -8,7 +8,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface ITenderStatusService
     {
-        DataTable SearchTenderStatuses(SearchTenderStatusesParameters pmtSearchTenderStatuses);
+        DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus);
         Dictionary<int, TenderStatus> LoadTenderStatuses();
         TenderStatus LoadTenderStatus(int TenderStatusId);
         void SaveOrUpdateTenderStatus(TenderStatus entity);

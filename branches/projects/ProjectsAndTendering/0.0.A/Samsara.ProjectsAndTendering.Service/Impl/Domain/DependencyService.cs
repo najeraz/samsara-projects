@@ -25,14 +25,14 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public DataTable SearchDependencies(SearchDependenciesParameters pmtSearchDependencies)
+        public DataTable SearchDependencies(DependencyParameters pmtDependency)
         {
-            return this.DependencyDao.SearchDependencies(pmtSearchDependencies);
+            return this.DependencyDao.SearchDependencies(pmtDependency);
         }
 
-        public Dictionary<int, Dependency> LoadDependencies(LoadDependenciesParameters pmtLoadDependencies)
+        public Dictionary<int, Dependency> LoadDependencies(DependencyParameters pmtDependency)
         {
-            return this.DependencyDao.LoadDependencies(pmtLoadDependencies);
+            return this.DependencyDao.LoadDependencies(pmtDependency);
         }
 
         public Dependency LoadDependency(int DependencyId)
