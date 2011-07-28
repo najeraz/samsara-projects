@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiMainMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.licitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioFinalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,13 +38,16 @@
             this.asesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaLicitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiMainMenu});
+            this.tsmiMainMenu,
+            this.licitacionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(811, 24);
@@ -55,7 +57,6 @@
             // tsmiMainMenu
             // 
             this.tsmiMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.licitaciónToolStripMenuItem,
             this.licitanteToolStripMenuItem,
             this.dependenciaToolStripMenuItem,
             this.usuarioFinalToolStripMenuItem,
@@ -65,13 +66,6 @@
             this.tsmiMainMenu.Name = "tsmiMainMenu";
             this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
             this.tsmiMainMenu.Text = "Catálogos";
-            // 
-            // licitaciónToolStripMenuItem
-            // 
-            this.licitaciónToolStripMenuItem.Name = "licitaciónToolStripMenuItem";
-            this.licitaciónToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.licitaciónToolStripMenuItem.Text = "Licitación";
-            this.licitaciónToolStripMenuItem.Click += new System.EventHandler(this.licitaciónToolStripMenuItem_Click);
             // 
             // licitanteToolStripMenuItem
             // 
@@ -126,6 +120,21 @@
             this.panel1.Size = new System.Drawing.Size(811, 351);
             this.panel1.TabIndex = 1;
             // 
+            // licitacionesToolStripMenuItem
+            // 
+            this.licitacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.licitacionesToolStripMenuItem1});
+            this.licitacionesToolStripMenuItem.Name = "licitacionesToolStripMenuItem";
+            this.licitacionesToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.licitacionesToolStripMenuItem.Text = "Documentos";
+            // 
+            // licitacionesToolStripMenuItem1
+            // 
+            this.licitacionesToolStripMenuItem1.Name = "licitacionesToolStripMenuItem1";
+            this.licitacionesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.licitacionesToolStripMenuItem1.Text = "Licitaciones";
+            this.licitacionesToolStripMenuItem1.Click += new System.EventHandler(this.licitacionesToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,13 +157,14 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainMenu;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripMenuItem licitaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licitanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dependenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioFinalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fabricanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asesorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaLicitaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem1;
     }
 }
 
