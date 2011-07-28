@@ -95,7 +95,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // Dependency
             LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
-            pmtLoadDependencies.BidderId = -1;
+            pmtLoadDependencies.BidderId = ParameterConstants.IntDefault;
             Dictionary<int, Dependency> dicDependencies = 
                 srvDependency.LoadDependencies(pmtLoadDependencies);
 
@@ -109,7 +109,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // EndUser
             LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
-            pmtLoadEndUsers.DependencyId = -1;
+            pmtLoadEndUsers.DependencyId = ParameterConstants.IntDefault;
             Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
@@ -123,7 +123,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.grdTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
             SearchTenderLinesParameters pmtSearchTenderLines = new SearchTenderLinesParameters();
-            pmtSearchTenderLines.TenderId = -1;
+            pmtSearchTenderLines.TenderId = ParameterConstants.IntDefault;
             this.dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
             this.frmTendering.grdTenderLines.DataSource = null;
             this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
@@ -135,7 +135,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new BeforeCellUpdateEventHandler(grdDetTenderManufacturers_BeforeCellUpdate);
             SearchTenderManufacturerParameters pmtSearchTenderManufacturers
                 = new SearchTenderManufacturerParameters();
-            pmtSearchTenderManufacturers.TenderId = -1;
+            pmtSearchTenderManufacturers.TenderId = ParameterConstants.IntDefault;
             this.dtTenderManufacturers =
                 this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);
             this.frmTendering.grdDetTenderManufacturers.DataSource = null;

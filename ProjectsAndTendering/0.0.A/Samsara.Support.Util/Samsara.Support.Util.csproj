@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsUtil.cs" />
+    <Compile Include="ParameterConstants.cs" />
     <Compile Include="WindowsFormsUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
