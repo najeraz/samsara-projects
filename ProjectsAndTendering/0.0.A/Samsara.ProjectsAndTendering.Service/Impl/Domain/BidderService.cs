@@ -25,14 +25,14 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public DataTable SearchBidders(SearchBiddersParameters pmtSearchBidders)
+        public DataTable SearchBidders(BidderParameters pmtBidder)
         {
-            return this.BidderDao.SearchBidders(pmtSearchBidders);
+            return this.BidderDao.SearchBidders(pmtBidder);
         }
 
-        public Dictionary<int, Bidder> LoadBidders(LoadBiddersParameters pmtLoadBidders)
+        public Dictionary<int, Bidder> LoadBidders(BidderParameters pmtBidder)
         {
-            return this.BidderDao.LoadBidders(pmtLoadBidders);
+            return this.BidderDao.LoadBidders(pmtBidder);
         }
 
         public Bidder LoadBidder(int BidderId)

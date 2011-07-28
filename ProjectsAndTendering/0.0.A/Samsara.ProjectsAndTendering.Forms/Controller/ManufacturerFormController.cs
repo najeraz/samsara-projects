@@ -135,11 +135,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchManufacturersParameters pmtSearchManufacturers = new SearchManufacturersParameters();
+            ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
 
-            pmtSearchManufacturers.Name = "%" + this.frmManufacturer.txtSchName.Text + "%";
+            pmtManufacturer.Name = "%" + this.frmManufacturer.txtSchName.Text + "%";
 
-            DataTable dtManufacturers = srvManufacturer.SearchManufacturers(pmtSearchManufacturers);
+            DataTable dtManufacturers = srvManufacturer.SearchManufacturers(pmtManufacturer);
 
             this.frmManufacturer.grdSchSearch.DataSource = null;
             this.frmManufacturer.grdSchSearch.DataSource = dtManufacturers;

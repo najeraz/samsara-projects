@@ -14,19 +14,19 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
-        public DataTable SearchTenders(SearchTendersParameters pmtSearchTenders)
+        public DataTable SearchTenders(TenderParameters pmtTender)
         {
-            return this.DataTableByParameters("SearchTenders", pmtSearchTenders);
+            return this.DataTableByParameters("SearchTenders", pmtTender);
         }
 
-        public DataTable SearchTenderLines(SearchTenderLinesParameters
-            pmtSearchTenderLines)
+        public DataTable SearchTenderLines(TenderLineParameters
+            pmtTenderLine)
         {
             return this.DataTableByParameters<TenderLine>(
-                "SearchTenderLines", pmtSearchTenderLines);
+                "SearchTenderLines", pmtTenderLine);
         }
 
-        public DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
+        public DataTable SearchTenderManufacturers(TenderManufacturerParameters
             pmtSearchTenderManufacturer)
         {
             return this.DataTableByParameters<TenderManufacturer>(

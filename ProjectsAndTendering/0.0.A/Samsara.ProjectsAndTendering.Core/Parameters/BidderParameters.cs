@@ -3,7 +3,7 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchBiddersParameters : GenericParameters
+    public class BidderParameters : GenericParameters
     {
         public string Name
         {

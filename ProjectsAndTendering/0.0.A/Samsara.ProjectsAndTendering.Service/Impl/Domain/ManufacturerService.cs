@@ -25,9 +25,9 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public DataTable SearchManufacturers(SearchManufacturersParameters pmtSearchManufacturers)
+        public DataTable SearchManufacturers(ManufacturerParameters pmtManufacturer)
         {
-            return this.ManufacturerDao.SearchManufacturers(pmtSearchManufacturers);
+            return this.ManufacturerDao.SearchManufacturers(pmtManufacturer);
         }
 
         public Dictionary<int, Manufacturer> LoadManufacturers()

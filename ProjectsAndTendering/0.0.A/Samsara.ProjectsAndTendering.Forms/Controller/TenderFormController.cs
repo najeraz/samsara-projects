@@ -83,8 +83,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 dicTenderStatuses.Values, "TenderStatusId", "Name");
 
             // Bidder
-            LoadBiddersParameters pmtLoadBidders = new LoadBiddersParameters();
-            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtLoadBidders);
+            BidderParameters pmtBidder = new BidderParameters();
+            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtBidder);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceSchBidder,
                 dicBidders.Values, "BidderId", "Name");
@@ -95,10 +95,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
 
             // Dependency
-            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
-            pmtLoadDependencies.BidderId = ParameterConstants.IntDefault;
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = ParameterConstants.IntNone;
             Dictionary<int, Dependency> dicDependencies = 
-                srvDependency.LoadDependencies(pmtLoadDependencies);
+                srvDependency.LoadDependencies(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
                 dicDependencies.Values, "DependencyId", "Name");
@@ -109,9 +109,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
 
             // EndUser
-            LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
-            pmtLoadEndUsers.DependencyId = ParameterConstants.IntDefault;
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
+            EndUserParameters pmtEndUser = new EndUserParameters();
+            pmtEndUser.DependencyId = ParameterConstants.IntNone;
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");
@@ -123,9 +123,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
             this.frmTendering.grdTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
-            SearchTenderLinesParameters pmtSearchTenderLines = new SearchTenderLinesParameters();
-            pmtSearchTenderLines.TenderId = ParameterConstants.IntDefault;
-            this.dtTenderLines = this.srvTender.SearchTenderLines(pmtSearchTenderLines);
+            TenderLineParameters pmtTenderLine = new TenderLineParameters();
+            pmtTenderLine.TenderId = ParameterConstants.IntNone;
+            this.dtTenderLines = this.srvTender.SearchTenderLines(pmtTenderLine);
             this.frmTendering.grdTenderLines.DataSource = null;
             this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
 
@@ -134,8 +134,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
             this.frmTendering.grdDetTenderManufacturers.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderManufacturers_BeforeCellUpdate);
-            SearchTenderManufacturerParameters pmtSearchTenderManufacturers
-                = new SearchTenderManufacturerParameters();
+            TenderManufacturerParameters pmtSearchTenderManufacturers
+                = new TenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = ParameterConstants.IntDefault;
             this.dtTenderManufacturers =
                 this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);
@@ -489,18 +489,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchTendersParameters pmtSearchTenders = new SearchTendersParameters();
+            TenderParameters pmtTender = new TenderParameters();
 
-            pmtSearchTenders.MinDate = (DateTime)this.frmTendering.dteSchMinDate.Value;
-            pmtSearchTenders.MaxDate = (DateTime)this.frmTendering.dteSchMaxDate.Value;
-            pmtSearchTenders.AsesorId = (int)this.frmTendering.uceSchAsesor.Value;
-            pmtSearchTenders.BidderId = (int)this.frmTendering.uceSchBidder.Value;
-            pmtSearchTenders.DependencyId = (int)this.frmTendering.uceSchDependency.Value;
-            pmtSearchTenders.TenderStatusId = (int)this.frmTendering.uceSchTenderStatus.Value;
-            pmtSearchTenders.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
-            pmtSearchTenders.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
+            pmtTender.MinDate = (DateTime)this.frmTendering.dteSchMinDate.Value;
+            pmtTender.MaxDate = (DateTime)this.frmTendering.dteSchMaxDate.Value;
+            pmtTender.AsesorId = (int)this.frmTendering.uceSchAsesor.Value;
+            pmtTender.BidderId = (int)this.frmTendering.uceSchBidder.Value;
+            pmtTender.DependencyId = (int)this.frmTendering.uceSchDependency.Value;
+            pmtTender.TenderStatusId = (int)this.frmTendering.uceSchTenderStatus.Value;
+            pmtTender.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
+            pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
 
-            DataTable dtTenders = srvTender.SearchTenders(pmtSearchTenders);
+            DataTable dtTenders = srvTender.SearchTenders(pmtTender);
 
             this.frmTendering.grdSchSearch.DataSource = null;
             this.frmTendering.grdSchSearch.DataSource = dtTenders;
@@ -683,10 +683,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void uceSchBidder_ValueChanged(object sender, EventArgs e)
         {
-            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
-            pmtLoadDependencies.BidderId = Convert.ToInt32(this.frmTendering.uceSchBidder.Value);
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = Convert.ToInt32(this.frmTendering.uceSchBidder.Value);
             Dictionary<int, Dependency> dicDependencies =
-                srvDependency.LoadDependencies(pmtLoadDependencies);
+                srvDependency.LoadDependencies(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
                 dicDependencies.Values, "DependencyId", "Name");
@@ -694,10 +694,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void uceDetBidder_ValueChanged(object sender, EventArgs e)
         {
-            LoadDependenciesParameters pmtLoadDependencies = new LoadDependenciesParameters();
-            pmtLoadDependencies.BidderId = Convert.ToInt32(this.frmTendering.uceDetBidder.Value);
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = Convert.ToInt32(this.frmTendering.uceDetBidder.Value);
             Dictionary<int, Dependency> dicDependencies =
-                srvDependency.LoadDependencies(pmtLoadDependencies);
+                srvDependency.LoadDependencies(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
                 dicDependencies.Values, "DependencyId", "Name");
@@ -705,9 +705,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void uceSchDependency_ValueChanged(object sender, EventArgs e)
         {
-            LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
-            pmtLoadEndUsers.DependencyId = Convert.ToInt32(this.frmTendering.uceSchDependency.Value);
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
+            EndUserParameters pmtEndUser = new EndUserParameters();
+            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTendering.uceSchDependency.Value);
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");
@@ -715,9 +715,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void uceDetDependency_ValueChanged(object sender, EventArgs e)
         {
-            LoadEndUsersParameters pmtLoadEndUsers = new LoadEndUsersParameters();
-            pmtLoadEndUsers.DependencyId = Convert.ToInt32(this.frmTendering.uceDetDependency.Value);
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtLoadEndUsers);
+            EndUserParameters pmtEndUser = new EndUserParameters();
+            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTendering.uceDetDependency.Value);
+            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
                 dicEndUsers.Values, "EndUserId", "Name");

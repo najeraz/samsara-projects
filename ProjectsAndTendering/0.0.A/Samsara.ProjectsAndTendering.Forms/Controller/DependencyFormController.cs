@@ -44,8 +44,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void InitializeFormControls()
         {
             // Bidder
-            LoadBiddersParameters pmtLoadBidders = new LoadBiddersParameters();
-            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtLoadBidders);
+            BidderParameters pmtBidder = new BidderParameters();
+            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtBidder);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceSchBidder,
                 dicBidders.Values, "BidderId", "Name");
@@ -169,12 +169,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchDependenciesParameters pmtSearchDependencies = new SearchDependenciesParameters();
+            DependencyParameters pmtDependency = new DependencyParameters();
 
-            pmtSearchDependencies.Name = "%" + this.frmDependency.txtSchName.Text + "%";
-            pmtSearchDependencies.BidderId = (int)this.frmDependency.uceSchBidder.Value;
+            pmtDependency.Name = "%" + this.frmDependency.txtSchName.Text + "%";
+            pmtDependency.BidderId = (int)this.frmDependency.uceSchBidder.Value;
 
-            DataTable dtDependencies = srvDependency.SearchDependencies(pmtSearchDependencies);
+            DataTable dtDependencies = srvDependency.SearchDependencies(pmtDependency);
 
             this.frmDependency.grdSchSearch.DataSource = null;
             this.frmDependency.grdSchSearch.DataSource = dtDependencies;

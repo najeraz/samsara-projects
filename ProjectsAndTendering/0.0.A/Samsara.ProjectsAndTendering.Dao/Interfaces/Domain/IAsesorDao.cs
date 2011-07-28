@@ -9,6 +9,6 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
     public interface IAsesorDao : IGenericDao<Asesor, int>
     {
         Dictionary<int, Asesor> LoadAsesors();
-        DataTable SearchAsesors(SearchAsesorsParameters pmtSearchAsesors);
+        DataTable SearchAsesors(AsesorParameters pmtAsesor);
     }
 }

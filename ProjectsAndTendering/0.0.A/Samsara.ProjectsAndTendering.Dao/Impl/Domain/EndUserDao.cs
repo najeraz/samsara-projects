@@ -14,14 +14,14 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
-        public DataTable SearchEndUsers(SearchEndUsersParameters pmtSearchEndUsers)
+        public DataTable SearchEndUsers(EndUserParameters pmtEndUser)
         {
-            return this.DataTableByParameters("SearchEndUsers", pmtSearchEndUsers);
+            return this.DataTableByParameters("SearchEndUsers", pmtEndUser);
         }
 
-        public Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers)
+        public Dictionary<int, EndUser> LoadEndUsers(EndUserParameters pmtEndUser)
         {
-            return this.GetListByParameters("LoadEndUsers", pmtLoadEndUsers)
+            return this.GetListByParameters("LoadEndUsers", pmtEndUser)
                 .ToDictionary(x => x.EndUserId, x => x);
         }
         #endregion Methods

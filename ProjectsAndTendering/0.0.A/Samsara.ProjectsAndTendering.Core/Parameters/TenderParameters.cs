@@ -4,7 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchTendersParameters : GenericParameters
+    public class TenderParameters : GenericParameters
     {
         public int? AsesorId
         {

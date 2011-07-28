@@ -25,14 +25,14 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 
         #region Methods
 
-        public DataTable SearchEndUsers(SearchEndUsersParameters pmtSearchEndUsers)
+        public DataTable SearchEndUsers(EndUserParameters pmtEndUser)
         {
-            return this.EndUserDao.SearchEndUsers(pmtSearchEndUsers);
+            return this.EndUserDao.SearchEndUsers(pmtEndUser);
         }
 
-        public Dictionary<int, EndUser> LoadEndUsers(LoadEndUsersParameters pmtLoadEndUsers)
+        public Dictionary<int, EndUser> LoadEndUsers(EndUserParameters pmtEndUser)
         {
-            return this.EndUserDao.LoadEndUsers(pmtLoadEndUsers);
+            return this.EndUserDao.LoadEndUsers(pmtEndUser);
         }
 
         public EndUser LoadEndUser(int EndUserId)

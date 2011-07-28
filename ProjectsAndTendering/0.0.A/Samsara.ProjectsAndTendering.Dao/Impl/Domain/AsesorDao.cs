@@ -14,9 +14,9 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
-        public DataTable SearchAsesors(SearchAsesorsParameters pmtSearchAsesors)
+        public DataTable SearchAsesors(AsesorParameters pmtAsesor)
         {
-            return this.DataTableByParameters("SearchAsesors", pmtSearchAsesors);
+            return this.DataTableByParameters("SearchAsesors", pmtAsesor);
         }
 
         public Dictionary<int, Asesor> LoadAsesors()

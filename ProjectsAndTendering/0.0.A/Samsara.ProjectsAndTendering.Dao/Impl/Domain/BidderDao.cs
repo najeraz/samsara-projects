@@ -14,12 +14,12 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
-        public DataTable SearchBidders(SearchBiddersParameters pmtSearchBidders)
+        public DataTable SearchBidders(BidderParameters pmtBidder)
         {
-            return this.DataTableByParameters("SearchBidders", pmtSearchBidders);
+            return this.DataTableByParameters("SearchBidders", pmtBidder);
         }
 
-        public Dictionary<int, Bidder> LoadBidders(LoadBiddersParameters pmtLoadBidders)
+        public Dictionary<int, Bidder> LoadBidders(BidderParameters pmtBidder)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery("LoadBidders");
 

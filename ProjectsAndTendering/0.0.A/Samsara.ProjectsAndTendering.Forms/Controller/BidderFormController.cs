@@ -168,12 +168,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchBiddersParameters pmtSearchBidders = new SearchBiddersParameters();
+            BidderParameters pmtBidder = new BidderParameters();
 
-            pmtSearchBidders.Name = "%" + this.frmBidder.txtSchName.Text + "%";
-            pmtSearchBidders.BidderTypeId = (int)this.frmBidder.uceSchType.Value;
+            pmtBidder.Name = "%" + this.frmBidder.txtSchName.Text + "%";
+            pmtBidder.BidderTypeId = (int)this.frmBidder.uceSchType.Value;
 
-            DataTable dtBidders = srvBidder.SearchBidders(pmtSearchBidders);
+            DataTable dtBidders = srvBidder.SearchBidders(pmtBidder);
 
             this.frmBidder.grdSchSearch.DataSource = null;
             this.frmBidder.grdSchSearch.DataSource = dtBidders;

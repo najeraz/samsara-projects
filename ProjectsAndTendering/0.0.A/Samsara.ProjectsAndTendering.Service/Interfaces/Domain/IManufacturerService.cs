@@ -8,7 +8,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IManufacturerService
     {
-        DataTable SearchManufacturers(SearchManufacturersParameters pmtSearchManufacturers);
+        DataTable SearchManufacturers(ManufacturerParameters pmtManufacturer);
         Dictionary<int, Manufacturer> LoadManufacturers();
         Manufacturer LoadManufacturer(int ManufacturerId);
         void SaveOrUpdateManufacturer(Manufacturer entity);

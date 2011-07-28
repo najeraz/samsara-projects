@@ -7,7 +7,7 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IAsesorService
     {
-        DataTable SearchAsesors(SearchAsesorsParameters pmtSearchAsesors);
+        DataTable SearchAsesors(AsesorParameters pmtAsesor);
         Dictionary<int, Asesor> LoadAsesors();
         Asesor LoadAsesor(int AsesorId);
         void SaveOrUpdateAsesor(Asesor entity);

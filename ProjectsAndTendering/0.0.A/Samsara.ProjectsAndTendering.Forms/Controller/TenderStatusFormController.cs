@@ -135,11 +135,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void Search()
         {
-            SearchTenderStatusesParameters pmtSearchTenderStatuses = new SearchTenderStatusesParameters();
+            TenderStatusParameters pmtTenderStatus = new TenderStatusParameters();
 
-            pmtSearchTenderStatuses.Name = "%" + this.frmTenderStatus.txtSchName.Text + "%";
+            pmtTenderStatus.Name = "%" + this.frmTenderStatus.txtSchName.Text + "%";
 
-            DataTable dtTenderStatuses = srvTenderStatus.SearchTenderStatuses(pmtSearchTenderStatuses);
+            DataTable dtTenderStatuses = srvTenderStatus.SearchTenderStatuses(pmtTenderStatus);
 
             this.frmTenderStatus.grdSchSearch.DataSource = null;
             this.frmTenderStatus.grdSchSearch.DataSource = dtTenderStatuses;

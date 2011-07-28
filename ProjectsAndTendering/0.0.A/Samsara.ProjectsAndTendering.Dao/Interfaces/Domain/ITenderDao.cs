@@ -9,9 +9,9 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
     public interface ITenderDao : IGenericDao<Tender,int>
     {
         Dictionary<int, Tender> LoadTenders();
-        DataTable SearchTenders(SearchTendersParameters pmtSearchTenders);
-        DataTable SearchTenderManufacturers(SearchTenderManufacturerParameters
+        DataTable SearchTenders(TenderParameters pmtTender);
+        DataTable SearchTenderManufacturers(TenderManufacturerParameters
             pmtSearchTenderManufacturer);
-        DataTable SearchTenderLines(SearchTenderLinesParameters pmtSearchTenderLines);
+        DataTable SearchTenderLines(TenderLineParameters pmtTenderLine);
     }
 }

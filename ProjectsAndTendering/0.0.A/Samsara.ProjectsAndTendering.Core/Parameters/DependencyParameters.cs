@@ -3,9 +3,15 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class SearchManufacturersParameters : GenericParameters
+    public class DependencyParameters : GenericParameters
     {
         public string Name
+        {
+            get;
+            set;
+        }
+
+        public int? BidderId
         {
             get;
             set;
