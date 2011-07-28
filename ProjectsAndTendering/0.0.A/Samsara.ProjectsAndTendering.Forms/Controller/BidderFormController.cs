@@ -124,6 +124,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveBidder()
         {
+            if (MessageBox.Show("¿Esta seguro de guardar el Licitante?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                return;
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();

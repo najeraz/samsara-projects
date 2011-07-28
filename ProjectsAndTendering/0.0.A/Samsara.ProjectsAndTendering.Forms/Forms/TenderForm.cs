@@ -14,7 +14,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
     {
         #region Attributes
 
-        private TenderingFormController ctrlTenderingForm;
+        private TenderFormController ctrlTenderForm;
         private ITenderService srvTender;
 
         #endregion Attributes
@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         public TenderForm()
         {
             InitializeComponent();
-            this.ctrlTenderingForm = new TenderingFormController(this);
+            this.ctrlTenderForm = new TenderFormController(this);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
             Assert.IsNotNull(srvTender);
         }

@@ -92,6 +92,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveTenderStatus()
         {
+            if (MessageBox.Show("¿Esta seguro de guardar el Estatus?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                return;
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
