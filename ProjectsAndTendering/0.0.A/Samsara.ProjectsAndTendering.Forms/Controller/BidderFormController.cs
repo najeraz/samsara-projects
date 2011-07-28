@@ -60,6 +60,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmBidder.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
             this.frmBidder.HiddenDetail(true);
+            this.ClearSearchControls();
         }
 
         private void ShowDetail(bool show)
