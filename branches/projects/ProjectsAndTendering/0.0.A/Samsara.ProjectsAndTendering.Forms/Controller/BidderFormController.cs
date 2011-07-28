@@ -157,7 +157,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int bidderId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Licitante?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.bidder = this.srvBidder.LoadBidder(bidderId);
             this.bidder.Activated = false;

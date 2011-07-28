@@ -124,7 +124,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int tenderStatusId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Estatus?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.tenderStatus = this.srvTenderStatus.LoadTenderStatus(tenderStatusId);
             this.tenderStatus.Activated = false;

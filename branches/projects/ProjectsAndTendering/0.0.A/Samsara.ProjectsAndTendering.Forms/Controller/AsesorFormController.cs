@@ -134,7 +134,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int asesorId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Asesor?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.asesor = this.srvAsesor.LoadAsesor(asesorId);
             this.asesor.Activated = false;

@@ -160,7 +160,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int endUserId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Usuario Final?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.Yes)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
             this.endUser = this.srvEndUser.LoadEndUser(endUserId);
             this.endUser.Activated = false;
