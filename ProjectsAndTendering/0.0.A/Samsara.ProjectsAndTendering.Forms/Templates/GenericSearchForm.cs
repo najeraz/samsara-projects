@@ -31,6 +31,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
                 this.upSchSeparatorCreate.Visible = false;
                 this.btnSchEdit.Visible = false;
                 this.upSchSeparatorEdit.Visible = false;
+                this.btnSchDelete.Visible = false;
+                this.btnSchAccept.Visible = true;
                 this.btnSchAccept.Click += new System.EventHandler(btnSchAccept_Click);
             }
             else

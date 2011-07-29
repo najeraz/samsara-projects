@@ -211,7 +211,7 @@
             this.btnSchClear.Location = new System.Drawing.Point(444, 0);
             this.btnSchClear.Name = "btnSchClear";
             this.btnSchClear.Size = new System.Drawing.Size(75, 25);
-            this.btnSchClear.TabIndex = 3;
+            this.btnSchClear.TabIndex = 2;
             this.btnSchClear.Text = "Limpiar";
             this.btnSchClear.UseVisualStyleBackColor = true;
             // 
@@ -229,7 +229,7 @@
             this.btnSchSearch.Location = new System.Drawing.Point(535, 0);
             this.btnSchSearch.Name = "btnSchSearch";
             this.btnSchSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnSchSearch.TabIndex = 4;
+            this.btnSchSearch.TabIndex = 3;
             this.btnSchSearch.Text = "Buscar";
             this.btnSchSearch.UseVisualStyleBackColor = true;
             // 
@@ -278,7 +278,7 @@
             this.btnSchAccept.Location = new System.Drawing.Point(171, 0);
             this.btnSchAccept.Name = "btnSchAccept";
             this.btnSchAccept.Size = new System.Drawing.Size(75, 25);
-            this.btnSchAccept.TabIndex = 9;
+            this.btnSchAccept.TabIndex = 4;
             this.btnSchAccept.Text = "Aceptar";
             this.btnSchAccept.UseVisualStyleBackColor = true;
             this.btnSchAccept.Visible = false;
@@ -297,7 +297,7 @@
             this.btnSchClose.Location = new System.Drawing.Point(262, 0);
             this.btnSchClose.Name = "btnSchClose";
             this.btnSchClose.Size = new System.Drawing.Size(75, 25);
-            this.btnSchClose.TabIndex = 7;
+            this.btnSchClose.TabIndex = 5;
             this.btnSchClose.Text = "Cerrar";
             this.btnSchClose.UseVisualStyleBackColor = true;
             this.btnSchClose.Click += new System.EventHandler(this.btnSchClose_Click);
@@ -316,7 +316,7 @@
             this.btnSchDelete.Location = new System.Drawing.Point(353, 0);
             this.btnSchDelete.Name = "btnSchDelete";
             this.btnSchDelete.Size = new System.Drawing.Size(75, 25);
-            this.btnSchDelete.TabIndex = 11;
+            this.btnSchDelete.TabIndex = 6;
             this.btnSchDelete.Text = "Eliminar";
             this.btnSchDelete.UseVisualStyleBackColor = true;
             // 
@@ -334,7 +334,7 @@
             this.btnSchEdit.Location = new System.Drawing.Point(444, 0);
             this.btnSchEdit.Name = "btnSchEdit";
             this.btnSchEdit.Size = new System.Drawing.Size(75, 25);
-            this.btnSchEdit.TabIndex = 5;
+            this.btnSchEdit.TabIndex = 7;
             this.btnSchEdit.Text = "Modificar";
             this.btnSchEdit.UseVisualStyleBackColor = true;
             // 
@@ -352,7 +352,7 @@
             this.btnSchCreate.Location = new System.Drawing.Point(535, 0);
             this.btnSchCreate.Name = "btnSchCreate";
             this.btnSchCreate.Size = new System.Drawing.Size(75, 25);
-            this.btnSchCreate.TabIndex = 3;
+            this.btnSchCreate.TabIndex = 8;
             this.btnSchCreate.Text = "Nuevo";
             this.btnSchCreate.UseVisualStyleBackColor = true;
             // 
