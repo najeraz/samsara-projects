@@ -297,14 +297,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.Name = this.frmTendering.txtDetTenderName.Text;
             this.tender.PreviousTender = this.frmTendering.tscPreviousTender.Value;
 
-            this.GetByIds();
-            this.GetByIdLines();
+            this.GetTenderManufacturers();
+            this.GetTenderLines();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
         }
 
-        private void GetByIdLines()
+        private void GetTenderLines()
         {
             if (this.tender.TenderLines != null)
                 foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -335,7 +335,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void GetByIds()
+        private void GetTenderManufacturers()
         {
             if (this.tender.TenderManufacturers != null)
                 foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
