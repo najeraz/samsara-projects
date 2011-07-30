@@ -38,7 +38,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                 {
                     FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
                     pmtFormConfiguration.Name = parentFormName;
-                    formConfiguration = srvFormConfiguration.LoadFormConfigurations(pmtFormConfiguration);
+                    formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);
                 }
                 else
                     return;
@@ -47,8 +47,8 @@ namespace Samsara.ProjectsAndTendering.Controls
                 {
                     formConfiguration = new FormConfiguration();
                     formConfiguration.FormName = parentFormName;
-                    srvFormConfiguration.SaveOrUpdateFormConfiguration(formConfiguration);
-                    formConfiguration = srvFormConfiguration.LoadFormConfiguration(
+                    srvFormConfiguration.SaveOrUpdate(formConfiguration);
+                    formConfiguration = srvFormConfiguration.GetById(
                         formConfiguration.FormConfigurationId);
                 }
 
@@ -60,7 +60,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                     gridConfiguration = new GridConfiguration();
                     gridConfiguration.GridName = this.Name;
                     gridConfiguration.FormConfiguration = formConfiguration;
-                    srvGridConfiguration.SaveOrUpdateGridConfiguration(gridConfiguration);
+                    srvGridConfiguration.SaveOrUpdate(gridConfiguration);
                 }
 
                 foreach (UltraGridBand band in this.DisplayLayout.Bands)
@@ -83,7 +83,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                             gridColumnConfiguration.Visible = true;
                             gridColumnConfiguration.Band = band.Index;
 
-                            srvGridColumnConfiguration.SaveOrUpdateGridColumnConfiguration(gridColumnConfiguration);
+                            srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
                         }
                         else
                         {

@@ -37,7 +37,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             if (activeRow != null)
             {
                 int dependencyId = Convert.ToInt32(activeRow.Cells[0].Value);
-                dependency = this.srvDependency.LoadDependency(dependencyId);
+                dependency = this.srvDependency.GetById(dependencyId);
             }
 
             return dependency;

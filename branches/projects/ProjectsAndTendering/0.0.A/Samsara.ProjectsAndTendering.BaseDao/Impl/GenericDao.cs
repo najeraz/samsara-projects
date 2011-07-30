@@ -48,8 +48,15 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             HibernateTemplate.Delete(entity);
         }
 
-        public T GetById(TId Id) {
+        public T GetById(TId Id)
+        {
             return HibernateTemplate.Get<T>(Id);
+        }
+
+        public T GetByParameters(GenericParameters parameters)
+        {
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("Load", parameters);
+            return dnq.GetExecutableQuery(Session).UniqueResult<T>();
         }
 
         public IList<T> GetList(DetachedQuery dq) {

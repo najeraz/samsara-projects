@@ -7,6 +7,6 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Configuration
     public interface IFormConfigurationDao : IGenericDao<FormConfiguration,int>
     {
         Dictionary<int, FormConfiguration> LoadFormConfigurations();
-        FormConfiguration SearchFormConfigurationByName(string formName);
+        //FormConfiguration SearchFormConfigurations(string formName);
     }
 }

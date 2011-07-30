@@ -99,7 +99,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvManufacturer.SaveOrUpdateManufacturer(this.manufacturer);
+                this.srvManufacturer.SaveOrUpdate(this.manufacturer);
                 this.frmManufacturer.HiddenDetail(true);
                 this.Search();
             }
@@ -107,7 +107,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditManufacturer(int manufacturerId)
         {
-            this.manufacturer = this.srvManufacturer.LoadManufacturer(manufacturerId);
+            this.manufacturer = this.srvManufacturer.GetById(manufacturerId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -126,10 +126,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar el Fabricante?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.manufacturer = this.srvManufacturer.LoadManufacturer(manufacturerId);
+            this.manufacturer = this.srvManufacturer.GetById(manufacturerId);
             this.manufacturer.Activated = false;
             this.manufacturer.Deleted = true;
-            this.srvManufacturer.SaveOrUpdateManufacturer(this.manufacturer);
+            this.srvManufacturer.SaveOrUpdate(this.manufacturer);
             this.Search();
         }
 

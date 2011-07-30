@@ -107,7 +107,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvAsesor.SaveOrUpdateAsesor(this.asesor);
+                this.srvAsesor.SaveOrUpdate(this.asesor);
                 this.frmAsesor.HiddenDetail(true);
                 this.Search();
             }
@@ -115,7 +115,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditAsesor(int asesorId)
         {
-            this.asesor = this.srvAsesor.LoadAsesor(asesorId);
+            this.asesor = this.srvAsesor.GetById(asesorId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -136,10 +136,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar el Asesor?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.asesor = this.srvAsesor.LoadAsesor(asesorId);
+            this.asesor = this.srvAsesor.GetById(asesorId);
             this.asesor.Activated = false;
             this.asesor.Deleted = true;
-            this.srvAsesor.SaveOrUpdateAsesor(this.asesor);
+            this.srvAsesor.SaveOrUpdate(this.asesor);
             this.Search();
         }
 

@@ -237,14 +237,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (Convert.ToInt32(this.frmTendering.uceDetBidder.Value) > 0)
             {
-                Bidder bidder = srvBidder.LoadBidder(
+                Bidder bidder = srvBidder.GetById(
                     Convert.ToInt32(this.frmTendering.uceDetBidder.Value));
                 Assert.IsNotNull(bidder);
                 this.tender.Bidder = bidder;
             }
             if (Convert.ToInt32(this.frmTendering.uceDetDependency.Value) > 0)
             {
-                Dependency dependency = srvDependency.LoadDependency(
+                Dependency dependency = srvDependency.GetById(
                     Convert.ToInt32(this.frmTendering.uceDetDependency.Value));
                 Assert.IsNotNull(dependency);
                 this.tender.Dependency = dependency;
@@ -252,7 +252,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (Convert.ToInt32(this.frmTendering.uceDetEndUser.Value) > 0)
             {
-                EndUser endUser = srvEndUser.LoadEndUser(
+                EndUser endUser = srvEndUser.GetById(
                     Convert.ToInt32(this.frmTendering.uceDetEndUser.Value));
                 Assert.IsNotNull(endUser);
                 this.tender.EndUser = endUser;
@@ -260,7 +260,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (Convert.ToInt32(this.frmTendering.uceDetAsesor.Value) > 0)
             {
-                Asesor asesor = srvAsesor.LoadAsesor(
+                Asesor asesor = srvAsesor.GetById(
                     Convert.ToInt32(this.frmTendering.uceDetAsesor.Value));
                 Assert.IsNotNull(asesor);
                 this.tender.Asesor = asesor;
@@ -268,7 +268,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (Convert.ToInt32(this.frmTendering.uceDetApprovedBy.Value) > 0)
             {
-                Asesor asesor = srvAsesor.LoadAsesor(
+                Asesor asesor = srvAsesor.GetById(
                     Convert.ToInt32(this.frmTendering.uceDetApprovedBy.Value));
                 Assert.IsNotNull(asesor);
                 this.tender.ApprovedBy = asesor;
@@ -276,7 +276,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (Convert.ToInt32(this.frmTendering.uceDetTenderStatus.Value) > 0)
             {
-                TenderStatus tenderStatus = srvTenderStatus.LoadTenderStatus(
+                TenderStatus tenderStatus = srvTenderStatus.GetById(
                     Convert.ToInt32(this.frmTendering.uceDetTenderStatus.Value));
                 Assert.IsNotNull(tenderStatus);
                 this.tender.TenderStatus = tenderStatus;
@@ -296,14 +296,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.Name = this.frmTendering.txtDetTenderName.Text;
             this.tender.PreviousTender = this.frmTendering.tscPreviousTender.Value;
 
-            this.LoadManufacturers();
-            this.LoadTenderLines();
+            this.GetByIds();
+            this.GetByIdLines();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
         }
 
-        private void LoadTenderLines()
+        private void GetByIdLines()
         {
             if (this.tender.TenderLines != null)
                 foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -334,7 +334,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void LoadManufacturers()
+        private void GetByIds()
         {
             if (this.tender.TenderManufacturers != null)
                 foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
@@ -407,7 +407,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvTender.SaveOrUpdateTender(this.tender);
+                this.srvTender.SaveOrUpdate(this.tender);
                 this.frmTendering.HiddenDetail(true);
                 this.Search();
             }
@@ -415,7 +415,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditTender(int tenderId)
         {
-            this.tender = this.srvTender.LoadTender(tenderId);
+            this.tender = this.srvTender.GetById(tenderId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -483,10 +483,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar la Licitación?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.tender = this.srvTender.LoadTender(tenderId);
+            this.tender = this.srvTender.GetById(tenderId);
             this.tender.Activated = false;
             this.tender.Deleted = true;
-            this.srvTender.SaveOrUpdateTender(this.tender);
+            this.srvTender.SaveOrUpdate(this.tender);
             this.Search();
         }
 

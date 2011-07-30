@@ -48,6 +48,11 @@ namespace Samsara.ProjectsAndTendering.BaseService.Impl
             return Dao.GetById(id);
         }
 
+        public T GetByParameters(GenericParameters parameters)
+        {
+            return Dao.GetByParameters(parameters);
+        }
+
         //public DataTable Search(GenericParameters parameters)
         //{
         //    return this.Dao.Search(parameters);

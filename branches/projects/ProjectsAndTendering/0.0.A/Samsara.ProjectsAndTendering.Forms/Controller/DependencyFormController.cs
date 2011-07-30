@@ -100,7 +100,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (Convert.ToInt32(this.frmDependency.uceDetBidder.Value) > 0)
             {
-                Bidder bidder = this.srvBidder.LoadBidder(
+                Bidder bidder = this.srvBidder.GetById(
                     Convert.ToInt32(this.frmDependency.uceDetBidder.Value));
                 Assert.IsNotNull(bidder);
                 this.dependency.Bidder = bidder;
@@ -132,7 +132,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvDependency.SaveOrUpdateDependency(this.dependency);
+                this.srvDependency.SaveOrUpdate(this.dependency);
                 this.frmDependency.HiddenDetail(true);
                 this.Search();
             }
@@ -140,7 +140,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditDependency(int dependencyId)
         {
-            this.dependency = this.srvDependency.LoadDependency(dependencyId);
+            this.dependency = this.srvDependency.GetById(dependencyId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -160,10 +160,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar la Dependencia?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.dependency = this.srvDependency.LoadDependency(dependencyId);
+            this.dependency = this.srvDependency.GetById(dependencyId);
             this.dependency.Activated = false;
             this.dependency.Deleted = true;
-            this.srvDependency.SaveOrUpdateDependency(this.dependency);
+            this.srvDependency.SaveOrUpdate(this.dependency);
             this.Search();
         }
 
