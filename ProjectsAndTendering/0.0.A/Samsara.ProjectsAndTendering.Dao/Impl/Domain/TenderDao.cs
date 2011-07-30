@@ -14,11 +14,6 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
     {
         #region Methods
 
-        public DataTable SearchTenders(TenderParameters pmtTender)
-        {
-            return this.DataTableByParameters("SearchTenders", pmtTender);
-        }
-
         public DataTable SearchTenderLines(TenderLineParameters
             pmtTenderLine)
         {
@@ -31,13 +26,6 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
         {
             return this.DataTableByParameters<TenderManufacturer>(
                 "SearchTenderManufacturers", pmtSearchTenderManufacturer);
-        }
-
-        public Dictionary<int, Tender> LoadTenders()
-        {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadTenders");
-
-            return this.GetList(dnq).ToDictionary(x => x.TenderId, x => x);
         }
 
         #endregion Methods
