@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NHibernate.Criterion;
 using NHibernate.Impl;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
 {
@@ -9,6 +10,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
         void Delete(T entity);
         IList<T> GetAll();
         T GetById(TId Id);
+        T GetByParameters(GenericParameters parameters);
         IList<TType> GetList<TType>(DetachedNamedQuery dnq);
         IList<T> GetList(DetachedNamedQuery dnq);
         IList<TType> GetList<TType>(DetachedCriteria detachedCriteria);

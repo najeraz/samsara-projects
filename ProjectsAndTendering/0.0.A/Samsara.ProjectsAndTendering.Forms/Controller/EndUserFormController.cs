@@ -102,7 +102,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (Convert.ToInt32(this.frmEndUser.uceDetDependency.Value) > 0)
             {
-                Dependency endUserType = srvDependency.LoadDependency(
+                Dependency endUserType = srvDependency.GetById(
                     Convert.ToInt32(this.frmEndUser.uceDetDependency.Value));
                 Assert.IsNotNull(endUserType);
                 this.endUser.Dependency = endUserType;
@@ -134,7 +134,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvEndUser.SaveOrUpdateEndUser(this.endUser);
+                this.srvEndUser.SaveOrUpdate(this.endUser);
                 this.frmEndUser.HiddenDetail(true);
                 this.Search();
             }
@@ -142,7 +142,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditEndUser(int endUserId)
         {
-            this.endUser = this.srvEndUser.LoadEndUser(endUserId);
+            this.endUser = this.srvEndUser.GetById(endUserId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -162,10 +162,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar el Usuario Final?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.endUser = this.srvEndUser.LoadEndUser(endUserId);
+            this.endUser = this.srvEndUser.GetById(endUserId);
             this.endUser.Activated = false;
             this.endUser.Deleted = true;
-            this.srvEndUser.SaveOrUpdateEndUser(this.endUser);
+            this.srvEndUser.SaveOrUpdate(this.endUser);
             this.Search();
         }
 

@@ -99,7 +99,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (Convert.ToInt32(this.frmBidder.uceDetType.Value) > 0)
             {
-                BidderType bidderType = srvBidderType.LoadBidderType(
+                BidderType bidderType = srvBidderType.GetById(
                     Convert.ToInt32(this.frmBidder.uceDetType.Value));
                 Assert.IsNotNull(bidderType);
                 this.bidder.BidderType = bidderType;
@@ -131,7 +131,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvBidder.SaveOrUpdateBidder(this.bidder);
+                this.srvBidder.SaveOrUpdate(this.bidder);
                 this.frmBidder.HiddenDetail(true);
                 this.Search();
             }
@@ -139,7 +139,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditBidder(int bidderId)
         {
-            this.bidder = this.srvBidder.LoadBidder(bidderId);
+            this.bidder = this.srvBidder.GetById(bidderId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -159,10 +159,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar el Licitante?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.bidder = this.srvBidder.LoadBidder(bidderId);
+            this.bidder = this.srvBidder.GetById(bidderId);
             this.bidder.Activated = false;
             this.bidder.Deleted = true;
-            this.srvBidder.SaveOrUpdateBidder(this.bidder);
+            this.srvBidder.SaveOrUpdate(this.bidder);
             this.Search();
         }
 

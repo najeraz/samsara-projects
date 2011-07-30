@@ -99,7 +99,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 this.LoadEntity();
-                this.srvTenderStatus.SaveOrUpdateTenderStatus(this.tenderStatus);
+                this.srvTenderStatus.SaveOrUpdate(this.tenderStatus);
                 this.frmTenderStatus.HiddenDetail(true);
                 this.Search();
             }
@@ -107,7 +107,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditTenderStatus(int tenderStatusId)
         {
-            this.tenderStatus = this.srvTenderStatus.LoadTenderStatus(tenderStatusId);
+            this.tenderStatus = this.srvTenderStatus.GetById(tenderStatusId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -126,10 +126,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (MessageBox.Show("¿Esta seguro de eliminar el Estatus?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.tenderStatus = this.srvTenderStatus.LoadTenderStatus(tenderStatusId);
+            this.tenderStatus = this.srvTenderStatus.GetById(tenderStatusId);
             this.tenderStatus.Activated = false;
             this.tenderStatus.Deleted = true;
-            this.srvTenderStatus.SaveOrUpdateTenderStatus(this.tenderStatus);
+            this.srvTenderStatus.SaveOrUpdate(this.tenderStatus);
             this.Search();
         }
 

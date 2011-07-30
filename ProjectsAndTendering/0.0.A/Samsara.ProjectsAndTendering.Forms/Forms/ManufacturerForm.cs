@@ -37,7 +37,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             if (activeRow != null)
             {
                 int asesorId = Convert.ToInt32(activeRow.Cells[0].Value);
-                asesor = this.srvManufacturer.LoadManufacturer(asesorId);
+                asesor = this.srvManufacturer.GetById(asesorId);
             }
 
             return asesor;

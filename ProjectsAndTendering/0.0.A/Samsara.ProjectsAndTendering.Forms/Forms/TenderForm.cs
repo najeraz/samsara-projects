@@ -41,7 +41,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             if (activeRow != null)
             {
                 int tenderId = Convert.ToInt32(activeRow.Cells[0].Value);
-                tender = this.srvTender.LoadTender(tenderId);
+                tender = this.srvTender.GetById(tenderId);
             }
 
             return tender;
