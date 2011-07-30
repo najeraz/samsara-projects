@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface IBidderTypeService
+    public interface IBidderTypeService : IGenericService<BidderType, int>
     {
         Dictionary<int, BidderType> LoadBidderTypes();
-        BidderType LoadBidderType(int BidderTypeId);
-        void SaveOrUpdateBidderType(BidderType entity);
-        void DeleteBidderType(BidderType entity);
     }
 }

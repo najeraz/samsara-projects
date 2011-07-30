@@ -6,6 +6,7 @@ using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 
 namespace Samsara.ProjectsAndTendering.Controls
@@ -34,8 +35,12 @@ namespace Samsara.ProjectsAndTendering.Controls
                 string parentFormName = this.GetParentFormName(this.Parent);
 
                 if (parentFormName != null)
-                    formConfiguration = srvFormConfiguration.SearchFormConfigurationByName(parentFormName);
-                else 
+                {
+                    FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
+                    pmtFormConfiguration.Name = parentFormName;
+                    formConfiguration = srvFormConfiguration.LoadFormConfigurations(pmtFormConfiguration);
+                }
+                else
                     return;
 
                 if (formConfiguration == null)

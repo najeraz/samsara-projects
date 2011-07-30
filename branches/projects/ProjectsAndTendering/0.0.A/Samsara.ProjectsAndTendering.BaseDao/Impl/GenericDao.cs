@@ -24,22 +24,28 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return HibernateTemplate.LoadAll<T>();
         }
 
-        public void SaveOrUpdate(T obj)
+        public void SaveOrUpdate(T entity)
         {
-            HibernateTemplate.SaveOrUpdate(obj);
+            HibernateTemplate.SaveOrUpdate(entity);
         }
 
-        public void Save(T obj)
+        public void Save(T entity)
         {
-            HibernateTemplate.Save(obj);
+            HibernateTemplate.Save(entity);
         }
 
-        public void Update(T obj) {
-            HibernateTemplate.Update(obj);
+        public void Refresh(T entity)
+        {
+            HibernateTemplate.Refresh(entity);
         }
 
-        public void Delete(T obj) {
-            HibernateTemplate.Delete(obj);
+        public void Update(T entity)
+        {
+            HibernateTemplate.Update(entity);
+        }
+
+        public void Delete(T entity) {
+            HibernateTemplate.Delete(entity);
         }
 
         public T GetById(TId Id) {
