@@ -48,7 +48,8 @@
             // 
             // pnlDetCtgButtons
             // 
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 259);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(505, 25);
             // 
             // gbxSearchParameters
             // 
@@ -66,6 +67,7 @@
             this.gbxDetDetail.Controls.Add(this.lblDetFullName);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
             this.gbxDetDetail.Controls.Add(this.lblDetName);
+            this.gbxDetDetail.Size = new System.Drawing.Size(505, 256);
             // 
             // btnSchClose
             // 
