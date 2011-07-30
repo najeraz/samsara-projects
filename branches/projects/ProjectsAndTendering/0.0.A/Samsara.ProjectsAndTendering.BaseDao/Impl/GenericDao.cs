@@ -55,18 +55,21 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         public T GetByParameters(GenericParameters parameters)
         {
-            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("GetByParameters", parameters);
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
+                typeof(T).Name + ".GetByParameters", parameters);
             return dnq.GetExecutableQuery(Session).UniqueResult<T>();
         }
 
         public DataTable SearchByParameters(GenericParameters parameters)
         {
-            return this.DataTableByParameters<T>("SearchByParameters", parameters);
+            return this.DataTableByParameters(
+                typeof(T).Name + ".SearchByParameters", parameters);
         }
 
         public IList<T> GetListByParameters(GenericParameters parameters)
         {
-            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("GetListByParameters", parameters);
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
+                typeof(T).Name + ".GetListByParameters", parameters);
             return this.GetList(dnq);
         }
 

@@ -15,13 +15,13 @@
 
   </class>
 
-  <query name="LoadTenderStatuses">
+  <query name="TenderStatus.GetListByParameters">
     <![CDATA[
         from TenderStatus where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <sql-query name="SearchTenderStatuses" cacheable="false" read-only="true">
+  <sql-query name="SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="TenderStatusId" type="int"/>
     <return-scalar column="Name" type="string"/>
     <![CDATA[

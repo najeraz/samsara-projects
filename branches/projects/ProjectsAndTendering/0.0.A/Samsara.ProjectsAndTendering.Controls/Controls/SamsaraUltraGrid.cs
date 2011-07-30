@@ -37,7 +37,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                 if (parentFormName != null)
                 {
                     FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
-                    pmtFormConfiguration.Name = parentFormName;
+                    pmtFormConfiguration.FormName = parentFormName;
                     formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);
                 }
                 else

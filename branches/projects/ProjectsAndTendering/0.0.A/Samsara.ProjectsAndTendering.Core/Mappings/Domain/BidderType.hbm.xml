@@ -15,7 +15,7 @@
 
   </class>
 
-  <query name="LoadBidderTypes">
+  <query name="BidderType.GetListByParameters">
     <![CDATA[
         from BidderType where Deleted = 0 and Activated = 1
     ]]>
