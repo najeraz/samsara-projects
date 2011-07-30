@@ -42,7 +42,7 @@
     <many-to-one name="ApprovedBy"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
                  column="ApprovedBy"/>
-    <many-to-one name="PreviousTender"
+    <many-to-one name="PreviousTender" lazy="false"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="PreviousTenderId"/>
 
