@@ -19,7 +19,7 @@
     
   </class>
 
-  <query name="SearchFormConfigurationByName">
+  <query name="FormConfiguration.GetByParameters">
     <![CDATA[
         from FormConfiguration where FormName = :FormName
     ]]>

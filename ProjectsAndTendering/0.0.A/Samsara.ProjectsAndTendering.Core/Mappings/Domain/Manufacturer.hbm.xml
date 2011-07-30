@@ -15,13 +15,13 @@
 
   </class>
 
-  <query name="LoadManufacturers">
+  <query name="Manufacturer.GetListByParameters">
     <![CDATA[
         from Manufacturer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <sql-query name="SearchManufacturers" cacheable="false" read-only="true">
+  <sql-query name="Manufacturer.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="ManufacturerId" type="int"/>
     <return-scalar column="Name" type="string"/>
     <![CDATA[

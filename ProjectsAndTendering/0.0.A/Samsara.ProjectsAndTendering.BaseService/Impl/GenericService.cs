@@ -1,11 +1,8 @@
 ﻿
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
+using System.Data;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Samsara.ProjectsAndTendering.BaseService.Interfaces;
-using System.Data;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.BaseService.Impl

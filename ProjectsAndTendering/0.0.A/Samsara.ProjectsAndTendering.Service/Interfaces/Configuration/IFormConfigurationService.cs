@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
+﻿
 using Samsara.ProjectsAndTendering.BaseService.Interfaces;
+using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {

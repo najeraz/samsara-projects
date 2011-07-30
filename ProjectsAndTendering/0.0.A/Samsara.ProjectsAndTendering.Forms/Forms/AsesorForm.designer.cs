@@ -69,7 +69,7 @@
             // 
             // btnSchClose
             // 
-            this.btnSchClose.Location = new System.Drawing.Point(232, 0);
+            this.btnSchClose.Location = new System.Drawing.Point(141, 0);
             // 
             // btnSchEdit
             // 
@@ -81,7 +81,7 @@
             // 
             // btnSchAccept
             // 
-            this.btnSchAccept.Location = new System.Drawing.Point(141, 0);
+            this.btnSchAccept.Location = new System.Drawing.Point(50, 0);
             // 
             // btnSchClear
             // 
@@ -90,6 +90,10 @@
             // btnSchSearch
             // 
             this.btnSchSearch.Location = new System.Drawing.Point(414, 0);
+            // 
+            // btnSchDelete
+            // 
+            this.btnSchDelete.Location = new System.Drawing.Point(232, 0);
             // 
             // chkSchShowApprovers
             // 
@@ -204,7 +208,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "AsesorForm";
-            this.Text = "Caatálogo de Asesores";
+            this.Text = "Catálogo de Asesores";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);

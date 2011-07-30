@@ -20,7 +20,7 @@
 
   </class>
 
-  <query name="LoadTenderLines">
+  <query name="TenderLine.GetListByParameters">
     <![CDATA[
         from TenderLine where Deleted = 0 and Activated = 1
     ]]>
