@@ -12,20 +12,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
     public class TenderStatusDao : GenericDao<TenderStatus, int>, ITenderStatusDao
     {
-        #region Methods
-
-        public DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus)
-        {
-            return this.DataTableByParameters("SearchTenderStatuses", pmtTenderStatus);
-        }
-
-        public Dictionary<int, TenderStatus> LoadTenderStatuses()
-        {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadTenderStatuses");
-
-            return this.GetList(dnq).ToDictionary(x => x.TenderStatusId, x => x);
-        }
-
-        #endregion Methods
     }
 }

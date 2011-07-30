@@ -12,20 +12,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
     public class AsesorDao : GenericDao<Asesor, int>, IAsesorDao
     {
-        #region Methods
-
-        public DataTable SearchAsesors(AsesorParameters pmtAsesor)
-        {
-            return this.DataTableByParameters("SearchAsesors", pmtAsesor);
-        }
-
-        public Dictionary<int, Asesor> LoadAsesors()
-        {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("LoadAsesors");
-
-            return this.GetList(dnq).ToDictionary(x => x.AsesorId, x => x);
-        }
-
-        #endregion Methods
     }
 }
