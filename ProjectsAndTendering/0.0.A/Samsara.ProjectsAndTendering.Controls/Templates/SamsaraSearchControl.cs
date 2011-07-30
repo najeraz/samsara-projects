@@ -6,6 +6,8 @@ namespace Samsara.ProjectsAndTendering.Controls
 {
     public partial class SamsaraSearchControl<T> : UserControl
     {
+        private T value;
+
         public ISearchForm<T> SearchForm
         {
             private get;
@@ -20,13 +22,30 @@ namespace Samsara.ProjectsAndTendering.Controls
 
         public T Value
         {
-            get;
-            private set;
+            get
+            {
+                return value;
+            }
+            set
+            {
+                this.value = value;
+                if (this.value != null && this.DisplayMember != null)
+                {
+                    this.txtName.Text = this.Value.GetType()
+                        .GetProperty(this.DisplayMember).GetValue(this.Value, null).ToString();
+                }
+            }
         }
 
         public SamsaraSearchControl()
         {
             InitializeComponent();
+        }
+
+        public void Clear()
+        {
+            this.Value = default(T);
+            this.txtName.Text = string.Empty;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

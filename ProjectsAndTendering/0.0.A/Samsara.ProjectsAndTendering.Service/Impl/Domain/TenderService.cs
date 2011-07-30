@@ -5,60 +5,33 @@ using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using Samsara.ProjectsAndTendering.BaseService.Impl;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
-    public class TenderService : BaseService, ITenderService
+    public class TenderService : GenericService<Tender, int, ITenderDao>, ITenderService
     {
-        #region Properties
-
-        /// <summary>
-        /// This field is inyected by IoC through the property.
-        /// </summary>
-        public ITenderDao TenderDao
-        {
-            get;
-            set;
-        }
-
-        #endregion Properties
-
         #region Methods
 
         public DataTable SearchTenderLines(TenderLineParameters pmtTenderLine)
         {
-            return this.TenderDao.SearchTenderLines(pmtTenderLine);
+            return this.Dao.SearchTenderLines(pmtTenderLine);
         }
 
         public DataTable SearchTenderManufacturers(TenderManufacturerParameters
             pmtSearchTenderManufacturer)
         {
-            return this.TenderDao.SearchTenderManufacturers(pmtSearchTenderManufacturer);
+            return this.Dao.SearchTenderManufacturers(pmtSearchTenderManufacturer);
         }
 
         public DataTable SearchTenders(TenderParameters pmtTender)
         {
-            return this.TenderDao.SearchTenders(pmtTender);
+            return this.Dao.SearchTenders(pmtTender);
         }
 
         public Dictionary<int, Tender> LoadTenders()
         {
-            return this.TenderDao.LoadTenders();
-        }
-
-        public Tender LoadTender(int TenderId)
-        {
-            return this.TenderDao.GetById(TenderId);
-        }
-
-        public void SaveOrUpdateTender(Tender entity)
-        {
-            this.TenderDao.SaveOrUpdate(entity);
-        }
-
-        public void DeleteTender(Tender entity)
-        {
-            this.TenderDao.Delete(entity);
+            return this.Dao.LoadTenders();
         }
 
         #endregion Methods

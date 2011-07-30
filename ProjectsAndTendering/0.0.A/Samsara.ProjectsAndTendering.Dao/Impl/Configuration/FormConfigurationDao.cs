@@ -16,9 +16,9 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Configuration
             return this.GetAll().ToDictionary(x => x.FormConfigurationId, x => x);
         }
 
-        public FormConfiguration SearchFormConfigurationByName(string formName)
+        public FormConfiguration SearchFormConfigurations(string formName)
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("SearchFormConfigurationByName");
+            DetachedNamedQuery dnq = new DetachedNamedQuery("SearchFormConfigurations");
 
             dnq.SetString("FormName", formName);
 

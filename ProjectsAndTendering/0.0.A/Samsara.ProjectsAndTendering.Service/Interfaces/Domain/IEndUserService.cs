@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface IEndUserService
+    public interface IEndUserService : IGenericService<EndUser, int>
     {
         DataTable SearchEndUsers(EndUserParameters pmtEndUser);
         Dictionary<int, EndUser> LoadEndUsers(EndUserParameters pmtEndUser);
-        EndUser LoadEndUser(int EndUserId);
-        void SaveOrUpdateEndUser(EndUser entity);
-        void DeleteEndUser(EndUser entity);
     }
 }

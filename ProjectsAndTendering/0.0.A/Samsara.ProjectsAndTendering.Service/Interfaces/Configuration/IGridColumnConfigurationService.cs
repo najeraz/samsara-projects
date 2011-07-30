@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface IGridColumnConfigurationService
+    public interface IGridColumnConfigurationService : IGenericService<GridColumnConfiguration, int>
     {
         Dictionary<int, GridColumnConfiguration> LoadGridColumnConfigurations();
-        GridColumnConfiguration LoadGridColumnConfiguration(int GridColumnConfigurationId);
-        void SaveOrUpdateGridColumnConfiguration(GridColumnConfiguration gridColumnConfiguration);
-        void DeleteGridColumnConfiguration(GridColumnConfiguration gridColumnConfiguration);
     }
 }

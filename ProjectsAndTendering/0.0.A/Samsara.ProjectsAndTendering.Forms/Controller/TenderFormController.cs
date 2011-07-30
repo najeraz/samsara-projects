@@ -294,6 +294,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.Results = this.frmTendering.txtDetResults.Text;
             this.tender.PreResults = this.frmTendering.txtDetPreResults.Text;
             this.tender.Name = this.frmTendering.txtDetTenderName.Text;
+            this.tender.PreviousTender = this.frmTendering.tscPreviousTender.Value;
 
             this.LoadManufacturers();
             this.LoadTenderLines();
@@ -380,6 +381,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.dteDetRegistrationDate.DateTime = DateTime.Now;
             this.frmTendering.dteDetVeredictDate.DateTime = DateTime.Now;
             this.frmTendering.uchkDetIsOpportunity.Checked = true;
+            this.frmTendering.tscPreviousTender.Clear();
             this.dtTenderLines.Rows.Clear();
             this.dtTenderManufacturers.Rows.Clear();
         }
@@ -448,6 +450,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.dteDetRegistrationDate.DateTime = this.tender.RegistrationDate;
             this.frmTendering.dteDetVeredictDate.DateTime = this.tender.VerdictDate;
             this.frmTendering.uchkDetIsOpportunity.Checked = this.tender.IsOpportunity;
+            this.frmTendering.tscPreviousTender.Value = this.tender.PreviousTender;
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
@@ -667,12 +670,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void uchkDetIsOpportunity_CheckedChanged(object sender, EventArgs e)
         {
-            this.frmTendering.dteDetDeadline.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
             this.frmTendering.txtDetAddress.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
             this.frmTendering.dteDetVeredictDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
             this.frmTendering.uceDetApprovedBy.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
             this.frmTendering.dteDetClarificationDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetPrerevisionDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
             this.frmTendering.dteDetClarificationDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
 
             if (this.frmTendering.uchkDetIsOpportunity.Checked)

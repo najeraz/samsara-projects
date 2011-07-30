@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface IBidderService
+    public interface IBidderService : IGenericService<Bidder, int>
     {
         DataTable SearchBidders(BidderParameters pmtBidder);
         Dictionary<int, Bidder> LoadBidders(BidderParameters pmtBidder);
-        Bidder LoadBidder(int BidderId);
-        void SaveOrUpdateBidder(Bidder entity);
-        void DeleteBidder(Bidder entity);
     }
 }

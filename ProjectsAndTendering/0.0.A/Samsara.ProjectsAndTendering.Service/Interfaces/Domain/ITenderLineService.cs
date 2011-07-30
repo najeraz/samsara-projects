@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface ITenderLineService
+    public interface ITenderLineService : IGenericService<TenderLine, int>
     {
         Dictionary<int, TenderLine> LoadTenderLines();
-        TenderLine LoadTenderLine(int TenderLineId);
-        void SaveOrUpdateTenderLine(TenderLine entity);
-        void DeleteTenderLine(TenderLine entity);
     }
 }

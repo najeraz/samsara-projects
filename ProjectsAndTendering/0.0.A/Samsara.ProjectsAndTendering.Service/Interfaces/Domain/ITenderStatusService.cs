@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface ITenderStatusService
+    public interface ITenderStatusService : IGenericService<TenderStatus, int>
     {
         DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus);
         Dictionary<int, TenderStatus> LoadTenderStatuses();
-        TenderStatus LoadTenderStatus(int TenderStatusId);
-        void SaveOrUpdateTenderStatus(TenderStatus entity);
-        void DeleteTenderStatus(TenderStatus entity);
     }
 }

@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Data;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface IManufacturerService
+    public interface IManufacturerService : IGenericService<Manufacturer, int>
     {
         DataTable SearchManufacturers(ManufacturerParameters pmtManufacturer);
         Dictionary<int, Manufacturer> LoadManufacturers();
-        Manufacturer LoadManufacturer(int ManufacturerId);
-        void SaveOrUpdateManufacturer(Manufacturer entity);
-        void DeleteManufacturer(Manufacturer entity);
     }
 }

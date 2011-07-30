@@ -36,6 +36,7 @@
     <Reference Include="Samsara.ProjectsAndTendering.BaseDao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.ProjectsAndTendering.BaseService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Samsara.ProjectsAndTendering.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -43,6 +44,18 @@
     <Reference Include="Samsara.ProjectsAndTendering.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.20711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.1.20711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate21, Version=1.3.1.20711, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Data.NHibernate21.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -64,7 +77,6 @@
     <Compile Include="Impl\Configuration\GridConfigurationService.cs" />
     <Compile Include="Impl\Configuration\GridColumnConfigurationService.cs" />
     <Compile Include="Impl\Configuration\FormConfigurationService.cs" />
-    <Compile Include="Impl\Domain\BaseService.cs" />
     <Compile Include="Impl\Domain\AsesorService.cs" />
     <Compile Include="Impl\Domain\BidderService.cs" />
     <Compile Include="Impl\Domain\BidderTypeService.cs" />
