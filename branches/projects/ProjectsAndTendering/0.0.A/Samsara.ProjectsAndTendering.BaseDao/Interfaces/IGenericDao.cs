@@ -2,6 +2,7 @@
 using NHibernate.Criterion;
 using NHibernate.Impl;
 using Samsara.ProjectsAndTendering.Core.Parameters;
+using System.Data;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
 {
@@ -11,6 +12,8 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
         IList<T> GetAll();
         T GetById(TId Id);
         T GetByParameters(GenericParameters parameters);
+        DataTable SearchByParameters(GenericParameters parameters);
+        IList<T> GetListByParameters(GenericParameters parameters);
         IList<TType> GetList<TType>(DetachedNamedQuery dnq);
         IList<T> GetList(DetachedNamedQuery dnq);
         IList<TType> GetList<TType>(DetachedCriteria detachedCriteria);

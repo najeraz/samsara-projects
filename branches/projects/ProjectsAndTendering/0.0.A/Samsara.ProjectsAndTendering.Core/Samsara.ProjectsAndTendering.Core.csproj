@@ -73,6 +73,7 @@
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
+    <Compile Include="Parameters\BidderTypeParameters.cs" />
     <Compile Include="Parameters\FormConfigurationParameters.cs" />
     <Compile Include="Parameters\DependencyParameters.cs" />
     <Compile Include="Parameters\EndUserParameters.cs" />

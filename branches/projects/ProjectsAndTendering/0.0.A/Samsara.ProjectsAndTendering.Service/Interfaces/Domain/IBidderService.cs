@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IBidderService : IGenericService<Bidder, int>
     {
-        DataTable SearchBidders(BidderParameters pmtBidder);
-        Dictionary<int, Bidder> LoadBidders(BidderParameters pmtBidder);
     }
 }

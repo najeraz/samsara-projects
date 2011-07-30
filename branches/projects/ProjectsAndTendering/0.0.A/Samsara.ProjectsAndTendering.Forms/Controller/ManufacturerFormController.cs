@@ -139,7 +139,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             pmtManufacturer.Name = "%" + this.frmManufacturer.txtSchName.Text + "%";
 
-            DataTable dtManufacturers = srvManufacturer.SearchManufacturers(pmtManufacturer);
+            DataTable dtManufacturers = srvManufacturer.SearchByParameters(pmtManufacturer);
 
             this.frmManufacturer.grdSchSearch.DataSource = null;
             this.frmManufacturer.grdSchSearch.DataSource = dtManufacturers;

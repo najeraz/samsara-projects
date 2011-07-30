@@ -9,13 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class BidderTypeService : GenericService<BidderType, int, IBidderTypeDao>, IBidderTypeService
     {
-        #region Methods
-
-        public Dictionary<int, BidderType> LoadBidderTypes()
-        {
-            return this.Dao.LoadBidderTypes();
-        }
-
-        #endregion Methods
     }
 }

@@ -11,18 +11,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class ManufacturerService : GenericService<Manufacturer, int, IManufacturerDao>, IManufacturerService
     {
-        #region Methods
-
-        public DataTable SearchManufacturers(ManufacturerParameters pmtManufacturer)
-        {
-            return this.Dao.SearchManufacturers(pmtManufacturer);
-        }
-
-        public Dictionary<int, Manufacturer> LoadManufacturers()
-        {
-            return this.Dao.LoadManufacturers();
-        }
-
-        #endregion Methods
     }
 }

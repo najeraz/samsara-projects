@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IEndUserService : IGenericService<EndUser, int>
     {
-        DataTable SearchEndUsers(EndUserParameters pmtEndUser);
-        Dictionary<int, EndUser> LoadEndUsers(EndUserParameters pmtEndUser);
     }
 }

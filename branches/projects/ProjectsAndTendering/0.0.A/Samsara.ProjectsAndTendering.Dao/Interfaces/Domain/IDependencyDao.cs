@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface IDependencyDao : IGenericDao<Dependency,int>
     {
-        DataTable SearchDependencies(DependencyParameters pmtDependency);
-        Dictionary<int, Dependency> LoadDependencies(DependencyParameters pmtDependency);
     }
 }

@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface ITenderLineDao : IGenericDao<TenderLine,int>
     {
-        Dictionary<int, TenderLine> LoadTenderLines();
     }
 }

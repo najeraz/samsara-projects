@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface IEndUserDao : IGenericDao<EndUser,int>
     {
-        DataTable SearchEndUsers(EndUserParameters pmtEndUser);
-        Dictionary<int, EndUser> LoadEndUsers(EndUserParameters pmtEndUser);
     }
 }

@@ -53,14 +53,14 @@ namespace Samsara.ProjectsAndTendering.BaseService.Impl
             return Dao.GetByParameters(parameters);
         }
 
-        //public DataTable Search(GenericParameters parameters)
-        //{
-        //    return this.Dao.Search(parameters);
-        //}
+        public DataTable SearchByParameters(GenericParameters parameters)
+        {
+            return this.Dao.SearchByParameters(parameters);
+        }
 
-        //public Dictionary<int, T> LoadEntities(GenericParameters parameters)
-        //{
-        //    return this.Dao.LoadEntities();
-        //}
+        public IList<T> GetListByParameters(GenericParameters parameters)
+        {
+            return this.Dao.GetListByParameters(parameters);
+        }
     }
 }

@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IDependencyService : IGenericService<Dependency, int>
     {
-        DataTable SearchDependencies(DependencyParameters pmtDependency);
-        Dictionary<int, Dependency> LoadDependencies(DependencyParameters pmtDependency);
     }
 }

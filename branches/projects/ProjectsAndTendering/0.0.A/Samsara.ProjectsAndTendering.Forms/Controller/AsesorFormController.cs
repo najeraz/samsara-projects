@@ -152,7 +152,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtAsesor.Name = "%" + this.frmAsesor.txtSchName.Text + "%";
             pmtAsesor.FullName = "%" + this.frmAsesor.txtSchFullName.Text + "%";
 
-            DataTable dtAsesors = srvAsesor.SearchAsesors(pmtAsesor);
+            DataTable dtAsesors = srvAsesor.SearchByParameters(pmtAsesor);
 
             this.frmAsesor.grdSchSearch.DataSource = null;
             this.frmAsesor.grdSchSearch.DataSource = dtAsesors;

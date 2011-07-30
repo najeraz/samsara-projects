@@ -46,13 +46,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntDefault;
-            Dictionary<int, Dependency> dicDependencies = 
-                srvDependency.LoadDependencies(pmtDependency);
+            IList<Dependency> lstDependencies = 
+                srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceSchDependency,
-                dicDependencies.Values, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceDetDependency,
-                dicDependencies.Values, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name");
 
             this.frmEndUser.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmEndUser.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -176,7 +176,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtEndUser.Name = "%" + this.frmEndUser.txtSchName.Text + "%";
             pmtEndUser.DependencyId = (int)this.frmEndUser.uceSchDependency.Value;
 
-            DataTable dtEndUsers = srvEndUser.SearchEndUsers(pmtEndUser);
+            DataTable dtEndUsers = srvEndUser.SearchByParameters(pmtEndUser);
 
             this.frmEndUser.grdSchSearch.DataSource = null;
             this.frmEndUser.grdSchSearch.DataSource = dtEndUsers;

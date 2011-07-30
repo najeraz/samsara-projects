@@ -12,18 +12,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class AsesorService : GenericService<Asesor, int, IAsesorDao>, IAsesorService
     {
-        #region Methods
-
-        public DataTable SearchAsesors(AsesorParameters pmtAsesor)
-        {
-            return this.Dao.SearchAsesors(pmtAsesor);
-        }
-
-        public Dictionary<int, Asesor> LoadAsesors()
-        {
-            return this.Dao.LoadAsesors();
-        }
-
-        #endregion Methods
     }
 }

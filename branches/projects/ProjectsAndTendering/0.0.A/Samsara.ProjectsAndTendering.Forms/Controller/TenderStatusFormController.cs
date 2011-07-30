@@ -139,7 +139,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             pmtTenderStatus.Name = "%" + this.frmTenderStatus.txtSchName.Text + "%";
 
-            DataTable dtTenderStatuses = srvTenderStatus.SearchTenderStatuses(pmtTenderStatus);
+            DataTable dtTenderStatuses = srvTenderStatus.SearchByParameters(pmtTenderStatus);
 
             this.frmTenderStatus.grdSchSearch.DataSource = null;
             this.frmTenderStatus.grdSchSearch.DataSource = dtTenderStatuses;

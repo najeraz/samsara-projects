@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IBidderTypeService : IGenericService<BidderType, int>
     {
-        Dictionary<int, BidderType> LoadBidderTypes();
     }
 }

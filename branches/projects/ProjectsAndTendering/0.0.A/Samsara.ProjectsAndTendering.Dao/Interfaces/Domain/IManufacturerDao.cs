@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface IManufacturerDao : IGenericDao<Manufacturer,int>
     {
-        DataTable SearchManufacturers(ManufacturerParameters pmtManufacturer);
-        Dictionary<int, Manufacturer> LoadManufacturers();
     }
 }

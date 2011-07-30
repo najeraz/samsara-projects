@@ -24,16 +24,6 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
             return this.Dao.SearchTenderManufacturers(pmtSearchTenderManufacturer);
         }
 
-        public DataTable SearchTenders(TenderParameters pmtTender)
-        {
-            return this.Dao.SearchTenders(pmtTender);
-        }
-
-        public Dictionary<int, Tender> LoadTenders()
-        {
-            return this.Dao.LoadTenders();
-        }
-
         #endregion Methods
     }
 }

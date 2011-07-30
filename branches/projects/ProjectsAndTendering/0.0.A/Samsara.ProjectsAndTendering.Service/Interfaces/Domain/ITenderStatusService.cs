@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface ITenderStatusService : IGenericService<TenderStatus, int>
     {
-        DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus);
-        Dictionary<int, TenderStatus> LoadTenderStatuses();
     }
 }
