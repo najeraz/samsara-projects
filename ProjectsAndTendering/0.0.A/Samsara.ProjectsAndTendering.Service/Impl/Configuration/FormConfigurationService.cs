@@ -10,13 +10,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Configuration
 {
     public class FormConfigurationService : GenericService<FormConfiguration, int, IFormConfigurationDao>, IFormConfigurationService
     {
-        #region Methods
-
-        public Dictionary<int, FormConfiguration> LoadFormConfigurations()
-        {
-            return this.Dao.LoadFormConfigurations();
-        }
-        
-        #endregion Methods
     }
 }

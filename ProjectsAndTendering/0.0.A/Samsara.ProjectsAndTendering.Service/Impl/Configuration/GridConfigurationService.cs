@@ -10,13 +10,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Configuration
 {
     public class GridConfigurationService : GenericService<GridConfiguration, int, IGridConfigurationDao>, IGridConfigurationService
     {
-        #region Methods
-
-        public Dictionary<int, GridConfiguration> LoadGridConfigurations()
-        {
-            return this.Dao.LoadGridConfigurations();
-        }
-
-        #endregion Methods
     }
 }

@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface ITenderLineService : IGenericService<TenderLine, int>
     {
-        Dictionary<int, TenderLine> LoadTenderLines();
     }
 }

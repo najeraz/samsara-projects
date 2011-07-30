@@ -9,13 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class TenderLineService : GenericService<TenderLine, int, ITenderLineDao>, ITenderLineService
     {
-        #region Methods
-
-        public Dictionary<int, TenderLine> LoadTenderLines()
-        {
-            return this.Dao.LoadTenderLines();
-        }
-
-        #endregion Methods
     }
 }

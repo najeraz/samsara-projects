@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IFormConfigurationService : IGenericService<FormConfiguration, int>
     {
-        Dictionary<int, FormConfiguration> LoadFormConfigurations();
 	}
 }

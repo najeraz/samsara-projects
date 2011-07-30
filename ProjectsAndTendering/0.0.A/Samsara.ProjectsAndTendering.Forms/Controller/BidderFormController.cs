@@ -44,12 +44,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void InitializeFormControls()
         {
             // BidderType
-            Dictionary<int, BidderType> dicBidderTypes = srvBidderType.LoadBidderTypes();
+            BidderTypeParameters pmtBidderType = new BidderTypeParameters();
+            IList<BidderType> lstBidderTypes = srvBidderType.GetListByParameters(pmtBidderType);
 
             WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceSchType,
-                dicBidderTypes.Values, "BidderTypeId", "Name");
+                lstBidderTypes, "BidderTypeId", "Name");
             WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceDetType,
-                dicBidderTypes.Values, "BidderTypeId", "Name");
+                lstBidderTypes, "BidderTypeId", "Name");
 
             this.frmBidder.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmBidder.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -173,7 +174,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtBidder.Name = "%" + this.frmBidder.txtSchName.Text + "%";
             pmtBidder.BidderTypeId = (int)this.frmBidder.uceSchType.Value;
 
-            DataTable dtBidders = srvBidder.SearchBidders(pmtBidder);
+            DataTable dtBidders = srvBidder.SearchByParameters(pmtBidder);
 
             this.frmBidder.grdSchSearch.DataSource = null;
             this.frmBidder.grdSchSearch.DataSource = dtBidders;

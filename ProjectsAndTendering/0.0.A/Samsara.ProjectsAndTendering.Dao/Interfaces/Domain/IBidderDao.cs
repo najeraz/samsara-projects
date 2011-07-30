@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface IBidderDao : IGenericDao<Bidder,int>
     {
-        Dictionary<int, Bidder> LoadBidders(BidderParameters pmtBidder);
-        DataTable SearchBidders(BidderParameters pmtBidder);
     }
 }

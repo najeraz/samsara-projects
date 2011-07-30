@@ -11,18 +11,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class DependencyService : GenericService<Dependency, int, IDependencyDao>, IDependencyService
     {
-        #region Methods
-
-        public DataTable SearchDependencies(DependencyParameters pmtDependency)
-        {
-            return this.Dao.SearchDependencies(pmtDependency);
-        }
-
-        public Dictionary<int, Dependency> LoadDependencies(DependencyParameters pmtDependency)
-        {
-            return this.Dao.LoadDependencies(pmtDependency);
-        }
-
-        #endregion Methods
     }
 }

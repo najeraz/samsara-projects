@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface IBidderTypeDao : IGenericDao<BidderType,int>
     {
-        Dictionary<int, BidderType> LoadBidderTypes();
     }
 }

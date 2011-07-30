@@ -45,12 +45,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
-            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtBidder);
+            IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceSchBidder,
-                dicBidders.Values, "BidderId", "Name");
+                lstBidders, "BidderId", "Name");
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceDetBidder,
-                dicBidders.Values, "BidderId", "Name");
+                lstBidders, "BidderId", "Name");
 
             this.frmDependency.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmDependency.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -174,7 +174,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtDependency.Name = "%" + this.frmDependency.txtSchName.Text + "%";
             pmtDependency.BidderId = (int)this.frmDependency.uceSchBidder.Value;
 
-            DataTable dtDependencies = srvDependency.SearchDependencies(pmtDependency);
+            DataTable dtDependencies = srvDependency.SearchByParameters(pmtDependency);
 
             this.frmDependency.grdSchSearch.DataSource = null;
             this.frmDependency.grdSchSearch.DataSource = dtDependencies;

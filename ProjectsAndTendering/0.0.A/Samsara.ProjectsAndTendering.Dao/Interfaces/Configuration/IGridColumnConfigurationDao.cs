@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Configuration
 {
     public interface IGridColumnConfigurationDao : IGenericDao<GridColumnConfiguration,int>
     {
-        Dictionary<int, GridColumnConfiguration> LoadGridColumnConfigurations();
     }
 }

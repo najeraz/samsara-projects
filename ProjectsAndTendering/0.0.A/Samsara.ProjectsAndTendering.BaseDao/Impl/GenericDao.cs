@@ -55,8 +55,19 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         public T GetByParameters(GenericParameters parameters)
         {
-            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("Load", parameters);
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("GetByParameters", parameters);
             return dnq.GetExecutableQuery(Session).UniqueResult<T>();
+        }
+
+        public DataTable SearchByParameters(GenericParameters parameters)
+        {
+            return this.DataTableByParameters<T>("SearchByParameters", parameters);
+        }
+
+        public IList<T> GetListByParameters(GenericParameters parameters)
+        {
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("GetListByParameters", parameters);
+            return this.GetList(dnq);
         }
 
         public IList<T> GetList(DetachedQuery dq) {
@@ -87,12 +98,6 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         public IList<TType> GetList<TType>(DetachedCriteria detachedCriteria) {
             return detachedCriteria.GetExecutableCriteria(Session).List<TType>();
-        }
-
-        public IList<T> GetListByParameters(string queryName, GenericParameters parameters)
-        {
-            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
-            return this.GetList<T>(dnq);
         }
 
         public IList GetGenericListByParameters(string queryName, GenericParameters parameters)

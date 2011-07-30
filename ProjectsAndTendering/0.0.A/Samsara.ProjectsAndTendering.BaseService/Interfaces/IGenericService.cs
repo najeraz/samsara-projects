@@ -53,8 +53,18 @@ namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
         /// <returns>The entity</returns>
         T GetByParameters(GenericParameters parameters);
 
-        //DataTable Search(GenericParameters parameters);
+        /// <summary>
+        /// Get datatable by parameters
+        /// </summary>
+        /// <param name="parameters">The parameters</param>
+        /// <returns>DataTable</returns>
+        DataTable SearchByParameters(GenericParameters parameters);
 
-        //Dictionary<int, T> LoadEntities();
+        /// <summary>
+        /// Returns an entity list searching by parameters
+        /// </summary>
+        /// <param name="parameters">The parameters</param>
+        /// <returns>List of entities</returns>
+        IList<T> GetListByParameters(GenericParameters parameters);
     }
 }

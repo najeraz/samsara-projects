@@ -8,7 +8,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IAsesorService : IGenericService<Asesor, int>
     {
-        DataTable SearchAsesors(AsesorParameters pmtAsesor);
-        Dictionary<int, Asesor> LoadAsesors();
     }
 }

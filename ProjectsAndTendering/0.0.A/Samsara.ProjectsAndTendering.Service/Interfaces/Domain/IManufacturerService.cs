@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IManufacturerService : IGenericService<Manufacturer, int>
     {
-        DataTable SearchManufacturers(ManufacturerParameters pmtManufacturer);
-        Dictionary<int, Manufacturer> LoadManufacturers();
     }
 }

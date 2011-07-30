@@ -6,6 +6,5 @@ namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
     public interface IGridConfigurationService : IGenericService<GridConfiguration, int>
     {
-        Dictionary<int, GridConfiguration> LoadGridConfigurations();
     }
 }

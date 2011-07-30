@@ -11,18 +11,5 @@ namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
     public class TenderStatusService : GenericService<TenderStatus, int, ITenderStatusDao>, ITenderStatusService
     {
-        #region Methods
-
-        public DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus)
-        {
-            return this.Dao.SearchTenderStatuses(pmtTenderStatus);
-        }
-
-        public Dictionary<int, TenderStatus> LoadTenderStatuses()
-        {
-            return this.Dao.LoadTenderStatuses();
-        }
-
-        #endregion Methods
     }
 }

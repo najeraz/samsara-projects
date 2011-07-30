@@ -65,31 +65,33 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void InitializeFormControls()
         {
             // Asesor
-            Dictionary<int, Asesor> dicAsesors = srvAsesor.LoadAsesors();
+            AsesorParameters pmtAsesor = new AsesorParameters();
+            IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtAsesor);
 
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceSchAsesor,
-                dicAsesors.Values, "AsesorId", "Name");
+                lstAsesors, "AsesorId", "Name");
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetAsesor,
-                dicAsesors.Values, "AsesorId", "Name");
+                lstAsesors, "AsesorId", "Name");
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetApprovedBy,
-                dicAsesors.Values.Where(x => x.CanApprove == true), "AsesorId", "Name");
+                lstAsesors.Where(x => x.CanApprove == true), "AsesorId", "Name");
 
             // TenderStatus
-            Dictionary<int, TenderStatus> dicTenderStatuses = srvTenderStatus.LoadTenderStatuses();
+            TenderStatusParameters pmtTenderStatus = new TenderStatusParameters();
+            IList<TenderStatus> lstTenderStatuses = srvTenderStatus.GetListByParameters(pmtTenderStatus);
 
             WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTendering.uceSchTenderStatus,
-                dicTenderStatuses.Values, "TenderStatusId", "Name");
+                lstTenderStatuses, "TenderStatusId", "Name");
             WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTendering.uceDetTenderStatus,
-                dicTenderStatuses.Values, "TenderStatusId", "Name");
+                lstTenderStatuses, "TenderStatusId", "Name");
 
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
-            Dictionary<int, Bidder> dicBidders = srvBidder.LoadBidders(pmtBidder);
+            IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceSchBidder,
-                dicBidders.Values, "BidderId", "Name");
+                lstBidders, "BidderId", "Name");
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceDetBidder,
-                dicBidders.Values, "BidderId", "Name");
+                lstBidders, "BidderId", "Name");
 
             this.frmTendering.uceSchBidder.ValueChanged += new EventHandler(uceSchBidder_ValueChanged);
             this.frmTendering.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
@@ -97,13 +99,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntNone;
-            Dictionary<int, Dependency> dicDependencies = 
-                srvDependency.LoadDependencies(pmtDependency);
+            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
-                dicDependencies.Values, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
-                dicDependencies.Values, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name");
 
             this.frmTendering.uceSchDependency.ValueChanged += new EventHandler(uceSchDependency_ValueChanged);
             this.frmTendering.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
@@ -111,12 +112,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // EndUser
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = ParameterConstants.IntNone;
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtEndUser);
+            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
-                dicEndUsers.Values, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name");
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
-                dicEndUsers.Values, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name");
 
             //grdTenderLines
             this.frmTendering.grdTenderLines.InitializeLayout 
@@ -503,7 +504,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTender.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
             pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
 
-            DataTable dtTenders = srvTender.SearchTenders(pmtTender);
+            DataTable dtTenders = srvTender.SearchByParameters(pmtTender);
 
             this.frmTendering.grdSchSearch.DataSource = null;
             this.frmTendering.grdSchSearch.DataSource = dtTenders;
@@ -534,7 +535,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             UltraGridLayout layout = this.frmTendering.grdTenderLines.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
-            Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
+            ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
+            IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
             band.Override.RowSizing = RowSizing.AutoFixed;
@@ -545,8 +547,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].VertScrollBar = true;
 
             IEnumerable<Manufacturer> availableManufacturers = this.tender == null || 
-                this.tender.TenderManufacturers == null ? manufacturers.Values.Where(x => false) : 
-                manufacturers.Values.Where(x => this.tender.TenderManufacturers
+                this.tender.TenderManufacturers == null ? lstManufacturers.Where(x => false) : 
+                lstManufacturers.Where(x => this.tender.TenderManufacturers
                     .Select(y => y.ManufacturerId).Contains(x.ManufacturerId));
 
             WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout,
@@ -569,9 +571,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             band.Columns["ManufacturerSupport"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["ManufacturerSupport"].VertScrollBar = true;
-            Dictionary<int, Manufacturer> manufacturers = this.srvManufacturer.LoadManufacturers();
+            ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
+            IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
 
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, manufacturers.Values, band,
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, lstManufacturers, band,
                 "ManufacturerId", "Name");
         }
 
@@ -686,42 +689,40 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = Convert.ToInt32(this.frmTendering.uceSchBidder.Value);
-            Dictionary<int, Dependency> dicDependencies =
-                srvDependency.LoadDependencies(pmtDependency);
+            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
-                dicDependencies.Values, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name");
         }
 
         private void uceDetBidder_ValueChanged(object sender, EventArgs e)
         {
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = Convert.ToInt32(this.frmTendering.uceDetBidder.Value);
-            Dictionary<int, Dependency> dicDependencies =
-                srvDependency.LoadDependencies(pmtDependency);
+            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
-                dicDependencies.Values, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name");
         }
 
         private void uceSchDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = Convert.ToInt32(this.frmTendering.uceSchDependency.Value);
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtEndUser);
+            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
-                dicEndUsers.Values, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name");
         }
         
         private void uceDetDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = Convert.ToInt32(this.frmTendering.uceDetDependency.Value);
-            Dictionary<int, EndUser> dicEndUsers = srvEndUser.LoadEndUsers(pmtEndUser);
+            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
-                dicEndUsers.Values, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name");
         }
 
         private void btnSchEdit_Click(object sender, EventArgs e)

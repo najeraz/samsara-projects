@@ -9,7 +9,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface ITenderStatusDao : IGenericDao<TenderStatus,int>
     {
-        DataTable SearchTenderStatuses(TenderStatusParameters pmtTenderStatus);
-        Dictionary<int, TenderStatus> LoadTenderStatuses();
     }
 }
