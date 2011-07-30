@@ -11,7 +11,7 @@
                    provider="SqlServer-2.0"
                    connectionString="Data Source=${db.datasource};Database=${db.database};User ID=${db.user};Password=${db.password};Trusted_Connection=False"/>
 
-  <object id="SessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate21">
+  <object id="SessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate32">
     <property name="DbProvider" ref="DbProvider"/>
     
     <property name="MappingAssemblies">
@@ -41,7 +41,7 @@
   </object>
 
   <object id="HibernateTransactionManager"
-        type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate21">
+        type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate32">
 
     <property name="DbProvider" ref="DbProvider"/>
     <property name="SessionFactory" ref="SessionFactory"/>
