@@ -8,13 +8,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Configuration
 {
     public class GridColumnConfigurationDao : GenericDao<GridColumnConfiguration, int>, IGridColumnConfigurationDao
     {
-        #region Methods
-
-        public Dictionary<int, GridColumnConfiguration> LoadGridColumnConfigurations()
-        {
-            return this.GetAll().ToDictionary(x => x.GridColumnConfigurationId, x => x);
-        }
-
-        #endregion Methods
     }
 }
