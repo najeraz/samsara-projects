@@ -161,6 +161,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.hiddenTenderDetailTab = this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
             this.frmTendering.uosSchDates.Value = -1;
+            this.frmTendering.uosSchShow.Value = -1;
             this.frmTendering.uchkDetIsOpportunity.Checked = true;
             this.frmTendering.HiddenDetail(true);
 
@@ -396,6 +397,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.uceSchEndUser.Value = -1;
             this.frmTendering.uceSchTenderStatus.Value = -1;
             this.frmTendering.uosSchDates.Value = -1;
+            this.frmTendering.uosSchShow.Value = -1;
             this.frmTendering.dteSchMaxDate.DateTime = DateTime.Now;
             this.frmTendering.dteSchMinDate.DateTime = DateTime.Now;
         }
@@ -503,6 +505,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTender.TenderStatusId = (int)this.frmTendering.uceSchTenderStatus.Value;
             pmtTender.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
             pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
+            pmtTender.IsOpportunity = (int)this.frmTendering.uosSchShow.Value;
 
             DataTable dtTenders = srvTender.SearchByParameters(pmtTender);
 
