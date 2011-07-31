@@ -21,7 +21,7 @@
     ]]>
   </query>
 
-  <sql-query name="SearchByParameters" cacheable="false" read-only="true">
+  <sql-query name="TenderStatus.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="TenderStatusId" type="int"/>
     <return-scalar column="Name" type="string"/>
     <![CDATA[
