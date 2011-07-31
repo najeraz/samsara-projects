@@ -87,7 +87,7 @@
     <return-scalar column="TenderName" type="string"/>
     <return-scalar column="DependencyName" type="string"/>
     <return-scalar column="AsesorName" type="string"/>
-    <return-scalar column="ClarificationDate" type="DateTime"/>
+    <return-scalar column="IsOpportunity" type="bool"/>
     <return-scalar column="PreRevisionDate" type="DateTime"/>
     <return-scalar column="Deadline" type="DateTime"/>
     <return-scalar column="VerdictDate" type="DateTime"/>
@@ -96,7 +96,7 @@
     <return-scalar column="PreviousTenderName" type="string"/>
     <![CDATA[
       SELECT t.TenderId, t.RegistrationDate, b.Name BidderName, t.Name TenderName,
-      d.Name DependencyName, a.Name AsesorName, t.ClarificationDate, t.PreRevisionDate,
+      d.Name DependencyName, a.Name AsesorName, t.IsOpportunity, t.PreRevisionDate,
       t.Deadline, t.VerdictDate, 
       ts.Name TenderStatusName, ap.Name ApproverName, pt.Name PreviousTenderName
       FROM Tenders t
@@ -107,7 +107,8 @@
       LEFT JOIN	Asesors ap		  	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
       LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
-      AND (t.Name like :TenderName)
+      AND t.Name like :TenderName
+      AND (:IsOpportunity = -1 OR :IsOpportunity = t.IsOpportunity)
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
       AND (t.BidderId = :BidderId OR :BidderId = -1)
       AND (t.DependencyId = :DependencyId OR :DependencyId = -1)

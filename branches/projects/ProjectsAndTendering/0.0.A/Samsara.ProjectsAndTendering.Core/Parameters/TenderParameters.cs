@@ -59,5 +59,11 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             get;
             set;
         }
+
+        public int? IsOpportunity
+        {
+            get;
+            set;
+        }
     }
 }

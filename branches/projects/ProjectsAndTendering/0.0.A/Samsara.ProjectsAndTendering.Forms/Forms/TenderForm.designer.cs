@@ -52,12 +52,15 @@
             Infragistics.Win.Appearance appearance34 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance35 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance36 = new Infragistics.Win.Appearance();
+            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem6 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem1 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem2 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem3 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem4 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem5 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem7 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem8 = new Infragistics.Win.ValueListItem();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -134,6 +137,8 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
+            this.ugbSchIsOpportunity = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uosSchShow = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -189,6 +194,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbSchIsOpportunity)).BeginInit();
+            this.ugbSchIsOpportunity.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uosSchShow)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -197,6 +205,7 @@
             // 
             // gbxSearchParameters
             // 
+            this.gbxSearchParameters.Controls.Add(this.ugbSchIsOpportunity);
             this.gbxSearchParameters.Controls.Add(this.uceSchEndUser);
             this.gbxSearchParameters.Controls.Add(this.lblSchEndUser);
             this.gbxSearchParameters.Controls.Add(this.uceSchBidder);
@@ -312,6 +321,7 @@
             this.tscPreviousTender.Name = "tscPreviousTender";
             this.tscPreviousTender.Size = new System.Drawing.Size(508, 24);
             this.tscPreviousTender.TabIndex = 12;
+            this.tscPreviousTender.Value = null;
             // 
             // uchkDetIsOpportunity
             // 
@@ -1015,7 +1025,7 @@
             this.ubgxSchFechas.Controls.Add(this.dteSchMaxDate);
             this.ubgxSchFechas.Controls.Add(this.lblSchEndDate);
             this.ubgxSchFechas.Controls.Add(this.uosSchDates);
-            this.ubgxSchFechas.Location = new System.Drawing.Point(384, 39);
+            this.ubgxSchFechas.Location = new System.Drawing.Point(384, 71);
             this.ubgxSchFechas.Name = "ubgxSchFechas";
             this.ubgxSchFechas.Size = new System.Drawing.Size(349, 111);
             this.ubgxSchFechas.TabIndex = 71;
@@ -1023,26 +1033,26 @@
             // 
             // uosSchDates
             // 
-            valueListItem6.DataValue = -1;
-            valueListItem6.DisplayText = "Ninguno";
-            valueListItem1.CheckState = System.Windows.Forms.CheckState.Checked;
-            valueListItem1.DataValue = 1;
-            valueListItem1.DisplayText = "Fecha de registro";
-            valueListItem2.DataValue = 2;
-            valueListItem2.DisplayText = "Fecha de entrega";
-            valueListItem3.DataValue = 3;
-            valueListItem3.DisplayText = "Fecha de fallo";
-            valueListItem4.DataValue = 4;
-            valueListItem4.DisplayText = "Fecha de aclaraciones";
-            valueListItem5.DataValue = 5;
-            valueListItem5.DisplayText = "Fecha de prerevisión";
+            valueListItem9.DataValue = -1;
+            valueListItem9.DisplayText = "Ninguno";
+            valueListItem10.CheckState = System.Windows.Forms.CheckState.Checked;
+            valueListItem10.DataValue = 1;
+            valueListItem10.DisplayText = "Fecha de registro";
+            valueListItem11.DataValue = 2;
+            valueListItem11.DisplayText = "Fecha de entrega";
+            valueListItem12.DataValue = 3;
+            valueListItem12.DisplayText = "Fecha de fallo";
+            valueListItem13.DataValue = 4;
+            valueListItem13.DisplayText = "Fecha de aclaraciones";
+            valueListItem14.DataValue = 5;
+            valueListItem14.DisplayText = "Fecha de prerevisión";
             this.uosSchDates.Items.AddRange(new Infragistics.Win.ValueListItem[] {
-            valueListItem6,
-            valueListItem1,
-            valueListItem2,
-            valueListItem3,
-            valueListItem4,
-            valueListItem5});
+            valueListItem9,
+            valueListItem10,
+            valueListItem11,
+            valueListItem12,
+            valueListItem13,
+            valueListItem14});
             this.uosSchDates.Location = new System.Drawing.Point(6, 19);
             this.uosSchDates.Name = "uosSchDates";
             this.uosSchDates.Size = new System.Drawing.Size(145, 89);
@@ -1091,6 +1101,33 @@
             this.lblSchEndUser.Size = new System.Drawing.Size(71, 13);
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
+            // 
+            // ugbSchIsOpportunity
+            // 
+            this.ugbSchIsOpportunity.Controls.Add(this.uosSchShow);
+            this.ugbSchIsOpportunity.Location = new System.Drawing.Point(384, 5);
+            this.ugbSchIsOpportunity.Name = "ugbSchIsOpportunity";
+            this.ugbSchIsOpportunity.Size = new System.Drawing.Size(114, 66);
+            this.ugbSchIsOpportunity.TabIndex = 75;
+            this.ugbSchIsOpportunity.Text = "Mostrar";
+            // 
+            // uosSchShow
+            // 
+            this.uosSchShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            valueListItem6.DataValue = -1;
+            valueListItem6.DisplayText = "Todos";
+            valueListItem7.DataValue = 0;
+            valueListItem7.DisplayText = "Licitaciones";
+            valueListItem8.DataValue = 1;
+            valueListItem8.DisplayText = "Oportunidades";
+            this.uosSchShow.Items.AddRange(new Infragistics.Win.ValueListItem[] {
+            valueListItem6,
+            valueListItem7,
+            valueListItem8});
+            this.uosSchShow.Location = new System.Drawing.Point(3, 16);
+            this.uosSchShow.Name = "uosSchShow";
+            this.uosSchShow.Size = new System.Drawing.Size(108, 47);
+            this.uosSchShow.TabIndex = 0;
             // 
             // TenderForm
             // 
@@ -1162,6 +1199,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbSchIsOpportunity)).EndInit();
+            this.ugbSchIsOpportunity.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uosSchShow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1244,6 +1284,8 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
         internal System.Windows.Forms.TabControl tcDetTextControls;
         internal Samsara.ProjectsAndTendering.Controls.TenderSearchControl tscPreviousTender;
+        private Infragistics.Win.Misc.UltraGroupBox ugbSchIsOpportunity;
+        internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosSchShow;
     }
 }
 
