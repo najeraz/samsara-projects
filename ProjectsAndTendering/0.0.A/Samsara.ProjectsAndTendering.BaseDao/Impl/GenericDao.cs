@@ -17,10 +17,11 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
     public class GenericDao<T, TId> : HibernateDaoSupport, IGenericDao<T, TId>
     {
         #region Methods
-        
+
         #region Public
 
-        public IList<T> GetAll() {
+        public IList<T> GetAll()
+        {
             return HibernateTemplate.LoadAll<T>();
         }
 
@@ -44,7 +45,8 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             HibernateTemplate.Update(entity);
         }
 
-        public void Delete(T entity) {
+        public void Delete(T entity)
+        {
             HibernateTemplate.Delete(entity);
         }
 
@@ -73,11 +75,13 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return this.GetList(dnq);
         }
 
-        public IList<T> GetList(DetachedQuery dq) {
+        public IList<T> GetList(DetachedQuery dq)
+        {
             return dq.GetExecutableQuery(Session).List<T>();
         }
 
-        public IList<TType> GetList<TType>(DetachedQuery dq) {
+        public IList<TType> GetList<TType>(DetachedQuery dq)
+        {
             return dq.GetExecutableQuery(Session).List<TType>();
         }
 
@@ -85,21 +89,24 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
         {
             return dnq.GetExecutableQuery(Session).List();
         }
-        
+
         public IList<T> GetList(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List<T>();
         }
 
-        public IList<TType> GetList<TType>(DetachedNamedQuery dnq) {
+        public IList<TType> GetList<TType>(DetachedNamedQuery dnq)
+        {
             return dnq.GetExecutableQuery(Session).List<TType>();
         }
 
-        public IList<T> GetList(DetachedCriteria detachedCriteria) {
+        public IList<T> GetList(DetachedCriteria detachedCriteria)
+        {
             return detachedCriteria.GetExecutableCriteria(Session).List<T>();
         }
 
-        public IList<TType> GetList<TType>(DetachedCriteria detachedCriteria) {
+        public IList<TType> GetList<TType>(DetachedCriteria detachedCriteria)
+        {
             return detachedCriteria.GetExecutableCriteria(Session).List<TType>();
         }
 
@@ -128,22 +135,35 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
         private DetachedNamedQuery GetDetachedNamedQuery(string queryName, GenericParameters parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
+            object parameterValue;
+            Type nullableType;
 
             foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
             {
-                if (pInfo.GetValue(parameters, null) != null)
+                parameterValue = pInfo.GetValue(parameters, null);
+                nullableType = Nullable.GetUnderlyingType(pInfo.PropertyType);
+                if (parameterValue != null)
                 {
                     if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
-                        dnq.SetBoolean(pInfo.Name, (bool)pInfo.GetValue(parameters, null));
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                        dnq.SetDateTime(pInfo.Name, (DateTime)pInfo.GetValue(parameters, null));
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                        dnq.SetString(pInfo.Name, (string)pInfo.GetValue(parameters, null));
-                    if (Nullable.GetUnderlyingType(pInfo.PropertyType) != null
-                        && Nullable.GetUnderlyingType(pInfo.PropertyType).IsEnum)
-                        dnq.SetInt32(pInfo.Name, (int)pInfo.GetValue(parameters, null));
+                    {
+                        dnq.SetBoolean(pInfo.Name, (bool)parameterValue);
+                    }
+                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
+                    {
+                        dnq.SetDateTime(pInfo.Name, (DateTime)parameterValue);
+                    }
+                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
+                    {
+                        dnq.SetString(pInfo.Name, parameterValue.ToString());
+                    }
+                    else if (nullableType != null && nullableType.IsEnum)
+                    {
+                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
+                    }
                     else
-                        dnq.SetParameter(pInfo.Name, pInfo.GetValue(parameters, null));
+                    {
+                        dnq.SetParameter(pInfo.Name, parameterValue);
+                    }
                 }
             }
 
