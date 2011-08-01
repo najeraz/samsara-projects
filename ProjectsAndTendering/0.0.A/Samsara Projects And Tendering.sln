@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Dao", "Samsara.ProjectsAndTendering.Dao\Samsara.ProjectsAndTendering.Dao.csproj", "{BEEA7ABA-FAC9-4436-8567-5BBF1D1C1C02}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0F57FA43-5325-496C-AAD7-C63AB0DE8456} = {0F57FA43-5325-496C-AAD7-C63AB0DE8456}
