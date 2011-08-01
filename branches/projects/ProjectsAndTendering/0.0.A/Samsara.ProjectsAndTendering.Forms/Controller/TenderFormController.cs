@@ -14,6 +14,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
+using Iesi.Collections.Generic;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -598,6 +599,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
                 else
                 {
+                    if (this.tender.TenderManufacturers == null)
+                        this.tender.TenderManufacturers = new HashedSet<TenderManufacturer>();
+
                     TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
                         .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(e.Cell.Value));
 

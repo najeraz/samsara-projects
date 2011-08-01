@@ -90,7 +90,8 @@ namespace Samsara.ProjectsAndTendering.Controls
                             column.Hidden = !gridColumnConfiguration.Visible;
                             column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
                             column.Header.VisiblePosition = gridConfiguration.GridColumnConfigurations
-                                .Where(x => x.Visible).ToList().IndexOf(gridColumnConfiguration) + 1;
+                                .Where(x => x.Visible).OrderBy(x => x.GridColumnConfigurationId).ToList()
+                                .IndexOf(gridColumnConfiguration) + 1;
                         }
                     }
                 }
