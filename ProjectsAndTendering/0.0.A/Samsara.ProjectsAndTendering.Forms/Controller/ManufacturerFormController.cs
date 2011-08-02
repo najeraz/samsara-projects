@@ -93,11 +93,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveManufacturer()
         {
-            if (MessageBox.Show("¿Esta seguro de guardar el Fabricante?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
-                return;
             if (this.ValidateFormInformation())
             {
+                if (MessageBox.Show("¿Esta seguro de guardar el Fabricante?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    return;
                 this.LoadEntity();
                 this.srvManufacturer.SaveOrUpdate(this.manufacturer);
                 this.frmManufacturer.HiddenDetail(true);
