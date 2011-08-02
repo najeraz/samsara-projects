@@ -9,11 +9,17 @@ namespace Samsara.ProjectsAndTendering.BaseService.Impl
 {
     public class GenericService<T, TId, TDao> : IGenericService<T, TId> where TDao : IGenericDao<T, TId>
     {
+        #region Properties
+
         protected TDao Dao
         {
             get;
             set;
         }
+
+        #endregion Properties
+
+        #region Methods
 
         public virtual void Save(T entity)
         {
@@ -59,5 +65,7 @@ namespace Samsara.ProjectsAndTendering.BaseService.Impl
         {
             return this.Dao.GetListByParameters(parameters);
         }
+
+        #endregion Methods
     }
 }

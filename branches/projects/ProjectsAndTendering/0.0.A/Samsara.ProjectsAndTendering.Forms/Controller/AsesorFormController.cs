@@ -101,11 +101,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveAsesor()
         {
-            if (MessageBox.Show("¿Esta seguro de guardar el Asesor?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
-                return;
             if (this.ValidateFormInformation())
             {
+                if (MessageBox.Show("¿Esta seguro de guardar el Asesor?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    return;
                 this.LoadEntity();
                 this.srvAsesor.SaveOrUpdate(this.asesor);
                 this.frmAsesor.HiddenDetail(true);

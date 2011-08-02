@@ -9,6 +9,8 @@ namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
 {
     public interface IGenericService<T, TId>
     {
+        #region Methods
+
         /// <summary>
         /// Saves an entity
         /// </summary>
@@ -66,5 +68,7 @@ namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
         /// <param name="parameters">The parameters</param>
         /// <returns>List of entities</returns>
         IList<T> GetListByParameters(GenericParameters parameters);
+
+        #endregion Methods
     }
 }

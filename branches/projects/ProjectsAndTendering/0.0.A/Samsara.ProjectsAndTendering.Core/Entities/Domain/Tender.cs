@@ -26,7 +26,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual DateTime RegistrationDate
+        public virtual DateTime? RegistrationDate
         {
             get;
             set;
@@ -62,19 +62,19 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual DateTime ClarificationDate
+        public virtual DateTime? ClarificationDate
         {
             get;
             set;
         }
 
-        public virtual DateTime PreRevisionDate
+        public virtual DateTime? PreRevisionDate
         {
             get;
             set;
         }
 
-        public virtual DateTime Deadline
+        public virtual DateTime? Deadline
         {
             get;
             set;
@@ -104,7 +104,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual DateTime VerdictDate
+        public virtual DateTime? VerdictDate
         {
             get;
             set;
@@ -120,8 +120,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             get
             {
-                //if (this.tenderManufacturers == null)
-                //    this.tenderManufacturers = new HashedSet<TenderManufacturer>();
+                if (this.tenderManufacturers == null)
+                    this.tenderManufacturers = new HashedSet<TenderManufacturer>();
 
                 return this.tenderManufacturers;
             }
@@ -135,8 +135,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             get
             {
-                //if (this.tenderLines == null)
-                //    this.tenderLines = new HashedSet<TenderLine>();
+                if (this.tenderLines == null)
+                    this.tenderLines = new HashedSet<TenderLine>();
 
                 return this.tenderLines;
             }

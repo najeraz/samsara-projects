@@ -128,11 +128,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveEndUser()
         {
-            if (MessageBox.Show("¿Esta seguro de guardar el Usuario Final?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
-                return;
             if (this.ValidateFormInformation())
             {
+                if (MessageBox.Show("¿Esta seguro de guardar el Usuario Final?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    return;
                 this.LoadEntity();
                 this.srvEndUser.SaveOrUpdate(this.endUser);
                 this.frmEndUser.HiddenDetail(true);

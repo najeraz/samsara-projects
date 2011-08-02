@@ -126,11 +126,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveDependency()
         {
-            if (MessageBox.Show("¿Esta seguro de guardar la Dependencia?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
-                return;
             if (this.ValidateFormInformation())
             {
+                if (MessageBox.Show("¿Esta seguro de guardar la Dependencia?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    return;
                 this.LoadEntity();
                 this.srvDependency.SaveOrUpdate(this.dependency);
                 this.frmDependency.HiddenDetail(true);

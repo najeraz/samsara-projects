@@ -285,12 +285,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.tender.TenderStatus = tenderStatus;
             }
 
+            this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTendering.dteDetClarificationDate.Value;
+            this.tender.Deadline = (Nullable<DateTime>)this.frmTendering.dteDetDeadline.Value;
+            this.tender.PreRevisionDate = (Nullable<DateTime>)this.frmTendering.dteDetPrerevisionDate.Value;
+            this.tender.RegistrationDate = (Nullable<DateTime>)this.frmTendering.dteDetRegistrationDate.Value;
+            this.tender.VerdictDate = (Nullable<DateTime>)this.frmTendering.dteDetVeredictDate.Value;
             this.tender.IsOpportunity = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.tender.ClarificationDate = this.frmTendering.dteDetClarificationDate.DateTime;
-            this.tender.Deadline = this.frmTendering.dteDetDeadline.DateTime;
-            this.tender.PreRevisionDate = this.frmTendering.dteDetPrerevisionDate.DateTime;
-            this.tender.RegistrationDate = this.frmTendering.dteDetRegistrationDate.DateTime;
-            this.tender.VerdictDate = this.frmTendering.dteDetVeredictDate.DateTime;
             this.tender.Address = this.frmTendering.txtDetAddress.Text;
             this.tender.AcquisitionReason = this.frmTendering.txtDetAcquisitionReason.Text;
             this.tender.PricingStrategy = this.frmTendering.txtDetPricingStrategy.Text;
@@ -378,11 +378,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.txtDetPricingStrategy.Text = string.Empty;
             this.frmTendering.txtDetResults.Text = string.Empty;
             this.frmTendering.txtDetTenderName.Text = string.Empty;
-            this.frmTendering.dteDetClarificationDate.DateTime = DateTime.Now;
-            this.frmTendering.dteDetDeadline.DateTime = DateTime.Now;
-            this.frmTendering.dteDetPrerevisionDate.DateTime = DateTime.Now;
-            this.frmTendering.dteDetRegistrationDate.DateTime = DateTime.Now;
-            this.frmTendering.dteDetVeredictDate.DateTime = DateTime.Now;
+            this.frmTendering.dteDetClarificationDate.Value = null;
+            this.frmTendering.dteDetDeadline.Value = null;
+            this.frmTendering.dteDetPrerevisionDate.Value = null;
+            this.frmTendering.dteDetRegistrationDate.Value = null;
+            this.frmTendering.dteDetVeredictDate.Value = null;
             this.frmTendering.uchkDetIsOpportunity.Checked = true;
             this.frmTendering.tscPreviousTender.Clear();
             this.dtTenderLines.Rows.Clear();
@@ -405,11 +405,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SaveTender()
         {
-            if (MessageBox.Show("¿Esta seguro de guardar la Licitación?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
-                return;
             if (this.ValidateFormInformation())
             {
+                if (MessageBox.Show("¿Esta seguro de guardar la Licitación?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    return;
                 this.LoadEntity();
                 this.srvTender.SaveOrUpdate(this.tender);
                 this.frmTendering.HiddenDetail(true);
@@ -448,11 +448,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTendering.txtDetPricingStrategy.Text = this.tender.PricingStrategy;
             this.frmTendering.txtDetResults.Text = this.tender.Results;
             this.frmTendering.txtDetTenderName.Text = this.tender.Name;
-            this.frmTendering.dteDetClarificationDate.DateTime = this.tender.ClarificationDate;
-            this.frmTendering.dteDetDeadline.DateTime = this.tender.Deadline;
-            this.frmTendering.dteDetPrerevisionDate.DateTime = this.tender.PreRevisionDate;
-            this.frmTendering.dteDetRegistrationDate.DateTime = this.tender.RegistrationDate;
-            this.frmTendering.dteDetVeredictDate.DateTime = this.tender.VerdictDate;
+            if (this.tender.ClarificationDate.HasValue)
+                this.frmTendering.dteDetClarificationDate.Value =  this.tender.ClarificationDate.Value;
+            if (this.tender.Deadline.HasValue)
+                this.frmTendering.dteDetDeadline.Value = this.tender.Deadline.Value;
+            if (this.tender.PreRevisionDate.HasValue)
+                this.frmTendering.dteDetPrerevisionDate.Value = this.tender.PreRevisionDate.Value;
+            if (this.tender.RegistrationDate.HasValue)
+                this.frmTendering.dteDetRegistrationDate.Value = this.tender.RegistrationDate.Value;
+            if (this.tender.VerdictDate.HasValue)
+                this.frmTendering.dteDetVeredictDate.Value = this.tender.VerdictDate.Value;
             this.frmTendering.uchkDetIsOpportunity.Checked = this.tender.IsOpportunity;
             this.frmTendering.tscPreviousTender.Value = this.tender.PreviousTender;
 
@@ -599,9 +604,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
                 else
                 {
-                    if (this.tender.TenderManufacturers == null)
-                        this.tender.TenderManufacturers = new HashedSet<TenderManufacturer>();
-
                     TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
                         .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(e.Cell.Value));
 
@@ -680,11 +682,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void uchkDetIsOpportunity_CheckedChanged(object sender, EventArgs e)
         {
-            this.frmTendering.txtDetAddress.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetVeredictDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.uceDetApprovedBy.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetClarificationDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetClarificationDate.ReadOnly = this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.lblDetApprovedBy.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.lblDetClarificationDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.lblDetVeredictDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.gbDetAddress.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.gbxDetAcquisitionReason.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetVeredictDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.uceDetApprovedBy.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetClarificationDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
+            this.frmTendering.dteDetClarificationDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
 
             if (this.frmTendering.uchkDetIsOpportunity.Checked)
                 this.frmTendering.tabDetDetail.TabPages.Remove(this.hiddenTenderDetailTab);
