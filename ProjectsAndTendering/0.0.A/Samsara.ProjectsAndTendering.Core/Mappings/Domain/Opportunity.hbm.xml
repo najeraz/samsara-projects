@@ -3,83 +3,39 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="Tender" table="Tenders">
+  <class name="Opportunity" table="Opportunities">
     
-    <id name="TenderId" type="int">
+    <id name="OpportunityId" type="int">
       <generator class="native"/>
     </id>
     
-    <property name="PreResults"/>
     <property name="AcquisitionReason"/>
     <property name="RegistrationDate"/>
     <property name="Name"/>
     <property name="ClarificationDate"/>
     <property name="PreRevisionDate"/>
     <property name="Deadline"/>
-    <property name="PricingStrategy"/>
-    <property name="Results"/>
-    <property name="Address"/>
-    <property name="VerdictDate"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
-    <many-to-one name="Bidder"
+    <many-to-one name="Organization"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Bidder, Samsara.ProjectsAndTendering.Core"
-                 column="BidderId"/>
-    <many-to-one name="Dependency"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Dependency, Samsara.ProjectsAndTendering.Core"
-                 column="DependencyId"/>
-    <many-to-one name="EndUser"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.EndUser, Samsara.ProjectsAndTendering.Core"
-                 column="EndUserId"/>
+                 column="OrganizationId"/>
     <many-to-one name="Asesor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
                  column="AsesorId"/>
-    <many-to-one name="TenderStatus"
+    <many-to-one name="OrganizationStatus"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderStatus, Samsara.ProjectsAndTendering.Core"
-                 column="TenderStatusId"/>
-    <many-to-one name="ApprovedBy"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
-                 column="ApprovedBy"/>
-    <many-to-one name="PreviousTender" lazy="false"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
-                 column="PreviousTenderId"/>
-
-    <set name="TenderManufacturers" table="TenderManufacturers" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan" lazy="false">
-      <key column="TenderId"/>
-      <one-to-many
-        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderManufacturer, Samsara.ProjectsAndTendering.Core"/>
-    </set>
-    <set name="TenderLines" table="TenderLines" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan" lazy="false">
-      <key column="TenderId"/>
-      <one-to-many
-        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"/>
-    </set>
-
+                 column="OrganizationStatusId"/>
   </class>
 
-  <query name="Tender.GetListByParameters">
+  <query name="Organization.GetListByParameters">
     <![CDATA[
-        from Tender where Deleted = 0 and Activated = 1
+        from Organization where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="SearchTenderLines">
-    <![CDATA[
-        from TenderLine where Deleted = 0 and Activated = 1
-        and TenderId = :TenderId
-    ]]>
-  </query>
-
-  <query name="SearchTenderManufacturers">
-    <![CDATA[
-        from TenderManufacturer where TenderId = :TenderId
-    ]]>
-  </query>
-
-  <sql-query name="Tender.SearchByParameters" cacheable="false" read-only="true">
+  <sql-query name="Organization.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="TenderId" type="int"/>
     <return-scalar column="RegistrationDate" type="DateTime"/>
     <return-scalar column="BidderName" type="string"/>

@@ -4,7 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class TenderParameters : GenericParameters
+    public class OpportunityParameters : GenericParameters
     {
         public int? AsesorId
         {
@@ -12,25 +12,19 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
-        public int? BidderId
+        public int? OrganizationId
         {
             get;
             set;
         }
 
-        public int? DependencyId
+        public int? OpportunityStatusId
         {
             get;
             set;
         }
 
-        public int? TenderStatusId
-        {
-            get;
-            set;
-        }
-
-        public string TenderName
+        public string OpportunityName
         {
             get;
             set;
