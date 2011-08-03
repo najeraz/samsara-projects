@@ -82,6 +82,7 @@ namespace Samsara.ProjectsAndTendering.Controls
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(287, 20);
             this.txtName.TabIndex = 6;
+            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
             // 
             // upSeparator2
             // 

@@ -23,6 +23,9 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
+    <many-to-one name="Opportunity" lazy="false"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Opportunity, Samsara.ProjectsAndTendering.Core"
+                 column="OpportunityId"/>
     <many-to-one name="Bidder"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Bidder, Samsara.ProjectsAndTendering.Core"
                  column="BidderId"/>
