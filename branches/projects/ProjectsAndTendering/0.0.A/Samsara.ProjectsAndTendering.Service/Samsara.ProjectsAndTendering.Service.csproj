@@ -106,6 +106,8 @@
     <Compile Include="Impl\Domain\AsesorService.cs" />
     <Compile Include="Impl\Domain\BidderService.cs" />
     <Compile Include="Impl\Domain\BidderTypeService.cs" />
+    <Compile Include="Impl\Domain\OrganizationService.cs" />
+    <Compile Include="Impl\Domain\OpportunityService.cs" />
     <Compile Include="Impl\Domain\EndUserService.cs" />
     <Compile Include="Impl\Domain\TenderStatusService.cs" />
     <Compile Include="Impl\Domain\TenderLineService.cs" />
@@ -115,6 +117,8 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationService.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationService.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationService.cs" />
+    <Compile Include="Interfaces\Domain\IOrganizationService.cs" />
+    <Compile Include="Interfaces\Domain\IOpportunityService.cs" />
     <Compile Include="Interfaces\Domain\IEndUserService.cs" />
     <Compile Include="Interfaces\Domain\ITenderStatusService.cs" />
     <Compile Include="Interfaces\Domain\ITenderLineService.cs" />

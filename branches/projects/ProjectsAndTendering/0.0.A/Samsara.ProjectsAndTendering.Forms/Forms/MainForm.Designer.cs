@@ -37,9 +37,9 @@
             this.fabricanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaLicitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlFormBackground = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,17 +109,6 @@
             this.estatusDeLaLicitaciónToolStripMenuItem.Text = "Estatus de la Licitación";
             this.estatusDeLaLicitaciónToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaLicitaciónToolStripMenuItem_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(811, 351);
-            this.panel1.TabIndex = 1;
-            // 
             // licitacionesToolStripMenuItem
             // 
             this.licitacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -131,16 +120,27 @@
             // licitacionesToolStripMenuItem1
             // 
             this.licitacionesToolStripMenuItem1.Name = "licitacionesToolStripMenuItem1";
-            this.licitacionesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.licitacionesToolStripMenuItem1.Text = "Licitaciones";
+            this.licitacionesToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
+            this.licitacionesToolStripMenuItem1.Text = "Oportunidades y Licitaciones";
             this.licitacionesToolStripMenuItem1.Click += new System.EventHandler(this.licitacionesToolStripMenuItem1_Click);
+            // 
+            // pnlFormBackground
+            // 
+            this.pnlFormBackground.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlFormBackground.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlFormBackground.BackgroundImage")));
+            this.pnlFormBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFormBackground.Location = new System.Drawing.Point(0, 24);
+            this.pnlFormBackground.Name = "pnlFormBackground";
+            this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
+            this.pnlFormBackground.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 375);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlFormBackground);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -156,7 +156,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainMenu;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlFormBackground;
         private System.Windows.Forms.ToolStripMenuItem licitanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dependenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioFinalToolStripMenuItem;

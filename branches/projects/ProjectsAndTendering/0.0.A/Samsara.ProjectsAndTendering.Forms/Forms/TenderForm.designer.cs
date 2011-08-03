@@ -58,14 +58,10 @@
             Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem6 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem7 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem8 = new Infragistics.Win.ValueListItem();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
             this.tscPreviousTender = new Samsara.ProjectsAndTendering.Controls.TenderSearchControl();
-            this.uchkDetIsOpportunity = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbDetAddress = new System.Windows.Forms.GroupBox();
@@ -122,7 +118,7 @@
             this.txtSchTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchAsesor = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblSchTenderName = new System.Windows.Forms.Label();
             this.lblSchBidder = new System.Windows.Forms.Label();
             this.lblSchTenderStatus = new System.Windows.Forms.Label();
             this.dteSchMaxDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
@@ -137,15 +133,12 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.ugbSchIsOpportunity = new Infragistics.Win.Misc.UltraGroupBox();
-            this.uosSchShow = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
             this.Principal.SuspendLayout();
             this.upDetControls.ClientArea.SuspendLayout();
             this.upDetControls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsOpportunity)).BeginInit();
             this.gbxDetAcquisitionReason.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetAcquisitionReason)).BeginInit();
             this.gbDetAddress.SuspendLayout();
@@ -194,19 +187,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbSchIsOpportunity)).BeginInit();
-            this.ugbSchIsOpportunity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uosSchShow)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
-            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 364);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 359);
             // 
             // gbxSearchParameters
             // 
-            this.gbxSearchParameters.Controls.Add(this.ugbSchIsOpportunity);
             this.gbxSearchParameters.Controls.Add(this.uceSchEndUser);
             this.gbxSearchParameters.Controls.Add(this.lblSchEndUser);
             this.gbxSearchParameters.Controls.Add(this.uceSchBidder);
@@ -216,7 +204,7 @@
             this.gbxSearchParameters.Controls.Add(this.txtSchTenderName);
             this.gbxSearchParameters.Controls.Add(this.lblSchDependency);
             this.gbxSearchParameters.Controls.Add(this.lblSchTenderStatus);
-            this.gbxSearchParameters.Controls.Add(this.label11);
+            this.gbxSearchParameters.Controls.Add(this.lblSchTenderName);
             this.gbxSearchParameters.Controls.Add(this.lblSchBidder);
             this.gbxSearchParameters.Controls.Add(this.lblSchAsesor);
             this.gbxSearchParameters.Controls.Add(this.ubgxSchFechas);
@@ -225,7 +213,7 @@
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.tabDetDetail);
-            this.gbxDetDetail.Size = new System.Drawing.Size(750, 361);
+            this.gbxDetDetail.Size = new System.Drawing.Size(750, 356);
             // 
             // btnSchClose
             // 
@@ -264,7 +252,7 @@
             this.tabDetDetail.Location = new System.Drawing.Point(3, 16);
             this.tabDetDetail.Name = "tabDetDetail";
             this.tabDetDetail.SelectedIndex = 0;
-            this.tabDetDetail.Size = new System.Drawing.Size(744, 342);
+            this.tabDetDetail.Size = new System.Drawing.Size(744, 337);
             this.tabDetDetail.TabIndex = 0;
             // 
             // Principal
@@ -273,7 +261,7 @@
             this.Principal.Location = new System.Drawing.Point(4, 22);
             this.Principal.Name = "Principal";
             this.Principal.Padding = new System.Windows.Forms.Padding(3);
-            this.Principal.Size = new System.Drawing.Size(736, 316);
+            this.Principal.Size = new System.Drawing.Size(736, 311);
             this.Principal.TabIndex = 0;
             this.Principal.Text = "Principal";
             this.Principal.UseVisualStyleBackColor = true;
@@ -284,7 +272,6 @@
             // upDetControls.ClientArea
             // 
             this.upDetControls.ClientArea.Controls.Add(this.tscPreviousTender);
-            this.upDetControls.ClientArea.Controls.Add(this.uchkDetIsOpportunity);
             this.upDetControls.ClientArea.Controls.Add(this.gbxDetAcquisitionReason);
             this.upDetControls.ClientArea.Controls.Add(this.gbDetAddress);
             this.upDetControls.ClientArea.Controls.Add(this.uceDetEndUser);
@@ -315,30 +302,21 @@
             this.upDetControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upDetControls.Location = new System.Drawing.Point(3, 3);
             this.upDetControls.Name = "upDetControls";
-            this.upDetControls.Size = new System.Drawing.Size(730, 310);
+            this.upDetControls.Size = new System.Drawing.Size(730, 305);
             this.upDetControls.TabIndex = 57;
             // 
             // tscPreviousTender
             // 
-            this.tscPreviousTender.Location = new System.Drawing.Point(112, 37);
+            this.tscPreviousTender.Location = new System.Drawing.Point(110, 32);
             this.tscPreviousTender.Name = "tscPreviousTender";
             this.tscPreviousTender.Size = new System.Drawing.Size(508, 24);
             this.tscPreviousTender.TabIndex = 12;
             this.tscPreviousTender.Value = null;
             // 
-            // uchkDetIsOpportunity
-            // 
-            this.uchkDetIsOpportunity.AutoSize = true;
-            this.uchkDetIsOpportunity.Location = new System.Drawing.Point(627, 13);
-            this.uchkDetIsOpportunity.Name = "uchkDetIsOpportunity";
-            this.uchkDetIsOpportunity.Size = new System.Drawing.Size(100, 17);
-            this.uchkDetIsOpportunity.TabIndex = 11;
-            this.uchkDetIsOpportunity.Text = "Es Oportunidad";
-            // 
             // gbxDetAcquisitionReason
             // 
             this.gbxDetAcquisitionReason.Controls.Add(this.txtDetAcquisitionReason);
-            this.gbxDetAcquisitionReason.Location = new System.Drawing.Point(380, 229);
+            this.gbxDetAcquisitionReason.Location = new System.Drawing.Point(378, 224);
             this.gbxDetAcquisitionReason.Name = "gbxDetAcquisitionReason";
             this.gbxDetAcquisitionReason.Size = new System.Drawing.Size(347, 75);
             this.gbxDetAcquisitionReason.TabIndex = 74;
@@ -357,7 +335,7 @@
             // gbDetAddress
             // 
             this.gbDetAddress.Controls.Add(this.txtDetAddress);
-            this.gbDetAddress.Location = new System.Drawing.Point(379, 148);
+            this.gbDetAddress.Location = new System.Drawing.Point(377, 143);
             this.gbDetAddress.Name = "gbDetAddress";
             this.gbDetAddress.Size = new System.Drawing.Size(347, 75);
             this.gbDetAddress.TabIndex = 74;
@@ -375,42 +353,42 @@
             // 
             // uceDetEndUser
             // 
-            this.uceDetEndUser.Location = new System.Drawing.Point(129, 148);
+            this.uceDetEndUser.Location = new System.Drawing.Point(127, 143);
             this.uceDetEndUser.Name = "uceDetEndUser";
             this.uceDetEndUser.Size = new System.Drawing.Size(226, 21);
             this.uceDetEndUser.TabIndex = 16;
             // 
             // uceDetDependency
             // 
-            this.uceDetDependency.Location = new System.Drawing.Point(129, 121);
+            this.uceDetDependency.Location = new System.Drawing.Point(127, 116);
             this.uceDetDependency.Name = "uceDetDependency";
             this.uceDetDependency.Size = new System.Drawing.Size(226, 21);
             this.uceDetDependency.TabIndex = 15;
             // 
             // uceDetTenderStatus
             // 
-            this.uceDetTenderStatus.Location = new System.Drawing.Point(129, 202);
+            this.uceDetTenderStatus.Location = new System.Drawing.Point(127, 197);
             this.uceDetTenderStatus.Name = "uceDetTenderStatus";
             this.uceDetTenderStatus.Size = new System.Drawing.Size(226, 21);
             this.uceDetTenderStatus.TabIndex = 18;
             // 
             // uceDetApprovedBy
             // 
-            this.uceDetApprovedBy.Location = new System.Drawing.Point(498, 121);
+            this.uceDetApprovedBy.Location = new System.Drawing.Point(496, 116);
             this.uceDetApprovedBy.Name = "uceDetApprovedBy";
             this.uceDetApprovedBy.Size = new System.Drawing.Size(226, 21);
             this.uceDetApprovedBy.TabIndex = 23;
             // 
             // uceDetAsesor
             // 
-            this.uceDetAsesor.Location = new System.Drawing.Point(129, 175);
+            this.uceDetAsesor.Location = new System.Drawing.Point(127, 170);
             this.uceDetAsesor.Name = "uceDetAsesor";
             this.uceDetAsesor.Size = new System.Drawing.Size(226, 21);
             this.uceDetAsesor.TabIndex = 17;
             // 
             // uceDetBidder
             // 
-            this.uceDetBidder.Location = new System.Drawing.Point(129, 94);
+            this.uceDetBidder.Location = new System.Drawing.Point(127, 89);
             this.uceDetBidder.Name = "uceDetBidder";
             this.uceDetBidder.Size = new System.Drawing.Size(226, 21);
             this.uceDetBidder.TabIndex = 14;
@@ -418,7 +396,7 @@
             // lblDetRegistrationDate
             // 
             this.lblDetRegistrationDate.AutoSize = true;
-            this.lblDetRegistrationDate.Location = new System.Drawing.Point(5, 71);
+            this.lblDetRegistrationDate.Location = new System.Drawing.Point(3, 66);
             this.lblDetRegistrationDate.Name = "lblDetRegistrationDate";
             this.lblDetRegistrationDate.Size = new System.Drawing.Size(97, 13);
             this.lblDetRegistrationDate.TabIndex = 53;
@@ -427,7 +405,7 @@
             // lblDetBidder
             // 
             this.lblDetBidder.AutoSize = true;
-            this.lblDetBidder.Location = new System.Drawing.Point(4, 98);
+            this.lblDetBidder.Location = new System.Drawing.Point(4, 93);
             this.lblDetBidder.Name = "lblDetBidder";
             this.lblDetBidder.Size = new System.Drawing.Size(50, 13);
             this.lblDetBidder.TabIndex = 56;
@@ -436,7 +414,7 @@
             // lblPreviousTender
             // 
             this.lblPreviousTender.AutoSize = true;
-            this.lblPreviousTender.Location = new System.Drawing.Point(8, 41);
+            this.lblPreviousTender.Location = new System.Drawing.Point(2, 36);
             this.lblPreviousTender.Name = "lblPreviousTender";
             this.lblPreviousTender.Size = new System.Drawing.Size(94, 13);
             this.lblPreviousTender.TabIndex = 55;
@@ -445,7 +423,7 @@
             // lblDetTenderName
             // 
             this.lblDetTenderName.AutoSize = true;
-            this.lblDetTenderName.Location = new System.Drawing.Point(8, 14);
+            this.lblDetTenderName.Location = new System.Drawing.Point(3, 9);
             this.lblDetTenderName.Name = "lblDetTenderName";
             this.lblDetTenderName.Size = new System.Drawing.Size(121, 13);
             this.lblDetTenderName.TabIndex = 55;
@@ -453,7 +431,7 @@
             // 
             // txtDetTenderName
             // 
-            this.txtDetTenderName.Location = new System.Drawing.Point(154, 10);
+            this.txtDetTenderName.Location = new System.Drawing.Point(152, 5);
             this.txtDetTenderName.Name = "txtDetTenderName";
             this.txtDetTenderName.Size = new System.Drawing.Size(466, 21);
             this.txtDetTenderName.TabIndex = 10;
@@ -461,7 +439,7 @@
             // lblDetAsesor
             // 
             this.lblDetAsesor.AutoSize = true;
-            this.lblDetAsesor.Location = new System.Drawing.Point(4, 179);
+            this.lblDetAsesor.Location = new System.Drawing.Point(3, 174);
             this.lblDetAsesor.Name = "lblDetAsesor";
             this.lblDetAsesor.Size = new System.Drawing.Size(42, 13);
             this.lblDetAsesor.TabIndex = 47;
@@ -470,7 +448,7 @@
             // lblDetTenderStatus
             // 
             this.lblDetTenderStatus.AutoSize = true;
-            this.lblDetTenderStatus.Location = new System.Drawing.Point(5, 206);
+            this.lblDetTenderStatus.Location = new System.Drawing.Point(4, 201);
             this.lblDetTenderStatus.Name = "lblDetTenderStatus";
             this.lblDetTenderStatus.Size = new System.Drawing.Size(45, 13);
             this.lblDetTenderStatus.TabIndex = 45;
@@ -479,7 +457,7 @@
             // lblDetClarificationDate
             // 
             this.lblDetClarificationDate.AutoSize = true;
-            this.lblDetClarificationDate.Location = new System.Drawing.Point(373, 71);
+            this.lblDetClarificationDate.Location = new System.Drawing.Point(371, 66);
             this.lblDetClarificationDate.Name = "lblDetClarificationDate";
             this.lblDetClarificationDate.Size = new System.Drawing.Size(119, 13);
             this.lblDetClarificationDate.TabIndex = 52;
@@ -488,7 +466,7 @@
             // lblDetApprovedBy
             // 
             this.lblDetApprovedBy.AutoSize = true;
-            this.lblDetApprovedBy.Location = new System.Drawing.Point(374, 129);
+            this.lblDetApprovedBy.Location = new System.Drawing.Point(372, 124);
             this.lblDetApprovedBy.Name = "lblDetApprovedBy";
             this.lblDetApprovedBy.Size = new System.Drawing.Size(36, 13);
             this.lblDetApprovedBy.TabIndex = 50;
@@ -497,7 +475,7 @@
             // lblDetVeredictDate
             // 
             this.lblDetVeredictDate.AutoSize = true;
-            this.lblDetVeredictDate.Location = new System.Drawing.Point(373, 98);
+            this.lblDetVeredictDate.Location = new System.Drawing.Point(371, 93);
             this.lblDetVeredictDate.Name = "lblDetVeredictDate";
             this.lblDetVeredictDate.Size = new System.Drawing.Size(82, 13);
             this.lblDetVeredictDate.TabIndex = 49;
@@ -506,7 +484,7 @@
             // dteDetVeredictDate
             // 
             this.dteDetVeredictDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetVeredictDate.Location = new System.Drawing.Point(498, 94);
+            this.dteDetVeredictDate.Location = new System.Drawing.Point(496, 89);
             this.dteDetVeredictDate.MaskInput = "{date} {time}";
             this.dteDetVeredictDate.Name = "dteDetVeredictDate";
             this.dteDetVeredictDate.Size = new System.Drawing.Size(149, 21);
@@ -516,7 +494,7 @@
             // lblDetPresevisionDate
             // 
             this.lblDetPresevisionDate.AutoSize = true;
-            this.lblDetPresevisionDate.Location = new System.Drawing.Point(4, 233);
+            this.lblDetPresevisionDate.Location = new System.Drawing.Point(2, 228);
             this.lblDetPresevisionDate.Name = "lblDetPresevisionDate";
             this.lblDetPresevisionDate.Size = new System.Drawing.Size(110, 13);
             this.lblDetPresevisionDate.TabIndex = 54;
@@ -525,7 +503,7 @@
             // dteDetDeadline
             // 
             this.dteDetDeadline.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetDeadline.Location = new System.Drawing.Point(129, 256);
+            this.dteDetDeadline.Location = new System.Drawing.Point(127, 251);
             this.dteDetDeadline.MaskInput = "{date} {time}";
             this.dteDetDeadline.Name = "dteDetDeadline";
             this.dteDetDeadline.Size = new System.Drawing.Size(149, 21);
@@ -535,7 +513,7 @@
             // lblDetDeadline
             // 
             this.lblDetDeadline.AutoSize = true;
-            this.lblDetDeadline.Location = new System.Drawing.Point(4, 260);
+            this.lblDetDeadline.Location = new System.Drawing.Point(2, 255);
             this.lblDetDeadline.Name = "lblDetDeadline";
             this.lblDetDeadline.Size = new System.Drawing.Size(120, 13);
             this.lblDetDeadline.TabIndex = 51;
@@ -544,7 +522,7 @@
             // lblDetEndUser
             // 
             this.lblDetEndUser.AutoSize = true;
-            this.lblDetEndUser.Location = new System.Drawing.Point(4, 152);
+            this.lblDetEndUser.Location = new System.Drawing.Point(3, 147);
             this.lblDetEndUser.Name = "lblDetEndUser";
             this.lblDetEndUser.Size = new System.Drawing.Size(71, 13);
             this.lblDetEndUser.TabIndex = 46;
@@ -553,7 +531,7 @@
             // dteDetClarificationDate
             // 
             this.dteDetClarificationDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetClarificationDate.Location = new System.Drawing.Point(498, 67);
+            this.dteDetClarificationDate.Location = new System.Drawing.Point(496, 62);
             this.dteDetClarificationDate.Name = "dteDetClarificationDate";
             this.dteDetClarificationDate.Size = new System.Drawing.Size(122, 21);
             this.dteDetClarificationDate.TabIndex = 21;
@@ -562,7 +540,7 @@
             // lblDetDependency
             // 
             this.lblDetDependency.AutoSize = true;
-            this.lblDetDependency.Location = new System.Drawing.Point(4, 125);
+            this.lblDetDependency.Location = new System.Drawing.Point(3, 120);
             this.lblDetDependency.Name = "lblDetDependency";
             this.lblDetDependency.Size = new System.Drawing.Size(74, 13);
             this.lblDetDependency.TabIndex = 46;
@@ -571,7 +549,7 @@
             // dteDetPrerevisionDate
             // 
             this.dteDetPrerevisionDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetPrerevisionDate.Location = new System.Drawing.Point(129, 229);
+            this.dteDetPrerevisionDate.Location = new System.Drawing.Point(127, 224);
             this.dteDetPrerevisionDate.Name = "dteDetPrerevisionDate";
             this.dteDetPrerevisionDate.Size = new System.Drawing.Size(122, 21);
             this.dteDetPrerevisionDate.TabIndex = 19;
@@ -580,7 +558,7 @@
             // dteDetRegistrationDate
             // 
             this.dteDetRegistrationDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetRegistrationDate.Location = new System.Drawing.Point(129, 67);
+            this.dteDetRegistrationDate.Location = new System.Drawing.Point(127, 62);
             this.dteDetRegistrationDate.Name = "dteDetRegistrationDate";
             this.dteDetRegistrationDate.Size = new System.Drawing.Size(122, 21);
             this.dteDetRegistrationDate.TabIndex = 13;
@@ -591,7 +569,7 @@
             this.TenderDetails.Controls.Add(this.tcDetTextControls);
             this.TenderDetails.Location = new System.Drawing.Point(4, 22);
             this.TenderDetails.Name = "TenderDetails";
-            this.TenderDetails.Size = new System.Drawing.Size(736, 316);
+            this.TenderDetails.Size = new System.Drawing.Size(736, 311);
             this.TenderDetails.TabIndex = 2;
             this.TenderDetails.Text = "Detalle Licitación";
             this.TenderDetails.UseVisualStyleBackColor = true;
@@ -607,7 +585,7 @@
             this.tcDetTextControls.Location = new System.Drawing.Point(0, 0);
             this.tcDetTextControls.Name = "tcDetTextControls";
             this.tcDetTextControls.SelectedIndex = 0;
-            this.tcDetTextControls.Size = new System.Drawing.Size(736, 316);
+            this.tcDetTextControls.Size = new System.Drawing.Size(736, 311);
             this.tcDetTextControls.TabIndex = 15;
             // 
             // EstrategiaPrecios
@@ -616,7 +594,7 @@
             this.EstrategiaPrecios.Location = new System.Drawing.Point(4, 22);
             this.EstrategiaPrecios.Name = "EstrategiaPrecios";
             this.EstrategiaPrecios.Padding = new System.Windows.Forms.Padding(3);
-            this.EstrategiaPrecios.Size = new System.Drawing.Size(728, 290);
+            this.EstrategiaPrecios.Size = new System.Drawing.Size(728, 285);
             this.EstrategiaPrecios.TabIndex = 0;
             this.EstrategiaPrecios.Text = "Estrategia de Precios";
             this.EstrategiaPrecios.UseVisualStyleBackColor = true;
@@ -627,7 +605,7 @@
             this.txtDetPricingStrategy.Location = new System.Drawing.Point(3, 3);
             this.txtDetPricingStrategy.Multiline = true;
             this.txtDetPricingStrategy.Name = "txtDetPricingStrategy";
-            this.txtDetPricingStrategy.Size = new System.Drawing.Size(722, 284);
+            this.txtDetPricingStrategy.Size = new System.Drawing.Size(722, 279);
             this.txtDetPricingStrategy.TabIndex = 74;
             // 
             // Preresultados
@@ -635,7 +613,7 @@
             this.Preresultados.Controls.Add(this.txtDetPreResults);
             this.Preresultados.Location = new System.Drawing.Point(4, 22);
             this.Preresultados.Name = "Preresultados";
-            this.Preresultados.Size = new System.Drawing.Size(728, 290);
+            this.Preresultados.Size = new System.Drawing.Size(728, 285);
             this.Preresultados.TabIndex = 2;
             this.Preresultados.Text = "Preresultados";
             this.Preresultados.UseVisualStyleBackColor = true;
@@ -646,7 +624,7 @@
             this.txtDetPreResults.Location = new System.Drawing.Point(0, 0);
             this.txtDetPreResults.Multiline = true;
             this.txtDetPreResults.Name = "txtDetPreResults";
-            this.txtDetPreResults.Size = new System.Drawing.Size(728, 290);
+            this.txtDetPreResults.Size = new System.Drawing.Size(728, 285);
             this.txtDetPreResults.TabIndex = 75;
             // 
             // Resultados
@@ -654,7 +632,7 @@
             this.Resultados.Controls.Add(this.txtDetResults);
             this.Resultados.Location = new System.Drawing.Point(4, 22);
             this.Resultados.Name = "Resultados";
-            this.Resultados.Size = new System.Drawing.Size(728, 290);
+            this.Resultados.Size = new System.Drawing.Size(728, 285);
             this.Resultados.TabIndex = 3;
             this.Resultados.Text = "Resultados";
             this.Resultados.UseVisualStyleBackColor = true;
@@ -665,7 +643,7 @@
             this.txtDetResults.Location = new System.Drawing.Point(0, 0);
             this.txtDetResults.Multiline = true;
             this.txtDetResults.Name = "txtDetResults";
-            this.txtDetResults.Size = new System.Drawing.Size(728, 290);
+            this.txtDetResults.Size = new System.Drawing.Size(728, 285);
             this.txtDetResults.TabIndex = 0;
             // 
             // Manufacturers
@@ -674,7 +652,7 @@
             this.Manufacturers.Controls.Add(this.upDetManufactuerButtons);
             this.Manufacturers.Location = new System.Drawing.Point(4, 22);
             this.Manufacturers.Name = "Manufacturers";
-            this.Manufacturers.Size = new System.Drawing.Size(728, 290);
+            this.Manufacturers.Size = new System.Drawing.Size(728, 285);
             this.Manufacturers.TabIndex = 4;
             this.Manufacturers.Text = "Fabricantes";
             this.Manufacturers.UseVisualStyleBackColor = true;
@@ -739,7 +717,7 @@
             this.grdDetTenderManufacturers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderManufacturers.Location = new System.Drawing.Point(0, 0);
             this.grdDetTenderManufacturers.Name = "grdDetTenderManufacturers";
-            this.grdDetTenderManufacturers.Size = new System.Drawing.Size(728, 265);
+            this.grdDetTenderManufacturers.Size = new System.Drawing.Size(728, 260);
             this.grdDetTenderManufacturers.TabIndex = 0;
             this.grdDetTenderManufacturers.Text = "samsaraUltraGrid1";
             // 
@@ -754,7 +732,7 @@
             this.upDetManufactuerButtons.ClientArea.Controls.Add(this.ubtnDetNewManufacturer);
             this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator432);
             this.upDetManufactuerButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upDetManufactuerButtons.Location = new System.Drawing.Point(0, 265);
+            this.upDetManufactuerButtons.Location = new System.Drawing.Point(0, 260);
             this.upDetManufactuerButtons.Name = "upDetManufactuerButtons";
             this.upDetManufactuerButtons.Size = new System.Drawing.Size(728, 25);
             this.upDetManufactuerButtons.TabIndex = 2;
@@ -808,7 +786,7 @@
             this.TenderLines.Location = new System.Drawing.Point(4, 22);
             this.TenderLines.Name = "TenderLines";
             this.TenderLines.Padding = new System.Windows.Forms.Padding(3);
-            this.TenderLines.Size = new System.Drawing.Size(728, 290);
+            this.TenderLines.Size = new System.Drawing.Size(728, 285);
             this.TenderLines.TabIndex = 5;
             this.TenderLines.Text = "Partidas";
             this.TenderLines.UseVisualStyleBackColor = true;
@@ -873,7 +851,7 @@
             this.grdTenderLines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdTenderLines.Location = new System.Drawing.Point(3, 3);
             this.grdTenderLines.Name = "grdTenderLines";
-            this.grdTenderLines.Size = new System.Drawing.Size(722, 259);
+            this.grdTenderLines.Size = new System.Drawing.Size(722, 254);
             this.grdTenderLines.TabIndex = 1;
             this.grdTenderLines.Text = "samsaraUltraGrid1";
             // 
@@ -885,7 +863,7 @@
             this.pnlDetLineButtons.Controls.Add(this.ubtnDetCreateLine);
             this.pnlDetLineButtons.Controls.Add(this.upDetSeparator532);
             this.pnlDetLineButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 262);
+            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 257);
             this.pnlDetLineButtons.Name = "pnlDetLineButtons";
             this.pnlDetLineButtons.Size = new System.Drawing.Size(722, 25);
             this.pnlDetLineButtons.TabIndex = 0;
@@ -957,14 +935,14 @@
             this.lblSchAsesor.TabIndex = 62;
             this.lblSchAsesor.Text = "Asesor:";
             // 
-            // label11
+            // lblSchTenderName
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(11, 27);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(121, 13);
-            this.label11.TabIndex = 63;
-            this.label11.Text = "Nombre de la Licitación:";
+            this.lblSchTenderName.AutoSize = true;
+            this.lblSchTenderName.Location = new System.Drawing.Point(11, 27);
+            this.lblSchTenderName.Name = "lblSchTenderName";
+            this.lblSchTenderName.Size = new System.Drawing.Size(121, 13);
+            this.lblSchTenderName.TabIndex = 63;
+            this.lblSchTenderName.Text = "Nombre de la Licitación:";
             // 
             // lblSchBidder
             // 
@@ -1027,7 +1005,7 @@
             this.ubgxSchFechas.Controls.Add(this.dteSchMaxDate);
             this.ubgxSchFechas.Controls.Add(this.lblSchEndDate);
             this.ubgxSchFechas.Controls.Add(this.uosSchDates);
-            this.ubgxSchFechas.Location = new System.Drawing.Point(384, 71);
+            this.ubgxSchFechas.Location = new System.Drawing.Point(386, 41);
             this.ubgxSchFechas.Name = "ubgxSchFechas";
             this.ubgxSchFechas.Size = new System.Drawing.Size(349, 111);
             this.ubgxSchFechas.TabIndex = 71;
@@ -1104,40 +1082,13 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
-            // ugbSchIsOpportunity
-            // 
-            this.ugbSchIsOpportunity.Controls.Add(this.uosSchShow);
-            this.ugbSchIsOpportunity.Location = new System.Drawing.Point(384, 5);
-            this.ugbSchIsOpportunity.Name = "ugbSchIsOpportunity";
-            this.ugbSchIsOpportunity.Size = new System.Drawing.Size(114, 66);
-            this.ugbSchIsOpportunity.TabIndex = 75;
-            this.ugbSchIsOpportunity.Text = "Mostrar";
-            // 
-            // uosSchShow
-            // 
-            this.uosSchShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            valueListItem6.DataValue = -1;
-            valueListItem6.DisplayText = "Todos";
-            valueListItem7.DataValue = 0;
-            valueListItem7.DisplayText = "Licitaciones";
-            valueListItem8.DataValue = 1;
-            valueListItem8.DisplayText = "Oportunidades";
-            this.uosSchShow.Items.AddRange(new Infragistics.Win.ValueListItem[] {
-            valueListItem6,
-            valueListItem7,
-            valueListItem8});
-            this.uosSchShow.Location = new System.Drawing.Point(3, 16);
-            this.uosSchShow.Name = "uosSchShow";
-            this.uosSchShow.Size = new System.Drawing.Size(108, 47);
-            this.uosSchShow.TabIndex = 0;
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 418);
+            this.ClientSize = new System.Drawing.Size(764, 413);
             this.Name = "TenderForm";
-            this.Text = "Catálogo de Licitaciones y Oportunidades";
+            this.Text = "Catálogo de Licitaciones";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
@@ -1146,7 +1097,6 @@
             this.upDetControls.ClientArea.ResumeLayout(false);
             this.upDetControls.ClientArea.PerformLayout();
             this.upDetControls.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsOpportunity)).EndInit();
             this.gbxDetAcquisitionReason.ResumeLayout(false);
             this.gbxDetAcquisitionReason.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetAcquisitionReason)).EndInit();
@@ -1201,9 +1151,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbSchIsOpportunity)).EndInit();
-            this.ugbSchIsOpportunity.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uosSchShow)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1216,7 +1163,6 @@
         private System.Windows.Forms.Label lblDetPresevisionDate;
         private System.Windows.Forms.Label lblDetTenderStatus;
         private System.Windows.Forms.Label lblDetAsesor;
-        private System.Windows.Forms.Label lblDetTenderName;
         private System.Windows.Forms.Label lblDetBidder;
         private System.Windows.Forms.Label lblDetRegistrationDate;
         private System.Windows.Forms.Label lblSchMinDate;
@@ -1224,7 +1170,7 @@
         private System.Windows.Forms.Label lblSchTenderStatus;
         private System.Windows.Forms.Label lblSchDependency;
         private System.Windows.Forms.Label lblSchAsesor;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblSchTenderName;
         private System.Windows.Forms.Label lblSchBidder;
         private Infragistics.Win.Misc.UltraGroupBox ubgxSchFechas;
         private Infragistics.Win.Misc.UltraPanel upDetControls;
@@ -1276,18 +1222,16 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator4327;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLine;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator532;
-        public Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetIsOpportunity;
         private System.Windows.Forms.Label lblPreviousTender;
         internal System.Windows.Forms.TabControl tcDetTextControls;
         internal Samsara.ProjectsAndTendering.Controls.TenderSearchControl tscPreviousTender;
-        private Infragistics.Win.Misc.UltraGroupBox ugbSchIsOpportunity;
-        internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosSchShow;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
         internal System.Windows.Forms.GroupBox gbxDetAcquisitionReason;
         internal System.Windows.Forms.Label lblDetVeredictDate;
         internal System.Windows.Forms.Label lblDetApprovedBy;
         internal System.Windows.Forms.Label lblDetClarificationDate;
         internal System.Windows.Forms.GroupBox gbDetAddress;
+        internal System.Windows.Forms.Label lblDetTenderName;
     }
 }
 

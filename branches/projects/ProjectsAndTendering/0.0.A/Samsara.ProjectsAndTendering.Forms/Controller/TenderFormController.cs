@@ -22,7 +22,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
     {
         #region Attributes
 
-        private TenderForm frmTendering;
+        private TenderForm frmTender;
         private Tender tender;
         private IBidderService srvBidder;
         private IAsesorService srvAsesor;
@@ -41,7 +41,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         public TenderFormController(TenderForm instance)
         {
-            this.frmTendering = instance;
+            this.frmTender = instance;
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
             Assert.IsNotNull(srvBidder);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
@@ -69,138 +69,134 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             AsesorParameters pmtAsesor = new AsesorParameters();
             IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtAsesor);
 
-            WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceSchAsesor,
+            WindowsFormsUtil.LoadCombo<Asesor>(this.frmTender.uceSchAsesor,
                 lstAsesors, "AsesorId", "Name");
-            WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetAsesor,
+            WindowsFormsUtil.LoadCombo<Asesor>(this.frmTender.uceDetAsesor,
                 lstAsesors, "AsesorId", "Name");
-            WindowsFormsUtil.LoadCombo<Asesor>(this.frmTendering.uceDetApprovedBy,
+            WindowsFormsUtil.LoadCombo<Asesor>(this.frmTender.uceDetApprovedBy,
                 lstAsesors.Where(x => x.CanApprove == true), "AsesorId", "Name");
 
             // TenderStatus
             TenderStatusParameters pmtTenderStatus = new TenderStatusParameters();
             IList<TenderStatus> lstTenderStatuses = srvTenderStatus.GetListByParameters(pmtTenderStatus);
 
-            WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTendering.uceSchTenderStatus,
+            WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTender.uceSchTenderStatus,
                 lstTenderStatuses, "TenderStatusId", "Name");
-            WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTendering.uceDetTenderStatus,
+            WindowsFormsUtil.LoadCombo<TenderStatus>(this.frmTender.uceDetTenderStatus,
                 lstTenderStatuses, "TenderStatusId", "Name");
 
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
             IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
-            WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceSchBidder,
+            WindowsFormsUtil.LoadCombo<Bidder>(this.frmTender.uceSchBidder,
                 lstBidders, "BidderId", "Name");
-            WindowsFormsUtil.LoadCombo<Bidder>(this.frmTendering.uceDetBidder,
+            WindowsFormsUtil.LoadCombo<Bidder>(this.frmTender.uceDetBidder,
                 lstBidders, "BidderId", "Name");
 
-            this.frmTendering.uceSchBidder.ValueChanged += new EventHandler(uceSchBidder_ValueChanged);
-            this.frmTendering.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
+            this.frmTender.uceSchBidder.ValueChanged += new EventHandler(uceSchBidder_ValueChanged);
+            this.frmTender.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
 
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntNone;
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
-            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTender.uceSchDependency,
                 lstDependencies, "DependencyId", "Name");
-            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTender.uceDetDependency,
                 lstDependencies, "DependencyId", "Name");
 
-            this.frmTendering.uceSchDependency.ValueChanged += new EventHandler(uceSchDependency_ValueChanged);
-            this.frmTendering.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
+            this.frmTender.uceSchDependency.ValueChanged += new EventHandler(uceSchDependency_ValueChanged);
+            this.frmTender.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
 
             // EndUser
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = ParameterConstants.IntNone;
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
-            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTender.uceSchEndUser,
                 lstEndUsers, "EndUserId", "Name");
-            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTender.uceDetEndUser,
                 lstEndUsers, "EndUserId", "Name");
 
             //grdTenderLines
-            this.frmTendering.grdTenderLines.InitializeLayout 
+            this.frmTender.grdTenderLines.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
-            this.frmTendering.grdTenderLines.BeforeCellUpdate
+            this.frmTender.grdTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
             this.dtTenderLines = this.srvTender.SearchTenderLines(pmtTenderLine);
-            this.frmTendering.grdTenderLines.DataSource = null;
-            this.frmTendering.grdTenderLines.DataSource = dtTenderLines;
+            this.frmTender.grdTenderLines.DataSource = null;
+            this.frmTender.grdTenderLines.DataSource = dtTenderLines;
 
             //grdDetTenderManufacturers
-            this.frmTendering.grdDetTenderManufacturers.InitializeLayout
+            this.frmTender.grdDetTenderManufacturers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
-            this.frmTendering.grdDetTenderManufacturers.BeforeCellUpdate
+            this.frmTender.grdDetTenderManufacturers.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderManufacturers_BeforeCellUpdate);
             TenderManufacturerParameters pmtSearchTenderManufacturers
                 = new TenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = ParameterConstants.IntDefault;
             this.dtTenderManufacturers =
                 this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);
-            this.frmTendering.grdDetTenderManufacturers.DataSource = null;
-            this.frmTendering.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
+            this.frmTender.grdDetTenderManufacturers.DataSource = null;
+            this.frmTender.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 
-            this.frmTendering.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
-            this.frmTendering.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
-            this.frmTendering.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
-            this.frmTendering.btnDetSave.Click += new EventHandler(btnDetSave_Click);
-            this.frmTendering.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
-            this.frmTendering.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
-            this.frmTendering.btnSchClear.Click += new EventHandler(btnSchClear_Click);
-            this.frmTendering.ubtnDetDeleteManufacturer.Click +=
+            this.frmTender.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
+            this.frmTender.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
+            this.frmTender.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
+            this.frmTender.btnDetSave.Click += new EventHandler(btnDetSave_Click);
+            this.frmTender.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
+            this.frmTender.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
+            this.frmTender.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmTender.ubtnDetDeleteManufacturer.Click +=
                 new EventHandler(ubtnDetDeleteManufacturer_Click);
-            this.frmTendering.ubtnDetNewManufacturer.Click +=
+            this.frmTender.ubtnDetNewManufacturer.Click +=
                 new EventHandler(ubtnDetNewManufacturer_Click);
-            this.frmTendering.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
-            this.frmTendering.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
-            this.frmTendering.uchkDetIsOpportunity.CheckedChanged +=
-                new EventHandler(uchkDetIsOpportunity_CheckedChanged);
+            this.frmTender.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
+            this.frmTender.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
 
-            this.hiddenTenderDetailTab = this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
-            this.frmTendering.uosSchDates.Value = -1;
-            this.frmTendering.uosSchShow.Value = -1;
-            this.frmTendering.uchkDetIsOpportunity.Checked = true;
-            this.frmTendering.HiddenDetail(true);
+            this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+            this.frmTender.uosSchDates.Value = -1;
+            this.frmTender.HiddenDetail(true);
 
-            this.frmTendering.tscPreviousTender.DisplayMember = "Name";
-            this.frmTendering.tscPreviousTender.SearchForm = this.frmTendering;
+            this.frmTender.tscPreviousTender.DisplayMember = "Name";
+            this.frmTender.tscPreviousTender.SearchForm = this.frmTender;
             this.ClearSearchControls();
         }
 
         private void ShowDetail(bool show)
         {
-            this.frmTendering.HiddenDetail(!show);
+            this.frmTender.HiddenDetail(!show);
             if (show)
-                this.frmTendering.tabPrincipal.SelectedTab = this.frmTendering.tabPrincipal.TabPages["New"];
+                this.frmTender.tabPrincipal.SelectedTab = this.frmTender.tabPrincipal.TabPages["New"];
             else
-                this.frmTendering.tabPrincipal.SelectedTab = this.frmTendering.tabPrincipal.TabPages["Search"];
-            this.frmTendering.tabDetDetail.SelectedTab = this.frmTendering.tabDetDetail.TabPages["Principal"];
+                this.frmTender.tabPrincipal.SelectedTab = this.frmTender.tabPrincipal.TabPages["Search"];
+            this.frmTender.tabDetDetail.SelectedTab = this.frmTender.tabDetDetail.TabPages["Principal"];
         }
 
         private bool ValidateFormInformation()
         {
-            if (this.frmTendering.uceDetBidder.Value == null ||
-                Convert.ToInt32(this.frmTendering.uceDetBidder.Value) <= 0)
+            if (this.frmTender.uceDetBidder.Value == null ||
+                Convert.ToInt32(this.frmTender.uceDetBidder.Value) <= 0)
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmTendering.tabDetDetail.SelectedTab = 
-                    this.frmTendering.tabDetDetail.TabPages["Principal"];
-                this.frmTendering.uceDetBidder.Focus();
+                this.frmTender.tabDetDetail.SelectedTab = 
+                    this.frmTender.tabDetDetail.TabPages["Principal"];
+                this.frmTender.uceDetBidder.Focus();
                 return false;
             }
 
-            if (this.frmTendering.txtDetTenderName.Text.Trim() == string.Empty)
+            if (this.frmTender.txtDetTenderName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Favor de elegir un nombre para la Licitación.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmTendering.tabDetDetail.SelectedTab = 
-                    this.frmTendering.tabDetDetail.TabPages["Principal"];
-                this.frmTendering.txtDetTenderName.Focus();
+                this.frmTender.tabDetDetail.SelectedTab = 
+                    this.frmTender.tabDetDetail.TabPages["Principal"];
+                this.frmTender.txtDetTenderName.Focus();
                 return false;
             }
 
@@ -211,10 +207,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     MessageBox.Show(
                         "Debe seleccionar un fabricante por renglon en la lista de fabricantes.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.frmTendering.tabDetDetail.SelectedTab =
-                        this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
-                    this.frmTendering.tcDetTextControls.SelectedTab =
-                        this.frmTendering.tcDetTextControls.TabPages["Manufacturers"];
+                    this.frmTender.tabDetDetail.SelectedTab =
+                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTender.tcDetTextControls.SelectedTab =
+                        this.frmTender.tcDetTextControls.TabPages["Manufacturers"];
                     return false;
                 }
             }
@@ -225,10 +221,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     MessageBox.Show("Debe seleccionar un fabricante por partida.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.frmTendering.tabDetDetail.SelectedTab =
-                        this.frmTendering.tabDetDetail.TabPages["TenderDetails"];
-                    this.frmTendering.tcDetTextControls.SelectedTab =
-                        this.frmTendering.tcDetTextControls.TabPages["TenderLines"];
+                    this.frmTender.tabDetDetail.SelectedTab =
+                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTender.tcDetTextControls.SelectedTab =
+                        this.frmTender.tcDetTextControls.TabPages["TenderLines"];
                     return false;
                 }
             }
@@ -238,66 +234,65 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            if (Convert.ToInt32(this.frmTendering.uceDetBidder.Value) > 0)
+            if (Convert.ToInt32(this.frmTender.uceDetBidder.Value) > 0)
             {
                 Bidder bidder = srvBidder.GetById(
-                    Convert.ToInt32(this.frmTendering.uceDetBidder.Value));
+                    Convert.ToInt32(this.frmTender.uceDetBidder.Value));
                 Assert.IsNotNull(bidder);
                 this.tender.Bidder = bidder;
             }
-            if (Convert.ToInt32(this.frmTendering.uceDetDependency.Value) > 0)
+            if (Convert.ToInt32(this.frmTender.uceDetDependency.Value) > 0)
             {
                 Dependency dependency = srvDependency.GetById(
-                    Convert.ToInt32(this.frmTendering.uceDetDependency.Value));
+                    Convert.ToInt32(this.frmTender.uceDetDependency.Value));
                 Assert.IsNotNull(dependency);
                 this.tender.Dependency = dependency;
             }
 
-            if (Convert.ToInt32(this.frmTendering.uceDetEndUser.Value) > 0)
+            if (Convert.ToInt32(this.frmTender.uceDetEndUser.Value) > 0)
             {
                 EndUser endUser = srvEndUser.GetById(
-                    Convert.ToInt32(this.frmTendering.uceDetEndUser.Value));
+                    Convert.ToInt32(this.frmTender.uceDetEndUser.Value));
                 Assert.IsNotNull(endUser);
                 this.tender.EndUser = endUser;
             }
 
-            if (Convert.ToInt32(this.frmTendering.uceDetAsesor.Value) > 0)
+            if (Convert.ToInt32(this.frmTender.uceDetAsesor.Value) > 0)
             {
                 Asesor asesor = srvAsesor.GetById(
-                    Convert.ToInt32(this.frmTendering.uceDetAsesor.Value));
+                    Convert.ToInt32(this.frmTender.uceDetAsesor.Value));
                 Assert.IsNotNull(asesor);
                 this.tender.Asesor = asesor;
             }
 
-            if (Convert.ToInt32(this.frmTendering.uceDetApprovedBy.Value) > 0)
+            if (Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value) > 0)
             {
                 Asesor asesor = srvAsesor.GetById(
-                    Convert.ToInt32(this.frmTendering.uceDetApprovedBy.Value));
+                    Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value));
                 Assert.IsNotNull(asesor);
                 this.tender.ApprovedBy = asesor;
             }
 
-            if (Convert.ToInt32(this.frmTendering.uceDetTenderStatus.Value) > 0)
+            if (Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value) > 0)
             {
                 TenderStatus tenderStatus = srvTenderStatus.GetById(
-                    Convert.ToInt32(this.frmTendering.uceDetTenderStatus.Value));
+                    Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value));
                 Assert.IsNotNull(tenderStatus);
                 this.tender.TenderStatus = tenderStatus;
             }
 
-            this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTendering.dteDetClarificationDate.Value;
-            this.tender.Deadline = (Nullable<DateTime>)this.frmTendering.dteDetDeadline.Value;
-            this.tender.PreRevisionDate = (Nullable<DateTime>)this.frmTendering.dteDetPrerevisionDate.Value;
-            this.tender.RegistrationDate = (Nullable<DateTime>)this.frmTendering.dteDetRegistrationDate.Value;
-            this.tender.VerdictDate = (Nullable<DateTime>)this.frmTendering.dteDetVeredictDate.Value;
-            this.tender.IsOpportunity = this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.tender.Address = this.frmTendering.txtDetAddress.Text;
-            this.tender.AcquisitionReason = this.frmTendering.txtDetAcquisitionReason.Text;
-            this.tender.PricingStrategy = this.frmTendering.txtDetPricingStrategy.Text;
-            this.tender.Results = this.frmTendering.txtDetResults.Text;
-            this.tender.PreResults = this.frmTendering.txtDetPreResults.Text;
-            this.tender.Name = this.frmTendering.txtDetTenderName.Text;
-            this.tender.PreviousTender = this.frmTendering.tscPreviousTender.Value;
+            this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTender.dteDetClarificationDate.Value;
+            this.tender.Deadline = (Nullable<DateTime>)this.frmTender.dteDetDeadline.Value;
+            this.tender.PreRevisionDate = (Nullable<DateTime>)this.frmTender.dteDetPrerevisionDate.Value;
+            this.tender.RegistrationDate = (Nullable<DateTime>)this.frmTender.dteDetRegistrationDate.Value;
+            this.tender.VerdictDate = (Nullable<DateTime>)this.frmTender.dteDetVeredictDate.Value;
+            this.tender.Address = this.frmTender.txtDetAddress.Text;
+            this.tender.AcquisitionReason = this.frmTender.txtDetAcquisitionReason.Text;
+            this.tender.PricingStrategy = this.frmTender.txtDetPricingStrategy.Text;
+            this.tender.Results = this.frmTender.txtDetResults.Text;
+            this.tender.PreResults = this.frmTender.txtDetPreResults.Text;
+            this.tender.Name = this.frmTender.txtDetTenderName.Text;
+            this.tender.PreviousTender = this.frmTender.tscPreviousTender.Value;
 
             this.GetTenderManufacturers();
             this.GetTenderLines();
@@ -366,41 +361,39 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ClearDetailControls()
         {
-            this.frmTendering.uceDetApprovedBy.Value = -1;
-            this.frmTendering.uceDetAsesor.Value = -1;
-            this.frmTendering.uceDetBidder.Value = -1;
-            this.frmTendering.uceDetDependency.Value = -1;
-            this.frmTendering.uceDetEndUser.Value = -1;
-            this.frmTendering.uceDetTenderStatus.Value = -1;
-            this.frmTendering.txtDetAcquisitionReason.Text = string.Empty;
-            this.frmTendering.txtDetAddress.Text = string.Empty;
-            this.frmTendering.txtDetPreResults.Text = string.Empty;
-            this.frmTendering.txtDetPricingStrategy.Text = string.Empty;
-            this.frmTendering.txtDetResults.Text = string.Empty;
-            this.frmTendering.txtDetTenderName.Text = string.Empty;
-            this.frmTendering.dteDetClarificationDate.Value = null;
-            this.frmTendering.dteDetDeadline.Value = null;
-            this.frmTendering.dteDetPrerevisionDate.Value = null;
-            this.frmTendering.dteDetRegistrationDate.Value = null;
-            this.frmTendering.dteDetVeredictDate.Value = null;
-            this.frmTendering.uchkDetIsOpportunity.Checked = true;
-            this.frmTendering.tscPreviousTender.Clear();
+            this.frmTender.uceDetApprovedBy.Value = -1;
+            this.frmTender.uceDetAsesor.Value = -1;
+            this.frmTender.uceDetBidder.Value = -1;
+            this.frmTender.uceDetDependency.Value = -1;
+            this.frmTender.uceDetEndUser.Value = -1;
+            this.frmTender.uceDetTenderStatus.Value = -1;
+            this.frmTender.txtDetAcquisitionReason.Text = string.Empty;
+            this.frmTender.txtDetAddress.Text = string.Empty;
+            this.frmTender.txtDetPreResults.Text = string.Empty;
+            this.frmTender.txtDetPricingStrategy.Text = string.Empty;
+            this.frmTender.txtDetResults.Text = string.Empty;
+            this.frmTender.txtDetTenderName.Text = string.Empty;
+            this.frmTender.dteDetClarificationDate.Value = null;
+            this.frmTender.dteDetDeadline.Value = null;
+            this.frmTender.dteDetPrerevisionDate.Value = null;
+            this.frmTender.dteDetRegistrationDate.Value = null;
+            this.frmTender.dteDetVeredictDate.Value = null;
+            this.frmTender.tscPreviousTender.Clear();
             this.dtTenderLines.Rows.Clear();
             this.dtTenderManufacturers.Rows.Clear();
         }
 
         private void ClearSearchControls()
         {
-            this.frmTendering.txtSchTenderName.Text = string.Empty;
-            this.frmTendering.uceSchAsesor.Value = -1;
-            this.frmTendering.uceSchBidder.Value = -1;
-            this.frmTendering.uceSchDependency.Value = -1;
-            this.frmTendering.uceSchEndUser.Value = -1;
-            this.frmTendering.uceSchTenderStatus.Value = -1;
-            this.frmTendering.uosSchDates.Value = -1;
-            this.frmTendering.uosSchShow.Value = -1;
-            this.frmTendering.dteSchMaxDate.DateTime = DateTime.Now;
-            this.frmTendering.dteSchMinDate.DateTime = DateTime.Now;
+            this.frmTender.txtSchTenderName.Text = string.Empty;
+            this.frmTender.uceSchAsesor.Value = -1;
+            this.frmTender.uceSchBidder.Value = -1;
+            this.frmTender.uceSchDependency.Value = -1;
+            this.frmTender.uceSchEndUser.Value = -1;
+            this.frmTender.uceSchTenderStatus.Value = -1;
+            this.frmTender.uosSchDates.Value = -1;
+            this.frmTender.dteSchMaxDate.DateTime = DateTime.Now;
+            this.frmTender.dteSchMinDate.DateTime = DateTime.Now;
         }
 
         private void SaveTender()
@@ -412,7 +405,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     return;
                 this.LoadEntity();
                 this.srvTender.SaveOrUpdate(this.tender);
-                this.frmTendering.HiddenDetail(true);
+                this.frmTender.HiddenDetail(true);
                 this.Search();
             }
         }
@@ -423,43 +416,42 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
-            this.frmTendering.HiddenDetail(false);
+            this.frmTender.HiddenDetail(false);
             this.ShowDetail(true);
             this.Search();
         }
 
         private void LoadFormFromEntity()
         {
-            this.frmTendering.uceDetApprovedBy.Value = 
+            this.frmTender.uceDetApprovedBy.Value = 
                 this.tender.ApprovedBy == null ? -1 : this.tender.ApprovedBy.AsesorId;
-            this.frmTendering.uceDetAsesor.Value =
+            this.frmTender.uceDetAsesor.Value =
                 this.tender.Asesor == null ? -1 : this.tender.Asesor.AsesorId;
-            this.frmTendering.uceDetBidder.Value =
+            this.frmTender.uceDetBidder.Value =
                 this.tender.Bidder == null ? -1 : this.tender.Bidder.BidderId;
-            this.frmTendering.uceDetDependency.Value =
+            this.frmTender.uceDetDependency.Value =
                 this.tender.Dependency == null ? -1 : this.tender.Dependency.DependencyId;
-            this.frmTendering.uceDetEndUser.Value =
+            this.frmTender.uceDetEndUser.Value =
                 this.tender.EndUser == null ? -1 : this.tender.EndUser.EndUserId;
-            this.frmTendering.uceDetTenderStatus.Value =
+            this.frmTender.uceDetTenderStatus.Value =
                 this.tender.TenderStatus == null ? -1 : this.tender.TenderStatus.TenderStatusId;
-            this.frmTendering.txtDetAcquisitionReason.Text = this.tender.AcquisitionReason;
-            this.frmTendering.txtDetAddress.Text = this.tender.Address;
-            this.frmTendering.txtDetPreResults.Text = this.tender.PreResults;
-            this.frmTendering.txtDetPricingStrategy.Text = this.tender.PricingStrategy;
-            this.frmTendering.txtDetResults.Text = this.tender.Results;
-            this.frmTendering.txtDetTenderName.Text = this.tender.Name;
+            this.frmTender.txtDetAcquisitionReason.Text = this.tender.AcquisitionReason;
+            this.frmTender.txtDetAddress.Text = this.tender.Address;
+            this.frmTender.txtDetPreResults.Text = this.tender.PreResults;
+            this.frmTender.txtDetPricingStrategy.Text = this.tender.PricingStrategy;
+            this.frmTender.txtDetResults.Text = this.tender.Results;
+            this.frmTender.txtDetTenderName.Text = this.tender.Name;
             if (this.tender.ClarificationDate.HasValue)
-                this.frmTendering.dteDetClarificationDate.Value =  this.tender.ClarificationDate.Value;
+                this.frmTender.dteDetClarificationDate.Value =  this.tender.ClarificationDate.Value;
             if (this.tender.Deadline.HasValue)
-                this.frmTendering.dteDetDeadline.Value = this.tender.Deadline.Value;
+                this.frmTender.dteDetDeadline.Value = this.tender.Deadline.Value;
             if (this.tender.PreRevisionDate.HasValue)
-                this.frmTendering.dteDetPrerevisionDate.Value = this.tender.PreRevisionDate.Value;
+                this.frmTender.dteDetPrerevisionDate.Value = this.tender.PreRevisionDate.Value;
             if (this.tender.RegistrationDate.HasValue)
-                this.frmTendering.dteDetRegistrationDate.Value = this.tender.RegistrationDate.Value;
+                this.frmTender.dteDetRegistrationDate.Value = this.tender.RegistrationDate.Value;
             if (this.tender.VerdictDate.HasValue)
-                this.frmTendering.dteDetVeredictDate.Value = this.tender.VerdictDate.Value;
-            this.frmTendering.uchkDetIsOpportunity.Checked = this.tender.IsOpportunity;
-            this.frmTendering.tscPreviousTender.Value = this.tender.PreviousTender;
+                this.frmTender.dteDetVeredictDate.Value = this.tender.VerdictDate.Value;
+            this.frmTender.tscPreviousTender.Value = this.tender.PreviousTender;
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
@@ -503,20 +495,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             TenderParameters pmtTender = new TenderParameters();
 
-            pmtTender.MinDate = (DateTime)this.frmTendering.dteSchMinDate.Value;
-            pmtTender.MaxDate = (DateTime)this.frmTendering.dteSchMaxDate.Value;
-            pmtTender.AsesorId = (int)this.frmTendering.uceSchAsesor.Value;
-            pmtTender.BidderId = (int)this.frmTendering.uceSchBidder.Value;
-            pmtTender.DependencyId = (int)this.frmTendering.uceSchDependency.Value;
-            pmtTender.TenderStatusId = (int)this.frmTendering.uceSchTenderStatus.Value;
-            pmtTender.TenderName = "%" + this.frmTendering.txtSchTenderName.Text + "%";
-            pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTendering.uosSchDates.Value;
-            pmtTender.IsOpportunity = (int)this.frmTendering.uosSchShow.Value;
+            pmtTender.MinDate = (DateTime)this.frmTender.dteSchMinDate.Value;
+            pmtTender.MaxDate = (DateTime)this.frmTender.dteSchMaxDate.Value;
+            pmtTender.AsesorId = (int)this.frmTender.uceSchAsesor.Value;
+            pmtTender.BidderId = (int)this.frmTender.uceSchBidder.Value;
+            pmtTender.DependencyId = (int)this.frmTender.uceSchDependency.Value;
+            pmtTender.TenderStatusId = (int)this.frmTender.uceSchTenderStatus.Value;
+            pmtTender.TenderName = "%" + this.frmTender.txtSchTenderName.Text + "%";
+            pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTender.uosSchDates.Value;
 
             DataTable dtTenders = srvTender.SearchByParameters(pmtTender);
 
-            this.frmTendering.grdSchSearch.DataSource = null;
-            this.frmTendering.grdSchSearch.DataSource = dtTenders;
+            this.frmTender.grdSchSearch.DataSource = null;
+            this.frmTender.grdSchSearch.DataSource = dtTenders;
         }
 
         #endregion Methods
@@ -542,7 +533,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void grdTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridLayout layout = this.frmTendering.grdTenderLines.DisplayLayout;
+            UltraGridLayout layout = this.frmTender.grdTenderLines.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
             ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
             IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
@@ -571,7 +562,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridLayout layout = this.frmTendering.grdDetTenderManufacturers.DisplayLayout;
+            UltraGridLayout layout = this.frmTender.grdDetTenderManufacturers.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
@@ -590,7 +581,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void grdDetTenderManufacturers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
-            UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
+            UltraGridRow activeRow = this.frmTender.grdDetTenderManufacturers.ActiveRow;
             if (activeRow == null) return;
 
             if (e.Cell.Column.Key == "ManufacturerId" && Convert.ToInt32(e.NewValue) != -1)
@@ -629,7 +620,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetDeleteManufacturer_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmTendering.grdDetTenderManufacturers.ActiveRow;
+            UltraGridRow activeRow = this.frmTender.grdDetTenderManufacturers.ActiveRow;
 
             if (activeRow == null) return;
                         
@@ -662,7 +653,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetDeleteLine_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmTendering.grdTenderLines.ActiveRow;
+            UltraGridRow activeRow = this.frmTender.grdTenderLines.ActiveRow;
 
             if (activeRow == null) return;
 
@@ -677,70 +668,52 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void btnDetCancel_Click(object sender, EventArgs e)
         {
-            this.frmTendering.HiddenDetail(true);
-        }
-        
-        private void uchkDetIsOpportunity_CheckedChanged(object sender, EventArgs e)
-        {
-            this.frmTendering.lblDetApprovedBy.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.lblDetClarificationDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.lblDetVeredictDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.gbDetAddress.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.gbxDetAcquisitionReason.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetVeredictDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.uceDetApprovedBy.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetClarificationDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-            this.frmTendering.dteDetClarificationDate.Visible = !this.frmTendering.uchkDetIsOpportunity.Checked;
-
-            if (this.frmTendering.uchkDetIsOpportunity.Checked)
-                this.frmTendering.tabDetDetail.TabPages.Remove(this.hiddenTenderDetailTab);
-            else if (!this.frmTendering.tabDetDetail.TabPages.ContainsKey("TenderDetails"))
-                this.frmTendering.tabDetDetail.TabPages.Add(this.hiddenTenderDetailTab);
+            this.frmTender.HiddenDetail(true);
         }
 
         private void uceSchBidder_ValueChanged(object sender, EventArgs e)
         {
             DependencyParameters pmtDependency = new DependencyParameters();
-            pmtDependency.BidderId = Convert.ToInt32(this.frmTendering.uceSchBidder.Value);
+            pmtDependency.BidderId = Convert.ToInt32(this.frmTender.uceSchBidder.Value);
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
-            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceSchDependency,
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTender.uceSchDependency,
                 lstDependencies, "DependencyId", "Name");
         }
 
         private void uceDetBidder_ValueChanged(object sender, EventArgs e)
         {
             DependencyParameters pmtDependency = new DependencyParameters();
-            pmtDependency.BidderId = Convert.ToInt32(this.frmTendering.uceDetBidder.Value);
+            pmtDependency.BidderId = Convert.ToInt32(this.frmTender.uceDetBidder.Value);
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
-            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTendering.uceDetDependency,
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmTender.uceDetDependency,
                 lstDependencies, "DependencyId", "Name");
         }
 
         private void uceSchDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
-            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTendering.uceSchDependency.Value);
+            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTender.uceSchDependency.Value);
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
-            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceSchEndUser,
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTender.uceSchEndUser,
                 lstEndUsers, "EndUserId", "Name");
         }
         
         private void uceDetDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
-            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTendering.uceDetDependency.Value);
+            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTender.uceDetDependency.Value);
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
-            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTendering.uceDetEndUser,
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmTender.uceDetEndUser,
                 lstEndUsers, "EndUserId", "Name");
         }
 
         private void btnSchEdit_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmTendering.grdSchSearch.ActiveRow;
+            UltraGridRow activeRow = this.frmTender.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
                 this.EditTender(Convert.ToInt32(activeRow.Cells[0].Value));
@@ -753,7 +726,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void btnSchDelete_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmTendering.grdSchSearch.ActiveRow;
+            UltraGridRow activeRow = this.frmTender.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));

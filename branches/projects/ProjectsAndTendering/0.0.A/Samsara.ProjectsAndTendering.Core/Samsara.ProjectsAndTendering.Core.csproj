@@ -83,6 +83,9 @@
     <Compile Include="Entities\Domain\Bidder.cs" />
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
+    <Compile Include="Entities\Domain\Organization.cs" />
+    <Compile Include="Entities\Domain\OpportunityStatus.cs" />
+    <Compile Include="Entities\Domain\Opportunity.cs" />
     <Compile Include="Entities\Domain\EndUser.cs" />
     <Compile Include="Entities\Domain\TenderManufacturer.cs">
       <SubType>Code</SubType>
@@ -97,6 +100,9 @@
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
+    <Compile Include="Parameters\OrganizationParameters.cs" />
+    <Compile Include="Parameters\OpportunityStatusParameters.cs" />
+    <Compile Include="Parameters\OpportunityParameters.cs" />
     <Compile Include="Parameters\FormConfigurationParameters.cs" />
     <Compile Include="Parameters\DependencyParameters.cs" />
     <Compile Include="Parameters\EndUserParameters.cs" />
@@ -185,6 +191,21 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\Opportunity.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\OpportunityStatus.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\Organization.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
