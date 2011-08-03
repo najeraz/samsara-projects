@@ -23,6 +23,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual DateTime? ClarificationDate
+        {
+            get;
+            set;
+        }
+
         public virtual Organization Organization
         {
             get;

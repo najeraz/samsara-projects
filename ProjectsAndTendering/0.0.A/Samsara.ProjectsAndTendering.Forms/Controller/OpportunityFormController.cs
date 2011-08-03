@@ -24,6 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IOrganizationService srvOrganization;
         private IAsesorService srvAsesor;
         private IOpportunityService srvOpportunity;
+        private IOpportunityStatusService srvOpportunityStatus;
         private IManufacturerService srvManufacturer;
         private TabPage hiddenOpportunityDetailTab;
 
@@ -40,6 +41,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvAsesor);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
             Assert.IsNotNull(srvOpportunity);
+            this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
+            Assert.IsNotNull(srvOpportunityStatus);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
             Assert.IsNotNull(srvManufacturer);
             this.InitializeFormControls();
@@ -62,8 +65,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // OpportunityStatus
             OpportunityStatusParameters pmtOpportunityStatus = new OpportunityStatusParameters();
-            IList<OpportunityStatus> lstOpportunityStatuses = 
-                srvOpportunity.GetOpportunityStatusesByParameters(pmtOpportunityStatus);
+            IList<OpportunityStatus> lstOpportunityStatuses =
+                srvOpportunityStatus.GetListByParameters(pmtOpportunityStatus);
 
             WindowsFormsUtil.LoadCombo<OpportunityStatus>(this.frmOpportunity.uceSchOpportunityStatus,
                 lstOpportunityStatuses, "OpportunityStatusId", "Name");

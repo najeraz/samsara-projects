@@ -41,6 +41,18 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.EndUserService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IEndUserDao"/>
   </object>
+  <object id="IOpportunityService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.OpportunityService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOpportunityDao"/>
+  </object>
+  <object id="IOpportunityStatusService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.OpportunityStatusService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOpportunityStatusDao"/>
+  </object>
+  <object id="IOrganizationService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.OrganizationService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOrganizationDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
