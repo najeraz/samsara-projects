@@ -19,7 +19,7 @@
     <property name="Activated"/>
 
     <many-to-one name="Organization"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Bidder, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Organization, Samsara.ProjectsAndTendering.Core"
                  column="OrganizationId"/>
     <many-to-one name="Asesor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
