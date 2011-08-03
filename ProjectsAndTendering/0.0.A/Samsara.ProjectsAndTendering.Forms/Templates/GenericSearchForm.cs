@@ -1,4 +1,5 @@
 ﻿
+using System.Windows.Forms;
 using Samsara.ProjectsAndTendering.Controls.Interfaces;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 
@@ -6,7 +7,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
 {
     public abstract partial class GenericSearchForm<T> : CatalogForm, ISearchForm<T>
     {
-        public ISearchForm<T> ParentSearchForm
+        public Form ParentSearchForm
         {
             get;
             set;

@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Samsara.ProjectsAndTendering.Controls.Interfaces
 {
     public interface ISearchForm<T>
@@ -9,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Interfaces
             set;
         }
 
-        ISearchForm<T> ParentSearchForm
+        Form ParentSearchForm
         {
             get;
             set;
