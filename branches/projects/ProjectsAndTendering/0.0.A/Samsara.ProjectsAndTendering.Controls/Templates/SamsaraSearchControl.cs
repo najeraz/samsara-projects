@@ -64,5 +64,14 @@ namespace Samsara.ProjectsAndTendering.Controls
                 }
             }
         }
+
+        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
+            {
+                this.value = default(T);
+                this.txtName.Text = string.Empty;
+            }
+        }
     }
 }

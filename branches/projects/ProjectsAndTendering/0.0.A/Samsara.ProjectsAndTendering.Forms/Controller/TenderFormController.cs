@@ -300,6 +300,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PreResults = this.frmTender.txtDetPreResults.Text;
             this.tender.Name = this.frmTender.txtDetTenderName.Text;
             this.tender.PreviousTender = this.frmTender.tscPreviousTender.Value;
+            this.tender.Opportunity = this.frmTender.oscDetRelatedOpportunity.Value;
 
             this.GetTenderManufacturers();
             this.GetTenderLines();
@@ -385,6 +386,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.dteDetPrerevisionDate.Value = null;
             this.frmTender.dteDetRegistrationDate.Value = null;
             this.frmTender.dteDetVeredictDate.Value = null;
+            this.frmTender.oscDetRelatedOpportunity.Clear();
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderLines.Rows.Clear();
             this.dtTenderManufacturers.Rows.Clear();
@@ -459,6 +461,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.tender.VerdictDate.HasValue)
                 this.frmTender.dteDetVeredictDate.Value = this.tender.VerdictDate.Value;
             this.frmTender.tscPreviousTender.Value = this.tender.PreviousTender;
+            this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
