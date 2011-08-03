@@ -222,6 +222,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOpportunity.uceDetAsesor.Value =
                 this.opportunity.Asesor == null ? -1 : this.opportunity.Asesor.AsesorId;
+            this.frmOpportunity.uceDetOrganization.Value = 
+                this.opportunity.Organization == null ? -1 : this.opportunity.Organization.OrganizationId;
             this.frmOpportunity.uceDetOpportunityStatus.Value =
                 this.opportunity.OpportunityStatus == null ? -1 : this.opportunity.OpportunityStatus.OpportunityStatusId;
             this.frmOpportunity.txtDetAcquisitionReason.Text = this.opportunity.AcquisitionReason;
