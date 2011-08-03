@@ -29,6 +29,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderStatusService srvTenderStatus;
         private IDependencyService srvDependency;
         private ITenderService srvTender;
+        private ITenderLineService srvTenderLine;
+        private ITenderManufacturerService srvTenderManufacturer;
         private IEndUserService srvEndUser;
         private IManufacturerService srvManufacturer;
         private DataTable dtTenderLines;
@@ -52,6 +54,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvDependency);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
             Assert.IsNotNull(srvTender);
+            this.srvTenderLine = SamsaraAppContext.Resolve<ITenderLineService>();
+            Assert.IsNotNull(srvTenderLine);
+            this.srvTenderManufacturer = SamsaraAppContext.Resolve<ITenderManufacturerService>();
+            Assert.IsNotNull(srvTenderManufacturer);
             this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
             Assert.IsNotNull(srvEndUser);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
@@ -127,7 +133,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
-            this.dtTenderLines = this.srvTender.SearchTenderLines(pmtTenderLine);
+            this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
             this.frmTender.grdTenderLines.DataSource = null;
             this.frmTender.grdTenderLines.DataSource = dtTenderLines;
 
@@ -140,7 +146,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 = new TenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = ParameterConstants.IntDefault;
             this.dtTenderManufacturers =
-                this.srvTender.SearchTenderManufacturers(pmtSearchTenderManufacturers);
+                this.srvTenderManufacturer.SearchByParameters(pmtSearchTenderManufacturers);
             this.frmTender.grdDetTenderManufacturers.DataSource = null;
             this.frmTender.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 

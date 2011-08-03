@@ -15,4 +15,11 @@
     
   </class>
 
+  <query name="TenderManufacturer.SearchByParameters">
+    <![CDATA[
+        from TenderManufacturer where Deleted = 0 and Activated = 1
+        and TenderId = :TenderId
+    ]]>
+  </query>
+
 </hibernate-mapping>

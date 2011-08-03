@@ -36,40 +36,28 @@
   </query>
 
   <sql-query name="Opportunity.SearchByParameters" cacheable="false" read-only="true">
-    <return-scalar column="TenderId" type="int"/>
+    <return-scalar column="OpportunityId" type="int"/>
     <return-scalar column="RegistrationDate" type="DateTime"/>
-    <return-scalar column="BidderName" type="string"/>
-    <return-scalar column="TenderName" type="string"/>
-    <return-scalar column="DependencyName" type="string"/>
+    <return-scalar column="OrganizationName" type="string"/>
+    <return-scalar column="OpportunityName" type="string"/>
     <return-scalar column="AsesorName" type="string"/>
-    <return-scalar column="IsOpportunity" type="bool"/>
     <return-scalar column="PreRevisionDate" type="DateTime"/>
     <return-scalar column="Deadline" type="DateTime"/>
-    <return-scalar column="TenderStatusName" type="string"/>
-    <return-scalar column="ApproverName" type="string"/>
-    <return-scalar column="PreviousTenderName" type="string"/>
+    <return-scalar column="OpportunityStatusName" type="string"/>
     <![CDATA[
-      SELECT t.TenderId, t.RegistrationDate, b.Name BidderName, t.Name TenderName,
-      d.Name DependencyName, a.Name AsesorName, t.IsOpportunity, t.PreRevisionDate,
-      t.Deadline, t.VerdictDate, 
-      ts.Name TenderStatusName, ap.Name ApproverName, pt.Name PreviousTenderName
-      FROM Tenders t
-      INNER JOIN	Bidders b	  		ON b.BidderId = t.BidderId AND b.Deleted = 0 and b.Activated = 1
-      LEFT JOIN	Asesors a		    	ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
-      LEFT JOIN	Dependencies d		ON d.DependencyId = t.DependencyId AND d.Deleted = 0 and d.Activated = 1
-      LEFT JOIN	TenderStatuses ts	ON ts.TenderStatusId = t.TenderStatusId AND ts.Deleted = 0 and ts.Activated = 1
-      LEFT JOIN	Asesors ap		  	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
-      LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
+      SELECT t.OpportunityId, t.RegistrationDate, o.Name OrganizationName, t.Name OpportunityName,
+      a.Name AsesorName, t.PreRevisionDate, t.Deadline, ts.Name OpportunityStatusName
+      FROM Opportunities t
+      INNER JOIN Organizations o	  	  ON o.OrganizationId = t.OrganizationId AND o.Deleted = 0 and o.Activated = 1
+      LEFT JOIN	Asesors a		    	      ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
+      LEFT JOIN	OpportunityStatuses ts	ON ts.OpportunityStatusId = t.OpportunityStatusId AND ts.Deleted = 0 and ts.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
-      AND t.Name like :TenderName
-      AND (:IsOpportunity = -1 OR :IsOpportunity = t.IsOpportunity)
+      AND t.Name like :OpportunityName
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
-      AND (t.BidderId = :BidderId OR :BidderId = -1)
-      AND (t.DependencyId = :DependencyId OR :DependencyId = -1)
-      AND (t.TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
+      AND (t.OrganizationId = :OrganizationId OR :OrganizationId = -1)
+      AND (t.OpportunityStatusId = :OpportunityStatusId OR :OpportunityStatusId = -1)
       AND (:DateTypeSearchId = 1 and :MinDate <= t.RegistrationDate and :MaxDate >= t.RegistrationDate
         OR :DateTypeSearchId = 2 and :MinDate <= t.Deadline and :MaxDate >= t.Deadline
-        OR :DateTypeSearchId = 3 and :MinDate <= t.VerdictDate and :MaxDate >= t.VerdictDate
         OR :DateTypeSearchId = 4 and :MinDate <= t.ClarificationDate and :MaxDate >= t.ClarificationDate
         OR :DateTypeSearchId = 5 and :MinDate <= t.PreRevisionDate and :MaxDate >= t.PreRevisionDate
         OR :DateTypeSearchId = -1)
