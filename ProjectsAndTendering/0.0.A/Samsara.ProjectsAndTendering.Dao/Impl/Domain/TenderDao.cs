@@ -12,22 +12,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
     public class TenderDao : GenericDao<Tender, int>, ITenderDao
     {
-        #region Methods
-
-        public DataTable SearchTenderLines(TenderLineParameters
-            pmtTenderLine)
-        {
-            return this.DataTableByParameters<TenderLine>(
-                "SearchTenderLines", pmtTenderLine);
-        }
-
-        public DataTable SearchTenderManufacturers(TenderManufacturerParameters
-            pmtSearchTenderManufacturer)
-        {
-            return this.DataTableByParameters<TenderManufacturer>(
-                "SearchTenderManufacturers", pmtSearchTenderManufacturer);
-        }
-
-        #endregion Methods
     }
 }

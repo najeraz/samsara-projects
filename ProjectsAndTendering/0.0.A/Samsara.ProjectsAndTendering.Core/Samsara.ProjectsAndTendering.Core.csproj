@@ -83,6 +83,7 @@
     <Compile Include="Entities\Domain\Bidder.cs" />
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
+    <Compile Include="Entities\Domain\OpportunityType.cs" />
     <Compile Include="Entities\Domain\Organization.cs" />
     <Compile Include="Entities\Domain\OpportunityStatus.cs" />
     <Compile Include="Entities\Domain\Opportunity.cs" />
@@ -204,6 +205,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\Organization.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\OpportunityType.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

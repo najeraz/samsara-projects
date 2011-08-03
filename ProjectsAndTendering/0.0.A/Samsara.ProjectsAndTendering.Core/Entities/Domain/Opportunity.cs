@@ -17,6 +17,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual OpportunityType OpportunityType
+        {
+            get;
+            set;
+        }
+
         public virtual DateTime? RegistrationDate
         {
             get;

@@ -65,7 +65,10 @@ namespace Samsara.Support.Util
 
             foreach (PropertyDescriptor prop in properties)
             {
-                table.Columns.Add(prop.Name, prop.PropertyType);
+                if (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                    table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType));
+                else 
+                    table.Columns.Add(prop.Name, prop.PropertyType);
             }
 
             return table;

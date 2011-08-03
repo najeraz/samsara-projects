@@ -118,14 +118,25 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         public DataTable DataTableByParameters(string queryName, GenericParameters parameters)
         {
-            IList lstResult = GetGenericListByParameters(queryName, parameters);
-            return CollectionsUtil.ConvertToDataTable(lstResult);
-        }
+            DataTable dtResult = null;
 
-        public DataTable DataTableByParameters<TType>(string queryName, GenericParameters parameters)
-        {
             IList lstResult = GetGenericListByParameters(queryName, parameters);
-            return CollectionsUtil.ConvertToDataTable<TType>(lstResult.Cast<TType>().ToList());
+
+            try
+            {
+                IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
+                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp);
+            }
+            catch
+            {
+                try
+                {
+                    dtResult = CollectionsUtil.ConvertToDataTable(lstResult);
+                }
+                catch { }
+            }
+
+            return dtResult;
         }
 
         #endregion Public
