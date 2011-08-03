@@ -20,7 +20,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         #region Attributes
 
         private OpportunityForm frmOpportunity;
-        private Opportunity Opportunity;
+        private Opportunity opportunity;
         private IOrganizationService srvOrganization;
         private IAsesorService srvAsesor;
         private IOpportunityService srvOpportunity;
@@ -141,7 +141,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 Organization organization = srvOrganization.GetById(
                     Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value));
                 Assert.IsNotNull(organization);
-                this.Opportunity.Organization = organization;
+                this.opportunity.Organization = organization;
             }
 
             if (Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value) > 0)
@@ -149,17 +149,25 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 Asesor asesor = srvAsesor.GetById(
                     Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value));
                 Assert.IsNotNull(asesor);
-                this.Opportunity.Asesor = asesor;
+                this.opportunity.Asesor = asesor;
             }
 
-            this.Opportunity.Deadline = (Nullable<DateTime>)this.frmOpportunity.dteDetDeadline.Value;
-            this.Opportunity.PreRevisionDate = (Nullable<DateTime>)this.frmOpportunity.dteDetPrerevisionDate.Value;
-            this.Opportunity.RegistrationDate = (Nullable<DateTime>)this.frmOpportunity.dteDetRegistrationDate.Value;
-            this.Opportunity.AcquisitionReason = this.frmOpportunity.txtDetAcquisitionReason.Text;
-            this.Opportunity.Name = this.frmOpportunity.txtDetOpportunityName.Text;
+            if (Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value) > 0)
+            {
+                OpportunityStatus opportunityStatus = this.srvOpportunityStatus.GetById(
+                    Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value));
+                Assert.IsNotNull(opportunityStatus);
+                this.opportunity.OpportunityStatus = opportunityStatus;
+            }
 
-            this.Opportunity.Activated = true;
-            this.Opportunity.Deleted = false;
+            this.opportunity.Deadline = (Nullable<DateTime>)this.frmOpportunity.dteDetDeadline.Value;
+            this.opportunity.PreRevisionDate = (Nullable<DateTime>)this.frmOpportunity.dteDetPrerevisionDate.Value;
+            this.opportunity.RegistrationDate = (Nullable<DateTime>)this.frmOpportunity.dteDetRegistrationDate.Value;
+            this.opportunity.AcquisitionReason = this.frmOpportunity.txtDetAcquisitionReason.Text;
+            this.opportunity.Name = this.frmOpportunity.txtDetOpportunityName.Text;
+
+            this.opportunity.Activated = true;
+            this.opportunity.Deleted = false;
         }
         
         private void ClearDetailControls()
@@ -189,11 +197,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar la Licitación?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar la Oportunidad?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                     return;
                 this.LoadEntity();
-                this.srvOpportunity.SaveOrUpdate(this.Opportunity);
+                this.srvOpportunity.SaveOrUpdate(this.opportunity);
                 this.frmOpportunity.HiddenDetail(true);
                 this.Search();
             }
@@ -201,7 +209,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void EditOpportunity(int OpportunityId)
         {
-            this.Opportunity = this.srvOpportunity.GetById(OpportunityId);
+            this.opportunity = this.srvOpportunity.GetById(OpportunityId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
@@ -213,28 +221,28 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void LoadFormFromEntity()
         {
             this.frmOpportunity.uceDetAsesor.Value =
-                this.Opportunity.Asesor == null ? -1 : this.Opportunity.Asesor.AsesorId;
+                this.opportunity.Asesor == null ? -1 : this.opportunity.Asesor.AsesorId;
             this.frmOpportunity.uceDetOpportunityStatus.Value =
-                this.Opportunity.OpportunityStatus == null ? -1 : this.Opportunity.OpportunityStatus.OpportunityStatusId;
-            this.frmOpportunity.txtDetAcquisitionReason.Text = this.Opportunity.AcquisitionReason;
-            this.frmOpportunity.txtDetOpportunityName.Text = this.Opportunity.Name;
-            if (this.Opportunity.Deadline.HasValue)
-                this.frmOpportunity.dteDetDeadline.Value = this.Opportunity.Deadline.Value;
-            if (this.Opportunity.PreRevisionDate.HasValue)
-                this.frmOpportunity.dteDetPrerevisionDate.Value = this.Opportunity.PreRevisionDate.Value;
-            if (this.Opportunity.RegistrationDate.HasValue)
-                this.frmOpportunity.dteDetRegistrationDate.Value = this.Opportunity.RegistrationDate.Value;
+                this.opportunity.OpportunityStatus == null ? -1 : this.opportunity.OpportunityStatus.OpportunityStatusId;
+            this.frmOpportunity.txtDetAcquisitionReason.Text = this.opportunity.AcquisitionReason;
+            this.frmOpportunity.txtDetOpportunityName.Text = this.opportunity.Name;
+            if (this.opportunity.Deadline.HasValue)
+                this.frmOpportunity.dteDetDeadline.Value = this.opportunity.Deadline.Value;
+            if (this.opportunity.PreRevisionDate.HasValue)
+                this.frmOpportunity.dteDetPrerevisionDate.Value = this.opportunity.PreRevisionDate.Value;
+            if (this.opportunity.RegistrationDate.HasValue)
+                this.frmOpportunity.dteDetRegistrationDate.Value = this.opportunity.RegistrationDate.Value;
         }
 
         private void DeleteEntity(int OpportunityId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Licitación?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Oportunidad?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
-            this.Opportunity = this.srvOpportunity.GetById(OpportunityId);
-            this.Opportunity.Activated = false;
-            this.Opportunity.Deleted = true;
-            this.srvOpportunity.SaveOrUpdate(this.Opportunity);
+            this.opportunity = this.srvOpportunity.GetById(OpportunityId);
+            this.opportunity.Activated = false;
+            this.opportunity.Deleted = true;
+            this.srvOpportunity.SaveOrUpdate(this.opportunity);
             this.Search();
         }
 
@@ -267,7 +275,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
-            this.Opportunity = new Opportunity();
+            this.opportunity = new Opportunity();
             this.ClearDetailControls();
             this.ShowDetail(true);
         }

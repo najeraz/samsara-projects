@@ -94,6 +94,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 307);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -210,21 +211,21 @@
             // 
             // uceDetOpportunityStatus
             // 
-            this.uceDetOpportunityStatus.Location = new System.Drawing.Point(130, 113);
+            this.uceDetOpportunityStatus.Location = new System.Drawing.Point(140, 113);
             this.uceDetOpportunityStatus.Name = "uceDetOpportunityStatus";
             this.uceDetOpportunityStatus.Size = new System.Drawing.Size(226, 21);
             this.uceDetOpportunityStatus.TabIndex = 18;
             // 
             // uceDetAsesor
             // 
-            this.uceDetAsesor.Location = new System.Drawing.Point(130, 86);
+            this.uceDetAsesor.Location = new System.Drawing.Point(140, 86);
             this.uceDetAsesor.Name = "uceDetAsesor";
             this.uceDetAsesor.Size = new System.Drawing.Size(226, 21);
             this.uceDetAsesor.TabIndex = 17;
             // 
             // uceDetOrganization
             // 
-            this.uceDetOrganization.Location = new System.Drawing.Point(130, 59);
+            this.uceDetOrganization.Location = new System.Drawing.Point(140, 59);
             this.uceDetOrganization.Name = "uceDetOrganization";
             this.uceDetOrganization.Size = new System.Drawing.Size(226, 21);
             this.uceDetOrganization.TabIndex = 14;
@@ -252,13 +253,13 @@
             this.lblDetOpportunityName.AutoSize = true;
             this.lblDetOpportunityName.Location = new System.Drawing.Point(3, 9);
             this.lblDetOpportunityName.Name = "lblDetOpportunityName";
-            this.lblDetOpportunityName.Size = new System.Drawing.Size(121, 13);
+            this.lblDetOpportunityName.Size = new System.Drawing.Size(134, 13);
             this.lblDetOpportunityName.TabIndex = 55;
-            this.lblDetOpportunityName.Text = "Nombre de la Licitación:";
+            this.lblDetOpportunityName.Text = "Nombre de la Oportunidad:";
             // 
             // txtDetOpportunityName
             // 
-            this.txtDetOpportunityName.Location = new System.Drawing.Point(130, 5);
+            this.txtDetOpportunityName.Location = new System.Drawing.Point(140, 5);
             this.txtDetOpportunityName.Name = "txtDetOpportunityName";
             this.txtDetOpportunityName.Size = new System.Drawing.Size(466, 21);
             this.txtDetOpportunityName.TabIndex = 10;
@@ -293,7 +294,7 @@
             // dteDetDeadline
             // 
             this.dteDetDeadline.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetDeadline.Location = new System.Drawing.Point(130, 167);
+            this.dteDetDeadline.Location = new System.Drawing.Point(140, 167);
             this.dteDetDeadline.MaskInput = "{date} {time}";
             this.dteDetDeadline.Name = "dteDetDeadline";
             this.dteDetDeadline.Size = new System.Drawing.Size(149, 21);
@@ -312,7 +313,7 @@
             // dteDetPrerevisionDate
             // 
             this.dteDetPrerevisionDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetPrerevisionDate.Location = new System.Drawing.Point(130, 140);
+            this.dteDetPrerevisionDate.Location = new System.Drawing.Point(140, 140);
             this.dteDetPrerevisionDate.Name = "dteDetPrerevisionDate";
             this.dteDetPrerevisionDate.Size = new System.Drawing.Size(122, 21);
             this.dteDetPrerevisionDate.TabIndex = 19;
@@ -321,7 +322,7 @@
             // dteDetRegistrationDate
             // 
             this.dteDetRegistrationDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteDetRegistrationDate.Location = new System.Drawing.Point(130, 32);
+            this.dteDetRegistrationDate.Location = new System.Drawing.Point(140, 32);
             this.dteDetRegistrationDate.Name = "dteDetRegistrationDate";
             this.dteDetRegistrationDate.Size = new System.Drawing.Size(122, 21);
             this.dteDetRegistrationDate.TabIndex = 13;
@@ -468,7 +469,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 361);
             this.Name = "OpportunityForm";
-            this.Text = "Catálogo de Licitaciones";
+            this.Text = "Catálogo de Oportunidades";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
