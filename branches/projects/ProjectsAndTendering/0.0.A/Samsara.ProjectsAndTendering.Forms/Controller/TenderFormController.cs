@@ -169,8 +169,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.tscPreviousTender.DisplayMember = "Name";
             this.frmTender.tscPreviousTender.SearchForm = this.frmTender;
-            //this.frmTender.oscDetRelatedOpportunity.DisplayMember = "Name";
-            //this.frmTender.oscDetRelatedOpportunity.SearchForm = this.frmTender;
+            this.frmTender.oscDetRelatedOpportunity.DisplayMember = "Name";
+            this.frmTender.oscDetRelatedOpportunity.SearchForm = new OpportunityForm();
             this.ClearSearchControls();
         }
 
