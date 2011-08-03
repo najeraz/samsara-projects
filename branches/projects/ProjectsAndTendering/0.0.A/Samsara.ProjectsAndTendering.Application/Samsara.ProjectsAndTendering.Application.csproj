@@ -74,6 +74,7 @@
     <Reference Include="Samsara.ProjectsAndTendering.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Visual Studio 2008\Projects\Samsara Projects And Tendering\bin\Samsara.ProjectsAndTendering.Forms.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Spring.Aop">
       <HintPath>..\lib\Spring.Aop.dll</HintPath>

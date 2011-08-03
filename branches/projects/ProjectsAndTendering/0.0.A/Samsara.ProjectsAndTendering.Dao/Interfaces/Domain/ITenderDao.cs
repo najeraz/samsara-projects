@@ -8,8 +8,5 @@ namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
     public interface ITenderDao : IGenericDao<Tender,int>
     {
-        DataTable SearchTenderManufacturers(TenderManufacturerParameters
-            pmtSearchTenderManufacturer);
-        DataTable SearchTenderLines(TenderLineParameters pmtTenderLine);
     }
 }

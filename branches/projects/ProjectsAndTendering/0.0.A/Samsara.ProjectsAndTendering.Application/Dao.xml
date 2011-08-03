@@ -82,6 +82,10 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderLineDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ITenderManufacturerDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderManufacturerDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   <object id="ITenderStatusDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderStatusDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>

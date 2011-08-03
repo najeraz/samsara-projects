@@ -94,7 +94,6 @@
       LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
       AND t.Name like :TenderName
-      AND (:IsOpportunity = -1 OR :IsOpportunity = t.IsOpportunity)
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
       AND (t.BidderId = :BidderId OR :BidderId = -1)
       AND (t.DependencyId = :DependencyId OR :DependencyId = -1)

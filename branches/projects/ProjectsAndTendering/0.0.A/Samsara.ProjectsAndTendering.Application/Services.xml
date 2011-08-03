@@ -33,6 +33,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderLineService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ITenderLineDao"/>
   </object>
+  <object id="ITenderManufacturerService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderManufacturerService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderManufacturerDao"/>
+  </object>
   <object id="ITenderStatusService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderStatusService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ITenderStatusDao"/>
