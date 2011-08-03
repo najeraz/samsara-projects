@@ -40,6 +40,7 @@
             this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFormBackground = new System.Windows.Forms.Panel();
+            this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,7 +113,8 @@
             // licitacionesToolStripMenuItem
             // 
             this.licitacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.licitacionesToolStripMenuItem1});
+            this.licitacionesToolStripMenuItem1,
+            this.oportunidadesToolStripMenuItem});
             this.licitacionesToolStripMenuItem.Name = "licitacionesToolStripMenuItem";
             this.licitacionesToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.licitacionesToolStripMenuItem.Text = "Documentos";
@@ -120,8 +122,8 @@
             // licitacionesToolStripMenuItem1
             // 
             this.licitacionesToolStripMenuItem1.Name = "licitacionesToolStripMenuItem1";
-            this.licitacionesToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
-            this.licitacionesToolStripMenuItem1.Text = "Oportunidades y Licitaciones";
+            this.licitacionesToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.licitacionesToolStripMenuItem1.Text = "Licitaciones";
             this.licitacionesToolStripMenuItem1.Click += new System.EventHandler(this.licitacionesToolStripMenuItem1_Click);
             // 
             // pnlFormBackground
@@ -134,6 +136,13 @@
             this.pnlFormBackground.Name = "pnlFormBackground";
             this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
             this.pnlFormBackground.TabIndex = 1;
+            // 
+            // oportunidadesToolStripMenuItem
+            // 
+            this.oportunidadesToolStripMenuItem.Name = "oportunidadesToolStripMenuItem";
+            this.oportunidadesToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.oportunidadesToolStripMenuItem.Text = "Oportunidades";
+            this.oportunidadesToolStripMenuItem.Click += new System.EventHandler(this.oportunidadesToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -165,6 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaLicitaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem oportunidadesToolStripMenuItem;
     }
 }
 

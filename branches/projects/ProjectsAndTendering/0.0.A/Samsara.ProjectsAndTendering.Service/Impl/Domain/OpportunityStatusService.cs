@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
-    public class OpportunityService : GenericService<Opportunity, int, IOpportunityDao>, IOpportunityService
+    public class OpportunityStatusService : GenericService<OpportunityStatus, int, IOpportunityStatusDao>, IOpportunityStatusService
     {
     }
 }

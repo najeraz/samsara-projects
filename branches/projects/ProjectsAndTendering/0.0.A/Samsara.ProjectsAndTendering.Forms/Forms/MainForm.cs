@@ -108,5 +108,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void oportunidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                OpportunityForm frmOpportunity = new OpportunityForm();
+                frmOpportunity.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

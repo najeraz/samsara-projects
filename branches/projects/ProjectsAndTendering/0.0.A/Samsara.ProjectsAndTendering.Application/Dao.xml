@@ -90,6 +90,18 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.EndUserDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IOrganizationDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.OrganizationDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IOpportunityDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.OpportunityDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IOpportunityStatusDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.OpportunityStatusDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
   <object id="IFormConfigurationDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">
