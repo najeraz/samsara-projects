@@ -61,6 +61,7 @@
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
+            this.oscDetRelatedOpportunity = new Samsara.ProjectsAndTendering.Controls.OpportunitySearchControl();
             this.tscPreviousTender = new Samsara.ProjectsAndTendering.Controls.TenderSearchControl();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -75,6 +76,7 @@
             this.lblDetRegistrationDate = new System.Windows.Forms.Label();
             this.lblDetBidder = new System.Windows.Forms.Label();
             this.lblPreviousTender = new System.Windows.Forms.Label();
+            this.lblDetRelatedOpportunity = new System.Windows.Forms.Label();
             this.lblDetTenderName = new System.Windows.Forms.Label();
             this.txtDetTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblDetAsesor = new System.Windows.Forms.Label();
@@ -133,8 +135,6 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.lblDetRelatedOpportunity = new System.Windows.Forms.Label();
-            this.oscDetRelatedOpportunity = new Samsara.ProjectsAndTendering.Controls.OpportunitySearchControl();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -310,6 +310,14 @@
             this.upDetControls.Size = new System.Drawing.Size(730, 333);
             this.upDetControls.TabIndex = 57;
             // 
+            // oscDetRelatedOpportunity
+            // 
+            this.oscDetRelatedOpportunity.Location = new System.Drawing.Point(152, 32);
+            this.oscDetRelatedOpportunity.Name = "oscDetRelatedOpportunity";
+            this.oscDetRelatedOpportunity.Size = new System.Drawing.Size(572, 24);
+            this.oscDetRelatedOpportunity.TabIndex = 75;
+            this.oscDetRelatedOpportunity.Value = null;
+            // 
             // tscPreviousTender
             // 
             this.tscPreviousTender.Location = new System.Drawing.Point(152, 59);
@@ -424,6 +432,15 @@
             this.lblPreviousTender.Size = new System.Drawing.Size(94, 13);
             this.lblPreviousTender.TabIndex = 55;
             this.lblPreviousTender.Text = "Licitación Anterior:";
+            // 
+            // lblDetRelatedOpportunity
+            // 
+            this.lblDetRelatedOpportunity.AutoSize = true;
+            this.lblDetRelatedOpportunity.Location = new System.Drawing.Point(3, 36);
+            this.lblDetRelatedOpportunity.Name = "lblDetRelatedOpportunity";
+            this.lblDetRelatedOpportunity.Size = new System.Drawing.Size(131, 13);
+            this.lblDetRelatedOpportunity.TabIndex = 55;
+            this.lblDetRelatedOpportunity.Text = "Oportunidad Relacionada:";
             // 
             // lblDetTenderName
             // 
@@ -1087,23 +1104,6 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
-            // lblDetRelatedOpportunity
-            // 
-            this.lblDetRelatedOpportunity.AutoSize = true;
-            this.lblDetRelatedOpportunity.Location = new System.Drawing.Point(3, 36);
-            this.lblDetRelatedOpportunity.Name = "lblDetRelatedOpportunity";
-            this.lblDetRelatedOpportunity.Size = new System.Drawing.Size(131, 13);
-            this.lblDetRelatedOpportunity.TabIndex = 55;
-            this.lblDetRelatedOpportunity.Text = "Oportunidad Relacionada:";
-            // 
-            // oscDetRelatedOpportunity
-            // 
-            this.oscDetRelatedOpportunity.Location = new System.Drawing.Point(152, 32);
-            this.oscDetRelatedOpportunity.Name = "oscDetRelatedOpportunity";
-            this.oscDetRelatedOpportunity.Size = new System.Drawing.Size(572, 24);
-            this.oscDetRelatedOpportunity.TabIndex = 75;
-            this.oscDetRelatedOpportunity.Value = null;
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1254,8 +1254,8 @@
         internal System.Windows.Forms.Label lblDetClarificationDate;
         internal System.Windows.Forms.GroupBox gbDetAddress;
         internal System.Windows.Forms.Label lblDetTenderName;
-        private Controls.OpportunitySearchControl oscDetRelatedOpportunity;
         internal System.Windows.Forms.Label lblDetRelatedOpportunity;
+        internal Controls.OpportunitySearchControl oscDetRelatedOpportunity;
     }
 }
 

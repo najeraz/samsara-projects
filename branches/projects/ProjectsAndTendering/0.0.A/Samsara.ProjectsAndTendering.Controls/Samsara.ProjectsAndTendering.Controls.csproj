@@ -124,9 +124,7 @@
     <Compile Include="Controls\OpportunitySearchControl.designer.cs">
       <DependentUpon>OpportunitySearchControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TenderSearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\TenderSearchControl.cs" />
     <Compile Include="Controls\TenderSearchControl.designer.cs">
       <DependentUpon>TenderSearchControl.cs</DependentUpon>
     </Compile>
