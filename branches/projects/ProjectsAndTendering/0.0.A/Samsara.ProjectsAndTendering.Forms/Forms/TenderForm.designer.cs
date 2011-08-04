@@ -789,7 +789,7 @@
             // upDetSeparator123
             // 
             this.upDetSeparator123.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator123.Location = new System.Drawing.Point(458, 0);
+            this.upDetSeparator123.Location = new System.Drawing.Point(526, 0);
             this.upDetSeparator123.Name = "upDetSeparator123";
             this.upDetSeparator123.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator123.TabIndex = 7;
@@ -797,16 +797,16 @@
             // ubtnDetDeleteManufacturer
             // 
             this.ubtnDetDeleteManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteManufacturer.Location = new System.Drawing.Point(474, 0);
+            this.ubtnDetDeleteManufacturer.Location = new System.Drawing.Point(542, 0);
             this.ubtnDetDeleteManufacturer.Name = "ubtnDetDeleteManufacturer";
-            this.ubtnDetDeleteManufacturer.Size = new System.Drawing.Size(111, 25);
+            this.ubtnDetDeleteManufacturer.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteManufacturer.TabIndex = 0;
-            this.ubtnDetDeleteManufacturer.Text = "Borrar Fabricante";
+            this.ubtnDetDeleteManufacturer.Text = "Borrar";
             // 
             // upDetSeparator143
             // 
             this.upDetSeparator143.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator143.Location = new System.Drawing.Point(585, 0);
+            this.upDetSeparator143.Location = new System.Drawing.Point(619, 0);
             this.upDetSeparator143.Name = "upDetSeparator143";
             this.upDetSeparator143.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator143.TabIndex = 5;
@@ -814,11 +814,11 @@
             // ubtnDetNewManufacturer
             // 
             this.ubtnDetNewManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetNewManufacturer.Location = new System.Drawing.Point(601, 0);
+            this.ubtnDetNewManufacturer.Location = new System.Drawing.Point(635, 0);
             this.ubtnDetNewManufacturer.Name = "ubtnDetNewManufacturer";
-            this.ubtnDetNewManufacturer.Size = new System.Drawing.Size(111, 25);
+            this.ubtnDetNewManufacturer.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetNewManufacturer.TabIndex = 0;
-            this.ubtnDetNewManufacturer.Text = "Nuevo Fabricante";
+            this.ubtnDetNewManufacturer.Text = "Nuevo";
             // 
             // upDetSeparator432
             // 
@@ -920,7 +920,7 @@
             // upDetSeparator4534
             // 
             this.upDetSeparator4534.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator4534.Location = new System.Drawing.Point(476, 0);
+            this.upDetSeparator4534.Location = new System.Drawing.Point(520, 0);
             this.upDetSeparator4534.Name = "upDetSeparator4534";
             this.upDetSeparator4534.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator4534.TabIndex = 12;
@@ -928,16 +928,16 @@
             // ubtnDetDeleteLine
             // 
             this.ubtnDetDeleteLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteLine.Location = new System.Drawing.Point(492, 0);
+            this.ubtnDetDeleteLine.Location = new System.Drawing.Point(536, 0);
             this.ubtnDetDeleteLine.Name = "ubtnDetDeleteLine";
-            this.ubtnDetDeleteLine.Size = new System.Drawing.Size(99, 25);
+            this.ubtnDetDeleteLine.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteLine.TabIndex = 9;
-            this.ubtnDetDeleteLine.Text = "Borrar Partida";
+            this.ubtnDetDeleteLine.Text = "Borrar";
             // 
             // upDetSeparator4327
             // 
             this.upDetSeparator4327.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator4327.Location = new System.Drawing.Point(591, 0);
+            this.upDetSeparator4327.Location = new System.Drawing.Point(613, 0);
             this.upDetSeparator4327.Name = "upDetSeparator4327";
             this.upDetSeparator4327.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator4327.TabIndex = 10;
@@ -945,11 +945,11 @@
             // ubtnDetCreateLine
             // 
             this.ubtnDetCreateLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreateLine.Location = new System.Drawing.Point(607, 0);
+            this.ubtnDetCreateLine.Location = new System.Drawing.Point(629, 0);
             this.ubtnDetCreateLine.Name = "ubtnDetCreateLine";
-            this.ubtnDetCreateLine.Size = new System.Drawing.Size(99, 25);
+            this.ubtnDetCreateLine.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateLine.TabIndex = 8;
-            this.ubtnDetCreateLine.Text = "Nueva Partida";
+            this.ubtnDetCreateLine.Text = "Nueva";
             // 
             // upDetSeparator532
             // 
@@ -1062,6 +1062,7 @@
             // 
             // uosSchDates
             // 
+            this.uosSchDates.Dock = System.Windows.Forms.DockStyle.Left;
             valueListItem9.DataValue = -1;
             valueListItem9.DisplayText = "Ninguno";
             valueListItem10.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -1082,9 +1083,9 @@
             valueListItem12,
             valueListItem13,
             valueListItem14});
-            this.uosSchDates.Location = new System.Drawing.Point(6, 19);
+            this.uosSchDates.Location = new System.Drawing.Point(3, 16);
             this.uosSchDates.Name = "uosSchDates";
-            this.uosSchDates.Size = new System.Drawing.Size(145, 89);
+            this.uosSchDates.Size = new System.Drawing.Size(145, 92);
             this.uosSchDates.TabIndex = 0;
             // 
             // uceSchAsesor

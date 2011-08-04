@@ -83,6 +83,8 @@
     <Compile Include="Entities\Domain\Bidder.cs" />
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
+    <Compile Include="Entities\Domain\Competitor.cs" />
+    <Compile Include="Entities\Domain\TenderLinesManufacturers.cs" />
     <Compile Include="Entities\Domain\OpportunityLog.cs" />
     <Compile Include="Entities\Domain\TenderLog.cs" />
     <Compile Include="Entities\Domain\OpportunityType.cs" />
@@ -229,6 +231,14 @@
     <EmbeddedResource Include="Mappings\Domain\TenderLog.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\Competitor.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\TenderLinesManufacturers.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,24 +3,25 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="TenderManufacturer" table="TenderManufacturers">
+  <class name="TenderLinesManufacturers" table="TenderLinesManufacturers">
     
     <composite-id>
-      <key-property name="TenderId" column="TenderId" type="int"></key-property>
+      <key-property name="TenderLineId" column="TenderLineId" type="int"></key-property>
       <key-property name="ManufacturerId" column="ManufacturerId" type="int"></key-property>
     </composite-id>
-    
-    <property name="FolioReference"/>
-    <property name="ManufacturerSupport"/>
+
+    <property name="Price"/>
+    <property name="Description"/>
+    <property name="Model"/>
     <property name="Deleted"/>
     <property name="Activated"/>
     
   </class>
 
-  <query name="TenderManufacturer.SearchByParameters">
+  <query name="TenderLinesManufacturers.SearchByParameters">
     <![CDATA[
-        from TenderManufacturer where Deleted = 0 and Activated = 1
-        and TenderId = :TenderId
+        from TenderLinesManufacturers where Deleted = 0 and Activated = 1
+        and TenderLineId = :TenderLineId
     ]]>
   </query>
 
