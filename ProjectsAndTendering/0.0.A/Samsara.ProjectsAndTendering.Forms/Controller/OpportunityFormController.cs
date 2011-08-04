@@ -26,6 +26,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IAsesorService srvAsesor;
         private ITenderService srvTender;
         private IOpportunityService srvOpportunity;
+        private IOpportunityTypeService srvOpportunityType;
         private IOpportunityStatusService srvOpportunityStatus;
         private IManufacturerService srvManufacturer;
         private TabPage hiddenOpportunityDetailTab;
@@ -45,6 +46,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvTender);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
             Assert.IsNotNull(srvOpportunity);
+            this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityServiceType>();
+            Assert.IsNotNull(srvOpportunityType);
             this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
             Assert.IsNotNull(srvOpportunityStatus);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
@@ -58,14 +61,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void InitializeFormControls()
         {
-            // OpportunityType
-            //OpportunityTypeParameters pmtOpportunityType = new OpportunityTypeParameters();
-            //IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtOpportunityType);
+             OpportunityType
+            OpportunityTypeParameters pmtOpportunityType = new OpportunityTypeParameters();
+            IList<Asesor> lstAsesors = this.srvOpportunity.GetListByParameters(pmtOpportunityType);
 
-            //WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceSchAsesor,
-            //    lstAsesors, "AsesorId", "Name");
-            //WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceDetAsesor,
-            //    lstAsesors, "AsesorId", "Name");
+            WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceSchAsesor,
+                lstAsesors, "AsesorId", "Name");
+            WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceDetAsesor,
+                lstAsesors, "AsesorId", "Name");
 
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
