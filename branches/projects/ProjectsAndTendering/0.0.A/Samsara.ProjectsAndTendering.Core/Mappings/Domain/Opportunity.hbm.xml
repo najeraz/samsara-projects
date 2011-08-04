@@ -36,6 +36,9 @@
     <many-to-one name="OpportunityStatus"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.OpportunityStatus, Samsara.ProjectsAndTendering.Core"
                  column="OpportunityStatusId"/>
+    <many-to-one name="OpportunityType"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.OpportunityType, Samsara.ProjectsAndTendering.Core"
+                 column="OpportunityTypeId"/>
   </class>
 
   <query name="Opportunity.GetListByParameters">
@@ -49,17 +52,24 @@
     <return-scalar column="OpportunityName" type="string"/>
     <return-scalar column="OpportunityTypeName" type="string"/>
     <return-scalar column="OrganizationName" type="string"/>
+    <return-scalar column="BidderName" type="string"/>
+    <return-scalar column="DependencyName" type="string"/>
+    <return-scalar column="EndUserName" type="string"/>
     <return-scalar column="RegistrationDate" type="DateTime"/>
     <return-scalar column="AsesorName" type="string"/>
     <return-scalar column="PreRevisionDate" type="DateTime"/>
     <return-scalar column="Deadline" type="DateTime"/>
     <return-scalar column="OpportunityStatusName" type="string"/>
     <![CDATA[
-      SELECT o.OpportunityId, o.Name OpportunityName, ot.Name OpportunityTypeName, org.Name OrganizationName, 
+      SELECT o.OpportunityId, o.Name OpportunityName, ot.Name OpportunityTypeName, 
+      org.Name OrganizationName, b.Name BidderName, d.Name DependencyName, eu.Name EndUserName,
       o.RegistrationDate, a.Name AsesorName, o.PreRevisionDate, o.Deadline, os.Name OpportunityStatusName
       FROM Opportunities o
-      INNER JOIN OpportunityTypes ot      ON ot.OpportunityTypeId = o.OpportunityTypeId AND ot.Deleted = 0 and ot.Activated = 1
-      INNER JOIN Organizations org      ON org.OrganizationId = o.OrganizationId AND org.Deleted = 0 and org.Activated = 1
+      INNER JOIN OpportunityTypes ot    ON ot.OpportunityTypeId = o.OpportunityTypeId AND ot.Deleted = 0 and ot.Activated = 1
+      LEFT JOIN Organizations org       ON org.OrganizationId = o.OrganizationId AND org.Deleted = 0 and org.Activated = 1
+      LEFT JOIN	Bidders b	     	      	ON b.BidderId = o.BidderId AND b.Deleted = 0 and b.Activated = 1
+      LEFT JOIN	Dependencies d	      	ON d.DependencyId = o.DependencyId AND d.Deleted = 0 and d.Activated = 1
+      LEFT JOIN	EndUsers eu	    	      ON eu.EndUserId = o.EndUserId AND eu.Deleted = 0 and eu.Activated = 1
       LEFT JOIN	Asesors a		    	      ON a.AsesorId = o.AsesorId AND a.Deleted = 0 and a.Activated = 1
       LEFT JOIN	OpportunityStatuses os	ON os.OpportunityStatusId = o.OpportunityStatusId AND os.Deleted = 0 and os.Activated = 1
       WHERE o.Deleted = 0 and o.Activated = 1
