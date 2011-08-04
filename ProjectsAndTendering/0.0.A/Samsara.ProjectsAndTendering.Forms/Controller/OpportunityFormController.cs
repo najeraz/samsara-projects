@@ -206,51 +206,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            if (Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value) > 0)
-            {
-                Organization organization = srvOrganization.GetById(
-                    Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value));
-                Assert.IsNotNull(organization);
-                this.opportunity.Organization = organization;
-            }
-            if (Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value) > 0)
-            {
-                Bidder bidder = srvBidder.GetById(
-                    Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value));
-                Assert.IsNotNull(bidder);
-                this.opportunity.Bidder = bidder;
-            }
-            if (Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value) > 0)
-            {
-                Dependency dependency = srvDependency.GetById(
-                    Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value));
-                Assert.IsNotNull(dependency);
-                this.opportunity.Dependency = dependency;
-            }
+            Organization organization = srvOrganization.GetById(Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value));
+            this.opportunity.Organization = organization;
 
-            if (Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value) > 0)
-            {
-                EndUser endUser = srvEndUser.GetById(
-                    Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value));
-                Assert.IsNotNull(endUser);
-                this.opportunity.EndUser = endUser;
-            }
+            Bidder bidder = srvBidder.GetById(Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value));
+            this.opportunity.Bidder = bidder;
 
-            if (Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value) > 0)
-            {
-                Asesor asesor = srvAsesor.GetById(
-                    Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value));
-                Assert.IsNotNull(asesor);
-                this.opportunity.Asesor = asesor;
-            }
+            Dependency dependency = srvDependency.GetById(Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value));
+            this.opportunity.Dependency = dependency;
 
-            if (Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value) > 0)
-            {
-                OpportunityStatus opportunityStatus = this.srvOpportunityStatus.GetById(
-                    Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value));
-                Assert.IsNotNull(opportunityStatus);
-                this.opportunity.OpportunityStatus = opportunityStatus;
-            }
+            EndUser endUser = srvEndUser.GetById(Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value));
+            this.opportunity.EndUser = endUser;
+
+            Asesor asesor = srvAsesor.GetById(Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value));
+            this.opportunity.Asesor = asesor;
+
+            OpportunityStatus opportunityStatus = this.srvOpportunityStatus.GetById(
+                Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value));
+            this.opportunity.OpportunityStatus = opportunityStatus;
 
             this.opportunity.Deadline = (Nullable<DateTime>)this.frmOpportunity.dteDetDeadline.Value;
             this.opportunity.PreRevisionDate = (Nullable<DateTime>)this.frmOpportunity.dteDetPrerevisionDate.Value;
@@ -283,8 +256,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearSearchControls()
         {
             this.frmOpportunity.txtSchOpportunityName.Text = string.Empty;
-            this.frmOpportunity.uceSchAsesor.Value = -1;
+            this.frmOpportunity.uceSchOpportunityType.Value = -1;
+            this.frmOpportunity.uceSchBidder.Value = -1;
+            this.frmOpportunity.uceSchDependency.Value = -1;
+            this.frmOpportunity.uceSchEndUser.Value = -1;
             this.frmOpportunity.uceSchOrganization.Value = -1;
+            this.frmOpportunity.uceSchAsesor.Value = -1;
             this.frmOpportunity.uceSchOpportunityStatus.Value = -1;
             this.frmOpportunity.uosSchDates.Value = -1;
             this.frmOpportunity.dteSchMaxDate.DateTime = DateTime.Now;

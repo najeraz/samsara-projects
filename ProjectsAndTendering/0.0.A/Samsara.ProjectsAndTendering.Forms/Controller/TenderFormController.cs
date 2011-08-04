@@ -241,52 +241,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            if (Convert.ToInt32(this.frmTender.uceDetBidder.Value) > 0)
-            {
-                Bidder bidder = srvBidder.GetById(
-                    Convert.ToInt32(this.frmTender.uceDetBidder.Value));
-                Assert.IsNotNull(bidder);
-                this.tender.Bidder = bidder;
-            }
-            if (Convert.ToInt32(this.frmTender.uceDetDependency.Value) > 0)
-            {
-                Dependency dependency = srvDependency.GetById(
-                    Convert.ToInt32(this.frmTender.uceDetDependency.Value));
-                Assert.IsNotNull(dependency);
-                this.tender.Dependency = dependency;
-            }
+            Bidder bidder = srvBidder.GetById(Convert.ToInt32(this.frmTender.uceDetBidder.Value));
+            this.tender.Bidder = bidder;
+             
+            Dependency dependency = srvDependency.GetById(Convert.ToInt32(this.frmTender.uceDetDependency.Value));
+            this.tender.Dependency = dependency;
 
-            if (Convert.ToInt32(this.frmTender.uceDetEndUser.Value) > 0)
-            {
-                EndUser endUser = srvEndUser.GetById(
-                    Convert.ToInt32(this.frmTender.uceDetEndUser.Value));
-                Assert.IsNotNull(endUser);
-                this.tender.EndUser = endUser;
-            }
+            EndUser endUser = srvEndUser.GetById(Convert.ToInt32(this.frmTender.uceDetEndUser.Value));
+            this.tender.EndUser = endUser;
 
-            if (Convert.ToInt32(this.frmTender.uceDetAsesor.Value) > 0)
-            {
-                Asesor asesor = srvAsesor.GetById(
-                    Convert.ToInt32(this.frmTender.uceDetAsesor.Value));
-                Assert.IsNotNull(asesor);
-                this.tender.Asesor = asesor;
-            }
+            Asesor asesor = srvAsesor.GetById(Convert.ToInt32(this.frmTender.uceDetAsesor.Value));
+            this.tender.Asesor = asesor;
 
-            if (Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value) > 0)
-            {
-                Asesor asesor = srvAsesor.GetById(
-                    Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value));
-                Assert.IsNotNull(asesor);
-                this.tender.ApprovedBy = asesor;
-            }
+            asesor = srvAsesor.GetById(
+                Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value));
+            this.tender.ApprovedBy = asesor;
 
-            if (Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value) > 0)
-            {
-                TenderStatus tenderStatus = srvTenderStatus.GetById(
-                    Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value));
-                Assert.IsNotNull(tenderStatus);
-                this.tender.TenderStatus = tenderStatus;
-            }
+            TenderStatus tenderStatus = srvTenderStatus.GetById(Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value));
+            this.tender.TenderStatus = tenderStatus;
 
             this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTender.dteDetClarificationDate.Value;
             this.tender.Deadline = (Nullable<DateTime>)this.frmTender.dteDetDeadline.Value;

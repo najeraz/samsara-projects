@@ -124,7 +124,6 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
             try
             {
-                if (lstResult.Count == 0) throw new Exception();
                 IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
                 dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp);
             }
