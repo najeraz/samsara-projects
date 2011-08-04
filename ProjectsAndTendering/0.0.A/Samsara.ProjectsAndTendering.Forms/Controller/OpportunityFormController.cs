@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
@@ -12,6 +13,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
+using Infragistics.Win;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -33,6 +35,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IOpportunityStatusService srvOpportunityStatus;
         private IManufacturerService srvManufacturer;
         private TabPage hiddenOpportunityDetailTab;
+        private DataTable dtOpportunityLog;
 
         #endregion Attributes
 
@@ -219,28 +222,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            OpportunityType opportunityType = this.srvOpportunityType.GetById(
+            this.opportunity.OpportunityType = this.srvOpportunityType.GetById(
                 Convert.ToInt32(this.frmOpportunity.uceDetOpportunityType.Value));
-            this.opportunity.OpportunityType = opportunityType;
-
-            Organization organization = srvOrganization.GetById(Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value));
-            this.opportunity.Organization = organization;
-
-            Bidder bidder = srvBidder.GetById(Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value));
-            this.opportunity.Bidder = bidder;
-
-            Dependency dependency = srvDependency.GetById(Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value));
-            this.opportunity.Dependency = dependency;
-
-            EndUser endUser = srvEndUser.GetById(Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value));
-            this.opportunity.EndUser = endUser;
-
-            Asesor asesor = srvAsesor.GetById(Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value));
-            this.opportunity.Asesor = asesor;
-
-            OpportunityStatus opportunityStatus = this.srvOpportunityStatus.GetById(
+            this.opportunity.Organization = srvOrganization.GetById(Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value));
+            this.opportunity.Bidder = srvBidder.GetById(Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value));
+            this.opportunity.Dependency = srvDependency.GetById(Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value));
+            this.opportunity.EndUser = srvEndUser.GetById(Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value));
+            this.opportunity.Asesor = srvAsesor.GetById(Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value));
+            this.opportunity.OpportunityStatus = this.srvOpportunityStatus.GetById(
                 Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value));
-            this.opportunity.OpportunityStatus = opportunityStatus;
 
             this.opportunity.Deadline = (Nullable<DateTime>)this.frmOpportunity.dteDetDeadline.Value;
             this.opportunity.PreRevisionDate = (Nullable<DateTime>)this.frmOpportunity.dteDetPrerevisionDate.Value;
@@ -268,6 +258,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.txtDetRelatedTender.Text = string.Empty;
             this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
             this.frmOpportunity.gbxDetRelatedTender.Visible = false;
+            this.frmOpportunity.uceDetOpportunityType.ReadOnly = false;
         }
 
         private void ClearSearchControls()
@@ -339,10 +330,27 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.opportunity.RegistrationDate.HasValue)
                 this.frmOpportunity.dteDetRegistrationDate.Value = this.opportunity.RegistrationDate.Value;
             if (tender == null)
+            {
                 this.frmOpportunity.ubtnDetGenerateTender.Visible = true;
+                this.frmOpportunity.gbxDetRelatedTender.Visible = false;
+            }
             else
+            {
                 this.frmOpportunity.txtDetRelatedTender.Text = this.tender.Name;
-            this.frmOpportunity.gbxDetRelatedTender.Visible = true;
+                this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
+                this.frmOpportunity.gbxDetRelatedTender.Visible = true;
+                this.frmOpportunity.uceDetOpportunityType.ReadOnly = true;
+            }
+
+            foreach (OpportunityLog opportunityLog in this.opportunity.OpportunityLogs)
+            {
+                DataRow row = this.dtOpportunityLog.NewRow();
+                this.dtOpportunityLog.Rows.Add(row);
+
+                row["Description"] = opportunityLog.Description;
+                row["LogDate"] = opportunityLog.LogDate;
+                row["OpportunityLogId"] = opportunityLog.OpportunityLogId;
+            }
         }
 
         private void DeleteEntity(int OpportunityId)
@@ -381,7 +389,55 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void GenerateTender()
         {
-            throw new NotImplementedException();
+            this.tender = new Tender();
+
+            this.tender.Opportunity = this.opportunity;
+            this.tender.Bidder = srvBidder.GetById(Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value));
+            this.tender.Dependency = srvDependency.GetById(Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value));
+            this.tender.EndUser = srvEndUser.GetById(Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value));
+            this.tender.Asesor = srvAsesor.GetById(Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value));
+
+            this.tender.Deadline = (Nullable<DateTime>)this.frmOpportunity.dteDetDeadline.Value;
+            this.tender.PreRevisionDate = (Nullable<DateTime>)this.frmOpportunity.dteDetPrerevisionDate.Value;
+            this.tender.RegistrationDate = (Nullable<DateTime>)this.frmOpportunity.dteDetRegistrationDate.Value;
+            this.tender.AcquisitionReason = this.frmOpportunity.txtDetAcquisitionReason.Text;
+            this.tender.Name = this.frmOpportunity.txtDetOpportunityName.Text;
+
+            this.tender.Activated = true;
+            this.tender.Deleted = false;
+
+            this.srvTender.Save(this.tender);
+
+            this.frmOpportunity.txtDetRelatedTender.Text = this.tender.Name;
+            this.frmOpportunity.ubtnDetGenerateTender.Visible = true;
+            this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
+        }
+
+        private void GetOpportunityLogs()
+        {
+            foreach (OpportunityLog opportunityLog in this.opportunity.OpportunityLogs)
+            {
+                opportunityLog.Deleted = true;
+                opportunityLog.Activated = false;
+            }
+
+            foreach (DataRow row in this.dtOpportunityLog.Rows)
+            {
+                OpportunityLog opportunityLog = this.opportunity.OpportunityLogs
+                    .SingleOrDefault(x => row["OpportunityLogId"] != DBNull.Value &&
+                        x.OpportunityLogId == Convert.ToInt32(row["OpportunityLogId"]));
+
+                if (opportunityLog == null)
+                {
+                    opportunityLog = new OpportunityLog();
+                    this.opportunity.OpportunityLogs.Add(opportunityLog);
+                }
+
+                opportunityLog.Description = row["Description"].ToString();
+                opportunityLog.LogDate = Convert.ToDateTime(row["LogDate"]);
+                opportunityLog.Activated = true;
+                opportunityLog.Deleted = false;
+            }
         }
 
         #endregion Methods
@@ -542,6 +598,43 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.uceSchEndUser.Visible = false;
                 this.frmOpportunity.uceSchOrganization.Visible = false;
             }
+        }
+
+        private void ubtnDetDeleteLog_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmOpportunity.grdDetLog.ActiveRow;
+
+            if (activeRow == null) return;
+
+            this.dtOpportunityLog.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+        }
+
+        private void ubtnDetCreateLog_Click(object sender, EventArgs e)
+        {
+            this.grdDetLog_InitializeLayout(null, null);
+            DataRow newRow = this.dtOpportunityLog.NewRow();
+            this.dtOpportunityLog.Rows.Add(newRow);
+            newRow["DateLod"] = DateTime.Now;
+            this.dtOpportunityLog.AcceptChanges();
+        }
+
+        private void grdDetLog_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmOpportunity.grdDetLog.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+        }
+
+        private void grdDetLog_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            e.Cell.Row.PerformAutoSize();
         }
         #endregion Events
     }

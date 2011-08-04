@@ -39,6 +39,14 @@
     <many-to-one name="OpportunityType"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.OpportunityType, Samsara.ProjectsAndTendering.Core"
                  column="OpportunityTypeId"/>
+    
+    <set name="OpportunityLogs" table="OpportunityLogs" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="OpportunityId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.OpportunityLog, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
   </class>
 
   <query name="Opportunity.GetListByParameters">

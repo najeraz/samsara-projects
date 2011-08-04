@@ -283,12 +283,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void GetTenderLines()
         {
-            if (this.tender.TenderLines != null)
-                foreach (TenderLine tenderLine in this.tender.TenderLines)
-                {
-                    tenderLine.Deleted = true;
-                    tenderLine.Activated = false;
-                }
+            foreach (TenderLine tenderLine in this.tender.TenderLines)
+            {
+                tenderLine.Deleted = true;
+                tenderLine.Activated = false;
+            }
 
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
@@ -313,12 +312,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void GetTenderManufacturers()
         {
-            if (this.tender.TenderManufacturers != null)
-                foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
-                {
-                    tenderManufacturer.Deleted = true;
-                    tenderManufacturer.Activated = false;
-                }
+            foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
+            {
+                tenderManufacturer.Deleted = true;
+                tenderManufacturer.Activated = false;
+            }
 
             foreach (DataRow row in this.dtTenderManufacturers.Rows)
             {
@@ -520,6 +518,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
             band.Override.RowSizing = RowSizing.AutoFixed;
             band.Override.RowSizingAutoMaxLines = 5;
 
@@ -547,6 +546,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridBand band = layout.Bands[0];
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
             band.Override.RowSizing = RowSizing.AutoFixed;
             band.Override.RowSizingAutoMaxLines = 5;
 
@@ -562,8 +562,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void grdDetTenderManufacturers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
-            UltraGridRow activeRow = this.frmTender.grdDetTenderManufacturers.ActiveRow;
-            if (activeRow == null) return;
 
             if (e.Cell.Column.Key == "ManufacturerId" && Convert.ToInt32(e.NewValue) != -1)
             {
@@ -637,12 +635,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmTender.grdTenderLines.ActiveRow;
 
             if (activeRow == null) return;
-
-            if (activeRow.Cells["TenderLineId"].Value != DBNull.Value &&
-                Convert.ToInt32(activeRow.Cells["TenderLineId"].Value) > 0)
-            {
-                int tenderLineId = Convert.ToInt32(activeRow.Cells["TenderLineId"].Value);
-            }
 
             this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
         }

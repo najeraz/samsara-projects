@@ -149,7 +149,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 408);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -266,7 +265,7 @@
             // 
             // ubtnDetGenerateTender
             // 
-            this.ubtnDetGenerateTender.Location = new System.Drawing.Point(7, 233);
+            this.ubtnDetGenerateTender.Location = new System.Drawing.Point(600, 235);
             this.ubtnDetGenerateTender.Name = "ubtnDetGenerateTender";
             this.ubtnDetGenerateTender.Size = new System.Drawing.Size(124, 23);
             this.ubtnDetGenerateTender.TabIndex = 75;
@@ -323,7 +322,7 @@
             // gbxDetRelatedTender
             // 
             this.gbxDetRelatedTender.Controls.Add(this.txtDetRelatedTender);
-            this.gbxDetRelatedTender.Location = new System.Drawing.Point(144, 218);
+            this.gbxDetRelatedTender.Location = new System.Drawing.Point(11, 221);
             this.gbxDetRelatedTender.Name = "gbxDetRelatedTender";
             this.gbxDetRelatedTender.Size = new System.Drawing.Size(583, 43);
             this.gbxDetRelatedTender.TabIndex = 74;
@@ -828,7 +827,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 462);
             this.Name = "OpportunityForm";
-            this.Text = "Catálogo de Oportunidades";
+            this.Text = "Oportunidades";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);

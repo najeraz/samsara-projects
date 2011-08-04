@@ -100,14 +100,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            if (Convert.ToInt32(this.frmEndUser.uceDetDependency.Value) > 0)
-            {
-                Dependency endUserType = srvDependency.GetById(
-                    Convert.ToInt32(this.frmEndUser.uceDetDependency.Value));
-                Assert.IsNotNull(endUserType);
-                this.endUser.Dependency = endUserType;
-            }
-
+            this.endUser.Dependency = srvDependency.GetById(Convert.ToInt32(this.frmEndUser.uceDetDependency.Value));
             this.endUser.Name = this.frmEndUser.txtDetName.Text;
 
             this.endUser.Activated = true;

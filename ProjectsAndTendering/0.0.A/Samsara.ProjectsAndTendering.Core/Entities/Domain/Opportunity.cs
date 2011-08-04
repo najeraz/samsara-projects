@@ -6,6 +6,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
     public class Opportunity : GenericEntity
     {
+        private ISet<OpportunityLog> opportunityLogs;
+
         public Opportunity()
         {
             OpportunityId = -1;
@@ -93,6 +95,21 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             get;
             set;
+        }
+
+        public virtual ISet<OpportunityLog> OpportunityLogs
+        {
+            get
+            {
+                if (this.opportunityLogs == null)
+                    this.opportunityLogs = new HashedSet<OpportunityLog>();
+
+                return this.opportunityLogs;
+            }
+            set
+            {
+                this.opportunityLogs = value;
+            }
         }
 
         public override int GetHashCode()
