@@ -42,12 +42,6 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
-        public string TenderName
-        {
-            get;
-            set;
-        }
-
         public DateTypeSearchEnum? DateTypeSearchId
         {
             get;

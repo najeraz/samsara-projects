@@ -42,7 +42,7 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
-        public string OpportunityName
+        public int? OpportunityTypeId
         {
             get;
             set;

@@ -510,7 +510,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTender.DependencyId = (int)this.frmTender.uceSchDependency.Value;
             pmtTender.EndUserId = (int)this.frmTender.uceSchEndUser.Value;
             pmtTender.TenderStatusId = (int)this.frmTender.uceSchTenderStatus.Value;
-            pmtTender.TenderName = "%" + this.frmTender.txtSchTenderName.Text + "%";
+            pmtTender.Name = "%" + this.frmTender.txtSchTenderName.Text + "%";
             pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTender.uosSchDates.Value;
 
             DataTable dtTenders = srvTender.SearchByParameters(pmtTender);

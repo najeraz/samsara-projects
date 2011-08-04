@@ -124,6 +124,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
             try
             {
+                if (lstResult.Count == 0) throw new Exception();
                 IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
                 dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp);
             }
@@ -155,7 +156,11 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
                 nullableType = Nullable.GetUnderlyingType(pInfo.PropertyType);
                 if (parameterValue != null)
                 {
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
+                    if (pInfo.PropertyType.IsAssignableFrom(typeof(int)))
+                    {
+                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
+                    }
+                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
                     {
                         dnq.SetBoolean(pInfo.Name, (bool)parameterValue);
                     }
