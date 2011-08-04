@@ -24,13 +24,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private TenderForm frmTender;
         private Tender tender;
         private IBidderService srvBidder;
+        private IDependencyService srvDependency;
+        private IEndUserService srvEndUser;
         private IAsesorService srvAsesor;
         private ITenderStatusService srvTenderStatus;
-        private IDependencyService srvDependency;
         private ITenderService srvTender;
         private ITenderLineService srvTenderLine;
         private ITenderManufacturerService srvTenderManufacturer;
-        private IEndUserService srvEndUser;
         private IManufacturerService srvManufacturer;
         private DataTable dtTenderLines;
         private DataTable dtTenderManufacturers;
@@ -510,6 +510,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTender.AsesorId = (int)this.frmTender.uceSchAsesor.Value;
             pmtTender.BidderId = (int)this.frmTender.uceSchBidder.Value;
             pmtTender.DependencyId = (int)this.frmTender.uceSchDependency.Value;
+            pmtTender.EndUserId = (int)this.frmTender.uceSchEndUser.Value;
             pmtTender.TenderStatusId = (int)this.frmTender.uceSchTenderStatus.Value;
             pmtTender.TenderName = "%" + this.frmTender.txtSchTenderName.Text + "%";
             pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTender.uosSchDates.Value;

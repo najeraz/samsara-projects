@@ -23,6 +23,24 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual Bidder Bidder
+        {
+            get;
+            set;
+        }
+
+        public virtual EndUser EndUser
+        {
+            get;
+            set;
+        }
+
+        public virtual Dependency Dependency
+        {
+            get;
+            set;
+        }
+
         public virtual DateTime? RegistrationDate
         {
             get;
