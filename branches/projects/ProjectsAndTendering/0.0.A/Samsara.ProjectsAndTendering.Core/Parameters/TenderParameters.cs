@@ -12,6 +12,12 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
+        public int? OpportunityId
+        {
+            get;
+            set;
+        }
+
         public int? BidderId
         {
             get;

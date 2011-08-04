@@ -6,14 +6,14 @@ using System.Data;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
 {
-    public interface IGenericDao<T, TId>
+    public interface IGenericDao<T, TId, Tpmt>
     {
         void Delete(T entity);
         IList<T> GetAll();
         T GetById(TId Id);
-        T GetByParameters(GenericParameters parameters);
-        DataTable SearchByParameters(GenericParameters parameters);
-        IList<T> GetListByParameters(GenericParameters parameters);
+        T GetByParameters(Tpmt parameters);
+        DataTable SearchByParameters(Tpmt parameters);
+        IList<T> GetListByParameters(Tpmt parameters);
         IList<TType> GetList<TType>(DetachedNamedQuery dnq);
         IList<T> GetList(DetachedNamedQuery dnq);
         IList<TType> GetList<TType>(DetachedCriteria detachedCriteria);

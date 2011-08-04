@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces.Domain
 {
-    public interface IBidderTypeDao : IGenericDao<BidderType,int>
+    public interface IBidderTypeDao : IGenericDao<BidderType, int, BidderTypeParameters>
     {
     }
 }

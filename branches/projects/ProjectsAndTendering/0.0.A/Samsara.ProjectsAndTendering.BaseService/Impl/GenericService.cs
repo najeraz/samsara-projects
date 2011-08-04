@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.BaseService.Impl
 {
-    public class GenericService<T, TId, TDao> : IGenericService<T, TId> where TDao : IGenericDao<T, TId>
+    public class GenericService<T, TId, TDao, Tpmt> : IGenericService<T, TId, Tpmt> where TDao : IGenericDao<T, TId, Tpmt>
     {
         #region Properties
 
@@ -51,17 +51,17 @@ namespace Samsara.ProjectsAndTendering.BaseService.Impl
             return Dao.GetById(id);
         }
 
-        public T GetByParameters(GenericParameters parameters)
+        public T GetByParameters(Tpmt parameters)
         {
             return Dao.GetByParameters(parameters);
         }
 
-        public DataTable SearchByParameters(GenericParameters parameters)
+        public DataTable SearchByParameters(Tpmt parameters)
         {
             return this.Dao.SearchByParameters(parameters);
         }
 
-        public IList<T> GetListByParameters(GenericParameters parameters)
+        public IList<T> GetListByParameters(Tpmt parameters)
         {
             return this.Dao.GetListByParameters(parameters);
         }

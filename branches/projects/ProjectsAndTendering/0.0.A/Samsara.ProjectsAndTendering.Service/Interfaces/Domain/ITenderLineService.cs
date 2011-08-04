@@ -1,10 +1,11 @@
 ﻿
 using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
+using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface ITenderLineService : IGenericService<TenderLine, int>
+    public interface ITenderLineService : IGenericService<TenderLine, int, TenderLineParameters>
     {
     }
 }

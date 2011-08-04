@@ -14,7 +14,7 @@ using Spring.Data.NHibernate.Generic.Support;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 {
-    public class GenericDao<T, TId> : HibernateDaoSupport, IGenericDao<T, TId>
+    public class GenericDao<T, TId, Tpmt> : HibernateDaoSupport, IGenericDao<T, TId, Tpmt>
     {
         #region Methods
 
@@ -55,20 +55,20 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return HibernateTemplate.Get<T>(Id);
         }
 
-        public T GetByParameters(GenericParameters parameters)
+        public T GetByParameters(Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
                 typeof(T).Name + ".GetByParameters", parameters);
             return dnq.GetExecutableQuery(Session).UniqueResult<T>();
         }
 
-        public DataTable SearchByParameters(GenericParameters parameters)
+        public DataTable SearchByParameters(Tpmt parameters)
         {
             return this.DataTableByParameters(
                 typeof(T).Name + ".SearchByParameters", parameters);
         }
 
-        public IList<T> GetListByParameters(GenericParameters parameters)
+        public IList<T> GetListByParameters(Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
                 typeof(T).Name + ".GetListByParameters", parameters);
@@ -110,13 +110,13 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return detachedCriteria.GetExecutableCriteria(Session).List<TType>();
         }
 
-        public IList GetGenericListByParameters(string queryName, GenericParameters parameters)
+        public IList GetGenericListByParameters(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetObjectList(dnq);
         }
 
-        public DataTable DataTableByParameters(string queryName, GenericParameters parameters)
+        public DataTable DataTableByParameters(string queryName, Tpmt parameters)
         {
             DataTable dtResult = null;
 
@@ -143,7 +143,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         #region Private
 
-        private DetachedNamedQuery GetDetachedNamedQuery(string queryName, GenericParameters parameters)
+        private DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
             object parameterValue;

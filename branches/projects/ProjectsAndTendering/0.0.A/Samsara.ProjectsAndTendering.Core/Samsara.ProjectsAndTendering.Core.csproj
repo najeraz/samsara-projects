@@ -101,6 +101,8 @@
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
+    <Compile Include="Parameters\GridColumnConfigurationParameters.cs" />
+    <Compile Include="Parameters\GridConfigurationParameters.cs" />
     <Compile Include="Parameters\OrganizationParameters.cs" />
     <Compile Include="Parameters\OpportunityStatusParameters.cs" />
     <Compile Include="Parameters\OpportunityParameters.cs" />
