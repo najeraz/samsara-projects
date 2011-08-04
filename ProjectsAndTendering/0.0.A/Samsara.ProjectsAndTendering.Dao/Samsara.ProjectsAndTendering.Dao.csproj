@@ -116,6 +116,7 @@
     <Compile Include="Impl\Domain\TenderDao.cs" />
     <Compile Include="Impl\Domain\ManufacturerDao.cs" />
     <Compile Include="Impl\Domain\DependencyDao.cs" />
+    <Compile Include="Interfaces\Configuration\FormParameters.cs" />
     <Compile Include="Interfaces\Configuration\IGridConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationDao.cs" />

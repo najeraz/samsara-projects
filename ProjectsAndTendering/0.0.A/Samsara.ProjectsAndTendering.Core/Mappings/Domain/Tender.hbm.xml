@@ -63,6 +63,16 @@
 
   </class>
 
+  <query name="Tender.GetByParameters">
+    <![CDATA[
+        select t from Tender t
+        where t.Deleted = 0 and t.Activated = 1
+        AND 0 = t.Opportunity.Deleted
+        AND 1 = t.Opportunity.Activated
+        AND :OpportunityId = t.Opportunity.OpportunityId
+    ]]>
+  </query>
+
   <query name="Tender.GetListByParameters">
     <![CDATA[
         from Tender where Deleted = 0 and Activated = 1

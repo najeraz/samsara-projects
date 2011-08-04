@@ -35,14 +35,22 @@
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
-            this.gbxDetRelatedTender = new System.Windows.Forms.GroupBox();
             this.ubtnDetGenerateTender = new Infragistics.Win.Misc.UltraButton();
-            this.oscDetRelatedTender = new Samsara.ProjectsAndTendering.Controls.OpportunitySearchControl();
+            this.uceDetEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.uceDetDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.uceDetBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblDetBidder = new System.Windows.Forms.Label();
+            this.lblDetEndUser = new System.Windows.Forms.Label();
+            this.lblDetDependency = new System.Windows.Forms.Label();
+            this.gbxDetRelatedTender = new System.Windows.Forms.GroupBox();
+            this.txtDetRelatedTender = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.uceDetOpportunityStatus = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceDetAsesor = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.uceDetOpportunityType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceDetOrganization = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblDetOpportunityType = new System.Windows.Forms.Label();
             this.lblDetRegistrationDate = new System.Windows.Forms.Label();
             this.lblDeOrganization = new System.Windows.Forms.Label();
             this.lblDetOpportunityName = new System.Windows.Forms.Label();
@@ -68,25 +76,22 @@
             this.uceSchAsesor = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchOpportunityStatus = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchOrganization = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceDetEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceDetDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceDetBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblDetBidder = new System.Windows.Forms.Label();
-            this.lblDetEndUser = new System.Windows.Forms.Label();
-            this.lblDetDependency = new System.Windows.Forms.Label();
-            this.uceDetOpportunityType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblDetOpportunityType = new System.Windows.Forms.Label();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
             this.Principal.SuspendLayout();
             this.upDetControls.ClientArea.SuspendLayout();
             this.upDetControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetEndUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).BeginInit();
             this.gbxDetRelatedTender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetRelatedTender)).BeginInit();
             this.gbxDetAcquisitionReason.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetAcquisitionReason)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetOpportunityStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetAsesor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetOpportunityType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetOrganization)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOpportunityName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetDeadline)).BeginInit();
@@ -101,10 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchAsesor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchOpportunityStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchOrganization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetEndUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetOpportunityType)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -216,16 +217,6 @@
             this.upDetControls.Size = new System.Drawing.Size(730, 275);
             this.upDetControls.TabIndex = 57;
             // 
-            // gbxDetRelatedTender
-            // 
-            this.gbxDetRelatedTender.Controls.Add(this.oscDetRelatedTender);
-            this.gbxDetRelatedTender.Location = new System.Drawing.Point(144, 218);
-            this.gbxDetRelatedTender.Name = "gbxDetRelatedTender";
-            this.gbxDetRelatedTender.Size = new System.Drawing.Size(583, 43);
-            this.gbxDetRelatedTender.TabIndex = 74;
-            this.gbxDetRelatedTender.TabStop = false;
-            this.gbxDetRelatedTender.Text = "Licitación Relacionada:";
-            // 
             // ubtnDetGenerateTender
             // 
             this.ubtnDetGenerateTender.Location = new System.Drawing.Point(7, 233);
@@ -234,14 +225,72 @@
             this.ubtnDetGenerateTender.TabIndex = 75;
             this.ubtnDetGenerateTender.Text = "Generar Licitación";
             // 
-            // oscDetRelatedTender
+            // uceDetEndUser
             // 
-            this.oscDetRelatedTender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oscDetRelatedTender.Location = new System.Drawing.Point(3, 16);
-            this.oscDetRelatedTender.Name = "oscDetRelatedTender";
-            this.oscDetRelatedTender.Size = new System.Drawing.Size(577, 24);
-            this.oscDetRelatedTender.TabIndex = 76;
-            this.oscDetRelatedTender.Value = null;
+            this.uceDetEndUser.Location = new System.Drawing.Point(144, 167);
+            this.uceDetEndUser.Name = "uceDetEndUser";
+            this.uceDetEndUser.Size = new System.Drawing.Size(226, 21);
+            this.uceDetEndUser.TabIndex = 77;
+            // 
+            // uceDetDependency
+            // 
+            this.uceDetDependency.Location = new System.Drawing.Point(144, 140);
+            this.uceDetDependency.Name = "uceDetDependency";
+            this.uceDetDependency.Size = new System.Drawing.Size(226, 21);
+            this.uceDetDependency.TabIndex = 76;
+            // 
+            // uceDetBidder
+            // 
+            this.uceDetBidder.Location = new System.Drawing.Point(144, 113);
+            this.uceDetBidder.Name = "uceDetBidder";
+            this.uceDetBidder.Size = new System.Drawing.Size(226, 21);
+            this.uceDetBidder.TabIndex = 75;
+            // 
+            // lblDetBidder
+            // 
+            this.lblDetBidder.AutoSize = true;
+            this.lblDetBidder.Location = new System.Drawing.Point(7, 117);
+            this.lblDetBidder.Name = "lblDetBidder";
+            this.lblDetBidder.Size = new System.Drawing.Size(50, 13);
+            this.lblDetBidder.TabIndex = 80;
+            this.lblDetBidder.Text = "Licitante:";
+            // 
+            // lblDetEndUser
+            // 
+            this.lblDetEndUser.AutoSize = true;
+            this.lblDetEndUser.Location = new System.Drawing.Point(7, 171);
+            this.lblDetEndUser.Name = "lblDetEndUser";
+            this.lblDetEndUser.Size = new System.Drawing.Size(71, 13);
+            this.lblDetEndUser.TabIndex = 79;
+            this.lblDetEndUser.Text = "Usuario Final:";
+            // 
+            // lblDetDependency
+            // 
+            this.lblDetDependency.AutoSize = true;
+            this.lblDetDependency.Location = new System.Drawing.Point(7, 144);
+            this.lblDetDependency.Name = "lblDetDependency";
+            this.lblDetDependency.Size = new System.Drawing.Size(74, 13);
+            this.lblDetDependency.TabIndex = 78;
+            this.lblDetDependency.Text = "Dependencia:";
+            // 
+            // gbxDetRelatedTender
+            // 
+            this.gbxDetRelatedTender.Controls.Add(this.txtDetRelatedTender);
+            this.gbxDetRelatedTender.Location = new System.Drawing.Point(144, 218);
+            this.gbxDetRelatedTender.Name = "gbxDetRelatedTender";
+            this.gbxDetRelatedTender.Size = new System.Drawing.Size(583, 43);
+            this.gbxDetRelatedTender.TabIndex = 74;
+            this.gbxDetRelatedTender.TabStop = false;
+            this.gbxDetRelatedTender.Text = "Licitación Relacionada:";
+            // 
+            // txtDetRelatedTender
+            // 
+            this.txtDetRelatedTender.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetRelatedTender.Location = new System.Drawing.Point(3, 16);
+            this.txtDetRelatedTender.Name = "txtDetRelatedTender";
+            this.txtDetRelatedTender.ReadOnly = true;
+            this.txtDetRelatedTender.Size = new System.Drawing.Size(577, 21);
+            this.txtDetRelatedTender.TabIndex = 10;
             // 
             // gbxDetAcquisitionReason
             // 
@@ -276,12 +325,28 @@
             this.uceDetAsesor.Size = new System.Drawing.Size(226, 21);
             this.uceDetAsesor.TabIndex = 17;
             // 
+            // uceDetOpportunityType
+            // 
+            this.uceDetOpportunityType.Location = new System.Drawing.Point(144, 32);
+            this.uceDetOpportunityType.Name = "uceDetOpportunityType";
+            this.uceDetOpportunityType.Size = new System.Drawing.Size(226, 21);
+            this.uceDetOpportunityType.TabIndex = 14;
+            // 
             // uceDetOrganization
             // 
             this.uceDetOrganization.Location = new System.Drawing.Point(144, 86);
             this.uceDetOrganization.Name = "uceDetOrganization";
             this.uceDetOrganization.Size = new System.Drawing.Size(226, 21);
             this.uceDetOrganization.TabIndex = 14;
+            // 
+            // lblDetOpportunityType
+            // 
+            this.lblDetOpportunityType.AutoSize = true;
+            this.lblDetOpportunityType.Location = new System.Drawing.Point(7, 36);
+            this.lblDetOpportunityType.Name = "lblDetOpportunityType";
+            this.lblDetOpportunityType.Size = new System.Drawing.Size(107, 13);
+            this.lblDetOpportunityType.TabIndex = 53;
+            this.lblDetOpportunityType.Text = "Tipo de Oportunidad:";
             // 
             // lblDetRegistrationDate
             // 
@@ -516,70 +581,6 @@
             this.uceSchOrganization.Size = new System.Drawing.Size(226, 21);
             this.uceSchOrganization.TabIndex = 7;
             // 
-            // uceDetEndUser
-            // 
-            this.uceDetEndUser.Location = new System.Drawing.Point(144, 167);
-            this.uceDetEndUser.Name = "uceDetEndUser";
-            this.uceDetEndUser.Size = new System.Drawing.Size(226, 21);
-            this.uceDetEndUser.TabIndex = 77;
-            // 
-            // uceDetDependency
-            // 
-            this.uceDetDependency.Location = new System.Drawing.Point(144, 140);
-            this.uceDetDependency.Name = "uceDetDependency";
-            this.uceDetDependency.Size = new System.Drawing.Size(226, 21);
-            this.uceDetDependency.TabIndex = 76;
-            // 
-            // uceDetBidder
-            // 
-            this.uceDetBidder.Location = new System.Drawing.Point(144, 113);
-            this.uceDetBidder.Name = "uceDetBidder";
-            this.uceDetBidder.Size = new System.Drawing.Size(226, 21);
-            this.uceDetBidder.TabIndex = 75;
-            // 
-            // lblDetBidder
-            // 
-            this.lblDetBidder.AutoSize = true;
-            this.lblDetBidder.Location = new System.Drawing.Point(7, 117);
-            this.lblDetBidder.Name = "lblDetBidder";
-            this.lblDetBidder.Size = new System.Drawing.Size(50, 13);
-            this.lblDetBidder.TabIndex = 80;
-            this.lblDetBidder.Text = "Licitante:";
-            // 
-            // lblDetEndUser
-            // 
-            this.lblDetEndUser.AutoSize = true;
-            this.lblDetEndUser.Location = new System.Drawing.Point(7, 171);
-            this.lblDetEndUser.Name = "lblDetEndUser";
-            this.lblDetEndUser.Size = new System.Drawing.Size(71, 13);
-            this.lblDetEndUser.TabIndex = 79;
-            this.lblDetEndUser.Text = "Usuario Final:";
-            // 
-            // lblDetDependency
-            // 
-            this.lblDetDependency.AutoSize = true;
-            this.lblDetDependency.Location = new System.Drawing.Point(7, 144);
-            this.lblDetDependency.Name = "lblDetDependency";
-            this.lblDetDependency.Size = new System.Drawing.Size(74, 13);
-            this.lblDetDependency.TabIndex = 78;
-            this.lblDetDependency.Text = "Dependencia:";
-            // 
-            // uceDetOpportunityType
-            // 
-            this.uceDetOpportunityType.Location = new System.Drawing.Point(144, 32);
-            this.uceDetOpportunityType.Name = "uceDetOpportunityType";
-            this.uceDetOpportunityType.Size = new System.Drawing.Size(226, 21);
-            this.uceDetOpportunityType.TabIndex = 14;
-            // 
-            // lblDetOpportunityType
-            // 
-            this.lblDetOpportunityType.AutoSize = true;
-            this.lblDetOpportunityType.Location = new System.Drawing.Point(7, 36);
-            this.lblDetOpportunityType.Name = "lblDetOpportunityType";
-            this.lblDetOpportunityType.Size = new System.Drawing.Size(107, 13);
-            this.lblDetOpportunityType.TabIndex = 53;
-            this.lblDetOpportunityType.Text = "Tipo de Oportunidad:";
-            // 
             // OpportunityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,12 +596,18 @@
             this.upDetControls.ClientArea.ResumeLayout(false);
             this.upDetControls.ClientArea.PerformLayout();
             this.upDetControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetEndUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).EndInit();
             this.gbxDetRelatedTender.ResumeLayout(false);
+            this.gbxDetRelatedTender.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetRelatedTender)).EndInit();
             this.gbxDetAcquisitionReason.ResumeLayout(false);
             this.gbxDetAcquisitionReason.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetAcquisitionReason)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetOpportunityStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetAsesor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetOpportunityType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetOrganization)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOpportunityName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetDeadline)).EndInit();
@@ -616,10 +623,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchAsesor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchOpportunityStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchOrganization)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetEndUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetOpportunityType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -659,8 +662,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
         internal System.Windows.Forms.GroupBox gbxDetAcquisitionReason;
         internal System.Windows.Forms.Label lblDetOpportunityName;
-        private Infragistics.Win.Misc.UltraButton ubtnDetGenerateTender;
-        private Controls.OpportunitySearchControl oscDetRelatedTender;
         internal System.Windows.Forms.GroupBox gbxDetRelatedTender;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetEndUser;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetDependency;
@@ -670,6 +671,8 @@
         private System.Windows.Forms.Label lblDetDependency;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetOpportunityType;
         private System.Windows.Forms.Label lblDetOpportunityType;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetRelatedTender;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetGenerateTender;
     }
 }
 

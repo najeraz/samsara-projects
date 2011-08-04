@@ -21,8 +21,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private OpportunityForm frmOpportunity;
         private Opportunity opportunity;
+        private Tender tender;
         private IOrganizationService srvOrganization;
         private IAsesorService srvAsesor;
+        private ITenderService srvTender;
         private IOpportunityService srvOpportunity;
         private IOpportunityStatusService srvOpportunityStatus;
         private IManufacturerService srvManufacturer;
@@ -39,6 +41,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvOrganization);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
             Assert.IsNotNull(srvAsesor);
+            this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
+            Assert.IsNotNull(srvTender);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
             Assert.IsNotNull(srvOpportunity);
             this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
@@ -54,6 +58,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void InitializeFormControls()
         {
+            // OpportunityType
+            //OpportunityTypeParameters pmtOpportunityType = new OpportunityTypeParameters();
+            //IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtOpportunityType);
+
+            //WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceSchAsesor,
+            //    lstAsesors, "AsesorId", "Name");
+            //WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceDetAsesor,
+            //    lstAsesors, "AsesorId", "Name");
+
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
             IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtAsesor);
@@ -90,6 +103,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmOpportunity.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
             this.frmOpportunity.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmOpportunity.ubtnDetGenerateTender.Click += new EventHandler(ubtnDetGenerateTender_Click);
 
             this.hiddenOpportunityDetailTab = this.frmOpportunity.tabDetDetail.TabPages["OpportunityDetails"];
             this.frmOpportunity.uosSchDates.Value = -1;
@@ -180,6 +194,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.dteDetDeadline.Value = null;
             this.frmOpportunity.dteDetPrerevisionDate.Value = null;
             this.frmOpportunity.dteDetRegistrationDate.Value = null;
+            this.frmOpportunity.txtDetRelatedTender.Text = string.Empty;
+            this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
+            this.frmOpportunity.gbxDetRelatedTender.Visible = false;
         }
 
         private void ClearSearchControls()
@@ -211,6 +228,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.opportunity = this.srvOpportunity.GetById(OpportunityId);
 
+            TenderParameters pmtTender = new TenderParameters();
+            pmtTender.OpportunityId = OpportunityId;
+            this.tender = this.srvTender.GetByParameters(pmtTender);
+
             this.ClearDetailControls();
             this.LoadFormFromEntity();
             this.frmOpportunity.HiddenDetail(false);
@@ -234,6 +255,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.dteDetPrerevisionDate.Value = this.opportunity.PreRevisionDate.Value;
             if (this.opportunity.RegistrationDate.HasValue)
                 this.frmOpportunity.dteDetRegistrationDate.Value = this.opportunity.RegistrationDate.Value;
+            if (tender == null)
+                this.frmOpportunity.ubtnDetGenerateTender.Visible = true;
+            else
+                this.frmOpportunity.txtDetRelatedTender.Text = this.tender.Name;
+            this.frmOpportunity.gbxDetRelatedTender.Visible = true;
         }
 
         private void DeleteEntity(int OpportunityId)
@@ -264,6 +290,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmOpportunity.grdSchSearch.DataSource = null;
             this.frmOpportunity.grdSchSearch.DataSource = dtOpportunitys;
+        }
+
+        private void GenerateTender()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Methods
@@ -311,6 +342,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow != null)
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+
+        private void ubtnDetGenerateTender_Click(object sender, EventArgs e)
+        {
+            this.GenerateTender();
         }
 
         #endregion Events

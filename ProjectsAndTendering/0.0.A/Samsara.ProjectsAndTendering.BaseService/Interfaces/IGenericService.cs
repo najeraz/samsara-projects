@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
 {
-    public interface IGenericService<T, TId>
+    public interface IGenericService<T, TId, Tpmt>
     {
         #region Methods
 
@@ -53,21 +53,21 @@ namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
         /// </summary>
         /// <param name="parameters">The parameters</param>
         /// <returns>The entity</returns>
-        T GetByParameters(GenericParameters parameters);
+        T GetByParameters(Tpmt parameters);
 
         /// <summary>
         /// Get datatable by parameters
         /// </summary>
         /// <param name="parameters">The parameters</param>
         /// <returns>DataTable</returns>
-        DataTable SearchByParameters(GenericParameters parameters);
+        DataTable SearchByParameters(Tpmt parameters);
 
         /// <summary>
         /// Returns an entity list searching by parameters
         /// </summary>
         /// <param name="parameters">The parameters</param>
         /// <returns>List of entities</returns>
-        IList<T> GetListByParameters(GenericParameters parameters);
+        IList<T> GetListByParameters(Tpmt parameters);
 
         #endregion Methods
     }
