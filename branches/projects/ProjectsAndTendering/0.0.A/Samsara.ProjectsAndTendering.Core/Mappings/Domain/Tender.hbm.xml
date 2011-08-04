@@ -106,7 +106,7 @@
       LEFT JOIN	Asesors ap		  	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
       LEFT JOIN	Tenders pt	  		ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
-      AND t.Name like :TenderName
+      AND t.Name like :Name
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
       AND (t.BidderId = :BidderId OR :BidderId = -1)
       AND (t.DependencyId = :DependencyId OR :DependencyId = -1)

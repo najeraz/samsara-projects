@@ -101,6 +101,7 @@
     <Compile Include="Entities\Domain\Tender.cs" />
     <Compile Include="Entities\Domain\Manufacturer.cs" />
     <Compile Include="Entities\Domain\Dependency.cs" />
+    <Compile Include="Enums\OpportunityTypeEnum.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />

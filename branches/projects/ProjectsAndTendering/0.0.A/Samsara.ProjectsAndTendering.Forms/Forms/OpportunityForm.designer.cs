@@ -64,7 +64,7 @@
             this.uceDetOrganization = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblDetOpportunityType = new System.Windows.Forms.Label();
             this.lblDetRegistrationDate = new System.Windows.Forms.Label();
-            this.lblDeOrganization = new System.Windows.Forms.Label();
+            this.lblDetOrganization = new System.Windows.Forms.Label();
             this.lblDetOpportunityName = new System.Windows.Forms.Label();
             this.txtDetOpportunityName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblDetAsesor = new System.Windows.Forms.Label();
@@ -149,6 +149,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 408);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -247,7 +248,7 @@
             this.upDetControls.ClientArea.Controls.Add(this.uceDetOrganization);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetOpportunityType);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetRegistrationDate);
-            this.upDetControls.ClientArea.Controls.Add(this.lblDeOrganization);
+            this.upDetControls.ClientArea.Controls.Add(this.lblDetOrganization);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetOpportunityName);
             this.upDetControls.ClientArea.Controls.Add(this.txtDetOpportunityName);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetAsesor);
@@ -403,14 +404,14 @@
             this.lblDetRegistrationDate.TabIndex = 53;
             this.lblDetRegistrationDate.Text = "Fecha de Registro:";
             // 
-            // lblDeOrganization
+            // lblDetOrganization
             // 
-            this.lblDeOrganization.AutoSize = true;
-            this.lblDeOrganization.Location = new System.Drawing.Point(6, 90);
-            this.lblDeOrganization.Name = "lblDeOrganization";
-            this.lblDeOrganization.Size = new System.Drawing.Size(72, 13);
-            this.lblDeOrganization.TabIndex = 56;
-            this.lblDeOrganization.Text = "Organización:";
+            this.lblDetOrganization.AutoSize = true;
+            this.lblDetOrganization.Location = new System.Drawing.Point(6, 90);
+            this.lblDetOrganization.Name = "lblDetOrganization";
+            this.lblDetOrganization.Size = new System.Drawing.Size(72, 13);
+            this.lblDetOrganization.TabIndex = 56;
+            this.lblDetOrganization.Text = "Organización:";
             // 
             // lblDetOpportunityName
             // 
@@ -884,14 +885,12 @@
         private System.Windows.Forms.Label lblDetPresevisionDate;
         private System.Windows.Forms.Label lblDetOpportunityStatus;
         private System.Windows.Forms.Label lblDetAsesor;
-        private System.Windows.Forms.Label lblDeOrganization;
         private System.Windows.Forms.Label lblDetRegistrationDate;
         private System.Windows.Forms.Label lblSchMinDate;
         private System.Windows.Forms.Label lblSchEndDate;
         private System.Windows.Forms.Label lblSchOpportunityStatus;
         private System.Windows.Forms.Label lblSchAsesor;
         private System.Windows.Forms.Label lblSchOpportunityName;
-        private System.Windows.Forms.Label lblSchOrganization;
         private Infragistics.Win.Misc.UltraGroupBox ubgxSchFechas;
         private Infragistics.Win.Misc.UltraPanel upDetControls;
         internal Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dteSchMaxDate;
@@ -916,9 +915,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetEndUser;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetDependency;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetBidder;
-        private System.Windows.Forms.Label lblDetBidder;
-        private System.Windows.Forms.Label lblDetEndUser;
-        private System.Windows.Forms.Label lblDetDependency;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetOpportunityType;
         private System.Windows.Forms.Label lblDetOpportunityType;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetRelatedTender;
@@ -926,11 +922,8 @@
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchOpportunityType;
         private System.Windows.Forms.Label lblSchOpportunityType;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchEndUser;
-        private System.Windows.Forms.Label lblSchEndUser;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchBidder;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchDependency;
-        private System.Windows.Forms.Label lblSchDependency;
-        private System.Windows.Forms.Label lblSchBidder;
         private System.Windows.Forms.TabPage Log;
         internal Controls.SamsaraUltraGrid grdDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
@@ -939,6 +932,14 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1241;
+        internal System.Windows.Forms.Label lblDetOrganization;
+        internal System.Windows.Forms.Label lblSchOrganization;
+        internal System.Windows.Forms.Label lblDetBidder;
+        internal System.Windows.Forms.Label lblDetEndUser;
+        internal System.Windows.Forms.Label lblDetDependency;
+        internal System.Windows.Forms.Label lblSchEndUser;
+        internal System.Windows.Forms.Label lblSchDependency;
+        internal System.Windows.Forms.Label lblSchBidder;
     }
 }
 

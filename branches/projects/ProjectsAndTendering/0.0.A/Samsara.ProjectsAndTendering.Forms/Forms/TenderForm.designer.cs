@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
@@ -58,18 +70,6 @@
             Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -107,12 +107,14 @@
             this.dteDetRegistrationDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.TenderDetails = new System.Windows.Forms.TabPage();
             this.tcDetTextControls = new System.Windows.Forms.TabControl();
-            this.EstrategiaPrecios = new System.Windows.Forms.TabPage();
-            this.txtDetPricingStrategy = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.Preresultados = new System.Windows.Forms.TabPage();
-            this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.Resultados = new System.Windows.Forms.TabPage();
-            this.txtDetResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.Log = new System.Windows.Forms.TabPage();
+            this.grdDetLog = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.pnlDetLogButtons = new System.Windows.Forms.Panel();
+            this.upSeparatorDeleteLog = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDeleteLog = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparatorCreateLog = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCreateLog = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator1241 = new Infragistics.Win.Misc.UltraPanel();
             this.Manufacturers = new System.Windows.Forms.TabPage();
             this.grdDetTenderManufacturers = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.upDetManufactuerButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -129,6 +131,12 @@
             this.upDetSeparator4327 = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetCreateLine = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator532 = new Infragistics.Win.Misc.UltraPanel();
+            this.EstrategiaPrecios = new System.Windows.Forms.TabPage();
+            this.txtDetPricingStrategy = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.Preresultados = new System.Windows.Forms.TabPage();
+            this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.Resultados = new System.Windows.Forms.TabPage();
+            this.txtDetResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtSchTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchAsesor = new System.Windows.Forms.Label();
@@ -147,14 +155,6 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.Log = new System.Windows.Forms.TabPage();
-            this.grdDetLog = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
-            this.pnlDetLogButtons = new System.Windows.Forms.Panel();
-            this.upSeparatorDeleteLog = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeleteLog = new Infragistics.Win.Misc.UltraButton();
-            this.upDetSeparatorCreateLog = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetCreateLog = new Infragistics.Win.Misc.UltraButton();
-            this.upDetSeparator1241 = new Infragistics.Win.Misc.UltraPanel();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -179,12 +179,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDetRegistrationDate)).BeginInit();
             this.TenderDetails.SuspendLayout();
             this.tcDetTextControls.SuspendLayout();
-            this.EstrategiaPrecios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).BeginInit();
-            this.Preresultados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).BeginInit();
-            this.Resultados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetResults)).BeginInit();
+            this.Log.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetLog)).BeginInit();
+            this.pnlDetLogButtons.SuspendLayout();
+            this.upSeparatorDeleteLog.SuspendLayout();
+            this.upDetSeparatorCreateLog.SuspendLayout();
+            this.upDetSeparator1241.SuspendLayout();
             this.Manufacturers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderManufacturers)).BeginInit();
             this.upDetManufactuerButtons.ClientArea.SuspendLayout();
@@ -198,6 +198,12 @@
             this.upDetSeparator4534.SuspendLayout();
             this.upDetSeparator4327.SuspendLayout();
             this.upDetSeparator532.SuspendLayout();
+            this.EstrategiaPrecios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).BeginInit();
+            this.Preresultados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).BeginInit();
+            this.Resultados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).BeginInit();
@@ -209,12 +215,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
-            this.Log.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetLog)).BeginInit();
-            this.pnlDetLogButtons.SuspendLayout();
-            this.upSeparatorDeleteLog.SuspendLayout();
-            this.upDetSeparatorCreateLog.SuspendLayout();
-            this.upDetSeparator1241.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -637,63 +637,135 @@
             this.tcDetTextControls.Size = new System.Drawing.Size(736, 339);
             this.tcDetTextControls.TabIndex = 15;
             // 
-            // EstrategiaPrecios
+            // Log
             // 
-            this.EstrategiaPrecios.Controls.Add(this.txtDetPricingStrategy);
-            this.EstrategiaPrecios.Location = new System.Drawing.Point(4, 22);
-            this.EstrategiaPrecios.Name = "EstrategiaPrecios";
-            this.EstrategiaPrecios.Padding = new System.Windows.Forms.Padding(3);
-            this.EstrategiaPrecios.Size = new System.Drawing.Size(728, 313);
-            this.EstrategiaPrecios.TabIndex = 0;
-            this.EstrategiaPrecios.Text = "Estrategia de Precios";
-            this.EstrategiaPrecios.UseVisualStyleBackColor = true;
+            this.Log.Controls.Add(this.grdDetLog);
+            this.Log.Controls.Add(this.pnlDetLogButtons);
+            this.Log.Location = new System.Drawing.Point(4, 22);
+            this.Log.Name = "Log";
+            this.Log.Size = new System.Drawing.Size(728, 313);
+            this.Log.TabIndex = 6;
+            this.Log.Text = "Bitácora";
+            this.Log.UseVisualStyleBackColor = true;
             // 
-            // txtDetPricingStrategy
+            // grdDetLog
             // 
-            this.txtDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetPricingStrategy.Location = new System.Drawing.Point(3, 3);
-            this.txtDetPricingStrategy.Multiline = true;
-            this.txtDetPricingStrategy.Name = "txtDetPricingStrategy";
-            this.txtDetPricingStrategy.Size = new System.Drawing.Size(722, 307);
-            this.txtDetPricingStrategy.TabIndex = 74;
+            appearance1.BackColor = System.Drawing.SystemColors.Window;
+            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdDetLog.DisplayLayout.Appearance = appearance1;
+            this.grdDetLog.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetLog.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance2.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetLog.DisplayLayout.GroupByBox.Appearance = appearance2;
+            appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetLog.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
+            this.grdDetLog.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance4.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance4.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetLog.DisplayLayout.GroupByBox.PromptAppearance = appearance4;
+            this.grdDetLog.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetLog.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance5.BackColor = System.Drawing.SystemColors.Window;
+            appearance5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdDetLog.DisplayLayout.Override.ActiveCellAppearance = appearance5;
+            appearance6.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdDetLog.DisplayLayout.Override.ActiveRowAppearance = appearance6;
+            this.grdDetLog.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetLog.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance7.BackColor = System.Drawing.SystemColors.Window;
+            this.grdDetLog.DisplayLayout.Override.CardAreaAppearance = appearance7;
+            appearance8.BorderColor = System.Drawing.Color.Silver;
+            appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdDetLog.DisplayLayout.Override.CellAppearance = appearance8;
+            this.grdDetLog.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetLog.DisplayLayout.Override.CellPadding = 0;
+            appearance9.BackColor = System.Drawing.SystemColors.Control;
+            appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance9.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetLog.DisplayLayout.Override.GroupByRowAppearance = appearance9;
+            appearance10.TextHAlignAsString = "Left";
+            this.grdDetLog.DisplayLayout.Override.HeaderAppearance = appearance10;
+            this.grdDetLog.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetLog.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance11.BackColor = System.Drawing.SystemColors.Window;
+            appearance11.BorderColor = System.Drawing.Color.Silver;
+            this.grdDetLog.DisplayLayout.Override.RowAppearance = appearance11;
+            this.grdDetLog.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdDetLog.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
+            this.grdDetLog.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetLog.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetLog.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetLog.Location = new System.Drawing.Point(0, 0);
+            this.grdDetLog.Name = "grdDetLog";
+            this.grdDetLog.Size = new System.Drawing.Size(728, 288);
+            this.grdDetLog.TabIndex = 1;
+            this.grdDetLog.Text = "samsaraUltraGrid1";
             // 
-            // Preresultados
+            // pnlDetLogButtons
             // 
-            this.Preresultados.Controls.Add(this.txtDetPreResults);
-            this.Preresultados.Location = new System.Drawing.Point(4, 22);
-            this.Preresultados.Name = "Preresultados";
-            this.Preresultados.Size = new System.Drawing.Size(728, 313);
-            this.Preresultados.TabIndex = 2;
-            this.Preresultados.Text = "Preresultados";
-            this.Preresultados.UseVisualStyleBackColor = true;
+            this.pnlDetLogButtons.Controls.Add(this.upSeparatorDeleteLog);
+            this.pnlDetLogButtons.Controls.Add(this.ubtnDetDeleteLog);
+            this.pnlDetLogButtons.Controls.Add(this.upDetSeparatorCreateLog);
+            this.pnlDetLogButtons.Controls.Add(this.ubtnDetCreateLog);
+            this.pnlDetLogButtons.Controls.Add(this.upDetSeparator1241);
+            this.pnlDetLogButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDetLogButtons.Location = new System.Drawing.Point(0, 288);
+            this.pnlDetLogButtons.Name = "pnlDetLogButtons";
+            this.pnlDetLogButtons.Size = new System.Drawing.Size(728, 25);
+            this.pnlDetLogButtons.TabIndex = 2;
             // 
-            // txtDetPreResults
+            // upSeparatorDeleteLog
             // 
-            this.txtDetPreResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetPreResults.Location = new System.Drawing.Point(0, 0);
-            this.txtDetPreResults.Multiline = true;
-            this.txtDetPreResults.Name = "txtDetPreResults";
-            this.txtDetPreResults.Size = new System.Drawing.Size(728, 313);
-            this.txtDetPreResults.TabIndex = 75;
+            this.upSeparatorDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSeparatorDeleteLog.Location = new System.Drawing.Point(526, 0);
+            this.upSeparatorDeleteLog.Name = "upSeparatorDeleteLog";
+            this.upSeparatorDeleteLog.Size = new System.Drawing.Size(16, 25);
+            this.upSeparatorDeleteLog.TabIndex = 12;
             // 
-            // Resultados
+            // ubtnDetDeleteLog
             // 
-            this.Resultados.Controls.Add(this.txtDetResults);
-            this.Resultados.Location = new System.Drawing.Point(4, 22);
-            this.Resultados.Name = "Resultados";
-            this.Resultados.Size = new System.Drawing.Size(728, 313);
-            this.Resultados.TabIndex = 3;
-            this.Resultados.Text = "Resultados";
-            this.Resultados.UseVisualStyleBackColor = true;
+            this.ubtnDetDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeleteLog.Location = new System.Drawing.Point(542, 0);
+            this.ubtnDetDeleteLog.Name = "ubtnDetDeleteLog";
+            this.ubtnDetDeleteLog.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDeleteLog.TabIndex = 9;
+            this.ubtnDetDeleteLog.Text = "Borrar";
             // 
-            // txtDetResults
+            // upDetSeparatorCreateLog
             // 
-            this.txtDetResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetResults.Location = new System.Drawing.Point(0, 0);
-            this.txtDetResults.Multiline = true;
-            this.txtDetResults.Name = "txtDetResults";
-            this.txtDetResults.Size = new System.Drawing.Size(728, 313);
-            this.txtDetResults.TabIndex = 0;
+            this.upDetSeparatorCreateLog.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparatorCreateLog.Location = new System.Drawing.Point(619, 0);
+            this.upDetSeparatorCreateLog.Name = "upDetSeparatorCreateLog";
+            this.upDetSeparatorCreateLog.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorCreateLog.TabIndex = 10;
+            // 
+            // ubtnDetCreateLog
+            // 
+            this.ubtnDetCreateLog.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreateLog.Location = new System.Drawing.Point(635, 0);
+            this.ubtnDetCreateLog.Name = "ubtnDetCreateLog";
+            this.ubtnDetCreateLog.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCreateLog.TabIndex = 8;
+            this.ubtnDetCreateLog.Text = "Nuevo";
+            // 
+            // upDetSeparator1241
+            // 
+            this.upDetSeparator1241.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator1241.Location = new System.Drawing.Point(712, 0);
+            this.upDetSeparator1241.Name = "upDetSeparator1241";
+            this.upDetSeparator1241.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator1241.TabIndex = 11;
             // 
             // Manufacturers
             // 
@@ -959,6 +1031,64 @@
             this.upDetSeparator532.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator532.TabIndex = 11;
             // 
+            // EstrategiaPrecios
+            // 
+            this.EstrategiaPrecios.Controls.Add(this.txtDetPricingStrategy);
+            this.EstrategiaPrecios.Location = new System.Drawing.Point(4, 22);
+            this.EstrategiaPrecios.Name = "EstrategiaPrecios";
+            this.EstrategiaPrecios.Padding = new System.Windows.Forms.Padding(3);
+            this.EstrategiaPrecios.Size = new System.Drawing.Size(728, 313);
+            this.EstrategiaPrecios.TabIndex = 0;
+            this.EstrategiaPrecios.Text = "Estrategia de Precios";
+            this.EstrategiaPrecios.UseVisualStyleBackColor = true;
+            // 
+            // txtDetPricingStrategy
+            // 
+            this.txtDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetPricingStrategy.Location = new System.Drawing.Point(3, 3);
+            this.txtDetPricingStrategy.Multiline = true;
+            this.txtDetPricingStrategy.Name = "txtDetPricingStrategy";
+            this.txtDetPricingStrategy.Size = new System.Drawing.Size(722, 307);
+            this.txtDetPricingStrategy.TabIndex = 74;
+            // 
+            // Preresultados
+            // 
+            this.Preresultados.Controls.Add(this.txtDetPreResults);
+            this.Preresultados.Location = new System.Drawing.Point(4, 22);
+            this.Preresultados.Name = "Preresultados";
+            this.Preresultados.Size = new System.Drawing.Size(728, 313);
+            this.Preresultados.TabIndex = 2;
+            this.Preresultados.Text = "Preresultados";
+            this.Preresultados.UseVisualStyleBackColor = true;
+            // 
+            // txtDetPreResults
+            // 
+            this.txtDetPreResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetPreResults.Location = new System.Drawing.Point(0, 0);
+            this.txtDetPreResults.Multiline = true;
+            this.txtDetPreResults.Name = "txtDetPreResults";
+            this.txtDetPreResults.Size = new System.Drawing.Size(728, 313);
+            this.txtDetPreResults.TabIndex = 75;
+            // 
+            // Resultados
+            // 
+            this.Resultados.Controls.Add(this.txtDetResults);
+            this.Resultados.Location = new System.Drawing.Point(4, 22);
+            this.Resultados.Name = "Resultados";
+            this.Resultados.Size = new System.Drawing.Size(728, 313);
+            this.Resultados.TabIndex = 3;
+            this.Resultados.Text = "Resultados";
+            this.Resultados.UseVisualStyleBackColor = true;
+            // 
+            // txtDetResults
+            // 
+            this.txtDetResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetResults.Location = new System.Drawing.Point(0, 0);
+            this.txtDetResults.Multiline = true;
+            this.txtDetResults.Name = "txtDetResults";
+            this.txtDetResults.Size = new System.Drawing.Size(728, 313);
+            this.txtDetResults.TabIndex = 0;
+            // 
             // txtSchTenderName
             // 
             this.txtSchTenderName.Location = new System.Drawing.Point(142, 23);
@@ -1132,136 +1262,6 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
-            // Log
-            // 
-            this.Log.Controls.Add(this.grdDetLog);
-            this.Log.Controls.Add(this.pnlDetLogButtons);
-            this.Log.Location = new System.Drawing.Point(4, 22);
-            this.Log.Name = "Log";
-            this.Log.Size = new System.Drawing.Size(728, 313);
-            this.Log.TabIndex = 6;
-            this.Log.Text = "Bitácora";
-            this.Log.UseVisualStyleBackColor = true;
-            // 
-            // grdDetLog
-            // 
-            appearance1.BackColor = System.Drawing.SystemColors.Window;
-            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdDetLog.DisplayLayout.Appearance = appearance1;
-            this.grdDetLog.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdDetLog.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance2.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetLog.DisplayLayout.GroupByBox.Appearance = appearance2;
-            appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetLog.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
-            this.grdDetLog.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance4.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetLog.DisplayLayout.GroupByBox.PromptAppearance = appearance4;
-            this.grdDetLog.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdDetLog.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance5.BackColor = System.Drawing.SystemColors.Window;
-            appearance5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetLog.DisplayLayout.Override.ActiveCellAppearance = appearance5;
-            appearance6.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdDetLog.DisplayLayout.Override.ActiveRowAppearance = appearance6;
-            this.grdDetLog.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdDetLog.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance7.BackColor = System.Drawing.SystemColors.Window;
-            this.grdDetLog.DisplayLayout.Override.CardAreaAppearance = appearance7;
-            appearance8.BorderColor = System.Drawing.Color.Silver;
-            appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdDetLog.DisplayLayout.Override.CellAppearance = appearance8;
-            this.grdDetLog.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdDetLog.DisplayLayout.Override.CellPadding = 0;
-            appearance9.BackColor = System.Drawing.SystemColors.Control;
-            appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance9.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetLog.DisplayLayout.Override.GroupByRowAppearance = appearance9;
-            appearance10.TextHAlignAsString = "Left";
-            this.grdDetLog.DisplayLayout.Override.HeaderAppearance = appearance10;
-            this.grdDetLog.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdDetLog.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance11.BackColor = System.Drawing.SystemColors.Window;
-            appearance11.BorderColor = System.Drawing.Color.Silver;
-            this.grdDetLog.DisplayLayout.Override.RowAppearance = appearance11;
-            this.grdDetLog.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdDetLog.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
-            this.grdDetLog.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdDetLog.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdDetLog.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
-            this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetLog.Location = new System.Drawing.Point(0, 0);
-            this.grdDetLog.Name = "grdDetLog";
-            this.grdDetLog.Size = new System.Drawing.Size(728, 288);
-            this.grdDetLog.TabIndex = 1;
-            this.grdDetLog.Text = "samsaraUltraGrid1";
-            // 
-            // pnlDetLogButtons
-            // 
-            this.pnlDetLogButtons.Controls.Add(this.upSeparatorDeleteLog);
-            this.pnlDetLogButtons.Controls.Add(this.ubtnDetDeleteLog);
-            this.pnlDetLogButtons.Controls.Add(this.upDetSeparatorCreateLog);
-            this.pnlDetLogButtons.Controls.Add(this.ubtnDetCreateLog);
-            this.pnlDetLogButtons.Controls.Add(this.upDetSeparator1241);
-            this.pnlDetLogButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetLogButtons.Location = new System.Drawing.Point(0, 288);
-            this.pnlDetLogButtons.Name = "pnlDetLogButtons";
-            this.pnlDetLogButtons.Size = new System.Drawing.Size(728, 25);
-            this.pnlDetLogButtons.TabIndex = 2;
-            // 
-            // upSeparatorDeleteLog
-            // 
-            this.upSeparatorDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSeparatorDeleteLog.Location = new System.Drawing.Point(526, 0);
-            this.upSeparatorDeleteLog.Name = "upSeparatorDeleteLog";
-            this.upSeparatorDeleteLog.Size = new System.Drawing.Size(16, 25);
-            this.upSeparatorDeleteLog.TabIndex = 12;
-            // 
-            // ubtnDetDeleteLog
-            // 
-            this.ubtnDetDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteLog.Location = new System.Drawing.Point(542, 0);
-            this.ubtnDetDeleteLog.Name = "ubtnDetDeleteLog";
-            this.ubtnDetDeleteLog.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeleteLog.TabIndex = 9;
-            this.ubtnDetDeleteLog.Text = "Borrar";
-            // 
-            // upDetSeparatorCreateLog
-            // 
-            this.upDetSeparatorCreateLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparatorCreateLog.Location = new System.Drawing.Point(619, 0);
-            this.upDetSeparatorCreateLog.Name = "upDetSeparatorCreateLog";
-            this.upDetSeparatorCreateLog.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparatorCreateLog.TabIndex = 10;
-            // 
-            // ubtnDetCreateLog
-            // 
-            this.ubtnDetCreateLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreateLog.Location = new System.Drawing.Point(635, 0);
-            this.ubtnDetCreateLog.Name = "ubtnDetCreateLog";
-            this.ubtnDetCreateLog.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetCreateLog.TabIndex = 8;
-            this.ubtnDetCreateLog.Text = "Nuevo";
-            // 
-            // upDetSeparator1241
-            // 
-            this.upDetSeparator1241.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator1241.Location = new System.Drawing.Point(712, 0);
-            this.upDetSeparator1241.Name = "upDetSeparator1241";
-            this.upDetSeparator1241.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator1241.TabIndex = 11;
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1297,15 +1297,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDetRegistrationDate)).EndInit();
             this.TenderDetails.ResumeLayout(false);
             this.tcDetTextControls.ResumeLayout(false);
-            this.EstrategiaPrecios.ResumeLayout(false);
-            this.EstrategiaPrecios.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).EndInit();
-            this.Preresultados.ResumeLayout(false);
-            this.Preresultados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).EndInit();
-            this.Resultados.ResumeLayout(false);
-            this.Resultados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetResults)).EndInit();
+            this.Log.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetLog)).EndInit();
+            this.pnlDetLogButtons.ResumeLayout(false);
+            this.upSeparatorDeleteLog.ResumeLayout(false);
+            this.upDetSeparatorCreateLog.ResumeLayout(false);
+            this.upDetSeparator1241.ResumeLayout(false);
             this.Manufacturers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderManufacturers)).EndInit();
             this.upDetManufactuerButtons.ClientArea.ResumeLayout(false);
@@ -1319,6 +1316,15 @@
             this.upDetSeparator4534.ResumeLayout(false);
             this.upDetSeparator4327.ResumeLayout(false);
             this.upDetSeparator532.ResumeLayout(false);
+            this.EstrategiaPrecios.ResumeLayout(false);
+            this.EstrategiaPrecios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).EndInit();
+            this.Preresultados.ResumeLayout(false);
+            this.Preresultados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).EndInit();
+            this.Resultados.ResumeLayout(false);
+            this.Resultados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetResults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).EndInit();
@@ -1331,12 +1337,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
-            this.Log.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetLog)).EndInit();
-            this.pnlDetLogButtons.ResumeLayout(false);
-            this.upSeparatorDeleteLog.ResumeLayout(false);
-            this.upDetSeparatorCreateLog.ResumeLayout(false);
-            this.upDetSeparator1241.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

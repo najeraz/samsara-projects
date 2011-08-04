@@ -80,6 +80,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceDetOpportunityType,
                 lstOpportunityType, "OpportunityTypeId", "Name");
 
+            this.frmOpportunity.uceDetOpportunityType.ValueChanged +=
+                new EventHandler(uceDetOpportunityType_ValueChanged);
+            this.frmOpportunity.uceSchOpportunityType.ValueChanged +=
+                new EventHandler(uceSchOpportunityType_ValueChanged);
+
+            this.uceDetOpportunityType_ValueChanged(null, null);
+            this.uceSchOpportunityType_ValueChanged(null, null);
+
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
             IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
@@ -359,13 +367,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             pmtOpportunity.MinDate = (DateTime)this.frmOpportunity.dteSchMinDate.Value;
             pmtOpportunity.MaxDate = (DateTime)this.frmOpportunity.dteSchMaxDate.Value;
-            pmtOpportunity.AsesorId = (int)this.frmOpportunity.uceSchAsesor.Value;
+            pmtOpportunity.OpportunityTypeId = (int)this.frmOpportunity.uceSchOpportunityType.Value;
             pmtOpportunity.OrganizationId = (int)this.frmOpportunity.uceSchOrganization.Value;
             pmtOpportunity.BidderId = (int)this.frmOpportunity.uceSchBidder.Value;
             pmtOpportunity.DependencyId = (int)this.frmOpportunity.uceSchDependency.Value;
             pmtOpportunity.EndUserId = (int)this.frmOpportunity.uceSchEndUser.Value;
+            pmtOpportunity.AsesorId = (int)this.frmOpportunity.uceSchAsesor.Value;
             pmtOpportunity.OpportunityStatusId = (int)this.frmOpportunity.uceSchOpportunityStatus.Value;
-            pmtOpportunity.OpportunityName = "%" + this.frmOpportunity.txtSchOpportunityName.Text + "%";
+            pmtOpportunity.Name = "%" + this.frmOpportunity.txtSchOpportunityName.Text + "%";
             pmtOpportunity.DateTypeSearchId = (DateTypeSearchEnum)this.frmOpportunity.uosSchDates.Value;
 
             DataTable dtOpportunitys = srvOpportunity.SearchByParameters(pmtOpportunity);
@@ -471,6 +480,70 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.GenerateTender();
         }
 
+        private void uceDetOpportunityType_ValueChanged(object sender, EventArgs e)
+        {
+            int type = (int)this.frmOpportunity.uceDetOpportunityType.Value;
+
+            if (type == (int)OpportunityTypeEnum.PublicSector ||
+                type == (int)OpportunityTypeEnum.PrivateSector)
+            {
+                bool flag = (int)OpportunityTypeEnum.PublicSector == type;
+
+                this.frmOpportunity.lblDetBidder.Visible = flag;
+                this.frmOpportunity.lblDetDependency.Visible = flag;
+                this.frmOpportunity.lblDetEndUser.Visible = flag;
+                this.frmOpportunity.lblDetOrganization.Visible = !flag;
+                this.frmOpportunity.uceDetBidder.Visible = flag;
+                this.frmOpportunity.uceDetDependency.Visible = flag;
+                this.frmOpportunity.uceDetEndUser.Visible = flag;
+                this.frmOpportunity.uceDetOrganization.Visible = !flag;
+            }
+            else
+            {
+                this.frmOpportunity.lblDetBidder.Visible = false;
+                this.frmOpportunity.lblDetDependency.Visible = false;
+                this.frmOpportunity.lblDetEndUser.Visible = false;
+                this.frmOpportunity.lblDetOrganization.Visible = false;
+                this.frmOpportunity.uceDetBidder.Visible = false;
+                this.frmOpportunity.uceDetDependency.Visible = false;
+                this.frmOpportunity.uceDetEndUser.Visible = false;
+                this.frmOpportunity.uceDetOrganization.Visible = false;
+            }
+        }
+
+        private void uceSchOpportunityType_ValueChanged(object sender, EventArgs e)
+        {
+            this.frmOpportunity.uceSchBidder.Value = -1;
+            this.frmOpportunity.uceSchOrganization.Value = -1;
+
+            int type = (int)this.frmOpportunity.uceSchOpportunityType.Value;
+
+            if (type == (int)OpportunityTypeEnum.PublicSector ||
+                type == (int)OpportunityTypeEnum.PrivateSector)
+            {
+                bool flag = (int)OpportunityTypeEnum.PublicSector == type;
+
+                this.frmOpportunity.lblSchBidder.Visible = flag;
+                this.frmOpportunity.lblSchDependency.Visible = flag;
+                this.frmOpportunity.lblSchEndUser.Visible = flag;
+                this.frmOpportunity.lblSchOrganization.Visible = !flag;
+                this.frmOpportunity.uceSchBidder.Visible = flag;
+                this.frmOpportunity.uceSchDependency.Visible = flag;
+                this.frmOpportunity.uceSchEndUser.Visible = flag;
+                this.frmOpportunity.uceSchOrganization.Visible = !flag;
+            }
+            else
+            {
+                this.frmOpportunity.lblSchBidder.Visible = false;
+                this.frmOpportunity.lblSchDependency.Visible = false;
+                this.frmOpportunity.lblSchEndUser.Visible = false;
+                this.frmOpportunity.lblSchOrganization.Visible = false;
+                this.frmOpportunity.uceSchBidder.Visible = false;
+                this.frmOpportunity.uceSchDependency.Visible = false;
+                this.frmOpportunity.uceSchEndUser.Visible = false;
+                this.frmOpportunity.uceSchOrganization.Visible = false;
+            }
+        }
         #endregion Events
     }
 }
