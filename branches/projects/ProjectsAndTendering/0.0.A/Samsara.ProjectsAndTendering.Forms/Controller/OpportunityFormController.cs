@@ -46,7 +46,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvTender);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
             Assert.IsNotNull(srvOpportunity);
-            this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityServiceType>();
+            this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityTypeService>();
             Assert.IsNotNull(srvOpportunityType);
             this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
             Assert.IsNotNull(srvOpportunityStatus);
@@ -61,14 +61,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void InitializeFormControls()
         {
-             OpportunityType
             OpportunityTypeParameters pmtOpportunityType = new OpportunityTypeParameters();
-            IList<Asesor> lstAsesors = this.srvOpportunity.GetListByParameters(pmtOpportunityType);
+            IList<OpportunityType> lstOpportunityType = 
+                this.srvOpportunityType.GetListByParameters(pmtOpportunityType);
 
-            WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceSchAsesor,
-                lstAsesors, "AsesorId", "Name");
-            WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceDetAsesor,
-                lstAsesors, "AsesorId", "Name");
+            WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceSchAsesor,
+                lstOpportunityType, "OpportunityTypeId", "Name");
+            WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceDetAsesor,
+                lstOpportunityType, "OpportunityTypeId", "Name");
 
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
