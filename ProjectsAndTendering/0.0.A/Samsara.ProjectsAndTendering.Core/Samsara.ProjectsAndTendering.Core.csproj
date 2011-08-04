@@ -83,6 +83,8 @@
     <Compile Include="Entities\Domain\Bidder.cs" />
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
+    <Compile Include="Entities\Domain\OpportunityLog.cs" />
+    <Compile Include="Entities\Domain\TenderLog.cs" />
     <Compile Include="Entities\Domain\OpportunityType.cs" />
     <Compile Include="Entities\Domain\Organization.cs" />
     <Compile Include="Entities\Domain\OpportunityStatus.cs" />
@@ -101,6 +103,8 @@
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
+    <Compile Include="Parameters\OpportunityLogParameters.cs" />
+    <Compile Include="Parameters\TenderLogParameters.cs" />
     <Compile Include="Parameters\OpportunityTypeParameters.cs" />
     <Compile Include="Parameters\GridColumnConfigurationParameters.cs" />
     <Compile Include="Parameters\GridConfigurationParameters.cs" />

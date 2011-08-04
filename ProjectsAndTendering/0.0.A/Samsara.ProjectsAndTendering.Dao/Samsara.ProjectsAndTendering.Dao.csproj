@@ -106,6 +106,8 @@
     <Compile Include="Impl\Domain\AsesorDao.cs" />
     <Compile Include="Impl\Domain\BidderDao.cs" />
     <Compile Include="Impl\Domain\BidderTypeDao.cs" />
+    <Compile Include="Impl\Domain\OpportunityLogDao.cs" />
+    <Compile Include="Impl\Domain\TenderLogDao.cs" />
     <Compile Include="Impl\Domain\OpportunityTypeDao.cs" />
     <Compile Include="Impl\Domain\TenderManufacturerDao.cs" />
     <Compile Include="Impl\Domain\OpportunityStatusDao.cs" />
@@ -121,6 +123,8 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationDao.cs" />
+    <Compile Include="Interfaces\Domain\IOpportunityLogDao.cs" />
+    <Compile Include="Interfaces\Domain\ITenderLogDao.cs" />
     <Compile Include="Interfaces\Domain\IOpportunityTypeDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderManufacturerDao.cs" />
     <Compile Include="Interfaces\Domain\IOpportunityStatusDao.cs" />
