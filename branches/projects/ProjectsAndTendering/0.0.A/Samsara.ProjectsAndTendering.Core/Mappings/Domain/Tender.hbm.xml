@@ -60,6 +60,12 @@
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"/>
     </set>
+    <set name="TenderLogs" table="TenderLogs" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLog, Samsara.ProjectsAndTendering.Core"/>
+    </set>
 
   </class>
 

@@ -98,14 +98,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            if (Convert.ToInt32(this.frmDependency.uceDetBidder.Value) > 0)
-            {
-                Bidder bidder = this.srvBidder.GetById(
-                    Convert.ToInt32(this.frmDependency.uceDetBidder.Value));
-                Assert.IsNotNull(bidder);
-                this.dependency.Bidder = bidder;
-            }
-
+            this.dependency.Bidder = this.srvBidder.GetById(Convert.ToInt32(this.frmDependency.uceDetBidder.Value));
             this.dependency.Name = this.frmDependency.txtDetName.Text;
 
             this.dependency.Activated = true;
