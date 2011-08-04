@@ -110,6 +110,10 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.OpportunityTypeDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IOpportunityLogDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.OpportunityLogDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
   <object id="IFormConfigurationDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">

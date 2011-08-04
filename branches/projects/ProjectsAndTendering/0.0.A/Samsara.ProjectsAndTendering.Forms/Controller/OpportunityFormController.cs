@@ -31,6 +31,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IAsesorService srvAsesor;
         private ITenderService srvTender;
         private IOpportunityService srvOpportunity;
+        private IOpportunityLogService srvOpportunityLog;
         private IOpportunityTypeService srvOpportunityType;
         private IOpportunityStatusService srvOpportunityStatus;
         private IManufacturerService srvManufacturer;
@@ -64,6 +65,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvOpportunityStatus);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
             Assert.IsNotNull(srvManufacturer);
+            this.srvOpportunityLog = SamsaraAppContext.Resolve<IOpportunityLogService>();
+            Assert.IsNotNull(srvOpportunityLog);
             this.InitializeFormControls();
         }
 
@@ -154,6 +157,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<Organization>(this.frmOpportunity.uceDetOrganization,
                 lstOrganizations, "OrganizationId", "Name");
 
+            //grdDetLog
+            this.frmOpportunity.grdDetLog.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetLog_InitializeLayout);
+            this.frmOpportunity.grdDetLog.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(grdDetLog_BeforeCellUpdate);
+            OpportunityLogParameters pmtOpportunityLog = new OpportunityLogParameters();
+            pmtOpportunityLog.OpportunityId = ParameterConstants.IntNone;
+            this.dtOpportunityLog = this.srvOpportunityLog.SearchByParameters(pmtOpportunityLog);
+            this.frmOpportunity.grdDetLog.DataSource = null;
+            this.frmOpportunity.grdDetLog.DataSource = this.dtOpportunityLog;
             
             this.frmOpportunity.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmOpportunity.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);

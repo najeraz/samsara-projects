@@ -4,7 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 
-namespace Samsara.ProjectsAndOpportunitying.Dao.Impl.Domain
+namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
     public class OpportunityLogDao : GenericDao<OpportunityLog, int, OpportunityLogParameters>, IOpportunityLogDao
     {
