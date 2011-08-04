@@ -34,12 +34,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual decimal Cost
-        {
-            get;
-            set;
-        }
-
         public virtual string Description
         {
             get;
