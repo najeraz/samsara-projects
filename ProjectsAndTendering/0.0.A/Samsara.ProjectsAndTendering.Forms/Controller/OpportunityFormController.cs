@@ -43,6 +43,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity = instance;
             this.srvOrganization = SamsaraAppContext.Resolve<IOrganizationService>();
             Assert.IsNotNull(srvOrganization);
+            this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
+            Assert.IsNotNull(srvBidder);
+            this.srvDependency = SamsaraAppContext.Resolve<IDependencyService>();
+            Assert.IsNotNull(srvDependency);
+            this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
+            Assert.IsNotNull(srvEndUser);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
             Assert.IsNotNull(srvAsesor);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();

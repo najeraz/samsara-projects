@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="OpportunityType" table="OpportunityTypees">
+  <class name="OpportunityType" table="OpportunityTypes">
     
     <id name="OpportunityTypeId" type="int">
       <generator class="native"/>

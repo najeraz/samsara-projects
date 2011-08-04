@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.ProjectsAndTendering.Core" 
-  Descriptionspace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
+  assembly="Samsara.ProjectsAndTendering.Core"
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class Description="OpportunityLog" table="OpportunityLogs">
+  <class name="OpportunityLog" table="OpportunityLogs">
     
-    <id Description="OpportunityLogId" type="int">
+    <id name="OpportunityLogId" type="int">
       <generator class="native"/>
     </id>
 
-    <property Description="LogDate"/>
-    <property Description="Description"/>
-    <property Description="Deleted"/>
-    <property Description="Activated"/>
+    <property name="LogDate"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
 
   </class>
 
-  <query Description="OpportunityLog.GetListByParameters">
+  <query name="OpportunityLog.GetListByParameters">
     <![CDATA[
         from OpportunityLog where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <sql-query Description="OpportunityLog.SearchByParameters" cacheable="false" read-only="true">
+  <sql-query name="OpportunityLog.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="OpportunityLogId" type="int"/>
     <return-scalar column="LogDate" type="DateTime"/>
     <return-scalar column="Description" type="string"/>
