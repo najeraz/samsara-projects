@@ -180,8 +180,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmOpportunity.uceDetOrganization.Value == null ||
-                Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value) <= 0)
+            if ((int)this.frmOpportunity.uceDetOpportunityType.Value == (int)OpportunityTypeEnum.PublicSector
+                && (this.frmOpportunity.uceDetBidder.Value == null ||
+                Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value) <= 0))
+            {
+                MessageBox.Show("Favor de seleccionar el Licitante.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmOpportunity.tabDetDetail.SelectedTab =
+                    this.frmOpportunity.tabDetDetail.TabPages["Principal"];
+                this.frmOpportunity.uceDetBidder.Focus();
+                return false;
+            }
+
+            if ((int)this.frmOpportunity.uceDetOpportunityType.Value == (int)OpportunityTypeEnum.PrivateSector
+                && (this.frmOpportunity.uceDetOrganization.Value == null ||
+                Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value) <= 0))
             {
                 MessageBox.Show("Favor de seleccionar la Organización.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -206,6 +219,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
+            OpportunityType opportunityType = this.srvOpportunityType.GetById(
+                Convert.ToInt32(this.frmOpportunity.uceDetOpportunityType.Value));
+            this.opportunity.OpportunityType = opportunityType;
+
             Organization organization = srvOrganization.GetById(Convert.ToInt32(this.frmOpportunity.uceDetOrganization.Value));
             this.opportunity.Organization = organization;
 
@@ -299,14 +316,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadFormFromEntity()
         {
+            this.frmOpportunity.uceDetOpportunityType.Value
+                = this.opportunity.OpportunityType == null ? -1 : this.opportunity.OpportunityType.OpportunityTypeId;
+            this.frmOpportunity.uceDetBidder.Value =
+                this.opportunity.Bidder == null ? -1 : this.opportunity.Bidder.BidderId;
+            this.frmOpportunity.uceDetDependency.Value =
+                this.opportunity.Dependency == null ? -1 : this.opportunity.Dependency.DependencyId;
+            this.frmOpportunity.uceDetEndUser.Value =
+                this.opportunity.EndUser == null ? -1 : this.opportunity.EndUser.EndUserId;
             this.frmOpportunity.uceDetAsesor.Value =
                 this.opportunity.Asesor == null ? -1 : this.opportunity.Asesor.AsesorId;
-            this.frmOpportunity.uceDetBidder.Value =
-                this.opportunity.Bidder == null ? -1 : this.tender.Bidder.BidderId;
-            this.frmOpportunity.uceDetDependency.Value =
-                this.opportunity.Dependency == null ? -1 : this.tender.Dependency.DependencyId;
-            this.frmOpportunity.uceDetEndUser.Value =
-                this.opportunity.EndUser == null ? -1 : this.tender.EndUser.EndUserId;
             this.frmOpportunity.uceDetOrganization.Value = 
                 this.opportunity.Organization == null ? -1 : this.opportunity.Organization.OrganizationId;
             this.frmOpportunity.uceDetOpportunityStatus.Value =
@@ -459,6 +478,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void uceDetOpportunityType_ValueChanged(object sender, EventArgs e)
         {
+            this.frmOpportunity.uceDetBidder.Value = -1;
+            this.frmOpportunity.uceDetOrganization.Value = -1; 
+            
             int type = (int)this.frmOpportunity.uceDetOpportunityType.Value;
 
             if (type == (int)OpportunityTypeEnum.PublicSector ||
