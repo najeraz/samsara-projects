@@ -80,7 +80,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                             gridColumnConfiguration.ColumnName = column.Key;
                             gridColumnConfiguration.ColumnEndUserName = column.Key;
                             gridColumnConfiguration.GridConfiguration = gridConfiguration;
-                            gridColumnConfiguration.Visible = true;
+                            gridColumnConfiguration.Visible = false;
                             gridColumnConfiguration.Band = band.Index;
 
                             srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
