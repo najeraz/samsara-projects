@@ -30,6 +30,12 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
+        public int? EndUserId
+        {
+            get;
+            set;
+        }
+
         public int? TenderStatusId
         {
             get;

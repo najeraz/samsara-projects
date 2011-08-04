@@ -110,6 +110,7 @@
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
       AND (t.BidderId = :BidderId OR :BidderId = -1)
       AND (t.DependencyId = :DependencyId OR :DependencyId = -1)
+      AND (t.EndUserId = :EndUserId OR :EndUserId = -1)
       AND (t.TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
       AND (:DateTypeSearchId = 1 and :MinDate <= t.RegistrationDate and :MaxDate >= t.RegistrationDate
         OR :DateTypeSearchId = 2 and :MinDate <= t.Deadline and :MaxDate >= t.Deadline

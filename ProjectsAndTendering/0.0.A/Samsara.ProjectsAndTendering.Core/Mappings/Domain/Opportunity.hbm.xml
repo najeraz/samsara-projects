@@ -21,6 +21,15 @@
     <many-to-one name="Organization"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Organization, Samsara.ProjectsAndTendering.Core"
                  column="OrganizationId"/>
+    <many-to-one name="Bidder"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Bidder, Samsara.ProjectsAndTendering.Core"
+                 column="BidderId"/>
+    <many-to-one name="Dependency"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Dependency, Samsara.ProjectsAndTendering.Core"
+                 column="DependencyId"/>
+    <many-to-one name="EndUser"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.EndUser, Samsara.ProjectsAndTendering.Core"
+                 column="EndUserId"/>
     <many-to-one name="Asesor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Asesor, Samsara.ProjectsAndTendering.Core"
                  column="AsesorId"/>
@@ -45,21 +54,24 @@
     <return-scalar column="Deadline" type="DateTime"/>
     <return-scalar column="OpportunityStatusName" type="string"/>
     <![CDATA[
-      SELECT t.OpportunityId, t.RegistrationDate, o.Name OrganizationName, t.Name OpportunityName,
-      a.Name AsesorName, t.PreRevisionDate, t.Deadline, ts.Name OpportunityStatusName
-      FROM Opportunities t
-      INNER JOIN Organizations o	  	  ON o.OrganizationId = t.OrganizationId AND o.Deleted = 0 and o.Activated = 1
-      LEFT JOIN	Asesors a		    	      ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
-      LEFT JOIN	OpportunityStatuses ts	ON ts.OpportunityStatusId = t.OpportunityStatusId AND ts.Deleted = 0 and ts.Activated = 1
-      WHERE t.Deleted = 0 and t.Activated = 1
-      AND t.Name like :OpportunityName
-      AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
-      AND (t.OrganizationId = :OrganizationId OR :OrganizationId = -1)
-      AND (t.OpportunityStatusId = :OpportunityStatusId OR :OpportunityStatusId = -1)
-      AND (:DateTypeSearchId = 1 and :MinDate <= t.RegistrationDate and :MaxDate >= t.RegistrationDate
-        OR :DateTypeSearchId = 2 and :MinDate <= t.Deadline and :MaxDate >= t.Deadline
-        OR :DateTypeSearchId = 4 and :MinDate <= t.ClarificationDate and :MaxDate >= t.ClarificationDate
-        OR :DateTypeSearchId = 5 and :MinDate <= t.PreRevisionDate and :MaxDate >= t.PreRevisionDate
+      SELECT o.OpportunityId, o.RegistrationDate, o.Name OrganizationName, o.Name OpportunityName,
+      a.Name AsesorName, o.PreRevisionDate, o.Deadline, ts.Name OpportunityStatusName
+      FROM Opportunities o
+      INNER JOIN Organizations o	  	  ON o.OrganizationId = o.OrganizationId AND o.Deleted = 0 and o.Activated = 1
+      LEFT JOIN	Asesors a		    	      ON a.AsesorId = o.AsesorId AND a.Deleted = 0 and a.Activated = 1
+      LEFT JOIN	OpportunityStatuses ts	ON ts.OpportunityStatusId = o.OpportunityStatusId AND ts.Deleted = 0 and ts.Activated = 1
+      WHERE o.Deleted = 0 and o.Activated = 1
+      AND o.Name like :OpportunityName
+      AND (o.AsesorId = :AsesorId OR :AsesorId = -1)
+      AND (o.OrganizationId = :OrganizationId OR :OrganizationId = -1)
+      AND (o.BidderId = :BidderId OR :BidderId = -1)
+      AND (o.DependencyId = :DependencyId OR :DependencyId = -1)
+      AND (o.EndUserId = :EndUserId OR :EndUserId = -1)
+      AND (o.OpportunityStatusId = :OpportunityStatusId OR :OpportunityStatusId = -1)
+      AND (:DateTypeSearchId = 1 and :MinDate <= o.RegistrationDate and :MaxDate >= o.RegistrationDate
+        OR :DateTypeSearchId = 2 and :MinDate <= o.Deadline and :MaxDate >= o.Deadline
+        OR :DateTypeSearchId = 4 and :MinDate <= o.ClarificationDate and :MaxDate >= o.ClarificationDate
+        OR :DateTypeSearchId = 5 and :MinDate <= o.PreRevisionDate and :MaxDate >= o.PreRevisionDate
         OR :DateTypeSearchId = -1)
     ]]>
   </sql-query>

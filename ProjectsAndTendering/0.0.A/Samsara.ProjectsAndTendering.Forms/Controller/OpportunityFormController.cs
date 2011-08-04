@@ -22,6 +22,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private OpportunityForm frmOpportunity;
         private Opportunity opportunity;
         private Tender tender;
+        private IBidderService srvBidder;
+        private IDependencyService srvDependency;
+        private IEndUserService srvEndUser;
         private IOrganizationService srvOrganization;
         private IAsesorService srvAsesor;
         private ITenderService srvTender;
@@ -61,14 +64,50 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void InitializeFormControls()
         {
+            // OpportunityType
             OpportunityTypeParameters pmtOpportunityType = new OpportunityTypeParameters();
             IList<OpportunityType> lstOpportunityType = 
                 this.srvOpportunityType.GetListByParameters(pmtOpportunityType);
 
-            WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceSchAsesor,
+            WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceSchOpportunityType,
                 lstOpportunityType, "OpportunityTypeId", "Name");
-            WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceDetAsesor,
+            WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceDetOpportunityType,
                 lstOpportunityType, "OpportunityTypeId", "Name");
+
+            // Bidder
+            BidderParameters pmtBidder = new BidderParameters();
+            IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
+
+            WindowsFormsUtil.LoadCombo<Bidder>(this.frmOpportunity.uceSchBidder,
+                lstBidders, "BidderId", "Name");
+            WindowsFormsUtil.LoadCombo<Bidder>(this.frmOpportunity.uceDetBidder,
+                lstBidders, "BidderId", "Name");
+
+            this.frmOpportunity.uceSchBidder.ValueChanged += new EventHandler(uceSchBidder_ValueChanged);
+            this.frmOpportunity.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
+
+            // Dependency
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = ParameterConstants.IntNone;
+            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
+
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceSchDependency,
+                lstDependencies, "DependencyId", "Name");
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceDetDependency,
+                lstDependencies, "DependencyId", "Name");
+
+            this.frmOpportunity.uceSchDependency.ValueChanged += new EventHandler(uceSchDependency_ValueChanged);
+            this.frmOpportunity.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
+
+            // EndUser
+            EndUserParameters pmtEndUser = new EndUserParameters();
+            pmtEndUser.DependencyId = ParameterConstants.IntNone;
+            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
+
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceSchEndUser,
+                lstEndUsers, "EndUserId", "Name");
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceDetEndUser,
+                lstEndUsers, "EndUserId", "Name");
 
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
@@ -160,6 +199,28 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 Assert.IsNotNull(organization);
                 this.opportunity.Organization = organization;
             }
+            if (Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value) > 0)
+            {
+                Bidder bidder = srvBidder.GetById(
+                    Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value));
+                Assert.IsNotNull(bidder);
+                this.opportunity.Bidder = bidder;
+            }
+            if (Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value) > 0)
+            {
+                Dependency dependency = srvDependency.GetById(
+                    Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value));
+                Assert.IsNotNull(dependency);
+                this.opportunity.Dependency = dependency;
+            }
+
+            if (Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value) > 0)
+            {
+                EndUser endUser = srvEndUser.GetById(
+                    Convert.ToInt32(this.frmOpportunity.uceDetEndUser.Value));
+                Assert.IsNotNull(endUser);
+                this.opportunity.EndUser = endUser;
+            }
 
             if (Convert.ToInt32(this.frmOpportunity.uceDetAsesor.Value) > 0)
             {
@@ -190,6 +251,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearDetailControls()
         {
             this.frmOpportunity.uceDetAsesor.Value = -1;
+            this.frmOpportunity.uceDetBidder.Value = -1;
+            this.frmOpportunity.uceDetDependency.Value = -1;
+            this.frmOpportunity.uceDetEndUser.Value = -1;
             this.frmOpportunity.uceDetOrganization.Value = -1;
             this.frmOpportunity.uceDetOpportunityStatus.Value = -1;
             this.frmOpportunity.txtDetAcquisitionReason.Text = string.Empty;
@@ -246,6 +310,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOpportunity.uceDetAsesor.Value =
                 this.opportunity.Asesor == null ? -1 : this.opportunity.Asesor.AsesorId;
+            this.frmOpportunity.uceDetBidder.Value =
+                this.opportunity.Bidder == null ? -1 : this.tender.Bidder.BidderId;
+            this.frmOpportunity.uceDetDependency.Value =
+                this.opportunity.Dependency == null ? -1 : this.tender.Dependency.DependencyId;
+            this.frmOpportunity.uceDetEndUser.Value =
+                this.opportunity.EndUser == null ? -1 : this.tender.EndUser.EndUserId;
             this.frmOpportunity.uceDetOrganization.Value = 
                 this.opportunity.Organization == null ? -1 : this.opportunity.Organization.OrganizationId;
             this.frmOpportunity.uceDetOpportunityStatus.Value =
@@ -285,6 +355,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtOpportunity.MaxDate = (DateTime)this.frmOpportunity.dteSchMaxDate.Value;
             pmtOpportunity.AsesorId = (int)this.frmOpportunity.uceSchAsesor.Value;
             pmtOpportunity.OrganizationId = (int)this.frmOpportunity.uceSchOrganization.Value;
+            pmtOpportunity.BidderId = (int)this.frmOpportunity.uceSchBidder.Value;
+            pmtOpportunity.DependencyId = (int)this.frmOpportunity.uceSchDependency.Value;
+            pmtOpportunity.EndUserId = (int)this.frmOpportunity.uceSchEndUser.Value;
             pmtOpportunity.OpportunityStatusId = (int)this.frmOpportunity.uceSchOpportunityStatus.Value;
             pmtOpportunity.OpportunityName = "%" + this.frmOpportunity.txtSchOpportunityName.Text + "%";
             pmtOpportunity.DateTypeSearchId = (DateTypeSearchEnum)this.frmOpportunity.uosSchDates.Value;
@@ -324,6 +397,46 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnDetCancel_Click(object sender, EventArgs e)
         {
             this.frmOpportunity.HiddenDetail(true);
+        }
+
+        private void uceSchBidder_ValueChanged(object sender, EventArgs e)
+        {
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = Convert.ToInt32(this.frmOpportunity.uceSchBidder.Value);
+            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
+
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceSchDependency,
+                lstDependencies, "DependencyId", "Name");
+        }
+
+        private void uceDetBidder_ValueChanged(object sender, EventArgs e)
+        {
+            DependencyParameters pmtDependency = new DependencyParameters();
+            pmtDependency.BidderId = Convert.ToInt32(this.frmOpportunity.uceDetBidder.Value);
+            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
+
+            WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceDetDependency,
+                lstDependencies, "DependencyId", "Name");
+        }
+
+        private void uceSchDependency_ValueChanged(object sender, EventArgs e)
+        {
+            EndUserParameters pmtEndUser = new EndUserParameters();
+            pmtEndUser.DependencyId = Convert.ToInt32(this.frmOpportunity.uceSchDependency.Value);
+            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
+
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceSchEndUser,
+                lstEndUsers, "EndUserId", "Name");
+        }
+
+        private void uceDetDependency_ValueChanged(object sender, EventArgs e)
+        {
+            EndUserParameters pmtEndUser = new EndUserParameters();
+            pmtEndUser.DependencyId = Convert.ToInt32(this.frmOpportunity.uceDetDependency.Value);
+            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
+
+            WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceDetEndUser,
+                lstEndUsers, "EndUserId", "Name");
         }
         
         private void btnSchEdit_Click(object sender, EventArgs e)

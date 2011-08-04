@@ -18,6 +18,24 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
+        public int? BidderId
+        {
+            get;
+            set;
+        }
+
+        public int? DependencyId
+        {
+            get;
+            set;
+        }
+
+        public int? EndUserId
+        {
+            get;
+            set;
+        }
+
         public int? OpportunityStatusId
         {
             get;
