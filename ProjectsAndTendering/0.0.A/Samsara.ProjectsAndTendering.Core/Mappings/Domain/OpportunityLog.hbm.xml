@@ -13,6 +13,10 @@
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
+    
+    <many-to-one name="Opportunity"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Opportunity, Samsara.ProjectsAndTendering.Core"
+                 column="OpportunityId"/>
 
   </class>
 

@@ -1,5 +1,5 @@
 ﻿
-
+using System;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -10,7 +10,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             OpportunityStatusId = -1;
         }
 
-        public virtual int OpportunityStatusId
+        public virtual Int32 OpportunityStatusId
         {
             get;
             set;

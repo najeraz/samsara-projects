@@ -9,7 +9,6 @@
       <generator class="native"/>
     </id>
 
-    <property name="TenderId"/>
     <property name="LogDate"/>
     <property name="Description"/>
     <property name="Deleted"/>

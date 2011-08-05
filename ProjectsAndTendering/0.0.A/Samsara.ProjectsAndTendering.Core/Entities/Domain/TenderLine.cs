@@ -16,7 +16,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int TenderId
+        public virtual Tender Tender
         {
             get;
             set;

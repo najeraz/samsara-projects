@@ -10,12 +10,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             TenderLogId = -1;
         }
 
-        public virtual int TenderId
-        {
-            get;
-            set;
-        }
-
         public virtual int TenderLogId
         {
             get;

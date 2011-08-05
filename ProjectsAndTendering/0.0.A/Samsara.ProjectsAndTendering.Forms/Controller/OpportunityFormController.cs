@@ -262,6 +262,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void ClearDetailControls()
         {
+            this.frmOpportunity.uceDetOpportunityType.Value = -1;
             this.frmOpportunity.uceDetAsesor.Value = -1;
             this.frmOpportunity.uceDetBidder.Value = -1;
             this.frmOpportunity.uceDetDependency.Value = -1;
@@ -321,7 +322,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmOpportunity.HiddenDetail(false);
             this.ShowDetail(true);
-            this.Search();
         }
 
         private void LoadFormFromEntity()
@@ -452,6 +452,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.opportunity.OpportunityLogs.Add(opportunityLog);
                 }
 
+                opportunityLog.Opportunity = this.opportunity;
                 opportunityLog.Description = row["Description"].ToString();
                 opportunityLog.LogDate = Convert.ToDateTime(row["LogDate"]);
                 opportunityLog.Activated = true;

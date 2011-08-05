@@ -9,13 +9,16 @@
       <generator class="native"/>
     </id>
     
-    <property name="TenderId"/>
     <property name="Name"/>
     <property name="Quantity"/>
     <property name="Description"/>
     <property name="ManufacturerId"/>
     <property name="Deleted"/>
     <property name="Activated"/>
+
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
 
   </class>
 
