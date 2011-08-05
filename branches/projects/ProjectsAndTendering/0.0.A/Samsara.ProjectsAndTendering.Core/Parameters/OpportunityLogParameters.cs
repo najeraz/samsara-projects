@@ -5,7 +5,7 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
     public class OpportunityLogParameters : GenericParameters
     {
-        public int OpportunityId
+        public int OpportunityLogId
         {
             get;
             set;

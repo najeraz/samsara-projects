@@ -556,10 +556,7 @@
             this.grdDetLog.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
             this.grdDetLog.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
-            this.grdDetLog.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdDetLog.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdDetLog.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
             this.grdDetLog.Name = "grdDetLog";

@@ -14,6 +14,7 @@ using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
 using Infragistics.Win;
+using Iesi.Collections.Generic;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -163,7 +164,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.grdDetLog.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetLog_BeforeCellUpdate);
             OpportunityLogParameters pmtOpportunityLog = new OpportunityLogParameters();
-            pmtOpportunityLog.OpportunityId = ParameterConstants.IntNone;
+            pmtOpportunityLog.OpportunityLogId = ParameterConstants.IntNone;
             this.dtOpportunityLog = this.srvOpportunityLog.SearchByParameters(pmtOpportunityLog);
             this.frmOpportunity.grdDetLog.DataSource = null;
             this.frmOpportunity.grdDetLog.DataSource = this.dtOpportunityLog;
@@ -176,6 +177,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
             this.frmOpportunity.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmOpportunity.ubtnDetGenerateTender.Click += new EventHandler(ubtnDetGenerateTender_Click);
+            this.frmOpportunity.ubtnDetCreateLog.Click += new EventHandler(ubtnDetCreateLog_Click);
+            this.frmOpportunity.ubtnDetDeleteLog.Click += new EventHandler(ubtnDetDeleteLog_Click);
 
             this.hiddenOpportunityDetailTab = this.frmOpportunity.tabDetDetail.TabPages["OpportunityDetails"];
             this.frmOpportunity.uosSchDates.Value = -1;
@@ -251,6 +254,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.opportunity.AcquisitionReason = this.frmOpportunity.txtDetAcquisitionReason.Text;
             this.opportunity.Name = this.frmOpportunity.txtDetOpportunityName.Text;
 
+            this.GetOpportunityLogs();
+
             this.opportunity.Activated = true;
             this.opportunity.Deleted = false;
         }
@@ -272,6 +277,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
             this.frmOpportunity.gbxDetRelatedTender.Visible = false;
             this.frmOpportunity.uceDetOpportunityType.ReadOnly = false;
+            this.dtOpportunityLog.Rows.Clear();
         }
 
         private void ClearSearchControls()
@@ -627,7 +633,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.grdDetLog_InitializeLayout(null, null);
             DataRow newRow = this.dtOpportunityLog.NewRow();
             this.dtOpportunityLog.Rows.Add(newRow);
-            newRow["DateLod"] = DateTime.Now;
+            newRow["LogDate"] = DateTime.Now;
             this.dtOpportunityLog.AcceptChanges();
         }
 
@@ -638,11 +644,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
             band.Override.MinRowHeight = 3;
-            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.DefaultRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFree;
             band.Override.RowSizingAutoMaxLines = 5;
 
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
+            band.Columns["OpportunityLogId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["LogDate"].CellActivation = Activation.ActivateOnly;
         }
 
         private void grdDetLog_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
