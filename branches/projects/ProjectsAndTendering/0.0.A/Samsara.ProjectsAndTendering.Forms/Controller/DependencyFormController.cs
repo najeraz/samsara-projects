@@ -139,7 +139,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmDependency.HiddenDetail(false);
             this.ShowDetail(true);
-            this.Search();
         }
 
         private void LoadFormFromEntity()

@@ -293,7 +293,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 TenderLine tenderLine = this.tender.TenderLines
                     .SingleOrDefault(x => row["TenderLineId"] != DBNull.Value &&
-                        x.TenderId == Convert.ToInt32(row["TenderLineId"]));
+                        x.Tender.TenderId == Convert.ToInt32(row["TenderLineId"]));
 
                 if (tenderLine == null)
                 {
@@ -396,7 +396,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadFormFromEntity();
             this.frmTender.HiddenDetail(false);
             this.ShowDetail(true);
-            this.Search();
         }
 
         private void LoadFormFromEntity()
@@ -441,7 +440,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["ManufacturerId"] = tenderLine.ManufacturerId;
                 row["Name"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
-                row["TenderId"] = tenderLine.TenderId;
+                row["TenderId"] = tenderLine.Tender.TenderId;
                 row["TenderLineId"] = tenderLine.TenderLineId;
             }
 

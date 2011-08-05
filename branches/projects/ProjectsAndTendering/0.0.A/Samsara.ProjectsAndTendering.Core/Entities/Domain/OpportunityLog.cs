@@ -16,6 +16,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual Opportunity Opportunity
+        {
+            get;
+            set;
+        }
+
         public virtual string Description
         {
             get;
