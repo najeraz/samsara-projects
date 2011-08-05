@@ -16,12 +16,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int OpportunityId
-        {
-            get;
-            set;
-        }
-
         public virtual string Description
         {
             get;

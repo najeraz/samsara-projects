@@ -26,7 +26,7 @@
   <query name="TenderLog.SearchByParameters">
     <![CDATA[
         from TenderLog tl where Deleted = 0 and Activated = 1
-        and tl.TenderId = :TenderId
+        and tl.TenderLogId = :TenderLogId
     ]]>
   </query>
   
