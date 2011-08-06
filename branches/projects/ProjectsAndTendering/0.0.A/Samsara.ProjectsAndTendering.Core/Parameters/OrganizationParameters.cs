@@ -11,5 +11,11 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             get;
             set;
         }
+
+        public string Description
+        {
+            get;
+            set;
+        }
     }
 }
