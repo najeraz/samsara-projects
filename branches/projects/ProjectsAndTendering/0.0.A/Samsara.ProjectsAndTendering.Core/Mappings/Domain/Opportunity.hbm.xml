@@ -94,6 +94,7 @@
         OR :DateTypeSearchId = 4 and :MinDate <= o.ClarificationDate and :MaxDate >= o.ClarificationDate
         OR :DateTypeSearchId = 5 and :MinDate <= o.PreRevisionDate and :MaxDate >= o.PreRevisionDate
         OR :DateTypeSearchId = -1)
+      AND (:OnlyNotRelatedToTenders = 0 OR o.OpportunityId NOT IN (SELECT OpportunityId FROM Tenders))
     ]]>
   </sql-query>
 

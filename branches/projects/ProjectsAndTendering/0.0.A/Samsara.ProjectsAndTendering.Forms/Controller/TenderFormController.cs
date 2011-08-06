@@ -29,12 +29,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IAsesorService srvAsesor;
         private ITenderStatusService srvTenderStatus;
         private ITenderService srvTender;
+        private ITenderLogService srvTenderLog;
         private ITenderLineService srvTenderLine;
         private ITenderManufacturerService srvTenderManufacturer;
         private IManufacturerService srvManufacturer;
         private DataTable dtTenderLines;
         private DataTable dtTenderManufacturers;
         private TabPage hiddenTenderDetailTab;
+        private DataTable dtTenderLog;
 
         #endregion Attributes
 
@@ -57,6 +59,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(srvTender);
             this.srvTenderLine = SamsaraAppContext.Resolve<ITenderLineService>();
             Assert.IsNotNull(srvTenderLine);
+            this.srvTenderLog = SamsaraAppContext.Resolve<ITenderLogService>();
+            Assert.IsNotNull(srvTenderLog);
             this.srvTenderManufacturer = SamsaraAppContext.Resolve<ITenderManufacturerService>();
             Assert.IsNotNull(srvTenderManufacturer);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
@@ -149,6 +153,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetTenderManufacturers.DataSource = null;
             this.frmTender.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 
+            //grdDetLog
+            this.frmTender.grdDetLog.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetLog_InitializeLayout);
+            this.frmTender.grdDetLog.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(grdDetLog_BeforeCellUpdate);
+            TenderLogParameters pmtTenderLog = new TenderLogParameters();
+            pmtTenderLog.TenderLogId = ParameterConstants.IntNone;
+            this.dtTenderLog = this.srvTenderLog.SearchByParameters(pmtTenderLog);
+            this.frmTender.grdDetLog.DataSource = null;
+            this.frmTender.grdDetLog.DataSource = this.dtTenderLog;
+
             this.frmTender.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmTender.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTender.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
@@ -162,6 +177,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 new EventHandler(ubtnDetNewManufacturer_Click);
             this.frmTender.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
             this.frmTender.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
+            this.frmTender.ubtnDetCreateLog.Click += new EventHandler(ubtnDetCreateLog_Click);
+            this.frmTender.ubtnDetDeleteLog.Click += new EventHandler(ubtnDetDeleteLog_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -241,24 +258,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            Bidder bidder = srvBidder.GetById(Convert.ToInt32(this.frmTender.uceDetBidder.Value));
-            this.tender.Bidder = bidder;
-             
-            Dependency dependency = srvDependency.GetById(Convert.ToInt32(this.frmTender.uceDetDependency.Value));
-            this.tender.Dependency = dependency;
-
-            EndUser endUser = srvEndUser.GetById(Convert.ToInt32(this.frmTender.uceDetEndUser.Value));
-            this.tender.EndUser = endUser;
-
-            Asesor asesor = srvAsesor.GetById(Convert.ToInt32(this.frmTender.uceDetAsesor.Value));
-            this.tender.Asesor = asesor;
-
-            asesor = srvAsesor.GetById(
-                Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value));
-            this.tender.ApprovedBy = asesor;
-
-            TenderStatus tenderStatus = srvTenderStatus.GetById(Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value));
-            this.tender.TenderStatus = tenderStatus;
+            this.tender.Bidder = srvBidder.GetById(Convert.ToInt32(this.frmTender.uceDetBidder.Value));
+            this.tender.Dependency = srvDependency.GetById(Convert.ToInt32(this.frmTender.uceDetDependency.Value));
+            this.tender.EndUser = srvEndUser.GetById(Convert.ToInt32(this.frmTender.uceDetEndUser.Value));
+            this.tender.Asesor = srvAsesor.GetById(Convert.ToInt32(this.frmTender.uceDetAsesor.Value));
+            this.tender.ApprovedBy = srvAsesor.GetById(Convert.ToInt32(this.frmTender.uceDetApprovedBy.Value));
+            this.tender.TenderStatus = srvTenderStatus.GetById(Convert.ToInt32(this.frmTender.uceDetTenderStatus.Value));
 
             this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTender.dteDetClarificationDate.Value;
             this.tender.Deadline = (Nullable<DateTime>)this.frmTender.dteDetDeadline.Value;
@@ -274,14 +279,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PreviousTender = this.frmTender.tscPreviousTender.Value;
             this.tender.Opportunity = this.frmTender.oscDetRelatedOpportunity.Value;
 
-            this.GetTenderManufacturers();
-            this.GetTenderLines();
+            this.LoadTenderManufacturers();
+            this.LoadTenderLines();
+            this.LoadTenderLogs();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
         }
 
-        private void GetTenderLines()
+        private void LoadTenderLines()
         {
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
@@ -293,7 +299,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 TenderLine tenderLine = this.tender.TenderLines
                     .SingleOrDefault(x => row["TenderLineId"] != DBNull.Value &&
-                        x.Tender.TenderId == Convert.ToInt32(row["TenderLineId"]));
+                        x.TenderLineId == Convert.ToInt32(row["TenderLineId"]));
 
                 if (tenderLine == null)
                 {
@@ -310,7 +316,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void GetTenderManufacturers()
+        private void LoadTenderManufacturers()
         {
             foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
             {
@@ -324,15 +330,45 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .SingleOrDefault(x => x.ManufacturerId == Convert.ToInt32(row["ManufacturerId"]));
 
                 if (tenderManufacturer == null)
+                {
                     tenderManufacturer = new TenderManufacturer();
+                    this.tender.TenderManufacturers.Add(tenderManufacturer);
+                }
 
                 tenderManufacturer.FolioReference = row["FolioReference"].ToString();
                 tenderManufacturer.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
                 tenderManufacturer.ManufacturerSupport = row["ManufacturerSupport"].ToString();
                 tenderManufacturer.Deleted = false;
                 tenderManufacturer.Activated = true;
+            }
+        }
 
-                this.tender.TenderManufacturers.Add(tenderManufacturer);
+        private void LoadTenderLogs()
+        {
+            foreach (TenderLog tenderLog in this.tender.TenderLogs)
+            {
+                tenderLog.Deleted = true;
+                tenderLog.Activated = false;
+            }
+
+            foreach (DataRow row in this.dtTenderLog.Rows)
+            {
+                TenderLog tenderLog = this.tender.TenderLogs
+                    .SingleOrDefault(x => row["TenderLogId"] != DBNull.Value &&
+                        x.TenderLogId == Convert.ToInt32(row["TenderLogId"]));
+
+                if (tenderLog == null)
+                {
+                    tenderLog = new TenderLog();
+                    if (row["Description"].ToString().Trim() != string.Empty)
+                        this.tender.TenderLogs.Add(tenderLog);
+                }
+
+                tenderLog.Tender = this.tender;
+                tenderLog.Description = row["Description"].ToString();
+                tenderLog.LogDate = Convert.ToDateTime(row["LogDate"]);
+                tenderLog.Activated = true;
+                tenderLog.Deleted = false;
             }
         }
 
@@ -357,8 +393,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.dteDetVeredictDate.Value = null;
             this.frmTender.oscDetRelatedOpportunity.Clear();
             this.frmTender.tscPreviousTender.Clear();
-            this.dtTenderLines.Rows.Clear();
             this.dtTenderManufacturers.Rows.Clear();
+            this.dtTenderLines.Rows.Clear();
+            this.dtTenderLog.Rows.Clear();
         }
 
         private void ClearSearchControls()
@@ -440,7 +477,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["ManufacturerId"] = tenderLine.ManufacturerId;
                 row["Name"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
-                row["TenderId"] = tenderLine.Tender.TenderId;
+                //row["TenderId"] = tenderLine.Tender.TenderId;
                 row["TenderLineId"] = tenderLine.TenderLineId;
             }
 
@@ -453,6 +490,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["ManufacturerId"] = tenderManufacturer.ManufacturerId;
                 row["ManufacturerSupport"] = tenderManufacturer.ManufacturerSupport;
                 row["TenderId"] = tenderManufacturer.TenderId;
+            }
+
+            foreach (TenderLog tenderLog in this.tender.TenderLogs)
+            {
+                DataRow row = this.dtTenderLog.NewRow();
+                this.dtTenderLog.Rows.Add(row);
+
+                row["Description"] = tenderLog.Description;
+                row["LogDate"] = tenderLog.LogDate;
+                row["TenderLogId"] = tenderLog.TenderLogId;
             }
         }
 
@@ -702,6 +749,46 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow != null)
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+
+        private void ubtnDetDeleteLog_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetLog.ActiveRow;
+
+            if (activeRow == null) return;
+
+            this.dtTenderLog.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+        }
+
+        private void ubtnDetCreateLog_Click(object sender, EventArgs e)
+        {
+            this.grdDetLog_InitializeLayout(null, null);
+            DataRow newRow = this.dtTenderLog.NewRow();
+            this.dtTenderLog.Rows.Add(newRow);
+            newRow["LogDate"] = DateTime.Now;
+            this.dtTenderLog.AcceptChanges();
+        }
+
+        private void grdDetLog_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdDetLog.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.DefaultRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFree;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+            band.Columns["TenderLogId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["LogDate"].CellActivation = Activation.ActivateOnly;
+        }
+
+        private void grdDetLog_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            e.Cell.Row.PerformAutoSize();
         }
 
         #endregion Events

@@ -741,6 +741,7 @@
             this.ubtnDetDeleteLog.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteLog.TabIndex = 9;
             this.ubtnDetDeleteLog.Text = "Borrar";
+            this.ubtnDetDeleteLog.Visible = false;
             // 
             // upDetSeparatorCreateLog
             // 

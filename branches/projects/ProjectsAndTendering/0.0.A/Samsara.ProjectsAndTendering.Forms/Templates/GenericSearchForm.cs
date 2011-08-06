@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public void PrepareSearchControls()
+        public virtual void PrepareSearchControls()
         {
             if (((ISearchForm<T>)this).ParentSearchForm != null)
             {

@@ -149,6 +149,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 408);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -556,7 +557,7 @@
             this.grdDetLog.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
             this.grdDetLog.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
-            this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
             this.grdDetLog.Name = "grdDetLog";
@@ -593,6 +594,7 @@
             this.ubtnDetDeleteLog.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteLog.TabIndex = 9;
             this.ubtnDetDeleteLog.Text = "Borrar";
+            this.ubtnDetDeleteLog.Visible = false;
             // 
             // upDetSeparatorCreateLog
             // 
