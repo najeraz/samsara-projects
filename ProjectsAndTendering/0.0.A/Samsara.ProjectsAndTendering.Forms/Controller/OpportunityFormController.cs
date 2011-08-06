@@ -400,7 +400,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtOpportunity.OpportunityStatusId = (int)this.frmOpportunity.uceSchOpportunityStatus.Value;
             pmtOpportunity.Name = "%" + this.frmOpportunity.txtSchOpportunityName.Text + "%";
             pmtOpportunity.DateTypeSearchId = (DateTypeSearchEnum)this.frmOpportunity.uosSchDates.Value;
-            pmtOpportunity.OnlyNotRelatedToTenders = ((GenericSearchForm<Opportunity>)this.frmOpportunity).ParentSearchForm != null;
+            pmtOpportunity.OnlyNotRelatedToTenders = ((GenericSearchForm<Opportunity>)
+                this.frmOpportunity).ParentSearchForm != null;
 
             DataTable dtOpportunitys = srvOpportunity.SearchByParameters(pmtOpportunity);
 
