@@ -141,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "OrganizationForm";
-            this.Text = "Catálogo de Organizationes";
+            this.Text = "Catálogo de Organizaciones";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
