@@ -7,6 +7,7 @@ using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Forms.Controller;
 using Samsara.ProjectsAndTendering.Forms.Templates;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
@@ -32,6 +33,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         #endregion Constructor
 
         #region Methods
+
+        public override void PrepareSearchControls()
+        {
+            base.PrepareSearchControls();
+
+            if (((GenericSearchForm<Opportunity>)this).ParentSearchForm != null)
+            {
+                this.uceSchOpportunityType.ReadOnly = true;
+                this.uceSchOpportunityType.Value = (int)OpportunityTypeEnum.PublicSector;
+            }
+        }
 
         internal override Opportunity GetSerchResult()
         {

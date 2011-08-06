@@ -71,5 +71,11 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             get;
             set;
         }
+
+        public bool? OnlyNotRelatedToTenders
+        {
+            get;
+            set;
+        }
     }
 }

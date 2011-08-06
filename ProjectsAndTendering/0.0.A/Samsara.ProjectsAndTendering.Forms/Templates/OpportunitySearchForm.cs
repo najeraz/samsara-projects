@@ -10,6 +10,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
+        public override void PrepareSearchControls()
+        {
+            base.PrepareSearchControls();
+        }
+
         internal override Opportunity GetSerchResult()
         {
             throw new System.NotImplementedException();

@@ -15,6 +15,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
 using Infragistics.Win;
 using Iesi.Collections.Generic;
+using Samsara.ProjectsAndTendering.Forms.Templates;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -74,7 +75,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         #endregion Constructor
         
         #region Methods
-
+        
         private void InitializeFormControls()
         {
             // OpportunityType
@@ -254,7 +255,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.opportunity.AcquisitionReason = this.frmOpportunity.txtDetAcquisitionReason.Text;
             this.opportunity.Name = this.frmOpportunity.txtDetOpportunityName.Text;
 
-            this.GetOpportunityLogs();
+            this.LoadOpportunityLogs();
 
             this.opportunity.Activated = true;
             this.opportunity.Deleted = false;
@@ -399,6 +400,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtOpportunity.OpportunityStatusId = (int)this.frmOpportunity.uceSchOpportunityStatus.Value;
             pmtOpportunity.Name = "%" + this.frmOpportunity.txtSchOpportunityName.Text + "%";
             pmtOpportunity.DateTypeSearchId = (DateTypeSearchEnum)this.frmOpportunity.uosSchDates.Value;
+            pmtOpportunity.OnlyNotRelatedToTenders = ((GenericSearchForm<Opportunity>)this.frmOpportunity).ParentSearchForm != null;
 
             DataTable dtOpportunitys = srvOpportunity.SearchByParameters(pmtOpportunity);
 
@@ -428,11 +430,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.srvTender.Save(this.tender);
 
             this.frmOpportunity.txtDetRelatedTender.Text = this.tender.Name;
-            this.frmOpportunity.ubtnDetGenerateTender.Visible = true;
+            this.frmOpportunity.gbxDetRelatedTender.Visible = true;
             this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
         }
 
-        private void GetOpportunityLogs()
+        private void LoadOpportunityLogs()
         {
             foreach (OpportunityLog opportunityLog in this.opportunity.OpportunityLogs)
             {

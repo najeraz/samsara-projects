@@ -65,6 +65,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.OpportunityLogService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IOpportunityLogDao"/>
   </object>
+  <object id="ITenderLogService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderLogService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderLogDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
