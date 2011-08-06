@@ -106,6 +106,7 @@
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
+    <Compile Include="Parameters\CompetitorParameters.cs" />
     <Compile Include="Parameters\OpportunityLogParameters.cs" />
     <Compile Include="Parameters\TenderLogParameters.cs" />
     <Compile Include="Parameters\OpportunityTypeParameters.cs" />
