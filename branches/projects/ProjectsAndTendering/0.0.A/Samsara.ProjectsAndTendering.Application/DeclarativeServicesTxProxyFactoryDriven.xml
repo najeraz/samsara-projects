@@ -2,7 +2,7 @@
 <objects xmlns="http://www.springframework.net">
 
   <description>
-    Transactional Proxy for CustomerService using the TransactionProxyFactory
+    Transactional Proxy for Services using the TransactionProxyFactory
   </description>
 
   <object id="TxProxyConfigurationTemplate" abstract="true"
@@ -37,6 +37,7 @@
     <property name="Target" ref="ITenderLineService"/>
     <property name="Target" ref="ITenderService"/>
     <property name="Target" ref="ITenderStatusService"/>
+    <property name="Target" ref="IOpportunityService"/>
 
   </object>
 </objects>

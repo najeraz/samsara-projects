@@ -10,7 +10,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             OpportunityStatusId = -1;
         }
 
-        public virtual Int32 OpportunityStatusId
+        public virtual int OpportunityStatusId
         {
             get;
             set;

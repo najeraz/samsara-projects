@@ -14,6 +14,11 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
+
+
   </class>
 
   <query name="TenderLog.GetListByParameters">

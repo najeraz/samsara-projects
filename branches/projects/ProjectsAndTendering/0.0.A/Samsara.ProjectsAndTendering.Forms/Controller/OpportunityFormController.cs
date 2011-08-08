@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
@@ -11,11 +12,9 @@ using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Enums;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
+using Samsara.ProjectsAndTendering.Forms.Templates;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
-using Infragistics.Win;
-using Iesi.Collections.Generic;
-using Samsara.ProjectsAndTendering.Forms.Templates;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -349,18 +348,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.dteDetPrerevisionDate.Value = this.opportunity.PreRevisionDate.Value;
             if (this.opportunity.RegistrationDate.HasValue)
                 this.frmOpportunity.dteDetRegistrationDate.Value = this.opportunity.RegistrationDate.Value;
-            if (tender == null)
-            {
-                this.frmOpportunity.ubtnDetGenerateTender.Visible = true;
-                this.frmOpportunity.gbxDetRelatedTender.Visible = false;
-            }
-            else
-            {
-                this.frmOpportunity.txtDetRelatedTender.Text = this.tender.Name;
-                this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
-                this.frmOpportunity.gbxDetRelatedTender.Visible = true;
-                this.frmOpportunity.uceDetOpportunityType.ReadOnly = true;
-            }
+
+            this.ShowHideGenerateTenderButton();
 
             foreach (OpportunityLog opportunityLog in this.opportunity.OpportunityLogs)
             {
@@ -370,6 +359,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["Description"] = opportunityLog.Description;
                 row["LogDate"] = opportunityLog.LogDate;
                 row["OpportunityLogId"] = opportunityLog.OpportunityLogId;
+            }
+        }
+
+        private void ShowHideGenerateTenderButton()
+        {
+            if (tender == null)
+            {
+                this.frmOpportunity.ubtnDetGenerateTender.Visible = 
+                    Convert.ToInt32(this.frmOpportunity.uceDetOpportunityType.Value)
+                    == (int)OpportunityTypeEnum.PublicSector;
+                this.frmOpportunity.gbxDetRelatedTender.Visible = false;
+            }
+            else
+            {
+                this.frmOpportunity.txtDetRelatedTender.Text = this.tender.Name;
+                this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
+                this.frmOpportunity.gbxDetRelatedTender.Visible = true;
+                this.frmOpportunity.uceDetOpportunityType.ReadOnly = true;
             }
         }
 
@@ -427,6 +434,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
+
+
+            foreach (OpportunityLog opportunityLog in 
+                this.opportunity.OpportunityLogs.Where(x => x.Activated && !x.Deleted))
+            {
+                TenderLog tenderLog = new TenderLog();
+                ObjectsUtil.CopyProperties(tenderLog, opportunityLog);
+                tenderLog.Tender = this.tender;
+                this.tender.TenderLogs.Add(tenderLog);
+            }
 
             this.srvTender.Save(this.tender);
 
@@ -552,7 +569,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetGenerateTender_Click(object sender, EventArgs e)
         {
-            this.GenerateTender();
+            if (this.ValidateFormInformation())
+            {
+                this.SaveOpportunity();
+                this.GenerateTender();
+            }
         }
 
         private void uceDetOpportunityType_ValueChanged(object sender, EventArgs e)
@@ -561,7 +582,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.uceDetOrganization.Value = -1; 
             
             int type = (int)this.frmOpportunity.uceDetOpportunityType.Value;
-
+            
             if (type == (int)OpportunityTypeEnum.PublicSector ||
                 type == (int)OpportunityTypeEnum.PrivateSector)
             {
@@ -587,6 +608,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.uceDetEndUser.Visible = false;
                 this.frmOpportunity.uceDetOrganization.Visible = false;
             }
+
+            this.ShowHideGenerateTenderButton();
         }
 
         private void uceSchOpportunityType_ValueChanged(object sender, EventArgs e)
@@ -662,6 +685,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             e.Cell.Row.PerformAutoSize();
         }
+
         #endregion Events
     }
 }
