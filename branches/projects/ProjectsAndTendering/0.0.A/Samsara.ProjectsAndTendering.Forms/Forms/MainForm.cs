@@ -122,5 +122,47 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void competenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CompetitorForm frmCompetitor = new CompetitorForm();
+                frmCompetitor.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void estatusDeLaOportunidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                OpportunityStatusForm frmOpportunityStatus = new OpportunityStatusForm();
+                frmOpportunityStatus.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void organizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                OrganizationForm frmOrganization = new OrganizationForm();
+                frmOrganization.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
