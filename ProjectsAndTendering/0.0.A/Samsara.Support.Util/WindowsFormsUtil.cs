@@ -64,6 +64,8 @@ namespace Samsara.Support.Util
                     entity.GetType().GetProperty(displayMember).GetValue(entity, null).ToString());
             }
 
+            vl.SelectedItem = -1;
+            band.Columns[valueMember].ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
             band.Columns[valueMember].ValueList = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
         }
     }
