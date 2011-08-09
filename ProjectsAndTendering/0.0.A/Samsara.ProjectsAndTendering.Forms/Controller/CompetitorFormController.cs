@@ -64,7 +64,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.frmCompetitor.txtDetName.Text == null || 
                 this.frmCompetitor.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para el Competitor.",
+                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmCompetitor.txtDetName.Focus();
                 return false;
