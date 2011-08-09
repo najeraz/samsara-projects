@@ -28,7 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmManufacturer = instance;
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
-            Assert.IsNotNull(srvManufacturer);
+            Assert.IsNotNull(this.srvManufacturer);
             this.InitializeFormControls();
         }
 

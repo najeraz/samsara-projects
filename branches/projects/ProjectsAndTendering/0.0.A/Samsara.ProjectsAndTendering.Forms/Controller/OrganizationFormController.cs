@@ -28,7 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOrganization = instance;
             this.srvOrganization = SamsaraAppContext.Resolve<IOrganizationService>();
-            Assert.IsNotNull(srvOrganization);
+            Assert.IsNotNull(this.srvOrganization);
             this.InitializeFormControls();
         }
 

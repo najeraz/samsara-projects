@@ -69,6 +69,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderLogService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ITenderLogDao"/>
   </object>
+  <object id="ITenderCompetitorService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderCompetitorService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderCompetitorDao"/>
+  </object>
   <object id="ICompetitorService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.CompetitorService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ICompetitorDao"/>

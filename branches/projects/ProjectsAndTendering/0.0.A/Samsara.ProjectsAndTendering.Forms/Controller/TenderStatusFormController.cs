@@ -28,7 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmTenderStatus = instance;
             this.srvTenderStatus = SamsaraAppContext.Resolve<ITenderStatusService>();
-            Assert.IsNotNull(srvTenderStatus);
+            Assert.IsNotNull(this.srvTenderStatus);
             this.InitializeFormControls();
         }
 

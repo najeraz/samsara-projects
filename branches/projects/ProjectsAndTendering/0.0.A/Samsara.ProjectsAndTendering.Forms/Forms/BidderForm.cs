@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlBidderForm = new BidderFormController(this);
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
-            Assert.IsNotNull(srvBidder);
+            Assert.IsNotNull(this.srvBidder);
         }
 
         #region Methods

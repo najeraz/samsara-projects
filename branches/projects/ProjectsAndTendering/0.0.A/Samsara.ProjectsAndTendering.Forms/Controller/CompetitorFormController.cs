@@ -28,7 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmCompetitor = instance;
             this.srvCompetitor = SamsaraAppContext.Resolve<ICompetitorService>();
-            Assert.IsNotNull(srvCompetitor);
+            Assert.IsNotNull(this.srvCompetitor);
             this.InitializeFormControls();
         }
 

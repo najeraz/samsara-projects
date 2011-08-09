@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlDependencyForm = new DependencyFormController(this);
             this.srvDependency = SamsaraAppContext.Resolve<IDependencyService>();
-            Assert.IsNotNull(srvDependency);
+            Assert.IsNotNull(this.srvDependency);
         }
 
         #region Methods
