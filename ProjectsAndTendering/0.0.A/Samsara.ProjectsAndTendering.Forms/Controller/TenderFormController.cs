@@ -39,7 +39,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private DataTable dtTenderManufacturers;
         private TabPage hiddenTenderDetailTab;
         private DataTable dtTenderLog;
-        private DataTable dtTenderCompetitors;
+        private DataTable dtDetTenderCompetitors;
 
         #endregion Attributes
 
@@ -154,9 +154,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new BeforeCellUpdateEventHandler(grdDetTenderCompetitors_BeforeCellUpdate);
             TenderCompetitorParameters pmtTenderCompetitor = new TenderCompetitorParameters();
             pmtTenderCompetitor.TenderId = ParameterConstants.IntNone;
-            this.dtTenderCompetitors = this.srvTenderCompetitor.SearchByParameters(pmtTenderCompetitor);
+            this.dtDetTenderCompetitors = this.srvTenderCompetitor.SearchByParameters(pmtTenderCompetitor);
             this.frmTender.grdDetTenderCompetitors.DataSource = null;
-            this.frmTender.grdDetTenderCompetitors.DataSource = dtTenderCompetitors;
+            this.frmTender.grdDetTenderCompetitors.DataSource = dtDetTenderCompetitors;
 
             //grdDetTenderManufacturers
             this.frmTender.grdDetTenderManufacturers.InitializeLayout
@@ -259,7 +259,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
 
-            foreach (DataRow row in this.dtTenderCompetitors.Rows)
+            foreach (DataRow row in this.dtDetTenderCompetitors.Rows)
             {
                 if (Convert.ToInt32(row["CompetitorId"]) == -1)
                 {
@@ -331,7 +331,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 tenderCompetitor.Activated = false;
             }
 
-            foreach (DataRow row in this.dtTenderCompetitors.Rows)
+            foreach (DataRow row in this.dtDetTenderCompetitors.Rows)
             {
                 TenderCompetitor tenderCompetitor = this.tender.TenderCompetitors
                     .SingleOrDefault(x => row["TenderCompetitorId"] != DBNull.Value &&
@@ -459,7 +459,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
             this.dtTenderLines.Rows.Clear();
-            this.dtTenderCompetitors.Rows.Clear();
+            this.dtDetTenderCompetitors.Rows.Clear();
             this.dtTenderLog.Rows.Clear();
         }
 
@@ -535,8 +535,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderCompetitor tenderCompetitor in this.tender.TenderCompetitors)
             {
-                DataRow row = this.dtTenderCompetitors.NewRow();
-                this.dtTenderCompetitors.Rows.Add(row);
+                DataRow row = this.dtDetTenderCompetitors.NewRow();
+                this.dtDetTenderCompetitors.Rows.Add(row);
 
                 row["Description"] = tenderCompetitor.Description;
                 row["CompetitorId"] = tenderCompetitor.CompetitorId;
@@ -554,6 +554,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["Quantity"] = tenderLine.Quantity;
                 row["TenderLineId"] = tenderLine.TenderLineId;
             }
+            this.grdTenderLines_InitializeLayout(null, null);
 
             foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
             {
@@ -888,6 +889,31 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         public void grdDetTenderCompetitors_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
+
+            if (e.Cell.Column.Key == "CompetitorId" && Convert.ToInt32(e.NewValue) != -1)
+            {
+                if (this.dtDetTenderCompetitors.AsEnumerable().SingleOrDefault(x =>
+                    Convert.ToInt32(x["CompetitorId"]) == Convert.ToInt32(e.NewValue)) != null)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Ya se encuentra esa Competencia en esta Licitación!", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    TenderCompetitor tenderCompetitor = this.tender.TenderCompetitors
+                        .SingleOrDefault(x => x.CompetitorId == Convert.ToInt32(e.Cell.Value));
+
+                    if (tenderCompetitor != null)
+                        tenderCompetitor.CompetitorId = Convert.ToInt32(e.NewValue);
+                    else
+                    {
+                        tenderCompetitor = new TenderCompetitor();
+                        tenderCompetitor.CompetitorId = Convert.ToInt32(e.NewValue);
+                        this.tender.TenderCompetitors.Add(tenderCompetitor);
+                    }
+                }
+            }
         }
 
         private void ubtnDetDeleteCompetitor_Click(object sender, EventArgs e)
@@ -896,16 +922,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow == null) return;
 
-            this.dtTenderCompetitors.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+            this.dtDetTenderCompetitors.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
         }
 
         private void ubtnDetCreateCompetitor_Click(object sender, EventArgs e)
         {
             this.grdDetTenderCompetitors_InitializeLayout(null, null);
-            DataRow newRow = this.dtTenderCompetitors.NewRow();
-            this.dtTenderCompetitors.Rows.Add(newRow);
+            DataRow newRow = this.dtDetTenderCompetitors.NewRow();
+            this.dtDetTenderCompetitors.Rows.Add(newRow);
             newRow["CompetitorId"] = -1;
-            this.dtTenderCompetitors.AcceptChanges();
+            this.dtDetTenderCompetitors.AcceptChanges();
         }
 
         #endregion Events
