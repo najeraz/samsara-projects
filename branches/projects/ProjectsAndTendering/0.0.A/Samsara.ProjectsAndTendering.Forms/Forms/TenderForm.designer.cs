@@ -247,6 +247,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 387);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -1238,7 +1239,7 @@
             this.Resultados.Name = "Resultados";
             this.Resultados.Size = new System.Drawing.Size(728, 313);
             this.Resultados.TabIndex = 3;
-            this.Resultados.Text = "Resultados";
+            this.Resultados.Text = "Fallo y Conclusiones";
             this.Resultados.UseVisualStyleBackColor = true;
             // 
             // txtDetResults

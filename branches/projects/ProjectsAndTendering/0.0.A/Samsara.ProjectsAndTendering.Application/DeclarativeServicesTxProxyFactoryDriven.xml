@@ -12,7 +12,9 @@
 
     <property name="TransactionAttributes">
       <name-values>
+        <add key="Get*" value="PROPAGATION_REQUIRED"/>
         <add key="Save*" value="PROPAGATION_REQUIRED"/>
+        <add key="Update*" value="PROPAGATION_REQUIRED"/>
         <add key="Delete*" value="PROPAGATION_REQUIRED"/>
       </name-values>
     </property>
@@ -23,7 +25,7 @@
   </object>
 
 
-  <object id="CustomerServiceUsingTxPFO" parent="TxProxyConfigurationTemplate">
+  <object id="ServiceUsingTxPFO" parent="TxProxyConfigurationTemplate">
 
     <!-- Note: would likely use an anonymous inner object instead of a reference -->
     <!-- to ensure that no one can access an unadvised object -->

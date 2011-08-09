@@ -1,12 +1,13 @@
 ﻿
+using System;
 using System.Data;
 using System.Linq;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
-using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
 
 namespace Samsara.ProjectsAndTendering.Controls
@@ -26,7 +27,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                 srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
                 srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
             }
-            catch { }
+            catch (Exception ex) { ex.ToString(); }
         }
 
         protected override void OnInitializeLayout(InitializeLayoutEventArgs e)

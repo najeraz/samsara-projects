@@ -84,6 +84,8 @@
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\Domain\Competitor.cs" />
+    <Compile Include="Entities\Domain\TenderWholesaler.cs" />
+    <Compile Include="Entities\Domain\Wholesaler.cs" />
     <Compile Include="Entities\Domain\TenderCompetitor.cs" />
     <Compile Include="Entities\Domain\TenderLinesManufacturers.cs" />
     <Compile Include="Entities\Domain\OpportunityLog.cs" />
@@ -108,6 +110,8 @@
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
     <Compile Include="Parameters\CompetitorParameters.cs" />
+    <Compile Include="Parameters\TenderWholesalerParameters.cs" />
+    <Compile Include="Parameters\WholesalerParameters.cs" />
     <Compile Include="Parameters\TenderCompetitorParameters.cs" />
     <Compile Include="Parameters\OpportunityLogParameters.cs" />
     <Compile Include="Parameters\TenderLogParameters.cs" />
@@ -246,6 +250,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderCompetitor.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\Wholesaler.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\TenderWholesaler.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
