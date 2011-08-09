@@ -37,13 +37,13 @@
             this.fabricanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaLicitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.competenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estatusDeLaOportunidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.organizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFormBackground = new System.Windows.Forms.Panel();
-            this.competenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estatusDeLaOportunidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.organizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,6 +116,27 @@
             this.estatusDeLaLicitaciónToolStripMenuItem.Text = "Estatus de la Licitación";
             this.estatusDeLaLicitaciónToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaLicitaciónToolStripMenuItem_Click);
             // 
+            // competenciaToolStripMenuItem
+            // 
+            this.competenciaToolStripMenuItem.Name = "competenciaToolStripMenuItem";
+            this.competenciaToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.competenciaToolStripMenuItem.Text = "Competencia";
+            this.competenciaToolStripMenuItem.Click += new System.EventHandler(this.competenciaToolStripMenuItem_Click);
+            // 
+            // estatusDeLaOportunidadToolStripMenuItem
+            // 
+            this.estatusDeLaOportunidadToolStripMenuItem.Name = "estatusDeLaOportunidadToolStripMenuItem";
+            this.estatusDeLaOportunidadToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.estatusDeLaOportunidadToolStripMenuItem.Text = "Estatus de la Oportunidad";
+            this.estatusDeLaOportunidadToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaOportunidadToolStripMenuItem_Click);
+            // 
+            // organizacionesToolStripMenuItem
+            // 
+            this.organizacionesToolStripMenuItem.Name = "organizacionesToolStripMenuItem";
+            this.organizacionesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.organizacionesToolStripMenuItem.Text = "Organizaciones";
+            this.organizacionesToolStripMenuItem.Click += new System.EventHandler(this.organizacionesToolStripMenuItem_Click);
+            // 
             // licitacionesToolStripMenuItem
             // 
             this.licitacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,27 +171,6 @@
             this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
             this.pnlFormBackground.TabIndex = 1;
             // 
-            // competenciaToolStripMenuItem
-            // 
-            this.competenciaToolStripMenuItem.Name = "competenciaToolStripMenuItem";
-            this.competenciaToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.competenciaToolStripMenuItem.Text = "Competencia";
-            this.competenciaToolStripMenuItem.Click += new System.EventHandler(this.competenciaToolStripMenuItem_Click);
-            // 
-            // estatusDeLaOportunidadToolStripMenuItem
-            // 
-            this.estatusDeLaOportunidadToolStripMenuItem.Name = "estatusDeLaOportunidadToolStripMenuItem";
-            this.estatusDeLaOportunidadToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.estatusDeLaOportunidadToolStripMenuItem.Text = "Estatus de la Oportunidad";
-            this.estatusDeLaOportunidadToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaOportunidadToolStripMenuItem_Click);
-            // 
-            // organizacionesToolStripMenuItem
-            // 
-            this.organizacionesToolStripMenuItem.Name = "organizacionesToolStripMenuItem";
-            this.organizacionesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.organizacionesToolStripMenuItem.Text = "Organizaciones";
-            this.organizacionesToolStripMenuItem.Click += new System.EventHandler(this.organizacionesToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,7 +180,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Oportunidades y Licitaciones";
+            this.Text = "Licitaciones y Oportunidades";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
