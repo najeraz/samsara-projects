@@ -72,6 +72,12 @@
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderCompetitor, Samsara.ProjectsAndTendering.Core"/>
     </set>
+    <set name="TenderWholesalers" table="TenderWholesalers" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderWholesaler, Samsara.ProjectsAndTendering.Core"/>
+    </set>
 
   </class>
 
