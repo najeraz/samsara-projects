@@ -150,7 +150,9 @@
     <Compile Include="Forms\CompetitorForm.designer.cs">
       <DependentUpon>CompetitorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WholesalerForm.cs" />
+    <Compile Include="Forms\WholesalerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\WholesalerForm.designer.cs">
       <DependentUpon>WholesalerForm.cs</DependentUpon>
     </Compile>

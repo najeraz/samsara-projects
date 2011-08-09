@@ -88,6 +88,24 @@
             Infragistics.Win.Appearance appearance70 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance71 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance72 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance73 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance74 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance75 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance76 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance77 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance78 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance79 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance80 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance81 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance82 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance83 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance84 = new Infragistics.Win.Appearance();
+            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.Appearance appearance49 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance50 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance51 = new Infragistics.Win.Appearance();
@@ -100,12 +118,6 @@
             Infragistics.Win.Appearance appearance58 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance59 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance60 = new Infragistics.Win.Appearance();
-            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -184,9 +196,8 @@
             this.ubtnDetCreateLine = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator532 = new Infragistics.Win.Misc.UltraPanel();
             this.EstrategiaPrecios = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid1 = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.grdDetPricingStrategy = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.gbxDetPricingStrategy = new System.Windows.Forms.GroupBox();
             this.txtDetPricingStrategy = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.Preresultados = new System.Windows.Forms.TabPage();
             this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -210,6 +221,10 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
+            this.ComparativoDePrecios = new System.Windows.Forms.TabPage();
+            this.grdDetPriceComparison = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.gbxDetPriceComparison = new System.Windows.Forms.GroupBox();
+            this.txtDetPriceComparison = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -267,9 +282,8 @@
             this.upDetSeparator4327.SuspendLayout();
             this.upDetSeparator532.SuspendLayout();
             this.EstrategiaPrecios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPricingStrategy)).BeginInit();
+            this.gbxDetPricingStrategy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).BeginInit();
             this.Preresultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).BeginInit();
@@ -286,6 +300,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
+            this.ComparativoDePrecios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPriceComparison)).BeginInit();
+            this.gbxDetPriceComparison.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPriceComparison)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -700,6 +718,7 @@
             this.tcDetTextControls.Controls.Add(this.Competitors);
             this.tcDetTextControls.Controls.Add(this.Mayoristas);
             this.tcDetTextControls.Controls.Add(this.TenderLines);
+            this.tcDetTextControls.Controls.Add(this.ComparativoDePrecios);
             this.tcDetTextControls.Controls.Add(this.EstrategiaPrecios);
             this.tcDetTextControls.Controls.Add(this.Preresultados);
             this.tcDetTextControls.Controls.Add(this.Resultados);
@@ -1370,8 +1389,8 @@
             // 
             // EstrategiaPrecios
             // 
-            this.EstrategiaPrecios.Controls.Add(this.samsaraUltraGrid1);
-            this.EstrategiaPrecios.Controls.Add(this.groupBox1);
+            this.EstrategiaPrecios.Controls.Add(this.grdDetPricingStrategy);
+            this.EstrategiaPrecios.Controls.Add(this.gbxDetPricingStrategy);
             this.EstrategiaPrecios.Location = new System.Drawing.Point(4, 22);
             this.EstrategiaPrecios.Name = "EstrategiaPrecios";
             this.EstrategiaPrecios.Padding = new System.Windows.Forms.Padding(3);
@@ -1380,98 +1399,88 @@
             this.EstrategiaPrecios.Text = "Estrategia de Precios";
             this.EstrategiaPrecios.UseVisualStyleBackColor = true;
             // 
-            // samsaraUltraGrid1
+            // grdDetPricingStrategy
             // 
-            appearance49.BackColor = System.Drawing.SystemColors.Window;
-            appearance49.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid1.DisplayLayout.Appearance = appearance49;
-            this.samsaraUltraGrid1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance50.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance50.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance50.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance50.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.Appearance = appearance50;
-            appearance51.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.BandLabelAppearance = appearance51;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance52.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance52.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance52.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance52.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.PromptAppearance = appearance52;
-            this.samsaraUltraGrid1.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid1.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance53.BackColor = System.Drawing.SystemColors.Window;
-            appearance53.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid1.DisplayLayout.Override.ActiveCellAppearance = appearance53;
-            appearance54.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance54.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid1.DisplayLayout.Override.ActiveRowAppearance = appearance54;
-            this.samsaraUltraGrid1.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid1.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance55.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CardAreaAppearance = appearance55;
-            appearance56.BorderColor = System.Drawing.Color.Silver;
-            appearance56.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CellAppearance = appearance56;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CellPadding = 0;
-            appearance57.BackColor = System.Drawing.SystemColors.Control;
-            appearance57.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance57.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance57.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance57.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid1.DisplayLayout.Override.GroupByRowAppearance = appearance57;
-            appearance58.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid1.DisplayLayout.Override.HeaderAppearance = appearance58;
-            this.samsaraUltraGrid1.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid1.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance59.BackColor = System.Drawing.SystemColors.Window;
-            appearance59.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid1.DisplayLayout.Override.RowAppearance = appearance59;
-            this.samsaraUltraGrid1.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance60.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid1.DisplayLayout.Override.TemplateAddRowAppearance = appearance60;
-            this.samsaraUltraGrid1.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid1.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid1.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.samsaraUltraGrid1.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
-            this.samsaraUltraGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid1.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid1.Name = "samsaraUltraGrid1";
-            this.samsaraUltraGrid1.Size = new System.Drawing.Size(722, 213);
-            this.samsaraUltraGrid1.TabIndex = 76;
-            this.samsaraUltraGrid1.Text = "samsaraUltraGrid1";
+            appearance73.BackColor = System.Drawing.SystemColors.Window;
+            appearance73.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdDetPricingStrategy.DisplayLayout.Appearance = appearance73;
+            this.grdDetPricingStrategy.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPricingStrategy.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance74.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance74.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance74.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance74.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetPricingStrategy.DisplayLayout.GroupByBox.Appearance = appearance74;
+            appearance75.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetPricingStrategy.DisplayLayout.GroupByBox.BandLabelAppearance = appearance75;
+            this.grdDetPricingStrategy.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance76.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance76.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance76.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance76.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetPricingStrategy.DisplayLayout.GroupByBox.PromptAppearance = appearance76;
+            this.grdDetPricingStrategy.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetPricingStrategy.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance77.BackColor = System.Drawing.SystemColors.Window;
+            appearance77.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdDetPricingStrategy.DisplayLayout.Override.ActiveCellAppearance = appearance77;
+            appearance78.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance78.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdDetPricingStrategy.DisplayLayout.Override.ActiveRowAppearance = appearance78;
+            this.grdDetPricingStrategy.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetPricingStrategy.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance79.BackColor = System.Drawing.SystemColors.Window;
+            this.grdDetPricingStrategy.DisplayLayout.Override.CardAreaAppearance = appearance79;
+            appearance80.BorderColor = System.Drawing.Color.Silver;
+            appearance80.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdDetPricingStrategy.DisplayLayout.Override.CellAppearance = appearance80;
+            this.grdDetPricingStrategy.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetPricingStrategy.DisplayLayout.Override.CellPadding = 0;
+            appearance81.BackColor = System.Drawing.SystemColors.Control;
+            appearance81.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance81.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance81.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance81.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetPricingStrategy.DisplayLayout.Override.GroupByRowAppearance = appearance81;
+            appearance82.TextHAlignAsString = "Left";
+            this.grdDetPricingStrategy.DisplayLayout.Override.HeaderAppearance = appearance82;
+            this.grdDetPricingStrategy.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetPricingStrategy.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance83.BackColor = System.Drawing.SystemColors.Window;
+            appearance83.BorderColor = System.Drawing.Color.Silver;
+            this.grdDetPricingStrategy.DisplayLayout.Override.RowAppearance = appearance83;
+            this.grdDetPricingStrategy.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance84.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdDetPricingStrategy.DisplayLayout.Override.TemplateAddRowAppearance = appearance84;
+            this.grdDetPricingStrategy.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetPricingStrategy.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetPricingStrategy.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetPricingStrategy.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetPricingStrategy.Location = new System.Drawing.Point(3, 3);
+            this.grdDetPricingStrategy.Name = "grdDetPricingStrategy";
+            this.grdDetPricingStrategy.Size = new System.Drawing.Size(722, 219);
+            this.grdDetPricingStrategy.TabIndex = 76;
+            this.grdDetPricingStrategy.Text = "samsaraUltraGrid1";
             // 
-            // groupBox1
+            // gbxDetPricingStrategy
             // 
-            this.groupBox1.Controls.Add(this.ultraTextEditor1);
-            this.groupBox1.Controls.Add(this.txtDetPricingStrategy);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(3, 216);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 94);
-            this.groupBox1.TabIndex = 75;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Comentarios:";
-            // 
-            // ultraTextEditor1
-            // 
-            this.ultraTextEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor1.Location = new System.Drawing.Point(236, 16);
-            this.ultraTextEditor1.Multiline = true;
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(483, 75);
-            this.ultraTextEditor1.TabIndex = 76;
+            this.gbxDetPricingStrategy.Controls.Add(this.txtDetPricingStrategy);
+            this.gbxDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetPricingStrategy.Location = new System.Drawing.Point(3, 222);
+            this.gbxDetPricingStrategy.Name = "gbxDetPricingStrategy";
+            this.gbxDetPricingStrategy.Size = new System.Drawing.Size(722, 88);
+            this.gbxDetPricingStrategy.TabIndex = 75;
+            this.gbxDetPricingStrategy.TabStop = false;
+            this.gbxDetPricingStrategy.Text = "Comentarios:";
             // 
             // txtDetPricingStrategy
             // 
-            this.txtDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDetPricingStrategy.Location = new System.Drawing.Point(3, 16);
             this.txtDetPricingStrategy.Multiline = true;
             this.txtDetPricingStrategy.Name = "txtDetPricingStrategy";
-            this.txtDetPricingStrategy.Size = new System.Drawing.Size(233, 75);
+            this.txtDetPricingStrategy.Size = new System.Drawing.Size(716, 69);
             this.txtDetPricingStrategy.TabIndex = 75;
             // 
             // Preresultados
@@ -1685,6 +1694,101 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
+            // ComparativoDePrecios
+            // 
+            this.ComparativoDePrecios.Controls.Add(this.grdDetPriceComparison);
+            this.ComparativoDePrecios.Controls.Add(this.gbxDetPriceComparison);
+            this.ComparativoDePrecios.Location = new System.Drawing.Point(4, 22);
+            this.ComparativoDePrecios.Name = "ComparativoDePrecios";
+            this.ComparativoDePrecios.Size = new System.Drawing.Size(728, 313);
+            this.ComparativoDePrecios.TabIndex = 9;
+            this.ComparativoDePrecios.Text = "Comparativo de Precios";
+            this.ComparativoDePrecios.UseVisualStyleBackColor = true;
+            // 
+            // grdDetPriceComparison
+            // 
+            appearance49.BackColor = System.Drawing.SystemColors.Window;
+            appearance49.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdDetPriceComparison.DisplayLayout.Appearance = appearance49;
+            this.grdDetPriceComparison.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPriceComparison.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance50.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance50.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance50.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance50.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetPriceComparison.DisplayLayout.GroupByBox.Appearance = appearance50;
+            appearance51.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetPriceComparison.DisplayLayout.GroupByBox.BandLabelAppearance = appearance51;
+            this.grdDetPriceComparison.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance52.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance52.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance52.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance52.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetPriceComparison.DisplayLayout.GroupByBox.PromptAppearance = appearance52;
+            this.grdDetPriceComparison.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetPriceComparison.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance53.BackColor = System.Drawing.SystemColors.Window;
+            appearance53.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdDetPriceComparison.DisplayLayout.Override.ActiveCellAppearance = appearance53;
+            appearance54.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance54.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdDetPriceComparison.DisplayLayout.Override.ActiveRowAppearance = appearance54;
+            this.grdDetPriceComparison.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetPriceComparison.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance55.BackColor = System.Drawing.SystemColors.Window;
+            this.grdDetPriceComparison.DisplayLayout.Override.CardAreaAppearance = appearance55;
+            appearance56.BorderColor = System.Drawing.Color.Silver;
+            appearance56.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdDetPriceComparison.DisplayLayout.Override.CellAppearance = appearance56;
+            this.grdDetPriceComparison.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetPriceComparison.DisplayLayout.Override.CellPadding = 0;
+            appearance57.BackColor = System.Drawing.SystemColors.Control;
+            appearance57.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance57.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance57.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance57.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetPriceComparison.DisplayLayout.Override.GroupByRowAppearance = appearance57;
+            appearance58.TextHAlignAsString = "Left";
+            this.grdDetPriceComparison.DisplayLayout.Override.HeaderAppearance = appearance58;
+            this.grdDetPriceComparison.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetPriceComparison.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance59.BackColor = System.Drawing.SystemColors.Window;
+            appearance59.BorderColor = System.Drawing.Color.Silver;
+            this.grdDetPriceComparison.DisplayLayout.Override.RowAppearance = appearance59;
+            this.grdDetPriceComparison.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance60.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdDetPriceComparison.DisplayLayout.Override.TemplateAddRowAppearance = appearance60;
+            this.grdDetPriceComparison.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetPriceComparison.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetPriceComparison.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetPriceComparison.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdDetPriceComparison.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetPriceComparison.Location = new System.Drawing.Point(0, 0);
+            this.grdDetPriceComparison.Name = "grdDetPriceComparison";
+            this.grdDetPriceComparison.Size = new System.Drawing.Size(728, 225);
+            this.grdDetPriceComparison.TabIndex = 78;
+            this.grdDetPriceComparison.Text = "samsaraUltraGrid1";
+            // 
+            // gbxDetPriceComparison
+            // 
+            this.gbxDetPriceComparison.Controls.Add(this.txtDetPriceComparison);
+            this.gbxDetPriceComparison.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetPriceComparison.Location = new System.Drawing.Point(0, 225);
+            this.gbxDetPriceComparison.Name = "gbxDetPriceComparison";
+            this.gbxDetPriceComparison.Size = new System.Drawing.Size(728, 88);
+            this.gbxDetPriceComparison.TabIndex = 77;
+            this.gbxDetPriceComparison.TabStop = false;
+            this.gbxDetPriceComparison.Text = "Comentarios:";
+            // 
+            // txtDetPriceComparison
+            // 
+            this.txtDetPriceComparison.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetPriceComparison.Location = new System.Drawing.Point(3, 16);
+            this.txtDetPriceComparison.Multiline = true;
+            this.txtDetPriceComparison.Name = "txtDetPriceComparison";
+            this.txtDetPriceComparison.Size = new System.Drawing.Size(722, 69);
+            this.txtDetPriceComparison.TabIndex = 75;
+            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1753,10 +1857,9 @@
             this.upDetSeparator4327.ResumeLayout(false);
             this.upDetSeparator532.ResumeLayout(false);
             this.EstrategiaPrecios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPricingStrategy)).EndInit();
+            this.gbxDetPricingStrategy.ResumeLayout(false);
+            this.gbxDetPricingStrategy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).EndInit();
             this.Preresultados.ResumeLayout(false);
             this.Preresultados.PerformLayout();
@@ -1776,6 +1879,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
+            this.ComparativoDePrecios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPriceComparison)).EndInit();
+            this.gbxDetPriceComparison.ResumeLayout(false);
+            this.gbxDetPriceComparison.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPriceComparison)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1882,10 +1990,13 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator452354;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateWholesaler;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator63421;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
+        internal Controls.SamsaraUltraGrid grdDetPricingStrategy;
+        private System.Windows.Forms.GroupBox gbxDetPricingStrategy;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPricingStrategy;
+        private System.Windows.Forms.TabPage ComparativoDePrecios;
+        internal Controls.SamsaraUltraGrid grdDetPriceComparison;
+        private System.Windows.Forms.GroupBox gbxDetPriceComparison;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPriceComparison;
     }
 }
 
