@@ -42,7 +42,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 259);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(505, 25);
             // 
             // gbxSearchParameters
             // 
@@ -141,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "WholesalerForm";
-            this.Text = "Catálogo de Competencia";
+            this.Text = "Catálogo de Mayoristas";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
