@@ -137,15 +137,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 lstEndUsers, "EndUserId", "Name");
 
             //grdTenderLines
-            this.frmTender.grdTenderLines.InitializeLayout
+            this.frmTender.grdDetTenderLines.InitializeLayout
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
-            this.frmTender.grdTenderLines.BeforeCellUpdate
+            this.frmTender.grdDetTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
             this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
-            this.frmTender.grdTenderLines.DataSource = null;
-            this.frmTender.grdTenderLines.DataSource = dtTenderLines;
+            this.frmTender.grdDetTenderLines.DataSource = null;
+            this.frmTender.grdDetTenderLines.DataSource = dtTenderLines;
 
             //grdDetTenderCompetitors
             this.frmTender.grdDetTenderCompetitors.InitializeLayout
@@ -633,7 +633,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         
         private void grdTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridLayout layout = this.frmTender.grdTenderLines.DisplayLayout;
+            UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
             ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
             IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
@@ -753,7 +753,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetDeleteLine_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmTender.grdTenderLines.ActiveRow;
+            UltraGridRow activeRow = this.frmTender.grdDetTenderLines.ActiveRow;
 
             if (activeRow == null) return;
 

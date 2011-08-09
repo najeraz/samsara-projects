@@ -44,6 +44,7 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFormBackground = new System.Windows.Forms.Panel();
+            this.mayoristasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,8 @@
             this.estatusDeLaLicitaciónToolStripMenuItem,
             this.competenciaToolStripMenuItem,
             this.estatusDeLaOportunidadToolStripMenuItem,
-            this.organizacionesToolStripMenuItem});
+            this.organizacionesToolStripMenuItem,
+            this.mayoristasToolStripMenuItem});
             this.tsmiMainMenu.Name = "tsmiMainMenu";
             this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
             this.tsmiMainMenu.Text = "Catálogos";
@@ -171,6 +173,13 @@
             this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
             this.pnlFormBackground.TabIndex = 1;
             // 
+            // mayoristasToolStripMenuItem
+            // 
+            this.mayoristasToolStripMenuItem.Name = "mayoristasToolStripMenuItem";
+            this.mayoristasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.mayoristasToolStripMenuItem.Text = "Mayoristas";
+            this.mayoristasToolStripMenuItem.Click += new System.EventHandler(this.mayoristasToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +214,7 @@
         private System.Windows.Forms.ToolStripMenuItem competenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaOportunidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem organizacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mayoristasToolStripMenuItem;
     }
 }
 
