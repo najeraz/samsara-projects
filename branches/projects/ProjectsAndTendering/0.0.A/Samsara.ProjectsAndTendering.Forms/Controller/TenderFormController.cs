@@ -34,6 +34,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderLineService srvTenderLine;
         private ITenderManufacturerService srvTenderManufacturer;
         private IManufacturerService srvManufacturer;
+        private ICompetitorService srvCompetitor;
         private DataTable dtTenderLines;
         private DataTable dtTenderManufacturers;
         private TabPage hiddenTenderDetailTab;
@@ -63,12 +64,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvTenderLine);
             this.srvTenderLog = SamsaraAppContext.Resolve<ITenderLogService>();
             Assert.IsNotNull(this.srvTenderLog);
-            this.srvTenderLog = SamsaraAppContext.Resolve<ITenderLogService>();
-            Assert.IsNotNull(this.srvTenderLog);
+            this.srvTenderCompetitor = SamsaraAppContext.Resolve<ITenderCompetitorService>();
+            Assert.IsNotNull(this.srvTenderCompetitor);
             this.srvTenderManufacturer = SamsaraAppContext.Resolve<ITenderManufacturerService>();
             Assert.IsNotNull(this.srvTenderManufacturer);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
             Assert.IsNotNull(this.srvManufacturer);
+            this.srvCompetitor = SamsaraAppContext.Resolve<ICompetitorService>();
+            Assert.IsNotNull(this.srvCompetitor);
             this.InitializeFormControls();
         }
 
