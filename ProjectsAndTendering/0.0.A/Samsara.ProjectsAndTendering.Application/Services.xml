@@ -77,6 +77,14 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.CompetitorService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ICompetitorDao"/>
   </object>
+  <object id="ITenderWholesalerService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderCompetitorService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderCompetitorDao"/>
+  </object>
+  <object id="ICompetitorService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.CompetitorService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ICompetitorDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
