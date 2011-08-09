@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlEndUserForm = new EndUserFormController(this);
             this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
-            Assert.IsNotNull(srvEndUser);
+            Assert.IsNotNull(this.srvEndUser);
         }
 
         #region Methods

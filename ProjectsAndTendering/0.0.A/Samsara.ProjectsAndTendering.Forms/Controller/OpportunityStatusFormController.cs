@@ -28,7 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOpportunityStatus = instance;
             this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
-            Assert.IsNotNull(srvOpportunityStatus);
+            Assert.IsNotNull(this.srvOpportunityStatus);
             this.InitializeFormControls();
         }
 

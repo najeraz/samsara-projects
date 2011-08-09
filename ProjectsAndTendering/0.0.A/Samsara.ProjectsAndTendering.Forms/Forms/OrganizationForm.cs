@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlOrganizationForm = new OrganizationFormController(this);
             this.srvOrganization = SamsaraAppContext.Resolve<IOrganizationService>();
-            Assert.IsNotNull(srvOrganization);
+            Assert.IsNotNull(this.srvOrganization);
         }
 
         #region Methods

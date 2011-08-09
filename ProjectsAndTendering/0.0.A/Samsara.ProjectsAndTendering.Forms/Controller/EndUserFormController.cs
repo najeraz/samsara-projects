@@ -31,9 +31,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmEndUser = instance;
             this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
-            Assert.IsNotNull(srvEndUser);
+            Assert.IsNotNull(this.srvEndUser);
             this.srvDependency = SamsaraAppContext.Resolve<IDependencyService>();
-            Assert.IsNotNull(srvDependency);
+            Assert.IsNotNull(this.srvDependency);
             this.InitializeFormControls();
         }
 

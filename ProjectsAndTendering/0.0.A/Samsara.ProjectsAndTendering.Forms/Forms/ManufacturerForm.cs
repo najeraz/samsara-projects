@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlManufacturerForm = new ManufacturerFormController(this);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
-            Assert.IsNotNull(srvManufacturer);
+            Assert.IsNotNull(this.srvManufacturer);
         }
 
         #region Methods

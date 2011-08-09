@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlCompetitorForm = new CompetitorFormController(this);
             this.srvCompetitor = SamsaraAppContext.Resolve<ICompetitorService>();
-            Assert.IsNotNull(srvCompetitor);
+            Assert.IsNotNull(this.srvCompetitor);
         }
 
         #region Methods

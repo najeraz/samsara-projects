@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlTenderStatusForm = new TenderStatusFormController(this);
             this.srvTenderStatus = SamsaraAppContext.Resolve<ITenderStatusService>();
-            Assert.IsNotNull(srvTenderStatus);
+            Assert.IsNotNull(this.srvTenderStatus);
         }
 
         #region Methods

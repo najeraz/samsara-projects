@@ -24,7 +24,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlAsesorForm = new AsesorFormController(this);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
-            Assert.IsNotNull(srvAsesor);
+            Assert.IsNotNull(this.srvAsesor);
         }
 
         #region Methods

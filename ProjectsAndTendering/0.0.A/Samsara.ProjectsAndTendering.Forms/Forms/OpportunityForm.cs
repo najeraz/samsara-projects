@@ -27,7 +27,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlOpportunityForm = new OpportunityFormController(this);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
-            Assert.IsNotNull(srvOpportunity);
+            Assert.IsNotNull(this.srvOpportunity);
         }
 
         #endregion Constructor

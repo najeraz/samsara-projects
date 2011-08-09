@@ -47,27 +47,27 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOpportunity = instance;
             this.srvOrganization = SamsaraAppContext.Resolve<IOrganizationService>();
-            Assert.IsNotNull(srvOrganization);
+            Assert.IsNotNull(this.srvOrganization);
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
-            Assert.IsNotNull(srvBidder);
+            Assert.IsNotNull(this.srvBidder);
             this.srvDependency = SamsaraAppContext.Resolve<IDependencyService>();
-            Assert.IsNotNull(srvDependency);
+            Assert.IsNotNull(this.srvDependency);
             this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
-            Assert.IsNotNull(srvEndUser);
+            Assert.IsNotNull(this.srvEndUser);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
-            Assert.IsNotNull(srvAsesor);
+            Assert.IsNotNull(this.srvAsesor);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
-            Assert.IsNotNull(srvTender);
+            Assert.IsNotNull(this.srvTender);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
-            Assert.IsNotNull(srvOpportunity);
+            Assert.IsNotNull(this.srvOpportunity);
             this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityTypeService>();
-            Assert.IsNotNull(srvOpportunityType);
+            Assert.IsNotNull(this.srvOpportunityType);
             this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
-            Assert.IsNotNull(srvOpportunityStatus);
+            Assert.IsNotNull(this.srvOpportunityStatus);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
-            Assert.IsNotNull(srvManufacturer);
+            Assert.IsNotNull(this.srvManufacturer);
             this.srvOpportunityLog = SamsaraAppContext.Resolve<IOpportunityLogService>();
-            Assert.IsNotNull(srvOpportunityLog);
+            Assert.IsNotNull(this.srvOpportunityLog);
             this.InitializeFormControls();
         }
 

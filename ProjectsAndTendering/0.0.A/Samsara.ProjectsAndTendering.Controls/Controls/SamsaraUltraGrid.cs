@@ -13,9 +13,19 @@ namespace Samsara.ProjectsAndTendering.Controls
 {
     public partial class SamsaraUltraGrid : UltraGrid
     {
+        private IFormConfigurationService srvFormConfiguration;
+        private IGridConfigurationService srvGridConfiguration;
+        private IGridColumnConfigurationService srvGridColumnConfiguration;
+
         public SamsaraUltraGrid()
         {
             InitializeComponent();
+            srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+            srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
+            srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
+            Assert.IsNotNull(this.srvFormConfiguration);
+            Assert.IsNotNull(this.srvGridConfiguration);
+            Assert.IsNotNull(this.srvGridColumnConfiguration);
         }
 
         protected override void OnInitializeLayout(InitializeLayoutEventArgs e)
@@ -23,12 +33,6 @@ namespace Samsara.ProjectsAndTendering.Controls
             base.OnInitializeLayout(e);
 
             FormConfiguration formConfiguration = null;
-            IFormConfigurationService srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
-            Assert.IsNotNull(srvFormConfiguration);
-            IGridConfigurationService srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
-            Assert.IsNotNull(srvGridConfiguration);
-            IGridColumnConfigurationService srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
-            Assert.IsNotNull(srvGridColumnConfiguration);
 
             if (this.DataSource != null && this.DataSource is DataTable)
             {

@@ -30,6 +30,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderStatusService srvTenderStatus;
         private ITenderService srvTender;
         private ITenderLogService srvTenderLog;
+        private ITenderCompetitorService srvTenderCompetitor;
         private ITenderLineService srvTenderLine;
         private ITenderManufacturerService srvTenderManufacturer;
         private IManufacturerService srvManufacturer;
@@ -37,6 +38,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private DataTable dtTenderManufacturers;
         private TabPage hiddenTenderDetailTab;
         private DataTable dtTenderLog;
+        private DataTable dtTenderCompetitors;
 
         #endregion Attributes
 
@@ -46,25 +48,27 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmTender = instance;
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
-            Assert.IsNotNull(srvBidder);
+            Assert.IsNotNull(this.srvBidder);
             this.srvDependency = SamsaraAppContext.Resolve<IDependencyService>();
-            Assert.IsNotNull(srvDependency);
+            Assert.IsNotNull(this.srvDependency);
             this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
-            Assert.IsNotNull(srvEndUser);
+            Assert.IsNotNull(this.srvEndUser);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
-            Assert.IsNotNull(srvAsesor);
+            Assert.IsNotNull(this.srvAsesor);
             this.srvTenderStatus = SamsaraAppContext.Resolve<ITenderStatusService>();
-            Assert.IsNotNull(srvTenderStatus);
+            Assert.IsNotNull(this.srvTenderStatus);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
-            Assert.IsNotNull(srvTender);
+            Assert.IsNotNull(this.srvTender);
             this.srvTenderLine = SamsaraAppContext.Resolve<ITenderLineService>();
-            Assert.IsNotNull(srvTenderLine);
+            Assert.IsNotNull(this.srvTenderLine);
             this.srvTenderLog = SamsaraAppContext.Resolve<ITenderLogService>();
-            Assert.IsNotNull(srvTenderLog);
+            Assert.IsNotNull(this.srvTenderLog);
+            this.srvTenderLog = SamsaraAppContext.Resolve<ITenderLogService>();
+            Assert.IsNotNull(this.srvTenderLog);
             this.srvTenderManufacturer = SamsaraAppContext.Resolve<ITenderManufacturerService>();
-            Assert.IsNotNull(srvTenderManufacturer);
+            Assert.IsNotNull(this.srvTenderManufacturer);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
-            Assert.IsNotNull(srvManufacturer);
+            Assert.IsNotNull(this.srvManufacturer);
             this.InitializeFormControls();
         }
 
@@ -130,7 +134,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 lstEndUsers, "EndUserId", "Name");
 
             //grdTenderLines
-            this.frmTender.grdTenderLines.InitializeLayout 
+            this.frmTender.grdTenderLines.InitializeLayout
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
             this.frmTender.grdTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
@@ -139,6 +143,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
             this.frmTender.grdTenderLines.DataSource = null;
             this.frmTender.grdTenderLines.DataSource = dtTenderLines;
+
+            //grdDetTenderCompetitors
+            this.frmTender.grdDetTenderCompetitors.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetTenderCompetitors_InitializeLayout);
+            this.frmTender.grdDetTenderCompetitors.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(grdDetTenderCompetitors_BeforeCellUpdate);
+            TenderCompetitorParameters pmtTenderCompetitor = new TenderCompetitorParameters();
+            pmtTenderCompetitor.TenderId = ParameterConstants.IntNone;
+            this.dtTenderCompetitors = this.srvTenderCompetitor.SearchByParameters(pmtTenderCompetitor);
+            this.frmTender.grdDetTenderCompetitors.DataSource = null;
+            this.frmTender.grdDetTenderCompetitors.DataSource = dtTenderCompetitors;
 
             //grdDetTenderManufacturers
             this.frmTender.grdDetTenderManufacturers.InitializeLayout
@@ -229,12 +244,27 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (Convert.ToInt32(row["ManufacturerId"]) == -1)
                 {
                     MessageBox.Show(
-                        "Debe seleccionar un fabricante por renglon en la lista de fabricantes.",
+                        "Debe seleccionar un fabricante por renglón en la lista de fabricantes.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
                         this.frmTender.tabDetDetail.TabPages["TenderDetails"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Manufacturers"];
+                    return false;
+                }
+            }
+
+            foreach (DataRow row in this.dtTenderCompetitors.Rows)
+            {
+                if (Convert.ToInt32(row["CompetitorId"]) == -1)
+                {
+                    MessageBox.Show(
+                        "Debe seleccionar un competidor por renglón en la lista de competidores.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTender.tabDetDetail.SelectedTab =
+                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTender.tcDetTextControls.SelectedTab =
+                        this.frmTender.tcDetTextControls.TabPages["Competitors"];
                     return false;
                 }
             }
@@ -281,10 +311,38 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.LoadTenderManufacturers();
             this.LoadTenderLines();
+            this.LoadTenderCompetitors();
             this.LoadTenderLogs();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
+        }
+
+        private void LoadTenderCompetitors()
+        {
+            foreach (TenderCompetitor tenderCompetitor in this.tender.TenderCompetitors)
+            {
+                tenderCompetitor.Deleted = true;
+                tenderCompetitor.Activated = false;
+            }
+
+            foreach (DataRow row in this.dtTenderCompetitors.Rows)
+            {
+                TenderCompetitor tenderCompetitor = this.tender.TenderCompetitors
+                    .SingleOrDefault(x => row["TenderCompetitorId"] != DBNull.Value &&
+                        x.TenderCompetitorId == Convert.ToInt32(row["TenderCompetitorId"]));
+
+                if (tenderCompetitor == null)
+                {
+                    tenderCompetitor = new TenderCompetitor();
+                    this.tender.TenderCompetitors.Add(tenderCompetitor);
+                }
+
+                tenderCompetitor.Description = row["Description"].ToString();
+                tenderCompetitor.CompetitorId = Convert.ToInt32(row["CompetitorId"]);
+                tenderCompetitor.Activated = true;
+                tenderCompetitor.Deleted = false;
+            }
         }
 
         private void LoadTenderLines()
@@ -395,6 +453,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
             this.dtTenderLines.Rows.Clear();
+            this.dtTenderCompetitors.Rows.Clear();
             this.dtTenderLog.Rows.Clear();
         }
 
@@ -468,6 +527,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.tscPreviousTender.Value = this.tender.PreviousTender;
             this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
 
+            foreach (TenderCompetitor tenderCompetitor in this.tender.TenderCompetitors)
+            {
+                DataRow row = this.dtTenderCompetitors.NewRow();
+                this.dtTenderCompetitors.Rows.Add(row);
+
+                row["Description"] = tenderCompetitor.Description;
+                row["CompetitorId"] = tenderCompetitor.CompetitorId;
+                row["TenderCompetitorId"] = tenderCompetitor.TenderCompetitorId;
+            }
+
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 DataRow row = this.dtTenderLines.NewRow();
@@ -477,7 +546,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["ManufacturerId"] = tenderLine.ManufacturerId;
                 row["Name"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
-                //row["TenderId"] = tenderLine.Tender.TenderId;
                 row["TenderLineId"] = tenderLine.TenderLineId;
             }
 
@@ -787,6 +855,36 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         }
 
         private void grdDetLog_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            e.Cell.Row.PerformAutoSize();
+        }
+
+        public void grdDetTenderCompetitors_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdTenderLines.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+            CompetitorParameters pmtCompetitor = new CompetitorParameters();
+            IList<Competitor> lstCompetitors = this.srvCompetitor.GetListByParameters(pmtCompetitor);
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["TenderLineId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+
+            IEnumerable<Competitor> availableCompetitors = this.tender == null ||
+                this.tender.TenderCompetitors == null ? lstCompetitors.Where(x => false) :
+                lstCompetitors.Where(x => this.tender.TenderCompetitors
+                    .Select(y => y.CompetitorId).Contains(x.CompetitorId));
+
+            WindowsFormsUtil.SetUltraGridValueList<Competitor>(layout,
+                availableCompetitors, band, "CompetitorId", "Name");
+        }
+
+        public void grdDetTenderCompetitors_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
         }

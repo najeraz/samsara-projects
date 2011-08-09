@@ -118,6 +118,10 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderLogDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ITenderCompetitorDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderCompetitorDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   <object id="ICompetitorDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.CompetitorDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
