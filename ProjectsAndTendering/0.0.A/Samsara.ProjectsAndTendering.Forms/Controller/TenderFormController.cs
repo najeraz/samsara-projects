@@ -864,7 +864,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         public void grdDetTenderCompetitors_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridLayout layout = this.frmTender.grdTenderLines.DisplayLayout;
+            UltraGridLayout layout = this.frmTender.grdDetTenderCompetitors.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
             CompetitorParameters pmtCompetitor = new CompetitorParameters();
             IList<Competitor> lstCompetitors = this.srvCompetitor.GetListByParameters(pmtCompetitor);
@@ -874,7 +874,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Override.RowSizing = RowSizing.AutoFixed;
             band.Override.RowSizingAutoMaxLines = 5;
 
-            band.Columns["TenderLineId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderCompetitorId"].CellActivation = Activation.ActivateOnly;
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
