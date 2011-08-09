@@ -197,6 +197,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
             this.frmTender.ubtnDetCreateLog.Click += new EventHandler(ubtnDetCreateLog_Click);
             this.frmTender.ubtnDetDeleteLog.Click += new EventHandler(ubtnDetDeleteLog_Click);
+            this.frmTender.ubtnDetCreateCompetitor.Click += new EventHandler(ubtnDetCreateCompetitor_Click);
+            this.frmTender.ubtnDetDeleteCompetitor.Click += new EventHandler(ubtnDetDeleteCompetitor_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -341,6 +343,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.tender.TenderCompetitors.Add(tenderCompetitor);
                 }
 
+                tenderCompetitor.Tender = this.tender;
                 tenderCompetitor.Description = row["Description"].ToString();
                 tenderCompetitor.CompetitorId = Convert.ToInt32(row["CompetitorId"]);
                 tenderCompetitor.Activated = true;
@@ -878,18 +881,31 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
-            IEnumerable<Competitor> availableCompetitors = this.tender == null ||
-                this.tender.TenderCompetitors == null ? lstCompetitors.Where(x => false) :
-                lstCompetitors.Where(x => this.tender.TenderCompetitors
-                    .Select(y => y.CompetitorId).Contains(x.CompetitorId));
-
             WindowsFormsUtil.SetUltraGridValueList<Competitor>(layout,
-                availableCompetitors, band, "CompetitorId", "Name");
+                lstCompetitors, band, "CompetitorId", "Name");
         }
 
         public void grdDetTenderCompetitors_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
+        }
+
+        private void ubtnDetDeleteCompetitor_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetTenderCompetitors.ActiveRow;
+
+            if (activeRow == null) return;
+
+            this.dtTenderCompetitors.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+        }
+
+        private void ubtnDetCreateCompetitor_Click(object sender, EventArgs e)
+        {
+            this.grdDetTenderCompetitors_InitializeLayout(null, null);
+            DataRow newRow = this.dtTenderCompetitors.NewRow();
+            this.dtTenderCompetitors.Rows.Add(newRow);
+            newRow["CompetitorId"] = -1;
+            this.dtTenderCompetitors.AcceptChanges();
         }
 
         #endregion Events

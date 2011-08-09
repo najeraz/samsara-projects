@@ -20,17 +20,22 @@ namespace Samsara.ProjectsAndTendering.Controls
         public SamsaraUltraGrid()
         {
             InitializeComponent();
-            srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
-            srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
-            srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
-            Assert.IsNotNull(this.srvFormConfiguration);
-            Assert.IsNotNull(this.srvGridConfiguration);
-            Assert.IsNotNull(this.srvGridColumnConfiguration);
+            try
+            {
+                srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+                srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
+                srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
+            }
+            catch { }
         }
 
         protected override void OnInitializeLayout(InitializeLayoutEventArgs e)
         {
             base.OnInitializeLayout(e);
+
+            Assert.IsNotNull(this.srvFormConfiguration);
+            Assert.IsNotNull(this.srvGridConfiguration);
+            Assert.IsNotNull(this.srvGridColumnConfiguration);
 
             FormConfiguration formConfiguration = null;
 
@@ -52,8 +57,6 @@ namespace Samsara.ProjectsAndTendering.Controls
                     formConfiguration = new FormConfiguration();
                     formConfiguration.FormName = parentFormName;
                     srvFormConfiguration.SaveOrUpdate(formConfiguration);
-                    formConfiguration = srvFormConfiguration.GetById(
-                        formConfiguration.FormConfigurationId);
                 }
 
                 GridConfiguration gridConfiguration = formConfiguration.GridConfigurations

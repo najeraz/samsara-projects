@@ -137,6 +137,12 @@
             this.upDetSeparator432 = new Infragistics.Win.Misc.UltraPanel();
             this.Competitors = new System.Windows.Forms.TabPage();
             this.grdDetTenderCompetitors = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.upDeCompetitorsButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparator334 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDeleteCompetitor = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator674 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCreateCompetitor = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator44322 = new Infragistics.Win.Misc.UltraPanel();
             this.TenderLines = new System.Windows.Forms.TabPage();
             this.grdTenderLines = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.pnlDetLineButtons = new System.Windows.Forms.Panel();
@@ -208,6 +214,11 @@
             this.upDetSeparator432.SuspendLayout();
             this.Competitors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderCompetitors)).BeginInit();
+            this.upDeCompetitorsButtons.ClientArea.SuspendLayout();
+            this.upDeCompetitorsButtons.SuspendLayout();
+            this.upDetSeparator334.SuspendLayout();
+            this.upDetSeparator674.SuspendLayout();
+            this.upDetSeparator44322.SuspendLayout();
             this.TenderLines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTenderLines)).BeginInit();
             this.pnlDetLineButtons.SuspendLayout();
@@ -236,7 +247,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 387);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -921,6 +931,7 @@
             // Competitors
             // 
             this.Competitors.Controls.Add(this.grdDetTenderCompetitors);
+            this.Competitors.Controls.Add(this.upDeCompetitorsButtons);
             this.Competitors.Location = new System.Drawing.Point(4, 22);
             this.Competitors.Name = "Competitors";
             this.Competitors.Size = new System.Drawing.Size(728, 313);
@@ -988,9 +999,67 @@
             this.grdDetTenderCompetitors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderCompetitors.Location = new System.Drawing.Point(0, 0);
             this.grdDetTenderCompetitors.Name = "grdDetTenderCompetitors";
-            this.grdDetTenderCompetitors.Size = new System.Drawing.Size(728, 313);
+            this.grdDetTenderCompetitors.Size = new System.Drawing.Size(728, 288);
             this.grdDetTenderCompetitors.TabIndex = 2;
             this.grdDetTenderCompetitors.Text = "samsaraUltraGrid1";
+            // 
+            // upDeCompetitorsButtons
+            // 
+            // 
+            // upDeCompetitorsButtons.ClientArea
+            // 
+            this.upDeCompetitorsButtons.ClientArea.Controls.Add(this.upDetSeparator334);
+            this.upDeCompetitorsButtons.ClientArea.Controls.Add(this.ubtnDetDeleteCompetitor);
+            this.upDeCompetitorsButtons.ClientArea.Controls.Add(this.upDetSeparator674);
+            this.upDeCompetitorsButtons.ClientArea.Controls.Add(this.ubtnDetCreateCompetitor);
+            this.upDeCompetitorsButtons.ClientArea.Controls.Add(this.upDetSeparator44322);
+            this.upDeCompetitorsButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upDeCompetitorsButtons.Location = new System.Drawing.Point(0, 288);
+            this.upDeCompetitorsButtons.Name = "upDeCompetitorsButtons";
+            this.upDeCompetitorsButtons.Size = new System.Drawing.Size(728, 25);
+            this.upDeCompetitorsButtons.TabIndex = 3;
+            // 
+            // upDetSeparator334
+            // 
+            this.upDetSeparator334.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator334.Location = new System.Drawing.Point(526, 0);
+            this.upDetSeparator334.Name = "upDetSeparator334";
+            this.upDetSeparator334.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator334.TabIndex = 7;
+            // 
+            // ubtnDetDeleteCompetitor
+            // 
+            this.ubtnDetDeleteCompetitor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeleteCompetitor.Location = new System.Drawing.Point(542, 0);
+            this.ubtnDetDeleteCompetitor.Name = "ubtnDetDeleteCompetitor";
+            this.ubtnDetDeleteCompetitor.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDeleteCompetitor.TabIndex = 0;
+            this.ubtnDetDeleteCompetitor.Text = "Borrar";
+            // 
+            // upDetSeparator674
+            // 
+            this.upDetSeparator674.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator674.Location = new System.Drawing.Point(619, 0);
+            this.upDetSeparator674.Name = "upDetSeparator674";
+            this.upDetSeparator674.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator674.TabIndex = 5;
+            // 
+            // ubtnDetCreateCompetitor
+            // 
+            this.ubtnDetCreateCompetitor.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreateCompetitor.Location = new System.Drawing.Point(635, 0);
+            this.ubtnDetCreateCompetitor.Name = "ubtnDetCreateCompetitor";
+            this.ubtnDetCreateCompetitor.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCreateCompetitor.TabIndex = 0;
+            this.ubtnDetCreateCompetitor.Text = "Nuevo";
+            // 
+            // upDetSeparator44322
+            // 
+            this.upDetSeparator44322.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator44322.Location = new System.Drawing.Point(712, 0);
+            this.upDetSeparator44322.Name = "upDetSeparator44322";
+            this.upDetSeparator44322.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator44322.TabIndex = 6;
             // 
             // TenderLines
             // 
@@ -1404,6 +1473,11 @@
             this.upDetSeparator432.ResumeLayout(false);
             this.Competitors.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderCompetitors)).EndInit();
+            this.upDeCompetitorsButtons.ClientArea.ResumeLayout(false);
+            this.upDeCompetitorsButtons.ResumeLayout(false);
+            this.upDetSeparator334.ResumeLayout(false);
+            this.upDetSeparator674.ResumeLayout(false);
+            this.upDetSeparator44322.ResumeLayout(false);
             this.TenderLines.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTenderLines)).EndInit();
             this.pnlDetLineButtons.ResumeLayout(false);
@@ -1524,6 +1598,12 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1241;
         private System.Windows.Forms.TabPage Competitors;
         internal Controls.SamsaraUltraGrid grdDetTenderCompetitors;
+        private Infragistics.Win.Misc.UltraPanel upDeCompetitorsButtons;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator334;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteCompetitor;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator674;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetCreateCompetitor;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator44322;
     }
 }
 
