@@ -106,6 +106,7 @@
             // 
             // Search
             // 
+            this.Search.BackColor = System.Drawing.Color.Transparent;
             this.Search.Controls.Add(this.grdSchSearch);
             this.Search.Controls.Add(this.upSchSearchButtons);
             this.Search.Controls.Add(this.upButtons);
@@ -116,7 +117,6 @@
             this.Search.Size = new System.Drawing.Size(632, 417);
             this.Search.TabIndex = 0;
             this.Search.Text = "Buscar";
-            this.Search.UseVisualStyleBackColor = true;
             // 
             // grdSchSearch
             // 
@@ -376,6 +376,7 @@
             // 
             // New
             // 
+            this.New.BackColor = System.Drawing.Color.Transparent;
             this.New.Controls.Add(this.gbxDetDetail);
             this.New.Controls.Add(this.pnlDetCtgButtons);
             this.New.Location = new System.Drawing.Point(4, 22);
@@ -384,7 +385,6 @@
             this.New.Size = new System.Drawing.Size(632, 417);
             this.New.TabIndex = 1;
             this.New.Text = "Nuevo";
-            this.New.UseVisualStyleBackColor = true;
             // 
             // gbxDetDetail
             // 

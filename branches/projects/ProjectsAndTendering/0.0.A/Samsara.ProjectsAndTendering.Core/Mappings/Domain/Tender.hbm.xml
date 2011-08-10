@@ -8,7 +8,7 @@
     <id name="TenderId" type="int">
       <generator class="native"/>
     </id>
-    
+
     <property name="PreResults"/>
     <property name="AcquisitionReason"/>
     <property name="RegistrationDate"/>
@@ -17,6 +17,7 @@
     <property name="PreRevisionDate"/>
     <property name="Deadline"/>
     <property name="PricingStrategy"/>
+    <property name="PriceComparison"/>
     <property name="Results"/>
     <property name="Address"/>
     <property name="VerdictDate"/>
