@@ -769,6 +769,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
 
+            foreach (TenderLineManufacturer TenderLineManufacturer in
+                this.tender.TenderLines.SelectMany(x => x.tender))
+
             this.dtPriceComparison.AcceptChanges();
 
             this.frmTender.grdDetPriceComparison.DataSource = null;

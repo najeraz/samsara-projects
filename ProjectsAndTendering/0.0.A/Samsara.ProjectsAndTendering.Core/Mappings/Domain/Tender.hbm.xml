@@ -79,7 +79,7 @@
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderWholesaler, Samsara.ProjectsAndTendering.Core"/>
     </set>
-
+    
   </class>
 
   <query name="Tender.GetByParameters">
