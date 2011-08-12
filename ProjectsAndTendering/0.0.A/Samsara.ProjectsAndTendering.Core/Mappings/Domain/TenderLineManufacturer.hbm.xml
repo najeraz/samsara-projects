@@ -5,7 +5,7 @@
   
   <class name="TenderLineManufacturer" table="TenderLineManufacturers">
 
-    <id name="TenderLinesManufacturerId" type="int">
+    <id name="TenderLineManufacturerId" type="int">
       <generator class="native"/>
     </id>
 
