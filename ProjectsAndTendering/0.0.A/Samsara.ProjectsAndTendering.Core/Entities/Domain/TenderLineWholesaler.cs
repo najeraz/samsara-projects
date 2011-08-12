@@ -28,19 +28,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual string Model
-        {
-            get;
-            set;
-        }
-
         public virtual decimal Price
-        {
-            get;
-            set;
-        }
-
-        public virtual string Description
         {
             get;
             set;

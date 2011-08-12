@@ -7,6 +7,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     public class TenderLine : GenericEntity
     {
         private ISet<TenderLineManufacturer> tenderLineManufacturers;
+        private ISet<TenderLineWholesaler> tenderLineWholesalers;
 
         public TenderLine()
         {
@@ -64,6 +65,21 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set
             {
                 this.tenderLineManufacturers = value;
+            }
+        }
+
+        public virtual ISet<TenderLineWholesaler> TenderLineWholesalers
+        {
+            get
+            {
+                if (this.tenderLineWholesalers == null)
+                    this.tenderLineWholesalers = new HashedSet<TenderLineWholesaler>();
+
+                return this.tenderLineWholesalers;
+            }
+            set
+            {
+                this.tenderLineWholesalers = value;
             }
         }
     }

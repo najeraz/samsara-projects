@@ -10,8 +10,6 @@
     </id>
 
     <property name="Price"/>
-    <property name="Description"/>
-    <property name="Model"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
