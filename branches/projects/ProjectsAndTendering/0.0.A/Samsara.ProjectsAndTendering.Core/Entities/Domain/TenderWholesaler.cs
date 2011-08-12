@@ -17,13 +17,15 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        [ForeignKeyAttribute]
         public virtual Tender Tender
         {
             get;
             set;
         }
 
-        public virtual int WholesalerId
+        [ForeignKeyAttribute]
+        public virtual Wholesaler Wholesaler
         {
             get;
             set;

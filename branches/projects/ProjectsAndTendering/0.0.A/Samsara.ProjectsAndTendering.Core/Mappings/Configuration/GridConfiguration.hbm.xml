@@ -18,8 +18,9 @@
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridColumnConfiguration, Samsara.ProjectsAndTendering.Core"/>
     </set>
-    
+
     <property name="GridName"/>
+    <property name="IgnoreVisibleProperty"/>
   </class>
 
 </hibernate-mapping>
