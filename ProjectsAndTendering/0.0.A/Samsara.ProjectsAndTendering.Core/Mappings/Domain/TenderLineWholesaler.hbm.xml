@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
+  
+  <class name="TenderLineWholesaler" table="TenderLineWholesalers">
+
+    <id name="TenderLineWholesalerId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Price"/>
+    <property name="Description"/>
+    <property name="Model"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="TenderLine"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"
+                 column="TenderLineId"/>
+    <many-to-one name="Wholesaler"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
+                 column="WholesalerId"/>
+    
+  </class>
+
+  <query name="TenderLineWholesaler.SearchByParameters">
+    <![CDATA[
+        from TenderLineWholesaler where Deleted = 0 and Activated = 1
+        and TenderLineId = :TenderLineId
+    ]]>
+  </query>
+
+</hibernate-mapping>

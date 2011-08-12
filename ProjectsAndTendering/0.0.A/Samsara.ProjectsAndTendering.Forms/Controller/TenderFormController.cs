@@ -197,6 +197,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetPriceComparison
             this.frmTender.grdDetPriceComparison.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetPriceComparison_InitializeLayout);
+            this.frmTender.grdDetPriceComparison.BeforeCellUpdate +=
+                new BeforeCellUpdateEventHandler(grdDetPriceComparison_BeforeCellUpdate);
+
+            //grdDetPriceComparison
+            this.frmTender.grdDetPreresults.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetPreresults_InitializeLayout);
+            this.frmTender.grdDetPriceComparison.BeforeCellUpdate +=
+                new BeforeCellUpdateEventHandler(grdDetPreresults_BeforeCellUpdate);
 
             //grdDetLog
             this.frmTender.grdDetLog.InitializeLayout
@@ -786,6 +794,34 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPriceComparison.DataSource = dtPriceComparison;
         }
 
+        private Wholesaler GetWholeseler(int wholesaleId)
+        {
+            Wholesaler wholesaler = null;
+            TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
+                .SingleOrDefault(x => x.Wholesaler.WholesalerId == wholesaleId);
+
+            if (tenderWholesaler != null)
+                wholesaler = tenderWholesaler.Wholesaler;
+            else
+                wholesaler = this.srvWholesaler.GetById(wholesaleId);
+
+            return wholesaler;
+        }
+
+        private Manufacturer GetManufacturer(int manufacturerId)
+        {
+            Manufacturer manufacturer = null;
+            TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
+                .SingleOrDefault(x => x.Manufacturer.ManufacturerId == manufacturerId);
+
+            if (tenderManufacturer != null)
+                manufacturer = tenderManufacturer.Manufacturer;
+            else
+                manufacturer = this.srvManufacturer.GetById(manufacturerId);
+
+            return manufacturer;
+        }
+
         #endregion Methods
         
         #region Events
@@ -1146,18 +1182,36 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
-                Wholesaler wholesaler = null;
-                TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
-                    .SingleOrDefault(x => x.Wholesaler.WholesalerId == Convert.ToInt32(col.ColumnName));
-
-                if (tenderWholesaler != null)
-                    wholesaler = tenderWholesaler.Wholesaler;
-                else
-                    wholesaler = this.srvWholesaler.GetById(Convert.ToInt32(col.ColumnName));
-
-                band.Columns[col.ColumnName].Header.Caption = wholesaler.Name;
+                band.Columns[col.ColumnName].Header.Caption = this.GetWholeseler(Convert.ToInt32(col.ColumnName)).Name;
             }
 
+        }
+
+        private void grdDetPriceComparison_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+        }
+
+        public void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+        }
+
+        public void grdDetPreresults_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            TenderLineManufacturer tenderLineManufacturer = this.tender.TenderLines.SelectMany(x => x.TenderLineManufacturers)
+                .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
+                && x.TenderLine.Manufacturer.ManufacturerId.ToString() == e.Cell.Column.Key);
+
+            if (tenderLineManufacturer == null)
+            {
+                tenderLineManufacturer = new TenderLineManufacturer();
+                TenderLine tenderLine = this.tender.TenderLines
+                    .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+                tenderLine.TenderLineManufacturers.Add(tenderLineManufacturer);
+                tenderLineManufacturer.TenderLine = tenderLine;
+                tenderLineManufacturer.Manufacturer = this.GetManufacturer(Convert.ToInt32(e.Cell.Column.Key));
+            }
+
+            tenderLineManufacturer.Price = Convert.ToDecimal(e.NewValue);
         }
 
         #endregion Events
