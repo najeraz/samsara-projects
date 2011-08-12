@@ -4,17 +4,23 @@
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
   <class name="TenderManufacturer" table="TenderManufacturers">
-    
-    <composite-id>
-      <key-property name="TenderId" column="TenderId" type="int"></key-property>
-      <key-property name="ManufacturerId" column="ManufacturerId" type="int"></key-property>
-    </composite-id>
+
+    <id name="TenderManufacturerId" type="int">
+      <generator class="native"/>
+    </id>
     
     <property name="FolioReference"/>
     <property name="ManufacturerSupport"/>
     <property name="Deleted"/>
     <property name="Activated"/>
-    
+
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
+
+    <many-to-one name="Manufacturer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
+                 column="ManufacturerId"/>
   </class>
 
   <query name="TenderManufacturer.SearchByParameters">

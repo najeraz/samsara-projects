@@ -1,5 +1,5 @@
 ﻿
-
+using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -7,15 +7,25 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     {
         public TenderManufacturer()
         {
+            this.TenderManufacturerId = -1;
         }
 
-        public virtual int TenderId
+        [PrimaryKeyAttribute]
+        public virtual int TenderManufacturerId
         {
             get;
             set;
         }
 
-        public virtual int ManufacturerId
+        [ForeignKeyAttribute]
+        public virtual Tender Tender
+        {
+            get;
+            set;
+        }
+
+        [ForeignKeyAttribute]
+        public virtual Manufacturer Manufacturer
         {
             get;
             set;
@@ -33,27 +43,5 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public override int GetHashCode()
-        {
-            int hash = 13;
-            hash = hash + this.TenderId.GetHashCode();
-            hash = hash + this.ManufacturerId.GetHashCode();
-            return hash;
-        }
-
-
-        public override bool Equals(object obj)
-        {
-            if (base.Equals(obj))
-                return true;
-
-            if (this.TenderId == ((TenderManufacturer)obj).TenderId &&
-                this.ManufacturerId == ((TenderManufacturer)obj).ManufacturerId)
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }

@@ -47,7 +47,7 @@ namespace Samsara.Support.Util
         }
 
         public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
-            UltraGridBand band, string valueMember, string displayMember)
+            UltraGridColumn column, string valueMember, string displayMember)
         {
             ValueList vl;
 
@@ -65,8 +65,8 @@ namespace Samsara.Support.Util
             }
 
             vl.SelectedItem = -1;
-            band.Columns[valueMember].ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
-            band.Columns[valueMember].ValueList = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
+            column.ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
+            column.ValueList = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
         }
     }
 }

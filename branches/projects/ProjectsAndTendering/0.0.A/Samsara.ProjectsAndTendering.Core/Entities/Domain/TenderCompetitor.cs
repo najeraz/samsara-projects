@@ -1,5 +1,5 @@
 ﻿
-
+using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -10,12 +10,14 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             TenderCompetitorId = -1;
         }
 
+        [PrimaryKeyAttribute]
         public virtual int TenderCompetitorId
         {
             get;
             set;
         }
 
+        [ForeignKeyAttribute]
         public virtual Tender Tender
         {
             get;

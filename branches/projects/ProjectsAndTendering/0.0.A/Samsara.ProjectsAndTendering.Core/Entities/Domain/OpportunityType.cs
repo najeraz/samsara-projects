@@ -1,5 +1,5 @@
 ﻿
-
+using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -10,6 +10,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             OpportunityTypeId = -1;
         }
 
+        [PrimaryKeyAttribute]
         public virtual int OpportunityTypeId
         {
             get;
