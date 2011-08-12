@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Xml.Serialization;
 using System.IO;
+using System.Reflection;
 
 namespace Samsara.Support.Util
 {
@@ -65,9 +66,13 @@ namespace Samsara.Support.Util
 
             foreach (PropertyDescriptor prop in properties)
             {
-                if (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                PropertyInfo primaryKeyPropertyInfo = EntitiesUtil.GetPrimaryKeyPropertyInfo(prop.PropertyType);
+                if (primaryKeyPropertyInfo != null)
+                    table.Columns.Add(primaryKeyPropertyInfo.Name, primaryKeyPropertyInfo.PropertyType);
+                else if (prop.PropertyType.IsGenericType && 
+                    prop.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
                     table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType));
-                else 
+                else
                     table.Columns.Add(prop.Name, prop.PropertyType);
             }
 
@@ -77,8 +82,7 @@ namespace Samsara.Support.Util
         public static DataTable CreateTable(IList list)
         {
             DataTable table = new DataTable();
-            int numberCoumns = list.Cast<Object[]>()
-                .Select(x => x.Cast<Object>().Count()).First();
+            int numberCoumns = list.Cast<Object[]>().Select(x => x.Cast<Object>().Count()).First();
             int i = 0;
 
             for (i = 0; i < numberCoumns; i++)

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -10,6 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             OpportunityStatusId = -1;
         }
 
+        [PrimaryKeyAttribute]
         public virtual int OpportunityStatusId
         {
             get;

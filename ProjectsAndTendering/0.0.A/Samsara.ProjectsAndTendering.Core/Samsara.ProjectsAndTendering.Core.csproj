@@ -77,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ForeignKeyAttribute.cs" />
+    <Compile Include="Attributes\PrimaryKeyAttribute .cs" />
     <Compile Include="Entities\Configuration\GridConfiguration.cs" />
     <Compile Include="Entities\Configuration\FormConfiguration.cs" />
     <Compile Include="Entities\Domain\Asesor.cs" />
@@ -246,7 +248,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Domain\TenderLinesManufacturers.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Domain\TenderLinesManufacturers.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderCompetitor.hbm.xml">

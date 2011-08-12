@@ -37,6 +37,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTenderin
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Support.Util", "Samsara.Support.Util\Samsara.Support.Util.csproj", "{D4BB7166-F77E-420B-AE66-EA341BB104C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8} = {3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.BaseDao", "Samsara.ProjectsAndTendering.BaseDao\Samsara.ProjectsAndTendering.BaseDao.csproj", "{0F57FA43-5325-496C-AAD7-C63AB0DE8456}"
 	ProjectSection(ProjectDependencies) = postProject

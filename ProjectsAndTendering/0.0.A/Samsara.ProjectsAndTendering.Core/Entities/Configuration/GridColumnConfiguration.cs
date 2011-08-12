@@ -1,5 +1,5 @@
 ﻿
-
+using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
 {
@@ -10,6 +10,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             GridColumnConfigurationId = -1;
         }
 
+        [PrimaryKeyAttribute]
         public virtual int GridColumnConfigurationId
         {
             get;
