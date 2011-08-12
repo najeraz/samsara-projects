@@ -1,7 +1,7 @@
 ﻿
 using Samsara.ProjectsAndTendering.BaseService.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Core.Parameters.Configuration;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {

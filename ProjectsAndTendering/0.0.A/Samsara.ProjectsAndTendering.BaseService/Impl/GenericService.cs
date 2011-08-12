@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
 using Samsara.ProjectsAndTendering.BaseService.Interfaces;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 
 namespace Samsara.ProjectsAndTendering.BaseService.Impl
 {

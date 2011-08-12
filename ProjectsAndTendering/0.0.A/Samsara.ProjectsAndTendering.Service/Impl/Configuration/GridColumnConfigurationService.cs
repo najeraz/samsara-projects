@@ -1,7 +1,7 @@
 ﻿
 using Samsara.ProjectsAndTendering.BaseService.Impl;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Core.Parameters.Configuration;
 using Samsara.ProjectsAndTendering.Dao.Impl.Configuration;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
