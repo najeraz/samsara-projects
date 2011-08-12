@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="TenderLine" table="TenderLines">
+  <class name="TenderLine" table="TenderLines" lazy="false">
     
     <id name="TenderLineId" type="int">
       <generator class="native"/>
@@ -31,7 +31,7 @@
     </set>
 
     <set name="TenderLineWholesalers" table="TenderLineWholesalers" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan" lazy="false">
+         cascade="all-delete-orphan" fetch="join">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLineWholesaler, Samsara.ProjectsAndTendering.Core"/>

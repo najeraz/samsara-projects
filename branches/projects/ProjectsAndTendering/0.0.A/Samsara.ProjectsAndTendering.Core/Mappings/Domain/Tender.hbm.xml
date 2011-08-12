@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="Tender" table="Tenders">
+  <class name="Tender" table="Tenders" lazy="false">
     
     <id name="TenderId" type="int">
       <generator class="native"/>

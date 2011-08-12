@@ -1201,6 +1201,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 tenderLine.TenderLineWholesalers.Add(tenderLineWholesaler);
                 tenderLineWholesaler.TenderLine = tenderLine;
                 tenderLineWholesaler.Wholesaler = this.GetWholesaler(Convert.ToInt32(e.Cell.Column.Key));
+                tenderLineWholesaler.Activated = true;
+                tenderLineWholesaler.Deleted = false;
             }
 
             tenderLineWholesaler.Price = Convert.ToDecimal(e.NewValue);
