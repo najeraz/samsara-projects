@@ -67,6 +67,7 @@ namespace Samsara.ProjectsAndTendering.Controls
                 {
                     gridConfiguration = new GridConfiguration();
                     gridConfiguration.GridName = this.Name;
+                    gridConfiguration.IgnoreVisibleProperty = false;
                     gridConfiguration.FormConfiguration = formConfiguration;
                     srvGridConfiguration.SaveOrUpdate(gridConfiguration);
                 }
@@ -91,15 +92,17 @@ namespace Samsara.ProjectsAndTendering.Controls
                             gridColumnConfiguration.Visible = false;
                             gridColumnConfiguration.Band = band.Index;
 
-                            srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
+                            if (!gridConfiguration.IgnoreVisibleProperty)
+                                srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
                         }
                         else
                         {
-                            column.Hidden = !gridColumnConfiguration.Visible;
+                            column.Hidden = !gridColumnConfiguration.Visible && !gridConfiguration.IgnoreVisibleProperty;
                             column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
-                            column.Header.VisiblePosition = gridConfiguration.GridColumnConfigurations
-                                .Where(x => x.Visible).OrderBy(x => x.GridColumnConfigurationId).ToList()
-                                .IndexOf(gridColumnConfiguration) + 1;
+                            if (!gridConfiguration.IgnoreVisibleProperty)
+                                column.Header.VisiblePosition = gridConfiguration.GridColumnConfigurations
+                                    .Where(x => x.Visible).OrderBy(x => x.GridColumnConfigurationId).ToList()
+                                    .IndexOf(gridColumnConfiguration) + 1;
                         }
                     }
                 }

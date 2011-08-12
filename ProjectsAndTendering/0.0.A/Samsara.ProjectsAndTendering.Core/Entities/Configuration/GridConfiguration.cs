@@ -20,6 +20,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
+        [ForeignKeyAttribute]
         public virtual FormConfiguration FormConfiguration
         {
             get;
@@ -27,6 +28,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
         }
 
         public virtual string GridName
+        {
+            get;
+            set;
+        }
+
+        public virtual bool IgnoreVisibleProperty
         {
             get;
             set;
