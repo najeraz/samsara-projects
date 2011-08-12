@@ -7,10 +7,10 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     {
         public TenderLineManufacturer()
         {
-            this.TenderLinesManufacturerId = -1;
+            this.TenderLineManufacturerId = -1;
         }
 
-        public virtual int TenderLinesManufacturerId
+        public virtual int TenderLineManufacturerId
         {
             get;
             set;

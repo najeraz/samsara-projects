@@ -178,7 +178,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             TenderWholesalerParameters pmtTenderWholesaler = new TenderWholesalerParameters();
             pmtTenderWholesaler.TenderId = ParameterConstants.IntNone;
             this.dtTenderWholesalers = this.srvTenderWholesaler.SearchByParameters(pmtTenderWholesaler);
-            this.dtTenderWholesalers.Columns.Add("WholesalerName", typeof(string));
             this.frmTender.grdDetTenderWholesalers.DataSource = null;
             this.frmTender.grdDetTenderWholesalers.DataSource = dtTenderWholesalers;
 
@@ -442,7 +441,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 tenderLine.Tender = this.tender;
                 tenderLine.Description = row["Description"].ToString();
-                tenderLine.ManufacturerId = Convert.ToInt32(row["ManufacturerId"]);
+                tenderLine.Manufacturer = this.srvManufacturer.GetById(Convert.ToInt32(row["ManufacturerId"]));
                 tenderLine.Name = row["Name"].ToString();
                 tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
                 tenderLine.Activated = true;
@@ -627,7 +626,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderId"] = tenderWholesaler.Tender.TenderId;
                 row["WholesalerId"] = tenderWholesaler.Wholesaler.WholesalerId;
                 row["TenderWholesalerId"] = tenderWholesaler.TenderWholesalerId;
-                row["WholesalerName"] = tenderWholesaler.Wholesaler.Name;
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -636,7 +634,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtTenderLines.Rows.Add(row);
 
                 row["Description"] = tenderLine.Description;
-                row["ManufacturerId"] = tenderLine.ManufacturerId;
+                row["ManufacturerId"] = tenderLine.Manufacturer.ManufacturerId;
                 row["Name"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
                 row["TenderId"] = tenderLine.Tender.TenderId;
@@ -707,6 +705,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.dtPriceComparison == null)
                 this.dtPriceComparison = new DataTable();
 
+            if (!this.dtPriceComparison.Columns.Contains("TenderLineId"))
+            {
+                DataColumn dcTenderLine = new DataColumn("TenderLineId", typeof(int));
+                this.dtPriceComparison.Columns.Add(dcTenderLine);
+            }
+
             if (!this.dtPriceComparison.Columns.Contains("TenderLineName"))
             {
                 DataColumn dcTenderLine = new DataColumn("TenderLineName", typeof(string));
@@ -716,29 +720,30 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (int wholesalerId in this.dtTenderWholesalers.AsEnumerable()
                 .Select(x => Convert.ToInt32(x["WholesalerId"])))
             {
-                Wholesaler wholesaler = null;
-                TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
-                    .SingleOrDefault(x => x.Wholesaler.WholesalerId == wholesalerId);
+                //Wholesaler wholesaler = null;
+                //TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
+                //    .SingleOrDefault(x => x.Wholesaler.WholesalerId == wholesalerId);
 
-                if (tenderWholesaler != null)
-                    wholesaler = tenderWholesaler.Wholesaler;
-                else 
-                    wholesaler = this.srvWholesaler.GetById(wholesalerId);
+                //if (tenderWholesaler != null)
+                //    wholesaler = tenderWholesaler.Wholesaler;
+                //else 
+                //    wholesaler = this.srvWholesaler.GetById(wholesalerId);
 
-                if (!this.dtPriceComparison.Columns.Contains(wholesaler.Name))
+                if (!this.dtPriceComparison.Columns.Contains(wholesalerId.ToString()))
                 {
-                    DataColumn dcWholesaler = new DataColumn(wholesaler.Name, typeof(decimal));
+                    DataColumn dcWholesaler = new DataColumn(wholesalerId.ToString(), typeof(decimal));
                     this.dtPriceComparison.Columns.Add(dcWholesaler);
                 }
             }
 
-            IEnumerable<string> columnNames = this.dtPriceComparison.Columns
+            IEnumerable<string> columnNames = this.dtPriceComparison.Copy().Columns
                 .Cast<DataColumn>().Select(x => x.ColumnName);
 
-            foreach (string columnName in columnNames.Where(x => x != "TenderLineName"))
+            foreach (string columnName in columnNames
+                .Where(x => x != "TenderLineName" && x != "TenderLineId"))
             {
                 if (!this.dtTenderWholesalers.AsEnumerable()
-                    .Select(x => x["WholesalerName"].ToString()).Contains(columnName))
+                    .Select(x => x["WholesalerId"].ToString()).Contains(columnName))
                 {
                     this.dtPriceComparison.Columns.Remove(columnName);
                 }
@@ -769,8 +774,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
 
-            foreach (TenderLineManufacturer TenderLineManufacturer in
-                this.tender.TenderLines.SelectMany(x => x.tender))
+            foreach (TenderLineManufacturer tenderLineManufacturer in
+                this.tender.TenderLines.SelectMany(x => x.TenderLineManufacturers))
+            {
+                DataRow row = this.dtPriceComparison.AsEnumerable().SingleOrDefault(x => 
+                    Convert.ToInt32(x["TenderLineId"]) == tenderLineManufacturer.TenderLine.TenderLineId);
+
+                if (row != null)
+                    row[tenderLineManufacturer.Manufacturer.ManufacturerId.ToString()]
+                        = tenderLineManufacturer.Price;
+            }
 
             this.dtPriceComparison.AcceptChanges();
 

@@ -12,7 +12,6 @@
     <property name="Name"/>
     <property name="Quantity"/>
     <property name="Description"/>
-    <property name="ManufacturerId"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
@@ -20,7 +19,11 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="TenderId"/>
 
-    <set name="TenderLineManufacturer" table="TenderLineManufacturer" where="Deleted = 0 AND Activated = 1"
+    <many-to-one name="Manufacturer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
+                 column="ManufacturerId"/>
+
+    <set name="TenderLineManufacturers" table="TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
