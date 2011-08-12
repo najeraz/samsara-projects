@@ -194,6 +194,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetTenderManufacturers.DataSource = null;
             this.frmTender.grdDetTenderManufacturers.DataSource = dtTenderManufacturers;
 
+            //grdDetPriceComparison
+            this.frmTender.grdDetPriceComparison.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetPriceComparison_InitializeLayout);
+
             //grdDetLog
             this.frmTender.grdDetLog.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetLog_InitializeLayout);
@@ -720,15 +724,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (int wholesalerId in this.dtTenderWholesalers.AsEnumerable()
                 .Select(x => Convert.ToInt32(x["WholesalerId"])))
             {
-                //Wholesaler wholesaler = null;
-                //TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
-                //    .SingleOrDefault(x => x.Wholesaler.WholesalerId == wholesalerId);
-
-                //if (tenderWholesaler != null)
-                //    wholesaler = tenderWholesaler.Wholesaler;
-                //else 
-                //    wholesaler = this.srvWholesaler.GetById(wholesalerId);
-
                 if (!this.dtPriceComparison.Columns.Contains(wholesalerId.ToString()))
                 {
                     DataColumn dcWholesaler = new DataColumn(wholesalerId.ToString(), typeof(decimal));
@@ -749,14 +744,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
 
-            foreach (string tenderLineName in this.dtTenderLines.AsEnumerable()
-                .Select(x => x["Name"].ToString()))
+            foreach (DataRow row in this.dtTenderLines.AsEnumerable())
             {
                 if (!this.dtPriceComparison.Rows.Cast<DataRow>()
-                    .Select(x => x["TenderLineName"].ToString()).Contains(tenderLineName))
+                    .Select(x => x["TenderLineId"].ToString()).Contains(row["TenderLineId"].ToString()))
                 {
                     DataRow drWholesaler = this.dtPriceComparison.NewRow();
-                    drWholesaler["TenderLineName"] = tenderLineName;
+                    drWholesaler["TenderLineId"] = row["TenderLineId"];
+                    drWholesaler["TenderLineName"] = row["Name"];
                     this.dtPriceComparison.Rows.Add(drWholesaler);
                 }
             }
@@ -1136,6 +1131,33 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderWholesalers.Rows.Add(newRow);
             newRow["WholesalerId"] = -1;
             this.dtTenderWholesalers.AcceptChanges();
+        }
+
+        private void grdDetPriceComparison_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdDetPriceComparison.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+            int columnName;
+
+            band.Columns["TenderLineId"].Hidden = true;
+            band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineName"].Header.Caption = "Partida";
+
+            foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
+                .Where(x => int.TryParse(x.ColumnName, out columnName)))
+            {
+                Wholesaler wholesaler = null;
+                TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
+                    .SingleOrDefault(x => x.Wholesaler.WholesalerId == Convert.ToInt32(col.ColumnName));
+
+                if (tenderWholesaler != null)
+                    wholesaler = tenderWholesaler.Wholesaler;
+                else
+                    wholesaler = this.srvWholesaler.GetById(Convert.ToInt32(col.ColumnName));
+
+                band.Columns[col.ColumnName].Header.Caption = wholesaler.Name;
+            }
+
         }
 
         #endregion Events
