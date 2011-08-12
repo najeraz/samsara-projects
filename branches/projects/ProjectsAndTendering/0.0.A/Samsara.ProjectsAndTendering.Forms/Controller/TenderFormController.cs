@@ -777,35 +777,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
 
-            foreach (TenderLineManufacturer tenderLineManufacturer in
-                this.tender.TenderLines.SelectMany(x => x.TenderLineManufacturers))
+            foreach (TenderLineWholesaler tenderLineWholesaler in
+                this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers))
             {
                 DataRow row = this.dtPriceComparison.AsEnumerable().SingleOrDefault(x => 
-                    Convert.ToInt32(x["TenderLineId"]) == tenderLineManufacturer.TenderLine.TenderLineId);
+                    Convert.ToInt32(x["TenderLineId"]) == tenderLineWholesaler.TenderLine.TenderLineId);
 
                 if (row != null)
-                    row[tenderLineManufacturer.Manufacturer.ManufacturerId.ToString()]
-                        = tenderLineManufacturer.Price;
+                    row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString()]
+                        = tenderLineWholesaler.Price;
             }
 
             this.dtPriceComparison.AcceptChanges();
 
             this.frmTender.grdDetPriceComparison.DataSource = null;
             this.frmTender.grdDetPriceComparison.DataSource = dtPriceComparison;
-        }
-
-        private Wholesaler GetWholeseler(int wholesaleId)
-        {
-            Wholesaler wholesaler = null;
-            TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
-                .SingleOrDefault(x => x.Wholesaler.WholesalerId == wholesaleId);
-
-            if (tenderWholesaler != null)
-                wholesaler = tenderWholesaler.Wholesaler;
-            else
-                wholesaler = this.srvWholesaler.GetById(wholesaleId);
-
-            return wholesaler;
         }
 
         private Manufacturer GetManufacturer(int manufacturerId)
@@ -820,6 +806,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 manufacturer = this.srvManufacturer.GetById(manufacturerId);
 
             return manufacturer;
+        }
+
+        private Wholesaler GetWholesaler(int wholesalerId)
+        {
+            Wholesaler wholesaler = null;
+            TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
+                .SingleOrDefault(x => x.Wholesaler.WholesalerId == wholesalerId);
+
+            if (tenderWholesaler != null)
+                wholesaler = tenderWholesaler.Wholesaler;
+            else
+                wholesaler = this.srvWholesaler.GetById(wholesalerId);
+
+            return wholesaler;
         }
 
         #endregion Methods
@@ -1182,13 +1182,28 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
-                band.Columns[col.ColumnName].Header.Caption = this.GetWholeseler(Convert.ToInt32(col.ColumnName)).Name;
+                band.Columns[col.ColumnName].Header.Caption = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
             }
 
         }
 
         private void grdDetPriceComparison_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
+            TenderLineWholesaler tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
+                .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
+                && x.Wholesaler.WholesalerId.ToString() == e.Cell.Column.Key);
+
+            if (tenderLineWholesaler == null)
+            {
+                tenderLineWholesaler = new TenderLineWholesaler();
+                TenderLine tenderLine = this.tender.TenderLines
+                    .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+                tenderLine.TenderLineWholesalers.Add(tenderLineWholesaler);
+                tenderLineWholesaler.TenderLine = tenderLine;
+                tenderLineWholesaler.Wholesaler = this.GetWholesaler(Convert.ToInt32(e.Cell.Column.Key));
+            }
+
+            tenderLineWholesaler.Price = Convert.ToDecimal(e.NewValue);
         }
 
         public void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
