@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using NHibernate.Criterion;
 using NHibernate.Impl;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 using System.Data;
 
 namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces

@@ -6,7 +6,7 @@ using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 

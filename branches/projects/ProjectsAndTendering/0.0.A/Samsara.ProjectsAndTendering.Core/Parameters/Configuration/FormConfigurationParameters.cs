@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace Samsara.ProjectsAndTendering.Core.Parameters
+namespace Samsara.ProjectsAndTendering.Core.Parameters.Configuration
 {
     public class FormConfigurationParameters : GenericParameters
     {

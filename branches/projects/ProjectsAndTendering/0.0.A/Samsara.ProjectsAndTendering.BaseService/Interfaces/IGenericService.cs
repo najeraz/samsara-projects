@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using Samsara.ProjectsAndTendering.Core.Parameters;
+using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 
 namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
 {
