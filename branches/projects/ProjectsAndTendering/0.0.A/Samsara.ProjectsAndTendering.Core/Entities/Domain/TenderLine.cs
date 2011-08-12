@@ -1,10 +1,13 @@
 ﻿
+using Iesi.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
     public class TenderLine : GenericEntity
     {
+        private ISet<TenderLineManufacturer> TenderLineManufacturer;
+
         public TenderLine()
         {
             TenderLineId = -1;
@@ -19,6 +22,13 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 
         [ForeignKeyAttribute]
         public virtual Tender Tender
+        {
+            get;
+            set;
+        }
+
+        [ForeignKeyAttribute]
+        public virtual Manufacturer Manufacturer
         {
             get;
             set;
@@ -42,10 +52,19 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int ManufacturerId
+        public virtual ISet<TenderLine> TenderLineManufacturer
         {
-            get;
-            set;
+            get
+            {
+                if (this.TenderLineManufacturer == null)
+                    this.TenderLineManufacturer = new HashedSet<TenderLine>();
+
+                return this.TenderLineManufacturer;
+            }
+            set
+            {
+                this.TenderLineManufacturer = value;
+            }
         }
     }
 }
