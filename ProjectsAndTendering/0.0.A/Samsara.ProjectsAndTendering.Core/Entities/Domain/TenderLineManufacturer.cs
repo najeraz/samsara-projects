@@ -34,7 +34,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual decimal Price
+        public virtual decimal? Price
         {
             get;
             set;
