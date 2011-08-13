@@ -3,33 +3,33 @@ using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class TenderWholesaler : GenericEntity
+    public class ExchangeRate : GenericEntity
     {
-        public TenderWholesaler()
+        public ExchangeRate()
         {
-            TenderWholesalerId = -1;
+            ExchangeRateId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int TenderWholesalerId
+        public virtual int ExchangeRateId
         {
             get;
             set;
         }
 
-        public virtual Tender Tender
+        public virtual Currency SourceCurrency
         {
             get;
             set;
         }
 
-        public virtual Wholesaler Wholesaler
+        public virtual Currency DestinyCurrency
         {
             get;
             set;
         }
 
-        public virtual string Description
+        public virtual decimal Rate
         {
             get;
             set;

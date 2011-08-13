@@ -1264,7 +1264,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].Hidden = true;
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
-            band.Columns["SelectedWholesalerId"].Header.Caption = "Elegido";
+            band.Columns["SelectedWholesalerId"].Header.Caption = "Mejor Opción";
             band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
 

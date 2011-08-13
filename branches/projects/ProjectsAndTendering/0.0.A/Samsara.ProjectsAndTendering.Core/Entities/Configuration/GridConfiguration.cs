@@ -20,7 +20,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual FormConfiguration FormConfiguration
         {
             get;

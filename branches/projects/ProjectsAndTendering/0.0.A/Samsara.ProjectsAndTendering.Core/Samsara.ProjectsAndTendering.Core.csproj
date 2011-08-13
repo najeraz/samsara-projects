@@ -77,7 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ForeignKeyAttribute.cs" />
     <Compile Include="Attributes\PrimaryKeyAttribute .cs" />
     <Compile Include="Entities\Configuration\GridConfiguration.cs" />
     <Compile Include="Entities\Configuration\FormConfiguration.cs" />
@@ -86,6 +85,8 @@
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\Domain\Competitor.cs" />
+    <Compile Include="Entities\Domain\ExchangeRate.cs" />
+    <Compile Include="Entities\Domain\Currency.cs" />
     <Compile Include="Entities\Domain\TenderLineWholesaler.cs" />
     <Compile Include="Entities\Domain\TenderLineManufacturer.cs" />
     <Compile Include="Entities\Domain\TenderWholesaler.cs" />
@@ -116,6 +117,8 @@
     <Compile Include="Parameters\Domain\AsesorParameters.cs" />
     <Compile Include="Parameters\Domain\BidderTypeParameters.cs" />
     <Compile Include="Parameters\Domain\CompetitorParameters.cs" />
+    <Compile Include="Parameters\Domain\ExchangeRateParameters.cs" />
+    <Compile Include="Parameters\Domain\CurrencyParameters.cs" />
     <Compile Include="Parameters\Domain\TenderWholesalerParameters.cs" />
     <Compile Include="Parameters\Domain\WholesalerParameters.cs" />
     <Compile Include="Parameters\Domain\TenderCompetitorParameters.cs" />
@@ -224,6 +227,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderLineWholesaler.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\Currency.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\ExchangeRate.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
