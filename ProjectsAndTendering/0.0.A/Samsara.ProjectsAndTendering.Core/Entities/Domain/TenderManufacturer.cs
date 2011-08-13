@@ -17,14 +17,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Tender Tender
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Manufacturer Manufacturer
         {
             get;

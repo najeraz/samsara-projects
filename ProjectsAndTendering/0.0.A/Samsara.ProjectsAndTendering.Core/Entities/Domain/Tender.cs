@@ -31,28 +31,24 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Opportunity Opportunity
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Bidder Bidder
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual EndUser EndUser
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Dependency Dependency
         {
             get;
@@ -206,21 +202,18 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             }
         }
 
-        [ForeignKeyAttribute]
         public virtual TenderStatus TenderStatus
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Asesor ApprovedBy
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Tender PreviousTender
         {
             get;

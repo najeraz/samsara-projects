@@ -18,7 +18,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Opportunity Opportunity
         {
             get;

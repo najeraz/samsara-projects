@@ -11,14 +11,13 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             TenderLogId = -1;
         }
 
-        [ForeignKeyAttribute]
+        [PrimaryKeyAttribute]
         public virtual int TenderLogId
         {
             get;
             set;
         }
 
-        [ForeignKeyAttribute]
         public virtual Tender Tender
         {
             get;
