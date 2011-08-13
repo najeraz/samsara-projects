@@ -1,12 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using System.IO;
-using System.Reflection;
+using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.Support.Util
 {
@@ -58,22 +59,38 @@ namespace Samsara.Support.Util
             return table;
         }
 
+        /// <summary>
+        /// Crea una Tabla sencilla a partir de la Definición de una Entidad del Framework.
+        /// </summary>
+        /// <typeparam name="T">Tipo de la Entidad.</typeparam>
+        /// <returns>Tabla con un Esquema acorde a <c>T</c>.</returns>
         public static DataTable CreateTable<T>()
         {
             Type entityType = typeof(T);
-            DataTable table = new DataTable(entityType.Name);
-            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(entityType);
+            System.Diagnostics.Contracts.Contract
+                .Assert(entityType.IsSubclassOf(typeof(GenericEntity)));
 
-            foreach (PropertyDescriptor prop in properties)
+            DataTable table = new DataTable(entityType.Name);
+            PropertyDescriptorCollection entityPropertiesCollection
+                = TypeDescriptor.GetProperties(entityType);
+
+            foreach (PropertyDescriptor entityProperty in entityPropertiesCollection)
             {
-                PropertyInfo primaryKeyPropertyInfo = EntitiesUtil.GetPrimaryKeyPropertyInfo(prop.PropertyType);
-                if (primaryKeyPropertyInfo != null)
-                    table.Columns.Add(primaryKeyPropertyInfo.Name, primaryKeyPropertyInfo.PropertyType);
-                else if (prop.PropertyType.IsGenericType && 
-                    prop.PropertyType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
-                    table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType));
+                if (EntitiesUtil.IsPrimaryKeyProperty(entityProperty))
+                {
+                    table.Columns.Add(entityProperty.Name, entityProperty.PropertyType);
+                }
+                else if (entityProperty.PropertyType.IsGenericType
+                    && entityProperty.PropertyType.GetGenericTypeDefinition()
+                        .Equals(typeof(Nullable<>)))
+                {
+                    table.Columns.Add(entityProperty.Name
+                        , Nullable.GetUnderlyingType(entityProperty.PropertyType));
+                }
                 else
-                    table.Columns.Add(prop.Name, prop.PropertyType);
+                {
+                    table.Columns.Add(entityProperty.Name, entityProperty.PropertyType);
+                }
             }
 
             return table;
