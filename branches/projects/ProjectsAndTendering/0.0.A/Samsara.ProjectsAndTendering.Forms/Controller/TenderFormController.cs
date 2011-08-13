@@ -850,13 +850,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     DataRow row = this.dtPriceComparison.AsEnumerable().SingleOrDefault(x =>
                         Convert.ToInt32(x["TenderLineId"]) == tenderLine.TenderLineId);
                     TenderLineWholesaler tenderLineWholesaler = tenderLine.TenderLineWholesalers
-                        .Single(x => x.Wholesaler.WholesalerId == tenderLine.Wholesaler.WholesalerId);
+                        .SingleOrDefault(x => x.Wholesaler.WholesalerId == tenderLine.Wholesaler.WholesalerId);
 
-                    row["SelectedWholesalerId"] = tenderLine.Wholesaler.WholesalerId;
-                    if (tenderLineWholesaler.Price != null)
+                    if (tenderLineWholesaler != null && tenderLineWholesaler.Price != null)
                         row["BestPrice"] = tenderLineWholesaler.Price;
                     else
                         row["BestPrice"] = DBNull.Value;
+
+                    row["SelectedWholesalerId"] = tenderLine.Wholesaler.WholesalerId;
                 }
             }
 
@@ -1266,18 +1267,29 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
 
             WholesalerParameters pmtWholesaler = new WholesalerParameters();
-            IList<Wholesaler> lstWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler);
+            IEnumerable<Wholesaler> ieWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler)
+                .Where(x => this.dtTenderWholesalers.AsEnumerable()
+                    .Select(y => Convert.ToInt32(y["WholesalerId"]))
+                    .Contains(x.WholesalerId));
 
-            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, lstWholesalers
-                .Where(x => this.tender.TenderWholesalers.Where(y => x.Activated && !y.Deleted)
-                .Select(y => y.Wholesaler.WholesalerId).Contains(x.WholesalerId)),
-                band.Columns["SelectedWholesalerId"], "WholesalerId", "Name");
+            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers,
+                    band.Columns["SelectedWholesalerId"], "WholesalerId", "Name");
 
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
                 band.Columns[col.ColumnName].Header.Caption 
                     = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
+            }
+
+            foreach (UltraGridRow row in this.frmTender.grdDetPriceComparison.Rows)
+            {
+                if (!ieWholesalers.Select(x => x.WholesalerId)
+                    .Contains(Convert.ToInt32(row.Cells["SelectedWholesalerId"].Value)))
+                {
+                    row.Cells["SelectedWholesalerId"].Value = -1;
+                    row.Cells["BestPrice"].Value = DBNull.Value;
+                }
             }
 
             band.Columns["SelectedWholesalerId"].Editor.SelectionChanged
@@ -1346,13 +1358,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         public void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetPriceComparison.ActiveRow;
+            EditorWithCombo editor = sender as EditorWithCombo;
 
             if (activeRow == null)
                 return;
-
-            EditorWithCombo editor = sender as EditorWithCombo;
-
-            activeRow.Cells["BestPrice"].Value = activeRow.Cells[editor.Value.ToString()].Value;
+            if (Convert.ToInt32(editor.Value) > 0)
+                activeRow.Cells["BestPrice"].Value = activeRow.Cells[editor.Value.ToString()].Value;
+            else
+                activeRow.Cells["BestPrice"].Value = DBNull.Value;
         }
 
         #endregion Events
