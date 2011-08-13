@@ -23,6 +23,10 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
                  column="ManufacturerId"/>
 
+    <many-to-one name="Wholesaler"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
+                 column="WholesalerId"/>
+
     <set name="TenderLineManufacturers" table="TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
