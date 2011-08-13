@@ -333,7 +333,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.frmTender.tabDetDetail.SelectedTab =
                         this.frmTender.tabDetDetail.TabPages["TenderDetails"];
                     this.frmTender.tcDetTextControls.SelectedTab =
-                        this.frmTender.tcDetTextControls.TabPages["Wholesalers"];
+                        this.frmTender.tcDetTextControls.TabPages["Mayoristas"];
                     return false;
                 }
             }
@@ -757,6 +757,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     DataColumn dcWholesaler = new DataColumn(wholesalerId.ToString(), typeof(decimal));
                     this.dtPriceComparison.Columns.Add(dcWholesaler);
                 }
+            }
+
+            if (!this.dtPriceComparison.Columns.Contains("SelectedWholesaler"))
+            {
+                DataColumn dcTenderLine = new DataColumn("SelectedWholesaler", typeof(int));
+                this.dtPriceComparison.Columns.Add(dcTenderLine);
+            }
+
+            if (!this.dtPriceComparison.Columns.Contains("BestPrice"))
+            {
+                DataColumn dcTenderLine = new DataColumn("BestPrice", typeof(decimal));
+                this.dtPriceComparison.Columns.Add(dcTenderLine);
             }
 
             IEnumerable<string> columnNames = this.dtPriceComparison.Copy().Columns
@@ -1226,11 +1238,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].Hidden = true;
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
+            band.Columns["SelectedWholesalerId"].Header.Caption = "Elegido";
+            band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
+
+            WholesalerParameters pmtWholesaler = new WholesalerParameters();
+            IList<Wholesaler> lstWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler);
+
+            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, lstWholesalers,
+                band.Columns["SelectedWholesalerId"], "WholesalerId", "Name");
 
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
-                band.Columns[col.ColumnName].Header.Caption = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
+                band.Columns[col.ColumnName].Header.Caption 
+                    = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
             }
 
         }
