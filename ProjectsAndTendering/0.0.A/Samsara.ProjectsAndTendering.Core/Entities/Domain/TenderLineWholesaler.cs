@@ -33,5 +33,11 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             get;
             set;
         }
+
+        public virtual Currency Currency
+        {
+            get;
+            set;
+        }
     }
 }
