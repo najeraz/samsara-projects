@@ -38,19 +38,6 @@ namespace Samsara.Support.Util
         }
 
         /// <summary>
-        /// Obtiene las Propiedades de la Entidad que son consideradas para formar la Llave
-        /// Foránea.
-        /// </summary>
-        /// <param name="entityType">Tipo de la Entidad.</param>
-        /// <returns>Propiedades para Llave Foránea.</returns>
-        public static PropertyInfo[] GetForeignKeyProperties(Type entityType)
-        {
-            Contract.Assert(entityType.IsSubclassOf(typeof(GenericEntity)));
-            return EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType
-                , typeof(ForeignKeyAttribute));
-        }
-
-        /// <summary>
         /// Indica si <c>type</c> está marcado con el Atributo especificado por
         /// <c>attributeType</c>.
         /// </summary>
