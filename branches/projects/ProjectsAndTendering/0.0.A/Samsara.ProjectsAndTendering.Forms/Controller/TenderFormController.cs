@@ -201,6 +201,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetPriceComparison_InitializeLayout);
             this.frmTender.grdDetPriceComparison.BeforeCellUpdate +=
                 new BeforeCellUpdateEventHandler(grdDetPriceComparison_BeforeCellUpdate);
+            this.frmTender.grdDetPriceComparison.AfterCellUpdate +=
+                new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
 
             //grdDetPriceComparison
             this.frmTender.grdDetPreresults.InitializeLayout
@@ -1140,7 +1142,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             e.Cell.Row.PerformAutoSize();
         }
 
-        public void grdDetTenderCompetitors_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        private void grdDetTenderCompetitors_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTender.grdDetTenderCompetitors.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
@@ -1160,7 +1162,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 lstCompetitors, band.Columns["CompetitorId"], "CompetitorId", "Name");
         }
 
-        public void grdDetTenderCompetitors_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        private void grdDetTenderCompetitors_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
 
@@ -1176,7 +1178,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        public void grdDetTenderWholesalers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        private void grdDetTenderWholesalers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTender.grdDetTenderWholesalers.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
@@ -1196,7 +1198,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 lstWholesalers, band.Columns["WholesalerId"], "WholesalerId", "Name");
         }
 
-        public void grdDetTenderWholesalers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        private void grdDetTenderWholesalers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             e.Cell.Row.PerformAutoSize();
 
@@ -1212,7 +1214,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        public void grdDetTenderWholesalers_AfterCellUpdate(object sender, EventArgs e)
+        private void grdDetTenderWholesalers_AfterCellUpdate(object sender, EventArgs e)
         {
             this.UpdatePriceComparisonGrid();
         }
@@ -1331,11 +1333,38 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        public void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        private void grdDetPriceComparison_AfterCellUpdate(object sender, EventArgs e)
+        {
+            UltraGridCell activeCell = this.frmTender.grdDetPriceComparison.ActiveCell;
+            int columnName;
+
+            if (activeCell == null)
+                return;
+
+            if (Convert.ToInt32(activeCell.Value) > 0 &&
+                int.TryParse(activeCell.Column.Key, out columnName))
+            {
+                UltraGridCell minPriceCell = activeCell.Row.Cells.Cast<UltraGridCell>()
+                    .Where(x => x.Value != DBNull.Value && int.TryParse(x.Column.Key, out columnName))
+                    .OrderBy(x => Convert.ToDecimal(x.Value)).FirstOrDefault();
+
+                if (minPriceCell != null)
+                {
+                    activeCell.Row.Cells["BestPrice"].Value = minPriceCell.Value;
+                    this.frmTender.grdDetPriceComparison.AfterCellUpdate
+                        -= new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
+                    activeCell.Row.Cells["SelectedWholesalerId"].Value = Convert.ToInt32(minPriceCell.Column.Key);
+                    this.frmTender.grdDetPriceComparison.AfterCellUpdate
+                        += new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
+                }
+            }
+        }
+
+        private void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
         }
 
-        public void grdDetPreresults_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        private void grdDetPreresults_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             TenderLineManufacturer tenderLineManufacturer = this.tender.TenderLines.SelectMany(x => x.TenderLineManufacturers)
                 .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
@@ -1355,7 +1384,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue);
         }
 
-        public void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
+        private void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetPriceComparison.ActiveRow;
             EditorWithCombo editor = sender as EditorWithCombo;
