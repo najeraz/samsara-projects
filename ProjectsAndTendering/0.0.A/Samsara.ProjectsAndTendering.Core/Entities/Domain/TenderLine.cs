@@ -35,6 +35,13 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        [ForeignKeyAttribute]
+        public virtual Wholesaler Wholesaler
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
