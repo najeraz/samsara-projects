@@ -3,7 +3,7 @@
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters.Domain
 {
-    public class CurrencyParameters : GenericParameters
+    public class DocumentTypeWarrantyParameters : GenericParameters
     {
         public string Name
         {

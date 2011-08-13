@@ -107,6 +107,9 @@
     <Compile Include="Impl\Domain\BidderDao.cs" />
     <Compile Include="Impl\Domain\BidderTypeDao.cs" />
     <Compile Include="Impl\Domain\CompetitorDao.cs" />
+    <Compile Include="Impl\Domain\DocumentTypeWarrantyDao.cs" />
+    <Compile Include="Impl\Domain\WarrantyTypeDao.cs" />
+    <Compile Include="Impl\Domain\WarrantyDao.cs" />
     <Compile Include="Impl\Domain\ExchangeRateDao.cs" />
     <Compile Include="Impl\Domain\CurrencyDao.cs" />
     <Compile Include="Impl\Domain\TenderWholesalerDao.cs" />
@@ -128,10 +131,13 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationDao.cs" />
+    <Compile Include="Interfaces\Domain\IDocumentTypeWarrantyDao.cs" />
+    <Compile Include="Interfaces\Domain\IWarrantyTypeDao.cs" />
+    <Compile Include="Interfaces\Domain\IWarrantyDao.cs" />
     <Compile Include="Interfaces\Domain\IExchangeRateDao.cs" />
     <Compile Include="Interfaces\Domain\ICurrencyDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderWholesalerDao.cs" />
-    <Compile Include="Interfaces\Domain\IWholesalerCopy of ICompetitorDao.cs" />
+    <Compile Include="Interfaces\Domain\IWholesalerDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderCompetitorDao.cs" />
     <Compile Include="Interfaces\Domain\ICompetitorDao.cs" />
     <Compile Include="Interfaces\Domain\IOpportunityLogDao.cs" />
