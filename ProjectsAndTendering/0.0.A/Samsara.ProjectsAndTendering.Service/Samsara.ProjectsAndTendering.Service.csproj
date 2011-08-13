@@ -107,6 +107,9 @@
     <Compile Include="Impl\Domain\BidderService.cs" />
     <Compile Include="Impl\Domain\BidderTypeService.cs" />
     <Compile Include="Impl\Domain\CompetitorService.cs" />
+    <Compile Include="Impl\Domain\DocumentTypeWarrantyService.cs" />
+    <Compile Include="Impl\Domain\WarrantyTypeService.cs" />
+    <Compile Include="Impl\Domain\WarrantyService.cs" />
     <Compile Include="Impl\Domain\ExchangeRateService.cs" />
     <Compile Include="Impl\Domain\CurrencyService.cs" />
     <Compile Include="Impl\Domain\TenderWholesalerService.cs" />
@@ -128,6 +131,9 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationService.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationService.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationService.cs" />
+    <Compile Include="Interfaces\Domain\IDocumentWarrantyTypeService.cs" />
+    <Compile Include="Interfaces\Domain\IWarrantyTypeService.cs" />
+    <Compile Include="Interfaces\Domain\IWarrantyService.cs" />
     <Compile Include="Interfaces\Domain\IExchangeRateService.cs" />
     <Compile Include="Interfaces\Domain\ICurrencyService.cs" />
     <Compile Include="Interfaces\Domain\ITenderWholesalerService.cs" />
