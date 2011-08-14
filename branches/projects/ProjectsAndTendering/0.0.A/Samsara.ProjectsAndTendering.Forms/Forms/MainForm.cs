@@ -179,20 +179,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             }
         }
 
-        private void fianzasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                WarrantyForm frmWarranty = new WarrantyForm();
-                frmWarranty.Show();
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
         private void tiposDeFianzasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
