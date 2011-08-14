@@ -32,9 +32,7 @@ namespace Samsara.Support.Util
         /// <returns>Propiedades para Llave Primaria.</returns>
         public static PropertyInfo[] GetPrimaryKeyProperties(Type entityType)
         {
-            Contract.Assert(entityType.IsSubclassOf(typeof(GenericEntity)));
-            return EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType
-                , typeof(PrimaryKeyAttribute));
+            return EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType, typeof(PrimaryKeyAttribute));
         }
 
         /// <summary>
@@ -61,6 +59,17 @@ namespace Samsara.Support.Util
             return classType.GetProperties()
                 .Where(property => property.GetCustomAttributes(attributeType, false).Length > 0)
                 .ToArray();
+        }
+
+        public static PropertyInfo GetPrimaryKeyPropertyInfo(Type entityType)
+        {
+            foreach (PropertyInfo prop in entityType.GetProperties())
+            {
+                if (prop.GetCustomAttributes(false).Count(x => x.GetType() == typeof(PrimaryKeyAttribute)) > 0)
+                    return prop;
+            }
+
+            return null;
         }
     }
 }

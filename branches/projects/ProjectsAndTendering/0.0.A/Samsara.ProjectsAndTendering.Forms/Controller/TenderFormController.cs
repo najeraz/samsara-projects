@@ -769,6 +769,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 if (!this.dtPriceComparison.Columns.Contains(wholesalerId.ToString()))
                 {
+                    DataColumn dcWholesalerCurrency = new DataColumn(wholesalerId.ToString() + "C", typeof(int));
+                    this.dtPriceComparison.Columns.Add(dcWholesalerCurrency);
+                    this.dtPriceComparison.Columns[wholesalerId.ToString() + "C"]
+                        .SetOrdinal(this.dtPriceComparison.Columns.Count - 3);
                     DataColumn dcWholesaler = new DataColumn(wholesalerId.ToString(), typeof(decimal));
                     this.dtPriceComparison.Columns.Add(dcWholesaler);
                     this.dtPriceComparison.Columns[wholesalerId.ToString()]
@@ -781,7 +785,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (string columnName in columnNames
                 .Where(x => x != "TenderLineName" && x != "TenderLineId" 
-                    && x != "BestPrice" && x != "SelectedWholesalerId"))
+                    && x != "BestPrice" && x != "SelectedWholesalerId" && !x.EndsWith("C")))
             {
                 if (!this.dtTenderWholesalers.AsEnumerable()
                     .Select(x => x["WholesalerId"].ToString()).Contains(columnName))
@@ -1280,8 +1284,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
-                band.Columns[col.ColumnName].Header.Caption 
-                    = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
+                band.Columns[band.Columns[col.ColumnName].Index - 1].Header.Caption
+                    = "Moneda " + this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
+                band.Columns[col.ColumnName].Header.Caption
+                    = "Precio " + this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
             }
 
             foreach (UltraGridRow row in this.frmTender.grdDetPriceComparison.Rows)
