@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using Samsara.ProjectsAndTendering.Core.Entities;
+using System.Reflection;
 
 namespace Samsara.Support.Util
 {
@@ -67,8 +68,8 @@ namespace Samsara.Support.Util
         public static DataTable CreateTable<T>()
         {
             Type entityType = typeof(T);
-            System.Diagnostics.Contracts.Contract
-                .Assert(entityType.IsSubclassOf(typeof(GenericEntity)));
+            //System.Diagnostics.Contracts.Contract // Y si la herencia es por medio de una tercera clase base???
+            //    .Assert(entityType.IsSubclassOf(typeof(GenericEntity)));
 
             DataTable table = new DataTable(entityType.Name);
             PropertyDescriptorCollection entityPropertiesCollection
@@ -76,9 +77,10 @@ namespace Samsara.Support.Util
 
             foreach (PropertyDescriptor entityProperty in entityPropertiesCollection)
             {
-                if (EntitiesUtil.IsPrimaryKeyProperty(entityProperty))
+                PropertyInfo primaryKeyType = EntitiesUtil.GetPrimaryKeyPropertyInfo(entityProperty.PropertyType);
+                if (primaryKeyType != null)
                 {
-                    table.Columns.Add(entityProperty.Name, entityProperty.PropertyType);
+                    table.Columns.Add(primaryKeyType.Name, primaryKeyType.PropertyType);
                 }
                 else if (entityProperty.PropertyType.IsGenericType
                     && entityProperty.PropertyType.GetGenericTypeDefinition()
