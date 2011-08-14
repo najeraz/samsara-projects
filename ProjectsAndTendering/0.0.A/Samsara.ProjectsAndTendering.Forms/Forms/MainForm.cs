@@ -178,5 +178,47 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void fianzasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                WarrantyForm frmWarranty = new WarrantyForm();
+                frmWarranty.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeFianzasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                WarrantyTypeForm frmWarrantyType = new WarrantyTypeForm();
+                frmWarrantyType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeDocumentosDeFianzasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                DocumentTypeWarrantyForm frmDocumentTypeWarranty = new DocumentTypeWarrantyForm();
+                frmDocumentTypeWarranty.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
