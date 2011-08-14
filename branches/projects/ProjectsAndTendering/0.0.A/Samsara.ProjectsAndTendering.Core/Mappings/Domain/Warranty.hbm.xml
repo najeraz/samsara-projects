@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="Warranty" table="Warrantys">
+  <class name="Warranty" table="Warranties">
     
     <id name="WarrantyId" type="int">
       <generator class="native"/>
@@ -28,11 +28,22 @@
         from Warranty where Deleted = 0 and Activated = 1
     ]]>
   </query>
-
-  <query name="Warranty.SearchByParameters">
+  
+  <sql-query name="Warranty.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="WarrantyId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <return-scalar column="WarrantyTypeName" type="string"/>
+    <return-scalar column="DocumentTypeWarrantyName" type="string"/>
     <![CDATA[
-        from Warranty where Deleted = 0 and Activated = 1
+        SELECT w.WarrantyId, w.Name, wt.Name WarrantyTypeName, dtw.Name DocumentTypeWarrantyName
+        FROM Warranties w
+        INNER JOIN WarrantyTypes wt ON wt.WarrantyTypeId = w.WarrantyTypeId
+        INNER JOIN DocumentTypeWarranties dtw ON dtw.DocumentTypeWarrantyId = w.DocumentTypeWarrantyId
+        WHERE w.Deleted = 0 AND w.Activated = 1
+        AND wt.Deleted = 0 AND wt.Activated = 1
+        AND dtw.Deleted = 0 AND dtw.Activated = 1
+        AND w.Name like :Name
     ]]>
-  </query>
+  </sql-query>
   
 </hibernate-mapping>

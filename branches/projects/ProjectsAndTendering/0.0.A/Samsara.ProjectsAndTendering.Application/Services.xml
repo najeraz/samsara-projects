@@ -85,6 +85,18 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.WholesalerService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IWholesalerDao"/>
   </object>
+  <object id="IWarrantyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.WarrantyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IWarrantyDao"/>
+  </object>
+  <object id="IWarrantyTypeService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.WarrantyTypeService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IWarrantyTypeDao"/>
+  </object>
+  <object id="IDocumentTypeWarrantyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.DocumentTypeWarrantyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IDocumentTypeWarrantyDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">

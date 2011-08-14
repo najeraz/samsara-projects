@@ -40,11 +40,14 @@
             this.competenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaOportunidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mayoristasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFormBackground = new System.Windows.Forms.Panel();
-            this.mayoristasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +74,10 @@
             this.competenciaToolStripMenuItem,
             this.estatusDeLaOportunidadToolStripMenuItem,
             this.organizacionesToolStripMenuItem,
-            this.mayoristasToolStripMenuItem});
+            this.mayoristasToolStripMenuItem,
+            this.fianzasToolStripMenuItem,
+            this.tiposDeFianzasToolStripMenuItem,
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem});
             this.tsmiMainMenu.Name = "tsmiMainMenu";
             this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
             this.tsmiMainMenu.Text = "Catálogos";
@@ -79,65 +85,72 @@
             // licitanteToolStripMenuItem
             // 
             this.licitanteToolStripMenuItem.Name = "licitanteToolStripMenuItem";
-            this.licitanteToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.licitanteToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.licitanteToolStripMenuItem.Text = "Licitante";
             this.licitanteToolStripMenuItem.Click += new System.EventHandler(this.licitanteToolStripMenuItem_Click);
             // 
             // dependenciaToolStripMenuItem
             // 
             this.dependenciaToolStripMenuItem.Name = "dependenciaToolStripMenuItem";
-            this.dependenciaToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.dependenciaToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.dependenciaToolStripMenuItem.Text = "Dependencia";
             this.dependenciaToolStripMenuItem.Click += new System.EventHandler(this.dependenciaToolStripMenuItem_Click);
             // 
             // usuarioFinalToolStripMenuItem
             // 
             this.usuarioFinalToolStripMenuItem.Name = "usuarioFinalToolStripMenuItem";
-            this.usuarioFinalToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.usuarioFinalToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.usuarioFinalToolStripMenuItem.Text = "Usuario Final";
             this.usuarioFinalToolStripMenuItem.Click += new System.EventHandler(this.usuarioFinalToolStripMenuItem_Click);
             // 
             // fabricanteToolStripMenuItem
             // 
             this.fabricanteToolStripMenuItem.Name = "fabricanteToolStripMenuItem";
-            this.fabricanteToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.fabricanteToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.fabricanteToolStripMenuItem.Text = "Fabricante";
             this.fabricanteToolStripMenuItem.Click += new System.EventHandler(this.fabricanteToolStripMenuItem_Click);
             // 
             // asesorToolStripMenuItem
             // 
             this.asesorToolStripMenuItem.Name = "asesorToolStripMenuItem";
-            this.asesorToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.asesorToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.asesorToolStripMenuItem.Text = "Asesor";
             this.asesorToolStripMenuItem.Click += new System.EventHandler(this.asesorToolStripMenuItem_Click);
             // 
             // estatusDeLaLicitaciónToolStripMenuItem
             // 
             this.estatusDeLaLicitaciónToolStripMenuItem.Name = "estatusDeLaLicitaciónToolStripMenuItem";
-            this.estatusDeLaLicitaciónToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.estatusDeLaLicitaciónToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.estatusDeLaLicitaciónToolStripMenuItem.Text = "Estatus de la Licitación";
             this.estatusDeLaLicitaciónToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaLicitaciónToolStripMenuItem_Click);
             // 
             // competenciaToolStripMenuItem
             // 
             this.competenciaToolStripMenuItem.Name = "competenciaToolStripMenuItem";
-            this.competenciaToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.competenciaToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.competenciaToolStripMenuItem.Text = "Competencia";
             this.competenciaToolStripMenuItem.Click += new System.EventHandler(this.competenciaToolStripMenuItem_Click);
             // 
             // estatusDeLaOportunidadToolStripMenuItem
             // 
             this.estatusDeLaOportunidadToolStripMenuItem.Name = "estatusDeLaOportunidadToolStripMenuItem";
-            this.estatusDeLaOportunidadToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.estatusDeLaOportunidadToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.estatusDeLaOportunidadToolStripMenuItem.Text = "Estatus de la Oportunidad";
             this.estatusDeLaOportunidadToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaOportunidadToolStripMenuItem_Click);
             // 
             // organizacionesToolStripMenuItem
             // 
             this.organizacionesToolStripMenuItem.Name = "organizacionesToolStripMenuItem";
-            this.organizacionesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.organizacionesToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.organizacionesToolStripMenuItem.Text = "Organizaciones";
             this.organizacionesToolStripMenuItem.Click += new System.EventHandler(this.organizacionesToolStripMenuItem_Click);
+            // 
+            // mayoristasToolStripMenuItem
+            // 
+            this.mayoristasToolStripMenuItem.Name = "mayoristasToolStripMenuItem";
+            this.mayoristasToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.mayoristasToolStripMenuItem.Text = "Mayoristas";
+            this.mayoristasToolStripMenuItem.Click += new System.EventHandler(this.mayoristasToolStripMenuItem_Click);
             // 
             // licitacionesToolStripMenuItem
             // 
@@ -173,12 +186,26 @@
             this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
             this.pnlFormBackground.TabIndex = 1;
             // 
-            // mayoristasToolStripMenuItem
+            // fianzasToolStripMenuItem
             // 
-            this.mayoristasToolStripMenuItem.Name = "mayoristasToolStripMenuItem";
-            this.mayoristasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.mayoristasToolStripMenuItem.Text = "Mayoristas";
-            this.mayoristasToolStripMenuItem.Click += new System.EventHandler(this.mayoristasToolStripMenuItem_Click);
+            this.fianzasToolStripMenuItem.Name = "fianzasToolStripMenuItem";
+            this.fianzasToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.fianzasToolStripMenuItem.Text = "Fianzas";
+            this.fianzasToolStripMenuItem.Click += new System.EventHandler(this.fianzasToolStripMenuItem_Click);
+            // 
+            // tiposDeFianzasToolStripMenuItem
+            // 
+            this.tiposDeFianzasToolStripMenuItem.Name = "tiposDeFianzasToolStripMenuItem";
+            this.tiposDeFianzasToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.tiposDeFianzasToolStripMenuItem.Text = "Tipos de Fianzas";
+            this.tiposDeFianzasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeFianzasToolStripMenuItem_Click);
+            // 
+            // tiposDeDocumentosDeFianzasToolStripMenuItem
+            // 
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem.Name = "tiposDeDocumentosDeFianzasToolStripMenuItem";
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem.Text = "Tipos de Documentos de Fianzas";
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosDeFianzasToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -215,6 +242,9 @@
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaOportunidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem organizacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mayoristasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fianzasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeFianzasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeDocumentosDeFianzasToolStripMenuItem;
     }
 }
 
