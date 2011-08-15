@@ -9,6 +9,7 @@
       <generator class="native"/>
     </id>
 
+    <property name="Rate"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 

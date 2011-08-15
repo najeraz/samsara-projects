@@ -23,6 +23,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private Tender tender;
         private TenderForm frmTender;
+        private Currency defaultCurrency;
         private TabPage hiddenTenderDetailTab;
 
         private IBidderService srvBidder;
@@ -30,6 +31,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderService srvTender;
         private IEndUserService srvEndUser;
         private ITenderLogService srvTenderLog;
+        private ICurrencyService srvCurrency;
         private ICompetitorService srvCompetitor;
         private IWholesalerService srvWholesaler;
         private ITenderLineService srvTenderLine;
@@ -39,16 +41,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderCompetitorService srvTenderCompetitor;
         private ITenderWholesalerService srvTenderWholesaler;
         private ITenderManufacturerService srvTenderManufacturer;
+        private ITenderExchangeRateService srvTenderExchangeRate;
 
         private DataTable dtTenderLog;
+        private DataTable dtPreresults;
         private DataTable dtTenderLines;
-        private DataTable dtTenderManufacturers;
-        private DataTable dtTenderCompetitors;
-        private DataTable dtTenderWholesalers;
         private DataTable dtPriceComparison;
         private DataTable dtPricingStrategy;
-        private DataTable dtPreresults;
-
+        private DataTable dtTenderCompetitors;
+        private DataTable dtTenderWholesalers;
+        private DataTable dtTenderManufacturers;
+        private DataTable dtTenderExchangeRates;
+        
         #endregion Attributes
 
         #region Constructor
@@ -84,6 +88,22 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvCompetitor);
             this.srvWholesaler = SamsaraAppContext.Resolve<IWholesalerService>();
             Assert.IsNotNull(this.srvWholesaler);
+            this.srvCurrency = SamsaraAppContext.Resolve<ICurrencyService>();
+            Assert.IsNotNull(this.srvWholesaler);
+            this.srvTenderExchangeRate = SamsaraAppContext.Resolve<ITenderExchangeRateService>();
+            Assert.IsNotNull(this.srvTenderExchangeRate);
+
+            CurrencyParameters pmtCurrency = new CurrencyParameters();
+            pmtCurrency.IsDefault = true;
+            this.defaultCurrency = this.srvCurrency.GetByParameters(pmtCurrency);
+
+            if (this.defaultCurrency == null)
+            {
+                MessageBox.Show("No existe una moneda default, favor de configurar una en el catálogo.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmTender.Close();
+            }
+
             this.InitializeFormControls();
         }
 
@@ -158,6 +178,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
             this.frmTender.grdDetTenderLines.DataSource = null;
             this.frmTender.grdDetTenderLines.DataSource = dtTenderLines;
+
+            //grdDetTenderCompetitors
+            this.frmTender.grdDetExchangeRates.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetExchangeRates_InitializeLayout);
+            TenderExchangeRateParameters pmtTenderExchangeRate = new TenderExchangeRateParameters();
+            pmtTenderExchangeRate.TenderId = ParameterConstants.IntNone;
+            this.dtTenderExchangeRates = this.srvTenderExchangeRate.SearchByParameters(pmtTenderExchangeRate);
+            this.frmTender.grdDetTenderCompetitors.DataSource = null;
+            this.frmTender.grdDetTenderCompetitors.DataSource = dtTenderExchangeRates;
 
             //grdDetTenderCompetitors
             this.frmTender.grdDetTenderCompetitors.InitializeLayout
@@ -814,6 +843,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
 
+            foreach (DataRow row in this.dtPriceComparison.AsEnumerable())
+            {
+                foreach (DataColumn column in this.dtPriceComparison.Columns.Cast<DataColumn>()
+                    .Where(x => x.ColumnName.EndsWith("C")))
+                {
+                    if (row[column.ColumnName] == DBNull.Value)
+                        row[column.ColumnName] = -1;
+                }
+            }
+
             IEnumerable<DataRow> rows = this.dtPriceComparison.Copy().AsEnumerable();
 
             foreach (DataRow drTenderLine in rows)
@@ -843,10 +882,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     Convert.ToInt32(x["TenderLineId"]) == tenderLineWholesaler.TenderLine.TenderLineId);
 
                 if (row != null)
+                {
                     if (tenderLineWholesaler.Price != null)
-                        row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString()]= tenderLineWholesaler.Price;
+                        row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString()] = tenderLineWholesaler.Price;
                     else
                         row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString()] = DBNull.Value;
+
+                    if (tenderLineWholesaler.Currency != null)
+                        row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString() + "C"] = tenderLineWholesaler.Currency.CurrencyId;
+                    else
+                        row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString() + "C"] = -1;
+                }
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -899,6 +945,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 wholesaler = this.srvWholesaler.GetById(wholesalerId);
 
             return wholesaler;
+        }
+
+        private Currency GetCurrency(int currencyId)
+        {
+            if (this.defaultCurrency.CurrencyId == currencyId)
+                return defaultCurrency;
+
+            return this.srvCurrency.GetById(currencyId);
         }
 
         #endregion Methods
@@ -1272,6 +1326,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
 
+            CurrencyParameters pmtCurrency = new CurrencyParameters();
+            IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
+
+            foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
+                .Where(x => x.Key.EndsWith("C")))
+            {
+                WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
+                        column, "CurrencyId", "Code");
+                column.Editor.SelectionChanged
+                    += new EventHandler(CurrencyEditor_SelectionChanged);
+            }
+
             WholesalerParameters pmtWholesaler = new WholesalerParameters();
             IEnumerable<Wholesaler> ieWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler)
                 .Where(x => this.dtTenderWholesalers.AsEnumerable()
@@ -1308,12 +1374,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             int columnName;
 
-            if (Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0 &&
-                int.TryParse(e.Cell.Column.Key, out columnName))
+            if (Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
+                && int.TryParse(e.Cell.Column.Key, out columnName) ||
+                Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
+                && e.Cell.Column.Key.EndsWith("C"))
             {
+                string strColumnName = e.Cell.Column.Key;
+
+                if (e.Cell.Column.Key.EndsWith("C"))
+                    strColumnName = strColumnName.Replace("C", "");
+
                 TenderLineWholesaler tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
                     .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
-                    && x.Wholesaler.WholesalerId.ToString() == e.Cell.Column.Key);
+                    && x.Wholesaler.WholesalerId.ToString() == strColumnName);
 
                 if (tenderLineWholesaler == null)
                 {
@@ -1321,14 +1394,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     TenderLine tenderLine = this.tender.TenderLines
                         .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
                     tenderLine.TenderLineWholesalers.Add(tenderLineWholesaler);
+                    tenderLineWholesaler.Currency 
+                        = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[e.Cell.Column.Key + "C"].Value));
                     tenderLineWholesaler.TenderLine = tenderLine;
                     tenderLineWholesaler.Wholesaler = this.GetWholesaler(Convert.ToInt32(e.Cell.Column.Key));
                     tenderLineWholesaler.Activated = true;
                     tenderLineWholesaler.Deleted = false;
                 }
 
-                tenderLineWholesaler.Price = e.NewValue.ToString().Trim() == string.Empty ?
-                    null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue);
+                if (e.Cell.Column.Key.EndsWith("C"))
+                    tenderLineWholesaler.Currency = this.GetCurrency(Convert.ToInt32(e.NewValue));
+                else
+                    tenderLineWholesaler.Price = e.NewValue.ToString().Trim() == string.Empty ?
+                        null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue);
             }
 
             if (e.Cell.Column.Key == "SelectedWholesalerId")
@@ -1389,7 +1467,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             tenderLineManufacturer.Price = e.NewValue.ToString().Trim() == string.Empty ?
                 null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue);
         }
-
+        
         private void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetPriceComparison.ActiveRow;
@@ -1401,6 +1479,38 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 activeRow.Cells["BestPrice"].Value = activeRow.Cells[editor.Value.ToString()].Value;
             else
                 activeRow.Cells["BestPrice"].Value = DBNull.Value;
+        }
+
+        private void CurrencyEditor_SelectionChanged(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetPriceComparison.ActiveRow;
+            EditorWithCombo editor = sender as EditorWithCombo;
+
+            if (activeRow == null)
+                return;
+            if (Convert.ToInt32(editor.Value) > 0)
+            {
+                TenderExchangeRate tenderExchangeRate = this.tender.TenderExchangeRates
+                    .SingleOrDefault(x => x.SourceCurrency.CurrencyId == Convert.ToInt32(editor.Value)
+                    && x.DestinyCurrency.CurrencyId == this.defaultCurrency.CurrencyId);
+
+                if (tenderExchangeRate == null)
+                {
+                    //tenderExchangeRate = new TenderExchangeRate();
+                    //this.tender.TenderExchangeRates.Add(tenderExchangeRate);
+
+                    //tenderExchangeRate.SourceCurrency = this.GetCurrency(Convert.ToInt32(editor.Value));
+                    //tenderExchangeRate.DestinyCurrency = this.defaultCurrency;
+                    //tenderExchangeRate.ExchangeRate = null;
+                    //tenderExchangeRate.Rate = 0;
+                    //tenderExchangeRate.Activated = true;
+                    //tenderExchangeRate.Deleted = false;
+                }
+            }
+        }
+
+        private void grdDetExchangeRates_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
         }
 
         #endregion Events

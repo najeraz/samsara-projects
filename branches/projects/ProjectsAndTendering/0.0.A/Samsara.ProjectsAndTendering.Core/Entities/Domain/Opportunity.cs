@@ -63,6 +63,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual bool IsLORD
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
