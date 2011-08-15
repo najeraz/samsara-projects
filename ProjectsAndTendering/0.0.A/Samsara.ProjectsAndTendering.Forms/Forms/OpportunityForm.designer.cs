@@ -104,6 +104,7 @@
             this.uceSchDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchBidder = new System.Windows.Forms.Label();
+            this.uchkDetIsLORD = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -144,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsLORD)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -233,6 +235,7 @@
             // 
             // upDetControls.ClientArea
             // 
+            this.upDetControls.ClientArea.Controls.Add(this.uchkDetIsLORD);
             this.upDetControls.ClientArea.Controls.Add(this.ubtnDetGenerateTender);
             this.upDetControls.ClientArea.Controls.Add(this.uceDetEndUser);
             this.upDetControls.ClientArea.Controls.Add(this.uceDetDependency);
@@ -820,6 +823,15 @@
             this.lblSchBidder.TabIndex = 79;
             this.lblSchBidder.Text = "Licitante:";
             // 
+            // uchkDetIsLORD
+            // 
+            this.uchkDetIsLORD.AutoSize = true;
+            this.uchkDetIsLORD.Location = new System.Drawing.Point(380, 35);
+            this.uchkDetIsLORD.Name = "uchkDetIsLORD";
+            this.uchkDetIsLORD.Size = new System.Drawing.Size(81, 17);
+            this.uchkDetIsLORD.TabIndex = 81;
+            this.uchkDetIsLORD.Text = "Es L.O.R.D.";
+            // 
             // OpportunityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -872,6 +884,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsLORD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -938,6 +951,7 @@
         internal System.Windows.Forms.Label lblSchEndUser;
         internal System.Windows.Forms.Label lblSchDependency;
         internal System.Windows.Forms.Label lblSchBidder;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetIsLORD;
     }
 }
 

@@ -101,6 +101,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.CurrencyService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ICurrencyDao"/>
   </object>
+  <object id="ITenderExchangeRateService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderExchangeRateService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderExchangeRateDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
