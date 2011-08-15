@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pnlFormBackground = new System.Windows.Forms.Panel();
             this.tsmiMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.licitanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,23 +43,24 @@
             this.mayoristasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeDocumentosDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monedasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlFormBackground = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // pnlFormBackground
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiMainMenu,
-            this.licitacionesToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(811, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.pnlFormBackground.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlFormBackground.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlFormBackground.BackgroundImage")));
+            this.pnlFormBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFormBackground.Location = new System.Drawing.Point(0, 24);
+            this.pnlFormBackground.Name = "pnlFormBackground";
+            this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
+            this.pnlFormBackground.TabIndex = 1;
             // 
             // tsmiMainMenu
             // 
@@ -75,7 +76,8 @@
             this.organizacionesToolStripMenuItem,
             this.mayoristasToolStripMenuItem,
             this.tiposDeFianzasToolStripMenuItem,
-            this.tiposDeDocumentosDeFianzasToolStripMenuItem});
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem,
+            this.monedasToolStripMenuItem});
             this.tsmiMainMenu.Name = "tsmiMainMenu";
             this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
             this.tsmiMainMenu.Text = "Catálogos";
@@ -164,6 +166,13 @@
             this.tiposDeDocumentosDeFianzasToolStripMenuItem.Text = "Tipos de Documentos de Fianzas";
             this.tiposDeDocumentosDeFianzasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosDeFianzasToolStripMenuItem_Click);
             // 
+            // monedasToolStripMenuItem
+            // 
+            this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.monedasToolStripMenuItem.Text = "Monedas";
+            this.monedasToolStripMenuItem.Click += new System.EventHandler(this.monedasToolStripMenuItem_Click);
+            // 
             // licitacionesToolStripMenuItem
             // 
             this.licitacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -187,16 +196,16 @@
             this.oportunidadesToolStripMenuItem.Text = "Oportunidades";
             this.oportunidadesToolStripMenuItem.Click += new System.EventHandler(this.oportunidadesToolStripMenuItem_Click);
             // 
-            // pnlFormBackground
+            // menuStrip1
             // 
-            this.pnlFormBackground.BackColor = System.Drawing.SystemColors.Window;
-            this.pnlFormBackground.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlFormBackground.BackgroundImage")));
-            this.pnlFormBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlFormBackground.Location = new System.Drawing.Point(0, 24);
-            this.pnlFormBackground.Name = "pnlFormBackground";
-            this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
-            this.pnlFormBackground.TabIndex = 1;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiMainMenu,
+            this.licitacionesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(811, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // MainForm
             // 
@@ -217,24 +226,25 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem tsmiMainMenu;
         private System.Windows.Forms.Panel pnlFormBackground;
+        private System.Windows.Forms.ToolStripMenuItem tsmiMainMenu;
         private System.Windows.Forms.ToolStripMenuItem licitanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dependenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioFinalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fabricanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asesorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaLicitaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem oportunidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem competenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaOportunidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem organizacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mayoristasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeFianzasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeDocumentosDeFianzasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem monedasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem oportunidadesToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 

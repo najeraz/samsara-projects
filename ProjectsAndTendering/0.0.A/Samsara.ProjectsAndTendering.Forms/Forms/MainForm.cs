@@ -206,5 +206,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void monedasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CurrencyForm frmCurrency = new CurrencyForm();
+                frmCurrency.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
