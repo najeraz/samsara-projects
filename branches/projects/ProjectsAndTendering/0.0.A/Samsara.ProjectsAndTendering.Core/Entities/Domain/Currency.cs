@@ -23,6 +23,18 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual string Code
+        {
+            get;
+            set;
+        }
+
+        public virtual bool IsDefault
+        {
+            get;
+            set;
+        }
+
         public virtual string Description
         {
             get;

@@ -10,5 +10,15 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters.Domain
             get;
             set;
         }
+        public string Code
+        {
+            get;
+            set;
+        }
+        public bool? IsDefault
+        {
+            get;
+            set;
+        }
     }
 }

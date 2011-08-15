@@ -124,6 +124,7 @@
     <Compile Include="Controller\AsesorFormController.cs" />
     <Compile Include="Controller\BidderFormController.cs" />
     <Compile Include="Controller\CompetitorFormController.cs" />
+    <Compile Include="Controller\CurrencyFormController.cs" />
     <Compile Include="Controller\DocumentTypeWarrantyFormController.cs" />
     <Compile Include="Controller\WarrantyTypeFormController.cs" />
     <Compile Include="Controller\WholesalerFormController.cs" />
@@ -152,6 +153,12 @@
     </Compile>
     <Compile Include="Forms\CompetitorForm.designer.cs">
       <DependentUpon>CompetitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CurrencyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CurrencyForm.designer.cs">
+      <DependentUpon>CurrencyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DocumentTypeWarrantyForm.cs">
       <SubType>Form</SubType>
@@ -255,6 +262,12 @@
     <Compile Include="Templates\CompetitorSearchForm.Designer.cs">
       <DependentUpon>CompetitorSearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Templates\CurrencySearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\CurrencySearchForm.Designer.cs">
+      <DependentUpon>CurrencySearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\DocumentTypeWarrantySearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +352,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CompetitorForm.resx">
       <DependentUpon>CompetitorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CurrencyForm.resx">
+      <DependentUpon>CurrencyForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DocumentTypeWarrantyForm.resx">

@@ -9,12 +9,21 @@
       <generator class="native"/>
     </id>
 
+    <property name="IsDefault"/>
     <property name="Name"/>
+    <property name="Code"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
   </class>
+
+  <query name="Currency.GetByParameters">
+    <![CDATA[
+        from Currency where Deleted = 0 and Activated = 1
+        and IsDefault = :IsDefault
+    ]]>
+  </query>
 
   <query name="Currency.GetListByParameters">
     <![CDATA[
@@ -25,6 +34,7 @@
   <query name="Currency.SearchByParameters">
     <![CDATA[
         from Currency where Deleted = 0 and Activated = 1
+        and Name like :Name and Code like :Code
     ]]>
   </query>
   
