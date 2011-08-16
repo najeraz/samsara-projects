@@ -21,6 +21,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
     {
         #region Attributes
 
+        private int priceComparisonExtraColumnsLength;
+
         private Tender tender;
         private TenderForm frmTender;
         private Currency defaultCurrency;
@@ -182,6 +184,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetTenderCompetitors
             this.frmTender.grdDetExchangeRates.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetExchangeRates_InitializeLayout);
+            this.frmTender.grdDetExchangeRates.BeforeCellUpdate +=
+                new BeforeCellUpdateEventHandler(grdDetExchangeRates_BeforeCellUpdate);
             TenderExchangeRateParameters pmtTenderExchangeRate = new TenderExchangeRateParameters();
             pmtTenderExchangeRate.TenderId = ParameterConstants.IntNone;
             this.dtTenderExchangeRates = this.srvTenderExchangeRate.CustomSearchByParameters(
@@ -231,8 +235,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetPriceComparison_InitializeLayout);
             this.frmTender.grdDetPriceComparison.BeforeCellUpdate +=
                 new BeforeCellUpdateEventHandler(grdDetPriceComparison_BeforeCellUpdate);
-            this.frmTender.grdDetPriceComparison.AfterCellUpdate +=
-                new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
+            this.frmTender.grdDetPriceComparison.ClickCellButton 
+                += new CellEventHandler(grdDetPriceComparison_ClickCellButton);
 
             //grdDetPriceComparison
             this.frmTender.grdDetPreresults.InitializeLayout
@@ -771,6 +775,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (TenderExchangeRate tenderExchangeRate in this.tender.TenderExchangeRates)
             {
                 DataRow drTenderExchangeRate = this.dtTenderExchangeRates.NewRow();
+                this.dtTenderExchangeRates.Rows.Add(drTenderExchangeRate);
 
                 drTenderExchangeRate["SourceCurrency.CurrencyId"] = tenderExchangeRate.SourceCurrency.CurrencyId;
                 drTenderExchangeRate["DestinyCurrency.CurrencyId"] = tenderExchangeRate.DestinyCurrency.CurrencyId;
@@ -814,31 +819,58 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void UpdatePriceComparisonGrid()
         {
+            bool createdFlag = false;
+            int intColumnName;
+
             if (this.dtPriceComparison == null)
+            {
                 this.dtPriceComparison = new DataTable();
+                createdFlag = true;
+                priceComparisonExtraColumnsLength = 0;
+            }
 
             if (!this.dtPriceComparison.Columns.Contains("TenderLineId"))
             {
-                DataColumn dcTenderLine = new DataColumn("TenderLineId", typeof(int));
-                this.dtPriceComparison.Columns.Add(dcTenderLine);
+                DataColumn dc = new DataColumn("TenderLineId", typeof(int));
+                this.dtPriceComparison.Columns.Add(dc);
             }
 
             if (!this.dtPriceComparison.Columns.Contains("TenderLineName"))
             {
-                DataColumn dcTenderLine = new DataColumn("TenderLineName", typeof(string));
-                this.dtPriceComparison.Columns.Add(dcTenderLine);
+                DataColumn dc = new DataColumn("TenderLineName", typeof(string));
+                this.dtPriceComparison.Columns.Add(dc);
             }
 
             if (!this.dtPriceComparison.Columns.Contains("SelectedWholesalerId"))
             {
-                DataColumn dcTenderLine = new DataColumn("SelectedWholesalerId", typeof(int));
-                this.dtPriceComparison.Columns.Add(dcTenderLine);
+                DataColumn dc = new DataColumn("SelectedWholesalerId", typeof(int));
+                this.dtPriceComparison.Columns.Add(dc);
+                if (createdFlag)
+                    priceComparisonExtraColumnsLength++;
             }
 
             if (!this.dtPriceComparison.Columns.Contains("BestPrice"))
             {
-                DataColumn dcTenderLine = new DataColumn("BestPrice", typeof(decimal));
-                this.dtPriceComparison.Columns.Add(dcTenderLine);
+                DataColumn dc = new DataColumn("BestPrice", typeof(decimal));
+                this.dtPriceComparison.Columns.Add(dc);
+                if (createdFlag)
+                    priceComparisonExtraColumnsLength++;
+            }
+
+            if (!this.dtPriceComparison.Columns.Contains("BestPriceCurrencyId"))
+            {
+                DataColumn dc = new DataColumn("BestPriceCurrencyId", typeof(int));
+                this.dtPriceComparison.Columns.Add(dc);
+                if (createdFlag)
+                    priceComparisonExtraColumnsLength++;
+            }
+
+            if (!this.dtPriceComparison.Columns.Contains("SelectBestChoise"))
+            {
+                DataColumn dc = new DataColumn("SelectBestChoise", typeof(string));
+                this.dtPriceComparison.Columns.Add(dc);
+                if (createdFlag)
+                    priceComparisonExtraColumnsLength++;
             }
 
             foreach (int wholesalerId in this.dtTenderWholesalers.AsEnumerable()
@@ -846,35 +878,33 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 if (!this.dtPriceComparison.Columns.Contains(wholesalerId.ToString()))
                 {
-                    DataColumn dcWholesalerCurrency = new DataColumn(wholesalerId.ToString() + "C", typeof(int));
-                    this.dtPriceComparison.Columns.Add(dcWholesalerCurrency);
-                    this.dtPriceComparison.Columns[wholesalerId.ToString() + "C"]
-                        .SetOrdinal(this.dtPriceComparison.Columns.Count - 3);
                     DataColumn dcWholesaler = new DataColumn(wholesalerId.ToString(), typeof(decimal));
                     this.dtPriceComparison.Columns.Add(dcWholesaler);
                     this.dtPriceComparison.Columns[wholesalerId.ToString()]
-                        .SetOrdinal(this.dtPriceComparison.Columns.Count - 3);
+                        .SetOrdinal(this.dtPriceComparison.Columns.Count - priceComparisonExtraColumnsLength - 1);
+                    DataColumn dcWholesalerCurrency = new DataColumn(wholesalerId.ToString() + "C", typeof(int));
+                    this.dtPriceComparison.Columns.Add(dcWholesalerCurrency);
+                    this.dtPriceComparison.Columns[wholesalerId.ToString() + "C"]
+                        .SetOrdinal(this.dtPriceComparison.Columns.Count - priceComparisonExtraColumnsLength - 1);
                 }
             }
 
             IEnumerable<string> columnNames = this.dtPriceComparison.Copy().Columns
                 .Cast<DataColumn>().Select(x => x.ColumnName);
 
-            foreach (string columnName in columnNames
-                .Where(x => x != "TenderLineName" && x != "TenderLineId" 
-                    && x != "BestPrice" && x != "SelectedWholesalerId" && !x.EndsWith("C")))
+            foreach (string strColumnName in columnNames.Where(x => int.TryParse(x, out intColumnName)))
             {
                 if (!this.dtTenderWholesalers.AsEnumerable()
-                    .Select(x => x["WholesalerId"].ToString()).Contains(columnName))
+                    .Select(x => x["WholesalerId"].ToString()).Contains(strColumnName))
                 {
                     foreach (TenderLineWholesaler tenderLineWholesaler in
                         this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
-                        .Where(x => x.Wholesaler.WholesalerId == Convert.ToInt32(columnName)))
+                        .Where(x => x.Wholesaler.WholesalerId == Convert.ToInt32(strColumnName)))
                     {
                         tenderLineWholesaler.Activated = false;
                         tenderLineWholesaler.Deleted = true;
                     }
-                    this.dtPriceComparison.Columns.Remove(columnName);
+                    this.dtPriceComparison.Columns.Remove(strColumnName);
                 }
             }
 
@@ -883,11 +913,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (Convert.ToInt32(row["TenderLineId"]) > 0 && !this.dtPriceComparison.Rows.Cast<DataRow>()
                     .Select(x => x["TenderLineId"].ToString()).Contains(row["TenderLineId"].ToString()))
                 {
-                    DataRow drWholesaler = this.dtPriceComparison.NewRow();
-                    drWholesaler["TenderLineId"] = row["TenderLineId"];
-                    drWholesaler["SelectedWholesalerId"] = -1;
-                    drWholesaler["TenderLineName"] = row["Name"];
-                    this.dtPriceComparison.Rows.Add(drWholesaler);
+                    DataRow rowPC = this.dtPriceComparison.NewRow();
+                    rowPC["TenderLineId"] = row["TenderLineId"];
+                    rowPC["BestPriceCurrencyId"] = this.defaultCurrency.CurrencyId;
+                    rowPC["SelectedWholesalerId"] = this.defaultCurrency.CurrencyId;
+                    rowPC["TenderLineName"] = row["Name"];
+                    rowPC["SelectBestChoise"] = "Seleccionar";
+                    this.dtPriceComparison.Rows.Add(rowPC);
                 }
             }
 
@@ -897,7 +929,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .Where(x => x.ColumnName.EndsWith("C")))
                 {
                     if (row[column.ColumnName] == DBNull.Value)
-                        row[column.ColumnName] = -1;
+                        row[column.ColumnName] = this.defaultCurrency.CurrencyId;
                 }
             }
 
@@ -939,7 +971,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     if (tenderLineWholesaler.Currency != null)
                         row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString() + "C"] = tenderLineWholesaler.Currency.CurrencyId;
                     else
-                        row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString() + "C"] = -1;
+                        row[tenderLineWholesaler.Wholesaler.WholesalerId.ToString() + "C"] = this.defaultCurrency.CurrencyId;
                 }
             }
 
@@ -1001,6 +1033,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return defaultCurrency;
 
             return this.srvCurrency.GetById(currencyId);
+        }
+
+        private decimal GetExchangeRate(int sourceCurrencyId)
+        {
+            if (sourceCurrencyId == this.defaultCurrency.CurrencyId)
+                return 1;
+            else
+                return Convert.ToDecimal(this.dtTenderExchangeRates.AsEnumerable().Single(x => 
+                    Convert.ToInt32(x["SourceCurrency.CurrencyId"]) == sourceCurrencyId
+                    && Convert.ToInt32(x["DestinyCurrency.CurrencyId"]) == this.defaultCurrency.CurrencyId)
+                    ["Rate"]);
         }
 
         #endregion Methods
@@ -1371,20 +1414,32 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
             band.Columns["SelectedWholesalerId"].Header.Caption = "Mejor Opción";
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["BestPrice"], 
+                WindowsFormsUtil.GridFormat.Currency);
             band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
-
+            band.Columns["SelectBestChoise"].Header.Caption = "Autoselección";
+            band.Columns["SelectBestChoise"].Style = 
+                Infragistics.Win.UltraWinGrid.ColumnStyle.Button;
+            band.Columns["SelectBestChoise"].ButtonDisplayStyle = 
+                Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
+            band.Columns["BestPriceCurrencyId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["BestPriceCurrencyId"].Header.Caption = "Moneda";
+            
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
 
             foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
-                .Where(x => x.Key.EndsWith("C")))
+                .Where(x => x.Key.EndsWith("C") || x.Key == "BestPriceCurrencyId"))
             {
                 WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
                         column, "CurrencyId", "Code");
                 column.Editor.SelectionChanged
                     += new EventHandler(CurrencyEditor_SelectionChanged);
             }
+
+            band.Columns["BestPriceCurrencyId"].ButtonDisplayStyle =
+                Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.OnCellActivate;
 
             WholesalerParameters pmtWholesaler = new WholesalerParameters();
             IEnumerable<Wholesaler> ieWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler)
@@ -1398,10 +1453,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
-                band.Columns[band.Columns[col.ColumnName].Index - 1].Header.Caption
-                    = "Moneda " + this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
+                band.Columns[col.ColumnName + "C"].Header.Caption
+                    = "Moneda";
+                WindowsFormsUtil.SetUltraColumnFormat(band.Columns[col.ColumnName],
+                    WindowsFormsUtil.GridFormat.Currency);
                 band.Columns[col.ColumnName].Header.Caption
-                    = "Precio " + this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
+                    = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
             }
 
             foreach (UltraGridRow row in this.frmTender.grdDetPriceComparison.Rows)
@@ -1454,7 +1511,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     tenderLineWholesaler.Currency = this.GetCurrency(Convert.ToInt32(e.NewValue));
                 else
                     tenderLineWholesaler.Price = e.NewValue.ToString().Trim() == string.Empty ?
-                        null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue);
+                        null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue) * 
+                        this.GetExchangeRate(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
             }
 
             if (e.Cell.Column.Key == "SelectedWholesalerId")
@@ -1465,30 +1523,27 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void grdDetPriceComparison_AfterCellUpdate(object sender, EventArgs e)
+        private void grdDetPriceComparison_ClickCellButton(object sender, CellEventArgs e)
         {
-            UltraGridCell activeCell = this.frmTender.grdDetPriceComparison.ActiveCell;
             int columnName;
 
-            if (activeCell == null)
-                return;
+            UltraGridCell minPriceCell = e.Cell.Row.Cells.Cast<UltraGridCell>()
+                .Where(x => x.Value != DBNull.Value && int.TryParse(x.Column.Key, out columnName))
+                .OrderBy(x => Convert.ToDecimal(x.Value) * this.GetExchangeRate(
+                   Convert.ToInt32(x.Row.Cells[x.Column.Key + "C"].Value))).FirstOrDefault();
 
-            if (Convert.ToInt32(activeCell.Value) > 0 &&
-                int.TryParse(activeCell.Column.Key, out columnName))
+            if (minPriceCell != null)
             {
-                UltraGridCell minPriceCell = activeCell.Row.Cells.Cast<UltraGridCell>()
-                    .Where(x => x.Value != DBNull.Value && int.TryParse(x.Column.Key, out columnName))
-                    .OrderBy(x => Convert.ToDecimal(x.Value)).FirstOrDefault();
-
-                if (minPriceCell != null)
-                {
-                    activeCell.Row.Cells["BestPrice"].Value = minPriceCell.Value;
-                    this.frmTender.grdDetPriceComparison.AfterCellUpdate
-                        -= new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
-                    activeCell.Row.Cells["SelectedWholesalerId"].Value = Convert.ToInt32(minPriceCell.Column.Key);
-                    this.frmTender.grdDetPriceComparison.AfterCellUpdate
-                        += new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
-                }
+                e.Cell.Row.Cells["BestPriceCurrencyId"].Value = minPriceCell.Row.Cells[minPriceCell.Column.Key + "C"].Value;
+                e.Cell.Row.Cells["BestPrice"].Value = Convert.ToDecimal(minPriceCell.Value) *
+                        this.GetExchangeRate(Convert.ToInt32(e.Cell.Row.Cells[minPriceCell.Column.Key + "C"].Value));
+                e.Cell.Row.Cells["SelectedWholesalerId"].Value = Convert.ToInt32(minPriceCell.Column.Key);
+            }
+            else
+            {
+                e.Cell.Row.Cells["BestPriceCurrencyId"].Value = DBNull.Value;
+                e.Cell.Row.Cells["BestPrice"].Value = DBNull.Value;
+                e.Cell.Row.Cells["SelectedWholesalerId"].Value = -1;
             }
         }
 
@@ -1567,6 +1622,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             band.Columns["DestinyCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
             band.Columns["SourceCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["Rate"].MaskInput = "{double:4.12}";
+            band.Columns["Rate"].PromptChar = ' ';
             
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
@@ -1575,6 +1632,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     band.Columns["DestinyCurrency.CurrencyId"], "CurrencyId", "Code");
             WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
                     band.Columns["SourceCurrency.CurrencyId"], "CurrencyId", "Code");
+        }
+
+        private void grdDetExchangeRates_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
         }
 
         #endregion Events
