@@ -39,9 +39,9 @@ namespace Samsara.Support.Util
             return null;
         }
 
-        public static DataTable ConvertToDataTable<T>(IList<T> list)
+        public static DataTable ConvertToDataTable<T>(IList<T> list, bool absoluteColumnNames)
         {
-            DataTable table = CreateTable<T>();
+            DataTable table = CreateTable<T>(absoluteColumnNames);
             Type entityType = typeof(T);
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(entityType);
 
@@ -65,22 +65,23 @@ namespace Samsara.Support.Util
         /// </summary>
         /// <typeparam name="T">Tipo de la Entidad.</typeparam>
         /// <returns>Tabla con un Esquema acorde a <c>T</c>.</returns>
-        public static DataTable CreateTable<T>()
+        public static DataTable CreateTable<T>(bool absoluteColumnNames)
         {
             Type entityType = typeof(T);
-            //System.Diagnostics.Contracts.Contract // Y si la herencia es por medio de una tercera clase base???
-            //    .Assert(entityType.IsSubclassOf(typeof(GenericEntity)));
 
             DataTable table = new DataTable(entityType.Name);
-            PropertyDescriptorCollection entityPropertiesCollection
-                = TypeDescriptor.GetProperties(entityType);
+            PropertyDescriptorCollection entityPropertiesCollection = TypeDescriptor.GetProperties(entityType);
 
             foreach (PropertyDescriptor entityProperty in entityPropertiesCollection)
             {
                 PropertyInfo primaryKeyType = EntitiesUtil.GetPrimaryKeyPropertyInfo(entityProperty.PropertyType);
                 if (primaryKeyType != null)
                 {
-                    table.Columns.Add(primaryKeyType.Name, primaryKeyType.PropertyType);
+                    if (absoluteColumnNames)
+                        table.Columns.Add(entityProperty.Name + "." + primaryKeyType.Name, 
+                            primaryKeyType.PropertyType);
+                    else
+                        table.Columns.Add(primaryKeyType.Name, primaryKeyType.PropertyType);
                 }
                 else if (entityProperty.PropertyType.IsGenericType
                     && entityProperty.PropertyType.GetGenericTypeDefinition()

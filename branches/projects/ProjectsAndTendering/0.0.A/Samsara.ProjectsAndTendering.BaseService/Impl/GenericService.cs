@@ -66,6 +66,11 @@ namespace Samsara.ProjectsAndTendering.BaseService.Impl
             return this.Dao.GetListByParameters(parameters);
         }
 
+        public DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        {
+            return this.Dao.CustomSearchByParameters(queryName, parameters, absoluteColumnNames);
+        }
+
         #endregion Methods
     }
 }

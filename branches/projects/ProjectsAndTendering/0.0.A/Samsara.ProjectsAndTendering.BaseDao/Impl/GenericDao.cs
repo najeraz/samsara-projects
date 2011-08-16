@@ -65,7 +65,12 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
         public DataTable SearchByParameters(Tpmt parameters)
         {
             return this.DataTableByParameters(
-                typeof(T).Name + ".SearchByParameters", parameters);
+                typeof(T).Name + ".SearchByParameters", parameters, false);
+        }
+
+        public DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        {
+            return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
         }
 
         public IList<T> GetListByParameters(Tpmt parameters)
@@ -116,7 +121,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return this.GetObjectList(dnq);
         }
 
-        public DataTable DataTableByParameters(string queryName, Tpmt parameters)
+        public DataTable DataTableByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
         {
             DataTable dtResult = null;
 
@@ -125,7 +130,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             try
             {
                 IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
-                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp);
+                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp, absoluteColumnNames);
             }
             catch
             {

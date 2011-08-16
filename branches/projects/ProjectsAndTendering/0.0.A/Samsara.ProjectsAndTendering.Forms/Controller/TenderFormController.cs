@@ -184,7 +184,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetExchangeRates_InitializeLayout);
             TenderExchangeRateParameters pmtTenderExchangeRate = new TenderExchangeRateParameters();
             pmtTenderExchangeRate.TenderId = ParameterConstants.IntNone;
-            this.dtTenderExchangeRates = this.srvTenderExchangeRate.SearchByParameters(pmtTenderExchangeRate);
+            this.dtTenderExchangeRates = this.srvTenderExchangeRate.CustomSearchByParameters(
+                "TenderExchangeRate.SearchByParameters", pmtTenderExchangeRate, true);
             this.frmTender.grdDetTenderCompetitors.DataSource = null;
             this.frmTender.grdDetTenderCompetitors.DataSource = dtTenderExchangeRates;
 
@@ -1490,12 +1491,23 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return;
             if (Convert.ToInt32(editor.Value) > 0)
             {
-                TenderExchangeRate tenderExchangeRate = this.tender.TenderExchangeRates
-                    .SingleOrDefault(x => x.SourceCurrency.CurrencyId == Convert.ToInt32(editor.Value)
-                    && x.DestinyCurrency.CurrencyId == this.defaultCurrency.CurrencyId);
+                DataRow drTenderExchangeRate = this.dtTenderExchangeRates.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["SourceCurrency.CurrencyId"]) == Convert.ToInt32(editor.Value)
+                        && Convert.ToInt32(x["DestinyCurrency.CurrencyId"]) == this.defaultCurrency.CurrencyId);
 
-                if (tenderExchangeRate == null)
+                //TenderExchangeRate tenderExchangeRate = this.tender.TenderExchangeRates
+                //    .SingleOrDefault(x => x.SourceCurrency.CurrencyId == Convert.ToInt32(editor.Value)
+                //    && x.DestinyCurrency.CurrencyId == this.defaultCurrency.CurrencyId);
+
+                if (drTenderExchangeRate == null)
                 {
+                    drTenderExchangeRate = this.dtTenderExchangeRates.NewRow();
+                    this.dtTenderExchangeRates.Rows.Add(drTenderExchangeRate);
+
+                    drTenderExchangeRate["SourceCurrency.CurrencyId"] = Convert.ToInt32(editor.Value);
+                    drTenderExchangeRate["DestinyCurrency.CurrencyId"] = this.defaultCurrency.CurrencyId;
+                    drTenderExchangeRate["Rate"] = 0.00;
+
                     //tenderExchangeRate = new TenderExchangeRate();
                     //this.tender.TenderExchangeRates.Add(tenderExchangeRate);
 

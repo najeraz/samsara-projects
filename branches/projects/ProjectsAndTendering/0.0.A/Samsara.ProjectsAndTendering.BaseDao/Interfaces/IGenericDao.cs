@@ -14,6 +14,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
         T GetByParameters(Tpmt parameters);
         DataTable SearchByParameters(Tpmt parameters);
         IList<T> GetListByParameters(Tpmt parameters);
+        DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames);
         IList<TType> GetList<TType>(DetachedNamedQuery dnq);
         IList<T> GetList(DetachedNamedQuery dnq);
         IList<TType> GetList<TType>(DetachedCriteria detachedCriteria);
