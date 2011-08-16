@@ -186,8 +186,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTenderExchangeRate.TenderId = ParameterConstants.IntNone;
             this.dtTenderExchangeRates = this.srvTenderExchangeRate.CustomSearchByParameters(
                 "TenderExchangeRate.SearchByParameters", pmtTenderExchangeRate, true);
-            this.frmTender.grdDetTenderCompetitors.DataSource = null;
-            this.frmTender.grdDetTenderCompetitors.DataSource = dtTenderExchangeRates;
+            this.frmTender.grdDetExchangeRates.DataSource = null;
+            this.frmTender.grdDetExchangeRates.DataSource = dtTenderExchangeRates;
 
             //grdDetTenderCompetitors
             this.frmTender.grdDetTenderCompetitors.InitializeLayout
@@ -417,9 +417,46 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadTenderWholesalers();
             this.LoadTenderCompetitors();
             this.LoadTenderLogs();
+            this.LoadTenderExchangeRates();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
+        }
+
+        private void LoadTenderExchangeRates()
+        {
+            foreach (DataRow row in this.dtTenderExchangeRates.Rows)
+            {
+                TenderExchangeRate tenderExchangeRate = this.tender.TenderExchangeRates
+                    .SingleOrDefault(x => x.SourceCurrency.CurrencyId == Convert.ToInt32(row["SourceCurrency.CurrencyId"])
+                    && x.DestinyCurrency.CurrencyId == Convert.ToInt32(row["DestinyCurrency.CurrencyId"]));
+
+                if (tenderExchangeRate == null)
+                {
+                    tenderExchangeRate = new TenderExchangeRate();
+                    this.tender.TenderExchangeRates.Add(tenderExchangeRate);
+                }
+
+                tenderExchangeRate.Activated = true;
+                tenderExchangeRate.Deleted = false;
+                tenderExchangeRate.ExchangeRate = null;
+                tenderExchangeRate.Rate = Convert.ToDecimal(row["Rate"]);
+                tenderExchangeRate.DestinyCurrency = this.GetCurrency(Convert.ToInt32(row["DestinyCurrency.CurrencyId"]));
+                tenderExchangeRate.SourceCurrency = this.GetCurrency(Convert.ToInt32(row["SourceCurrency.CurrencyId"]));
+                tenderExchangeRate.Tender = this.tender;
+            }
+
+            IEnumerable<int> ieCurrencies = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
+                .Select(x => x.Currency.CurrencyId);
+
+            foreach (TenderExchangeRate tenderExchangeRate in this.tender.TenderExchangeRates)
+            {
+                if (!ieCurrencies.Contains(tenderExchangeRate.SourceCurrency.CurrencyId))
+                {
+                    tenderExchangeRate.Deleted = true;
+                    tenderExchangeRate.Activated = false;
+                }
+            }
         }
 
         private void LoadTenderWholesalers()
@@ -599,6 +636,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLog.Rows.Clear();
             this.dtPriceComparison = null;
             this.frmTender.grdDetPriceComparison.DataSource = null;
+            this.dtTenderExchangeRates.Clear();
         }
 
         private void ClearSearchControls()
@@ -728,6 +766,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["LogDate"] = tenderLog.LogDate;
                 row["TenderLogId"] = tenderLog.TenderLogId;
                 row["TenderId"] = tenderLog.Tender.TenderId;
+            }
+
+            foreach (TenderExchangeRate tenderExchangeRate in this.tender.TenderExchangeRates)
+            {
+                DataRow drTenderExchangeRate = this.dtTenderExchangeRates.NewRow();
+
+                drTenderExchangeRate["SourceCurrency.CurrencyId"] = tenderExchangeRate.SourceCurrency.CurrencyId;
+                drTenderExchangeRate["DestinyCurrency.CurrencyId"] = tenderExchangeRate.DestinyCurrency.CurrencyId;
+                drTenderExchangeRate["Rate"] = tenderExchangeRate.Rate;
             }
 
             this.UpdatePriceComparisonGrid();
@@ -1395,10 +1442,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     TenderLine tenderLine = this.tender.TenderLines
                         .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
                     tenderLine.TenderLineWholesalers.Add(tenderLineWholesaler);
-                    tenderLineWholesaler.Currency 
-                        = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[e.Cell.Column.Key + "C"].Value));
+                    tenderLineWholesaler.Currency
+                        = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
                     tenderLineWholesaler.TenderLine = tenderLine;
-                    tenderLineWholesaler.Wholesaler = this.GetWholesaler(Convert.ToInt32(e.Cell.Column.Key));
+                    tenderLineWholesaler.Wholesaler = this.GetWholesaler(Convert.ToInt32(strColumnName));
                     tenderLineWholesaler.Activated = true;
                     tenderLineWholesaler.Deleted = false;
                 }
@@ -1489,16 +1536,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (activeRow == null)
                 return;
-            if (Convert.ToInt32(editor.Value) > 0)
+            if (Convert.ToInt32(editor.Value) > 0 && Convert.ToInt32(editor.Value) != this.defaultCurrency.CurrencyId)
             {
                 DataRow drTenderExchangeRate = this.dtTenderExchangeRates.AsEnumerable()
                     .SingleOrDefault(x => Convert.ToInt32(x["SourceCurrency.CurrencyId"]) == Convert.ToInt32(editor.Value)
                         && Convert.ToInt32(x["DestinyCurrency.CurrencyId"]) == this.defaultCurrency.CurrencyId);
-
-                //TenderExchangeRate tenderExchangeRate = this.tender.TenderExchangeRates
-                //    .SingleOrDefault(x => x.SourceCurrency.CurrencyId == Convert.ToInt32(editor.Value)
-                //    && x.DestinyCurrency.CurrencyId == this.defaultCurrency.CurrencyId);
-
+                
                 if (drTenderExchangeRate == null)
                 {
                     drTenderExchangeRate = this.dtTenderExchangeRates.NewRow();
@@ -1508,21 +1551,30 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     drTenderExchangeRate["DestinyCurrency.CurrencyId"] = this.defaultCurrency.CurrencyId;
                     drTenderExchangeRate["Rate"] = 0.00;
 
-                    //tenderExchangeRate = new TenderExchangeRate();
-                    //this.tender.TenderExchangeRates.Add(tenderExchangeRate);
-
-                    //tenderExchangeRate.SourceCurrency = this.GetCurrency(Convert.ToInt32(editor.Value));
-                    //tenderExchangeRate.DestinyCurrency = this.defaultCurrency;
-                    //tenderExchangeRate.ExchangeRate = null;
-                    //tenderExchangeRate.Rate = 0;
-                    //tenderExchangeRate.Activated = true;
-                    //tenderExchangeRate.Deleted = false;
+                    this.dtTenderExchangeRates.AcceptChanges();
                 }
             }
         }
 
         private void grdDetExchangeRates_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
+            UltraGridLayout layout = this.frmTender.grdDetExchangeRates.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["DestinyCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
+            band.Columns["SourceCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
+            
+            CurrencyParameters pmtCurrency = new CurrencyParameters();
+            IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
+
+            WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
+                    band.Columns["DestinyCurrency.CurrencyId"], "CurrencyId", "Code");
+            WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
+                    band.Columns["SourceCurrency.CurrencyId"], "CurrencyId", "Code");
         }
 
         #endregion Events
