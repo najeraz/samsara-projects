@@ -60,6 +60,7 @@ namespace Samsara.Support.Util
                 case GridFormat.Currency:
                     column.MaskInput = currencyMask;
                     column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
                     break;
                 default:
                     break;
@@ -67,7 +68,7 @@ namespace Samsara.Support.Util
         }
 
         public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
-            UltraGridColumn column, string valueMember, string displayMember)
+            UltraGridColumn column, string valueMember, string displayMember, bool addDefault)
         {
             ValueList vl;
 
@@ -76,7 +77,8 @@ namespace Samsara.Support.Util
 
             vl = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
             vl.ValueListItems.Clear();
-            vl.ValueListItems.Add(-1, "Seleccione");
+            if (addDefault)
+                vl.ValueListItems.Add(-1, "Seleccione");
 
             foreach (T entity in collection)
             {
@@ -85,7 +87,7 @@ namespace Samsara.Support.Util
             }
 
             vl.SelectedItem = -1;
-            column.ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
+            //column.ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
             column.ValueList = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
         }
     }

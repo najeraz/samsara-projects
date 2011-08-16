@@ -173,8 +173,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdTenderLines
             this.frmTender.grdDetTenderLines.InitializeLayout
                 += new InitializeLayoutEventHandler(grdTenderLines_InitializeLayout);
-            this.frmTender.grdDetTenderLines.BeforeCellUpdate
-                += new BeforeCellUpdateEventHandler(grdTenderLines_BeforeCellUpdate);
+            this.frmTender.grdDetTenderLines.AfterCellUpdate 
+                += new CellEventHandler(grdDetTenderLines_AfterCellUpdate);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
             this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
@@ -196,6 +196,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetTenderCompetitors
             this.frmTender.grdDetTenderCompetitors.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderCompetitors_InitializeLayout);
+            this.frmTender.grdDetTenderCompetitors.AfterCellUpdate 
+                += new CellEventHandler(grdDetTenderCompetitors_AfterCellUpdate);
             this.frmTender.grdDetTenderCompetitors.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderCompetitors_BeforeCellUpdate);
             TenderCompetitorParameters pmtTenderCompetitor = new TenderCompetitorParameters();
@@ -222,6 +224,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
             this.frmTender.grdDetTenderManufacturers.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderManufacturers_BeforeCellUpdate);
+            this.frmTender.grdDetTenderManufacturers.AfterCellUpdate 
+                += new CellEventHandler(grdDetTenderManufacturers_AfterCellUpdate);
             TenderManufacturerParameters pmtSearchTenderManufacturers
                 = new TenderManufacturerParameters();
             pmtSearchTenderManufacturers.TenderId = ParameterConstants.IntDefault;
@@ -235,10 +239,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetPriceComparison_InitializeLayout);
             this.frmTender.grdDetPriceComparison.BeforeCellUpdate +=
                 new BeforeCellUpdateEventHandler(grdDetPriceComparison_BeforeCellUpdate);
-            this.frmTender.grdDetPriceComparison.ClickCellButton 
+            this.frmTender.grdDetPriceComparison.ClickCellButton
                 += new CellEventHandler(grdDetPriceComparison_ClickCellButton);
+            this.frmTender.grdDetPriceComparison.AfterCellUpdate +=
+                new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
 
-            //grdDetPriceComparison
+            //grdDetPreresults
             this.frmTender.grdDetPreresults.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetPreresults_InitializeLayout);
             this.frmTender.grdDetPreresults.BeforeCellUpdate +=
@@ -247,8 +253,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetLog
             this.frmTender.grdDetLog.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetLog_InitializeLayout);
-            this.frmTender.grdDetLog.BeforeCellUpdate
-                += new BeforeCellUpdateEventHandler(grdDetLog_BeforeCellUpdate);
             TenderLogParameters pmtTenderLog = new TenderLogParameters();
             pmtTenderLog.TenderLogId = ParameterConstants.IntNone;
             this.dtTenderLog = this.srvTenderLog.SearchByParameters(pmtTenderLog);
@@ -849,6 +853,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     priceComparisonExtraColumnsLength++;
             }
 
+            if (!this.dtPriceComparison.Columns.Contains("SelectBestChoise"))
+            {
+                DataColumn dc = new DataColumn("SelectBestChoise", typeof(string));
+                this.dtPriceComparison.Columns.Add(dc);
+                if (createdFlag)
+                    priceComparisonExtraColumnsLength++;
+            }
+
             if (!this.dtPriceComparison.Columns.Contains("BestPrice"))
             {
                 DataColumn dc = new DataColumn("BestPrice", typeof(decimal));
@@ -860,14 +872,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (!this.dtPriceComparison.Columns.Contains("BestPriceCurrencyId"))
             {
                 DataColumn dc = new DataColumn("BestPriceCurrencyId", typeof(int));
-                this.dtPriceComparison.Columns.Add(dc);
-                if (createdFlag)
-                    priceComparisonExtraColumnsLength++;
-            }
-
-            if (!this.dtPriceComparison.Columns.Contains("SelectBestChoise"))
-            {
-                DataColumn dc = new DataColumn("SelectBestChoise", typeof(string));
                 this.dtPriceComparison.Columns.Add(dc);
                 if (createdFlag)
                     priceComparisonExtraColumnsLength++;
@@ -905,6 +909,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         tenderLineWholesaler.Deleted = true;
                     }
                     this.dtPriceComparison.Columns.Remove(strColumnName);
+                    this.dtPriceComparison.Columns.Remove(strColumnName + "C");
                 }
             }
 
@@ -1089,12 +1094,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .Select(y => y.Manufacturer.ManufacturerId).Contains(x.ManufacturerId));
 
             WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout,
-                availableManufacturers, band.Columns["ManufacturerId"], "ManufacturerId", "Name");
+                availableManufacturers, band.Columns["ManufacturerId"], "ManufacturerId", "Name", true);
         }
 
-        private void grdTenderLines_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        private void grdDetTenderLines_AfterCellUpdate(object sender, EventArgs e)
         {
-            e.Cell.Row.PerformAutoSize();
+            UltraGridCell activeCell = this.frmTender.grdDetTenderLines.ActiveCell;
+
+            if (activeCell == null)
+                return;
+
+            activeCell.Row.PerformAutoSize();
         }
 
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -1113,13 +1123,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
 
             WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, lstManufacturers,
-                band.Columns["ManufacturerId"], "ManufacturerId", "Name");
+                band.Columns["ManufacturerId"], "ManufacturerId", "Name", true);
+        }
+
+        private void grdDetTenderManufacturers_AfterCellUpdate(object sender, EventArgs e)
+        {
+            UltraGridCell activeCell = this.frmTender.grdDetTenderManufacturers.ActiveCell;
+
+            if (activeCell == null)
+                return;
+
+            activeCell.Row.PerformAutoSize();
         }
 
         private void grdDetTenderManufacturers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
-            e.Cell.Row.PerformAutoSize();
-
             if (e.Cell.Column.Key == "ManufacturerId" && Convert.ToInt32(e.NewValue) != -1)
             {
                 if (this.dtTenderManufacturers.AsEnumerable().SingleOrDefault(x =>
@@ -1286,9 +1304,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["LogDate"].CellActivation = Activation.ActivateOnly;
         }
 
-        private void grdDetLog_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        private void grdDetLog_AfterCellUpdate(object sender, EventArgs e)
         {
-            e.Cell.Row.PerformAutoSize();
+            UltraGridCell activeCell = this.frmTender.grdDetLog.ActiveCell;
+
+            if (activeCell == null)
+                return;
+
+            activeCell.Row.PerformAutoSize();
         }
 
         private void grdDetTenderCompetitors_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -1308,13 +1331,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].VertScrollBar = true;
 
             WindowsFormsUtil.SetUltraGridValueList<Competitor>(layout,
-                lstCompetitors, band.Columns["CompetitorId"], "CompetitorId", "Name");
+                lstCompetitors, band.Columns["CompetitorId"], "CompetitorId", "Name", true);
+        }
+
+        private void grdDetTenderCompetitors_AfterCellUpdate(object sender, EventArgs e)
+        {
+            UltraGridCell activeCell = this.frmTender.grdDetTenderCompetitors.ActiveCell;
+
+            if (activeCell == null)
+                return;
+
+            activeCell.Row.PerformAutoSize();
         }
 
         private void grdDetTenderCompetitors_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
-            e.Cell.Row.PerformAutoSize();
-
             if (e.Cell.Column.Key == "CompetitorId" && Convert.ToInt32(e.NewValue) != -1)
             {
                 if (this.dtTenderCompetitors.AsEnumerable().SingleOrDefault(x =>
@@ -1344,13 +1375,23 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].VertScrollBar = true;
 
             WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout,
-                lstWholesalers, band.Columns["WholesalerId"], "WholesalerId", "Name");
+                lstWholesalers, band.Columns["WholesalerId"], "WholesalerId", "Name", true);
+        }
+
+        private void grdDetTenderWholesalers_AfterCellUpdate(object sender, EventArgs e)
+        {
+            this.UpdatePriceComparisonGrid();
+
+            UltraGridCell activeCell = this.frmTender.grdDetTenderWholesalers.ActiveCell;
+
+            if (activeCell == null)
+                return;
+
+            activeCell.Row.PerformAutoSize();
         }
 
         private void grdDetTenderWholesalers_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
-            e.Cell.Row.PerformAutoSize();
-
             if (e.Cell.Column.Key == "WholesalerId" && Convert.ToInt32(e.NewValue) != -1)
             {
                 if (this.dtTenderWholesalers.AsEnumerable().SingleOrDefault(x =>
@@ -1361,11 +1402,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
-
-        private void grdDetTenderWholesalers_AfterCellUpdate(object sender, EventArgs e)
-        {
-            this.UpdatePriceComparisonGrid();
         }
 
         private void ubtnDetDeleteCompetitor_Click(object sender, EventArgs e)
@@ -1413,12 +1449,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].Hidden = true;
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
-            band.Columns["SelectedWholesalerId"].Header.Caption = "Mejor Opción";
+            band.Columns["SelectedWholesalerId"].Header.Caption = "Seleccionado";
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["BestPrice"], 
                 WindowsFormsUtil.GridFormat.Currency);
             band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
-            band.Columns["SelectBestChoise"].Header.Caption = "Autoselección";
+            band.Columns["SelectBestChoise"].Header.Caption = "Mejor Opción";
             band.Columns["SelectBestChoise"].Style = 
                 Infragistics.Win.UltraWinGrid.ColumnStyle.Button;
             band.Columns["SelectBestChoise"].ButtonDisplayStyle = 
@@ -1433,7 +1469,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 .Where(x => x.Key.EndsWith("C") || x.Key == "BestPriceCurrencyId"))
             {
                 WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
-                        column, "CurrencyId", "Code");
+                        column, "CurrencyId", "Code", false);
                 column.Editor.SelectionChanged
                     += new EventHandler(CurrencyEditor_SelectionChanged);
             }
@@ -1448,13 +1484,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .Contains(x.WholesalerId));
 
             WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers,
-                    band.Columns["SelectedWholesalerId"], "WholesalerId", "Name");
+                    band.Columns["SelectedWholesalerId"], "WholesalerId", "Name", true);
 
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
             {
-                band.Columns[col.ColumnName + "C"].Header.Caption
-                    = "Moneda";
+                band.Columns[col.ColumnName + "C"].Header.Caption = "Moneda";
                 WindowsFormsUtil.SetUltraColumnFormat(band.Columns[col.ColumnName],
                     WindowsFormsUtil.GridFormat.Currency);
                 band.Columns[col.ColumnName].Header.Caption
@@ -1473,6 +1508,30 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             band.Columns["SelectedWholesalerId"].Editor.SelectionChanged
                 += new EventHandler(SelectedWholesalerEditor_SelectionChanged);
+        }
+
+        private void grdDetPriceComparison_AfterCellUpdate(object sender, EventArgs e)
+        {
+            UltraGridCell activeCell = this.frmTender.grdDetPriceComparison.ActiveCell;
+            int columnName;
+
+            if (activeCell == null)
+                return;
+
+            string strColumnName = activeCell.Column.Key;
+
+            if (activeCell.Column.Key.EndsWith("C"))
+                strColumnName = strColumnName.Replace("C", "");
+
+            if ((Convert.ToInt32(activeCell.Row.Cells["TenderLineId"].Value) > 0
+                && int.TryParse(activeCell.Column.Key, out columnName) ||
+                Convert.ToInt32(activeCell.Row.Cells["TenderLineId"].Value) > 0
+                && activeCell.Column.Key.EndsWith("C") )&&
+                activeCell.Row.Cells[strColumnName].Column.Key == activeCell.Row.Cells["SelectedWholesalerId"].Value.ToString())
+            {
+                activeCell.Row.Cells["BestPrice"].Value = Convert.ToDecimal(activeCell.Row.Cells[strColumnName].Value) *
+                    this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[strColumnName + "C"].Value));
+            }
         }
 
         private void grdDetPriceComparison_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
@@ -1527,6 +1586,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             int columnName;
 
+            if (e.Cell.Row.Cells.Cast<UltraGridCell>().Where(x => x.Column.Key.EndsWith("C"))
+                .Count(x => Convert.ToInt32(x.Value) == -1) > 0)
+            {
+                MessageBox.Show("Debe seleccionar todas las monedas para la partida seleccionada.", 
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             UltraGridCell minPriceCell = e.Cell.Row.Cells.Cast<UltraGridCell>()
                 .Where(x => x.Value != DBNull.Value && int.TryParse(x.Column.Key, out columnName))
                 .OrderBy(x => Convert.ToDecimal(x.Value) * this.GetExchangeRate(
@@ -1534,7 +1601,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (minPriceCell != null)
             {
-                e.Cell.Row.Cells["BestPriceCurrencyId"].Value = minPriceCell.Row.Cells[minPriceCell.Column.Key + "C"].Value;
                 e.Cell.Row.Cells["BestPrice"].Value = Convert.ToDecimal(minPriceCell.Value) *
                         this.GetExchangeRate(Convert.ToInt32(e.Cell.Row.Cells[minPriceCell.Column.Key + "C"].Value));
                 e.Cell.Row.Cells["SelectedWholesalerId"].Value = Convert.ToInt32(minPriceCell.Column.Key);
@@ -1629,9 +1695,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
 
             WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
-                    band.Columns["DestinyCurrency.CurrencyId"], "CurrencyId", "Code");
+                    band.Columns["DestinyCurrency.CurrencyId"], "CurrencyId", "Code", true);
             WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
-                    band.Columns["SourceCurrency.CurrencyId"], "CurrencyId", "Code");
+                    band.Columns["SourceCurrency.CurrencyId"], "CurrencyId", "Code", true);
         }
 
         private void grdDetExchangeRates_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
