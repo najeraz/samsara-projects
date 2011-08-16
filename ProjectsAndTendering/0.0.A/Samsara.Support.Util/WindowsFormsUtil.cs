@@ -11,6 +11,13 @@ namespace Samsara.Support.Util
 {
     public class WindowsFormsUtil
     {
+        public enum GridFormat
+        {
+            Currency
+        }
+
+        private static string currencyMask = "nnnnnnnnn.nn";
+
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
             string valueMember, string displayMember)
         {
@@ -44,6 +51,19 @@ namespace Samsara.Support.Util
             combo.ValueMember = valueMember;
             combo.DisplayMember = displayMember;
             combo.Value = -1;
+        }
+
+        public static void SetUltraColumnFormat(UltraGridColumn column, GridFormat gridFormat)
+        {
+            switch (gridFormat)
+            {
+                case GridFormat.Currency:
+                    column.MaskInput = currencyMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
