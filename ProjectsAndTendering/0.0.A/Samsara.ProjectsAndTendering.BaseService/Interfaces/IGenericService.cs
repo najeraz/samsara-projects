@@ -69,6 +69,17 @@ namespace Samsara.ProjectsAndTendering.BaseService.Interfaces
         /// <returns>List of entities</returns>
         IList<T> GetListByParameters(Tpmt parameters);
 
+        /// <summary>
+        /// Get datatable by parameters from custom query
+        /// </summary>
+        /// <param name="queryName">Query name</param>
+        /// <param name="parameters">Parameters</param>
+        /// <param name="absoluteColumnNames">If True set property name and property primary key as 
+        /// name of column only if the property is an Entity
+        /// otherwise only names the column as primary key from the Entity</param>
+        /// <returns></returns>
+        DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames);
+
         #endregion Methods
     }
 }
