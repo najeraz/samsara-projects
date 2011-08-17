@@ -12,7 +12,7 @@
     <property name="AcquisitionReason"/>
     <property name="RegistrationDate"/>
     <property name="Name"/>
-    <property name="IsLORD"/>
+    <property name="IsLOR"/>
     <property name="ClarificationDate"/>
     <property name="PreRevisionDate"/>
     <property name="Deadline"/>

@@ -15,13 +15,17 @@ namespace Samsara.Support.Util
         {
             Currency,
             Rate,
+            Percentage,
+            NoLimitPercentage,
             NaturalQuantity,
             RealQuantity
         }
         
-        private static string currencyMask = "nnn,nnn,nnn.nn";
-        private static string naturalQuantityMask = "nnn,nnn,nnn";
-        private static string realQuantityMask = "nnn,nnn,nnn.nnnn";
+        private static string currencyMask = "nnn,nnn,nnn,nnn.nn";
+        private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
+        private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
+        private static string percentageMask = "nnn.nn";
+        private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn";
         private static string rateMask = "{double:4.12}";
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
@@ -83,13 +87,23 @@ namespace Samsara.Support.Util
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
+                case GridCellFormat.Percentage:
+                    column.MaskInput = percentageMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case GridCellFormat.NoLimitPercentage:
+                    column.MaskInput = noLimitPercentageMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
                 default:
                     break;
             }
         }
 
         public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
-            UltraGridColumn column, string valueMember, string displayMember, bool addDefault)
+            UltraGridColumn column, string valueMember, string displayMember, string defaultValue)
         {
             ValueList vl;
 
@@ -98,8 +112,8 @@ namespace Samsara.Support.Util
 
             vl = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
             vl.ValueListItems.Clear();
-            if (addDefault)
-                vl.ValueListItems.Add(-1, "Seleccione");
+            if (defaultValue != null)
+                vl.ValueListItems.Add(-1, defaultValue);
 
             foreach (T entity in collection)
             {
