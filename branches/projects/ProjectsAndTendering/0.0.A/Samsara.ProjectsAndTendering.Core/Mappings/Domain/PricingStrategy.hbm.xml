@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
+  
+  <class name="PricingStrategy" table="PricingStrategies">
+    
+    <id name="PricingStrategyId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="SelectedPrice"/>
+    <property name="ProfitMargin"/>
+    <property name="UnitPriceBeforeTax"/>
+    <property name="UnitProfit"/>
+    <property name="TenderLineProfit"/>
+    <property name="UnitPriceAfterTax"/>
+    <property name="TotalPriceBeforeTax"/>
+    <property name="TotalPriceAfterTax"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="TenderLine"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"
+                 column="TenderLineId"/>
+    <many-to-one name="Wholesaler"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
+                 column="WholesalerId"/>
+    <many-to-one name="Manufacturer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
+                 column="ManufacturerId"/>
+
+  </class>
+
+  <query name="PricingStrategy.GetListByParameters">
+    <![CDATA[
+        from PricingStrategy where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="PricingStrategy.SearchByParameters">
+    <![CDATA[
+        from PricingStrategy where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+  
+</hibernate-mapping>

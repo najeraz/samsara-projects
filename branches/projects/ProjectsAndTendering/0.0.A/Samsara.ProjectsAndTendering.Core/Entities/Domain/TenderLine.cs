@@ -39,6 +39,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
+        public virtual PricingStrategy PricingStrategy
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;

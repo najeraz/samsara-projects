@@ -248,7 +248,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.opportunity.OpportunityStatus = this.srvOpportunityStatus.GetById(
                 Convert.ToInt32(this.frmOpportunity.uceDetOpportunityStatus.Value));
 
-            this.opportunity.IsLORD = this.frmOpportunity.uchkDetIsLORD.Checked;
+            this.opportunity.IsLOR = this.frmOpportunity.uchkDetIsLOR.Checked;
             this.opportunity.Deadline = (Nullable<DateTime>)this.frmOpportunity.dteDetDeadline.Value;
             this.opportunity.PreRevisionDate = (Nullable<DateTime>)this.frmOpportunity.dteDetPrerevisionDate.Value;
             this.opportunity.RegistrationDate = (Nullable<DateTime>)this.frmOpportunity.dteDetRegistrationDate.Value;
@@ -279,7 +279,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.ubtnDetGenerateTender.Visible = false;
             this.frmOpportunity.gbxDetRelatedTender.Visible = false;
             this.frmOpportunity.uceDetOpportunityType.ReadOnly = false;
-            this.frmOpportunity.uchkDetIsLORD.Checked = false;
+            this.frmOpportunity.uchkDetIsLOR.Checked = false;
             this.dtOpportunityLog.Rows.Clear();
         }
 
@@ -350,7 +350,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.dteDetPrerevisionDate.Value = this.opportunity.PreRevisionDate.Value;
             if (this.opportunity.RegistrationDate.HasValue)
                 this.frmOpportunity.dteDetRegistrationDate.Value = this.opportunity.RegistrationDate.Value;
-            this.frmOpportunity.uchkDetIsLORD.Checked = this.opportunity.IsLORD;
+            this.frmOpportunity.uchkDetIsLOR.Checked = this.opportunity.IsLOR;
 
             this.ShowHideGenerateTenderButton();
 
@@ -372,7 +372,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.ubtnDetGenerateTender.Visible = 
                     Convert.ToInt32(this.frmOpportunity.uceDetOpportunityType.Value)
                     == (int)OpportunityTypeEnum.PublicSector
-                    && this.frmOpportunity.uchkDetIsLORD.Checked == false;
+                    && this.frmOpportunity.uchkDetIsLOR.Checked == false;
                 this.frmOpportunity.gbxDetRelatedTender.Visible = false;
             }
             else
