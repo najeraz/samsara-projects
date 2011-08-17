@@ -107,6 +107,7 @@
     <Compile Include="Impl\Domain\BidderDao.cs" />
     <Compile Include="Impl\Domain\BidderTypeDao.cs" />
     <Compile Include="Impl\Domain\CompetitorDao.cs" />
+    <Compile Include="Impl\Domain\PricingStrategyDao.cs" />
     <Compile Include="Impl\Domain\TenderExchangeRateDao.cs" />
     <Compile Include="Impl\Domain\DocumentTypeWarrantyDao.cs" />
     <Compile Include="Impl\Domain\WarrantyTypeDao.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationDao.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationDao.cs" />
+    <Compile Include="Interfaces\Domain\IPricingStrategyDao.cs" />
     <Compile Include="Interfaces\Domain\ITenderExchangeRateDao.cs" />
     <Compile Include="Interfaces\Domain\IDocumentTypeWarrantyDao.cs" />
     <Compile Include="Interfaces\Domain\IWarrantyTypeDao.cs" />
