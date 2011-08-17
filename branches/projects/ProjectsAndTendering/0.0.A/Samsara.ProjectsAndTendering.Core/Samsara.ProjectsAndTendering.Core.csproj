@@ -122,6 +122,7 @@
     <Compile Include="Parameters\Domain\AsesorParameters.cs" />
     <Compile Include="Parameters\Domain\BidderTypeParameters.cs" />
     <Compile Include="Parameters\Domain\CompetitorParameters.cs" />
+    <Compile Include="Parameters\Domain\PricingStrategyParameters.cs" />
     <Compile Include="Parameters\Domain\TenderExchangeRateParameters.cs" />
     <Compile Include="Parameters\Domain\DocumentWarrantyTypeParameters.cs" />
     <Compile Include="Parameters\Domain\WarrantyTypeParameters.cs" />
