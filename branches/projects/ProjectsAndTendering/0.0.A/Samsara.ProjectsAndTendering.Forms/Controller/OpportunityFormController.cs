@@ -354,7 +354,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.ShowHideGenerateTenderButton();
 
-            foreach (OpportunityLog opportunityLog in this.opportunity.OpportunityLogs)
+            foreach (OpportunityLog opportunityLog in this.opportunity.OpportunityLogs.OrderByDescending(x => x.LogDate))
             {
                 DataRow row = this.dtOpportunityLog.NewRow();
                 this.dtOpportunityLog.Rows.Add(row);
@@ -661,10 +661,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetCreateLog_Click(object sender, EventArgs e)
         {
-            this.grdDetLog_InitializeLayout(null, null);
+            if (this.frmOpportunity.txtDetLog.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Debe escribir un momentario para agregarlo a la bitácora.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DataRow newRow = this.dtOpportunityLog.NewRow();
-            this.dtOpportunityLog.Rows.Add(newRow);
+            this.dtOpportunityLog.Rows.InsertAt(newRow, 0);
+            newRow["Description"] = this.frmOpportunity.txtDetLog.Text;
             newRow["LogDate"] = DateTime.Now;
+            this.frmOpportunity.txtDetLog.Text = string.Empty;
             this.dtOpportunityLog.AcceptChanges();
         }
 

@@ -192,6 +192,8 @@
             this.dteDetRegistrationDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.Log = new System.Windows.Forms.TabPage();
             this.grdDetLog = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.gbxDetLog = new System.Windows.Forms.GroupBox();
+            this.txtDetLog = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetLogButtons = new System.Windows.Forms.Panel();
             this.upSeparatorDeleteLog = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetDeleteLog = new Infragistics.Win.Misc.UltraButton();
@@ -318,6 +320,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDetRegistrationDate)).BeginInit();
             this.Log.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetLog)).BeginInit();
+            this.gbxDetLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).BeginInit();
             this.pnlDetLogButtons.SuspendLayout();
             this.upSeparatorDeleteLog.SuspendLayout();
             this.upDetSeparatorCreateLog.SuspendLayout();
@@ -400,6 +404,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 387);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -798,6 +803,7 @@
             // 
             this.Log.BackColor = System.Drawing.Color.Transparent;
             this.Log.Controls.Add(this.grdDetLog);
+            this.Log.Controls.Add(this.gbxDetLog);
             this.Log.Controls.Add(this.pnlDetLogButtons);
             this.Log.Location = new System.Drawing.Point(4, 22);
             this.Log.Name = "Log";
@@ -865,9 +871,29 @@
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
             this.grdDetLog.Name = "grdDetLog";
-            this.grdDetLog.Size = new System.Drawing.Size(736, 314);
+            this.grdDetLog.Size = new System.Drawing.Size(736, 221);
             this.grdDetLog.TabIndex = 1;
             this.grdDetLog.Text = "samsaraUltraGrid1";
+            // 
+            // gbxDetLog
+            // 
+            this.gbxDetLog.Controls.Add(this.txtDetLog);
+            this.gbxDetLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetLog.Location = new System.Drawing.Point(0, 221);
+            this.gbxDetLog.Name = "gbxDetLog";
+            this.gbxDetLog.Size = new System.Drawing.Size(736, 93);
+            this.gbxDetLog.TabIndex = 4;
+            this.gbxDetLog.TabStop = false;
+            this.gbxDetLog.Text = "Comentarios:";
+            // 
+            // txtDetLog
+            // 
+            this.txtDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetLog.Location = new System.Drawing.Point(3, 16);
+            this.txtDetLog.Multiline = true;
+            this.txtDetLog.Name = "txtDetLog";
+            this.txtDetLog.Size = new System.Drawing.Size(730, 74);
+            this.txtDetLog.TabIndex = 6;
             // 
             // pnlDetLogButtons
             // 
@@ -880,7 +906,7 @@
             this.pnlDetLogButtons.Location = new System.Drawing.Point(0, 314);
             this.pnlDetLogButtons.Name = "pnlDetLogButtons";
             this.pnlDetLogButtons.Size = new System.Drawing.Size(736, 25);
-            this.pnlDetLogButtons.TabIndex = 2;
+            this.pnlDetLogButtons.TabIndex = 5;
             // 
             // upSeparatorDeleteLog
             // 
@@ -2408,6 +2434,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDetRegistrationDate)).EndInit();
             this.Log.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetLog)).EndInit();
+            this.gbxDetLog.ResumeLayout(false);
+            this.gbxDetLog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).EndInit();
             this.pnlDetLogButtons.ResumeLayout(false);
             this.upSeparatorDeleteLog.ResumeLayout(false);
             this.upDetSeparatorCreateLog.ResumeLayout(false);
@@ -2629,15 +2658,17 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultCurrency;
         private System.Windows.Forms.TabPage Log;
         internal Controls.SamsaraUltraGrid grdDetLog;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox gbxDetExchangeRates;
+        internal Controls.SamsaraUltraGrid grdDetExchangeRates;
+        private System.Windows.Forms.GroupBox gbxDetLog;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
         private Infragistics.Win.Misc.UltraPanel upSeparatorDeleteLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1241;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox gbxDetExchangeRates;
-        internal Controls.SamsaraUltraGrid grdDetExchangeRates;
     }
 }
 
