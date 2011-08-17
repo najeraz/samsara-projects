@@ -11,12 +11,18 @@ namespace Samsara.Support.Util
 {
     public class WindowsFormsUtil
     {
-        public enum GridFormat
+        public enum GridCellFormat
         {
-            Currency
+            Currency,
+            Rate,
+            NaturalQuantity,
+            RealQuantity
         }
-
-        private static string currencyMask = "nnnnnnnnn.nn";
+        
+        private static string currencyMask = "nnn,nnn,nnn.nn";
+        private static string naturalQuantityMask = "nnn,nnn,nnn";
+        private static string realQuantityMask = "nnn,nnn,nnn.nnnn";
+        private static string rateMask = "{double:4.12}";
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
             string valueMember, string displayMember)
@@ -53,12 +59,27 @@ namespace Samsara.Support.Util
             combo.Value = -1;
         }
 
-        public static void SetUltraColumnFormat(UltraGridColumn column, GridFormat gridFormat)
+        public static void SetUltraColumnFormat(UltraGridColumn column, GridCellFormat gridCellFormat)
         {
-            switch (gridFormat)
+            switch (gridCellFormat)
             {
-                case GridFormat.Currency:
+                case GridCellFormat.Currency:
                     column.MaskInput = currencyMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case GridCellFormat.NaturalQuantity:
+                    column.MaskInput = naturalQuantityMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case GridCellFormat.RealQuantity:
+                    column.MaskInput = realQuantityMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case GridCellFormat.Rate:
+                    column.MaskInput = rateMask;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;

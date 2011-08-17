@@ -23,4 +23,11 @@
     <property name="IgnoreVisibleProperty"/>
   </class>
 
+  <query name="GridConfiguration.GetByParameters">
+    <![CDATA[
+        from GridConfiguration grid where grid.GridName = :GridName
+        and grid.FormConfiguration.FormConfigurationId = :FormConfigurationId
+    ]]>
+  </query>
+
 </hibernate-mapping>

@@ -47,6 +47,7 @@
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
+            this.uchkDetIsLORD = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.ubtnDetGenerateTender = new Infragistics.Win.Misc.UltraButton();
             this.uceDetEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceDetDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
@@ -104,13 +105,15 @@
             this.uceSchDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchBidder = new System.Windows.Forms.Label();
-            this.uchkDetIsLORD = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.gbxDetLog = new System.Windows.Forms.GroupBox();
+            this.txtDetLog = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
             this.Principal.SuspendLayout();
             this.upDetControls.ClientArea.SuspendLayout();
             this.upDetControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsLORD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetEndUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).BeginInit();
@@ -145,7 +148,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsLORD)).BeginInit();
+            this.gbxDetLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -221,6 +225,7 @@
             // 
             // Principal
             // 
+            this.Principal.BackColor = System.Drawing.Color.Transparent;
             this.Principal.Controls.Add(this.upDetControls);
             this.Principal.Location = new System.Drawing.Point(4, 22);
             this.Principal.Name = "Principal";
@@ -228,7 +233,6 @@
             this.Principal.Size = new System.Drawing.Size(736, 360);
             this.Principal.TabIndex = 0;
             this.Principal.Text = "Principal";
-            this.Principal.UseVisualStyleBackColor = true;
             // 
             // upDetControls
             // 
@@ -266,6 +270,15 @@
             this.upDetControls.Name = "upDetControls";
             this.upDetControls.Size = new System.Drawing.Size(730, 354);
             this.upDetControls.TabIndex = 57;
+            // 
+            // uchkDetIsLORD
+            // 
+            this.uchkDetIsLORD.AutoSize = true;
+            this.uchkDetIsLORD.Location = new System.Drawing.Point(380, 35);
+            this.uchkDetIsLORD.Name = "uchkDetIsLORD";
+            this.uchkDetIsLORD.Size = new System.Drawing.Size(81, 17);
+            this.uchkDetIsLORD.TabIndex = 81;
+            this.uchkDetIsLORD.Text = "Es L.O.R.D.";
             // 
             // ubtnDetGenerateTender
             // 
@@ -498,14 +511,15 @@
             // 
             // Log
             // 
+            this.Log.BackColor = System.Drawing.Color.Transparent;
             this.Log.Controls.Add(this.grdDetLog);
+            this.Log.Controls.Add(this.gbxDetLog);
             this.Log.Controls.Add(this.pnlDetLogButtons);
             this.Log.Location = new System.Drawing.Point(4, 22);
             this.Log.Name = "Log";
             this.Log.Size = new System.Drawing.Size(736, 360);
             this.Log.TabIndex = 7;
             this.Log.Text = "Bitácora";
-            this.Log.UseVisualStyleBackColor = true;
             // 
             // grdDetLog
             // 
@@ -564,7 +578,7 @@
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
             this.grdDetLog.Name = "grdDetLog";
-            this.grdDetLog.Size = new System.Drawing.Size(736, 335);
+            this.grdDetLog.Size = new System.Drawing.Size(736, 242);
             this.grdDetLog.TabIndex = 1;
             this.grdDetLog.Text = "samsaraUltraGrid1";
             // 
@@ -823,14 +837,25 @@
             this.lblSchBidder.TabIndex = 79;
             this.lblSchBidder.Text = "Licitante:";
             // 
-            // uchkDetIsLORD
+            // gbxDetLog
             // 
-            this.uchkDetIsLORD.AutoSize = true;
-            this.uchkDetIsLORD.Location = new System.Drawing.Point(380, 35);
-            this.uchkDetIsLORD.Name = "uchkDetIsLORD";
-            this.uchkDetIsLORD.Size = new System.Drawing.Size(81, 17);
-            this.uchkDetIsLORD.TabIndex = 81;
-            this.uchkDetIsLORD.Text = "Es L.O.R.D.";
+            this.gbxDetLog.Controls.Add(this.txtDetLog);
+            this.gbxDetLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetLog.Location = new System.Drawing.Point(0, 242);
+            this.gbxDetLog.Name = "gbxDetLog";
+            this.gbxDetLog.Size = new System.Drawing.Size(736, 93);
+            this.gbxDetLog.TabIndex = 5;
+            this.gbxDetLog.TabStop = false;
+            this.gbxDetLog.Text = "Comentarios:";
+            // 
+            // txtDetLog
+            // 
+            this.txtDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetLog.Location = new System.Drawing.Point(3, 16);
+            this.txtDetLog.Multiline = true;
+            this.txtDetLog.Name = "txtDetLog";
+            this.txtDetLog.Size = new System.Drawing.Size(730, 74);
+            this.txtDetLog.TabIndex = 6;
             // 
             // OpportunityForm
             // 
@@ -847,6 +872,7 @@
             this.upDetControls.ClientArea.ResumeLayout(false);
             this.upDetControls.ClientArea.PerformLayout();
             this.upDetControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsLORD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetEndUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).EndInit();
@@ -884,7 +910,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsLORD)).EndInit();
+            this.gbxDetLog.ResumeLayout(false);
+            this.gbxDetLog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -952,6 +980,8 @@
         internal System.Windows.Forms.Label lblSchDependency;
         internal System.Windows.Forms.Label lblSchBidder;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetIsLORD;
+        private System.Windows.Forms.GroupBox gbxDetLog;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetLog;
     }
 }
 

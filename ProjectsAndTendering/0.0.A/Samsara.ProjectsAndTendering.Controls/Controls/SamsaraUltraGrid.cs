@@ -60,8 +60,10 @@ namespace Samsara.ProjectsAndTendering.Controls
                     srvFormConfiguration.SaveOrUpdate(formConfiguration);
                 }
 
-                GridConfiguration gridConfiguration = formConfiguration.GridConfigurations
-                    .SingleOrDefault(x => x.GridName == this.Name);
+                GridConfigurationParameters pmtGridConfiguration = new GridConfigurationParameters();
+                pmtGridConfiguration.GridName = this.Name;
+                pmtGridConfiguration.FormConfigurationId = formConfiguration.FormConfigurationId;
+                GridConfiguration gridConfiguration = srvGridConfiguration.GetByParameters(pmtGridConfiguration);
 
                 if (gridConfiguration == null)
                 {

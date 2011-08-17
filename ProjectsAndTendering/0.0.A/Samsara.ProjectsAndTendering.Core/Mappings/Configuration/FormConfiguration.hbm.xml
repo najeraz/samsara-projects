@@ -11,7 +11,7 @@
     
     <property name="FormName" not-null="true"/>
     
-    <set name="GridConfigurations" table="GridConfigurations" cascade="all-delete-orphan" fetch="join">
+    <set name="GridConfigurations" table="GridConfigurations" cascade="all-delete-orphan">
       <key column="FormConfigurationId"/>
       <one-to-many 
         class="Samsara.ProjectsAndTendering.Core.Entities.Configuration.GridConfiguration, Samsara.ProjectsAndTendering.Core"/>

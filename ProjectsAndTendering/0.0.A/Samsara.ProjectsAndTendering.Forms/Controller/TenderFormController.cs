@@ -765,7 +765,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderManufacturerId"] = tenderManufacturer.TenderManufacturerId;
             }
 
-            foreach (TenderLog tenderLog in this.tender.TenderLogs)
+            foreach (TenderLog tenderLog in this.tender.TenderLogs.OrderByDescending(x => x.LogDate))
             {
                 DataRow row = this.dtTenderLog.NewRow();
                 this.dtTenderLog.Rows.Add(row);
@@ -1281,9 +1281,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetCreateLog_Click(object sender, EventArgs e)
         {
+            if (this.frmTender.txtDetLog.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Debe escribir un momentario para agregarlo a la bitácora.", 
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DataRow newRow = this.dtTenderLog.NewRow();
-            this.dtTenderLog.Rows.Add(newRow);
+            this.dtTenderLog.Rows.InsertAt(newRow, 0);
+            newRow["Description"] = this.frmTender.txtDetLog.Text;
             newRow["LogDate"] = DateTime.Now;
+            this.frmTender.txtDetLog.Text = string.Empty;
             this.dtTenderLog.AcceptChanges();
         }
 
@@ -1298,10 +1306,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Override.RowSizing = RowSizing.AutoFree;
             band.Override.RowSizingAutoMaxLines = 5;
 
+            this.frmTender.grdDetLog.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
-            band.Columns["TenderLogId"].CellActivation = Activation.ActivateOnly;
-            band.Columns["LogDate"].CellActivation = Activation.ActivateOnly;
         }
 
         private void grdDetLog_AfterCellUpdate(object sender, EventArgs e)
@@ -1451,7 +1458,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineName"].Header.Caption = "Partida";
             band.Columns["SelectedWholesalerId"].Header.Caption = "Seleccionado";
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["BestPrice"], 
-                WindowsFormsUtil.GridFormat.Currency);
+                WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
             band.Columns["SelectBestChoise"].Header.Caption = "Mejor Opción";
@@ -1491,7 +1498,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 band.Columns[col.ColumnName + "C"].Header.Caption = "Moneda";
                 WindowsFormsUtil.SetUltraColumnFormat(band.Columns[col.ColumnName],
-                    WindowsFormsUtil.GridFormat.Currency);
+                    WindowsFormsUtil.GridCellFormat.Currency);
                 band.Columns[col.ColumnName].Header.Caption
                     = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
             }
@@ -1688,8 +1695,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             band.Columns["DestinyCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
             band.Columns["SourceCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
-            band.Columns["Rate"].MaskInput = "{double:4.12}";
-            band.Columns["Rate"].PromptChar = ' ';
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Rate"], WindowsFormsUtil.GridCellFormat.Rate);
             
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
@@ -1702,6 +1708,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void grdDetExchangeRates_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
+            if (e.NewValue == DBNull.Value || Convert.ToDecimal(e.NewValue) <= 0)
+            {
+                MessageBox.Show("Debe poner una cantidad correcta en el tipo de cambio.", 
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Cancel = true;
+            }
         }
 
         #endregion Events
