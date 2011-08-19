@@ -252,6 +252,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPricingStrategy.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetPricingStrategy_InitializeLayout);
             PricingStrategyParameters pmtPricingStrategy = new PricingStrategyParameters();
+            pmtPricingStrategy.PricingStrategyId = ParameterConstants.IntNone;
             this.dtPricingStrategy = this.srvPricingStrategy.SearchByParameters(pmtPricingStrategy);
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineName", typeof(string)));
             this.frmTender.grdDetPricingStrategy.DataSource = null;
@@ -1070,6 +1071,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     tenderLine.PricingStrategy = pricingStrategy;
 
                     pricingStrategy.ProfitMargin = 5;
+                    pricingStrategy.Activated = true;
+                    pricingStrategy.Deleted = false;
                 }
 
                 if (tenderLine.Wholesaler != null)
