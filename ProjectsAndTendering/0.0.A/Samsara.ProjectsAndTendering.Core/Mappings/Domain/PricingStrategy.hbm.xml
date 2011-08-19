@@ -20,9 +20,7 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
-    <ony-to-one name="TenderLine"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"
-                 column="TenderLineId"/>
+    <many-to-one name="TenderLine" unique="true" column="TenderLineId"/>    
     <many-to-one name="Wholesaler"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>
