@@ -26,10 +26,9 @@
     <many-to-one name="Wholesaler"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>
-
-    <ony-to-one name="PricingStrategy"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.PricingStrategy, Samsara.ProjectsAndTendering.Core"
-                 column="PricingStrategyId"/>
+    
+    <one-to-one name="PricingStrategy" fetch="join" cascade="all"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.PricingStrategy, Samsara.ProjectsAndTendering.Core"/>
 
     <set name="TenderLineManufacturers" table="TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">

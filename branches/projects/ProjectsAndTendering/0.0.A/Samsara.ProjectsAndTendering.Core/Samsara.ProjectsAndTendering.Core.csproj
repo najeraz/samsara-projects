@@ -168,7 +168,9 @@
     <EmbeddedResource Include="Mappings\Domain\Tender.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Domain\TenderLine.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Domain\TenderLine.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderStatus.hbm.xml" />
@@ -258,7 +260,9 @@
     <EmbeddedResource Include="Mappings\Domain\TenderExchangeRate.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Domain\PricingStrategy.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Domain\PricingStrategy.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
