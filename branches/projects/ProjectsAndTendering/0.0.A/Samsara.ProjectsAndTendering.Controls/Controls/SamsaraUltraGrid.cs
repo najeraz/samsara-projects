@@ -8,6 +8,7 @@ using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Core.Parameters.Configuration;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
+using System.Collections.Generic;
 
 
 namespace Samsara.ProjectsAndTendering.Controls
@@ -64,15 +65,18 @@ namespace Samsara.ProjectsAndTendering.Controls
                 pmtGridConfiguration.GridName = this.Name;
                 pmtGridConfiguration.FormConfigurationId = formConfiguration.FormConfigurationId;
                 GridConfiguration gridConfiguration = srvGridConfiguration.GetByParameters(pmtGridConfiguration);
-
+                
                 if (gridConfiguration == null)
                 {
                     gridConfiguration = new GridConfiguration();
                     gridConfiguration.GridName = this.Name;
-                    gridConfiguration.IgnoreVisibleProperty = false;
+                    gridConfiguration.IgnoreConfiguration = false;
                     gridConfiguration.FormConfiguration = formConfiguration;
                     srvGridConfiguration.SaveOrUpdate(gridConfiguration);
                 }
+
+                if (gridConfiguration.IgnoreConfiguration)
+                    return;
 
                 foreach (UltraGridBand band in this.DisplayLayout.Bands)
                 {
@@ -88,24 +92,33 @@ namespace Samsara.ProjectsAndTendering.Controls
                         if (gridColumnConfiguration == null)
                         {
                             gridColumnConfiguration = new GridColumnConfiguration();
+                            gridConfiguration.GridColumnConfigurations.Add(gridColumnConfiguration);
                             gridColumnConfiguration.ColumnName = column.Key;
                             gridColumnConfiguration.ColumnEndUserName = column.Key;
                             gridColumnConfiguration.GridConfiguration = gridConfiguration;
                             gridColumnConfiguration.Visible = false;
                             gridColumnConfiguration.Band = band.Index;
+                            srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
+                        }
+                    }
+                }
 
-                            if (!gridConfiguration.IgnoreVisibleProperty)
-                                srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
-                        }
-                        else
-                        {
-                            column.Hidden = !gridColumnConfiguration.Visible && !gridConfiguration.IgnoreVisibleProperty;
-                            column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
-                            if (!gridConfiguration.IgnoreVisibleProperty)
-                                column.Header.VisiblePosition = gridConfiguration.GridColumnConfigurations
-                                    .Where(x => x.Visible).OrderBy(x => x.GridColumnConfigurationId).ToList()
-                                    .IndexOf(gridColumnConfiguration) + 1;
-                        }
+                IList<string> lstOrderedColumnNames = gridConfiguration.GridColumnConfigurations
+                    .OrderBy(x => x.GridColumnConfigurationId).Select(x => x.ColumnName).ToList();
+
+                foreach (UltraGridBand band in this.DisplayLayout.Bands)
+                {
+                    int index = 0;
+                    foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
+                        .OrderBy(x => lstOrderedColumnNames.IndexOf(x.Key)))
+                    {
+                        GridColumnConfiguration gridColumnConfiguration = gridConfiguration
+                                .GridColumnConfigurations.Single(x => x.ColumnName == column.Key
+                                && x.Band == band.Index);
+
+                        column.Hidden = !gridColumnConfiguration.Visible && !gridConfiguration.IgnoreConfiguration;
+                        column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
+                        column.Header.VisiblePosition = index++;
                     }
                 }
             }

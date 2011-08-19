@@ -32,7 +32,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Configuration
             set;
         }
 
-        public virtual bool IgnoreVisibleProperty
+        public virtual bool IgnoreConfiguration
         {
             get;
             set;

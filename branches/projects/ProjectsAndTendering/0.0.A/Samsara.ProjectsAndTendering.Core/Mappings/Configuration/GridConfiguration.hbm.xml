@@ -20,7 +20,7 @@
     </set>
 
     <property name="GridName"/>
-    <property name="IgnoreVisibleProperty"/>
+    <property name="IgnoreConfiguration"/>
   </class>
 
   <query name="GridConfiguration.GetByParameters">

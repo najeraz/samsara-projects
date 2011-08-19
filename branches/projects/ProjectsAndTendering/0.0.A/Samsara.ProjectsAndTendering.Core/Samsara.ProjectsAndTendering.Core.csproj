@@ -113,6 +113,7 @@
     <Compile Include="Entities\Domain\Tender.cs" />
     <Compile Include="Entities\Domain\Manufacturer.cs" />
     <Compile Include="Entities\Domain\Dependency.cs" />
+    <Compile Include="Enums\TaxEnum.cs" />
     <Compile Include="Enums\OpportunityTypeEnum.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
     <Compile Include="Parameters\Configuration\FormConfigurationParameters.cs" />

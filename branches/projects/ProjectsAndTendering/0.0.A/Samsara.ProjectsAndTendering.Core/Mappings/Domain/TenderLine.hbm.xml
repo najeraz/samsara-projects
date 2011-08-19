@@ -27,7 +27,7 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>
 
-    <many-to-one name="PricingStrategy"
+    <ony-to-one name="PricingStrategy"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.PricingStrategy, Samsara.ProjectsAndTendering.Core"
                  column="PricingStrategyId"/>
 
