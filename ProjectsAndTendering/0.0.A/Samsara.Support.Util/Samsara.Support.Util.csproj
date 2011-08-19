@@ -85,6 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsUtil.cs" />
+    <Compile Include="MoneyUtil.cs" />
+    <Compile Include="TaxesUtil.cs" />
     <Compile Include="EntitiesUtil.cs" />
     <Compile Include="ObjectsUtil.cs" />
     <Compile Include="ParameterConstants.cs" />

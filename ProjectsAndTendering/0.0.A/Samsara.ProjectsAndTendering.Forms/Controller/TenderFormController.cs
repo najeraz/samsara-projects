@@ -22,6 +22,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         #region Attributes
 
         private int priceComparisonExtraColumnsLength;
+        private int tenderLineIndexer;
 
         private Tender tender;
         private TenderForm frmTender;
@@ -40,6 +41,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IDependencyService srvDependency;
         private ITenderStatusService srvTenderStatus;
         private IManufacturerService srvManufacturer;
+        private IPricingStrategyService srvPricingStrategy;
         private ITenderCompetitorService srvTenderCompetitor;
         private ITenderWholesalerService srvTenderWholesaler;
         private ITenderManufacturerService srvTenderManufacturer;
@@ -94,6 +96,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvWholesaler);
             this.srvTenderExchangeRate = SamsaraAppContext.Resolve<ITenderExchangeRateService>();
             Assert.IsNotNull(this.srvTenderExchangeRate);
+            this.srvPricingStrategy = SamsaraAppContext.Resolve<IPricingStrategyService>();
+            Assert.IsNotNull(this.srvPricingStrategy);
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             pmtCurrency.IsDefault = true;
@@ -243,6 +247,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new CellEventHandler(grdDetPriceComparison_ClickCellButton);
             this.frmTender.grdDetPriceComparison.AfterCellUpdate +=
                 new CellEventHandler(grdDetPriceComparison_AfterCellUpdate);
+
+            //grdDetPricingStrategy
+            this.frmTender.grdDetPricingStrategy.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetPricingStrategy_InitializeLayout);
+            PricingStrategyParameters pmtPricingStrategy = new PricingStrategyParameters();
+            this.dtPricingStrategy = this.srvPricingStrategy.SearchByParameters(pmtPricingStrategy);
+            this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineName", typeof(string)));
+            this.frmTender.grdDetPricingStrategy.DataSource = null;
+            this.frmTender.grdDetPricingStrategy.DataSource = dtPricingStrategy;
 
             //grdDetPreresults
             this.frmTender.grdDetPreresults.InitializeLayout
@@ -422,6 +435,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.LoadTenderManufacturers();
             this.LoadTenderLines();
+            this.LoadPricingEstrategy();
             this.LoadTenderWholesalers();
             this.LoadTenderCompetitors();
             this.LoadTenderLogs();
@@ -429,6 +443,42 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
+        }
+
+        private void LoadPricingEstrategy()
+        {
+            foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
+            {
+                TenderLine tenderLine = this.tender.TenderLines
+                    .Single(x => x.TenderLineId == Convert.ToInt32((row["TenderLineId"])));
+                PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+
+                if (pricingStrategy == null)
+                {
+                    pricingStrategy = new PricingStrategy();
+                    tenderLine.PricingStrategy = pricingStrategy;
+                }
+
+                pricingStrategy.TenderLine = tenderLine;
+                pricingStrategy.ProfitMargin = Convert.ToDecimal(row["ProfitMargin"]);
+                pricingStrategy.SelectedPrice = Convert.ToDecimal(row["SelectedPrice"]);
+                pricingStrategy.TenderLineProfit = Convert.ToDecimal(row["TenderLineProfit"]);
+                pricingStrategy.TotalPriceAfterTax = Convert.ToDecimal(row["TotalPriceAfterTax"]);
+                pricingStrategy.TotalPriceBeforeTax = Convert.ToDecimal(row["TotalPriceBeforeTax"]);
+                pricingStrategy.UnitPriceAfterTax = Convert.ToDecimal(row["UnitPriceAfterTax"]);
+                pricingStrategy.UnitPriceBeforeTax = Convert.ToDecimal(row["UnitPriceBeforeTax"]);
+                pricingStrategy.UnitProfit = Convert.ToDecimal(row["UnitProfit"]);
+
+                if (row["ManufacturerId"] != DBNull.Value)
+                    pricingStrategy.Manufacturer = this.GetManufacturer(Convert.ToInt32((row["ManufacturerId"])));
+                else
+                    pricingStrategy.Manufacturer = null;
+
+                if (row["WholesalerId"] != DBNull.Value)
+                    pricingStrategy.Wholesaler = this.GetWholesaler(Convert.ToInt32((row["WholesalerId"])));
+                else
+                    pricingStrategy.Wholesaler = null;
+            }
         }
 
         private void LoadTenderExchangeRates()
@@ -543,6 +593,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (tenderLine == null)
                 {
                     tenderLine = new TenderLine();
+                    tenderLine.TenderLineId = Convert.ToInt32(row["TenderLineId"]);
                     this.tender.TenderLines.Add(tenderLine);
                 }
 
@@ -643,8 +694,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderWholesalers.Rows.Clear();
             this.dtTenderLog.Rows.Clear();
             this.dtPriceComparison = null;
+            this.dtPricingStrategy.Rows.Clear();
             this.frmTender.grdDetPriceComparison.DataSource = null;
             this.dtTenderExchangeRates.Clear();
+            this.tenderLineIndexer = -1;
         }
 
         private void ClearSearchControls()
@@ -778,14 +831,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderExchangeRate tenderExchangeRate in this.tender.TenderExchangeRates)
             {
-                DataRow drTenderExchangeRate = this.dtTenderExchangeRates.NewRow();
-                this.dtTenderExchangeRates.Rows.Add(drTenderExchangeRate);
+                DataRow row = this.dtTenderExchangeRates.NewRow();
+                this.dtTenderExchangeRates.Rows.Add(row);
 
-                drTenderExchangeRate["SourceCurrency.CurrencyId"] = tenderExchangeRate.SourceCurrency.CurrencyId;
-                drTenderExchangeRate["DestinyCurrency.CurrencyId"] = tenderExchangeRate.DestinyCurrency.CurrencyId;
-                drTenderExchangeRate["Rate"] = tenderExchangeRate.Rate;
+                row["SourceCurrency.CurrencyId"] = tenderExchangeRate.SourceCurrency.CurrencyId;
+                row["DestinyCurrency.CurrencyId"] = tenderExchangeRate.DestinyCurrency.CurrencyId;
+                row["Rate"] = tenderExchangeRate.Rate;
             }
 
+            this.UpdatePricingStrategyGrid();
             this.UpdatePriceComparisonGrid();
         }
 
@@ -921,7 +975,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     DataRow rowPC = this.dtPriceComparison.NewRow();
                     rowPC["TenderLineId"] = row["TenderLineId"];
                     rowPC["BestPriceCurrencyId"] = this.defaultCurrency.CurrencyId;
-                    rowPC["SelectedWholesalerId"] = this.defaultCurrency.CurrencyId;
+                    rowPC["SelectedWholesalerId"] = -1;
                     rowPC["TenderLineName"] = row["Name"];
                     rowPC["SelectBestChoise"] = "Seleccionar";
                     this.dtPriceComparison.Rows.Add(rowPC);
@@ -1006,83 +1060,95 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void UpdatePricingStrategyGrid()
         {
-            if (this.dtPricingStrategy == null)
+            foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
-                this.dtPricingStrategy = new DataTable();
-            }
+                PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
 
-            if (!this.dtPricingStrategy.Columns.Contains("TenderLineId"))
-            {
-                DataColumn dc = new DataColumn("TenderLineId", typeof(int));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                if (pricingStrategy == null)
+                {
+                    pricingStrategy = new PricingStrategy();
+                    tenderLine.PricingStrategy = pricingStrategy;
 
-            if (!this.dtPricingStrategy.Columns.Contains("TenderLineName"))
-            {
-                DataColumn dc = new DataColumn("TenderLineName", typeof(string));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                    pricingStrategy.ProfitMargin = 5;
+                }
 
-            if (!this.dtPricingStrategy.Columns.Contains("SelectedId"))
-            {
-                DataColumn dc = new DataColumn("SelectedId", typeof(int));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                if (tenderLine.Wholesaler != null)
+                    pricingStrategy.SelectedPrice = tenderLine.TenderLineWholesalers
+                        .Single(x => x.Wholesaler.WholesalerId
+                            == tenderLine.Wholesaler.WholesalerId).Price.Value;
+                else
+                    pricingStrategy.SelectedPrice = 0.00M;
+                pricingStrategy.TenderLine = tenderLine;
+                pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
+                    / (1 - pricingStrategy.ProfitMargin / 100M);
+                pricingStrategy.UnitProfit = pricingStrategy.UnitPriceBeforeTax
+                    - pricingStrategy.SelectedPrice;
+                pricingStrategy.TenderLineProfit = pricingStrategy.TenderLineProfit
+                    * tenderLine.Quantity;
+                pricingStrategy.UnitPriceAfterTax = pricingStrategy.UnitPriceBeforeTax
+                    * TaxesUtil.GetTaxPercent(TaxEnum.IVA);
+                pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
+                    * tenderLine.Quantity;
+                pricingStrategy.TotalPriceAfterTax = pricingStrategy.UnitPriceAfterTax
+                    * TaxesUtil.GetTaxPercent(TaxEnum.IVA);
+                if (tenderLine.Wholesaler != null)
+                    pricingStrategy.Wholesaler = tenderLine.Wholesaler;
 
-            if (!this.dtPricingStrategy.Columns.Contains("SelectedPrice"))
-            {
-                DataColumn dc = new DataColumn("SelectedPrice", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                DataRow row = this.dtPricingStrategy.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["TenderLineId"]) == tenderLine.TenderLineId);
 
-            if (!this.dtPricingStrategy.Columns.Contains("ProfitMargin"))
-            {
-                DataColumn dc = new DataColumn("ProfitMargin", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                if (row == null)
+                {
+                    row = this.dtPricingStrategy.NewRow();
+                    this.dtPricingStrategy.Rows.Add(row);
+                    row["TenderLineId"] = pricingStrategy.TenderLine.TenderLineId;
+                }
 
-            if (!this.dtPricingStrategy.Columns.Contains("UnitPriceBeforeTax"))
-            {
-                DataColumn dc = new DataColumn("UnitPriceBeforeTax", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                row["TenderLineName"] = tenderLine.Name;
+                row["ProfitMargin"] = pricingStrategy.ProfitMargin;
+                row["SelectedPrice"] = pricingStrategy.SelectedPrice;
+                row["TenderLineProfit"] = pricingStrategy.TenderLineProfit;
+                row["PricingStrategyId"] = pricingStrategy.PricingStrategyId;
+                row["TotalPriceAfterTax"] = pricingStrategy.TotalPriceAfterTax;
+                row["TotalPriceBeforeTax"] = pricingStrategy.TotalPriceBeforeTax;
+                row["UnitPriceAfterTax"] = pricingStrategy.UnitPriceAfterTax;
+                row["UnitPriceBeforeTax"] = pricingStrategy.UnitPriceBeforeTax;
+                row["UnitProfit"] = pricingStrategy.UnitProfit;
+                if (tenderLine.Wholesaler != null)
+                {
+                    if (pricingStrategy.Wholesaler != null)
+                        row["WholesalerId"] = pricingStrategy.Wholesaler.WholesalerId;
+                    else
+                        row["WholesalerId"] = -1;
 
-            if (!this.dtPricingStrategy.Columns.Contains("UnitProfit"))
-            {
-                DataColumn dc = new DataColumn("UnitProfit", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
+                    row["ManufacturerId"] = DBNull.Value;
+                }
+                else
+                {
+                    if (pricingStrategy.Manufacturer != null)
+                        row["ManufacturerId"] = pricingStrategy.Manufacturer.ManufacturerId;
+                    else
+                        row["ManufacturerId"] = -1;
 
-            if (!this.dtPricingStrategy.Columns.Contains("TenderLineProfit"))
-            {
-                DataColumn dc = new DataColumn("TenderLineProfit", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
+                    row["WholesalerId"] = DBNull.Value;
+                }
             }
-
-            if (!this.dtPricingStrategy.Columns.Contains("UnitPriceAfterTax"))
-            {
-                DataColumn dc = new DataColumn("UnitPriceAfterTax", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
-
-            if (!this.dtPricingStrategy.Columns.Contains("TotalPriceBeforeTax"))
-            {
-                DataColumn dc = new DataColumn("TotalPriceBeforeTax", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
-
-            if (!this.dtPricingStrategy.Columns.Contains("TotalPriceAfterTax"))
-            {
-                DataColumn dc = new DataColumn("TotalPriceAfterTax", typeof(decimal));
-                this.dtPricingStrategy.Columns.Add(dc);
-            }
-
             this.dtPricingStrategy.AcceptChanges();
 
-            this.frmTender.grdDetPricingStrategy.DataSource = null;
-            this.frmTender.grdDetPricingStrategy.DataSource = dtPricingStrategy;
-        }
+            foreach (UltraGridRow row in this.frmTender.grdDetPricingStrategy.Rows)
+            {
+                if (row.Cells["WholesalerId"].Value == DBNull.Value)
+                    row.Cells["WholesalerId"].Activation = Activation.ActivateOnly;
+                else
+                    row.Cells["WholesalerId"].Activation = Activation.AllowEdit;
 
+                if (row.Cells["ManufacturerId"].Value == DBNull.Value)
+                    row.Cells["ManufacturerId"].Activation = Activation.ActivateOnly;
+                else
+                    row.Cells["ManufacturerId"].Activation = Activation.AllowEdit;
+            }
+        }
+        
         private Manufacturer GetManufacturer(int manufacturerId)
         {
             Manufacturer manufacturer = null;
@@ -1267,7 +1333,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DataRow newRow = this.dtTenderLines.NewRow();
             this.dtTenderLines.Rows.Add(newRow);
             newRow["ManufacturerId"] = -1;
-            newRow["TenderLineId"] = -1;
+            newRow["TenderLineId"] = this.tenderLineIndexer--;
             this.dtTenderLines.AcceptChanges();
             this.UpdatePriceComparisonGrid();
         }
@@ -1802,6 +1868,45 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Cancel = true;
             }
+        }
+
+        public void grdDetPricingStrategy_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdDetPricingStrategy.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            this.frmTender.grdDetLog.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
+            
+            WholesalerParameters pmtWholesaler = new WholesalerParameters();
+            IEnumerable<Wholesaler> ieWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler);
+            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers, band.Columns["WholesalerId"],
+                "WholesalerId", "Name", "Seleccione");
+            band.Columns["WholesalerId"].CellActivation = Activation.AllowEdit;
+
+            ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
+            IEnumerable<Manufacturer> ieManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, ieManufacturers, band.Columns["ManufacturerId"],
+                "ManufacturerId", "Name", "Seleccione");
+            band.Columns["ManufacturerId"].CellActivation = Activation.AllowEdit;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["ProfitMargin"],
+                WindowsFormsUtil.GridCellFormat.NoLimitPercentage);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["SelectedPrice"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TenderLineProfit"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TotalPriceAfterTax"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TotalPriceBeforeTax"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TotalPriceBeforeTax"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["UnitPriceAfterTax"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["UnitPriceBeforeTax"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["UnitProfit"],
+                WindowsFormsUtil.GridCellFormat.Currency);
         }
 
         #endregion Events
