@@ -6,7 +6,6 @@
   <class name="PricingStrategy" table="PricingStrategies">
     
     <id name="PricingStrategyId" type="int">
-      <generator class="native"/>
     </id>
 
     <property name="SelectedPrice"/>
@@ -19,13 +18,11 @@
     <property name="TotalPriceAfterTax"/>
     <property name="Deleted"/>
     <property name="Activated"/>
-
-    <many-to-one name="TenderLine" unique="true"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderLine, Samsara.ProjectsAndTendering.Core"
-                 column="TenderLineId"/>    
+    
     <many-to-one name="Wholesaler"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>
+    
     <many-to-one name="Manufacturer"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Manufacturer, Samsara.ProjectsAndTendering.Core"
                  column="ManufacturerId"/>

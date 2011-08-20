@@ -7,17 +7,10 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     {
         public PricingStrategy()
         {
-            PricingStrategyId = -1;
         }
 
         [PrimaryKeyAttribute]
         public virtual int PricingStrategyId
-        {
-            get;
-            set;
-        }
-
-        public virtual TenderLine TenderLine
         {
             get;
             set;
