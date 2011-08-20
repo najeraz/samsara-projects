@@ -134,8 +134,8 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.WholesalerDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IWarrantyDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.WarrantyDao, Samsara.ProjectsAndTendering.Dao">
+  <object id="ITenderWarrantyDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderWarrantyDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IWarrantyTypeDao"

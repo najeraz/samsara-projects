@@ -97,7 +97,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el WarrantyType?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el tipo de propuesta?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                     return;
                 this.LoadEntity();

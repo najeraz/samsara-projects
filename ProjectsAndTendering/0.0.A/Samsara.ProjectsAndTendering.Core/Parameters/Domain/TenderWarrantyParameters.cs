@@ -5,7 +5,7 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters.Domain
 {
     public class TenderWarrantyParameters : GenericParameters
     {
-        public string Name
+        public int TenderId
         {
             get;
             set;

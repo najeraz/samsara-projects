@@ -85,9 +85,9 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.WholesalerService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IWholesalerDao"/>
   </object>
-  <object id="IWarrantyService"
-          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.WarrantyService, Samsara.ProjectsAndTendering.Service">
-    <property name="Dao" ref="IWarrantyDao"/>
+  <object id="ITenderWarrantyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderWarrantyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderWarrantyDao"/>
   </object>
   <object id="IWarrantyTypeService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.WarrantyTypeService, Samsara.ProjectsAndTendering.Service">
