@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces.Domain;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
-    public class WarrantyDao : GenericDao<Warranty, int, WarrantyParameters>, IWarrantyDao
+    public class TenderWarrantyDao : GenericDao<TenderWarranty, int, TenderWarrantyParameters>, ITenderWarrantyDao
     {
     }
 }

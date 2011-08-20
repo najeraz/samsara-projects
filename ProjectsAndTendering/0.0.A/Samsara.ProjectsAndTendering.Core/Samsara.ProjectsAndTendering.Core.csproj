@@ -89,7 +89,7 @@
     <Compile Include="Entities\Domain\TenderExchangeRate.cs" />
     <Compile Include="Entities\Domain\DocumentTypeWarranty.cs" />
     <Compile Include="Entities\Domain\WarrantyType.cs" />
-    <Compile Include="Entities\Domain\Warranty.cs" />
+    <Compile Include="Entities\Domain\TenderWarranty.cs" />
     <Compile Include="Entities\Domain\ExchangeRate.cs" />
     <Compile Include="Entities\Domain\Currency.cs" />
     <Compile Include="Entities\Domain\TenderLineWholesaler.cs" />
@@ -127,7 +127,7 @@
     <Compile Include="Parameters\Domain\TenderExchangeRateParameters.cs" />
     <Compile Include="Parameters\Domain\DocumentWarrantyTypeParameters.cs" />
     <Compile Include="Parameters\Domain\WarrantyTypeParameters.cs" />
-    <Compile Include="Parameters\Domain\WarrantyParameters.cs" />
+    <Compile Include="Parameters\Domain\TenderWarrantyParameters.cs" />
     <Compile Include="Parameters\Domain\ExchangeRateParameters.cs" />
     <Compile Include="Parameters\Domain\CurrencyParameters.cs" />
     <Compile Include="Parameters\Domain\TenderWholesalerParameters.cs" />
@@ -254,7 +254,7 @@
     <EmbeddedResource Include="Mappings\Domain\DocumentTypeWarranty.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Domain\Warranty.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Domain\TenderWarranty.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderExchangeRate.hbm.xml" />

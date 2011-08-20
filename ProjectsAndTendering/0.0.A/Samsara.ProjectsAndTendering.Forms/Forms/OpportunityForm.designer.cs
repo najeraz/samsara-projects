@@ -80,8 +80,6 @@
             this.gbxDetLog = new System.Windows.Forms.GroupBox();
             this.txtDetLog = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetLogButtons = new System.Windows.Forms.Panel();
-            this.upSeparatorDeleteLog = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeleteLog = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparatorCreateLog = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetCreateLog = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator1241 = new Infragistics.Win.Misc.UltraPanel();
@@ -134,7 +132,6 @@
             this.gbxDetLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).BeginInit();
             this.pnlDetLogButtons.SuspendLayout();
-            this.upSeparatorDeleteLog.SuspendLayout();
             this.upDetSeparatorCreateLog.SuspendLayout();
             this.upDetSeparator1241.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOpportunityName)).BeginInit();
@@ -604,8 +601,6 @@
             // 
             // pnlDetLogButtons
             // 
-            this.pnlDetLogButtons.Controls.Add(this.upSeparatorDeleteLog);
-            this.pnlDetLogButtons.Controls.Add(this.ubtnDetDeleteLog);
             this.pnlDetLogButtons.Controls.Add(this.upDetSeparatorCreateLog);
             this.pnlDetLogButtons.Controls.Add(this.ubtnDetCreateLog);
             this.pnlDetLogButtons.Controls.Add(this.upDetSeparator1241);
@@ -614,24 +609,6 @@
             this.pnlDetLogButtons.Name = "pnlDetLogButtons";
             this.pnlDetLogButtons.Size = new System.Drawing.Size(736, 25);
             this.pnlDetLogButtons.TabIndex = 2;
-            // 
-            // upSeparatorDeleteLog
-            // 
-            this.upSeparatorDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSeparatorDeleteLog.Location = new System.Drawing.Point(534, 0);
-            this.upSeparatorDeleteLog.Name = "upSeparatorDeleteLog";
-            this.upSeparatorDeleteLog.Size = new System.Drawing.Size(16, 25);
-            this.upSeparatorDeleteLog.TabIndex = 12;
-            // 
-            // ubtnDetDeleteLog
-            // 
-            this.ubtnDetDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteLog.Location = new System.Drawing.Point(550, 0);
-            this.ubtnDetDeleteLog.Name = "ubtnDetDeleteLog";
-            this.ubtnDetDeleteLog.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeleteLog.TabIndex = 9;
-            this.ubtnDetDeleteLog.Text = "Borrar";
-            this.ubtnDetDeleteLog.Visible = false;
             // 
             // upDetSeparatorCreateLog
             // 
@@ -648,7 +625,7 @@
             this.ubtnDetCreateLog.Name = "ubtnDetCreateLog";
             this.ubtnDetCreateLog.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateLog.TabIndex = 8;
-            this.ubtnDetCreateLog.Text = "Nuevo";
+            this.ubtnDetCreateLog.Text = "Agregar";
             // 
             // upDetSeparator1241
             // 
@@ -896,7 +873,6 @@
             this.gbxDetLog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).EndInit();
             this.pnlDetLogButtons.ResumeLayout(false);
-            this.upSeparatorDeleteLog.ResumeLayout(false);
             this.upDetSeparatorCreateLog.ResumeLayout(false);
             this.upDetSeparator1241.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOpportunityName)).EndInit();
@@ -966,8 +942,6 @@
         private System.Windows.Forms.TabPage Log;
         internal Controls.SamsaraUltraGrid grdDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
-        private Infragistics.Win.Misc.UltraPanel upSeparatorDeleteLog;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1241;

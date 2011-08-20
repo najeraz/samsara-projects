@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces.Domain
 {
-    public interface IWarrantyService : IGenericService<Warranty, int, WarrantyParameters>
+    public interface ITenderWarrantyService : IGenericService<TenderWarranty, int, TenderWarrantyParameters>
     {
     }
 }

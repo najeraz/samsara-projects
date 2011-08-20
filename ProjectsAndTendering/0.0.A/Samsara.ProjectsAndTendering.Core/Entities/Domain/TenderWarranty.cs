@@ -3,15 +3,15 @@ using Samsara.ProjectsAndTendering.Core.Attributes;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
-    public class Warranty : GenericEntity
+    public class TenderWarranty : GenericEntity
     {
-        public Warranty()
+        public TenderWarranty()
         {
-            WarrantyId = -1;
+            TenderWarrantyId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int WarrantyId
+        public virtual int TenderWarrantyId
         {
             get;
             set;

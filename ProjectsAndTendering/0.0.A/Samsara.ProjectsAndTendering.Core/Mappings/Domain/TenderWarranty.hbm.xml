@@ -3,9 +3,9 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
   
-  <class name="Warranty" table="Warranties">
+  <class name="TenderWarranty" table="Warranties">
     
-    <id name="WarrantyId" type="int">
+    <id name="TenderWarrantyId" type="int">
       <generator class="native"/>
     </id>
 
@@ -23,19 +23,19 @@
 
   </class>
 
-  <query name="Warranty.GetListByParameters">
+  <query name="TenderWarranty.GetListByParameters">
     <![CDATA[
-        from Warranty where Deleted = 0 and Activated = 1
+        from TenderWarranty where Deleted = 0 and Activated = 1
     ]]>
   </query>
   
-  <sql-query name="Warranty.SearchByParameters" cacheable="false" read-only="true">
-    <return-scalar column="WarrantyId" type="int"/>
+  <sql-query name="TenderWarranty.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="TenderWarrantyId" type="int"/>
     <return-scalar column="Name" type="string"/>
     <return-scalar column="WarrantyTypeName" type="string"/>
     <return-scalar column="DocumentTypeWarrantyName" type="string"/>
     <![CDATA[
-        SELECT w.WarrantyId, w.Name, wt.Name WarrantyTypeName, dtw.Name DocumentTypeWarrantyName
+        SELECT w.TenderWarrantyId, w.Name, wt.Name WarrantyTypeName, dtw.Name DocumentTypeWarrantyName
         FROM Warranties w
         INNER JOIN WarrantyTypes wt ON wt.WarrantyTypeId = w.WarrantyTypeId
         INNER JOIN DocumentTypeWarranties dtw ON dtw.DocumentTypeWarrantyId = w.DocumentTypeWarrantyId

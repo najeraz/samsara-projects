@@ -178,7 +178,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmOpportunity.ubtnDetGenerateTender.Click += new EventHandler(ubtnDetGenerateTender_Click);
             this.frmOpportunity.ubtnDetCreateLog.Click += new EventHandler(ubtnDetCreateLog_Click);
-            this.frmOpportunity.ubtnDetDeleteLog.Click += new EventHandler(ubtnDetDeleteLog_Click);
 
             this.hiddenOpportunityDetailTab = this.frmOpportunity.tabDetDetail.TabPages["OpportunityDetails"];
             this.frmOpportunity.uosSchDates.Value = -1;
@@ -648,15 +647,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmOpportunity.uceSchEndUser.Visible = false;
                 this.frmOpportunity.uceSchOrganization.Visible = false;
             }
-        }
-
-        private void ubtnDetDeleteLog_Click(object sender, EventArgs e)
-        {
-            UltraGridRow activeRow = this.frmOpportunity.grdDetLog.ActiveRow;
-
-            if (activeRow == null) return;
-
-            this.dtOpportunityLog.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
         }
 
         private void ubtnDetCreateLog_Click(object sender, EventArgs e)
