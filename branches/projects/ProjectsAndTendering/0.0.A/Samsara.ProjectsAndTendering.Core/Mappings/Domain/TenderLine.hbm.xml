@@ -27,8 +27,8 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>
     
-    <one-to-one name="PricingStrategy" fetch="join" cascade="all"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.PricingStrategy, Samsara.ProjectsAndTendering.Core"/>
+    <one-to-one name="PricingStrategy" cascade="all"
+      class="Samsara.ProjectsAndTendering.Core.Entities.Domain.PricingStrategy, Samsara.ProjectsAndTendering.Core"/>
 
     <set name="TenderLineManufacturers" table="TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
