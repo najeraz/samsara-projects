@@ -21,7 +21,7 @@ namespace Samsara.Support.Util
             RealQuantity
         }
         
-        private static string currencyMask = "nnn,nnn,nnn,nnn.nn";
+        private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn";

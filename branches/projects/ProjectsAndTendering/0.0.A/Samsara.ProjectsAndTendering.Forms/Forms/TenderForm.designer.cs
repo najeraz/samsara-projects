@@ -76,18 +76,18 @@
             Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance25 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance26 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance27 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance28 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance29 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance30 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance31 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance32 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance33 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance34 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance35 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance36 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance121 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance122 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance123 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance124 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance125 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance126 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance127 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance128 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance129 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance130 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance131 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance132 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance109 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance110 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance111 = new Infragistics.Win.Appearance();
@@ -155,6 +155,18 @@
             Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.Appearance appearance25 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance26 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance27 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance28 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance29 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance30 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance31 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance32 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance33 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance34 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance35 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance36 = new Infragistics.Win.Appearance();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -195,8 +207,6 @@
             this.gbxDetLog = new System.Windows.Forms.GroupBox();
             this.txtDetLog = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetLogButtons = new System.Windows.Forms.Panel();
-            this.upSeparatorDeleteLog = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeleteLog = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparatorCreateLog = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetCreateLog = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator1241 = new Infragistics.Win.Misc.UltraPanel();
@@ -226,7 +236,7 @@
             this.upDetSeparator674 = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetCreateCompetitor = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator44322 = new Infragistics.Win.Misc.UltraPanel();
-            this.Mayoristas = new System.Windows.Forms.TabPage();
+            this.Wholesalers = new System.Windows.Forms.TabPage();
             this.grdDetTenderWholesalers = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.upDetWholesalersButtons = new System.Windows.Forms.Panel();
             this.upDetSeparator45342 = new Infragistics.Win.Misc.UltraPanel();
@@ -234,7 +244,7 @@
             this.upDetSeparator452354 = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetCreateWholesaler = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator63421 = new Infragistics.Win.Misc.UltraPanel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Warranties = new System.Windows.Forms.TabPage();
             this.AnalysisAndResults = new System.Windows.Forms.TabPage();
             this.tcDetAnalysisAndResults = new System.Windows.Forms.TabControl();
             this.ComparativoDePrecios = new System.Windows.Forms.TabPage();
@@ -296,6 +306,13 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
+            this.grdDetTenderWarranties = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.upDetWarrantiesButtons = new System.Windows.Forms.Panel();
+            this.dpDetSeparatorDeleteWarranty = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDeleteWarranty = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparatorNewWarranty = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCreateWarranty = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparatorWarranties = new Infragistics.Win.Misc.UltraPanel();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -323,7 +340,6 @@
             this.gbxDetLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).BeginInit();
             this.pnlDetLogButtons.SuspendLayout();
-            this.upSeparatorDeleteLog.SuspendLayout();
             this.upDetSeparatorCreateLog.SuspendLayout();
             this.upDetSeparator1241.SuspendLayout();
             this.TenderDetails.SuspendLayout();
@@ -348,12 +364,13 @@
             this.upDetSeparator334.SuspendLayout();
             this.upDetSeparator674.SuspendLayout();
             this.upDetSeparator44322.SuspendLayout();
-            this.Mayoristas.SuspendLayout();
+            this.Wholesalers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderWholesalers)).BeginInit();
             this.upDetWholesalersButtons.SuspendLayout();
             this.upDetSeparator45342.SuspendLayout();
             this.upDetSeparator452354.SuspendLayout();
             this.upDetSeparator63421.SuspendLayout();
+            this.Warranties.SuspendLayout();
             this.AnalysisAndResults.SuspendLayout();
             this.tcDetAnalysisAndResults.SuspendLayout();
             this.ComparativoDePrecios.SuspendLayout();
@@ -399,6 +416,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderWarranties)).BeginInit();
+            this.upDetWarrantiesButtons.SuspendLayout();
+            this.dpDetSeparatorDeleteWarranty.SuspendLayout();
+            this.upDetSeparatorNewWarranty.SuspendLayout();
+            this.upDetSeparatorWarranties.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -897,8 +919,6 @@
             // 
             // pnlDetLogButtons
             // 
-            this.pnlDetLogButtons.Controls.Add(this.upSeparatorDeleteLog);
-            this.pnlDetLogButtons.Controls.Add(this.ubtnDetDeleteLog);
             this.pnlDetLogButtons.Controls.Add(this.upDetSeparatorCreateLog);
             this.pnlDetLogButtons.Controls.Add(this.ubtnDetCreateLog);
             this.pnlDetLogButtons.Controls.Add(this.upDetSeparator1241);
@@ -907,24 +927,6 @@
             this.pnlDetLogButtons.Name = "pnlDetLogButtons";
             this.pnlDetLogButtons.Size = new System.Drawing.Size(736, 25);
             this.pnlDetLogButtons.TabIndex = 5;
-            // 
-            // upSeparatorDeleteLog
-            // 
-            this.upSeparatorDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSeparatorDeleteLog.Location = new System.Drawing.Point(534, 0);
-            this.upSeparatorDeleteLog.Name = "upSeparatorDeleteLog";
-            this.upSeparatorDeleteLog.Size = new System.Drawing.Size(16, 25);
-            this.upSeparatorDeleteLog.TabIndex = 12;
-            // 
-            // ubtnDetDeleteLog
-            // 
-            this.ubtnDetDeleteLog.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteLog.Location = new System.Drawing.Point(550, 0);
-            this.ubtnDetDeleteLog.Name = "ubtnDetDeleteLog";
-            this.ubtnDetDeleteLog.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeleteLog.TabIndex = 9;
-            this.ubtnDetDeleteLog.Text = "Borrar";
-            this.ubtnDetDeleteLog.Visible = false;
             // 
             // upDetSeparatorCreateLog
             // 
@@ -941,7 +943,7 @@
             this.ubtnDetCreateLog.Name = "ubtnDetCreateLog";
             this.ubtnDetCreateLog.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateLog.TabIndex = 8;
-            this.ubtnDetCreateLog.Text = "Nuevo";
+            this.ubtnDetCreateLog.Text = "Agregar";
             // 
             // upDetSeparator1241
             // 
@@ -966,8 +968,8 @@
             this.tcDetTextControls.Controls.Add(this.Manufacturers);
             this.tcDetTextControls.Controls.Add(this.TenderLines);
             this.tcDetTextControls.Controls.Add(this.Competitors);
-            this.tcDetTextControls.Controls.Add(this.Mayoristas);
-            this.tcDetTextControls.Controls.Add(this.tabPage1);
+            this.tcDetTextControls.Controls.Add(this.Wholesalers);
+            this.tcDetTextControls.Controls.Add(this.Warranties);
             this.tcDetTextControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcDetTextControls.Location = new System.Drawing.Point(0, 0);
             this.tcDetTextControls.Name = "tcDetTextControls";
@@ -1372,70 +1374,70 @@
             this.upDetSeparator44322.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator44322.TabIndex = 6;
             // 
-            // Mayoristas
+            // Wholesalers
             // 
-            this.Mayoristas.BackColor = System.Drawing.Color.Transparent;
-            this.Mayoristas.Controls.Add(this.grdDetTenderWholesalers);
-            this.Mayoristas.Controls.Add(this.upDetWholesalersButtons);
-            this.Mayoristas.Location = new System.Drawing.Point(4, 22);
-            this.Mayoristas.Name = "Mayoristas";
-            this.Mayoristas.Size = new System.Drawing.Size(728, 313);
-            this.Mayoristas.TabIndex = 8;
-            this.Mayoristas.Text = "Mayoristas";
+            this.Wholesalers.BackColor = System.Drawing.Color.Transparent;
+            this.Wholesalers.Controls.Add(this.grdDetTenderWholesalers);
+            this.Wholesalers.Controls.Add(this.upDetWholesalersButtons);
+            this.Wholesalers.Location = new System.Drawing.Point(4, 22);
+            this.Wholesalers.Name = "Wholesalers";
+            this.Wholesalers.Size = new System.Drawing.Size(728, 313);
+            this.Wholesalers.TabIndex = 8;
+            this.Wholesalers.Text = "Mayoristas";
             // 
             // grdDetTenderWholesalers
             // 
-            appearance25.BackColor = System.Drawing.SystemColors.Window;
-            appearance25.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdDetTenderWholesalers.DisplayLayout.Appearance = appearance25;
+            appearance121.BackColor = System.Drawing.SystemColors.Window;
+            appearance121.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdDetTenderWholesalers.DisplayLayout.Appearance = appearance121;
             this.grdDetTenderWholesalers.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdDetTenderWholesalers.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance26.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance26.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance26.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance26.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.Appearance = appearance26;
-            appearance27.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance27;
+            appearance122.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance122.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance122.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance122.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.Appearance = appearance122;
+            appearance123.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance123;
             this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance28.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance28.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance28.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.PromptAppearance = appearance28;
+            appearance124.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance124.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance124.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance124.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.PromptAppearance = appearance124;
             this.grdDetTenderWholesalers.DisplayLayout.MaxColScrollRegions = 1;
             this.grdDetTenderWholesalers.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance29.BackColor = System.Drawing.SystemColors.Window;
-            appearance29.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.ActiveCellAppearance = appearance29;
-            appearance30.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance30.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.ActiveRowAppearance = appearance30;
+            appearance125.BackColor = System.Drawing.SystemColors.Window;
+            appearance125.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.ActiveCellAppearance = appearance125;
+            appearance126.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance126.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.ActiveRowAppearance = appearance126;
             this.grdDetTenderWholesalers.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdDetTenderWholesalers.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance31.BackColor = System.Drawing.SystemColors.Window;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.CardAreaAppearance = appearance31;
-            appearance32.BorderColor = System.Drawing.Color.Silver;
-            appearance32.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.CellAppearance = appearance32;
+            appearance127.BackColor = System.Drawing.SystemColors.Window;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.CardAreaAppearance = appearance127;
+            appearance128.BorderColor = System.Drawing.Color.Silver;
+            appearance128.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.CellAppearance = appearance128;
             this.grdDetTenderWholesalers.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
             this.grdDetTenderWholesalers.DisplayLayout.Override.CellPadding = 0;
-            appearance33.BackColor = System.Drawing.SystemColors.Control;
-            appearance33.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance33.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance33.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance33.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.GroupByRowAppearance = appearance33;
-            appearance34.TextHAlignAsString = "Left";
-            this.grdDetTenderWholesalers.DisplayLayout.Override.HeaderAppearance = appearance34;
+            appearance129.BackColor = System.Drawing.SystemColors.Control;
+            appearance129.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance129.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance129.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance129.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.GroupByRowAppearance = appearance129;
+            appearance130.TextHAlignAsString = "Left";
+            this.grdDetTenderWholesalers.DisplayLayout.Override.HeaderAppearance = appearance130;
             this.grdDetTenderWholesalers.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
             this.grdDetTenderWholesalers.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance35.BackColor = System.Drawing.SystemColors.Window;
-            appearance35.BorderColor = System.Drawing.Color.Silver;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.RowAppearance = appearance35;
+            appearance131.BackColor = System.Drawing.SystemColors.Window;
+            appearance131.BorderColor = System.Drawing.Color.Silver;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.RowAppearance = appearance131;
             this.grdDetTenderWholesalers.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance36.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdDetTenderWholesalers.DisplayLayout.Override.TemplateAddRowAppearance = appearance36;
+            appearance132.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdDetTenderWholesalers.DisplayLayout.Override.TemplateAddRowAppearance = appearance132;
             this.grdDetTenderWholesalers.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdDetTenderWholesalers.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdDetTenderWholesalers.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
@@ -1502,14 +1504,16 @@
             this.upDetSeparator63421.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator63421.TabIndex = 11;
             // 
-            // tabPage1
+            // Warranties
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(728, 313);
-            this.tabPage1.TabIndex = 9;
-            this.tabPage1.Text = "Fianzas";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.Warranties.Controls.Add(this.grdDetTenderWarranties);
+            this.Warranties.Controls.Add(this.upDetWarrantiesButtons);
+            this.Warranties.Location = new System.Drawing.Point(4, 22);
+            this.Warranties.Name = "Warranties";
+            this.Warranties.Size = new System.Drawing.Size(728, 313);
+            this.Warranties.TabIndex = 9;
+            this.Warranties.Text = "Fianzas";
+            this.Warranties.UseVisualStyleBackColor = true;
             // 
             // AnalysisAndResults
             // 
@@ -2399,6 +2403,125 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
+            // grdDetTenderWarranties
+            // 
+            appearance25.BackColor = System.Drawing.SystemColors.Window;
+            appearance25.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdDetTenderWarranties.DisplayLayout.Appearance = appearance25;
+            this.grdDetTenderWarranties.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderWarranties.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance26.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance26.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance26.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance26.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetTenderWarranties.DisplayLayout.GroupByBox.Appearance = appearance26;
+            appearance27.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetTenderWarranties.DisplayLayout.GroupByBox.BandLabelAppearance = appearance27;
+            this.grdDetTenderWarranties.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance28.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance28.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance28.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetTenderWarranties.DisplayLayout.GroupByBox.PromptAppearance = appearance28;
+            this.grdDetTenderWarranties.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetTenderWarranties.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance29.BackColor = System.Drawing.SystemColors.Window;
+            appearance29.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdDetTenderWarranties.DisplayLayout.Override.ActiveCellAppearance = appearance29;
+            appearance30.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance30.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdDetTenderWarranties.DisplayLayout.Override.ActiveRowAppearance = appearance30;
+            this.grdDetTenderWarranties.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetTenderWarranties.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance31.BackColor = System.Drawing.SystemColors.Window;
+            this.grdDetTenderWarranties.DisplayLayout.Override.CardAreaAppearance = appearance31;
+            appearance32.BorderColor = System.Drawing.Color.Silver;
+            appearance32.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdDetTenderWarranties.DisplayLayout.Override.CellAppearance = appearance32;
+            this.grdDetTenderWarranties.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetTenderWarranties.DisplayLayout.Override.CellPadding = 0;
+            appearance33.BackColor = System.Drawing.SystemColors.Control;
+            appearance33.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance33.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance33.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance33.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetTenderWarranties.DisplayLayout.Override.GroupByRowAppearance = appearance33;
+            appearance34.TextHAlignAsString = "Left";
+            this.grdDetTenderWarranties.DisplayLayout.Override.HeaderAppearance = appearance34;
+            this.grdDetTenderWarranties.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetTenderWarranties.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance35.BackColor = System.Drawing.SystemColors.Window;
+            appearance35.BorderColor = System.Drawing.Color.Silver;
+            this.grdDetTenderWarranties.DisplayLayout.Override.RowAppearance = appearance35;
+            this.grdDetTenderWarranties.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance36.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdDetTenderWarranties.DisplayLayout.Override.TemplateAddRowAppearance = appearance36;
+            this.grdDetTenderWarranties.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetTenderWarranties.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetTenderWarranties.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetTenderWarranties.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdDetTenderWarranties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetTenderWarranties.Location = new System.Drawing.Point(0, 0);
+            this.grdDetTenderWarranties.Name = "grdDetTenderWarranties";
+            this.grdDetTenderWarranties.Size = new System.Drawing.Size(728, 288);
+            this.grdDetTenderWarranties.TabIndex = 5;
+            this.grdDetTenderWarranties.Text = "samsaraUltraGrid1";
+            // 
+            // upDetWarrantiesButtons
+            // 
+            this.upDetWarrantiesButtons.Controls.Add(this.dpDetSeparatorDeleteWarranty);
+            this.upDetWarrantiesButtons.Controls.Add(this.ubtnDetDeleteWarranty);
+            this.upDetWarrantiesButtons.Controls.Add(this.upDetSeparatorNewWarranty);
+            this.upDetWarrantiesButtons.Controls.Add(this.ubtnDetCreateWarranty);
+            this.upDetWarrantiesButtons.Controls.Add(this.upDetSeparatorWarranties);
+            this.upDetWarrantiesButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upDetWarrantiesButtons.Location = new System.Drawing.Point(0, 288);
+            this.upDetWarrantiesButtons.Name = "upDetWarrantiesButtons";
+            this.upDetWarrantiesButtons.Size = new System.Drawing.Size(728, 25);
+            this.upDetWarrantiesButtons.TabIndex = 4;
+            // 
+            // dpDetSeparatorDeleteWarranty
+            // 
+            this.dpDetSeparatorDeleteWarranty.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dpDetSeparatorDeleteWarranty.Location = new System.Drawing.Point(526, 0);
+            this.dpDetSeparatorDeleteWarranty.Name = "dpDetSeparatorDeleteWarranty";
+            this.dpDetSeparatorDeleteWarranty.Size = new System.Drawing.Size(16, 25);
+            this.dpDetSeparatorDeleteWarranty.TabIndex = 12;
+            // 
+            // ubtnDetDeleteWarranty
+            // 
+            this.ubtnDetDeleteWarranty.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeleteWarranty.Location = new System.Drawing.Point(542, 0);
+            this.ubtnDetDeleteWarranty.Name = "ubtnDetDeleteWarranty";
+            this.ubtnDetDeleteWarranty.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDeleteWarranty.TabIndex = 9;
+            this.ubtnDetDeleteWarranty.Text = "Borrar";
+            // 
+            // upDetSeparatorNewWarranty
+            // 
+            this.upDetSeparatorNewWarranty.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparatorNewWarranty.Location = new System.Drawing.Point(619, 0);
+            this.upDetSeparatorNewWarranty.Name = "upDetSeparatorNewWarranty";
+            this.upDetSeparatorNewWarranty.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorNewWarranty.TabIndex = 10;
+            // 
+            // ubtnDetCreateWarranty
+            // 
+            this.ubtnDetCreateWarranty.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreateWarranty.Location = new System.Drawing.Point(635, 0);
+            this.ubtnDetCreateWarranty.Name = "ubtnDetCreateWarranty";
+            this.ubtnDetCreateWarranty.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCreateWarranty.TabIndex = 8;
+            this.ubtnDetCreateWarranty.Text = "Nueva";
+            // 
+            // upDetSeparatorWarranties
+            // 
+            this.upDetSeparatorWarranties.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparatorWarranties.Location = new System.Drawing.Point(712, 0);
+            this.upDetSeparatorWarranties.Name = "upDetSeparatorWarranties";
+            this.upDetSeparatorWarranties.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorWarranties.TabIndex = 11;
+            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2438,7 +2561,6 @@
             this.gbxDetLog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetLog)).EndInit();
             this.pnlDetLogButtons.ResumeLayout(false);
-            this.upSeparatorDeleteLog.ResumeLayout(false);
             this.upDetSeparatorCreateLog.ResumeLayout(false);
             this.upDetSeparator1241.ResumeLayout(false);
             this.TenderDetails.ResumeLayout(false);
@@ -2463,12 +2585,13 @@
             this.upDetSeparator334.ResumeLayout(false);
             this.upDetSeparator674.ResumeLayout(false);
             this.upDetSeparator44322.ResumeLayout(false);
-            this.Mayoristas.ResumeLayout(false);
+            this.Wholesalers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderWholesalers)).EndInit();
             this.upDetWholesalersButtons.ResumeLayout(false);
             this.upDetSeparator45342.ResumeLayout(false);
             this.upDetSeparator452354.ResumeLayout(false);
             this.upDetSeparator63421.ResumeLayout(false);
+            this.Warranties.ResumeLayout(false);
             this.AnalysisAndResults.ResumeLayout(false);
             this.tcDetAnalysisAndResults.ResumeLayout(false);
             this.ComparativoDePrecios.ResumeLayout(false);
@@ -2522,6 +2645,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderWarranties)).EndInit();
+            this.upDetWarrantiesButtons.ResumeLayout(false);
+            this.dpDetSeparatorDeleteWarranty.ResumeLayout(false);
+            this.upDetSeparatorNewWarranty.ResumeLayout(false);
+            this.upDetSeparatorWarranties.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2608,7 +2736,7 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator674;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateCompetitor;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator44322;
-        private System.Windows.Forms.TabPage Mayoristas;
+        private System.Windows.Forms.TabPage Wholesalers;
         internal Controls.SamsaraUltraGrid grdDetTenderWholesalers;
         private System.Windows.Forms.Panel upDetWholesalersButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator45342;
@@ -2658,17 +2786,22 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultCurrency;
         private System.Windows.Forms.TabPage Log;
         internal Controls.SamsaraUltraGrid grdDetLog;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage Warranties;
         private System.Windows.Forms.GroupBox gbxDetExchangeRates;
         internal Controls.SamsaraUltraGrid grdDetExchangeRates;
         private System.Windows.Forms.GroupBox gbxDetLog;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
-        private Infragistics.Win.Misc.UltraPanel upSeparatorDeleteLog;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1241;
+        internal Controls.SamsaraUltraGrid grdDetTenderWarranties;
+        private System.Windows.Forms.Panel upDetWarrantiesButtons;
+        private Infragistics.Win.Misc.UltraPanel dpDetSeparatorDeleteWarranty;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteWarranty;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparatorNewWarranty;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetCreateWarranty;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparatorWarranties;
     }
 }
 

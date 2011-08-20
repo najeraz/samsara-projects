@@ -289,7 +289,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
             this.frmTender.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
             this.frmTender.ubtnDetCreateLog.Click += new EventHandler(ubtnDetCreateLog_Click);
-            this.frmTender.ubtnDetDeleteLog.Click += new EventHandler(ubtnDetDeleteLog_Click);
             this.frmTender.ubtnDetCreateCompetitor.Click += new EventHandler(ubtnDetCreateCompetitor_Click);
             this.frmTender.ubtnDetDeleteCompetitor.Click += new EventHandler(ubtnDetDeleteCompetitor_Click);
             this.frmTender.ubtnDetCreateWholesaler.Click += new EventHandler(ubtnDetCreateWholesaler_Click);
@@ -1092,8 +1091,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     || drPricingStrategy["ProfitMargin"] == DBNull.Value ?
                     pricingStrategy.ProfitMargin : Convert.ToDecimal(drPricingStrategy["ProfitMargin"]);
 
-                pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
-                    / (1 - pricingStrategy.ProfitMargin / 100M);
+                try
+                {
+                    pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
+                        / (1 - pricingStrategy.ProfitMargin / 100M);
+                }
+                catch (DivideByZeroException ex)
+                {
+                    ex.ToString();
+                    pricingStrategy.UnitPriceBeforeTax = 0;
+                }
+
                 pricingStrategy.UnitProfit = pricingStrategy.UnitPriceBeforeTax
                     - pricingStrategy.SelectedPrice;
                 pricingStrategy.TenderLineProfit = pricingStrategy.UnitProfit
@@ -1442,15 +1450,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
-        private void ubtnDetDeleteLog_Click(object sender, EventArgs e)
-        {
-            UltraGridRow activeRow = this.frmTender.grdDetLog.ActiveRow;
-
-            if (activeRow == null) return;
-
-            this.dtTenderLog.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
-        }
-
         private void ubtnDetCreateLog_Click(object sender, EventArgs e)
         {
             if (this.frmTender.txtDetLog.Text.Trim() == string.Empty)
@@ -1717,6 +1716,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     activeCell.Row.Cells["BestPrice"].Value = Convert.ToDecimal(activeCell.Row.Cells[strColumnName].Value) *
                         this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[strColumnName + "C"].Value));
             }
+            this.SelectedWholesalerEditor_SelectionChanged(null, null);
         }
 
         private void grdDetPriceComparison_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
@@ -1849,14 +1849,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         * this.GetExchangeRate(Convert.ToInt32(activeRow.Cells[value + "C"].Value));
                 drPricingStrategy["WholesalerId"] = value;
                 drPricingStrategy["ManufacturerId"] = DBNull.Value;
+                drPricingStrategy["SelectedPrice"] = activeRow.Cells["BestPrice"].Value;
             }
             else
             {
                 activeRow.Cells["BestPrice"].Value = DBNull.Value;
                 drPricingStrategy["WholesalerId"] = DBNull.Value;
                 drPricingStrategy["ManufacturerId"] = -1;
+                drPricingStrategy["SelectedPrice"] = DBNull.Value;
             }
-            drPricingStrategy["SelectedPrice"] = activeRow.Cells["BestPrice"].Value;
             this.UpdatePricingStrategyGridColumns();
         }
 

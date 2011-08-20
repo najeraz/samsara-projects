@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl.Domain
 {
-    public class WarrantyService : GenericService<Warranty, int, IWarrantyDao, WarrantyParameters>, IWarrantyService
+    public class TenderWarrantyService : GenericService<TenderWarranty, int, ITenderWarrantyDao, TenderWarrantyParameters>, ITenderWarrantyService
     {
     }
 }
