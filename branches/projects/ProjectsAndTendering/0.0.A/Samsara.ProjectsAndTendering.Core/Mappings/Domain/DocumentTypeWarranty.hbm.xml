@@ -25,6 +25,7 @@
   <query name="DocumentTypeWarranty.SearchByParameters">
     <![CDATA[
         from DocumentTypeWarranty where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
   

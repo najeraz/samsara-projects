@@ -33,25 +33,29 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IAsesorService srvAsesor;
         private ITenderService srvTender;
         private IEndUserService srvEndUser;
-        private ITenderLogService srvTenderLog;
         private ICurrencyService srvCurrency;
+        private ITenderLogService srvTenderLog;
         private ICompetitorService srvCompetitor;
         private IWholesalerService srvWholesaler;
         private ITenderLineService srvTenderLine;
         private IDependencyService srvDependency;
         private ITenderStatusService srvTenderStatus;
         private IManufacturerService srvManufacturer;
+        private IWarrantyTypeService srvWarrantyType;
+        private ITenderWarrantyService srvTenderWarranty;
         private IPricingStrategyService srvPricingStrategy;
         private ITenderCompetitorService srvTenderCompetitor;
         private ITenderWholesalerService srvTenderWholesaler;
         private ITenderManufacturerService srvTenderManufacturer;
         private ITenderExchangeRateService srvTenderExchangeRate;
+        private IDocumentTypeWarrantyService srvDocumentTypeWarranty;
 
         private DataTable dtTenderLog;
         private DataTable dtPreresults;
         private DataTable dtTenderLines;
         private DataTable dtPriceComparison;
         private DataTable dtPricingStrategy;
+        private DataTable dtTenderWarranties;
         private DataTable dtTenderCompetitors;
         private DataTable dtTenderWholesalers;
         private DataTable dtTenderManufacturers;
@@ -98,6 +102,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvTenderExchangeRate);
             this.srvPricingStrategy = SamsaraAppContext.Resolve<IPricingStrategyService>();
             Assert.IsNotNull(this.srvPricingStrategy);
+            this.srvTenderWarranty = SamsaraAppContext.Resolve<ITenderWarrantyService>();
+            Assert.IsNotNull(this.srvTenderWarranty);
+            this.srvWarrantyType = SamsaraAppContext.Resolve<IWarrantyTypeService>();
+            Assert.IsNotNull(this.srvWarrantyType);
+            this.srvDocumentTypeWarranty = SamsaraAppContext.Resolve<IDocumentTypeWarrantyService>();
+            Assert.IsNotNull(this.srvDocumentTypeWarranty);
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             pmtCurrency.IsDefault = true;
@@ -212,12 +222,23 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetTenderCompetitors.DataSource = null;
             this.frmTender.grdDetTenderCompetitors.DataSource = dtTenderCompetitors;
 
+            //grdDetTenderWarranties
+            this.frmTender.grdDetTenderWarranties.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetTenderWarranties_InitializeLayout);
+            this.frmTender.grdDetTenderWarranties.AfterCellUpdate +=
+                new CellEventHandler(grdDetTenderWarranties_AfterCellUpdate);
+            TenderWarrantyParameters pmtTenderWarranty = new TenderWarrantyParameters();
+            pmtTenderWarranty.TenderId = ParameterConstants.IntNone;
+            this.dtTenderWarranties = this.srvTenderWarranty.SearchByParameters(pmtTenderWarranty);
+            this.frmTender.grdDetTenderWarranties.DataSource = null;
+            this.frmTender.grdDetTenderWarranties.DataSource = dtTenderWarranties;
+
             //grdDetTenderWholesalers
             this.frmTender.grdDetTenderWholesalers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderWholesalers_InitializeLayout);
             this.frmTender.grdDetTenderWholesalers.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderWholesalers_BeforeCellUpdate);
-            this.frmTender.grdDetTenderWholesalers.AfterCellUpdate += 
+            this.frmTender.grdDetTenderWholesalers.AfterCellUpdate +=
                 new CellEventHandler(grdDetTenderWholesalers_AfterCellUpdate);
             TenderWholesalerParameters pmtTenderWholesaler = new TenderWholesalerParameters();
             pmtTenderWholesaler.TenderId = ParameterConstants.IntNone;
@@ -293,6 +314,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetDeleteCompetitor.Click += new EventHandler(ubtnDetDeleteCompetitor_Click);
             this.frmTender.ubtnDetCreateWholesaler.Click += new EventHandler(ubtnDetCreateWholesaler_Click);
             this.frmTender.ubtnDetDeleteWholesaler.Click += new EventHandler(ubtnDetDeleteWholesaler_Click);
+            this.frmTender.ubtnDetCreateWarranty.Click += new EventHandler(ubtnDetCreateWarranty_Click);
+            this.frmTender.ubtnDetDeleteWarranty.Click += new EventHandler(ubtnDetDeleteWarranty_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -354,8 +377,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (row["Quantity"].ToString().Trim() == string.Empty 
                     || Convert.ToDecimal(row["Quantity"]) <= 0)
                 {
-                    MessageBox.Show(
-                        "Debe poner una cantidad correcta por partida.",
+                    MessageBox.Show("Debe poner una cantidad correcta por partida.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
                         this.frmTender.tabDetDetail.TabPages["TenderDetails"];
@@ -390,7 +412,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.frmTender.tabDetDetail.SelectedTab =
                         this.frmTender.tabDetDetail.TabPages["TenderDetails"];
                     this.frmTender.tcDetTextControls.SelectedTab =
-                        this.frmTender.tcDetTextControls.TabPages["Mayoristas"];
+                        this.frmTender.tcDetTextControls.TabPages["Wholesalers"];
                     return false;
                 }
             }
@@ -406,6 +428,45 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         this.frmTender.tabDetDetail.TabPages["TenderDetails"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Manufacturers"];
+                    return false;
+                }
+            }
+
+            foreach (DataRow row in this.dtTenderWarranties.Rows)
+            {
+                if (Convert.ToInt32(row["WarrantyTypeId"]) == -1)
+                {
+                    MessageBox.Show(
+                        "Debe seleccionar un tipo de fianza por renglón en la lista de fianzas.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTender.tabDetDetail.SelectedTab =
+                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTender.tcDetTextControls.SelectedTab =
+                        this.frmTender.tcDetTextControls.TabPages["Warranties"];
+                    return false;
+                }
+
+                if (Convert.ToInt32(row["DocumentTypeWarrantyId"]) == -1)
+                {
+                    MessageBox.Show(
+                        "Debe seleccionar un tipo de documento de fianza por renglón en la lista de fianzas.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTender.tabDetDetail.SelectedTab =
+                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTender.tcDetTextControls.SelectedTab =
+                        this.frmTender.tcDetTextControls.TabPages["Warranties"];
+                    return false;
+                }
+
+                if (row["Amount"].ToString().Trim() == string.Empty)
+                {
+                    MessageBox.Show(
+                        "Debe seleccionar un monto de la fianza por renglón en la lista de fianzas.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.frmTender.tabDetDetail.SelectedTab =
+                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                    this.frmTender.tcDetTextControls.SelectedTab =
+                        this.frmTender.tcDetTextControls.TabPages["Warranties"];
                     return false;
                 }
             }
@@ -444,9 +505,47 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadTenderCompetitors();
             this.LoadTenderLogs();
             this.LoadTenderExchangeRates();
+            this.LaodTenderWarranties();
 
             this.tender.Activated = true;
             this.tender.Deleted = false;
+        }
+
+        private void LaodTenderWarranties()
+        {
+            foreach (TenderWarranty tenderWarranty in this.tender.TenderWarranties)
+            {
+                tenderWarranty.Deleted = true;
+                tenderWarranty.Activated = false;
+            }
+
+            foreach (DataRow row in this.dtTenderWarranties.Rows)
+            {
+                TenderWarranty tenderWarranty = this.tender.TenderWarranties
+                    .SingleOrDefault(x => row["TenderWarrantyId"] != DBNull.Value &&
+                        x.TenderWarrantyId == Convert.ToInt32(row["TenderWarrantyId"]) &&
+                        Convert.ToInt32(row["TenderWarrantyId"]) > 0);
+
+                if (tenderWarranty == null)
+                {
+                    tenderWarranty = new TenderWarranty();
+                    this.tender.TenderWarranties.Add(tenderWarranty);
+                }
+
+                tenderWarranty.WarrantyType 
+                    = this.srvWarrantyType.GetById(Convert.ToInt32(row["WarrantyTypeId"]));
+                tenderWarranty.DocumentTypeWarranty
+                    = this.srvDocumentTypeWarranty.GetById(Convert.ToInt32(row["DocumentTypeWarrantyId"]));
+                tenderWarranty.Tender = this.tender;
+                tenderWarranty.Description = row["Description"].ToString();
+                tenderWarranty.Name = row["Name"].ToString();
+                tenderWarranty.Amount = Convert.ToDecimal(row["Amount"]);
+                tenderWarranty.ExpirationDate = row["ExpirationDate"] == DBNull.Value ?
+                    null : (Nullable<DateTime>)Convert.ToDateTime(row["ExpirationDate"]);
+
+                tenderWarranty.Activated = true;
+                tenderWarranty.Deleted = false;
+            }
         }
 
         private void LoadPricingEstrategy()
@@ -695,6 +794,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines.Rows.Clear();
             this.dtTenderCompetitors.Rows.Clear();
             this.dtTenderWholesalers.Rows.Clear();
+            this.dtTenderWarranties.Rows.Clear();
             this.dtTenderLog.Rows.Clear();
             this.dtPriceComparison = null;
             this.dtPricingStrategy.Rows.Clear();
@@ -840,6 +940,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["SourceCurrency.CurrencyId"] = tenderExchangeRate.SourceCurrency.CurrencyId;
                 row["DestinyCurrency.CurrencyId"] = tenderExchangeRate.DestinyCurrency.CurrencyId;
                 row["Rate"] = tenderExchangeRate.Rate;
+            }
+
+            foreach (TenderWarranty tenderWarranty in this.tender.TenderWarranties)
+            {
+                DataRow row = this.dtTenderWarranties.NewRow();
+                this.dtTenderWarranties.Rows.Add(row);
+
+                row["Description"] = tenderWarranty.Description;
+                row["DocumentTypeWarrantyId"] = tenderWarranty.DocumentTypeWarranty.DocumentTypeWarrantyId;
+                row["Name"] = tenderWarranty.Name;
+                row["TenderId"] = tenderWarranty.Tender.TenderId;
+                row["TenderWarrantyId"] = tenderWarranty.TenderWarrantyId;
+                row["WarrantyTypeId"] = tenderWarranty.WarrantyType.WarrantyTypeId;
+                row["ExpirationDate"] = tenderWarranty.ExpirationDate;
+                row["Amount"] = tenderWarranty.Amount;
             }
 
             this.UpdatePriceComparisonGrid();
@@ -1920,7 +2035,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        public void grdDetPricingStrategy_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        private void grdDetPricingStrategy_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTender.grdDetPricingStrategy.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
@@ -1972,6 +2087,59 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 this.UpdatePricingStrategyGrid();
             }
+        }
+
+        private void ubtnDetDeleteWarranty_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetTenderWarranties.ActiveRow;
+
+            if (activeRow == null) return;
+
+            this.dtTenderWholesalers.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+        }
+
+        private void ubtnDetCreateWarranty_Click(object sender, EventArgs e)
+        {
+            DataRow newRow = this.dtTenderWarranties.NewRow();
+            this.dtTenderWarranties.Rows.Add(newRow);
+            newRow["WarrantyTypeId"] = -1;
+            newRow["DocumentTypeWarrantyId"] = -1;
+            this.dtTenderWarranties.AcceptChanges();
+        }
+
+        private void grdDetTenderWarranties_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdDetTenderWarranties.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+            WarrantyTypeParameters pmtWarrantyType = new WarrantyTypeParameters();
+            IList<WarrantyType> lstWarrantyTypes = this.srvWarrantyType.GetListByParameters(pmtWarrantyType);
+            DocumentTypeWarrantyParameters pmtDocumentTypeWarranty = new DocumentTypeWarrantyParameters();
+            IList<DocumentTypeWarranty> lstDocumentTypeWarranties 
+                = this.srvDocumentTypeWarranty.GetListByParameters(pmtDocumentTypeWarranty);
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+
+            WindowsFormsUtil.SetUltraGridValueList<WarrantyType>(layout,
+                lstWarrantyTypes, band.Columns["WarrantyTypeId"], "WarrantyTypeId", "Name", "Seleccione");
+
+            WindowsFormsUtil.SetUltraGridValueList<DocumentTypeWarranty>(layout, lstDocumentTypeWarranties, 
+                band.Columns["DocumentTypeWarrantyId"], "DocumentTypeWarrantyId", "Name", "Seleccione");
+        }
+
+        private void grdDetTenderWarranties_AfterCellUpdate(object sender, EventArgs e)
+        {
+            UltraGridCell activeCell = this.frmTender.grdDetTenderWarranties.ActiveCell;
+
+            if (activeCell == null)
+                return;
+
+            activeCell.Row.PerformAutoSize();
         }
         
         #endregion Events

@@ -9,6 +9,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     {
         private ISet<TenderLog> tenderLogs;
         private ISet<TenderLine> tenderLines;
+        private ISet<TenderWarranty> tenderWarranties;
         private ISet<TenderCompetitor> tenderCompetitors;
         private ISet<TenderWholesaler> tenderWholesalers;
         private ISet<TenderManufacturer> tenderManufacturers;
@@ -215,6 +216,21 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set
             {
                 this.tenderExchangeRates = value;
+            }
+        }
+
+        public virtual ISet<TenderWarranty> TenderWarranties
+        {
+            get
+            {
+                if (this.tenderWarranties == null)
+                    this.tenderWarranties = new HashedSet<TenderWarranty>();
+
+                return this.tenderWarranties;
+            }
+            set
+            {
+                this.tenderWarranties = value;
             }
         }
 
