@@ -504,7 +504,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.AcquisitionReason = this.frmTender.txtDetAcquisitionReason.Text;
             this.tender.PricingStrategy = this.frmTender.txtDetPricingStrategy.Text;
             this.tender.Results = this.frmTender.txtDetResults.Text;
-            //this.tender.PreResults = this.frmTender.txtDetPreResults.Text;
+            this.tender.PreResults = this.frmTender.txtDetPreResults.Text;
             this.tender.Name = this.frmTender.txtDetTenderName.Text;
             this.tender.PreviousTender = this.frmTender.tscPreviousTender.Value;
             this.tender.Opportunity = this.frmTender.oscDetRelatedOpportunity.Value;
@@ -790,7 +790,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.uceDetTenderStatus.Value = -1;
             this.frmTender.txtDetAcquisitionReason.Text = string.Empty;
             this.frmTender.txtDetAddress.Text = string.Empty;
-            //this.frmTender.txtDetPreResults.Text = string.Empty;
+            this.frmTender.txtDetPreResults.Text = string.Empty;
             this.frmTender.txtDetPriceComparison.Text = string.Empty;
             this.frmTender.txtDetPricingStrategy.Text = string.Empty;
             this.frmTender.txtDetResults.Text = string.Empty;
@@ -879,7 +879,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.tender.TenderStatus == null ? -1 : this.tender.TenderStatus.TenderStatusId;
             this.frmTender.txtDetAcquisitionReason.Text = this.tender.AcquisitionReason;
             this.frmTender.txtDetAddress.Text = this.tender.Address;
-            //this.frmTender.txtDetPreResults.Text = this.tender.PreResults;
+            this.frmTender.txtDetPreResults.Text = this.tender.PreResults;
             this.frmTender.txtDetPriceComparison.Text = this.tender.PriceComparison;
             this.frmTender.txtDetPricingStrategy.Text = this.tender.PricingStrategy;
             this.frmTender.txtDetResults.Text = this.tender.Results;
@@ -2382,6 +2382,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 this.frmTender.grdDetPreresults.Enabled = false;
                 this.frmTender.upnlDetPreresults.Visible = true;
+                this.frmTender.gbxDetCommentsPreresults.Visible = false;
             }
         }
 
@@ -2394,6 +2395,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.grdDetPreresults.Enabled = true;
             this.frmTender.upnlDetPreresults.Visible = false;
+            this.frmTender.gbxDetCommentsPreresults.Visible = true;
         }
 
         private void ubtnDetSavePreresult_Click(object sender, EventArgs e)
@@ -2418,12 +2420,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.grdDetPreresults.Enabled = true;
             this.frmTender.upnlDetPreresults.Visible = false;
+            this.frmTender.gbxDetCommentsPreresults.Visible = true;
         }
 
         private void ubtnDetCancelPreresult_Click(object sender, EventArgs e)
         {
             this.frmTender.grdDetPreresults.Enabled = true;
             this.frmTender.upnlDetPreresults.Visible = false;
+            this.frmTender.gbxDetCommentsPreresults.Visible = true;
         }
 
         #endregion Events
