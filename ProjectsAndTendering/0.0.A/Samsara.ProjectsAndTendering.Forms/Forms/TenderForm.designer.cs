@@ -323,6 +323,8 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
+            this.gbxDetCommentsPreresults = new System.Windows.Forms.GroupBox();
+            this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -439,6 +441,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
+            this.gbxDetCommentsPreresults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -1964,6 +1968,7 @@
             // 
             this.Preresultados.BackColor = System.Drawing.Color.Transparent;
             this.Preresultados.Controls.Add(this.grdDetPreresults);
+            this.Preresultados.Controls.Add(this.gbxDetCommentsPreresults);
             this.Preresultados.Controls.Add(this.upnlDetPreresults);
             this.Preresultados.Location = new System.Drawing.Point(4, 22);
             this.Preresultados.Name = "Preresultados";
@@ -2031,7 +2036,7 @@
             this.grdDetPreresults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetPreresults.Location = new System.Drawing.Point(0, 0);
             this.grdDetPreresults.Name = "grdDetPreresults";
-            this.grdDetPreresults.Size = new System.Drawing.Size(728, 194);
+            this.grdDetPreresults.Size = new System.Drawing.Size(728, 74);
             this.grdDetPreresults.TabIndex = 82;
             this.grdDetPreresults.Text = "samsaraUltraGrid1";
             // 
@@ -2631,6 +2636,29 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
+            // gbxDetCommentsPreresults
+            // 
+            this.gbxDetCommentsPreresults.Controls.Add(this.txtDetPreResults);
+            this.gbxDetCommentsPreresults.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetCommentsPreresults.Location = new System.Drawing.Point(0, 74);
+            this.gbxDetCommentsPreresults.Name = "gbxDetCommentsPreresults";
+            this.gbxDetCommentsPreresults.Size = new System.Drawing.Size(728, 120);
+            this.gbxDetCommentsPreresults.TabIndex = 85;
+            this.gbxDetCommentsPreresults.TabStop = false;
+            this.gbxDetCommentsPreresults.Text = "Comentarios:";
+            // 
+            // txtDetPreResults
+            // 
+            this.txtDetPreResults.AlwaysInEditMode = true;
+            this.txtDetPreResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetPreResults.Location = new System.Drawing.Point(3, 16);
+            this.txtDetPreResults.Multiline = true;
+            this.txtDetPreResults.Name = "txtDetPreResults";
+            this.txtDetPreResults.Scrollbars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDetPreResults.Size = new System.Drawing.Size(722, 101);
+            this.txtDetPreResults.TabIndex = 75;
+            this.txtDetPreResults.WordWrap = false;
+            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2767,6 +2795,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
+            this.gbxDetCommentsPreresults.ResumeLayout(false);
+            this.gbxDetCommentsPreresults.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2928,6 +2959,8 @@
         internal Infragistics.Win.Misc.UltraButton ubtnDetCancelPreresult;
         internal Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit umskDetPreresultPrice;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPreresultCurrency;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreResults;
+        internal System.Windows.Forms.GroupBox gbxDetCommentsPreresults;
     }
 }
 
