@@ -2343,11 +2343,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             int columnName;
 
             if (Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
-                && int.TryParse(e.Cell.Column.Key, out columnName))
+                && int.TryParse(e.Cell.Column.Key, out columnName) ||
+                Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
+                && e.Cell.Column.Key.EndsWith("C"))
             {
+                string strColumnName = e.Cell.Column.Key;
+
+                if (e.Cell.Column.Key.EndsWith("C"))
+                    strColumnName = strColumnName.Replace("C", "");
+
                 this.tenderLineCompetitor = this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
                     .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
-                    && x.Competitor.CompetitorId.ToString() == e.Cell.Column.Key
+                    && x.Competitor.CompetitorId.ToString() == strColumnName
                     && x.Activated == true && x.Deleted == false);
 
                 if (this.tenderLineCompetitor == null)
@@ -2357,9 +2364,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
                     tenderLine.TenderLineCompetitors.Add(this.tenderLineCompetitor);
                     this.tenderLineCompetitor.Currency
-                        = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[e.Cell.Column.Key + "C"].Value));
+                        = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
                     this.tenderLineCompetitor.TenderLine = tenderLine;
-                    this.tenderLineCompetitor.Competitor = this.GetCompetitor(Convert.ToInt32(e.Cell.Column.Key));
+                    this.tenderLineCompetitor.Competitor = this.GetCompetitor(Convert.ToInt32(strColumnName));
                     this.tenderLineCompetitor.Activated = true;
                     this.tenderLineCompetitor.Deleted = false;
                 }
@@ -2367,7 +2374,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.ClearPreresultsControls();
 
                 this.frmTender.uceDetPreresultCurrency.Value = this.GetCurrency(Convert.ToInt32(
-                    e.Cell.Row.Cells[e.Cell.Column.Key + "C"].Value)).CurrencyId;
+                    e.Cell.Row.Cells[strColumnName + "C"].Value)).CurrencyId;
                 this.frmTender.txtDetPreresultCompetitor.Value = e.Cell.Column.Header.Caption;
                 this.frmTender.txtDetPreresultManufacturer.Value = this.tenderLineCompetitor.Manufacturer;
                 this.frmTender.umskDetPreresultPrice.Value = this.tenderLineCompetitor.Price;
@@ -2398,6 +2405,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[activeCell.Column.Key + "C"].Value));
             this.tenderLineCompetitor.Manufacturer = this.frmTender.txtDetPreresultManufacturer.Text;
             this.tenderLineCompetitor.Description = this.frmTender.txtDetPreresultsComments.Text;
+            this.tenderLineCompetitor.Currency 
+                = this.GetCurrency(Convert.ToInt32(this.frmTender.uceDetPreresultCurrency.Value));
 
             if (this.tenderLineCompetitor.Price == null)
                 activeCell.Value = DBNull.Value;
