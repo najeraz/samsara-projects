@@ -48,9 +48,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<BidderType> lstBidderTypes = srvBidderType.GetListByParameters(pmtBidderType);
 
             WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceSchType,
-                lstBidderTypes, "BidderTypeId", "Name");
+                lstBidderTypes, "BidderTypeId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceDetType,
-                lstBidderTypes, "BidderTypeId", "Name");
+                lstBidderTypes, "BidderTypeId", "Name", "Seleccione");
 
             this.frmBidder.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmBidder.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);

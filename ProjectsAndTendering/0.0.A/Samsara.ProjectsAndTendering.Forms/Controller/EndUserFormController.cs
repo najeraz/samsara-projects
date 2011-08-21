@@ -50,9 +50,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceSchDependency,
-                lstDependencies, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceDetDependency,
-                lstDependencies, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name", "Seleccione");
 
             this.frmEndUser.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmEndUser.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);

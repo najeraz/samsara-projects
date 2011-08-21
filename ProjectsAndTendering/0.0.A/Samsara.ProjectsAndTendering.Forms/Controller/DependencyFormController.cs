@@ -48,9 +48,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceSchBidder,
-                lstBidders, "BidderId", "Name");
+                lstBidders, "BidderId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceDetBidder,
-                lstBidders, "BidderId", "Name");
+                lstBidders, "BidderId", "Name", "Seleccione");
 
             this.frmDependency.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmDependency.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
