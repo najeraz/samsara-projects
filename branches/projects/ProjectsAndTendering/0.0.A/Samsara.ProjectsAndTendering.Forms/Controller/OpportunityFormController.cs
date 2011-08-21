@@ -83,9 +83,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.srvOpportunityType.GetListByParameters(pmtOpportunityType);
 
             WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceSchOpportunityType,
-                lstOpportunityType, "OpportunityTypeId", "Name");
+                lstOpportunityType, "OpportunityTypeId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<OpportunityType>(this.frmOpportunity.uceDetOpportunityType,
-                lstOpportunityType, "OpportunityTypeId", "Name");
+                lstOpportunityType, "OpportunityTypeId", "Name", "Seleccione");
 
             this.frmOpportunity.uceDetOpportunityType.ValueChanged +=
                 new EventHandler(uceDetOpportunityType_ValueChanged);
@@ -100,9 +100,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmOpportunity.uceSchBidder,
-                lstBidders, "BidderId", "Name");
+                lstBidders, "BidderId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmOpportunity.uceDetBidder,
-                lstBidders, "BidderId", "Name");
+                lstBidders, "BidderId", "Name", "Seleccione");
 
             this.frmOpportunity.uceSchBidder.ValueChanged += new EventHandler(uceSchBidder_ValueChanged);
             this.frmOpportunity.uceDetBidder.ValueChanged += new EventHandler(uceDetBidder_ValueChanged);
@@ -113,9 +113,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceSchDependency,
-                lstDependencies, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceDetDependency,
-                lstDependencies, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name", "Seleccione");
 
             this.frmOpportunity.uceSchDependency.ValueChanged += new EventHandler(uceSchDependency_ValueChanged);
             this.frmOpportunity.uceDetDependency.ValueChanged += new EventHandler(uceDetDependency_ValueChanged);
@@ -126,18 +126,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceSchEndUser,
-                lstEndUsers, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceDetEndUser,
-                lstEndUsers, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name", "Seleccione");
 
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
             IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtAsesor);
 
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceSchAsesor,
-                lstAsesors, "AsesorId", "Name");
+                lstAsesors, "AsesorId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Asesor>(this.frmOpportunity.uceDetAsesor,
-                lstAsesors, "AsesorId", "Name");
+                lstAsesors, "AsesorId", "Name", "Seleccione");
 
             // OpportunityStatus
             OpportunityStatusParameters pmtOpportunityStatus = new OpportunityStatusParameters();
@@ -145,18 +145,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 srvOpportunityStatus.GetListByParameters(pmtOpportunityStatus);
 
             WindowsFormsUtil.LoadCombo<OpportunityStatus>(this.frmOpportunity.uceSchOpportunityStatus,
-                lstOpportunityStatuses, "OpportunityStatusId", "Name");
+                lstOpportunityStatuses, "OpportunityStatusId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<OpportunityStatus>(this.frmOpportunity.uceDetOpportunityStatus,
-                lstOpportunityStatuses, "OpportunityStatusId", "Name");
+                lstOpportunityStatuses, "OpportunityStatusId", "Name", "Seleccione");
 
             // Organization
             OrganizationParameters pmtOrganization = new OrganizationParameters();
             IList<Organization> lstOrganizations = srvOrganization.GetListByParameters(pmtOrganization);
 
             WindowsFormsUtil.LoadCombo<Organization>(this.frmOpportunity.uceSchOrganization,
-                lstOrganizations, "OrganizationId", "Name");
+                lstOrganizations, "OrganizationId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Organization>(this.frmOpportunity.uceDetOrganization,
-                lstOrganizations, "OrganizationId", "Name");
+                lstOrganizations, "OrganizationId", "Name", "Seleccione");
 
             //grdDetLog
             this.frmOpportunity.grdDetLog.InitializeLayout
@@ -516,7 +516,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceSchDependency,
-                lstDependencies, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name", "Seleccione");
         }
 
         private void uceDetBidder_ValueChanged(object sender, EventArgs e)
@@ -526,7 +526,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             WindowsFormsUtil.LoadCombo<Dependency>(this.frmOpportunity.uceDetDependency,
-                lstDependencies, "DependencyId", "Name");
+                lstDependencies, "DependencyId", "Name", "Seleccione");
         }
 
         private void uceSchDependency_ValueChanged(object sender, EventArgs e)
@@ -536,7 +536,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceSchEndUser,
-                lstEndUsers, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name", "Seleccione");
         }
 
         private void uceDetDependency_ValueChanged(object sender, EventArgs e)
@@ -546,7 +546,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmOpportunity.uceDetEndUser,
-                lstEndUsers, "EndUserId", "Name");
+                lstEndUsers, "EndUserId", "Name", "Seleccione");
         }
         
         private void btnSchEdit_Click(object sender, EventArgs e)

@@ -29,15 +29,17 @@ namespace Samsara.Support.Util
         private static string rateMask = "{double:4.12}";
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
-            string valueMember, string displayMember)
+            string valueMember, string displayMember, string defaultValue)
         {
             T blankEntity = (T)Activator.CreateInstance(typeof(T));
-
-            blankEntity.GetType().GetProperty(valueMember).SetValue(blankEntity, -1, null);
-            blankEntity.GetType().GetProperty(displayMember).SetValue(blankEntity, "Seleccione", null);
-
             IList<T> list = collection.ToList();
-            list.Insert(0, blankEntity);
+
+            if (defaultValue != null)
+            {
+                blankEntity.GetType().GetProperty(valueMember).SetValue(blankEntity, -1, null);
+                blankEntity.GetType().GetProperty(displayMember).SetValue(blankEntity, defaultValue, null);
+                list.Insert(0, blankEntity);
+            }
 
             combo.DataSource = null;
             combo.DataSource = list;
