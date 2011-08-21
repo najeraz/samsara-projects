@@ -9,7 +9,6 @@
       <generator class="native"/>
     </id>
 
-    <property name="CompetitorId"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
@@ -17,6 +16,10 @@
     <many-to-one name="Tender"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
                  column="TenderId"/>
+
+    <many-to-one name="Competitor" lazy="false"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Competitor, Samsara.ProjectsAndTendering.Core"
+                 column="CompetitorId"/>
 
   </class>
 

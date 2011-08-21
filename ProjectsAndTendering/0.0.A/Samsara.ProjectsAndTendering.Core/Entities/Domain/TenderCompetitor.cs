@@ -23,7 +23,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual int CompetitorId
+        public virtual Competitor Competitor
         {
             get;
             set;

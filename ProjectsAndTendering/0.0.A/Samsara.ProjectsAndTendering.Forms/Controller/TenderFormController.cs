@@ -290,6 +290,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetPreresults_InitializeLayout);
             this.frmTender.grdDetPreresults.BeforeCellUpdate +=
                 new BeforeCellUpdateEventHandler(grdDetPreresults_BeforeCellUpdate);
+            this.frmTender.grdDetPreresults.DoubleClickCell += 
+                new DoubleClickCellEventHandler(grdDetPreresults_DoubleClickCell);
 
             //grdDetLog
             this.frmTender.grdDetLog.InitializeLayout
@@ -673,7 +675,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 tenderCompetitor.Tender = this.tender;
                 tenderCompetitor.Description = row["Description"].ToString();
-                tenderCompetitor.CompetitorId = Convert.ToInt32(row["CompetitorId"]);
+                tenderCompetitor.Competitor = this.srvCompetitor.GetById(Convert.ToInt32(row["CompetitorId"]));
                 tenderCompetitor.Activated = true;
                 tenderCompetitor.Deleted = false;
             }
@@ -882,7 +884,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtTenderCompetitors.Rows.Add(row);
 
                 row["Description"] = tenderCompetitor.Description;
-                row["CompetitorId"] = tenderCompetitor.CompetitorId;
+                row["CompetitorId"] = tenderCompetitor.Competitor.CompetitorId;
                 row["TenderCompetitorId"] = tenderCompetitor.TenderCompetitorId;
             }
 
@@ -964,6 +966,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.UpdatePriceComparisonGrid();
             this.UpdatePricingStrategyGrid();
+            this.UpdatePreresultsGrid();
         }
 
         private void DeleteEntity(int tenderId)
@@ -1180,6 +1183,129 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPriceComparison.DataSource = null;
             this.frmTender.grdDetPriceComparison.DataSource = dtPriceComparison;
         }
+        
+        private void UpdatePreresultsGrid()
+        {
+            int intColumnName;
+
+            if (this.dtPreresults == null)
+            {
+                this.dtPreresults = new DataTable();
+            }
+
+            if (!this.dtPreresults.Columns.Contains("TenderLineId"))
+            {
+                DataColumn dc = new DataColumn("TenderLineId", typeof(int));
+                this.dtPreresults.Columns.Add(dc);
+            }
+
+            if (!this.dtPreresults.Columns.Contains("TenderLineName"))
+            {
+                DataColumn dc = new DataColumn("TenderLineName", typeof(string));
+                this.dtPreresults.Columns.Add(dc);
+            }
+
+            foreach (int competitorId in this.dtTenderCompetitors.AsEnumerable()
+                .Select(x => Convert.ToInt32(x["CompetitorId"])))
+            {
+                if (!this.dtPreresults.Columns.Contains(competitorId.ToString()))
+                {
+                    DataColumn dcCompetitor = new DataColumn(competitorId.ToString(), typeof(decimal));
+                    this.dtPreresults.Columns.Add(dcCompetitor);
+                    DataColumn dcCompetitorCurrency = new DataColumn(competitorId.ToString() + "C", typeof(int));
+                    this.dtPreresults.Columns.Add(dcCompetitorCurrency);
+                }
+            }
+
+            IEnumerable<string> columnNames = this.dtPreresults.Copy().Columns
+                .Cast<DataColumn>().Select(x => x.ColumnName);
+
+            foreach (string strColumnName in columnNames.Where(x => int.TryParse(x, out intColumnName)))
+            {
+                if (!this.dtTenderCompetitors.AsEnumerable()
+                    .Select(x => x["CompetitorId"].ToString()).Contains(strColumnName))
+                {
+                    foreach (TenderLineCompetitor tenderLineCompetitor in
+                        this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
+                        .Where(x => x.Competitor.CompetitorId == Convert.ToInt32(strColumnName)))
+                    {
+                        tenderLineCompetitor.Activated = false;
+                        tenderLineCompetitor.Deleted = true;
+                    }
+                    this.dtPreresults.Columns.Remove(strColumnName);
+                    this.dtPreresults.Columns.Remove(strColumnName + "C");
+                }
+            }
+
+            foreach (DataRow row in this.dtTenderLines.AsEnumerable())
+            {
+                if (Convert.ToInt32(row["TenderLineId"]) > 0 && !this.dtPreresults.Rows.Cast<DataRow>()
+                    .Select(x => x["TenderLineId"].ToString()).Contains(row["TenderLineId"].ToString()))
+                {
+                    DataRow rowPC = this.dtPreresults.NewRow();
+                    rowPC["TenderLineId"] = row["TenderLineId"];
+                    rowPC["TenderLineName"] = row["Name"];
+                    this.dtPreresults.Rows.Add(rowPC);
+                }
+            }
+
+            foreach (DataRow row in this.dtPreresults.AsEnumerable())
+            {
+                foreach (DataColumn column in this.dtPreresults.Columns.Cast<DataColumn>()
+                    .Where(x => x.ColumnName.EndsWith("C")))
+                {
+                    if (row[column.ColumnName] == DBNull.Value)
+                        row[column.ColumnName] = this.defaultCurrency.CurrencyId;
+                }
+            }
+
+            IEnumerable<DataRow> rows = this.dtPreresults.Copy().AsEnumerable();
+
+            foreach (DataRow drTenderLine in rows)
+            {
+                string tenderLineName = drTenderLine["TenderLineName"].ToString();
+
+                if (!this.dtTenderLines.AsEnumerable()
+                    .Select(x => x["Name"].ToString()).Contains(tenderLineName))
+                {
+                    foreach (TenderLineCompetitor tenderLineCompetitor in
+                        this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
+                        .Where(x => x.TenderLine.TenderLineId == Convert.ToInt32(drTenderLine["TenderLineId"])))
+                    {
+                        tenderLineCompetitor.Activated = false;
+                        tenderLineCompetitor.Deleted = true;
+                    }
+                    this.dtPreresults.Rows.Remove(this.dtPreresults.AsEnumerable()
+                        .Single(x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(drTenderLine["TenderLineId"])));
+                }
+            }
+
+            foreach (TenderLineCompetitor tenderLineCompetitor in
+                this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
+                .Where(x => x.Activated && !x.Deleted))
+            {
+                DataRow row = this.dtPreresults.AsEnumerable().SingleOrDefault(x =>
+                    Convert.ToInt32(x["TenderLineId"]) == tenderLineCompetitor.TenderLine.TenderLineId);
+
+                if (row != null)
+                {
+                    if (tenderLineCompetitor.Price != null)
+                        row[tenderLineCompetitor.Competitor.CompetitorId.ToString()] = tenderLineCompetitor.Price;
+                    else
+                        row[tenderLineCompetitor.Competitor.CompetitorId.ToString()] = DBNull.Value;
+
+                    if (tenderLineCompetitor.Currency != null)
+                        row[tenderLineCompetitor.Competitor.CompetitorId.ToString() + "C"] = tenderLineCompetitor.Currency.CurrencyId;
+                    else
+                        row[tenderLineCompetitor.Competitor.CompetitorId.ToString() + "C"] = this.defaultCurrency.CurrencyId;
+                }
+            }
+
+            this.dtPreresults.AcceptChanges();
+
+            this.frmTender.grdDetPreresults.DataSource = null;
+            this.frmTender.grdDetPreresults.DataSource = dtPreresults;
+        }
 
         private void UpdatePricingStrategyGrid()
         {
@@ -1318,6 +1444,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 wholesaler = this.srvWholesaler.GetById(wholesalerId);
 
             return wholesaler;
+        }
+
+        private Competitor GetCompetitor(int competitorId)
+        {
+            Competitor competitor = null;
+            TenderCompetitor tenderCompetitor = this.tender.TenderCompetitors
+                .SingleOrDefault(x => x.Competitor.CompetitorId == competitorId);
+
+            if (tenderCompetitor != null)
+                competitor = tenderCompetitor.Competitor;
+            else
+                competitor = this.srvCompetitor.GetById(competitorId);
+
+            return competitor;
         }
 
         private Currency GetCurrency(int currencyId)
@@ -1491,6 +1631,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             newRow["TenderLineId"] = this.tenderLineIndexer--;
             this.dtTenderLines.AcceptChanges();
             this.UpdatePriceComparisonGrid();
+            this.UpdatePreresultsGrid();
         }
 
         private void ubtnDetDeleteLine_Click(object sender, EventArgs e)
@@ -1502,6 +1643,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
 
             this.UpdatePriceComparisonGrid();
+            this.UpdatePreresultsGrid();
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -1709,6 +1851,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (activeRow == null) return;
 
             this.dtTenderCompetitors.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
+
+            this.UpdatePreresultsGrid();
         }
 
         private void ubtnDetCreateCompetitor_Click(object sender, EventArgs e)
@@ -1918,30 +2062,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
             this.SelectedWholesalerEditor_SelectionChanged(null, null);
             this.UpdatePricingStrategyGrid();
-        }
-
-        private void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
-        {
-        }
-
-        private void grdDetPreresults_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
-        {
-            TenderLineManufacturer tenderLineManufacturer = this.tender.TenderLines.SelectMany(x => x.TenderLineManufacturers)
-                .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
-                && x.TenderLine.Manufacturer.ManufacturerId.ToString() == e.Cell.Column.Key);
-
-            if (tenderLineManufacturer == null)
-            {
-                tenderLineManufacturer = new TenderLineManufacturer();
-                TenderLine tenderLine = this.tender.TenderLines
-                    .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
-                tenderLine.TenderLineManufacturers.Add(tenderLineManufacturer);
-                tenderLineManufacturer.TenderLine = tenderLine;
-                tenderLineManufacturer.Manufacturer = this.GetManufacturer(Convert.ToInt32(e.Cell.Column.Key));
-            }
-
-            tenderLineManufacturer.Price = e.NewValue.ToString().Trim() == string.Empty ?
-                null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue);
         }
         
         private void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
@@ -2157,7 +2277,97 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             activeCell.Row.PerformAutoSize();
         }
-        
+
+        private void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdDetPreresults.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+            int columnName;
+
+            layout.Override.AllowUpdate = DefaultableBoolean.False;
+
+            band.Columns["TenderLineId"].Hidden = true;
+            band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineName"].Header.Caption = "Partida";
+
+            CurrencyParameters pmtCurrency = new CurrencyParameters();
+            IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
+
+            foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
+                .Where(x => x.Key.EndsWith("C")))
+            {
+                WindowsFormsUtil.SetUltraGridValueList<Currency>(layout, lstCurrencies,
+                        column, "CurrencyId", "Code", null);
+                column.Editor.SelectionChanged
+                    += new EventHandler(CurrencyEditor_SelectionChanged);
+            }
+
+            CompetitorParameters pmtCompetitor = new CompetitorParameters();
+            IEnumerable<Competitor> ieCompetitors = this.srvCompetitor.GetListByParameters(pmtCompetitor)
+                .Where(x => this.dtTenderCompetitors.AsEnumerable()
+                    .Select(y => Convert.ToInt32(y["CompetitorId"]))
+                    .Contains(x.CompetitorId));
+
+            foreach (DataColumn col in this.dtPreresults.Columns.Cast<DataColumn>()
+                .Where(x => int.TryParse(x.ColumnName, out columnName)))
+            {
+                band.Columns[col.ColumnName + "C"].Header.Caption = "Moneda";
+                WindowsFormsUtil.SetUltraColumnFormat(band.Columns[col.ColumnName],
+                    WindowsFormsUtil.GridCellFormat.Currency);
+                band.Columns[col.ColumnName].Header.Caption
+                    = this.GetCompetitor(Convert.ToInt32(col.ColumnName)).Name;
+            }
+        }
+
+        private void grdDetPreresults_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            int columnName;
+
+            if (Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
+                && int.TryParse(e.Cell.Column.Key, out columnName) ||
+                Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
+                && e.Cell.Column.Key.EndsWith("C"))
+            {
+                string strColumnName = e.Cell.Column.Key;
+
+                if (e.Cell.Column.Key.EndsWith("C"))
+                    strColumnName = strColumnName.Replace("C", "");
+
+                TenderLineCompetitor tenderLineCompetitor = this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
+                    .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
+                    && x.Competitor.CompetitorId.ToString() == strColumnName);
+
+                if (tenderLineCompetitor == null)
+                {
+                    tenderLineCompetitor = new TenderLineCompetitor();
+                    TenderLine tenderLine = this.tender.TenderLines
+                        .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+                    tenderLine.TenderLineCompetitors.Add(tenderLineCompetitor);
+                    tenderLineCompetitor.Currency
+                        = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
+                    tenderLineCompetitor.TenderLine = tenderLine;
+                    tenderLineCompetitor.Competitor = this.GetCompetitor(Convert.ToInt32(strColumnName));
+                    tenderLineCompetitor.Activated = true;
+                    tenderLineCompetitor.Deleted = false;
+                }
+
+                if (e.Cell.Column.Key.EndsWith("C"))
+                    tenderLineCompetitor.Currency = this.GetCurrency(Convert.ToInt32(e.NewValue));
+                else
+                    tenderLineCompetitor.Price = e.NewValue.ToString().Trim() == string.Empty ?
+                        null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue) *
+                        this.GetExchangeRate(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
+            }
+
+            //this.UpdatePreresultsGrid();
+        }
+
+        private void grdDetPreresults_DoubleClickCell(object sender, DoubleClickCellEventArgs e)
+        {
+            this.frmTender.grdDetPreresults.Enabled = false;
+            this.frmTender.upnlDetPreresults.Visible = true;
+        }
+
         #endregion Events
     }
 }

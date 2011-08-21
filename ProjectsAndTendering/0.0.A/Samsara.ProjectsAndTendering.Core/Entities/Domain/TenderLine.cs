@@ -8,6 +8,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     {
         private ISet<TenderLineManufacturer> tenderLineManufacturers;
         private ISet<TenderLineWholesaler> tenderLineWholesalers;
+        private ISet<TenderLineCompetitor> tenderLineCompetitors;
 
         public TenderLine()
         {
@@ -90,6 +91,21 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set
             {
                 this.tenderLineWholesalers = value;
+            }
+        }
+
+        public virtual ISet<TenderLineCompetitor> TenderLineCompetitors
+        {
+            get
+            {
+                if (this.tenderLineCompetitors == null)
+                    this.tenderLineCompetitors = new HashedSet<TenderLineCompetitor>();
+
+                return this.tenderLineCompetitors;
+            }
+            set
+            {
+                this.tenderLineCompetitors = value;
             }
         }
     }
