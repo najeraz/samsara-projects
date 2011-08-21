@@ -10,6 +10,8 @@
     </id>
 
     <property name="Name"/>
+    <property name="ExpirationDate"/>
+    <property name="Amount"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>

@@ -202,6 +202,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetExchangeRates_InitializeLayout);
             this.frmTender.grdDetExchangeRates.BeforeCellUpdate +=
                 new BeforeCellUpdateEventHandler(grdDetExchangeRates_BeforeCellUpdate);
+            this.frmTender.grdDetExchangeRates.AfterCellUpdate
+                += new CellEventHandler(grdDetExchangeRates_AfterCellUpdate);
             TenderExchangeRateParameters pmtTenderExchangeRate = new TenderExchangeRateParameters();
             pmtTenderExchangeRate.TenderId = ParameterConstants.IntNone;
             this.dtTenderExchangeRates = this.srvTenderExchangeRate.CustomSearchByParameters(
@@ -953,7 +955,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderId"] = tenderWarranty.Tender.TenderId;
                 row["TenderWarrantyId"] = tenderWarranty.TenderWarrantyId;
                 row["WarrantyTypeId"] = tenderWarranty.WarrantyType.WarrantyTypeId;
-                row["ExpirationDate"] = tenderWarranty.ExpirationDate;
+                if (tenderWarranty.ExpirationDate == null)
+                    row["ExpirationDate"] = DBNull.Value;
+                else
+                    row["ExpirationDate"] = tenderWarranty.ExpirationDate;
                 row["Amount"] = tenderWarranty.Amount;
             }
 
@@ -2035,6 +2040,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
+        private void grdDetExchangeRates_AfterCellUpdate(object sender, EventArgs e)
+        {
+            foreach (UltraGridRow row in this.frmTender.grdDetPriceComparison.Rows)
+            {
+                this.frmTender.grdDetPriceComparison.ActiveRow = row;
+                this.SelectedWholesalerEditor_SelectionChanged(null, null);
+            }
+        }
+
         private void grdDetPricingStrategy_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTender.grdDetPricingStrategy.DisplayLayout;
@@ -2124,6 +2138,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"], WindowsFormsUtil.GridCellFormat.Currency);
 
             WindowsFormsUtil.SetUltraGridValueList<WarrantyType>(layout,
                 lstWarrantyTypes, band.Columns["WarrantyTypeId"], "WarrantyTypeId", "Name", "Seleccione");
