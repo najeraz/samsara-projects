@@ -822,6 +822,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.oscDetRelatedOpportunity.Clear();
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
+            this.dtTenderFiles.Rows.Clear();
             this.dtTenderLines.Rows.Clear();
             this.dtTenderCompetitors.Rows.Clear();
             this.dtTenderWholesalers.Rows.Clear();
@@ -2439,9 +2440,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             UltraGridCell activeCell = this.frmTender.grdDetPreresults.ActiveCell;
 
+            string strColumnName = activeCell.Column.Key;
+
+            if (activeCell.Column.Key.EndsWith("C"))
+                strColumnName = strColumnName.Replace("C", "");
+
             this.tenderLineCompetitor.Price = this.frmTender.umskDetPreresultPrice.Text.Trim() == string.Empty ?
                 null : (Nullable<Decimal>)Convert.ToDecimal(this.frmTender.umskDetPreresultPrice.Text) *
-                this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[activeCell.Column.Key + "C"].Value));
+                this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[strColumnName + "C"].Value));
             this.tenderLineCompetitor.Manufacturer = this.frmTender.txtDetPreresultManufacturer.Text;
             this.tenderLineCompetitor.Description = this.frmTender.txtDetPreresultsComments.Text;
             this.tenderLineCompetitor.Currency
@@ -2452,7 +2458,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             else
                 activeCell.Value = this.tenderLineCompetitor.Price;
 
-            activeCell.Row.Cells[activeCell.Column.Key + "C"].Value
+            activeCell.Row.Cells[strColumnName + "C"].Value
                 = this.frmTender.uceDetPreresultCurrency.Value;
 
             this.ShowPreresultsDetail(false);
@@ -2487,12 +2493,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetNewTenderFile_Click(object sender, EventArgs e)
         {
+            this.ClearTenderFilesDetail();
             this.ShowTenderFilesDetail(true);
         }
 
         private void ubtnDetCancelTenderFile_Click(object sender, EventArgs e)
         {
-            this.ClearTenderFilesDetail();
             this.ShowTenderFilesDetail(false);
         }
 
