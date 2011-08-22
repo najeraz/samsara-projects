@@ -289,6 +289,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtPricingStrategy.PricingStrategyId = ParameterConstants.IntNone;
             this.dtPricingStrategy = this.srvPricingStrategy.SearchByParameters(pmtPricingStrategy);
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineName", typeof(string)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("RealPrice", typeof(decimal)));
             this.frmTender.grdDetPricingStrategy.DataSource = null;
             this.frmTender.grdDetPricingStrategy.DataSource = dtPricingStrategy;
 
@@ -2428,6 +2429,26 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPreresults.Enabled = true;
             this.frmTender.upnlDetPreresults.Visible = false;
             this.frmTender.gbxDetCommentsPreresults.Visible = true;
+        }
+
+        private void ubtnDetDeleteTenderFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ubtnDetNewTenderFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ubtnDeCancelTenderFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ubtnDetCreateTenderFile_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion Events

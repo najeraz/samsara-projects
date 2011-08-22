@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities.Domain">
+  
+  <class name="TenderFile" table="TenderFiles">
+    
+    <id name="TenderFileId" type="int">
+      <generator class="native"/>
+    </id>
+    
+    <property name="File"/>
+    <property name="Filename"/>
+    <property name="Description"/>
+
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
+    
+  </class>
+
+  <query name="TenderFile.GetListByParameters">
+    <![CDATA[
+        from TenderFile where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="TenderFile.SearchByParameters">
+    <![CDATA[
+        from TenderFile where Deleted = 0 and Activated = 1
+        and TenderId = :TenderId
+    ]]>
+  </query>
+
+</hibernate-mapping>

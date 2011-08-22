@@ -9,6 +9,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
     {
         private ISet<TenderLog> tenderLogs;
         private ISet<TenderLine> tenderLines;
+        private ISet<TenderFile> tenderFiles;
         private ISet<TenderWarranty> tenderWarranties;
         private ISet<TenderCompetitor> tenderCompetitors;
         private ISet<TenderWholesaler> tenderWholesalers;
@@ -156,6 +157,21 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set
             {
                 this.tenderLines = value;
+            }
+        }
+
+        public virtual ISet<TenderFile> TenderFiles
+        {
+            get
+            {
+                if (this.tenderFiles == null)
+                    this.tenderFiles = new HashedSet<TenderFile>();
+
+                return this.tenderFiles;
+            }
+            set
+            {
+                this.tenderFiles = value;
             }
         }
 
