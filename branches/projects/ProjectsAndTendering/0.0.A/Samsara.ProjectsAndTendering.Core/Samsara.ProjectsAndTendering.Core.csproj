@@ -85,6 +85,7 @@
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\Domain\Competitor.cs" />
+    <Compile Include="Entities\Domain\TenderFile.cs" />
     <Compile Include="Entities\Domain\TenderLineCompetitor.cs" />
     <Compile Include="Entities\Domain\PricingStrategy.cs" />
     <Compile Include="Entities\Domain\TenderExchangeRate.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Parameters\Domain\AsesorParameters.cs" />
     <Compile Include="Parameters\Domain\BidderTypeParameters.cs" />
     <Compile Include="Parameters\Domain\CompetitorParameters.cs" />
+    <Compile Include="Parameters\Domain\TenderFileParameters.cs" />
     <Compile Include="Parameters\Domain\PricingStrategyParameters.cs" />
     <Compile Include="Parameters\Domain\TenderExchangeRateParameters.cs" />
     <Compile Include="Parameters\Domain\DocumentWarrantyTypeParameters.cs" />
@@ -267,6 +269,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderLineCompetitor.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\TenderFile.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

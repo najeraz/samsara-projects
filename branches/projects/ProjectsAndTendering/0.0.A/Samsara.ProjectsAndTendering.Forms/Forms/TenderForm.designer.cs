@@ -268,6 +268,8 @@
             this.txtDetPricingStrategy = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.Preresultados = new System.Windows.Forms.TabPage();
             this.grdDetPreresults = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.gbxDetCommentsPreresults = new System.Windows.Forms.GroupBox();
+            this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.upnlDetPreresults = new Infragistics.Win.Misc.UltraPanel();
             this.gbxDetPreresults = new System.Windows.Forms.GroupBox();
             this.uceDetPreresultCurrency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
@@ -292,13 +294,15 @@
             this.Files = new System.Windows.Forms.TabPage();
             this.grdDetTenderFiles = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.pnlDetTenderFiles = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDetFileName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxDetFileDescription = new System.Windows.Forms.GroupBox();
+            this.txtDetFileDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ubtnDetCreateTenderFile = new Infragistics.Win.Misc.UltraButton();
             this.ubtnDeCancelTenderFile = new Infragistics.Win.Misc.UltraButton();
             this.gbxDetSearchFile = new System.Windows.Forms.GroupBox();
             this.btnDetSearchFile = new System.Windows.Forms.Button();
             this.txtDetFilePath = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblDetFileName = new System.Windows.Forms.Label();
-            this.txtDetFileName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetTenderFilesButtons = new System.Windows.Forms.Panel();
             this.upSeparatorDeleteTenderFile = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetDeleteTenderFile = new Infragistics.Win.Misc.UltraButton();
@@ -323,8 +327,6 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.gbxDetCommentsPreresults = new System.Windows.Forms.GroupBox();
-            this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -404,6 +406,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).BeginInit();
             this.Preresultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetPreresults)).BeginInit();
+            this.gbxDetCommentsPreresults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).BeginInit();
             this.upnlDetPreresults.ClientArea.SuspendLayout();
             this.upnlDetPreresults.SuspendLayout();
             this.gbxDetPreresults.SuspendLayout();
@@ -423,9 +427,12 @@
             this.Files.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderFiles)).BeginInit();
             this.pnlDetTenderFiles.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileName)).BeginInit();
+            this.gbxDetFileDescription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileDescription)).BeginInit();
             this.gbxDetSearchFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetFilePath)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileName)).BeginInit();
             this.pnlDetTenderFilesButtons.SuspendLayout();
             this.upSeparatorDeleteTenderFile.SuspendLayout();
             this.upSeparatorCreateTenderFile.SuspendLayout();
@@ -441,14 +448,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
-            this.gbxDetCommentsPreresults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 387);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -1773,7 +1777,7 @@
             this.gbxDetPriceComparison.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDetPriceComparison.Location = new System.Drawing.Point(0, 0);
             this.gbxDetPriceComparison.Name = "gbxDetPriceComparison";
-            this.gbxDetPriceComparison.Size = new System.Drawing.Size(421, 120);
+            this.gbxDetPriceComparison.Size = new System.Drawing.Size(427, 120);
             this.gbxDetPriceComparison.TabIndex = 78;
             this.gbxDetPriceComparison.TabStop = false;
             this.gbxDetPriceComparison.Text = "Comentarios:";
@@ -1786,7 +1790,7 @@
             this.txtDetPriceComparison.Multiline = true;
             this.txtDetPriceComparison.Name = "txtDetPriceComparison";
             this.txtDetPriceComparison.Scrollbars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDetPriceComparison.Size = new System.Drawing.Size(415, 101);
+            this.txtDetPriceComparison.Size = new System.Drawing.Size(421, 101);
             this.txtDetPriceComparison.TabIndex = 75;
             this.txtDetPriceComparison.WordWrap = false;
             // 
@@ -1794,9 +1798,9 @@
             // 
             this.gbxDetExchangeRates.Controls.Add(this.grdDetExchangeRates);
             this.gbxDetExchangeRates.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbxDetExchangeRates.Location = new System.Drawing.Point(421, 0);
+            this.gbxDetExchangeRates.Location = new System.Drawing.Point(427, 0);
             this.gbxDetExchangeRates.Name = "gbxDetExchangeRates";
-            this.gbxDetExchangeRates.Size = new System.Drawing.Size(307, 120);
+            this.gbxDetExchangeRates.Size = new System.Drawing.Size(301, 120);
             this.gbxDetExchangeRates.TabIndex = 84;
             this.gbxDetExchangeRates.TabStop = false;
             this.gbxDetExchangeRates.Text = "Tipos de cambio:";
@@ -1861,7 +1865,7 @@
             this.grdDetExchangeRates.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetExchangeRates.Location = new System.Drawing.Point(3, 16);
             this.grdDetExchangeRates.Name = "grdDetExchangeRates";
-            this.grdDetExchangeRates.Size = new System.Drawing.Size(301, 101);
+            this.grdDetExchangeRates.Size = new System.Drawing.Size(295, 101);
             this.grdDetExchangeRates.TabIndex = 84;
             this.grdDetExchangeRates.Text = "samsaraUltraGrid1";
             // 
@@ -2039,6 +2043,29 @@
             this.grdDetPreresults.Size = new System.Drawing.Size(728, 74);
             this.grdDetPreresults.TabIndex = 82;
             this.grdDetPreresults.Text = "samsaraUltraGrid1";
+            // 
+            // gbxDetCommentsPreresults
+            // 
+            this.gbxDetCommentsPreresults.Controls.Add(this.txtDetPreResults);
+            this.gbxDetCommentsPreresults.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetCommentsPreresults.Location = new System.Drawing.Point(0, 74);
+            this.gbxDetCommentsPreresults.Name = "gbxDetCommentsPreresults";
+            this.gbxDetCommentsPreresults.Size = new System.Drawing.Size(728, 120);
+            this.gbxDetCommentsPreresults.TabIndex = 85;
+            this.gbxDetCommentsPreresults.TabStop = false;
+            this.gbxDetCommentsPreresults.Text = "Comentarios:";
+            // 
+            // txtDetPreResults
+            // 
+            this.txtDetPreResults.AlwaysInEditMode = true;
+            this.txtDetPreResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetPreResults.Location = new System.Drawing.Point(3, 16);
+            this.txtDetPreResults.Multiline = true;
+            this.txtDetPreResults.Name = "txtDetPreResults";
+            this.txtDetPreResults.Scrollbars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDetPreResults.Size = new System.Drawing.Size(722, 101);
+            this.txtDetPreResults.TabIndex = 75;
+            this.txtDetPreResults.WordWrap = false;
             // 
             // upnlDetPreresults
             // 
@@ -2327,27 +2354,64 @@
             this.grdDetTenderFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderFiles.Location = new System.Drawing.Point(0, 0);
             this.grdDetTenderFiles.Name = "grdDetTenderFiles";
-            this.grdDetTenderFiles.Size = new System.Drawing.Size(736, 226);
+            this.grdDetTenderFiles.Size = new System.Drawing.Size(736, 176);
             this.grdDetTenderFiles.TabIndex = 3;
             this.grdDetTenderFiles.Text = "samsaraUltraGrid1";
             // 
             // pnlDetTenderFiles
             // 
+            this.pnlDetTenderFiles.Controls.Add(this.groupBox1);
+            this.pnlDetTenderFiles.Controls.Add(this.gbxDetFileDescription);
             this.pnlDetTenderFiles.Controls.Add(this.ubtnDetCreateTenderFile);
             this.pnlDetTenderFiles.Controls.Add(this.ubtnDeCancelTenderFile);
             this.pnlDetTenderFiles.Controls.Add(this.gbxDetSearchFile);
-            this.pnlDetTenderFiles.Controls.Add(this.lblDetFileName);
-            this.pnlDetTenderFiles.Controls.Add(this.txtDetFileName);
             this.pnlDetTenderFiles.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetTenderFiles.Location = new System.Drawing.Point(0, 226);
+            this.pnlDetTenderFiles.Location = new System.Drawing.Point(0, 176);
             this.pnlDetTenderFiles.Name = "pnlDetTenderFiles";
-            this.pnlDetTenderFiles.Size = new System.Drawing.Size(736, 88);
+            this.pnlDetTenderFiles.Size = new System.Drawing.Size(736, 138);
             this.pnlDetTenderFiles.TabIndex = 5;
             this.pnlDetTenderFiles.Visible = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtDetFileName);
+            this.groupBox1.Location = new System.Drawing.Point(408, 57);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(325, 42);
+            this.groupBox1.TabIndex = 76;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nombre del archivo:";
+            // 
+            // txtDetFileName
+            // 
+            this.txtDetFileName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetFileName.Location = new System.Drawing.Point(3, 16);
+            this.txtDetFileName.Name = "txtDetFileName";
+            this.txtDetFileName.Size = new System.Drawing.Size(319, 21);
+            this.txtDetFileName.TabIndex = 12;
+            // 
+            // gbxDetFileDescription
+            // 
+            this.gbxDetFileDescription.Controls.Add(this.txtDetFileDescription);
+            this.gbxDetFileDescription.Location = new System.Drawing.Point(9, 55);
+            this.gbxDetFileDescription.Name = "gbxDetFileDescription";
+            this.gbxDetFileDescription.Size = new System.Drawing.Size(393, 75);
+            this.gbxDetFileDescription.TabIndex = 75;
+            this.gbxDetFileDescription.TabStop = false;
+            this.gbxDetFileDescription.Text = "Comentarios:";
+            // 
+            // txtDetFileDescription
+            // 
+            this.txtDetFileDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetFileDescription.Location = new System.Drawing.Point(3, 16);
+            this.txtDetFileDescription.Multiline = true;
+            this.txtDetFileDescription.Name = "txtDetFileDescription";
+            this.txtDetFileDescription.Size = new System.Drawing.Size(387, 56);
+            this.txtDetFileDescription.TabIndex = 0;
+            // 
             // ubtnDetCreateTenderFile
             // 
-            this.ubtnDetCreateTenderFile.Location = new System.Drawing.Point(550, 53);
+            this.ubtnDetCreateTenderFile.Location = new System.Drawing.Point(550, 105);
             this.ubtnDetCreateTenderFile.Name = "ubtnDetCreateTenderFile";
             this.ubtnDetCreateTenderFile.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateTenderFile.TabIndex = 58;
@@ -2356,7 +2420,7 @@
             // 
             // ubtnDeCancelTenderFile
             // 
-            this.ubtnDeCancelTenderFile.Location = new System.Drawing.Point(643, 53);
+            this.ubtnDeCancelTenderFile.Location = new System.Drawing.Point(643, 105);
             this.ubtnDeCancelTenderFile.Name = "ubtnDeCancelTenderFile";
             this.ubtnDeCancelTenderFile.Size = new System.Drawing.Size(77, 25);
             this.ubtnDeCancelTenderFile.TabIndex = 58;
@@ -2391,22 +2455,6 @@
             this.txtDetFilePath.ReadOnly = true;
             this.txtDetFilePath.Size = new System.Drawing.Size(683, 21);
             this.txtDetFilePath.TabIndex = 12;
-            // 
-            // lblDetFileName
-            // 
-            this.lblDetFileName.AutoSize = true;
-            this.lblDetFileName.Location = new System.Drawing.Point(6, 61);
-            this.lblDetFileName.Name = "lblDetFileName";
-            this.lblDetFileName.Size = new System.Drawing.Size(102, 13);
-            this.lblDetFileName.TabIndex = 56;
-            this.lblDetFileName.Text = "Nombre del archivo:";
-            // 
-            // txtDetFileName
-            // 
-            this.txtDetFileName.Location = new System.Drawing.Point(114, 57);
-            this.txtDetFileName.Name = "txtDetFileName";
-            this.txtDetFileName.Size = new System.Drawing.Size(417, 21);
-            this.txtDetFileName.TabIndex = 12;
             // 
             // pnlDetTenderFilesButtons
             // 
@@ -2636,29 +2684,6 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
-            // gbxDetCommentsPreresults
-            // 
-            this.gbxDetCommentsPreresults.Controls.Add(this.txtDetPreResults);
-            this.gbxDetCommentsPreresults.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxDetCommentsPreresults.Location = new System.Drawing.Point(0, 74);
-            this.gbxDetCommentsPreresults.Name = "gbxDetCommentsPreresults";
-            this.gbxDetCommentsPreresults.Size = new System.Drawing.Size(728, 120);
-            this.gbxDetCommentsPreresults.TabIndex = 85;
-            this.gbxDetCommentsPreresults.TabStop = false;
-            this.gbxDetCommentsPreresults.Text = "Comentarios:";
-            // 
-            // txtDetPreResults
-            // 
-            this.txtDetPreResults.AlwaysInEditMode = true;
-            this.txtDetPreResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetPreResults.Location = new System.Drawing.Point(3, 16);
-            this.txtDetPreResults.Multiline = true;
-            this.txtDetPreResults.Name = "txtDetPreResults";
-            this.txtDetPreResults.Scrollbars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDetPreResults.Size = new System.Drawing.Size(722, 101);
-            this.txtDetPreResults.TabIndex = 75;
-            this.txtDetPreResults.WordWrap = false;
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2752,6 +2777,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).EndInit();
             this.Preresultados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetPreresults)).EndInit();
+            this.gbxDetCommentsPreresults.ResumeLayout(false);
+            this.gbxDetCommentsPreresults.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).EndInit();
             this.upnlDetPreresults.ClientArea.ResumeLayout(false);
             this.upnlDetPreresults.ResumeLayout(false);
             this.gbxDetPreresults.ResumeLayout(false);
@@ -2774,11 +2802,15 @@
             this.Files.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderFiles)).EndInit();
             this.pnlDetTenderFiles.ResumeLayout(false);
-            this.pnlDetTenderFiles.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileName)).EndInit();
+            this.gbxDetFileDescription.ResumeLayout(false);
+            this.gbxDetFileDescription.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileDescription)).EndInit();
             this.gbxDetSearchFile.ResumeLayout(false);
             this.gbxDetSearchFile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetFilePath)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileName)).EndInit();
             this.pnlDetTenderFilesButtons.ResumeLayout(false);
             this.upSeparatorDeleteTenderFile.ResumeLayout(false);
             this.upSeparatorCreateTenderFile.ResumeLayout(false);
@@ -2795,9 +2827,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
-            this.gbxDetCommentsPreresults.ResumeLayout(false);
-            this.gbxDetCommentsPreresults.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreResults)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2913,7 +2942,6 @@
         private System.Windows.Forms.Panel pnlDetTenderFiles;
         private System.Windows.Forms.GroupBox gbxDetSearchFile;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFilePath;
-        internal System.Windows.Forms.Label lblDetFileName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFileName;
         private System.Windows.Forms.Button btnDetSearchFile;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateTenderFile;
@@ -2961,6 +2989,9 @@
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPreresultCurrency;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreResults;
         internal System.Windows.Forms.GroupBox gbxDetCommentsPreresults;
+        internal System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.GroupBox gbxDetFileDescription;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFileDescription;
     }
 }
 
