@@ -306,6 +306,8 @@
             this.pnlDetTenderFilesButtons = new System.Windows.Forms.Panel();
             this.upSeparatorDeleteTenderFile = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetDeleteTenderFile = new Infragistics.Win.Misc.UltraButton();
+            this.upnlDetSeparatorDownloadTenderFile = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDownloadTenderFile = new Infragistics.Win.Misc.UltraButton();
             this.upSeparatorCreateTenderFile = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetNewTenderFile = new Infragistics.Win.Misc.UltraButton();
             this.upSeparatorTenderFiles = new Infragistics.Win.Misc.UltraPanel();
@@ -327,8 +329,6 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.upnlDetSeparatorDownloadTenderFile = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDownloadTenderFile = new Infragistics.Win.Misc.UltraButton();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -437,6 +437,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDetFilePath)).BeginInit();
             this.pnlDetTenderFilesButtons.SuspendLayout();
             this.upSeparatorDeleteTenderFile.SuspendLayout();
+            this.upnlDetSeparatorDownloadTenderFile.SuspendLayout();
             this.upSeparatorCreateTenderFile.SuspendLayout();
             this.upSeparatorTenderFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).BeginInit();
@@ -450,7 +451,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
-            this.upnlDetSeparatorDownloadTenderFile.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -2420,7 +2420,6 @@
             this.ubtnDetCreateTenderFile.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateTenderFile.TabIndex = 58;
             this.ubtnDetCreateTenderFile.Text = "Guardar";
-            this.ubtnDetCreateTenderFile.Visible = false;
             // 
             // ubtnDetCancelTenderFile
             // 
@@ -2429,7 +2428,6 @@
             this.ubtnDetCancelTenderFile.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCancelTenderFile.TabIndex = 58;
             this.ubtnDetCancelTenderFile.Text = "Cancelar";
-            this.ubtnDetCancelTenderFile.Visible = false;
             // 
             // gbxDetSearchFile
             // 
@@ -2491,6 +2489,23 @@
             this.ubtnDetDeleteTenderFile.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteTenderFile.TabIndex = 9;
             this.ubtnDetDeleteTenderFile.Text = "Borrar";
+            // 
+            // upnlDetSeparatorDownloadTenderFile
+            // 
+            this.upnlDetSeparatorDownloadTenderFile.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlDetSeparatorDownloadTenderFile.Location = new System.Drawing.Point(534, 0);
+            this.upnlDetSeparatorDownloadTenderFile.Name = "upnlDetSeparatorDownloadTenderFile";
+            this.upnlDetSeparatorDownloadTenderFile.Size = new System.Drawing.Size(16, 25);
+            this.upnlDetSeparatorDownloadTenderFile.TabIndex = 14;
+            // 
+            // ubtnDetDownloadTenderFile
+            // 
+            this.ubtnDetDownloadTenderFile.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDownloadTenderFile.Location = new System.Drawing.Point(550, 0);
+            this.ubtnDetDownloadTenderFile.Name = "ubtnDetDownloadTenderFile";
+            this.ubtnDetDownloadTenderFile.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDownloadTenderFile.TabIndex = 13;
+            this.ubtnDetDownloadTenderFile.Text = "Descargar";
             // 
             // upSeparatorCreateTenderFile
             // 
@@ -2690,23 +2705,6 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
-            // upnlDetSeparatorDownloadTenderFile
-            // 
-            this.upnlDetSeparatorDownloadTenderFile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlDetSeparatorDownloadTenderFile.Location = new System.Drawing.Point(534, 0);
-            this.upnlDetSeparatorDownloadTenderFile.Name = "upnlDetSeparatorDownloadTenderFile";
-            this.upnlDetSeparatorDownloadTenderFile.Size = new System.Drawing.Size(16, 25);
-            this.upnlDetSeparatorDownloadTenderFile.TabIndex = 14;
-            // 
-            // ubtnDetDownloadTenderFile
-            // 
-            this.ubtnDetDownloadTenderFile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDownloadTenderFile.Location = new System.Drawing.Point(550, 0);
-            this.ubtnDetDownloadTenderFile.Name = "ubtnDetDownloadTenderFile";
-            this.ubtnDetDownloadTenderFile.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDownloadTenderFile.TabIndex = 13;
-            this.ubtnDetDownloadTenderFile.Text = "Descargar";
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2836,6 +2834,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDetFilePath)).EndInit();
             this.pnlDetTenderFilesButtons.ResumeLayout(false);
             this.upSeparatorDeleteTenderFile.ResumeLayout(false);
+            this.upnlDetSeparatorDownloadTenderFile.ResumeLayout(false);
             this.upSeparatorCreateTenderFile.ResumeLayout(false);
             this.upSeparatorTenderFiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).EndInit();
@@ -2850,7 +2849,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
-            this.upnlDetSeparatorDownloadTenderFile.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2965,7 +2963,6 @@
         private System.Windows.Forms.GroupBox gbxDetSearchFile;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFilePath;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFileName;
-        private System.Windows.Forms.Button btnDetSearchFile;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateTenderFile;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCancelTenderFile;
         private Infragistics.Win.Misc.UltraPanel upnlDetPriceComparison;
@@ -3018,6 +3015,7 @@
         internal System.Windows.Forms.Panel pnlDetTenderFilesButtons;
         private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorDownloadTenderFile;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDownloadTenderFile;
+        internal System.Windows.Forms.Button btnDetSearchFile;
     }
 }
 

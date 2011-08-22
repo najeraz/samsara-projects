@@ -346,6 +346,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetCreateTenderFile.Click += new EventHandler(ubtnDetCreateTenderFile_Click);
             this.frmTender.ubtnDetDeleteTenderFile.Click += new EventHandler(ubtnDetDeleteTenderFile_Click);
             this.frmTender.ubtnDetNewTenderFile.Click += new EventHandler(ubtnDetNewTenderFile_Click);
+            this.frmTender.btnDetSearchFile.Click += new EventHandler(btnDetSearchFile_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -2499,7 +2500,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             TenderFile tenderFile = new TenderFile();
 
-            tenderFile.Description = this.frmTender.gbxDetFileDescription.Text;
+            tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
             tenderFile.Filename = this.frmTender.txtDetFileName.Text;
             tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
             tenderFile.Tender = this.tender;
@@ -2531,6 +2532,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["FileSize"],
                 WindowsFormsUtil.GridCellFormat.FileSize);
+        }
+
+        private void btnDetSearchFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                this.frmTender.txtDetFilePath.Text = dialog.FileName;
+                this.frmTender.txtDetFileName.Text = dialog.FileName
+                    .Substring(dialog.FileName.LastIndexOf("\\") + 1);
+            }
         }
 
         #endregion Events
