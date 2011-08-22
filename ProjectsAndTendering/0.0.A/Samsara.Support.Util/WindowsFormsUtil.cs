@@ -18,7 +18,8 @@ namespace Samsara.Support.Util
             Percentage,
             NoLimitPercentage,
             NaturalQuantity,
-            RealQuantity
+            RealQuantity,
+            FileSize
         }
         
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
@@ -26,6 +27,7 @@ namespace Samsara.Support.Util
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn";
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn";
+        private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn KB";
         private static string rateMask = "{double:4.12}";
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
@@ -96,6 +98,11 @@ namespace Samsara.Support.Util
                     break;
                 case GridCellFormat.NoLimitPercentage:
                     column.MaskInput = noLimitPercentageMask;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case GridCellFormat.FileSize:
+                    column.MaskInput = fileSizeMask;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;

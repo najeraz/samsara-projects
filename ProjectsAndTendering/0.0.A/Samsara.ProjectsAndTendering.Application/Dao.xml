@@ -158,6 +158,10 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.PricingStrategyDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ITenderFileDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.Domain.TenderFileDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
   <object id="IFormConfigurationDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.Configuration.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">

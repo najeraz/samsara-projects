@@ -109,6 +109,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.PricingStrategyService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IPricingStrategyDao"/>
   </object>
+  <object id="ITenderFileService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderFileService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderFileDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">

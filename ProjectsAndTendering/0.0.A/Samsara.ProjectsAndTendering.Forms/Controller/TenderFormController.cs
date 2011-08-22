@@ -40,6 +40,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IWholesalerService srvWholesaler;
         private ITenderLineService srvTenderLine;
         private IDependencyService srvDependency;
+        private ITenderFileService srvTenderFile;
         private ITenderStatusService srvTenderStatus;
         private IManufacturerService srvManufacturer;
         private IWarrantyTypeService srvWarrantyType;
@@ -54,6 +55,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private DataTable dtTenderLog;
         private DataTable dtPreresults;
         private DataTable dtTenderLines;
+        private DataTable dtTenderFiles;
         private DataTable dtPriceComparison;
         private DataTable dtPricingStrategy;
         private DataTable dtTenderWarranties;
@@ -61,7 +63,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private DataTable dtTenderWholesalers;
         private DataTable dtTenderManufacturers;
         private DataTable dtTenderExchangeRates;
-        
+
         #endregion Attributes
 
         #region Constructor
@@ -109,6 +111,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvWarrantyType);
             this.srvDocumentTypeWarranty = SamsaraAppContext.Resolve<IDocumentTypeWarrantyService>();
             Assert.IsNotNull(this.srvDocumentTypeWarranty);
+            this.srvTenderFile = SamsaraAppContext.Resolve<ITenderFileService>();
+            Assert.IsNotNull(this.srvTenderFile);
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             pmtCurrency.IsDefault = true;
@@ -125,7 +129,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         }
 
         #endregion Constructor
-        
+
         #region Methods
 
         private void InitializeFormControls()
@@ -194,9 +198,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetTenderLines
             this.frmTender.grdDetTenderLines.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderLines_InitializeLayout);
-            this.frmTender.grdDetTenderLines.BeforeCellUpdate 
+            this.frmTender.grdDetTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderLines_BeforeCellUpdate);
-            this.frmTender.grdDetTenderLines.AfterCellUpdate 
+            this.frmTender.grdDetTenderLines.AfterCellUpdate
                 += new CellEventHandler(grdDetTenderLines_AfterCellUpdate);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
@@ -221,7 +225,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetTenderCompetitors
             this.frmTender.grdDetTenderCompetitors.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderCompetitors_InitializeLayout);
-            this.frmTender.grdDetTenderCompetitors.AfterCellUpdate 
+            this.frmTender.grdDetTenderCompetitors.AfterCellUpdate
                 += new CellEventHandler(grdDetTenderCompetitors_AfterCellUpdate);
             this.frmTender.grdDetTenderCompetitors.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderCompetitors_BeforeCellUpdate);
@@ -242,6 +246,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetTenderWarranties.DataSource = null;
             this.frmTender.grdDetTenderWarranties.DataSource = dtTenderWarranties;
 
+            //grdDetTenderFiles
+            this.frmTender.grdDetTenderFiles.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetTenderFiles_InitializeLayout);
+            TenderFileParameters pmtTenderFile = new TenderFileParameters();
+            pmtTenderFile.TenderId = ParameterConstants.IntNone;
+            this.dtTenderFiles = this.srvTenderFile.SearchByParameters(pmtTenderFile);
+            this.frmTender.grdDetTenderFiles.DataSource = null;
+            this.frmTender.grdDetTenderFiles.DataSource = this.dtTenderFiles;
+
             //grdDetTenderWholesalers
             this.frmTender.grdDetTenderWholesalers.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderWholesalers_InitializeLayout);
@@ -260,7 +273,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetTenderManufacturers_InitializeLayout);
             this.frmTender.grdDetTenderManufacturers.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderManufacturers_BeforeCellUpdate);
-            this.frmTender.grdDetTenderManufacturers.AfterCellUpdate 
+            this.frmTender.grdDetTenderManufacturers.AfterCellUpdate
                 += new CellEventHandler(grdDetTenderManufacturers_AfterCellUpdate);
             TenderManufacturerParameters pmtSearchTenderManufacturers
                 = new TenderManufacturerParameters();
@@ -283,7 +296,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetPricingStrategy
             this.frmTender.grdDetPricingStrategy.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetPricingStrategy_InitializeLayout);
-            this.frmTender.grdDetPricingStrategy.AfterCellUpdate 
+            this.frmTender.grdDetPricingStrategy.AfterCellUpdate
                 += new CellEventHandler(grdDetPricingStrategy_AfterCellUpdate);
             PricingStrategyParameters pmtPricingStrategy = new PricingStrategyParameters();
             pmtPricingStrategy.PricingStrategyId = ParameterConstants.IntNone;
@@ -296,7 +309,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             //grdDetPreresults
             this.frmTender.grdDetPreresults.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetPreresults_InitializeLayout);
-            this.frmTender.grdDetPreresults.DoubleClickCell += 
+            this.frmTender.grdDetPreresults.DoubleClickCell +=
                 new DoubleClickCellEventHandler(grdDetPreresults_DoubleClickCell);
 
             //grdDetLog
@@ -329,6 +342,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetCancelPreresult.Click += new EventHandler(ubtnDetCancelPreresult_Click);
             this.frmTender.ubtnDetSavePreresult.Click += new EventHandler(ubtnDetSavePreresult_Click);
             this.frmTender.ubtnDetDeletePreresult.Click += new EventHandler(ubtnDetDeletePreresult_Click);
+            this.frmTender.ubtnDetCancelTenderFile.Click += new EventHandler(ubtnDetCancelTenderFile_Click);
+            this.frmTender.ubtnDetCreateTenderFile.Click += new EventHandler(ubtnDetCreateTenderFile_Click);
+            this.frmTender.ubtnDetDeleteTenderFile.Click += new EventHandler(ubtnDetDeleteTenderFile_Click);
+            this.frmTender.ubtnDetNewTenderFile.Click += new EventHandler(ubtnDetNewTenderFile_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -358,7 +375,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmTender.tabDetDetail.SelectedTab = 
+                this.frmTender.tabDetDetail.SelectedTab =
                     this.frmTender.tabDetDetail.TabPages["Principal"];
                 this.frmTender.uceDetBidder.Focus();
                 return false;
@@ -368,7 +385,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 MessageBox.Show("Favor de elegir un nombre para la Licitación.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmTender.tabDetDetail.SelectedTab = 
+                this.frmTender.tabDetDetail.SelectedTab =
                     this.frmTender.tabDetDetail.TabPages["Principal"];
                 this.frmTender.txtDetTenderName.Focus();
                 return false;
@@ -387,7 +404,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     return false;
                 }
 
-                if (row["Quantity"].ToString().Trim() == string.Empty 
+                if (row["Quantity"].ToString().Trim() == string.Empty
                     || Convert.ToDecimal(row["Quantity"]) <= 0)
                 {
                     MessageBox.Show("Debe poner una cantidad correcta por partida.",
@@ -545,7 +562,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.tender.TenderWarranties.Add(tenderWarranty);
                 }
 
-                tenderWarranty.WarrantyType 
+                tenderWarranty.WarrantyType
                     = this.srvWarrantyType.GetById(Convert.ToInt32(row["WarrantyTypeId"]));
                 tenderWarranty.DocumentTypeWarranty
                     = this.srvDocumentTypeWarranty.GetById(Convert.ToInt32(row["DocumentTypeWarrantyId"]));
@@ -866,7 +883,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadFormFromEntity()
         {
-            this.frmTender.uceDetApprovedBy.Value = 
+            this.frmTender.uceDetApprovedBy.Value =
                 this.tender.ApprovedBy == null ? -1 : this.tender.ApprovedBy.AsesorId;
             this.frmTender.uceDetAsesor.Value =
                 this.tender.Asesor == null ? -1 : this.tender.Asesor.AsesorId;
@@ -886,7 +903,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.txtDetResults.Text = this.tender.Results;
             this.frmTender.txtDetTenderName.Text = this.tender.Name;
             if (this.tender.ClarificationDate.HasValue)
-                this.frmTender.dteDetClarificationDate.Value =  this.tender.ClarificationDate.Value;
+                this.frmTender.dteDetClarificationDate.Value = this.tender.ClarificationDate.Value;
             if (this.tender.Deadline.HasValue)
                 this.frmTender.dteDetDeadline.Value = this.tender.Deadline.Value;
             if (this.tender.PreRevisionDate.HasValue)
@@ -1203,7 +1220,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPriceComparison.DataSource = null;
             this.frmTender.grdDetPriceComparison.DataSource = dtPriceComparison;
         }
-        
+
         private void UpdatePreresultsGrid()
         {
             int intColumnName;
@@ -1437,7 +1454,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
             }
         }
-        
+
         private Manufacturer GetManufacturer(int manufacturerId)
         {
             Manufacturer manufacturer = null;
@@ -1493,16 +1510,37 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (sourceCurrencyId == this.defaultCurrency.CurrencyId)
                 return 1;
             else
-                return Convert.ToDecimal(this.dtTenderExchangeRates.AsEnumerable().Single(x => 
+                return Convert.ToDecimal(this.dtTenderExchangeRates.AsEnumerable().Single(x =>
                     Convert.ToInt32(x["SourceCurrency.CurrencyId"]) == sourceCurrencyId
                     && Convert.ToInt32(x["DestinyCurrency.CurrencyId"]) == this.defaultCurrency.CurrencyId)
                     ["Rate"]);
         }
 
+        private void ShowPreresultsDetail(bool show)
+        {
+            this.frmTender.grdDetPreresults.Enabled = !show;
+            this.frmTender.upnlDetPreresults.Visible = show;
+            this.frmTender.gbxDetCommentsPreresults.Visible = !show;
+        }
+
+        private void ShowTenderFilesDetail(bool show)
+        {
+            this.frmTender.grdDetTenderFiles.Enabled = !show;
+            this.frmTender.pnlDetTenderFiles.Visible = show;
+            this.frmTender.pnlDetTenderFilesButtons.Visible = !show;
+        }
+
+        private void ClearTenderFilesDetail()
+        {
+            this.frmTender.txtDetFilePath.Text = string.Empty;
+            this.frmTender.txtDetFileDescription.Text = string.Empty;
+            this.frmTender.txtDetFileName.Text = string.Empty;
+        }
+
         #endregion Methods
-        
+
         #region Events
-        
+
         private void btnSchSearch_Click(object sender, EventArgs e)
         {
             this.Search();
@@ -1519,7 +1557,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.SaveTender();
         }
-        
+
         private void grdDetTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
@@ -1536,8 +1574,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
-            IEnumerable<Manufacturer> availableManufacturers = this.tender == null || 
-                this.tender.TenderManufacturers == null ? lstManufacturers.Where(x => false) : 
+            IEnumerable<Manufacturer> availableManufacturers = this.tender == null ||
+                this.tender.TenderManufacturers == null ? lstManufacturers.Where(x => false) :
                 lstManufacturers.Where(x => this.tender.TenderManufacturers
                     .Select(y => y.Manufacturer.ManufacturerId).Contains(x.ManufacturerId));
 
@@ -1623,7 +1661,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridRow activeRow = this.frmTender.grdDetTenderManufacturers.ActiveRow;
 
             if (activeRow == null) return;
-                        
+
             if (activeRow.Cells["ManufacturerId"].Value != DBNull.Value &&
                 Convert.ToInt32(activeRow.Cells["ManufacturerId"].Value) > 0)
             {
@@ -1700,7 +1738,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.LoadCombo<EndUser>(this.frmTender.uceSchEndUser,
                 lstEndUsers, "EndUserId", "Name", "Seleccione");
         }
-        
+
         private void uceDetDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
@@ -1736,7 +1774,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (this.frmTender.txtDetLog.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Debe escribir un momentario para agregarlo a la bitácora.", 
+                MessageBox.Show("Debe escribir un momentario para agregarlo a la bitácora.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -1912,18 +1950,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
             band.Columns["SelectedWholesalerId"].Header.Caption = "Seleccionado";
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["BestPrice"], 
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["BestPrice"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["BestPrice"].Header.Caption = "Mejor Precio";
             band.Columns["BestPrice"].CellActivation = Activation.ActivateOnly;
             band.Columns["SelectBestChoise"].Header.Caption = "Mejor Opción";
-            band.Columns["SelectBestChoise"].Style = 
+            band.Columns["SelectBestChoise"].Style =
                 Infragistics.Win.UltraWinGrid.ColumnStyle.Button;
-            band.Columns["SelectBestChoise"].ButtonDisplayStyle = 
+            band.Columns["SelectBestChoise"].ButtonDisplayStyle =
                 Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
             band.Columns["BestPriceCurrencyId"].CellActivation = Activation.ActivateOnly;
             band.Columns["BestPriceCurrencyId"].Header.Caption = "Moneda";
-            
+
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
 
@@ -1988,7 +2026,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if ((Convert.ToInt32(activeCell.Row.Cells["TenderLineId"].Value) > 0
                 && int.TryParse(activeCell.Column.Key, out columnName) ||
                 Convert.ToInt32(activeCell.Row.Cells["TenderLineId"].Value) > 0
-                && activeCell.Column.Key.EndsWith("C") )&&
+                && activeCell.Column.Key.EndsWith("C")) &&
                 activeCell.Row.Cells[strColumnName].Column.Key == activeCell.Row.Cells["SelectedWholesalerId"].Value.ToString())
             {
                 if (activeCell.Row.Cells[strColumnName].Value == DBNull.Value)
@@ -2039,13 +2077,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     tenderLineWholesaler.Currency = this.GetCurrency(Convert.ToInt32(e.NewValue));
                 else
                     tenderLineWholesaler.Price = e.NewValue.ToString().Trim() == string.Empty ?
-                        null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue) * 
+                        null : (Nullable<Decimal>)Convert.ToDecimal(e.NewValue) *
                         this.GetExchangeRate(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
             }
 
             if (e.Cell.Column.Key == "SelectedWholesalerId")
             {
-                this.tender.TenderLines.Single(x => x.TenderLineId == 
+                this.tender.TenderLines.Single(x => x.TenderLineId ==
                     Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)).Wholesaler
                     = this.GetWholesaler(Convert.ToInt32(e.NewValue));
             }
@@ -2059,7 +2097,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (e.Cell.Row.Cells.Cast<UltraGridCell>().Where(x => x.Column.Key.EndsWith("C"))
                 .Count(x => Convert.ToInt32(x.Value) == -1) > 0)
             {
-                MessageBox.Show("Debe seleccionar todas las monedas para la partida seleccionada.", 
+                MessageBox.Show("Debe seleccionar todas las monedas para la partida seleccionada.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -2083,7 +2121,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.SelectedWholesalerEditor_SelectionChanged(null, null);
             this.UpdatePricingStrategyGrid();
         }
-        
+
         private void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
         {
             object value = null;
@@ -2133,7 +2171,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 DataRow drTenderExchangeRate = this.dtTenderExchangeRates.AsEnumerable()
                     .SingleOrDefault(x => Convert.ToInt32(x["SourceCurrency.CurrencyId"]) == Convert.ToInt32(editor.Value)
                         && Convert.ToInt32(x["DestinyCurrency.CurrencyId"]) == this.defaultCurrency.CurrencyId);
-                
+
                 if (drTenderExchangeRate == null)
                 {
                     drTenderExchangeRate = this.dtTenderExchangeRates.NewRow();
@@ -2160,7 +2198,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["DestinyCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
             band.Columns["SourceCurrency.CurrencyId"].CellActivation = Activation.ActivateOnly;
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Rate"], WindowsFormsUtil.GridCellFormat.Rate);
-            
+
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
 
@@ -2174,7 +2212,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (e.NewValue == DBNull.Value || Convert.ToDecimal(e.NewValue) <= 0)
             {
-                MessageBox.Show("Debe poner una cantidad correcta en el tipo de cambio.", 
+                MessageBox.Show("Debe poner una cantidad correcta en el tipo de cambio.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Cancel = true;
             }
@@ -2268,7 +2306,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WarrantyTypeParameters pmtWarrantyType = new WarrantyTypeParameters();
             IList<WarrantyType> lstWarrantyTypes = this.srvWarrantyType.GetListByParameters(pmtWarrantyType);
             DocumentTypeWarrantyParameters pmtDocumentTypeWarranty = new DocumentTypeWarrantyParameters();
-            IList<DocumentTypeWarranty> lstDocumentTypeWarranties 
+            IList<DocumentTypeWarranty> lstDocumentTypeWarranties
                 = this.srvDocumentTypeWarranty.GetListByParameters(pmtDocumentTypeWarranty);
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
@@ -2279,12 +2317,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"], WindowsFormsUtil.GridCellFormat.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"],
+                WindowsFormsUtil.GridCellFormat.Currency);
 
-            WindowsFormsUtil.SetUltraGridValueList<WarrantyType>(layout,
-                lstWarrantyTypes, band.Columns["WarrantyTypeId"], "WarrantyTypeId", "Name", "Seleccione");
+            WindowsFormsUtil.SetUltraGridValueList<WarrantyType>(layout, lstWarrantyTypes,
+                band.Columns["WarrantyTypeId"], "WarrantyTypeId", "Name", "Seleccione");
 
-            WindowsFormsUtil.SetUltraGridValueList<DocumentTypeWarranty>(layout, lstDocumentTypeWarranties, 
+            WindowsFormsUtil.SetUltraGridValueList<DocumentTypeWarranty>(layout, lstDocumentTypeWarranties,
                 band.Columns["DocumentTypeWarrantyId"], "DocumentTypeWarrantyId", "Name", "Seleccione");
         }
 
@@ -2381,9 +2420,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.umskDetPreresultPrice.Value = this.tenderLineCompetitor.Price;
                 this.frmTender.txtDetPreresultsComments.Value = this.tenderLineCompetitor.Description;
 
-                this.frmTender.grdDetPreresults.Enabled = false;
-                this.frmTender.upnlDetPreresults.Visible = true;
-                this.frmTender.gbxDetCommentsPreresults.Visible = false;
+                this.ShowPreresultsDetail(true);
             }
         }
 
@@ -2394,9 +2431,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tenderLineCompetitor.Activated = false;
             this.tenderLineCompetitor.Deleted = true;
 
-            this.frmTender.grdDetPreresults.Enabled = true;
-            this.frmTender.upnlDetPreresults.Visible = false;
-            this.frmTender.gbxDetCommentsPreresults.Visible = true;
+            this.ShowPreresultsDetail(false);
         }
 
         private void ubtnDetSavePreresult_Click(object sender, EventArgs e)
@@ -2408,7 +2443,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[activeCell.Column.Key + "C"].Value));
             this.tenderLineCompetitor.Manufacturer = this.frmTender.txtDetPreresultManufacturer.Text;
             this.tenderLineCompetitor.Description = this.frmTender.txtDetPreresultsComments.Text;
-            this.tenderLineCompetitor.Currency 
+            this.tenderLineCompetitor.Currency
                 = this.GetCurrency(Convert.ToInt32(this.frmTender.uceDetPreresultCurrency.Value));
 
             if (this.tenderLineCompetitor.Price == null)
@@ -2416,39 +2451,86 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             else
                 activeCell.Value = this.tenderLineCompetitor.Price;
 
-            activeCell.Row.Cells[activeCell.Column.Key + "C"].Value 
+            activeCell.Row.Cells[activeCell.Column.Key + "C"].Value
                 = this.frmTender.uceDetPreresultCurrency.Value;
 
-            this.frmTender.grdDetPreresults.Enabled = true;
-            this.frmTender.upnlDetPreresults.Visible = false;
-            this.frmTender.gbxDetCommentsPreresults.Visible = true;
+            this.ShowPreresultsDetail(false);
         }
 
         private void ubtnDetCancelPreresult_Click(object sender, EventArgs e)
         {
-            this.frmTender.grdDetPreresults.Enabled = true;
-            this.frmTender.upnlDetPreresults.Visible = false;
-            this.frmTender.gbxDetCommentsPreresults.Visible = true;
+            this.ShowPreresultsDetail(false);
         }
 
         private void ubtnDetDeleteTenderFile_Click(object sender, EventArgs e)
         {
+            UltraGridRow activeRow = this.frmTender.grdDetTenderFiles.ActiveRow;
 
+            if (activeRow == null)
+                return;
+
+            if (MessageBox.Show("¿Esta seguro de eliminar el archivo?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                return;
+
+            TenderFile tenderFile = this.tender.TenderFiles.Single(x => x.TenderFileId
+                == Convert.ToInt32(activeRow.Cells["TenderFileId"].Value));
+
+            this.tender.TenderFiles.Remove(tenderFile);
+
+            this.dtTenderFiles.Rows.Remove((activeRow.ListObject as DataRowView).Row);
+            this.dtTenderFiles.AcceptChanges();
+
+            this.ShowTenderFilesDetail(false);
         }
 
         private void ubtnDetNewTenderFile_Click(object sender, EventArgs e)
         {
-
+            this.ShowTenderFilesDetail(true);
         }
 
-        private void ubtnDeCancelTenderFile_Click(object sender, EventArgs e)
+        private void ubtnDetCancelTenderFile_Click(object sender, EventArgs e)
         {
-
+            this.ClearTenderFilesDetail();
+            this.ShowTenderFilesDetail(false);
         }
 
         private void ubtnDetCreateTenderFile_Click(object sender, EventArgs e)
         {
+            TenderFile tenderFile = new TenderFile();
 
+            tenderFile.Description = this.frmTender.gbxDetFileDescription.Text;
+            tenderFile.Filename = this.frmTender.txtDetFileName.Text;
+            tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
+            tenderFile.Tender = this.tender;
+
+            this.tender.TenderFiles.Add(tenderFile);
+
+            DataRow row = this.dtTenderFiles.NewRow();
+            this.dtTenderFiles.Rows.Add(row);
+
+            row["Description"] = tenderFile.Description;
+            row["Filename"] = tenderFile.Filename;
+            row["FileSize"] = Convert.ToDecimal(tenderFile.FileSize) / 1000M;
+
+            this.ShowTenderFilesDetail(false);
+        }
+
+        private void grdDetTenderFiles_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = this.frmTender.grdDetTenderFiles.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["FileSize"],
+                WindowsFormsUtil.GridCellFormat.FileSize);
         }
 
         #endregion Events

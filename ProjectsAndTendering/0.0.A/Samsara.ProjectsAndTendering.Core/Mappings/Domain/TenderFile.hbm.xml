@@ -9,9 +9,10 @@
       <generator class="native"/>
     </id>
     
-    <property name="File"/>
+    <property name="File" column="[File]"/>
     <property name="Filename"/>
     <property name="Description"/>
+    <property name="FileSize" access="readonly"/>
 
     <many-to-one name="Tender"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
@@ -21,14 +22,13 @@
 
   <query name="TenderFile.GetListByParameters">
     <![CDATA[
-        from TenderFile where Deleted = 0 and Activated = 1
+        from TenderFile
     ]]>
   </query>
 
   <query name="TenderFile.SearchByParameters">
     <![CDATA[
-        from TenderFile where Deleted = 0 and Activated = 1
-        and TenderId = :TenderId
+        from TenderFile where TenderId = :TenderId
     ]]>
   </query>
 
