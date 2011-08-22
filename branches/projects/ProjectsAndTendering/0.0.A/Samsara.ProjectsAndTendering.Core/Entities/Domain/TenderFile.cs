@@ -1,6 +1,7 @@
 ﻿
 using Iesi.Collections.Generic;
 using Samsara.ProjectsAndTendering.Core.Attributes;
+using System;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 {
@@ -40,6 +41,17 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
         {
             get;
             set;
+        }
+
+        public virtual long? FileSize
+        {
+            get
+            {
+                if (this.File == null)
+                    return null;
+
+                return File.Length;
+            }
         }
     }
 }

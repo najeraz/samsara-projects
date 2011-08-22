@@ -28,7 +28,11 @@ namespace Samsara.ProjectsAndTendering.Controls
                 srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
                 srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
             }
-            catch (Exception ex) { ex.ToString(); }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         protected override void OnInitializeLayout(InitializeLayoutEventArgs e)
