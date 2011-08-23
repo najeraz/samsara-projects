@@ -47,7 +47,9 @@ namespace Samsara.Support.Util
             combo.DataSource = list;
             combo.ValueMember = valueMember;
             combo.DisplayMember = displayMember;
-            combo.Value = -1;
+
+            if (defaultValue != null)
+                combo.Value = -1;
         }
 
         public static void LoadCombo(UltraComboEditor combo, DataTable data,

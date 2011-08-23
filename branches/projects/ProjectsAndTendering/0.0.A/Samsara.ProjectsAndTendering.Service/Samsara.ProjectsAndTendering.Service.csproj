@@ -107,6 +107,7 @@
     <Compile Include="Impl\Domain\BidderService.cs" />
     <Compile Include="Impl\Domain\BidderTypeService.cs" />
     <Compile Include="Impl\Domain\CompetitorService.cs" />
+    <Compile Include="Impl\Domain\TenderLineExtraCostService.cs" />
     <Compile Include="Impl\Domain\TenderFileService.cs" />
     <Compile Include="Impl\Domain\PricingStrategyService.cs" />
     <Compile Include="Impl\Domain\TenderExchangeRateService.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Interfaces\Configuration\IGridConfigurationService.cs" />
     <Compile Include="Interfaces\Configuration\IGridColumnConfigurationService.cs" />
     <Compile Include="Interfaces\Configuration\IFormConfigurationService.cs" />
+    <Compile Include="Interfaces\Domain\ITenderLineExtraCostService.cs" />
     <Compile Include="Interfaces\Domain\ITenderFileService.cs" />
     <Compile Include="Interfaces\Domain\IPricingStrategyService.cs" />
     <Compile Include="Interfaces\Domain\ITenderExchangeRateService.cs" />

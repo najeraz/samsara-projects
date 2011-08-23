@@ -302,6 +302,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtPricingStrategy.PricingStrategyId = ParameterConstants.IntNone;
             this.dtPricingStrategy = this.srvPricingStrategy.SearchByParameters(pmtPricingStrategy);
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineName", typeof(string)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("Quantity", typeof(decimal)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("Warranties", typeof(decimal)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("ExtraCosts", typeof(decimal)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("RealPrice", typeof(decimal)));
             this.frmTender.grdDetPricingStrategy.DataSource = null;
             this.frmTender.grdDetPricingStrategy.DataSource = dtPricingStrategy;
@@ -1581,19 +1584,26 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 lstManufacturers.Where(x => this.tender.TenderManufacturers
                     .Select(y => y.Manufacturer.ManufacturerId).Contains(x.ManufacturerId));
 
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout,
-                availableManufacturers, band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, availableManufacturers, 
+                band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
+
+            if (this.tender != null)
+                WindowsFormsUtil.LoadCombo<TenderLine>(this.frmTender.uceDetTenderLineExtraCost, 
+                    this.tender.TenderLines, "TenderLineId", "Name", "Seleccione");
         }
 
         private void grdDetTenderLines_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             if (e.Cell.Column.Key == "Quantity")
             {
-                TenderLine tenderLine = this.tender.TenderLines.Single(x => x.TenderLineId
+                TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
                     == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
 
-                tenderLine.Quantity = Convert.ToInt32(e.NewValue);
-                this.UpdatePricingStrategyGrid();
+                if (tenderLine != null)
+                {
+                    tenderLine.Quantity = Convert.ToInt32(e.NewValue);
+                    this.UpdatePricingStrategyGrid();
+                }
             }
         }
 
