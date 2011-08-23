@@ -85,6 +85,7 @@
     <Compile Include="Entities\Domain\BidderType.cs" />
     <Compile Include="Entities\Configuration\GridColumnConfiguration.cs" />
     <Compile Include="Entities\Domain\Competitor.cs" />
+    <Compile Include="Entities\Domain\TenderLineExtraCost.cs" />
     <Compile Include="Entities\Domain\TenderFile.cs" />
     <Compile Include="Entities\Domain\TenderLineCompetitor.cs" />
     <Compile Include="Entities\Domain\PricingStrategy.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Parameters\Domain\AsesorParameters.cs" />
     <Compile Include="Parameters\Domain\BidderTypeParameters.cs" />
     <Compile Include="Parameters\Domain\CompetitorParameters.cs" />
+    <Compile Include="Parameters\Domain\TenderFileExtraCostParameters.cs" />
     <Compile Include="Parameters\Domain\TenderFileParameters.cs" />
     <Compile Include="Parameters\Domain\PricingStrategyParameters.cs" />
     <Compile Include="Parameters\Domain\TenderExchangeRateParameters.cs" />
@@ -168,7 +170,9 @@
     <EmbeddedResource Include="Mappings\Domain\Manufacturer.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Domain\Tender.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Domain\Tender.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Domain\TenderLine.hbm.xml">
@@ -274,6 +278,9 @@
     <EmbeddedResource Include="Mappings\Domain\TenderFile.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Domain\TenderLineExtraCost.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
