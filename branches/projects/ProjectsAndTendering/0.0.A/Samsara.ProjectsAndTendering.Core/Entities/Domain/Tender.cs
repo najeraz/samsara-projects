@@ -123,8 +123,20 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             get;
             set;
         }
-
+            
         public virtual string Address
+        {
+            get;
+            set;
+        }
+
+        public virtual bool AddExtraCosts
+        {
+            get;
+            set;
+        }
+
+        public virtual bool ProrateWarranties
         {
             get;
             set;
