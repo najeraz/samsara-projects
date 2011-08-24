@@ -75,5 +75,11 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             get;
             set;
         }
+
+        public virtual decimal RealPrice
+        {
+            get;
+            set;
+        }
     }
 }

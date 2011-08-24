@@ -310,7 +310,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtPricingStrategy.Columns.Add(new DataColumn("Quantity", typeof(decimal)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("Warranties", typeof(decimal)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("ExtraCosts", typeof(decimal)));
-            this.dtPricingStrategy.Columns.Add(new DataColumn("RealPrice", typeof(decimal)));
             this.frmTender.grdDetPricingStrategy.DataSource = null;
             this.frmTender.grdDetPricingStrategy.DataSource = dtPricingStrategy;
 
@@ -618,6 +617,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 pricingStrategy.ProfitMargin = Convert.ToDecimal(row["ProfitMargin"]);
                 pricingStrategy.SelectedPrice = Convert.ToDecimal(row["SelectedPrice"]);
                 pricingStrategy.TenderLineProfit = Convert.ToDecimal(row["TenderLineProfit"]);
+                pricingStrategy.RealPrice = Convert.ToDecimal(row["RealPrice"]);
                 pricingStrategy.TotalPriceAfterTax = Convert.ToDecimal(row["TotalPriceAfterTax"]);
                 pricingStrategy.TotalPriceBeforeTax = Convert.ToDecimal(row["TotalPriceBeforeTax"]);
                 pricingStrategy.UnitPriceAfterTax = Convert.ToDecimal(row["UnitPriceAfterTax"]);
@@ -1423,6 +1423,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     || drPricingStrategy["ProfitMargin"] == DBNull.Value ?
                     pricingStrategy.ProfitMargin : Convert.ToDecimal(drPricingStrategy["ProfitMargin"]);
 
+                pricingStrategy.RealPrice = drPricingStrategy == null
+                    || drPricingStrategy["RealPrice"] == DBNull.Value ?
+                    pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["RealPrice"]);
+
                 try
                 {
                     pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
@@ -1458,6 +1462,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderLineName"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
+                row["RealPrice"] = pricingStrategy.RealPrice;
                 row["SelectedPrice"] = pricingStrategy.SelectedPrice;
                 row["TenderLineProfit"] = pricingStrategy.TenderLineProfit;
                 row["TotalPriceAfterTax"] = pricingStrategy.TotalPriceAfterTax;
@@ -2078,6 +2083,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 band.Columns[col.ColumnName + "C"].Header.Caption = "Moneda";
                 WindowsFormsUtil.SetUltraColumnFormat(band.Columns[col.ColumnName],
                     WindowsFormsUtil.GridCellFormat.Currency);
+                WindowsFormsUtil.AddUltraGridSummary(band, band.Columns[col.ColumnName]);
+
                 band.Columns[col.ColumnName].Header.Caption
                     = this.GetWholesaler(Convert.ToInt32(col.ColumnName)).Name;
             }
@@ -2333,42 +2340,59 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
                 WindowsFormsUtil.GridCellFormat.NaturalQuantity);
             band.Columns["Quantity"].CellActivation = Activation.ActivateOnly;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["RealPrice"],
                 WindowsFormsUtil.GridCellFormat.Currency);
-            band.Columns["RealPrice"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["RealPrice"]);
+            band.Columns["RealPrice"].CellActivation = Activation.AllowEdit;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Warranties"],
                 WindowsFormsUtil.GridCellFormat.Currency);
-            band.Columns["ExtraCosts"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["Warranties"]);
+            band.Columns["Warranties"].CellActivation = Activation.ActivateOnly;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["ExtraCosts"],
                 WindowsFormsUtil.GridCellFormat.Currency);
-            band.Columns["Warranties"].CellActivation = Activation.ActivateOnly;
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
-                WindowsFormsUtil.GridCellFormat.NaturalQuantity);
-            band.Columns["Quantity"].CellActivation = Activation.ActivateOnly;
+            band.Columns["ExtraCosts"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["ExtraCosts"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["ProfitMargin"],
                 WindowsFormsUtil.GridCellFormat.NoLimitPercentage);
             band.Columns["ProfitMargin"].CellActivation = Activation.AllowEdit;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["SelectedPrice"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["SelectedPrice"].CellActivation = Activation.AllowEdit;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TenderLineProfit"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["TenderLineProfit"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["TenderLineProfit"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TotalPriceAfterTax"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["TotalPriceAfterTax"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["TotalPriceAfterTax"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TotalPriceBeforeTax"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["TotalPriceBeforeTax"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["TotalPriceBeforeTax"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["UnitPriceAfterTax"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["UnitPriceAfterTax"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["UnitPriceAfterTax"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["UnitPriceBeforeTax"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["UnitPriceBeforeTax"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["UnitPriceBeforeTax"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["UnitProfit"],
                 WindowsFormsUtil.GridCellFormat.Currency);
             band.Columns["UnitProfit"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["UnitProfit"]);
         }
 
         private void grdDetPricingStrategy_AfterCellUpdate(object sender, EventArgs e)
@@ -2418,6 +2442,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["Amount"]);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"],
                 WindowsFormsUtil.GridCellFormat.Currency);
 
@@ -2476,6 +2501,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 band.Columns[col.ColumnName + "C"].Header.Caption = "Moneda";
                 WindowsFormsUtil.SetUltraColumnFormat(band.Columns[col.ColumnName],
                     WindowsFormsUtil.GridCellFormat.Currency);
+                WindowsFormsUtil.AddUltraGridSummary(band, band.Columns[col.ColumnName]);
+
                 band.Columns[col.ColumnName].Header.Caption
                     = this.GetCompetitor(Convert.ToInt32(col.ColumnName)).Name;
             }
@@ -2743,7 +2770,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
-            band.Summaries.Add(SummaryType.Sum, e.Layout.Bands[0].Columns["Amount"]);
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["Amount"]);
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"],
                 WindowsFormsUtil.GridCellFormat.Currency);
