@@ -160,7 +160,6 @@
             Infragistics.Win.Appearance appearance82 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance83 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance84 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance133 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance37 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance38 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance39 = new Infragistics.Win.Appearance();
@@ -180,6 +179,7 @@
             Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.Appearance appearance133 = new Infragistics.Win.Appearance();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -300,15 +300,8 @@
             this.txtDetPreResults = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.upnlDetPreresults = new Infragistics.Win.Misc.UltraPanel();
             this.gbxDetPreresults = new System.Windows.Forms.GroupBox();
-            this.uceDetPreresultCurrency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.umskDetPreresultPrice = new Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit();
             this.gbxDetPreresultComments = new System.Windows.Forms.GroupBox();
             this.txtDetPreresultsComments = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblDetPreresultManufacturer = new System.Windows.Forms.Label();
-            this.lblDetPreresultPrice = new System.Windows.Forms.Label();
-            this.lblDetPreresultCompetitor = new System.Windows.Forms.Label();
-            this.txtDetPreresultManufacturer = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtDetPreresultCompetitor = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.upnlDetPreresultButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upnlSeparatorDeletePreresult = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetDeletePreresult = new Infragistics.Win.Misc.UltraButton();
@@ -357,6 +350,14 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
+            this.unplDetPreresultsDetail = new Infragistics.Win.Misc.UltraPanel();
+            this.uceDetPreresultCurrency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.umskDetPreresultPrice = new Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit();
+            this.lblDetPreresultManufacturer = new System.Windows.Forms.Label();
+            this.lblDetPreresultPrice = new System.Windows.Forms.Label();
+            this.lblDetPreresultCompetitor = new System.Windows.Forms.Label();
+            this.txtDetPreresultManufacturer = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetPreresultCompetitor = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetDetail.SuspendLayout();
@@ -455,11 +456,8 @@
             this.upnlDetPreresults.ClientArea.SuspendLayout();
             this.upnlDetPreresults.SuspendLayout();
             this.gbxDetPreresults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetPreresultCurrency)).BeginInit();
             this.gbxDetPreresultComments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultsComments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultManufacturer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultCompetitor)).BeginInit();
             this.upnlDetPreresultButtons.ClientArea.SuspendLayout();
             this.upnlDetPreresultButtons.SuspendLayout();
             this.upnlSeparatorDeletePreresult.SuspendLayout();
@@ -493,11 +491,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
+            this.unplDetPreresultsDetail.ClientArea.SuspendLayout();
+            this.unplDetPreresultsDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetPreresultCurrency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultManufacturer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultCompetitor)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 387);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -2340,14 +2344,8 @@
             // 
             // gbxDetPreresults
             // 
-            this.gbxDetPreresults.Controls.Add(this.uceDetPreresultCurrency);
-            this.gbxDetPreresults.Controls.Add(this.umskDetPreresultPrice);
             this.gbxDetPreresults.Controls.Add(this.gbxDetPreresultComments);
-            this.gbxDetPreresults.Controls.Add(this.lblDetPreresultManufacturer);
-            this.gbxDetPreresults.Controls.Add(this.lblDetPreresultPrice);
-            this.gbxDetPreresults.Controls.Add(this.lblDetPreresultCompetitor);
-            this.gbxDetPreresults.Controls.Add(this.txtDetPreresultManufacturer);
-            this.gbxDetPreresults.Controls.Add(this.txtDetPreresultCompetitor);
+            this.gbxDetPreresults.Controls.Add(this.unplDetPreresultsDetail);
             this.gbxDetPreresults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDetPreresults.Location = new System.Drawing.Point(0, 0);
             this.gbxDetPreresults.Name = "gbxDetPreresults";
@@ -2356,32 +2354,13 @@
             this.gbxDetPreresults.TabStop = false;
             this.gbxDetPreresults.Text = "Detalle de la competencia:";
             // 
-            // uceDetPreresultCurrency
-            // 
-            this.uceDetPreresultCurrency.Location = new System.Drawing.Point(220, 44);
-            this.uceDetPreresultCurrency.Name = "uceDetPreresultCurrency";
-            this.uceDetPreresultCurrency.Size = new System.Drawing.Size(75, 21);
-            this.uceDetPreresultCurrency.TabIndex = 78;
-            // 
-            // umskDetPreresultPrice
-            // 
-            appearance133.TextHAlignAsString = "Right";
-            this.umskDetPreresultPrice.Appearance = appearance133;
-            this.umskDetPreresultPrice.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask;
-            this.umskDetPreresultPrice.InputMask = "{LOC}nn,nnn,nnn.nn";
-            this.umskDetPreresultPrice.Location = new System.Drawing.Point(88, 44);
-            this.umskDetPreresultPrice.Name = "umskDetPreresultPrice";
-            this.umskDetPreresultPrice.PromptChar = ' ';
-            this.umskDetPreresultPrice.Size = new System.Drawing.Size(126, 20);
-            this.umskDetPreresultPrice.TabIndex = 77;
-            // 
             // gbxDetPreresultComments
             // 
             this.gbxDetPreresultComments.Controls.Add(this.txtDetPreresultsComments);
-            this.gbxDetPreresultComments.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbxDetPreresultComments.Location = new System.Drawing.Point(301, 16);
+            this.gbxDetPreresultComments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxDetPreresultComments.Location = new System.Drawing.Point(307, 16);
             this.gbxDetPreresultComments.Name = "gbxDetPreresultComments";
-            this.gbxDetPreresultComments.Size = new System.Drawing.Size(424, 75);
+            this.gbxDetPreresultComments.Size = new System.Drawing.Size(418, 75);
             this.gbxDetPreresultComments.TabIndex = 76;
             this.gbxDetPreresultComments.TabStop = false;
             this.gbxDetPreresultComments.Text = "Comentarios:";
@@ -2394,51 +2373,9 @@
             this.txtDetPreresultsComments.Multiline = true;
             this.txtDetPreresultsComments.Name = "txtDetPreresultsComments";
             this.txtDetPreresultsComments.Scrollbars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDetPreresultsComments.Size = new System.Drawing.Size(418, 56);
+            this.txtDetPreresultsComments.Size = new System.Drawing.Size(412, 56);
             this.txtDetPreresultsComments.TabIndex = 75;
             this.txtDetPreresultsComments.WordWrap = false;
-            // 
-            // lblDetPreresultManufacturer
-            // 
-            this.lblDetPreresultManufacturer.AutoSize = true;
-            this.lblDetPreresultManufacturer.Location = new System.Drawing.Point(10, 74);
-            this.lblDetPreresultManufacturer.Name = "lblDetPreresultManufacturer";
-            this.lblDetPreresultManufacturer.Size = new System.Drawing.Size(60, 13);
-            this.lblDetPreresultManufacturer.TabIndex = 57;
-            this.lblDetPreresultManufacturer.Text = "Fabricante:";
-            // 
-            // lblDetPreresultPrice
-            // 
-            this.lblDetPreresultPrice.AutoSize = true;
-            this.lblDetPreresultPrice.Location = new System.Drawing.Point(10, 47);
-            this.lblDetPreresultPrice.Name = "lblDetPreresultPrice";
-            this.lblDetPreresultPrice.Size = new System.Drawing.Size(40, 13);
-            this.lblDetPreresultPrice.TabIndex = 57;
-            this.lblDetPreresultPrice.Text = "Precio:";
-            // 
-            // lblDetPreresultCompetitor
-            // 
-            this.lblDetPreresultCompetitor.AutoSize = true;
-            this.lblDetPreresultCompetitor.Location = new System.Drawing.Point(10, 20);
-            this.lblDetPreresultCompetitor.Name = "lblDetPreresultCompetitor";
-            this.lblDetPreresultCompetitor.Size = new System.Drawing.Size(72, 13);
-            this.lblDetPreresultCompetitor.TabIndex = 57;
-            this.lblDetPreresultCompetitor.Text = "Competencia:";
-            // 
-            // txtDetPreresultManufacturer
-            // 
-            this.txtDetPreresultManufacturer.Location = new System.Drawing.Point(88, 70);
-            this.txtDetPreresultManufacturer.Name = "txtDetPreresultManufacturer";
-            this.txtDetPreresultManufacturer.Size = new System.Drawing.Size(207, 21);
-            this.txtDetPreresultManufacturer.TabIndex = 56;
-            // 
-            // txtDetPreresultCompetitor
-            // 
-            this.txtDetPreresultCompetitor.Location = new System.Drawing.Point(88, 16);
-            this.txtDetPreresultCompetitor.Name = "txtDetPreresultCompetitor";
-            this.txtDetPreresultCompetitor.ReadOnly = true;
-            this.txtDetPreresultCompetitor.Size = new System.Drawing.Size(207, 21);
-            this.txtDetPreresultCompetitor.TabIndex = 56;
             // 
             // upnlDetPreresultButtons
             // 
@@ -2958,6 +2895,85 @@
             this.lblSchEndUser.TabIndex = 74;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
+            // unplDetPreresultsDetail
+            // 
+            // 
+            // unplDetPreresultsDetail.ClientArea
+            // 
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.uceDetPreresultCurrency);
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.umskDetPreresultPrice);
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.lblDetPreresultManufacturer);
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.lblDetPreresultPrice);
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.lblDetPreresultCompetitor);
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.txtDetPreresultManufacturer);
+            this.unplDetPreresultsDetail.ClientArea.Controls.Add(this.txtDetPreresultCompetitor);
+            this.unplDetPreresultsDetail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.unplDetPreresultsDetail.Location = new System.Drawing.Point(3, 16);
+            this.unplDetPreresultsDetail.Name = "unplDetPreresultsDetail";
+            this.unplDetPreresultsDetail.Size = new System.Drawing.Size(304, 75);
+            this.unplDetPreresultsDetail.TabIndex = 77;
+            // 
+            // uceDetPreresultCurrency
+            // 
+            this.uceDetPreresultCurrency.Location = new System.Drawing.Point(219, 28);
+            this.uceDetPreresultCurrency.Name = "uceDetPreresultCurrency";
+            this.uceDetPreresultCurrency.Size = new System.Drawing.Size(75, 21);
+            this.uceDetPreresultCurrency.TabIndex = 85;
+            // 
+            // umskDetPreresultPrice
+            // 
+            appearance133.TextHAlignAsString = "Right";
+            this.umskDetPreresultPrice.Appearance = appearance133;
+            this.umskDetPreresultPrice.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.UseSpecifiedMask;
+            this.umskDetPreresultPrice.InputMask = "{LOC}nn,nnn,nnn.nn";
+            this.umskDetPreresultPrice.Location = new System.Drawing.Point(87, 28);
+            this.umskDetPreresultPrice.Name = "umskDetPreresultPrice";
+            this.umskDetPreresultPrice.PromptChar = ' ';
+            this.umskDetPreresultPrice.Size = new System.Drawing.Size(126, 20);
+            this.umskDetPreresultPrice.TabIndex = 84;
+            // 
+            // lblDetPreresultManufacturer
+            // 
+            this.lblDetPreresultManufacturer.AutoSize = true;
+            this.lblDetPreresultManufacturer.Location = new System.Drawing.Point(9, 58);
+            this.lblDetPreresultManufacturer.Name = "lblDetPreresultManufacturer";
+            this.lblDetPreresultManufacturer.Size = new System.Drawing.Size(60, 13);
+            this.lblDetPreresultManufacturer.TabIndex = 83;
+            this.lblDetPreresultManufacturer.Text = "Fabricante:";
+            // 
+            // lblDetPreresultPrice
+            // 
+            this.lblDetPreresultPrice.AutoSize = true;
+            this.lblDetPreresultPrice.Location = new System.Drawing.Point(9, 31);
+            this.lblDetPreresultPrice.Name = "lblDetPreresultPrice";
+            this.lblDetPreresultPrice.Size = new System.Drawing.Size(40, 13);
+            this.lblDetPreresultPrice.TabIndex = 82;
+            this.lblDetPreresultPrice.Text = "Precio:";
+            // 
+            // lblDetPreresultCompetitor
+            // 
+            this.lblDetPreresultCompetitor.AutoSize = true;
+            this.lblDetPreresultCompetitor.Location = new System.Drawing.Point(9, 4);
+            this.lblDetPreresultCompetitor.Name = "lblDetPreresultCompetitor";
+            this.lblDetPreresultCompetitor.Size = new System.Drawing.Size(72, 13);
+            this.lblDetPreresultCompetitor.TabIndex = 81;
+            this.lblDetPreresultCompetitor.Text = "Competencia:";
+            // 
+            // txtDetPreresultManufacturer
+            // 
+            this.txtDetPreresultManufacturer.Location = new System.Drawing.Point(87, 54);
+            this.txtDetPreresultManufacturer.Name = "txtDetPreresultManufacturer";
+            this.txtDetPreresultManufacturer.Size = new System.Drawing.Size(207, 21);
+            this.txtDetPreresultManufacturer.TabIndex = 79;
+            // 
+            // txtDetPreresultCompetitor
+            // 
+            this.txtDetPreresultCompetitor.Location = new System.Drawing.Point(87, 0);
+            this.txtDetPreresultCompetitor.Name = "txtDetPreresultCompetitor";
+            this.txtDetPreresultCompetitor.ReadOnly = true;
+            this.txtDetPreresultCompetitor.Size = new System.Drawing.Size(207, 21);
+            this.txtDetPreresultCompetitor.TabIndex = 80;
+            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3073,13 +3089,9 @@
             this.upnlDetPreresults.ClientArea.ResumeLayout(false);
             this.upnlDetPreresults.ResumeLayout(false);
             this.gbxDetPreresults.ResumeLayout(false);
-            this.gbxDetPreresults.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetPreresultCurrency)).EndInit();
             this.gbxDetPreresultComments.ResumeLayout(false);
             this.gbxDetPreresultComments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultsComments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultManufacturer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultCompetitor)).EndInit();
             this.upnlDetPreresultButtons.ClientArea.ResumeLayout(false);
             this.upnlDetPreresultButtons.ResumeLayout(false);
             this.upnlSeparatorDeletePreresult.ResumeLayout(false);
@@ -3118,6 +3130,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
+            this.unplDetPreresultsDetail.ClientArea.ResumeLayout(false);
+            this.unplDetPreresultsDetail.ClientArea.PerformLayout();
+            this.unplDetPreresultsDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetPreresultCurrency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultManufacturer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultCompetitor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3251,11 +3269,6 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorWarranties;
         private System.Windows.Forms.GroupBox gbxDetPreresultComments;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultsComments;
-        internal System.Windows.Forms.Label lblDetPreresultManufacturer;
-        internal System.Windows.Forms.Label lblDetPreresultPrice;
-        internal System.Windows.Forms.Label lblDetPreresultCompetitor;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultManufacturer;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultCompetitor;
         private Infragistics.Win.Misc.UltraPanel upnlDetPreresultButtons;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorSavePreresult;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeletePreresult;
@@ -3266,8 +3279,6 @@
         private System.Windows.Forms.GroupBox gbxDetPreresults;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelPreresult;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCancelPreresult;
-        internal Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit umskDetPreresultPrice;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPreresultCurrency;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreResults;
         internal System.Windows.Forms.GroupBox gbxDetCommentsPreresults;
         internal System.Windows.Forms.GroupBox groupBox1;
@@ -3301,6 +3312,14 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel1;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetAddExtraCosts;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetProrateWarranties;
+        private Infragistics.Win.Misc.UltraPanel unplDetPreresultsDetail;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPreresultCurrency;
+        internal Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit umskDetPreresultPrice;
+        internal System.Windows.Forms.Label lblDetPreresultManufacturer;
+        internal System.Windows.Forms.Label lblDetPreresultPrice;
+        internal System.Windows.Forms.Label lblDetPreresultCompetitor;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultManufacturer;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultCompetitor;
     }
 }
 
