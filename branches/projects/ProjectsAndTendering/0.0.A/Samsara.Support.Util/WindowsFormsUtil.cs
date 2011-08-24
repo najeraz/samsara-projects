@@ -1,11 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinEditors;
 using Infragistics.Win.UltraWinGrid;
-using System.Data;
+using Infragistics.Win.UltraWinMaskedEdit;
 
 namespace Samsara.Support.Util
 {
@@ -25,10 +27,17 @@ namespace Samsara.Support.Util
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
-        private static string percentageMask = "nnn.nn";
-        private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn";
+        private static string percentageMask = "nnn.nn%";
+        private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn%";
         private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn KB";
         private static string rateMask = "{double:4.12}";
+
+        public static void AddUltraGridSummary(UltraGridBand band, UltraGridColumn column)
+        {
+            band.Summaries.Add(column.Key, SummaryType.Sum, column, SummaryPosition.UseSummaryPositionColumn);
+            band.Summaries[column.Key].DisplayFormat = "{0:###,###,##0.00}";
+            band.Summaries[column.Key].Appearance.TextHAlign = HAlign.Right;
+        }
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
             string valueMember, string displayMember, string defaultValue)
@@ -75,36 +84,43 @@ namespace Samsara.Support.Util
             {
                 case GridCellFormat.Currency:
                     column.MaskInput = currencyMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
                 case GridCellFormat.NaturalQuantity:
                     column.MaskInput = naturalQuantityMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
                 case GridCellFormat.RealQuantity:
                     column.MaskInput = realQuantityMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
                 case GridCellFormat.Rate:
                     column.MaskInput = rateMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
                 case GridCellFormat.Percentage:
                     column.MaskInput = percentageMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
                 case GridCellFormat.NoLimitPercentage:
                     column.MaskInput = noLimitPercentageMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
                 case GridCellFormat.FileSize:
                     column.MaskInput = fileSizeMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
