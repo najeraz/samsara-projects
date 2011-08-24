@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
@@ -1507,6 +1508,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row.Cells["ManufacturerId"].Activation = Activation.AllowEdit;
                     row.Cells["SelectedPrice"].Activation = Activation.AllowEdit;
                 }
+
+                if (row.Cells["RealPrice"].Value != DBNull.Value
+                    && row.Cells["TotalPriceAfterTax"].Value != DBNull.Value
+                    && Convert.ToDecimal(row.Cells["RealPrice"].Value)
+                    < MoneyUtil.Round(Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value))
+                    || Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value) * 1.05M
+                    < Convert.ToDecimal(row.Cells["RealPrice"].Value))
+                    row.Cells["RealPrice"].Appearance.BackColor = Color.Red;
+                else
+                    row.Cells["RealPrice"].Appearance.BackColor = Color.White;
             }
         }
 
@@ -2326,15 +2337,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridBand band = layout.Bands[0];
 
             WholesalerParameters pmtWholesaler = new WholesalerParameters();
-            IEnumerable<Wholesaler> ieWholesalers = this.srvWholesaler.GetListByParameters(pmtWholesaler);
-            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers, band.Columns["WholesalerId"],
-                "WholesalerId", "Name", "Seleccione");
+            IEnumerable<Wholesaler> ieWholesalers 
+                = this.srvWholesaler.GetListByParameters(pmtWholesaler);
+            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers, 
+                band.Columns["WholesalerId"], "WholesalerId", "Name", "Seleccione");
             band.Columns["WholesalerId"].CellActivation = Activation.ActivateOnly;
 
             ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
-            IEnumerable<Manufacturer> ieManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, ieManufacturers, band.Columns["ManufacturerId"],
-                "ManufacturerId", "Name", "Seleccione");
+            IEnumerable<Manufacturer> ieManufacturers 
+                = this.srvManufacturer.GetListByParameters(pmtManufacturer);
+            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, ieManufacturers, 
+                band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
             band.Columns["ManufacturerId"].CellActivation = Activation.AllowEdit;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
@@ -2404,6 +2417,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 this.UpdatePricingStrategyGrid();
             }
+            this.UpdatePricingStrategyGridColumns();
         }
 
         private void ubtnDetDeleteWarranty_Click(object sender, EventArgs e)
