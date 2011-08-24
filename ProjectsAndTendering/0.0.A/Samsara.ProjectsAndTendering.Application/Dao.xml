@@ -27,13 +27,12 @@
                value="NHibernate.Connection.DriverConnectionProvider"/>
 
         <entry key="dialect"
-               value="NHibernate.Dialect.MsSql2005Dialect"/>
+               value="NHibernate.Dialect.MsSql2008Dialect"/>
 
         <entry key="connection.driver_class"
                value="NHibernate.Driver.SqlClientDriver"/>
         
-        <entry key="show_sql"
-               value="True"/>
+        <entry key="show_sql" value="True"/>
 
         <!--<entry key="hibernate.hbm2ddl.auto" value="create-drop" />-->
       </dictionary>

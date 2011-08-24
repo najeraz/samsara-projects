@@ -289,6 +289,9 @@
             this.grdDetExchangeRates = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
             this.EstrategiaPrecios = new System.Windows.Forms.TabPage();
             this.grdDetPricingStrategy = new Samsara.ProjectsAndTendering.Controls.SamsaraUltraGrid();
+            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
+            this.uchkDetAddExtraCosts = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.uchkDetProrateWarranties = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.gbxDetPricingStrategy = new System.Windows.Forms.GroupBox();
             this.txtDetPricingStrategy = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.Preresultados = new System.Windows.Forms.TabPage();
@@ -439,6 +442,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetExchangeRates)).BeginInit();
             this.EstrategiaPrecios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetPricingStrategy)).BeginInit();
+            this.ultraPanel1.ClientArea.SuspendLayout();
+            this.ultraPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetAddExtraCosts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetProrateWarranties)).BeginInit();
             this.gbxDetPricingStrategy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).BeginInit();
             this.Preresultados.SuspendLayout();
@@ -2091,6 +2098,7 @@
             // 
             this.EstrategiaPrecios.BackColor = System.Drawing.Color.Transparent;
             this.EstrategiaPrecios.Controls.Add(this.grdDetPricingStrategy);
+            this.EstrategiaPrecios.Controls.Add(this.ultraPanel1);
             this.EstrategiaPrecios.Controls.Add(this.gbxDetPricingStrategy);
             this.EstrategiaPrecios.Location = new System.Drawing.Point(4, 22);
             this.EstrategiaPrecios.Name = "EstrategiaPrecios";
@@ -2157,11 +2165,42 @@
             this.grdDetPricingStrategy.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdDetPricingStrategy.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetPricingStrategy.Location = new System.Drawing.Point(3, 3);
+            this.grdDetPricingStrategy.Location = new System.Drawing.Point(3, 28);
             this.grdDetPricingStrategy.Name = "grdDetPricingStrategy";
-            this.grdDetPricingStrategy.Size = new System.Drawing.Size(722, 187);
+            this.grdDetPricingStrategy.Size = new System.Drawing.Size(722, 162);
             this.grdDetPricingStrategy.TabIndex = 76;
             this.grdDetPricingStrategy.Text = "samsaraUltraGrid1";
+            // 
+            // ultraPanel1
+            // 
+            // 
+            // ultraPanel1.ClientArea
+            // 
+            this.ultraPanel1.ClientArea.Controls.Add(this.uchkDetAddExtraCosts);
+            this.ultraPanel1.ClientArea.Controls.Add(this.uchkDetProrateWarranties);
+            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ultraPanel1.Location = new System.Drawing.Point(3, 3);
+            this.ultraPanel1.Name = "ultraPanel1";
+            this.ultraPanel1.Size = new System.Drawing.Size(722, 25);
+            this.ultraPanel1.TabIndex = 85;
+            // 
+            // uchkDetAddExtraCosts
+            // 
+            this.uchkDetAddExtraCosts.AutoSize = true;
+            this.uchkDetAddExtraCosts.Location = new System.Drawing.Point(124, 5);
+            this.uchkDetAddExtraCosts.Name = "uchkDetAddExtraCosts";
+            this.uchkDetAddExtraCosts.Size = new System.Drawing.Size(135, 17);
+            this.uchkDetAddExtraCosts.TabIndex = 0;
+            this.uchkDetAddExtraCosts.Text = "Agregar Costos Extras";
+            // 
+            // uchkDetProrateWarranties
+            // 
+            this.uchkDetProrateWarranties.AutoSize = true;
+            this.uchkDetProrateWarranties.Location = new System.Drawing.Point(3, 5);
+            this.uchkDetProrateWarranties.Name = "uchkDetProrateWarranties";
+            this.uchkDetProrateWarranties.Size = new System.Drawing.Size(115, 17);
+            this.uchkDetProrateWarranties.TabIndex = 0;
+            this.uchkDetProrateWarranties.Text = "Prorratear Fianzas";
             // 
             // gbxDetPricingStrategy
             // 
@@ -3018,6 +3057,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetExchangeRates)).EndInit();
             this.EstrategiaPrecios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetPricingStrategy)).EndInit();
+            this.ultraPanel1.ClientArea.ResumeLayout(false);
+            this.ultraPanel1.ClientArea.PerformLayout();
+            this.ultraPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetAddExtraCosts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetProrateWarranties)).EndInit();
             this.gbxDetPricingStrategy.ResumeLayout(false);
             this.gbxDetPricingStrategy.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPricingStrategy)).EndInit();
@@ -3254,6 +3298,9 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator45345;
         private System.Windows.Forms.Label lblDetTenderLineExtraCost;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetTenderLineExtraCost;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetAddExtraCosts;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetProrateWarranties;
     }
 }
 

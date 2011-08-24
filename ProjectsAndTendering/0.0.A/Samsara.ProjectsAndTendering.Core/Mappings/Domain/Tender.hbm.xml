@@ -9,6 +9,8 @@
       <generator class="native"/>
     </id>
 
+    <property name="AddExtraCosts"/>
+    <property name="ProrateWarranties"/>
     <property name="PreResults"/>
     <property name="AcquisitionReason"/>
     <property name="RegistrationDate"/>
@@ -162,6 +164,7 @@
         OR :DateTypeSearchId = 4 and :MinDate <= t.ClarificationDate and :MaxDate >= t.ClarificationDate
         OR :DateTypeSearchId = 5 and :MinDate <= t.PreRevisionDate and :MaxDate >= t.PreRevisionDate
         OR :DateTypeSearchId = -1)
+      ORDER BY TenderId
     ]]>
   </sql-query>
 

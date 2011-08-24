@@ -369,6 +369,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.uceDetTenderLineExtraCost.ValueChanged += new EventHandler(uceDetTenderLineExtraCost_ValueChanged);
             this.frmTender.ubtnDetCreateTenderLineExtraCost.Click += new EventHandler(ubtnDetCreateTenderLineExtraCost_Click);
             this.frmTender.ubtnDetDeleteTenderLineExtraCost.Click += new EventHandler(ubtnDetDeleteTenderLineExtraCost_Click);
+            this.frmTender.uchkDetAddExtraCosts.CheckedChanged += new EventHandler(uchkDetAddExtraCosts_CheckedChanged);
+            this.frmTender.uchkDetProrateWarranties.CheckedChanged += new EventHandler(uchkDetProrateWarranties_CheckedChanged);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -550,6 +552,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PreviousTender = this.frmTender.tscPreviousTender.Value;
             this.tender.Opportunity = this.frmTender.oscDetRelatedOpportunity.Value;
             this.tender.PriceComparison = this.frmTender.txtDetPriceComparison.Text;
+            this.tender.AddExtraCosts = this.frmTender.uchkDetAddExtraCosts.Checked;
+            this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
 
             this.LoadTenderManufacturers();
             this.LoadTenderLines();
@@ -962,6 +966,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.dteDetVeredictDate.Value = this.tender.VerdictDate.Value;
             this.frmTender.tscPreviousTender.Value = this.tender.PreviousTender;
             this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
+            this.frmTender.uchkDetAddExtraCosts.Checked = this.tender.AddExtraCosts;
+            this.frmTender.uchkDetProrateWarranties.Checked = this.tender.ProrateWarranties;
+            this.uchkDetAddExtraCosts_CheckedChanged(null, null);
+            this.uchkDetProrateWarranties_CheckedChanged(null, null);
 
             foreach (TenderCompetitor tenderCompetitor in this.tender.TenderCompetitors)
             {
@@ -1399,6 +1407,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+                decimal proratedWarrantiesSummary = 0;
+                decimal extraCostsSummary = 0;
 
                 if (pricingStrategy == null)
                 {
@@ -1428,6 +1438,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     || drPricingStrategy["RealPrice"] == DBNull.Value ?
                     pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["RealPrice"]);
 
+                if (this.tender.AddExtraCosts)
+                    extraCostsSummary = Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
+                if (this.tender.ProrateWarranties)
+                    proratedWarrantiesSummary = Convert.ToDecimal(drPricingStrategy["Warranties"]);
+
                 try
                 {
                     pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
@@ -1445,10 +1460,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     * tenderLine.Quantity;
                 pricingStrategy.UnitPriceAfterTax = pricingStrategy.UnitPriceBeforeTax
                     * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA));
+
                 pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
                     * tenderLine.Quantity;
                 pricingStrategy.TotalPriceAfterTax = pricingStrategy.TotalPriceBeforeTax
-                    * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA));
+                    * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA)) + proratedWarrantiesSummary
+                    + extraCostsSummary;
 
                 DataRow row = this.dtPricingStrategy.AsEnumerable()
                     .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
@@ -1471,6 +1488,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["UnitPriceAfterTax"] = pricingStrategy.UnitPriceAfterTax;
                 row["UnitPriceBeforeTax"] = pricingStrategy.UnitPriceBeforeTax;
                 row["UnitProfit"] = pricingStrategy.UnitProfit;
+
                 if (tenderLine.Wholesaler != null)
                 {
                     if (pricingStrategy.Wholesaler != null)
@@ -2806,6 +2824,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             tenderLineExtraCost.Amount = Convert.ToDecimal(activeRow.Cells["Amount"].Value);
 
             this.UpdatePricingStrategyExtraCosts();
+        }
+
+        private void uchkDetAddExtraCosts_CheckedChanged(object sender, EventArgs e)
+        {
+            UltraGridBand band = this.frmTender.grdDetPricingStrategy.DisplayLayout.Bands[0];
+
+            this.tender.AddExtraCosts = this.frmTender.uchkDetAddExtraCosts.Checked;
+            band.Columns["ExtraCosts"].Hidden = !this.tender.AddExtraCosts;
+            this.UpdatePricingStrategyGrid();
+        }
+
+        private void uchkDetProrateWarranties_CheckedChanged(object sender, EventArgs e)
+        {
+            UltraGridBand band = this.frmTender.grdDetPricingStrategy.DisplayLayout.Bands[0];
+
+            this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
+            band.Columns["Warranties"].Hidden = !this.tender.ProrateWarranties;
+            this.UpdatePricingStrategyGrid();
         }
 
         #endregion Events
