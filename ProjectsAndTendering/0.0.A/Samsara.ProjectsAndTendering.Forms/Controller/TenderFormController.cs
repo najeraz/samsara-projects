@@ -869,6 +869,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderExchangeRates.Clear();
             this.tenderLineIndexer = -1;
             this.tenderLineExtraCostIndexer = -1;
+            this.frmTender.uchkDetAddExtraCosts.Checked = false;
+            this.frmTender.uchkDetProrateWarranties.Checked = false;
         }
 
         private void ClearSearchControls()
@@ -1439,9 +1441,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["RealPrice"]);
 
                 if (this.tender.AddExtraCosts)
-                    extraCostsSummary = Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
+                    extraCostsSummary = drPricingStrategy == null
+                        || drPricingStrategy["ExtraCosts"] == DBNull.Value ?
+                        pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
+
                 if (this.tender.ProrateWarranties)
-                    proratedWarrantiesSummary = Convert.ToDecimal(drPricingStrategy["Warranties"]);
+                    proratedWarrantiesSummary = drPricingStrategy == null
+                        || drPricingStrategy["Warranties"] == DBNull.Value ?
+                        pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["Warranties"]);
 
                 try
                 {
