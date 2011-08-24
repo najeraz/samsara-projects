@@ -23,6 +23,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private int priceComparisonExtraColumnsLength;
         private int tenderLineIndexer;
+        private int tenderLineExtraCostIndexer;
 
         private Tender tender;
         private TenderForm frmTender;
@@ -49,6 +50,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private ITenderCompetitorService srvTenderCompetitor;
         private ITenderWholesalerService srvTenderWholesaler;
         private ITenderManufacturerService srvTenderManufacturer;
+        private ITenderLineExtraCostService srvTenderLineExtraCost;
         private ITenderExchangeRateService srvTenderExchangeRate;
         private IDocumentTypeWarrantyService srvDocumentTypeWarranty;
 
@@ -62,6 +64,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private DataTable dtTenderCompetitors;
         private DataTable dtTenderWholesalers;
         private DataTable dtTenderManufacturers;
+        private DataTable dtTenderLineExtraCosts;
         private DataTable dtTenderExchangeRates;
 
         #endregion Attributes
@@ -113,6 +116,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvDocumentTypeWarranty);
             this.srvTenderFile = SamsaraAppContext.Resolve<ITenderFileService>();
             Assert.IsNotNull(this.srvTenderFile);
+            this.srvTenderLineExtraCost = SamsaraAppContext.Resolve<ITenderLineExtraCostService>();
+            Assert.IsNotNull(this.srvTenderLineExtraCost);
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             pmtCurrency.IsDefault = true;
@@ -309,6 +314,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPricingStrategy.DataSource = null;
             this.frmTender.grdDetPricingStrategy.DataSource = dtPricingStrategy;
 
+            //grdDetTenderLinesExtraCosts
+            this.frmTender.grdDetTenderLinesExtraCosts.AfterRowUpdate
+                += new RowEventHandler(grdDetTenderLinesExtraCosts_AfterRowUpdate);
+            this.frmTender.grdDetTenderLinesExtraCosts.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetTenderLinesExtraCosts_InitializeLayout);
+            TenderLineExtraCostParameters pmtTenderLineExtraCost = new TenderLineExtraCostParameters();
+            pmtTenderLineExtraCost.TenderLineId = ParameterConstants.IntNone;
+            this.dtTenderLineExtraCosts = this.srvTenderLineExtraCost.SearchByParameters(pmtTenderLineExtraCost);
+            this.frmTender.grdDetTenderLinesExtraCosts.DataSource = null;
+            this.frmTender.grdDetTenderLinesExtraCosts.DataSource = this.dtTenderLineExtraCosts;
+
             //grdDetPreresults
             this.frmTender.grdDetPreresults.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetPreresults_InitializeLayout);
@@ -350,6 +366,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetDeleteTenderFile.Click += new EventHandler(ubtnDetDeleteTenderFile_Click);
             this.frmTender.ubtnDetNewTenderFile.Click += new EventHandler(ubtnDetNewTenderFile_Click);
             this.frmTender.btnDetSearchFile.Click += new EventHandler(btnDetSearchFile_Click);
+            this.frmTender.uceDetTenderLineExtraCost.ValueChanged += new EventHandler(uceDetTenderLineExtraCost_ValueChanged);
+            this.frmTender.ubtnDetCreateTenderLineExtraCost.Click += new EventHandler(ubtnDetCreateTenderLineExtraCost_Click);
+            this.frmTender.ubtnDetDeleteTenderLineExtraCost.Click += new EventHandler(ubtnDetDeleteTenderLineExtraCost_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -740,6 +759,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
                 tenderLine.Activated = true;
                 tenderLine.Deleted = false;
+
+                foreach (TenderLineExtraCost tenderLineExtraCost in tenderLine.TenderLineExtraCosts)
+                {
+                    if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
+                        tenderLineExtraCost.TenderLineExtraCostId = -1;
+                }
             }
         }
 
@@ -838,6 +863,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetPreresults.DataSource = null;
             this.dtTenderExchangeRates.Clear();
             this.tenderLineIndexer = -1;
+            this.tenderLineExtraCostIndexer = -1;
         }
 
         private void ClearSearchControls()
@@ -2560,6 +2586,114 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.txtDetFileName.Text = dialog.FileName
                     .Substring(dialog.FileName.LastIndexOf("\\") + 1);
             }
+        }
+
+        private void uceDetTenderLineExtraCost_ValueChanged(object sender, EventArgs e)
+        {
+            bool enableButtons = Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value) >= 1;
+            TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
+                   == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
+
+            this.frmTender.ubtnDetDeleteTenderLineExtraCost.Enabled = enableButtons;
+            this.frmTender.ubtnDetCreateTenderLineExtraCost.Enabled = enableButtons;
+
+            this.dtTenderLineExtraCosts.Rows.Clear();
+
+            if (tenderLine == null)
+                return;
+
+            foreach (TenderLineExtraCost tenderLineExtraCost in tenderLine.TenderLineExtraCosts)
+            {
+                DataRow row = this.dtTenderLineExtraCosts.NewRow();
+                this.dtTenderLineExtraCosts.Rows.Add(row);
+
+                row["Description"] = tenderLineExtraCost.Description;
+                row["Name"] = tenderLineExtraCost.Name;
+                row["Amount"] = tenderLineExtraCost.Amount;
+                row["TenderLineId"] = tenderLine.TenderLineId;
+                row["TenderLineExtraCostId"] = tenderLineExtraCost.TenderLineExtraCostId;
+            }
+        }
+
+        private void ubtnDetDeleteTenderLineExtraCost_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
+            TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
+                   == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
+
+            if (tenderLine != null && activeRow != null)
+            {
+                TenderLineExtraCost tenderLineExtraCost = tenderLine.TenderLineExtraCosts.SingleOrDefault(x =>
+                    x.TenderLineExtraCostId == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
+
+                if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
+                    tenderLine.TenderLineExtraCosts.Remove(tenderLineExtraCost);
+                else
+                {
+                    tenderLineExtraCost.Deleted = true;
+                    tenderLineExtraCost.Activated = false;
+                }
+            }
+        }
+
+        private void ubtnDetCreateTenderLineExtraCost_Click(object sender, EventArgs e)
+        {
+            TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
+                == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
+            
+            if (tenderLine != null)
+            {
+                TenderLineExtraCost tenderLineExtraCost = new TenderLineExtraCost();
+                tenderLine.TenderLineExtraCosts.Add(tenderLineExtraCost);
+
+                tenderLineExtraCost.Activated = true;
+                tenderLineExtraCost.Deleted = false;
+                tenderLineExtraCost.Amount = 0M;
+                tenderLineExtraCost.Description = string.Empty;
+                tenderLineExtraCost.Name = string.Empty;
+                tenderLineExtraCost.TenderLine = tenderLine;
+                tenderLineExtraCost.TenderLineExtraCostId = this.tenderLineExtraCostIndexer--;
+
+                DataRow row = this.dtTenderLineExtraCosts.NewRow();
+                this.dtTenderLineExtraCosts.Rows.Add(row);
+
+                row["Amount"] = tenderLineExtraCost.Amount;
+                row["Description"] = tenderLineExtraCost.Description;
+                row["Name"] = tenderLineExtraCost.Name;
+                row["TenderLineId"] = tenderLineExtraCost.TenderLine.TenderLineId;
+                row["TenderLineExtraCostId"] = tenderLineExtraCost.TenderLineExtraCostId;
+            }
+        }
+
+        private void grdDetTenderLinesExtraCosts_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
+
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Description"].VertScrollBar = true;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+        }
+
+        private void grdDetTenderLinesExtraCosts_AfterRowUpdate(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
+
+            TenderLineExtraCost tenderLineExtraCost = this.tender.TenderLines
+                .Single(x => x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value))
+                .TenderLineExtraCosts.Single(x => x.TenderLineExtraCostId 
+                    == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
+
+            tenderLineExtraCost.Description = activeRow.Cells["Description"].Value.ToString();
+            tenderLineExtraCost.Name = activeRow.Cells["Name"].Value.ToString();
+            tenderLineExtraCost.Amount = Convert.ToDecimal(activeRow.Cells["Amount"].Value);
         }
 
         #endregion Events

@@ -113,6 +113,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderFileService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ITenderFileDao"/>
   </object>
+  <object id="ITenderLineExtraCostService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.Domain.TenderLineExtraCostService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderLineExtraCostDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.ProjectsAndTendering.Service.Impl.Configuration.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
