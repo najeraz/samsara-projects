@@ -895,21 +895,37 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (MessageBox.Show("¿Esta seguro de guardar la Licitación?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                     return;
-                this.LoadEntity();
-                this.srvTender.SaveOrUpdate(this.tender);
-                this.frmTender.HiddenDetail(true);
-                this.Search();
+                try
+                {
+                    this.frmTender.Cursor = Cursors.WaitCursor;
+                    this.LoadEntity();
+                    this.srvTender.SaveOrUpdate(this.tender);
+                    this.frmTender.HiddenDetail(true);
+                    this.Search();
+                }
+                finally
+                {
+                    this.frmTender.Cursor = Cursors.Default;
+                }
             }
         }
 
         private void EditTender(int tenderId)
         {
-            this.tender = this.srvTender.GetById(tenderId);
+            try
+            {
+                this.frmTender.Cursor = Cursors.WaitCursor;
+                this.tender = this.srvTender.GetById(tenderId);
 
-            this.ClearDetailControls();
-            this.LoadFormFromEntity();
-            this.frmTender.HiddenDetail(false);
-            this.ShowDetail(true);
+                this.ClearDetailControls();
+                this.LoadFormFromEntity();
+                this.frmTender.HiddenDetail(false);
+                this.ShowDetail(true);
+            }
+            finally
+            {
+                this.frmTender.Cursor = Cursors.Default;
+            }
         }
 
         private void LoadFormFromEntity()
@@ -1035,6 +1051,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.UpdatePriceComparisonGrid();
             this.UpdatePricingStrategyGrid();
             this.UpdatePreresultsGrid();
+            this.UpdatePricingStrategyExtraCosts();
+            this.UpdatePricingStrategyWarranties();
         }
 
         private void DeleteEntity(int tenderId)
@@ -1438,6 +1456,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 row["PricingStrategyId"] = pricingStrategy.PricingStrategyId = tenderLine.TenderLineId;
                 row["TenderLineName"] = tenderLine.Name;
+                row["Quantity"] = tenderLine.Quantity;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
                 row["SelectedPrice"] = pricingStrategy.SelectedPrice;
                 row["TenderLineProfit"] = pricingStrategy.TenderLineProfit;
@@ -1568,6 +1587,32 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.txtDetFileName.Text = string.Empty;
         }
 
+        private void UpdatePricingStrategyExtraCosts()
+        {
+            foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
+            {
+                row["ExtraCosts"] = this.tender.TenderLines
+                    .Single(x => x.TenderLineId == Convert.ToInt32(row["PricingStrategyId"]))
+                    .TenderLineExtraCosts.Sum(x => x.Amount);
+            }
+        }
+
+        private void UpdatePricingStrategyWarranties()
+        {
+            decimal totalWarranties = this.dtTenderWarranties.AsEnumerable()
+                    .Where(x => x["Amount"] != DBNull.Value)
+                    .Sum(x => Convert.ToDecimal(x["Amount"]));
+            decimal totalTenderAfterTax = this.dtPricingStrategy.AsEnumerable()
+                    .Where(x => x["TotalPriceAfterTax"] != DBNull.Value)
+                    .Sum(x => Convert.ToDecimal(x["TotalPriceAfterTax"]));
+
+            foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
+            {
+                row["Warranties"] = (Convert.ToDecimal(row["TotalPriceAfterTax"]) / totalTenderAfterTax)
+                    * totalWarranties;
+            }
+        }
+
         #endregion Methods
 
         #region Events
@@ -1604,6 +1649,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].CellActivation = Activation.ActivateOnly;
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"], 
+                WindowsFormsUtil.GridCellFormat.NaturalQuantity);
 
             IEnumerable<Manufacturer> availableManufacturers = this.tender == null ||
                 this.tender.TenderManufacturers == null ? lstManufacturers.Where(x => false) :
@@ -2282,6 +2330,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 "ManufacturerId", "Name", "Seleccione");
             band.Columns["ManufacturerId"].CellActivation = Activation.AllowEdit;
 
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
+                WindowsFormsUtil.GridCellFormat.NaturalQuantity);
+            band.Columns["Quantity"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["RealPrice"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            band.Columns["RealPrice"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Warranties"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            band.Columns["ExtraCosts"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["ExtraCosts"],
+                WindowsFormsUtil.GridCellFormat.Currency);
+            band.Columns["Warranties"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
+                WindowsFormsUtil.GridCellFormat.NaturalQuantity);
+            band.Columns["Quantity"].CellActivation = Activation.ActivateOnly;
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["ProfitMargin"],
                 WindowsFormsUtil.GridCellFormat.NoLimitPercentage);
             band.Columns["ProfitMargin"].CellActivation = Activation.AllowEdit;
@@ -2373,6 +2436,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return;
 
             activeCell.Row.PerformAutoSize();
+
+            this.UpdatePricingStrategyWarranties();
         }
 
         private void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -2678,8 +2743,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
+            band.Summaries.Add(SummaryType.Sum, e.Layout.Bands[0].Columns["Amount"]);
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"],
                 WindowsFormsUtil.GridCellFormat.Currency);
+
+            this.UpdatePricingStrategyExtraCosts();
         }
 
         private void grdDetTenderLinesExtraCosts_AfterRowUpdate(object sender, EventArgs e)
@@ -2694,6 +2763,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             tenderLineExtraCost.Description = activeRow.Cells["Description"].Value.ToString();
             tenderLineExtraCost.Name = activeRow.Cells["Name"].Value.ToString();
             tenderLineExtraCost.Amount = Convert.ToDecimal(activeRow.Cells["Amount"].Value);
+
+            this.UpdatePricingStrategyExtraCosts();
         }
 
         #endregion Events

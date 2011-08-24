@@ -1,14 +1,15 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.ProjectsAndTendering.Common;
 using Samsara.ProjectsAndTendering.Core.Entities.Configuration;
 using Samsara.ProjectsAndTendering.Core.Parameters.Configuration;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
-using System.Collections.Generic;
 
 
 namespace Samsara.ProjectsAndTendering.Controls
@@ -38,6 +39,7 @@ namespace Samsara.ProjectsAndTendering.Controls
         protected override void OnInitializeLayout(InitializeLayoutEventArgs e)
         {
             base.OnInitializeLayout(e);
+            e.Layout.Override.SummaryFooterCaptionVisible = DefaultableBoolean.False;   
 
             Assert.IsNotNull(this.srvFormConfiguration);
             Assert.IsNotNull(this.srvGridConfiguration);
@@ -124,6 +126,8 @@ namespace Samsara.ProjectsAndTendering.Controls
                         column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
                         column.Header.VisiblePosition = index++;
                     }
+
+                    //band.SummaryFooterCaption = "Sumatorias";      
                 }
             }
         }
