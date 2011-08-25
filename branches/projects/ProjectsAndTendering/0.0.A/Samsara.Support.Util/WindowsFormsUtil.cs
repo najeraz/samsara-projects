@@ -29,7 +29,7 @@ namespace Samsara.Support.Util
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn%";
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn%";
-        private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn KB";
+        private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
         private static string rateMask = "{double:4.12}";
 
         public static void AddUltraGridSummary(UltraGridBand band, UltraGridColumn column)

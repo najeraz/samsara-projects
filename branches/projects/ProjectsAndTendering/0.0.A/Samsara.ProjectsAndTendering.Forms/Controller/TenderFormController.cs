@@ -25,6 +25,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private int priceComparisonExtraColumnsLength;
         private int tenderLineIndexer;
         private int tenderLineExtraCostIndexer;
+        private int tenderFileIndexer;
 
         private Tender tender;
         private TenderForm frmTender;
@@ -869,6 +870,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderExchangeRates.Clear();
             this.tenderLineIndexer = -1;
             this.tenderLineExtraCostIndexer = -1;
+            this.tenderFileIndexer = -1;
             this.frmTender.uchkDetAddExtraCosts.Checked = false;
             this.frmTender.uchkDetProrateWarranties.Checked = false;
         }
@@ -1059,11 +1061,30 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["Amount"] = tenderWarranty.Amount;
             }
 
+            this.SearchTenderFiles();
             this.UpdatePriceComparisonGrid();
             this.UpdatePricingStrategyGrid();
             this.UpdatePreresultsGrid();
             this.UpdatePricingStrategyExtraCosts();
             this.UpdatePricingStrategyWarranties();
+        }
+
+        private void SearchTenderFiles()
+        {
+            TenderFileParameters pmtTenderFile = new TenderFileParameters();
+
+            pmtTenderFile.TenderId = this.tender.TenderId;
+            this.dtTenderFiles = this.srvTenderFile.SearchByParameters(pmtTenderFile);
+
+            this.frmTender.grdDetTenderFiles.DataSource = null;
+            this.frmTender.grdDetTenderFiles.DataSource = this.dtTenderFiles;
+
+            foreach (DataRow row in this.dtTenderFiles.AsEnumerable())
+            {
+                TenderFile tenderFile = new TenderFile();
+                tenderFile.TenderFileId = Convert.ToInt32(row[0]);
+                this.tender.TenderFiles.Add(tenderFile);
+            }
         }
 
         private void DeleteEntity(int tenderId)
@@ -2648,7 +2669,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return;
 
             TenderFile tenderFile = this.tender.TenderFiles.Single(x => x.TenderFileId
-                == Convert.ToInt32(activeRow.Cells["TenderFileId"].Value));
+                == Convert.ToInt32(activeRow.Cells[0].Value));
 
             this.tender.TenderFiles.Remove(tenderFile);
 
@@ -2673,6 +2694,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             TenderFile tenderFile = new TenderFile();
 
+            tenderFile.TenderFileId = this.tenderFileIndexer--;
             tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
             tenderFile.Filename = this.frmTender.txtDetFileName.Text;
             tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
@@ -2683,9 +2705,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DataRow row = this.dtTenderFiles.NewRow();
             this.dtTenderFiles.Rows.Add(row);
 
-            row["Description"] = tenderFile.Description;
-            row["Filename"] = tenderFile.Filename;
-            row["FileSize"] = Convert.ToDecimal(tenderFile.FileSize) / 1000M;
+            row[0] = tenderFile.TenderFileId;
+            row[1] = tenderFile.Tender.TenderId;
+            row[2] = tenderFile.Filename;
+            row[3] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
+            row[4] = tenderFile.Description;
 
             this.ShowTenderFilesDetail(false);
         }
@@ -2700,10 +2724,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Override.RowSizing = RowSizing.AutoFixed;
             band.Override.RowSizingAutoMaxLines = 5;
 
-            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
-            band.Columns["Description"].VertScrollBar = true;
+            band.Columns[4].CellMultiLine = DefaultableBoolean.True;
+            band.Columns[4].VertScrollBar = true;
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["FileSize"],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns[3],
                 WindowsFormsUtil.GridCellFormat.FileSize);
         }
 
