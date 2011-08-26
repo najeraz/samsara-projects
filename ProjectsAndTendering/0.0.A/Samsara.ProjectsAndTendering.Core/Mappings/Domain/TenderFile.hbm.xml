@@ -27,20 +27,14 @@
   </query>
 
   <sql-query name="TenderFile.SearchByParameters" cacheable="false" read-only="true">
-    <!--<return
-      class="Samsara.ProjectsAndTendering.Core.Entities.Domain.TenderFile, Samsara.ProjectsAndTendering.Core">-->
     <return-scalar column="TenderFileId" type="int"/>
     <return-scalar column="TenderId" type="int"/>
+    <return-scalar column="File" type="string"/>
     <return-scalar column="Filename" type="string"/>
-    <return-scalar column="FileSize" type="decimal"/>
     <return-scalar column="Description" type="string"/>
-      <!--<return-property name="TenderFileId" column="TenderFileId"/>
-      <return-property name="TenderId" column="TenderId"/>
-      <return-property name="Filename" column="Filename"/>
-      <return-property name="Description" column="Description"/>
-    </return>-->
+    <return-scalar column="FileSize" type="decimal"/>
     <![CDATA[
-      SELECT  TenderFileId, TenderId, Filename, Description, FileSize / (1024 * 1024) FileSize
+      SELECT  TenderFileId, TenderId, Filename, Description, FileSize / (1024 * 1024) FileSize, '' [File]
       FROM TenderFiles
       WHERE TenderId = :TenderId
     ]]>

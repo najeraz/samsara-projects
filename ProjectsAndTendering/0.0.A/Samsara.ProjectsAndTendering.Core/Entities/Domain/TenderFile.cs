@@ -43,7 +43,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual long? FileSize
+        public virtual decimal? FileSize
         {
             get
             {

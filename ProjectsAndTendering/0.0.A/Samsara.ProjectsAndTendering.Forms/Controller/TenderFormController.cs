@@ -2707,9 +2707,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             row[0] = tenderFile.TenderFileId;
             row[1] = tenderFile.Tender.TenderId;
-            row[2] = tenderFile.Filename;
-            row[3] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
+            row[3] = tenderFile.Filename;
             row[4] = tenderFile.Description;
+            row[5] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
 
             this.ShowTenderFilesDetail(false);
         }
@@ -2727,7 +2727,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns[4].CellMultiLine = DefaultableBoolean.True;
             band.Columns[4].VertScrollBar = true;
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns[3],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns[5],
                 WindowsFormsUtil.GridCellFormat.FileSize);
         }
 
