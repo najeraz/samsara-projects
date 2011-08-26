@@ -27,7 +27,7 @@
                value="NHibernate.Connection.DriverConnectionProvider"/>
 
         <entry key="dialect"
-               value="NHibernate.Dialect.MsSql2005Dialect"/>
+               value="NHibernate.Dialect.MsSql2008Dialect"/>
 
         <entry key="connection.driver_class"
                value="NHibernate.Driver.SqlClientDriver"/>
