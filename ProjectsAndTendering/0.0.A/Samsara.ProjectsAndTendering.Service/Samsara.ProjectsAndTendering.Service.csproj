@@ -120,7 +120,6 @@
     <Compile Include="Impl\Domain\BidderService.cs" />
     <Compile Include="Impl\Domain\BidderTypeService.cs" />
     <Compile Include="Impl\Domain\CompetitorService.cs" />
-    <Compile Include="Impl\Domain\Entity.cs" />
     <Compile Include="Impl\Domain\TenderLineExtraCostService.cs" />
     <Compile Include="Impl\Domain\TenderFileService.cs" />
     <Compile Include="Impl\Domain\PricingStrategyService.cs" />
