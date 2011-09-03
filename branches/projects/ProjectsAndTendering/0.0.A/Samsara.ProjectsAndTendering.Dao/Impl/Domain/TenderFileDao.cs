@@ -1,4 +1,10 @@
 ﻿
+using System;
+using System.Collections;
+using System.Data.SqlTypes;
+using System.IO;
+using NHibernate;
+using NHibernate.Impl;
 using Samsara.ProjectsAndTendering.BaseDao.Impl;
 using Samsara.ProjectsAndTendering.Core.Entities.Domain;
 using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
@@ -8,5 +14,94 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 {
     public class TenderFileDao : GenericDao<TenderFile, int, TenderFileParameters>, ITenderFileDao
     {
+        #region Methods
+
+        #region Public
+
+        public override TenderFile GetById(int tenderFileId)
+        {
+            TenderFile entity = base.GetById(tenderFileId);
+            this.GetTenderFileByFileStream(entity);
+
+            return entity;
+        }
+
+        public override void Save(TenderFile entity)
+        {
+            base.Save(entity);
+            this.SaveTenderFileByFileStream(entity);
+        }
+
+        public override void SaveOrUpdate(TenderFile entity)
+        {
+            base.SaveOrUpdate(entity);
+            this.SaveTenderFileByFileStream(entity);
+        }
+
+        public override void Update(TenderFile entity)
+        {
+            base.Update(entity);
+            this.SaveTenderFileByFileStream(entity);
+        }
+
+        #endregion Public
+
+        #region Private
+
+        private void GetTenderFileByFileStream(TenderFile entity)
+        {
+            using (ISession session = SessionFactory.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    SqlFileStream sqlFileStream = this.GetSqlFileStream(entity.TenderFileId, session, FileAccess.Read);
+
+                    byte[] buffer = new Byte[sqlFileStream.Length];
+                    sqlFileStream.Read(buffer, 0, buffer.Length);
+
+                    MemoryStream ms = new MemoryStream(buffer);
+                    entity.File = ms.ToArray();
+
+                    sqlFileStream.Close();
+                    transaction.Commit();
+                    session.Close();
+                }
+            }
+        }
+
+        private void SaveTenderFileByFileStream(TenderFile entity)
+        {
+            using (ISession session = SessionFactory.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    SqlFileStream sqlFileStream = this.GetSqlFileStream(entity.TenderFileId, session, FileAccess.Write);
+
+                    sqlFileStream.Write(entity.File, 0, entity.File.Length);
+
+                    sqlFileStream.Close();
+                    transaction.Commit();
+                    session.Close();
+                }
+            }
+        }
+
+        private SqlFileStream GetSqlFileStream(int tenderFileId, ISession session, FileAccess fileAccess)
+        {
+            TenderFileParameters pmtTenderFile = new TenderFileParameters();
+            pmtTenderFile.TenderFileId = tenderFileId;
+
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery("GetTenderFileStreamContext", pmtTenderFile);
+            IList lstTenderFile = dnq.GetExecutableQuery(session).List();
+
+            string filePath = (lstTenderFile[0] as Object[])[0].ToString();
+            byte[] txContext = (lstTenderFile[0] as Object[])[1] as Byte[];
+
+            return new SqlFileStream(filePath, txContext, fileAccess);
+        }
+
+        #endregion Private
+
+        #endregion Methods
     }
 }

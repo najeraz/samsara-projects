@@ -19,7 +19,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
             set;
         }
 
-        public virtual Tender Tender
+        public virtual int TenderId
         {
             get;
             set;
@@ -45,13 +45,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities.Domain
 
         public virtual decimal? FileSize
         {
-            get
-            {
-                if (this.File == null)
-                    return null;
-
-                return File.Length;
-            }
+            get;
+            set;
         }
     }
 }
