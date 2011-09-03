@@ -372,6 +372,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetDeleteTenderLineExtraCost.Click += new EventHandler(ubtnDetDeleteTenderLineExtraCost_Click);
             this.frmTender.uchkDetAddExtraCosts.CheckedChanged += new EventHandler(uchkDetAddExtraCosts_CheckedChanged);
             this.frmTender.uchkDetProrateWarranties.CheckedChanged += new EventHandler(uchkDetProrateWarranties_CheckedChanged);
+            this.frmTender.ubtnDetDownloadTenderFile.Click += new EventHandler(ubtnDetDownloadTenderFile_Click);
 
             this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
             this.frmTender.uosSchDates.Value = -1;
@@ -2698,7 +2699,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
             tenderFile.Filename = this.frmTender.txtDetFileName.Text;
             tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
-            tenderFile.Tender = this.tender;
+            tenderFile.TenderId = this.tender.TenderId;
 
             this.tender.TenderFiles.Add(tenderFile);
 
@@ -2706,7 +2707,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderFiles.Rows.Add(row);
 
             row[0] = tenderFile.TenderFileId;
-            row[1] = tenderFile.Tender.TenderId;
+            row[1] = tenderFile.TenderId;
             row[3] = tenderFile.Filename;
             row[4] = tenderFile.Description;
             row[5] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
@@ -2873,6 +2874,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
             band.Columns["Warranties"].Hidden = !this.tender.ProrateWarranties;
             this.UpdatePricingStrategyGrid();
+        }
+
+        private void ubtnDetDownloadTenderFile_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frmTender.grdDetTenderFiles.ActiveRow;
+
+            if (activeRow == null)
+                return;
+
+            TenderFile tenderFile = this.srvTenderFile.GetById(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
         #endregion Events

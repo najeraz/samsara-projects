@@ -12,11 +12,8 @@
     <property name="File" column="[File]"/>
     <property name="Filename"/>
     <property name="Description"/>
-    <property name="FileSize" access="readonly"/>
-
-    <many-to-one name="Tender"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Domain.Tender, Samsara.ProjectsAndTendering.Core"
-                 column="TenderId"/>
+    <property name="TenderId"/>
+    <property name="FileSize"/>
     
   </class>
 
@@ -25,6 +22,16 @@
         from TenderFile
     ]]>
   </query>
+
+  <sql-query name="GetTenderFileStreamContext">
+    <return-scalar column="PathName" type="string"/>
+    <return-scalar column="StreamContext" type="Byte[]"/>
+    <![CDATA[
+        SELECT [File].PathName() AS PathName, GET_FILESTREAM_TRANSACTION_CONTEXT() StreamContext
+        FROM TenderFiles
+        WHERE TenderFileId = :TenderFileId
+    ]]>
+  </sql-query>
 
   <sql-query name="TenderFile.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="TenderFileId" type="int"/>
@@ -39,5 +46,6 @@
       WHERE TenderId = :TenderId
     ]]>
   </sql-query>
+
 
 </hibernate-mapping>

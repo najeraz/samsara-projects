@@ -25,5 +25,6 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Interfaces
         void Save(T entity);
         void Update(T entity);
         void Refresh(T entity);
+        DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters);
     }
 }

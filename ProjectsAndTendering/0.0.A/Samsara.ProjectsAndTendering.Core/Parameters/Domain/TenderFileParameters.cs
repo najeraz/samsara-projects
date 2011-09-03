@@ -8,5 +8,11 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters.Domain
             get;
             set;
         }
+
+        public int? TenderFileId
+        {
+            get;
+            set;
+        }
     }
 }

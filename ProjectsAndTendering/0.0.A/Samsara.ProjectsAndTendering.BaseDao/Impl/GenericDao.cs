@@ -20,17 +20,17 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
 
         #region Public
 
-        public IList<T> GetAll()
+        public virtual IList<T> GetAll()
         {
             return HibernateTemplate.LoadAll<T>();
         }
 
-        public void SaveOrUpdate(T entity)
+        public virtual void SaveOrUpdate(T entity)
         {
             HibernateTemplate.SaveOrUpdate(entity);
         }
 
-        public void Save(T entity)
+        public virtual void Save(T entity)
         {
             HibernateTemplate.Save(entity);
         }
@@ -40,17 +40,17 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             HibernateTemplate.Refresh(entity);
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             HibernateTemplate.Update(entity);
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             HibernateTemplate.Delete(entity);
         }
 
-        public T GetById(TId Id)
+        public virtual T GetById(TId Id)
         {
             return HibernateTemplate.Get<T>(Id);
         }
@@ -144,11 +144,7 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return dtResult;
         }
 
-        #endregion Public
-
-        #region Private
-
-        private DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
+        public DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
             object parameterValue;
@@ -190,7 +186,8 @@ namespace Samsara.ProjectsAndTendering.BaseDao.Impl
             return dnq;
         }
 
-        #endregion Private
+
+        #endregion Public
 
         #endregion Methods
     }
