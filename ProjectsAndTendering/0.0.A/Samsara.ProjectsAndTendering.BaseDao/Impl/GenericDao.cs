@@ -8,7 +8,6 @@ using System.Reflection;
 using NHibernate.Criterion;
 using NHibernate.Impl;
 using Samsara.ProjectsAndTendering.BaseDao.Interfaces;
-using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 using Samsara.Support.Util;
 using Spring.Data.NHibernate.Generic.Support;
 
