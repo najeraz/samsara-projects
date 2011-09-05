@@ -15,6 +15,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters.Domain;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces.Domain;
 using Samsara.Support.Util;
+using System.IO;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -2699,6 +2700,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
             tenderFile.Filename = this.frmTender.txtDetFileName.Text;
             tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
+            tenderFile.FileSize = tenderFile.File.Length;
             tenderFile.TenderId = this.tender.TenderId;
 
             this.tender.TenderFiles.Add(tenderFile);
@@ -2879,11 +2881,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ubtnDetDownloadTenderFile_Click(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetTenderFiles.ActiveRow;
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
 
             if (activeRow == null)
                 return;
 
-            TenderFile tenderFile = this.srvTenderFile.GetById(Convert.ToInt32(activeRow.Cells[0].Value));
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                TenderFile tenderFile = this.srvTenderFile.GetById(Convert.ToInt32(activeRow.Cells[0].Value));
+
+                File.WriteAllBytes(dialog.SelectedPath + Path.DirectorySeparatorChar + tenderFile.Filename, tenderFile.File);
+            }
         }
 
         #endregion Events
