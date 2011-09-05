@@ -41,7 +41,7 @@
     <return-scalar column="Description" type="string"/>
     <return-scalar column="FileSize" type="decimal"/>
     <![CDATA[
-      SELECT  TenderFileId, TenderId, Filename, Description, FileSize / (1024 * 1024) FileSize, '' [File]
+      SELECT  TenderFileId, TenderId, Filename, Description, FileSize / cast(1024 * 1024 as float) FileSize, '' [File]
       FROM TenderFiles
       WHERE TenderId = :TenderId
     ]]>
