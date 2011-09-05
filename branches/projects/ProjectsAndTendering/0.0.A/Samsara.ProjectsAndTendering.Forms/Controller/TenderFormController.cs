@@ -2722,6 +2722,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridLayout layout = this.frmTender.grdDetTenderFiles.DisplayLayout;
             UltraGridBand band = layout.Bands[0];
 
+            layout.Override.AllowUpdate = DefaultableBoolean.False;
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
             band.Override.MinRowHeight = 3;
             band.Override.RowSizing = RowSizing.AutoFixed;
@@ -2890,7 +2891,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 TenderFile tenderFile = this.srvTenderFile.GetById(Convert.ToInt32(activeRow.Cells[0].Value));
 
-                File.WriteAllBytes(dialog.SelectedPath + Path.DirectorySeparatorChar + tenderFile.Filename, tenderFile.File);
+                string fullFileName = dialog.SelectedPath + Path.DirectorySeparatorChar + tenderFile.Filename;
+
+                if (File.Exists(fullFileName) && MessageBox.Show("El archivo ya existe, ¿Desea sobreescribirlo?",
+                    "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
+
+                File.WriteAllBytes(fullFileName, tenderFile.File);
             }
         }
 
