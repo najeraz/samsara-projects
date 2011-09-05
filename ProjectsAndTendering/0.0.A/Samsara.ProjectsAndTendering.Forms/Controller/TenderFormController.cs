@@ -904,7 +904,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar la Licitación?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 try
                 {
@@ -1092,7 +1092,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int tenderId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Licitación?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.tender = this.srvTender.GetById(tenderId);
             this.tender.Activated = false;
@@ -2667,7 +2667,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return;
 
             if (MessageBox.Show("¿Esta seguro de eliminar el archivo?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
 
             TenderFile tenderFile = this.tender.TenderFiles.Single(x => x.TenderFileId
@@ -2694,25 +2694,33 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetCreateTenderFile_Click(object sender, EventArgs e)
         {
-            TenderFile tenderFile = new TenderFile();
+            try
+            {
+                TenderFile tenderFile = new TenderFile();
 
-            tenderFile.TenderFileId = this.tenderFileIndexer--;
-            tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
-            tenderFile.Filename = this.frmTender.txtDetFileName.Text;
-            tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
-            tenderFile.FileSize = tenderFile.File.Length;
-            tenderFile.TenderId = this.tender.TenderId;
+                tenderFile.TenderFileId = this.tenderFileIndexer--;
+                tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
+                tenderFile.Filename = this.frmTender.txtDetFileName.Text;
+                tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
+                tenderFile.FileSize = tenderFile.File.Length;
+                tenderFile.TenderId = this.tender.TenderId;
 
-            this.tender.TenderFiles.Add(tenderFile);
+                this.tender.TenderFiles.Add(tenderFile);
 
-            DataRow row = this.dtTenderFiles.NewRow();
-            this.dtTenderFiles.Rows.Add(row);
+                DataRow row = this.dtTenderFiles.NewRow();
+                this.dtTenderFiles.Rows.Add(row);
 
-            row[0] = tenderFile.TenderFileId;
-            row[1] = tenderFile.TenderId;
-            row[3] = tenderFile.Filename;
-            row[4] = tenderFile.Description;
-            row[5] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
+                row[0] = tenderFile.TenderFileId;
+                row[1] = tenderFile.TenderId;
+                row[3] = tenderFile.Filename;
+                row[4] = tenderFile.Description;
+                row[5] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
+            }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show("El archivo es demasiado grande, no se puede guardar en la Base de Datos.\n"
+                    + ex.Message, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             this.ShowTenderFilesDetail(false);
         }
@@ -2887,17 +2895,28 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (activeRow == null)
                 return;
 
-            if (dialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                TenderFile tenderFile = this.srvTenderFile.GetById(Convert.ToInt32(activeRow.Cells[0].Value));
+                this.frmTender.Cursor = Cursors.WaitCursor;
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    int tenderFileId = Convert.ToInt32(activeRow.Cells[0].Value);
 
-                string fullFileName = dialog.SelectedPath + Path.DirectorySeparatorChar + tenderFile.Filename;
+                    TenderFile tenderFile = tenderFileId > 0 ? this.srvTenderFile.GetById(tenderFileId)
+                        : this.tender.TenderFiles.Single(x => x.TenderFileId == tenderFileId);
 
-                if (File.Exists(fullFileName) && MessageBox.Show("El archivo ya existe, ¿Desea sobreescribirlo?",
-                    "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                    return;
+                    string fullFileName = dialog.SelectedPath + Path.DirectorySeparatorChar + tenderFile.Filename;
 
-                File.WriteAllBytes(fullFileName, tenderFile.File);
+                    if (File.Exists(fullFileName) && MessageBox.Show("El archivo ya existe, ¿Desea sobreescribirlo?",
+                        "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                        return;
+
+                    File.WriteAllBytes(fullFileName, tenderFile.File);
+                }
+            }
+            finally
+            {
+                this.frmTender.Cursor = Cursors.Default;
             }
         }
 

@@ -21,7 +21,9 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
         public override TenderFile GetById(int tenderFileId)
         {
             TenderFile entity = base.GetById(tenderFileId);
-            this.GetTenderFileByFileStream(entity);
+            
+            if (entity != null)
+                this.GetTenderFileByFileStream(entity);
 
             return entity;
         }
@@ -50,6 +52,9 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 
         private void GetTenderFileByFileStream(TenderFile entity)
         {
+            if (entity.File.Length > 8000) // Por algun motivo trae el archivo completo
+                return;
+
             using (ISession session = SessionFactory.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
@@ -92,10 +97,10 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
             pmtTenderFile.TenderFileId = tenderFileId;
 
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery("GetTenderFileStreamContext", pmtTenderFile);
-            IList lstTenderFile = dnq.GetExecutableQuery(session).List();
+            Object[] objTenderFileStreamContext = dnq.GetExecutableQuery(session).UniqueResult() as Object[];
 
-            string filePath = (lstTenderFile[0] as Object[])[0].ToString();
-            byte[] txContext = (lstTenderFile[0] as Object[])[1] as Byte[];
+            string filePath = objTenderFileStreamContext[0] as string;
+            byte[] txContext = objTenderFileStreamContext[1] as Byte[];
 
             return new SqlFileStream(filePath, txContext, fileAccess);
         }

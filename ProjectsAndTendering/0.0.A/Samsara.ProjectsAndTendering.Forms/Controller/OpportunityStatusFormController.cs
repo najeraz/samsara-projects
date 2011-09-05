@@ -96,7 +96,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar el Estatus?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
                 this.srvOpportunityStatus.SaveOrUpdate(this.OpportunityStatus);
@@ -123,7 +123,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int OpportunityStatusId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Estatus?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.OpportunityStatus = this.srvOpportunityStatus.GetById(OpportunityStatusId);
             this.OpportunityStatus.Activated = false;

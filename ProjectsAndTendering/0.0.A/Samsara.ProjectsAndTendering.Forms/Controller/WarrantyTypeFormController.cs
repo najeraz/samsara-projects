@@ -98,7 +98,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar el tipo de propuesta?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
                 this.srvWarrantyType.SaveOrUpdate(this.WarrantyType);
@@ -126,7 +126,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int WarrantyTypeId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.WarrantyType = this.srvWarrantyType.GetById(WarrantyTypeId);
             this.WarrantyType.Activated = false;
