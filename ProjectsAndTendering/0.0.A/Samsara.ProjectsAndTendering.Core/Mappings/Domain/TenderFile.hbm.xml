@@ -19,7 +19,7 @@
 
   <query name="TenderFile.GetListByParameters">
     <![CDATA[
-        from TenderFile
+        from TenderFile where TenderId = :TenderId
     ]]>
   </query>
 
