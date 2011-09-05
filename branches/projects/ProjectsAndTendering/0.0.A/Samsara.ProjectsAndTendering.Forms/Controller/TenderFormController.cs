@@ -1091,14 +1091,22 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void DeleteEntity(int tenderId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Licitación?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
-                return;
-            this.tender = this.srvTender.GetById(tenderId);
-            this.tender.Activated = false;
-            this.tender.Deleted = true;
-            this.srvTender.SaveOrUpdate(this.tender);
-            this.Search();
+            try
+            {
+                if (MessageBox.Show("¿Esta seguro de eliminar la Licitación?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                    return;
+                this.frmTender.Cursor = Cursors.WaitCursor;
+                this.tender = this.srvTender.GetById(tenderId);
+                this.tender.Activated = false;
+                this.tender.Deleted = true;
+                this.srvTender.SaveOrUpdate(this.tender);
+                this.Search();
+            }
+            finally
+            {
+                this.frmTender.Cursor = Cursors.Default;
+            }
         }
 
         private void Search()
