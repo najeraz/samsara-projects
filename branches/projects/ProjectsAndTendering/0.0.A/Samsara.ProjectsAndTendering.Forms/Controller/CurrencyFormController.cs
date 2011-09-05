@@ -112,7 +112,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar la Moneda?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
                 this.srvCurrency.SaveOrUpdate(this.Currency);
@@ -142,7 +142,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int CurrencyId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Currency = this.srvCurrency.GetById(CurrencyId);
             this.Currency.Activated = false;

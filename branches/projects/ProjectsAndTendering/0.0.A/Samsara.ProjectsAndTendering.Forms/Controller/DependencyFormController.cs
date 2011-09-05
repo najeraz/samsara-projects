@@ -122,7 +122,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar la Dependencia?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
                 this.srvDependency.SaveOrUpdate(this.dependency);
@@ -150,7 +150,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int dependencyId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Dependencia?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.dependency = this.srvDependency.GetById(dependencyId);
             this.dependency.Activated = false;

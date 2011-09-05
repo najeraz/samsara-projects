@@ -96,7 +96,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar el Fabricante?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
                 this.srvManufacturer.SaveOrUpdate(this.manufacturer);
@@ -123,7 +123,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int manufacturerId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Fabricante?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.manufacturer = this.srvManufacturer.GetById(manufacturerId);
             this.manufacturer.Activated = false;

@@ -98,7 +98,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.ValidateFormInformation())
             {
                 if (MessageBox.Show("¿Esta seguro de guardar el Competitor?", "Advertencia",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
                 this.srvCompetitor.SaveOrUpdate(this.Competitor);
@@ -126,7 +126,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void DeleteEntity(int CompetitorId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Competitor = this.srvCompetitor.GetById(CompetitorId);
             this.Competitor.Activated = false;
