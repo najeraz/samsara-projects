@@ -50,16 +50,16 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl.Domain
 
         private void DeleteTenderFiles(Tender entity)
         {
-            ITenderFileDao daoTenderFile = SamsaraAppContext.Resolve<ITenderFileDao>();
-            Assert.IsNotNull(daoTenderFile);
+            //ITenderFileDao daoTenderFile = SamsaraAppContext.Resolve<ITenderFileDao>();
+            //Assert.IsNotNull(daoTenderFile);
             
-            TenderFileParameters pmtTenderFile = new TenderFileParameters();
-            pmtTenderFile.TenderId = entity.TenderId;
+            //TenderFileParameters pmtTenderFile = new TenderFileParameters();
+            //pmtTenderFile.TenderId = entity.TenderId;
 
-            foreach (TenderFile tenderFile in daoTenderFile.GetListByParameters(pmtTenderFile))
-            {
-                daoTenderFile.Delete(tenderFile);
-            }
+            //foreach (TenderFile tenderFile in daoTenderFile.GetListByParameters(pmtTenderFile))
+            //{
+            //    daoTenderFile.Delete(tenderFile);
+            //}
         }
 
         private void SaveTenderFiles(Tender entity)
