@@ -70,6 +70,11 @@
       <HintPath>..\bin\Samsara.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Operation.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Operation.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -99,8 +104,6 @@
     <Compile Include="Entities\DocumentTypeWarranty.cs" />
     <Compile Include="Entities\WarrantyType.cs" />
     <Compile Include="Entities\TenderWarranty.cs" />
-    <Compile Include="Entities\ExchangeRate.cs" />
-    <Compile Include="Entities\Currency.cs" />
     <Compile Include="Entities\TenderLineWholesaler.cs" />
     <Compile Include="Entities\TenderLineManufacturer.cs" />
     <Compile Include="Entities\TenderWholesaler.cs" />
@@ -134,8 +137,6 @@
     <Compile Include="Parameters\DocumentWarrantyTypeParameters.cs" />
     <Compile Include="Parameters\WarrantyTypeParameters.cs" />
     <Compile Include="Parameters\TenderWarrantyParameters.cs" />
-    <Compile Include="Parameters\ExchangeRateParameters.cs" />
-    <Compile Include="Parameters\CurrencyParameters.cs" />
     <Compile Include="Parameters\TenderWholesalerParameters.cs" />
     <Compile Include="Parameters\WholesalerParameters.cs" />
     <Compile Include="Parameters\TenderCompetitorParameters.cs" />

@@ -1,4 +1,4 @@
-﻿namespace Samsara.ProjectsAndTendering.Forms.Forms
+﻿namespace Samsara.BaseForms.Forms
 {
     partial class CatalogForm
     {
@@ -408,7 +408,7 @@
             this.pnlDetCtgButtons.MaximumSize = new System.Drawing.Size(0, 25);
             this.pnlDetCtgButtons.MinimumSize = new System.Drawing.Size(0, 25);
             this.pnlDetCtgButtons.Name = "pnlDetCtgButtons";
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(0, 25);
             this.pnlDetCtgButtons.TabIndex = 0;
             // 
             // upDetSeparator3
@@ -499,13 +499,9 @@
         public System.Windows.Forms.Button btnSchClose;
         public System.Windows.Forms.Button btnSchEdit;
         public System.Windows.Forms.Button btnSchCreate;
-        internal Samsara.Controls.SamsaraUltraGrid grdSchSearch;
-        internal System.Windows.Forms.TabControl tabPrincipal;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator3;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator2;
-        internal System.Windows.Forms.Button btnDetCancel;
-        internal System.Windows.Forms.Button btnDetSave;
         public System.Windows.Forms.Button btnSchAccept;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorBottom;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorClose;
@@ -520,5 +516,9 @@
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorBottonSearch;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorDelete;
         public System.Windows.Forms.Button btnSchDelete;
+        public Controls.SamsaraUltraGrid grdSchSearch;
+        public System.Windows.Forms.Button btnDetCancel;
+        public System.Windows.Forms.Button btnDetSave;
+        public System.Windows.Forms.TabControl tabPrincipal;
     }
 }

@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\PrimaryKeyAttribute .cs" />
+    <Compile Include="Attributes\PrimaryKeyAttribute.cs" />
     <Compile Include="Entities\GenericEntity.cs" />
     <Compile Include="Enums\TaxEnum.cs" />
     <Compile Include="Parameters\GenericParameters.cs" />

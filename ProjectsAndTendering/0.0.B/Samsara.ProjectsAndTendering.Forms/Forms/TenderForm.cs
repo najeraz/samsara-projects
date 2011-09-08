@@ -33,7 +33,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        internal override Tender GetSerchResult()
+        public override Tender GetSerchResult()
         {
             Tender tender = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

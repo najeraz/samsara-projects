@@ -7,12 +7,12 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
+using Samsara.BaseForms.Forms;
 using Samsara.Common.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Enums;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
-using Samsara.ProjectsAndTendering.Forms.Templates;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 using Samsara.Support.Util;
 

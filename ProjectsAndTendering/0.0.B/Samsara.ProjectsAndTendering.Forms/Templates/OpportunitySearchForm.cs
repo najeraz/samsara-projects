@@ -1,4 +1,5 @@
 ﻿
+using Samsara.BaseForms.Forms;
 using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Forms.Templates
@@ -15,7 +16,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             base.PrepareSearchControls();
         }
 
-        internal override Opportunity GetSerchResult()
+        public override Opportunity GetSerchResult()
         {
             throw new System.NotImplementedException();
         }

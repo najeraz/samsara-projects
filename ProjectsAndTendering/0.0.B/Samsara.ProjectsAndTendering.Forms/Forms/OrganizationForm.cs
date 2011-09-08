@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        internal override Organization GetSerchResult()
+        public override Organization GetSerchResult()
         {
             Organization Organization = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

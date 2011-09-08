@@ -131,8 +131,6 @@
     <Compile Include="Impl\DocumentTypeWarrantyService.cs" />
     <Compile Include="Impl\WarrantyTypeService.cs" />
     <Compile Include="Impl\TenderWarrantyService.cs" />
-    <Compile Include="Impl\ExchangeRateService.cs" />
-    <Compile Include="Impl\CurrencyService.cs" />
     <Compile Include="Impl\TenderWholesalerService.cs" />
     <Compile Include="Impl\WholesalerService.cs" />
     <Compile Include="Impl\TenderCompetitorService.cs" />
@@ -156,8 +154,6 @@
     <Compile Include="Interfaces\IDocumentWarrantyTypeService.cs" />
     <Compile Include="Interfaces\IWarrantyTypeService.cs" />
     <Compile Include="Interfaces\ITenderWarrantyService.cs" />
-    <Compile Include="Interfaces\IExchangeRateService.cs" />
-    <Compile Include="Interfaces\ICurrencyService.cs" />
     <Compile Include="Interfaces\ITenderWholesalerService.cs" />
     <Compile Include="Interfaces\IWholesalerService.cs" />
     <Compile Include="Interfaces\ITenderCompetitorService.cs" />

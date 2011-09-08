@@ -2,7 +2,7 @@
 using Samsara.BaseCore.Attributes;
 using Samsara.BaseCore.Entities;
 
-namespace Samsara.ProjectsAndTendering.Core.Entities
+namespace Samsara.Operation.Core.Entities
 {
     public class Currency : GenericEntity
     {

@@ -128,7 +128,7 @@
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Competitor.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\ProjectsAndTendering\Currency.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Operation\Currency.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Dependency.hbm.xml" />
@@ -140,7 +140,7 @@
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\EndUser.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\ProjectsAndTendering\ExchangeRate.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Operation\ExchangeRate.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Manufacturer.hbm.xml" />

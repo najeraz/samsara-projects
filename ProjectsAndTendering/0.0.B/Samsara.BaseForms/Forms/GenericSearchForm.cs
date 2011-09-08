@@ -1,9 +1,8 @@
 ﻿
 using System.Windows.Forms;
 using Samsara.Controls.Interfaces;
-using Samsara.ProjectsAndTendering.Forms.Forms;
 
-namespace Samsara.ProjectsAndTendering.Forms.Templates
+namespace Samsara.BaseForms.Forms
 {
     public abstract partial class GenericSearchForm<T> : CatalogForm, ISearchForm<T>
     {
@@ -51,7 +50,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             this.Close();
         }
 
-        abstract internal T GetSerchResult();
+        abstract public T GetSerchResult();
 
         #endregion Events
     }

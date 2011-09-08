@@ -31,9 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Samsara.BaseForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.BaseForms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Operation.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Operation.Forms.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.ProjectsAndTendering.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

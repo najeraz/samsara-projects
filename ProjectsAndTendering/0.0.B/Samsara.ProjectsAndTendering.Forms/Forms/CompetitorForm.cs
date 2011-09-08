@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        internal override Competitor GetSerchResult()
+        public override Competitor GetSerchResult()
         {
             Competitor Competitor = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
