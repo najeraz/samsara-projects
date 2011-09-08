@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core"
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="TenderLog" table="TenderLogs">
+    
+    <id name="TenderLogId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="LogDate"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
+
+
+  </class>
+
+  <query name="TenderLog.GetListByParameters">
+    <![CDATA[
+        from TenderLog where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="TenderLog.SearchByParameters">
+    <![CDATA[
+        from TenderLog tl where Deleted = 0 and Activated = 1
+        and tl.TenderLogId = :TenderLogId
+    ]]>
+  </query>
+  
+</hibernate-mapping>
