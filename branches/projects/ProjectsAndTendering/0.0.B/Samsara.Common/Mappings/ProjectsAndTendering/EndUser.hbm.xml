@@ -33,7 +33,7 @@
     <![CDATA[
       SELECT eu.EndUserId, eu.Name, d.Name DependencyName
       FROM ProjectsAndTendering.EndUsers eu
-      INNER JOIN Dependencies d ON d.DependencyId = eu.DependencyId
+      INNER JOIN ProjectsAndTendering.Dependencies d ON d.DependencyId = eu.DependencyId
       WHERE eu.Deleted = 0 and eu.Activated = 1 AND d.Deleted = 0 and d.Activated = 1
       AND eu.Name like :Name
       AND (:DependencyId = -1 OR eu.DependencyId = :DependencyId)

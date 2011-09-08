@@ -32,7 +32,7 @@
     <![CDATA[
       SELECT b.BidderId, b.Name, bt.Name BidderTypeName
       FROM ProjectsAndTendering.Bidders b
-      INNER JOIN BidderTypes bt ON bt.BidderTypeId = b.BidderTypeId
+      INNER JOIN ProjectsAndTendering.BidderTypes bt ON bt.BidderTypeId = b.BidderTypeId
       WHERE b.Deleted = 0 and b.Activated = 1 AND bt.Deleted = 0 and bt.Activated = 1
       AND b.Name like :Name
       AND (:BidderTypeId = -1 OR b.BidderTypeId = :BidderTypeId)

@@ -137,7 +137,7 @@
       eu.Name EndUserName, d.Name DependencyName, a.Name AsesorName, t.PreRevisionDate,
       t.Deadline, t.VerdictDate, 
       ts.Name TenderStatusName, ap.Name ApproverName, pt.Name PreviousTenderName
-      FROM Tenders t
+      FROM ProjectsAndTendering.Tenders t
       INNER JOIN  ProjectsAndTendering.Bidders b	    		ON b.BidderId = t.BidderId AND b.Deleted = 0 and b.Activated = 1
       LEFT JOIN   ProjectsAndTendering.Asesors a		    	ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
       LEFT JOIN   ProjectsAndTendering.Dependencies d	  	ON d.DependencyId = t.DependencyId AND d.Deleted = 0 and d.Activated = 1
