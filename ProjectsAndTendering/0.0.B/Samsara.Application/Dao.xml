@@ -166,15 +166,15 @@
   </object>
 
   <object id="IFormConfigurationDao"
-          type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IGridColumnConfigurationDao"
-          type="Samsara.Configuration.Dao.Impl.GridColumnConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.Configuration.Dao.Impl.GridColumnConfigurationDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IGridConfigurationDao"
-          type="Samsara.Configuration.Dao.Impl.GridConfigurationDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.Configuration.Dao.Impl.GridConfigurationDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 

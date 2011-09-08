@@ -131,6 +131,7 @@
   <ItemGroup>
     <Content Include="Dao.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="DeclarativeServicesTxProxyFactoryDriven.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
