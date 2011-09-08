@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="TenderExchangeRate" table="TenderExchangeRates">
+    
+    <id name="TenderExchangeRateId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Rate"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="Tender"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="TenderId"/>
+    <many-to-one name="ExchangeRate"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.ExchangeRate, Samsara.ProjectsAndTendering.Core"
+                 column="ExchangeRateId"/>
+    <many-to-one name="SourceCurrency" lazy="false"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 column="SourceCurrencyId"/>
+    <many-to-one name="DestinyCurrency" lazy="false"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 column="DestinyCurrencyId"/>
+
+  </class>
+
+  <query name="TenderExchangeRate.GetListByParameters">
+    <![CDATA[
+        from TenderExchangeRate where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <sql-query name="TenderExchangeRate.SearchByParameters">
+    <return-scalar column="SourceCurrencyId" type="int"/>
+    <return-scalar column="DestinyCurrencyId" type="int"/>
+    <return-scalar column="Rate" type="decimal"/>
+    <![CDATA[
+        SELECT SourceCurrencyId, DestinyCurrencyId, Rate FROM TenderExchangeRates 
+        WHERE Deleted = 0 AND Activated = 1 AND TenderId = :TenderId
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>
