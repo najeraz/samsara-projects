@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="TenderLineExtraCost" table="TenderLineExtraCosts">
+  <class name="TenderLineExtraCost" table="ProjectsAndTendering.TenderLineExtraCosts">
 
     <id name="TenderLineExtraCostId" type="int">
       <generator class="native"/>

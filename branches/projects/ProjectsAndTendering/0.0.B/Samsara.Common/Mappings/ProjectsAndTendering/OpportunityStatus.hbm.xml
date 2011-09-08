@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="OpportunityStatus" table="OpportunityStatuses">
+  <class name="OpportunityStatus" table="ProjectsAndTendering.OpportunityStatuses">
     
     <id name="OpportunityStatusId" type="int">
       <generator class="native"/>
@@ -26,7 +26,7 @@
     <return-scalar column="Name" type="string"/>
     <![CDATA[
       SELECT ts.OpportunityStatusId, ts.Name
-      FROM OpportunityStatuses ts
+      FROM ProjectsAndTendering.OpportunityStatuses ts
       WHERE ts.Deleted = 0 and ts.Activated = 1
       AND ts.Name like :Name
     ]]>

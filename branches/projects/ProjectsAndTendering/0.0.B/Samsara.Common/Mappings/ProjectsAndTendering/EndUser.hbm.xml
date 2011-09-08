@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="EndUser" table="EndUsers">
+  <class name="EndUser" table="ProjectsAndTendering.EndUsers">
     
     <id name="EndUserId" type="int">
       <generator class="native"/>
@@ -32,7 +32,7 @@
     <return-scalar column="DependencyName" type="string"/>
     <![CDATA[
       SELECT eu.EndUserId, eu.Name, d.Name DependencyName
-      FROM EndUsers eu
+      FROM ProjectsAndTendering.EndUsers eu
       INNER JOIN Dependencies d ON d.DependencyId = eu.DependencyId
       WHERE eu.Deleted = 0 and eu.Activated = 1 AND d.Deleted = 0 and d.Activated = 1
       AND eu.Name like :Name

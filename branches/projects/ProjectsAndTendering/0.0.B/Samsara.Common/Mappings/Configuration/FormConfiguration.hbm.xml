@@ -3,7 +3,7 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="FormConfiguration" table="FormConfigurations">
+  <class name="FormConfiguration" table="Configuration.FormConfigurations">
 
     <id name="FormConfigurationId" type="int">
       <generator class="native"/>
@@ -11,7 +11,7 @@
     
     <property name="FormName" not-null="true"/>
     
-    <set name="GridConfigurations" table="GridConfigurations" cascade="all-delete-orphan">
+    <set name="GridConfigurations" table="Configuration.GridConfigurations" cascade="all-delete-orphan">
       <key column="FormConfigurationId"/>
       <one-to-many 
         class="Samsara.Configuration.Core.Entities.GridConfiguration, Samsara.Configuration.Core"/>

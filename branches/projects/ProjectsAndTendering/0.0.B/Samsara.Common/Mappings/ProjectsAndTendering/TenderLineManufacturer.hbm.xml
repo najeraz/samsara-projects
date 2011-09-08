@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="TenderLineManufacturer" table="TenderLineManufacturers">
+  <class name="TenderLineManufacturer" table="ProjectsAndTendering.TenderLineManufacturers">
 
     <id name="TenderLineManufacturerId" type="int">
       <generator class="native"/>

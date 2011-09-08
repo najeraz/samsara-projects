@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="Opportunity" table="Opportunities">
+  <class name="Opportunity" table="ProjectsAndTendering.Opportunities">
     
     <id name="OpportunityId" type="int">
       <generator class="native"/>
@@ -41,7 +41,7 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.OpportunityType, Samsara.ProjectsAndTendering.Core"
                  column="OpportunityTypeId"/>
     
-    <set name="OpportunityLogs" table="OpportunityLogs" where="Deleted = 0 AND Activated = 1"
+    <set name="OpportunityLogs" table="ProjectsAndTendering.OpportunityLogs" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="OpportunityId"/>
       <one-to-many
@@ -73,14 +73,14 @@
       SELECT o.OpportunityId, o.Name OpportunityName, ot.Name OpportunityTypeName, 
       org.Name OrganizationName, b.Name BidderName, d.Name DependencyName, eu.Name EndUserName,
       o.RegistrationDate, a.Name AsesorName, o.PreRevisionDate, o.Deadline, os.Name OpportunityStatusName
-      FROM Opportunities o
-      INNER JOIN OpportunityTypes ot    ON ot.OpportunityTypeId = o.OpportunityTypeId AND ot.Deleted = 0 and ot.Activated = 1
-      LEFT JOIN Organizations org       ON org.OrganizationId = o.OrganizationId AND org.Deleted = 0 and org.Activated = 1
-      LEFT JOIN	Bidders b	     	      	ON b.BidderId = o.BidderId AND b.Deleted = 0 and b.Activated = 1
-      LEFT JOIN	Dependencies d	      	ON d.DependencyId = o.DependencyId AND d.Deleted = 0 and d.Activated = 1
-      LEFT JOIN	EndUsers eu	    	      ON eu.EndUserId = o.EndUserId AND eu.Deleted = 0 and eu.Activated = 1
-      LEFT JOIN	Asesors a		    	      ON a.AsesorId = o.AsesorId AND a.Deleted = 0 and a.Activated = 1
-      LEFT JOIN	OpportunityStatuses os	ON os.OpportunityStatusId = o.OpportunityStatusId AND os.Deleted = 0 and os.Activated = 1
+      FROM ProjectsAndTendering.Opportunities o
+      INNER JOIN ProjectsAndTendering.OpportunityTypes ot     ON ot.OpportunityTypeId = o.OpportunityTypeId AND ot.Deleted = 0 and ot.Activated = 1
+      LEFT JOIN ProjectsAndTendering.Organizations org        ON org.OrganizationId = o.OrganizationId AND org.Deleted = 0 and org.Activated = 1
+      LEFT JOIN	ProjectsAndTendering.Bidders b	     	      	ON b.BidderId = o.BidderId AND b.Deleted = 0 and b.Activated = 1
+      LEFT JOIN	ProjectsAndTendering.Dependencies d	      	  ON d.DependencyId = o.DependencyId AND d.Deleted = 0 and d.Activated = 1
+      LEFT JOIN	ProjectsAndTendering.EndUsers eu	    	      ON eu.EndUserId = o.EndUserId AND eu.Deleted = 0 and eu.Activated = 1
+      LEFT JOIN	ProjectsAndTendering.Asesors a		    	      ON a.AsesorId = o.AsesorId AND a.Deleted = 0 and a.Activated = 1
+      LEFT JOIN	ProjectsAndTendering.OpportunityStatuses os	  ON os.OpportunityStatusId = o.OpportunityStatusId AND os.Deleted = 0 and os.Activated = 1
       WHERE o.Deleted = 0 and o.Activated = 1
       AND o.Name like :Name
       AND (o.OpportunityTypeId = :OpportunityTypeId OR :OpportunityTypeId = -1)

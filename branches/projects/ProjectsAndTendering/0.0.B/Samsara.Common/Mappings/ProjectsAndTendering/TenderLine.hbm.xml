@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="TenderLine" table="TenderLines">
+  <class name="TenderLine" table="ProjectsAndTendering.TenderLines">
     
     <id name="TenderLineId" type="int">
       <generator class="native"/>
@@ -30,28 +30,28 @@
     <one-to-one name="PricingStrategy" cascade="all"
       class="Samsara.ProjectsAndTendering.Core.Entities.PricingStrategy, Samsara.ProjectsAndTendering.Core"/>
 
-    <set name="TenderLineManufacturers" table="TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
+    <set name="TenderLineManufacturers" table="ProjectsAndTendering.TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineManufacturer, Samsara.ProjectsAndTendering.Core"/>
     </set>
 
-    <set name="TenderLineWholesalers" table="TenderLineWholesalers" where="Deleted = 0 AND Activated = 1"
+    <set name="TenderLineWholesalers" table="ProjectsAndTendering.TenderLineWholesalers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineWholesaler, Samsara.ProjectsAndTendering.Core"/>
     </set>
 
-    <set name="TenderLineCompetitors" table="TenderLineCompetitors" where="Deleted = 0 AND Activated = 1"
+    <set name="TenderLineCompetitors" table="ProjectsAndTendering.TenderLineCompetitors" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineCompetitor, Samsara.ProjectsAndTendering.Core"/>
     </set>
 
-    <set name="TenderLineExtraCosts" table="TenderLineExtraCosts" where="Deleted = 0 AND Activated = 1"
+    <set name="TenderLineExtraCosts" table="ProjectsAndTendering.TenderLineExtraCosts" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many

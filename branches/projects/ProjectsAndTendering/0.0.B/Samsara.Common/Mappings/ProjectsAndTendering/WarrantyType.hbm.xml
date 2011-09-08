@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="WarrantyType" table="WarrantyTypes">
+  <class name="WarrantyType" table="ProjectsAndTendering.WarrantyTypes">
     
     <id name="WarrantyTypeId" type="int">
       <generator class="native"/>

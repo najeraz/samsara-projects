@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="Currency" table="Currencies">
+  <class name="Currency" table="ProjectsAndTendering.Currencies">
     
     <id name="CurrencyId" type="int">
       <generator class="native"/>
