@@ -74,13 +74,13 @@
       org.Name OrganizationName, b.Name BidderName, d.Name DependencyName, eu.Name EndUserName,
       o.RegistrationDate, a.Name AsesorName, o.PreRevisionDate, o.Deadline, os.Name OpportunityStatusName
       FROM ProjectsAndTendering.Opportunities o
-      INNER JOIN ProjectsAndTendering.OpportunityTypes ot     ON ot.OpportunityTypeId = o.OpportunityTypeId AND ot.Deleted = 0 and ot.Activated = 1
-      LEFT JOIN ProjectsAndTendering.Organizations org        ON org.OrganizationId = o.OrganizationId AND org.Deleted = 0 and org.Activated = 1
-      LEFT JOIN	ProjectsAndTendering.Bidders b	     	      	ON b.BidderId = o.BidderId AND b.Deleted = 0 and b.Activated = 1
-      LEFT JOIN	ProjectsAndTendering.Dependencies d	      	  ON d.DependencyId = o.DependencyId AND d.Deleted = 0 and d.Activated = 1
-      LEFT JOIN	ProjectsAndTendering.EndUsers eu	    	      ON eu.EndUserId = o.EndUserId AND eu.Deleted = 0 and eu.Activated = 1
-      LEFT JOIN	ProjectsAndTendering.Asesors a		    	      ON a.AsesorId = o.AsesorId AND a.Deleted = 0 and a.Activated = 1
-      LEFT JOIN	ProjectsAndTendering.OpportunityStatuses os	  ON os.OpportunityStatusId = o.OpportunityStatusId AND os.Deleted = 0 and os.Activated = 1
+      INNER JOIN  ProjectsAndTendering.OpportunityTypes ot      ON ot.OpportunityTypeId = o.OpportunityTypeId AND ot.Deleted = 0 and ot.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Organizations org        ON org.OrganizationId = o.OrganizationId AND org.Deleted = 0 and org.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Bidders b	     	      	ON b.BidderId = o.BidderId AND b.Deleted = 0 and b.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Dependencies d	      	  ON d.DependencyId = o.DependencyId AND d.Deleted = 0 and d.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.EndUsers eu	    	      ON eu.EndUserId = o.EndUserId AND eu.Deleted = 0 and eu.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Asesors a		    	      ON a.AsesorId = o.AsesorId AND a.Deleted = 0 and a.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.OpportunityStatuses os	  ON os.OpportunityStatusId = o.OpportunityStatusId AND os.Deleted = 0 and os.Activated = 1
       WHERE o.Deleted = 0 and o.Activated = 1
       AND o.Name like :Name
       AND (o.OpportunityTypeId = :OpportunityTypeId OR :OpportunityTypeId = -1)
@@ -95,7 +95,7 @@
         OR :DateTypeSearchId = 4 and :MinDate <= o.ClarificationDate and :MaxDate >= o.ClarificationDate
         OR :DateTypeSearchId = 5 and :MinDate <= o.PreRevisionDate and :MaxDate >= o.PreRevisionDate
         OR :DateTypeSearchId = -1)
-      AND (:OnlyNotRelatedToTenders = 0 OR o.OpportunityId NOT IN (SELECT OpportunityId FROM Tenders))
+      AND (:OnlyNotRelatedToTenders = 0 OR o.OpportunityId NOT IN (SELECT OpportunityId FROM ProjectsAndTendering.Tenders))
     ]]>
   </sql-query>
 
