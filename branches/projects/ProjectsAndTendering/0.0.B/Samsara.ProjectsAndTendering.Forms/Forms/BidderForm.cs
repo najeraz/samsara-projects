@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        internal override Bidder GetSerchResult()
+        public override Bidder GetSerchResult()
         {
             Bidder bidder = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

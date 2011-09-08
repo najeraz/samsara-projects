@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using Infragistics.Win;
 
-namespace Samsara.ProjectsAndTendering.Forms.Forms
+namespace Samsara.BaseForms.Forms
 {
     public partial class CatalogForm : Form
     {

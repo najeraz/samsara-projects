@@ -1,4 +1,4 @@
-﻿namespace Samsara.ProjectsAndTendering.Forms.Templates
+﻿namespace Samsara.BaseForms.Forms
 {
     partial class GenericSearchForm<T>
     {

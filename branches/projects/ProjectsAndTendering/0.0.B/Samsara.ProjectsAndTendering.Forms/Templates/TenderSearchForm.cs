@@ -1,4 +1,5 @@
 ﻿
+using Samsara.BaseForms.Forms;
 using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Forms.Templates
@@ -10,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        internal override Tender GetSerchResult()
+        public override Tender GetSerchResult()
         {
             throw new System.NotImplementedException();
         }

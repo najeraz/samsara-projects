@@ -1,7 +1,7 @@
 ﻿
 using Samsara.BaseCore.Parameters;
 
-namespace Samsara.ProjectsAndTendering.Core.Parameters
+namespace Samsara.Operation.Core.Parameters
 {
     public class CurrencyParameters : GenericParameters
     {

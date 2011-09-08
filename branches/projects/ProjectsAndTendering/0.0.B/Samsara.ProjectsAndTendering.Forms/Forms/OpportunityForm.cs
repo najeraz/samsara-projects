@@ -2,12 +2,13 @@
 using System;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
+using Samsara.BaseForms.Forms;
 using Samsara.Common.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Core.Enums;
 using Samsara.ProjectsAndTendering.Forms.Controller;
 using Samsara.ProjectsAndTendering.Forms.Templates;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
-using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
@@ -45,7 +46,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             }
         }
 
-        internal override Opportunity GetSerchResult()
+        public override Opportunity GetSerchResult()
         {
             Opportunity Opportunity = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
