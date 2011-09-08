@@ -119,15 +119,15 @@
   </object>
   
   <object id="IFormConfigurationService"
-          type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.Configuration.Service">
     <property name="Dao" ref="IFormConfigurationDao"/>
   </object>
   <object id="IGridColumnConfigurationService"
-          type="Samsara.Configuration.Service.Impl.GridColumnConfigurationService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.Configuration.Service.Impl.GridColumnConfigurationService, Samsara.Configuration.Service">
     <property name="Dao" ref="IGridColumnConfigurationDao"/>
   </object>
   <object id="IGridConfigurationService"
-          type="Samsara.Configuration.Service.Impl.GridConfigurationService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.Configuration.Service.Impl.GridConfigurationService, Samsara.Configuration.Service">
     <property name="Dao" ref="IGridConfigurationDao"/>
   </object>
   

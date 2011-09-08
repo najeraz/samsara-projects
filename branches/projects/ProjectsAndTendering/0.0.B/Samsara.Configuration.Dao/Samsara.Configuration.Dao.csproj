@@ -34,6 +34,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\lib\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\lib\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.BaseCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.BaseCore.dll</HintPath>
