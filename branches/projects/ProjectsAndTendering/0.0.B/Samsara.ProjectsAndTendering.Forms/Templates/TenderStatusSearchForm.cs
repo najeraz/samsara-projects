@@ -1,0 +1,20 @@
+﻿
+using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Forms.Forms;
+using Samsara.ProjectsAndTendering.Forms.Templates;
+
+namespace Samsara.ProjectsAndTendering.Forms.Templates
+{
+    public partial class TenderStatusSearchForm : GenericSearchForm<TenderStatus>
+    {
+        public TenderStatusSearchForm()
+        {
+            InitializeComponent();
+        }
+
+        internal override TenderStatus GetSerchResult()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}

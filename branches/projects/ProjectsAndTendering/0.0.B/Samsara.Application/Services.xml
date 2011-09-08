@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <description>
+    Configuration of Services
+  </description>
+
+  <object id="IAsesorService" 
+          type="Samsara.ProjectsAndTendering.Service.Impl.AsesorService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IAsesorDao"/>
+  </object>
+  <object id="IBidderService" 
+          type="Samsara.ProjectsAndTendering.Service.Impl.BidderService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IBidderDao"/>
+  </object>
+  <object id="IBidderTypeService" 
+          type="Samsara.ProjectsAndTendering.Service.Impl.BidderTypeService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IBidderTypeDao"/>
+  </object>
+  <object id="IDependencyService" 
+          type="Samsara.ProjectsAndTendering.Service.Impl.DependencyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IDependencyDao"/>
+  </object>
+  <object id="IManufacturerService" 
+          type="Samsara.ProjectsAndTendering.Service.Impl.ManufacturerService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IManufacturerDao"/>
+  </object>
+  <object id="ITenderService" 
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderDao"/>
+  </object>
+  <object id="ITenderLineService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderLineService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderLineDao"/>
+  </object>
+  <object id="ITenderManufacturerService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderManufacturerService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderManufacturerDao"/>
+  </object>
+  <object id="ITenderStatusService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderStatusService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderStatusDao"/>
+  </object>
+  <object id="IEndUserService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.EndUserService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IEndUserDao"/>
+  </object>
+  <object id="IOpportunityService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.OpportunityService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOpportunityDao"/>
+  </object>
+  <object id="IOpportunityStatusService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.OpportunityStatusService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOpportunityStatusDao"/>
+  </object>
+  <object id="IOpportunityTypeService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.OpportunityTypeService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOpportunityTypeDao"/>
+  </object>
+  <object id="IOrganizationService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.OrganizationService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOrganizationDao"/>
+  </object>
+  <object id="IOpportunityLogService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.OpportunityLogService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOpportunityLogDao"/>
+  </object>
+  <object id="ITenderLogService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderLogService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderLogDao"/>
+  </object>
+  <object id="ITenderCompetitorService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderCompetitorService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderCompetitorDao"/>
+  </object>
+  <object id="ICompetitorService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.CompetitorService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ICompetitorDao"/>
+  </object>
+  <object id="ITenderWholesalerService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderWholesalerService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderWholesalerDao"/>
+  </object>
+  <object id="IWholesalerService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.WholesalerService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IWholesalerDao"/>
+  </object>
+  <object id="ITenderWarrantyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderWarrantyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderWarrantyDao"/>
+  </object>
+  <object id="IWarrantyTypeService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.WarrantyTypeService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IWarrantyTypeDao"/>
+  </object>
+  <object id="IDocumentTypeWarrantyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.DocumentTypeWarrantyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IDocumentTypeWarrantyDao"/>
+  </object>
+  <object id="ICurrencyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.CurrencyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ICurrencyDao"/>
+  </object>
+  <object id="ITenderExchangeRateService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderExchangeRateService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderExchangeRateDao"/>
+  </object>
+  <object id="IPricingStrategyService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.PricingStrategyService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IPricingStrategyDao"/>
+  </object>
+  <object id="ITenderFileService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderFileService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderFileDao"/>
+  </object>
+  <object id="ITenderLineExtraCostService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderLineExtraCostService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderLineExtraCostDao"/>
+  </object>
+  
+  <object id="IFormConfigurationService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IFormConfigurationDao"/>
+  </object>
+  <object id="IGridColumnConfigurationService"
+          type="Samsara.Configuration.Service.Impl.GridColumnConfigurationService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IGridColumnConfigurationDao"/>
+  </object>
+  <object id="IGridConfigurationService"
+          type="Samsara.Configuration.Service.Impl.GridConfigurationService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IGridConfigurationDao"/>
+  </object>
+  
+  <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
+
+</objects>
+

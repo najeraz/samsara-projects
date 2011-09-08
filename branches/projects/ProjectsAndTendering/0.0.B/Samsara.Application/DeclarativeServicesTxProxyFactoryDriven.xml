@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <description>
+    Transactional Proxy for Services using the TransactionProxyFactory
+  </description>
+
+  <object id="BaseTransactionManager" abstract="true"
+          type="Spring.Transaction.Interceptor.TransactionProxyFactoryObject, Spring.Data">
+
+    <property name="PlatformTransactionManager" ref="HibernateTransactionManager"/>
+    
+    <property name="TransactionAttributes">
+      <name-values>
+        <add key="Get*" value="PROPAGATION_REQUIRED"/>
+        <add key="Save*" value="PROPAGATION_REQUIRED"/>
+        <add key="Update*" value="PROPAGATION_REQUIRED"/>
+        <add key="Delete*" value="PROPAGATION_REQUIRED"/>
+      </name-values>
+    </property>
+    
+    <!-- note you can use alias names so that this configuration file is -->
+    <!-- not dependent on the precise object name of the logging advice  -->
+    <!-- defined in Aspects.xml                                          -->
+    <!--property name="PreInterceptors" ref="CommonLoggingAroundAdvice"/-->
+  </object>
+
+  <object id="TenderTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="ITenderService"/>
+  </object>
+  
+  <object id="TenderStatusTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="ITenderStatusService"/>
+  </object>
+  
+  <object id="OpportunityTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IOpportunityService"/>
+  </object>
+  
+  <object id="AsesorTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IAsesorService"/>
+  </object>
+  
+  <object id="OrganizationTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IOrganizationService"/>
+  </object>
+  
+  <object id="BidderTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IBidderService"/>
+  </object>
+  
+  <object id="BidderTypeTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IBidderTypeService"/>
+  </object>
+
+  <object id="DependencyTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IDependencyService"/>
+  </object>
+
+  <object id="ManufacturerTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IManufacturerService"/>
+  </object>
+
+  <object id="TenderLineTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="ITenderLineService"/>
+  </object>
+  
+</objects>
+
