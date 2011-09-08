@@ -15,7 +15,7 @@
     
     <property name="MappingAssemblies">
       <list>
-        <value>Samsara.ProjectsAndTendering.Core</value>
+        <value>Samsara.Common</value>
       </list>
     </property>
     
