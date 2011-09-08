@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="PricingStrategy" table="PricingStrategies">
+  <class name="PricingStrategy" table="ProjectsAndTendering.PricingStrategies">
     
     <id name="PricingStrategyId" type="int">
     </id>

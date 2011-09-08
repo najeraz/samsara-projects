@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core"
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="TenderLog" table="TenderLogs">
+  <class name="TenderLog" table="ProjectsAndTendering.TenderLogs">
     
     <id name="TenderLogId" type="int">
       <generator class="native"/>

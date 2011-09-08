@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="ExchangeRate" table="ExchangeRates">
+  <class name="ExchangeRate" table="ProjectsAndTendering.ExchangeRates">
     
     <id name="ExchangeRateId" type="int">
       <generator class="native"/>

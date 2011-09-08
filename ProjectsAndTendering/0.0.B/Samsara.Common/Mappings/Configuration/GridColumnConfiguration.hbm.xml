@@ -3,7 +3,7 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="GridColumnConfiguration" table="GridColumnConfigurations">
+  <class name="GridColumnConfiguration" table="Configuration.GridColumnConfigurations">
 
     <id name="GridColumnConfigurationId" type="int">
       <generator class="native"/>

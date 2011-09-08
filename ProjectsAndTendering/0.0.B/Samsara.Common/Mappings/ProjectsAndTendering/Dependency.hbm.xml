@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="Dependency" table="Dependencies">
+  <class name="Dependency" table="ProjectsAndTendering.Dependencies">
     
     <id name="DependencyId" type="int">
       <generator class="native"/>
@@ -31,7 +31,7 @@
     <return-scalar column="BidderName" type="string"/>
     <![CDATA[
       SELECT d.DependencyId, d.Name, b.Name BidderName
-      FROM Dependencies d
+      FROM ProjectsAndTendering.Dependencies d
       INNER JOIN Bidders b ON b.BidderId = d.BidderId
       WHERE d.Deleted = 0 and d.Activated = 1 AND b.Deleted = 0 and b.Activated = 1
       AND d.Name like :Name

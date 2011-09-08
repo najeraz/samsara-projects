@@ -3,7 +3,7 @@
   assembly="Samsara.ProjectsAndTendering.Core" 
   namespace="Samsara.ProjectsAndTendering.Core.Entities">
   
-  <class name="Competitor" table="Competitors">
+  <class name="Competitor" table="ProjectsAndTendering.Competitors">
     
     <id name="CompetitorId" type="int">
       <generator class="native"/>
@@ -27,7 +27,7 @@
     <return-scalar column="Name" type="string"/>
     <![CDATA[
       SELECT c.CompetitorId, c.Name
-      FROM Competitors c
+      FROM ProjectsAndTendering.Competitors c
       WHERE c.Deleted = 0 and c.Activated = 1
       AND c.Name like :Name
     ]]>
