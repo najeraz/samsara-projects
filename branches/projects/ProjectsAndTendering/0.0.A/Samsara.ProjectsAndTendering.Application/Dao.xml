@@ -8,7 +8,7 @@
 
   <db:provider id="DbProvider"
                    provider="SqlServer-2.0"
-                   connectionString="Data Source=${db.datasource};Database=${db.database};Integrated Security=True"/>
+                   connectionString="Data Source=${db.datasource};Database=${db.database};Integrated Security=SSPI"/>
 
   <object id="SessionFactory" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate32">
     <property name="DbProvider" ref="DbProvider"/>
