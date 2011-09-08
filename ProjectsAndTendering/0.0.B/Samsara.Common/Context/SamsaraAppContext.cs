@@ -3,7 +3,7 @@ using System;
 using Spring.Context;
 using Spring.Context.Support;
 
-namespace Samsara.Common
+namespace Samsara.Common.Context
 {
     /// <summary>
     /// AppContext it's a easy-simple-helper class that implement a singleton,
