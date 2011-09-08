@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTenderin
 		{968F4740-8FC1-4994-8157-1EE39FF9B92C} = {968F4740-8FC1-4994-8157-1EE39FF9B92C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Common", "Samsara.ProjectsAndTendering.Common\Samsara.Common.csproj", "{E1A5262A-B520-4FC1-85E5-30192522E13E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Common", "Samsara.Common\Samsara.Common.csproj", "{E1A5262A-B520-4FC1-85E5-30192522E13E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTendering.Forms", "Samsara.ProjectsAndTendering.Forms\Samsara.ProjectsAndTendering.Forms.csproj", "{8A7F1100-1077-4319-AB51-4FD8302AF79B}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTenderin
 		{07C34CCC-C1A5-4D83-998F-010BBD4C7FFC} = {07C34CCC-C1A5-4D83-998F-010BBD4C7FFC}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Application", "Samsara.ProjectsAndTendering.Application\Samsara.Application.csproj", "{E957E14E-11A8-4109-AEC0-1608C8554048}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Application", "Samsara.Application\Samsara.Application.csproj", "{E957E14E-11A8-4109-AEC0-1608C8554048}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DBE465E1-0109-4C89-9739-9011C03AE29C} = {DBE465E1-0109-4C89-9739-9011C03AE29C}
 	EndProjectSection
@@ -50,12 +50,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Support.Util", "Sam
 		{968F4740-8FC1-4994-8157-1EE39FF9B92C} = {968F4740-8FC1-4994-8157-1EE39FF9B92C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.BaseDao", "Samsara.ProjectsAndTendering.BaseDao\Samsara.BaseDao.csproj", "{0F57FA43-5325-496C-AAD7-C63AB0DE8456}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.BaseDao", "Samsara.BaseDao\Samsara.BaseDao.csproj", "{0F57FA43-5325-496C-AAD7-C63AB0DE8456}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D4BB7166-F77E-420B-AE66-EA341BB104C4} = {D4BB7166-F77E-420B-AE66-EA341BB104C4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Controls", "Samsara.ProjectsAndTendering.Controls\Samsara.Controls.csproj", "{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Controls", "Samsara.Controls\Samsara.Controls.csproj", "{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E1A5262A-B520-4FC1-85E5-30192522E13E} = {E1A5262A-B520-4FC1-85E5-30192522E13E}
 		{968F4740-8FC1-4994-8157-1EE39FF9B92C} = {968F4740-8FC1-4994-8157-1EE39FF9B92C}
@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Controls", "Samsara
 		{059711F2-21EE-47DC-A22C-9DE829EF8B75} = {059711F2-21EE-47DC-A22C-9DE829EF8B75}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.BaseService", "Samsara.ProjectsAndTendering.BaseService\Samsara.BaseService.csproj", "{07C34CCC-C1A5-4D83-998F-010BBD4C7FFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.BaseService", "Samsara.BaseService\Samsara.BaseService.csproj", "{07C34CCC-C1A5-4D83-998F-010BBD4C7FFC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0F57FA43-5325-496C-AAD7-C63AB0DE8456} = {0F57FA43-5325-496C-AAD7-C63AB0DE8456}
 	EndProjectSection
