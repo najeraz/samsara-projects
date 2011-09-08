@@ -10,7 +10,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.BaseCore.Enums;
-using Samsara.Common;
+using Samsara.Common.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Enums;
 using Samsara.ProjectsAndTendering.Core.Parameters;
