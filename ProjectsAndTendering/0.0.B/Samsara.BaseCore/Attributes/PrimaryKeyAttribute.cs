@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Samsara.BaseCore.Attributes
+namespace Samsara.Base.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class PrimaryKeyAttribute : Attribute

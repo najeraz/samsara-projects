@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseCore.Attributes;
+using Samsara.Base.Core.Attributes;
 
 namespace Samsara.Configuration.Core.Entities
 {

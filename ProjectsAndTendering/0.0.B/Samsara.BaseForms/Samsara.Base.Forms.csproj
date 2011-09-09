@@ -8,8 +8,8 @@
     <ProjectGuid>{D7561BA8-053E-400C-A69E-8446943145B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.BaseForms</RootNamespace>
-    <AssemblyName>Samsara.BaseForms</AssemblyName>
+    <RootNamespace>Samsara.Base.Forms</RootNamespace>
+    <AssemblyName>Samsara.Base.Forms</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

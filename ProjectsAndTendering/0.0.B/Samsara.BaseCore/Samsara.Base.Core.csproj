@@ -8,8 +8,8 @@
     <ProjectGuid>{968F4740-8FC1-4994-8157-1EE39FF9B92C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.BaseCore</RootNamespace>
-    <AssemblyName>Samsara.BaseCore</AssemblyName>
+    <RootNamespace>Samsara.Base.Core</RootNamespace>
+    <AssemblyName>Samsara.Base.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

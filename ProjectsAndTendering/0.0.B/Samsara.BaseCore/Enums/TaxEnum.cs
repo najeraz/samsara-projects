@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.BaseCore.Enums
+namespace Samsara.Base.Core.Enums
 {
     public enum TaxEnum
     {

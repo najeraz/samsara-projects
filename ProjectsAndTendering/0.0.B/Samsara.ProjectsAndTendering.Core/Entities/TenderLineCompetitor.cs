@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseCore.Entities;
+using Samsara.Base.Core.Entities;
 using Samsara.Operation.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities

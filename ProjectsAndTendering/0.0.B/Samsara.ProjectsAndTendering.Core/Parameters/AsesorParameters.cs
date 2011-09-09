@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseCore.Parameters;
+using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {

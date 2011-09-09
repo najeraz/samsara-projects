@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Samsara.BaseCore")]
+[assembly: AssemblyTitle("Samsara.Base.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SAMSARA")]
-[assembly: AssemblyProduct("Samsara.BaseCore")]
+[assembly: AssemblyProduct("Samsara.Base.Core")]
 [assembly: AssemblyCopyright("Copyright © SAMSARA 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
