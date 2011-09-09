@@ -110,7 +110,7 @@ namespace ComisionesAgentes
                     this.grdFacturasCanceladas.DataSource = this.DtFacturasCanceladas.AsEnumerable()
                         .Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
-                            && Convert.ToInt32(x["anio"]) == this.Año).CopyToDataTable();
+                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcComplemento.TabPages["FacturasCanceladas"].Text = "Facturas Canceladas [" +
                         ((DataTable)this.grdFacturasCanceladas.DataSource).Rows.Count + "]";
@@ -126,7 +126,7 @@ namespace ComisionesAgentes
                     this.grdFacturasPendientes.DataSource = this.DtFacturasPendientes.AsEnumerable()
                         .Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
-                            && Convert.ToInt32(x["anio"]) == this.Año).CopyToDataTable();
+                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcComplemento.TabPages["FacturasPendientes"].Text = "Facturas Pendientes [" +
                         ((DataTable)this.grdFacturasPendientes.DataSource).Rows.Count + "]";
