@@ -144,14 +144,6 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.DocumentTypeWarrantyDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="ICurrencyDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.CurrencyDao, Samsara.ProjectsAndTendering.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
-  <object id="ITenderExchangeRateDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderExchangeRateDao, Samsara.ProjectsAndTendering.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
   <object id="IPricingStrategyDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.PricingStrategyDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
@@ -162,6 +154,10 @@
   </object>
   <object id="ITenderLineExtraCostDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.TenderLineExtraCostDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITenderExchangeRateDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderExchangeRateDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
@@ -175,6 +171,11 @@
   </object>
   <object id="IGridConfigurationDao"
           type="Samsara.Configuration.Dao.Impl.GridConfigurationDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+  <object id="ICurrencyDao"
+          type="Samsara.Operation.Dao.Impl.CurrencyDao, Samsara.Operation.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 

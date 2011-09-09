@@ -24,7 +24,7 @@
                  column="CompetitorId"/>
     
     <many-to-one name="Currency"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="CurrencyId"/>
     
   </class>

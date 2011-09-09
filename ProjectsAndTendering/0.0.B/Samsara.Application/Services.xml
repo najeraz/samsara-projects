@@ -97,14 +97,6 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.DocumentTypeWarrantyService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IDocumentTypeWarrantyDao"/>
   </object>
-  <object id="ICurrencyService"
-          type="Samsara.ProjectsAndTendering.Service.Impl.CurrencyService, Samsara.ProjectsAndTendering.Service">
-    <property name="Dao" ref="ICurrencyDao"/>
-  </object>
-  <object id="ITenderExchangeRateService"
-          type="Samsara.ProjectsAndTendering.Service.Impl.TenderExchangeRateService, Samsara.ProjectsAndTendering.Service">
-    <property name="Dao" ref="ITenderExchangeRateDao"/>
-  </object>
   <object id="IPricingStrategyService"
           type="Samsara.ProjectsAndTendering.Service.Impl.PricingStrategyService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IPricingStrategyDao"/>
@@ -116,6 +108,10 @@
   <object id="ITenderLineExtraCostService"
           type="Samsara.ProjectsAndTendering.Service.Impl.TenderLineExtraCostService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ITenderLineExtraCostDao"/>
+  </object>
+  <object id="ITenderExchangeRateService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderExchangeRateService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderExchangeRateDao"/>
   </object>
   
   <object id="IFormConfigurationService"
@@ -129,6 +125,11 @@
   <object id="IGridConfigurationService"
           type="Samsara.Configuration.Service.Impl.GridConfigurationService, Samsara.Configuration.Service">
     <property name="Dao" ref="IGridConfigurationDao"/>
+  </object>
+
+  <object id="ICurrencyService"
+          type="Samsara.Operation.Service.Impl.CurrencyService, Samsara.Operation.Service">
+    <property name="Dao" ref="ICurrencyDao"/>
   </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>

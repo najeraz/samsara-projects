@@ -20,7 +20,7 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>
     <many-to-one name="Currency"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="CurrencyId"/>
     
   </class>
