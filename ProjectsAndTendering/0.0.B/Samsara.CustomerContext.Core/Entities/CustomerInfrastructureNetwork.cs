@@ -38,7 +38,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkSwitch> customerInfrastructureNetworkSwitches
+        public virtual ISet<CustomerInfrastructureNetworkSwitch> CustomerInfrastructureNetworkSwitches
         {
             get
             {
@@ -53,7 +53,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkCommutator> customerInfrastructureNetworkCommutators
+        public virtual ISet<CustomerInfrastructureNetworkCommutator> CustomerInfrastructureNetworkCommutators
         {
             get
             {
@@ -68,7 +68,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkCabling> customerInfrastructureNetworkCablings
+        public virtual ISet<CustomerInfrastructureNetworkCabling> CustomerInfrastructureNetworkCablings
         {
             get
             {
@@ -83,7 +83,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkRouter> customerInfrastructureNetworkRouters
+        public virtual ISet<CustomerInfrastructureNetworkRouter> CustomerInfrastructureNetworkRouters
         {
             get
             {
@@ -98,7 +98,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkFirewall> customerInfrastructureNetworkFirewalls
+        public virtual ISet<CustomerInfrastructureNetworkFirewall> CustomerInfrastructureNetworkFirewalls
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkWifi> customerInfrastructureNetworkWifis
+        public virtual ISet<CustomerInfrastructureNetworkWifi> CustomerInfrastructureNetworkWifis
         {
             get
             {

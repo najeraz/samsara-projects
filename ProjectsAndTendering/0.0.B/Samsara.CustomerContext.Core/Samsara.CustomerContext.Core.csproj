@@ -49,6 +49,7 @@
     <Compile Include="Entities\ComputerBrand.cs" />
     <Compile Include="Entities\CCTVType.cs" />
     <Compile Include="Entities\CCTVBrand.cs" />
+    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\RackType.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSiteRack.cs" />
     <Compile Include="Entities\CustomerInfrastructureCCTV.cs" />

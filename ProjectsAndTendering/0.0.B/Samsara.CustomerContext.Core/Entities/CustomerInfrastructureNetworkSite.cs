@@ -27,7 +27,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ISet<CustomerInfrastructureNetworkSiteRack> customerInfrastructureNetworkSiteRacks
+        public virtual ISet<CustomerInfrastructureNetworkSiteRack> CustomerInfrastructureNetworkSiteRacks
         {
             get
             {

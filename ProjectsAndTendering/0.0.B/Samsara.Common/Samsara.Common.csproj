@@ -228,7 +228,7 @@
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerUPS.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\Customer.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerNetworkSite.hbm.xml" />
@@ -238,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\RackType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\Customer.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
