@@ -17,29 +17,48 @@
                  class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSite, Samsara.CustomerContext.Core"
                  column="CustomerNetworkSiteId"/>
 
-    <many-to-one name="CustomerNetworkSwitch"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSwitch, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkSwitchId"/>
 
-    <many-to-one name="CustomerNetworkCommutator"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkCommutator, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkCommutatorId"/>
+    <set name="CustomerNetworkSwitches" table="CustomerContext.CustomerNetworkSwitches"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSwitch, Samsara.CustomerContext.Core"/>
+    </set>
 
-    <many-to-one name="CustomerNetworkCabling"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkCabling, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkCablingId"/>
+    <set name="CustomerNetworkCommutators" table="CustomerContext.CustomerNetworkCommutators"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkCommutator, Samsara.CustomerContext.Core"/>
+    </set>
 
-    <many-to-one name="CustomerNetworkRouter"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkRouter, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkRouterId"/>
+    <set name="CustomerNetworkCablings" table="CustomerContext.CustomerNetworkCablings"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkCabling, Samsara.CustomerContext.Core"/>
+    </set>
 
-    <many-to-one name="CustomerNetworkFirewall"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkFirewall, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkFirewallId"/>
+    <set name="CustomerNetworkRouters" table="CustomerContext.CustomerNetworkRouters"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkRouter, Samsara.CustomerContext.Core"/>
+    </set>
 
-    <many-to-one name="CustomerNetworkWifi"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkWifi, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkWifiId"/>
+    <set name="CustomerNetworkFirewalls" table="CustomerContext.CustomerNetworkFirewalls"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkFirewall, Samsara.CustomerContext.Core"/>
+    </set>
+
+    <set name="CustomerNetworkWifis" table="CustomerContext.CustomerNetworkWifis"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkWifi, Samsara.CustomerContext.Core"/>
+    </set>
     
   </class>
 

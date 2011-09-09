@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerNetworkSite" table="CustomerContext.CustomerNetworkSites">
+
+    <id name="CustomerNetworkSiteId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="IsolatedRoom"/>
+    <property name="SiteCooling"/>
+    <property name="Description"/>
+    
+    <many-to-one name="CustomerNetwork"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetwork, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkId"/>
+
+
+    <set name="CustomerNetworkSiteRacks" table="CustomerContext.CustomerNetworkSiteRacks"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerNetworkSiteId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSiteRack, Samsara.CustomerContext.Core"/>
+    </set>
+    
+  </class>
+
+  <query name="CustomerNetworkSite.GetByParameters">
+    <![CDATA[
+        from CustomerNetworkSite where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerNetworkSite.GetListByParameters">
+    <![CDATA[
+        from CustomerNetworkSite where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerNetworkSite.SearchByParameters">
+    <![CDATA[
+        from CustomerNetworkSite where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>
