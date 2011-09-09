@@ -9,6 +9,10 @@
       <generator class="native"/>
     </id>
 
+    <many-to-one name="Customer"
+                 class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
+                 column="CustomerId"/>
+
     <many-to-one name="CustomerNetworkSite"
                  class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSite, Samsara.CustomerContext.Core"
                  column="CustomerNetworkSiteId"/>

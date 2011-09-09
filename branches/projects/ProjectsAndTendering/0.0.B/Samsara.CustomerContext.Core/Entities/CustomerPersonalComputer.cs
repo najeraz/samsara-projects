@@ -4,15 +4,15 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerNetwork : GenericEntity
+    public class CustomerPersonalComputer : GenericEntity
     {
-        public CustomerNetwork()
+        public CustomerPersonalComputer()
         {
-            CustomerNetworkId = -1;
+            CustomerPersonalComputerId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerNetworkId
+        public virtual int CustomerPersonalComputerId
         {
             get;
             set;
@@ -24,43 +24,49 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual CustomerNetworkSite CustomerNetworkSite
+        public virtual string SerialNumber
         {
             get;
             set;
         }
 
-        public virtual CustomerNetworkSwitch CustomerNetworkSwitch
+        public virtual string ManufacturerReferenceNumber
         {
             get;
             set;
         }
 
-        public virtual CustomerNetworkCommutator CustomerNetworkCommutator
+        public virtual string CPU
         {
             get;
             set;
         }
 
-        public virtual CustomerNetworkCabling CustomerNetworkCabling
+        public virtual string RAM
         {
             get;
             set;
         }
 
-        public virtual CustomerNetworkRouter CustomerNetworkRouter
+        public virtual string StorageSystem
         {
             get;
             set;
         }
 
-        public virtual CustomerNetworkFirewall CustomerNetworkFirewall
+        public virtual CustomerPersonalComputerType CustomerPersonalComputerType
         {
             get;
             set;
         }
 
-        public virtual CustomerNetworkWifi CustomerNetworkWifi
+        public virtual ComputerBrand ComputerBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual OperativeSystem OperativeSystem
         {
             get;
             set;

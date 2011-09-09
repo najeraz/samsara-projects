@@ -16,8 +16,8 @@
                  column="UPSTypeId"/>
 
     <many-to-one name="UPSBrand"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerUPSType, Samsara.CustomerContext.Core"
-                 column="CustomerUPSTypeId"/>
+                 class="Samsara.CustomerContext.Core.Entities.UPSBrand, Samsara.CustomerContext.Core"
+                 column="UPSBrandId"/>
     
   </class>
 
