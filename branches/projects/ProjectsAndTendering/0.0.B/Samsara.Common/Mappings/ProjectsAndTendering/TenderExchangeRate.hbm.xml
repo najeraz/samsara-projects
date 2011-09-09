@@ -17,13 +17,13 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
                  column="TenderId"/>
     <many-to-one name="ExchangeRate"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.ExchangeRate, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.ExchangeRate, Samsara.ProjectsAndTendering.Core"
                  column="ExchangeRateId"/>
     <many-to-one name="SourceCurrency" lazy="false"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="SourceCurrencyId"/>
     <many-to-one name="DestinyCurrency" lazy="false"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="DestinyCurrencyId"/>
 
   </class>

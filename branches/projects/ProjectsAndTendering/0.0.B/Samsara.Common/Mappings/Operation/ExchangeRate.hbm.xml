@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.ProjectsAndTendering.Core" 
-  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  assembly="Samsara.Operation.Core" 
+  namespace="Samsara.Operation.Core.Entities">
   
-  <class name="ExchangeRate" table="ProjectsAndTendering.ExchangeRates">
+  <class name="ExchangeRate" table="Operation.ExchangeRates">
     
     <id name="ExchangeRateId" type="int">
       <generator class="native"/>
@@ -14,10 +14,10 @@
     <property name="Activated"/>
 
     <many-to-one name="SourceCurrency" lazy="false"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="SourceCurrencyId"/>
     <many-to-one name="DestinyCurrency" lazy="false"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="DestinyCurrencyId"/>
 
   </class>
