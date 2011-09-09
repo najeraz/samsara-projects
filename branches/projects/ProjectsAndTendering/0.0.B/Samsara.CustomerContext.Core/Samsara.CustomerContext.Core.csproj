@@ -44,6 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ComputerBrand.cs" />
+    <Compile Include="Entities\ISP.cs" />
+    <Compile Include="Entities\CustomerISP.cs" />
+    <Compile Include="Entities\TelephonyLineType.cs" />
+    <Compile Include="Entities\TelephonyProvider.cs" />
+    <Compile Include="Entities\CustomerTelephony.cs" />
+    <Compile Include="Entities\PrinterBrand.cs" />
+    <Compile Include="Entities\PrinterType.cs" />
+    <Compile Include="Entities\CustomerPrinter.cs" />
     <Compile Include="Entities\UPSBrand.cs" />
     <Compile Include="Entities\UPSType.cs" />
     <Compile Include="Entities\CustomerUPS.cs" />
