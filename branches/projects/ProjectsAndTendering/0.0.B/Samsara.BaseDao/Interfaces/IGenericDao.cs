@@ -3,7 +3,7 @@ using NHibernate.Criterion;
 using NHibernate.Impl;
 using System.Data;
 
-namespace Samsara.BaseDao.Interfaces
+namespace Samsara.Base.Dao.Interfaces
 {
     public interface IGenericDao<T, TId, Tpmt>
     {

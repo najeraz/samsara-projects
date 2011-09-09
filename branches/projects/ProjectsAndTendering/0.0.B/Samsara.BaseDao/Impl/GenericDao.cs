@@ -7,11 +7,11 @@ using System.Linq;
 using System.Reflection;
 using NHibernate.Criterion;
 using NHibernate.Impl;
-using Samsara.BaseDao.Interfaces;
+using Samsara.Base.Dao.Interfaces;
 using Samsara.Support.Util;
 using Spring.Data.NHibernate.Generic.Support;
 
-namespace Samsara.BaseDao.Impl
+namespace Samsara.Base.Dao.Impl
 {
     public class GenericDao<T, TId, Tpmt> : HibernateDaoSupport, IGenericDao<T, TId, Tpmt>
     {

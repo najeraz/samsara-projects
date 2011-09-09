@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseService.Interfaces;
+using Samsara.Base.Service.Interfaces;
 using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Core.Parameters;
 

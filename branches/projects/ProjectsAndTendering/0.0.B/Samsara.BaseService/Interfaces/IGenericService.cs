@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace Samsara.BaseService.Interfaces
+namespace Samsara.Base.Service.Interfaces
 {
     public interface IGenericService<T, TId, Tpmt>
     {

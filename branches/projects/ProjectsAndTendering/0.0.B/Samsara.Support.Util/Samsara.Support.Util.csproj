@@ -61,9 +61,9 @@
     <Reference Include="Infragistics2.Win.UltraWinGrid.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Win.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Samsara.BaseCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.BaseCore.dll</HintPath>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

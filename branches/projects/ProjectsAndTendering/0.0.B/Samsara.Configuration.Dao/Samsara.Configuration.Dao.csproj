@@ -37,14 +37,14 @@
     <Reference Include="NHibernate">
       <HintPath>..\lib\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="Samsara.BaseCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.BaseCore.dll</HintPath>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.BaseDao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.BaseDao.dll</HintPath>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Common">

@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseForms.Forms;
+using Samsara.Base.Forms.Forms;
 using Samsara.Operation.Core.Entities;
 
 namespace Samsara.Operation.Forms.Templates

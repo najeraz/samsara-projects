@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerNetwork" table="CustomerContext.CustomerNetworks">
+
+    <id name="CustomerNetworkId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <many-to-one name="CustomerNetworkSite"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSite, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkSiteId"/>
+
+    <many-to-one name="CustomerNetworkSwitch"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSwitch, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkSwitchId"/>
+
+    <many-to-one name="CustomerNetworkCommutator"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkCommutator, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkCommutatorId"/>
+
+    <many-to-one name="CustomerNetworkCabling"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkCabling, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkCablingId"/>
+
+    <many-to-one name="CustomerNetworkRouter"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkRouter, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkRouterId"/>
+
+    <many-to-one name="CustomerNetworkFirewall"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkFirewall, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkFirewallId"/>
+
+    <many-to-one name="CustomerNetworkWifi"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerNetworkWifi, Samsara.CustomerContext.Core"
+                 column="CustomerNetworkWifiId"/>
+    
+  </class>
+
+  <query name="CustomerNetwork.GetByParameters">
+    <![CDATA[
+        from CustomerNetwork where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerNetwork.GetListByParameters">
+    <![CDATA[
+        from CustomerNetwork where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerNetwork.SearchByParameters">
+    <![CDATA[
+        from CustomerNetwork where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

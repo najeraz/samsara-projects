@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Samsara.Controls.Interfaces;
 
-namespace Samsara.BaseForms.Forms
+namespace Samsara.Base.Forms.Forms
 {
     public abstract partial class GenericSearchForm<T> : CatalogForm, ISearchForm<T>
     {

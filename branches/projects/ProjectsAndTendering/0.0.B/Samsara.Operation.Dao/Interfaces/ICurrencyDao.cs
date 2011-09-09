@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseDao.Interfaces;
+using Samsara.Base.Dao.Interfaces;
 using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Core.Parameters;
 

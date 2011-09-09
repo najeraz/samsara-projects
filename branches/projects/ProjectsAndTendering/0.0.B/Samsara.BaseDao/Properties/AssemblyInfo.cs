@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Samsara.BaseDao")]
+[assembly: AssemblyTitle("Samsara.Base.Dao")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SAMSARA")]
-[assembly: AssemblyProduct("Samsara.BaseDao")]
+[assembly: AssemblyProduct("Samsara.Base.Dao")]
 [assembly: AssemblyCopyright("Copyright © SAMSARA 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
