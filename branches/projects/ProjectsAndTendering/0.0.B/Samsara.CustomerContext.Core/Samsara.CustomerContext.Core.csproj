@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.Base.Core">
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
     </Reference>
@@ -44,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ComputerBrand.cs" />
+    <Compile Include="Entities\CCTVType.cs" />
+    <Compile Include="Entities\CCTVBrand.cs" />
+    <Compile Include="Entities\RackType.cs" />
+    <Compile Include="Entities\CustomerNetworkSiteRack.cs" />
+    <Compile Include="Entities\CustomerCCTV.cs" />
     <Compile Include="Entities\ISP.cs" />
     <Compile Include="Entities\CustomerISP.cs" />
     <Compile Include="Entities\TelephonyLineType.cs" />
