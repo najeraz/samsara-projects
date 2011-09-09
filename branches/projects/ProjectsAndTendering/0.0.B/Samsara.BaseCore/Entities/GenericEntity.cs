@@ -1,6 +1,6 @@
 ﻿
 
-namespace Samsara.BaseCore.Entities
+namespace Samsara.Base.Core.Entities
 {
     public class GenericEntity
     {

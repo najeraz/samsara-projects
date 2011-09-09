@@ -1,7 +1,7 @@
 ﻿
 using Iesi.Collections.Generic;
-using Samsara.BaseCore.Attributes;
-using Samsara.BaseCore.Entities;
+using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {

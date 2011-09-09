@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
-using Samsara.BaseCore.Enums;
+using Samsara.Base.Core.Enums;
 using Samsara.Common.Context;
 using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Core.Parameters;

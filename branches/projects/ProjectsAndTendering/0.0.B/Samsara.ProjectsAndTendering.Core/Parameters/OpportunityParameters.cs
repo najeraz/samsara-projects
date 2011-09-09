@@ -1,6 +1,6 @@
 ﻿
 using System;
-using Samsara.BaseCore.Parameters;
+using Samsara.Base.Core.Parameters;
 using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters

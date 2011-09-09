@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
-using Samsara.BaseCore.Attributes;
+using Samsara.Base.Core.Attributes;
 
 namespace Samsara.Support.Util
 {

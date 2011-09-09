@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.BaseCore.Parameters
+namespace Samsara.Base.Core.Parameters
 {
     public class GenericParameters
     {
