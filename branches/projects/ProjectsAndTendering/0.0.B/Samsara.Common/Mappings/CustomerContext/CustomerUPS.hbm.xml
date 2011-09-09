@@ -3,13 +3,15 @@
   assembly="Samsara.CustomerContext.Core" 
   namespace="Samsara.CustomerContext.Core.Entities">
   
-  <class name="CustomerUPS" table="CustomerContext.CustomerUPSs">
+  <class name="CustomerInfrastructureUPS" table="CustomerContext.CustomerInfrastructureUPSs">
 
-    <id name="CustomerUPSId" type="int">
+    <id name="CustomerInfrastructureUPSId" type="int">
       <generator class="native"/>
     </id>
 
     <property name="Capacity"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
     
     <many-to-one name="UPSType"
                  class="Samsara.CustomerContext.Core.Entities.UPSType, Samsara.CustomerContext.Core"
@@ -21,21 +23,21 @@
     
   </class>
 
-  <query name="CustomerUPS.GetByParameters">
+  <query name="CustomerInfrastructureUPS.GetByParameters">
     <![CDATA[
-        from CustomerUPS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureUPS where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerUPS.GetListByParameters">
+  <query name="CustomerInfrastructureUPS.GetListByParameters">
     <![CDATA[
-        from CustomerUPS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureUPS where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerUPS.SearchByParameters">
+  <query name="CustomerInfrastructureUPS.SearchByParameters">
     <![CDATA[
-        from CustomerUPS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureUPS where Deleted = 0 and Activated = 1
     ]]>
   </query>
 

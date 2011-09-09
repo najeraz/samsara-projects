@@ -4,39 +4,39 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerPrinter : GenericEntity
+    public class CustomerInfrastructureTelephony : GenericEntity
     {
-        public CustomerPrinter()
+        public CustomerInfrastructureTelephony()
         {
-            CustomerPrinterId = -1;
+            CustomerInfrastructureTelephonyId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerPrinterId
+        public virtual int CustomerInfrastructureTelephonyId
         {
             get;
             set;
         }
 
-        public virtual Customer Customer
+        public virtual CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
         }
 
-        public virtual string SerialNumber
+        public virtual int NumberOfLines
         {
             get;
             set;
         }
 
-        public virtual PrinterType PrinterType
+        public virtual TelephonyProvider TelephonySupplier
         {
             get;
             set;
         }
 
-        public virtual PrinterBrand PrinterBrand
+        public virtual TelephonyLineType TelephonyLineType
         {
             get;
             set;

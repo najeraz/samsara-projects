@@ -4,21 +4,21 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerCCTV : GenericEntity
+    public class CustomerInfrastructureCCTV : GenericEntity
     {
-        public CustomerCCTV()
+        public CustomerInfrastructureCCTV()
         {
-            CustomerCCTVId = -1;
+            CustomerInfrastructureCCTVId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerCCTVId
+        public virtual int CustomerInfrastructureCCTVId
         {
             get;
             set;
         }
 
-        public virtual Customer Customer
+        public virtual CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;

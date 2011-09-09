@@ -4,33 +4,33 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerISP : GenericEntity
+    public class CustomerInfrastructureUPS : GenericEntity
     {
-        public CustomerISP()
+        public CustomerInfrastructureUPS()
         {
-            CustomerISPId = -1;
+            CustomerInfrastructureUPSId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerISPId
+        public virtual int CustomerInfrastructureUPSId
         {
             get;
             set;
         }
 
-        public virtual Customer Customer
+        public virtual string Capacity
         {
             get;
             set;
         }
 
-        public virtual ISP ISP
+        public virtual UPSType UPSType
         {
             get;
             set;
         }
 
-        public virtual decimal Bandwidth
+        public virtual UPSBrand UPSBrand
         {
             get;
             set;

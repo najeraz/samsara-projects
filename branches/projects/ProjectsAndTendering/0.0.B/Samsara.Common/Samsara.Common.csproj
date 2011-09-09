@@ -233,6 +233,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerNetworkSite.hbm.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerNetworkSiteRack.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\RackType.hbm.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
