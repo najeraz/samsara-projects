@@ -17,5 +17,11 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual CustomerNetwork CustomerNetwork
+        {
+            get;
+            set;
+        }
     }
 }
