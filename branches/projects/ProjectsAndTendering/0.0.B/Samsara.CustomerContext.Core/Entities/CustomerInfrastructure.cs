@@ -26,24 +26,6 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual string Name
-        {
-            get;
-            set;
-        }
-
-        public virtual string BusinessType
-        {
-            get;
-            set;
-        }
-
-        public virtual string Description
-        {
-            get;
-            set;
-        }
-
         public virtual CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;
@@ -62,7 +44,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ISet<CustomerInfrastructurePersonalComputer> customerInfrastructurePersonalComputers
+        public virtual ISet<CustomerInfrastructurePersonalComputer> CustomerInfrastructurePersonalComputers
         {
             get
             {
@@ -77,7 +59,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
+        public virtual ISet<CustomerInfrastructureServerComputer> CustomerInfrastructureServerComputers
         {
             get
             {
@@ -92,7 +74,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureUPS> customerInfrastructureUPSs
+        public virtual ISet<CustomerInfrastructureUPS> CustomerInfrastructureUPSs
         {
             get
             {
@@ -107,7 +89,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructurePrinter> customerInfrastructurePrinters
+        public virtual ISet<CustomerInfrastructurePrinter> CustomerInfrastructurePrinters
         {
             get
             {
@@ -122,7 +104,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureTelephony> customerTelephonies
+        public virtual ISet<CustomerInfrastructureTelephony> CustomerTelephonies
         {
             get
             {
@@ -137,7 +119,7 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureCCTV> customerInfrastructureCCTVs
+        public virtual ISet<CustomerInfrastructureCCTV> CustomerInfrastructureCCTVs
         {
             get
             {
