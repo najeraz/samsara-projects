@@ -4,15 +4,15 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerISP : GenericEntity
+    public class CustomerCCTV : GenericEntity
     {
-        public CustomerISP()
+        public CustomerCCTV()
         {
-            CustomerISPId = -1;
+            CustomerCCTVId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerISPId
+        public virtual int CustomerCCTVId
         {
             get;
             set;
@@ -24,13 +24,19 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ISP ISP
+        public virtual CCTVType CCTVType
         {
             get;
             set;
         }
 
-        public virtual decimal Bandwidth
+        public virtual CCTVBrand CCTVBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual string Utilization
         {
             get;
             set;
