@@ -5,7 +5,7 @@ using System.Data.SqlTypes;
 using System.IO;
 using NHibernate;
 using NHibernate.Impl;
-using Samsara.BaseDao.Impl;
+using Samsara.Base.Dao.Impl;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;

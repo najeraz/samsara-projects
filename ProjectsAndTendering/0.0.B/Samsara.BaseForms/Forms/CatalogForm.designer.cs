@@ -1,4 +1,4 @@
-﻿namespace Samsara.BaseForms.Forms
+﻿namespace Samsara.Base.Forms.Forms
 {
     partial class CatalogForm
     {

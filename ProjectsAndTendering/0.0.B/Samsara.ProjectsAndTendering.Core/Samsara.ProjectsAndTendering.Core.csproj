@@ -60,9 +60,9 @@
       <HintPath>..\lib\Iesi.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.BaseCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.BaseCore.dll</HintPath>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

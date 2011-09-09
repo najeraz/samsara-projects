@@ -1,10 +1,10 @@
 ﻿
 using System.Collections.Generic;
 using System.Data;
-using Samsara.BaseDao.Interfaces;
-using Samsara.BaseService.Interfaces;
+using Samsara.Base.Dao.Interfaces;
+using Samsara.Base.Service.Interfaces;
 
-namespace Samsara.BaseService.Impl
+namespace Samsara.Base.Service.Impl
 {
     public class GenericService<T, TId, TDao, Tpmt> : IGenericService<T, TId, Tpmt> where TDao : IGenericDao<T, TId, Tpmt>
     {

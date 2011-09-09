@@ -1,5 +1,5 @@
 ﻿
-using Samsara.BaseService.Impl;
+using Samsara.Base.Service.Impl;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
