@@ -4,15 +4,15 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerNetworkSiteRack : GenericEntity
+    public class CustomerInfrastructureNetworkSiteRack : GenericEntity
     {
-        public CustomerNetworkSiteRack()
+        public CustomerInfrastructureNetworkSiteRack()
         {
-            CustomerNetworkSiteRackId = -1;
+            CustomerInfrastructureNetworkSiteRackId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerNetworkSiteRackId
+        public virtual int CustomerInfrastructureNetworkSiteRackId
         {
             get;
             set;

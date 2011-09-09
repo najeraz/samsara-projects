@@ -3,9 +3,9 @@
   assembly="Samsara.CustomerContext.Core" 
   namespace="Samsara.CustomerContext.Core.Entities">
   
-  <class name="CustomerPersonalComputer" table="CustomerContext.CustomerPersonalComputers">
+  <class name="CustomerInfrastructurePersonalComputer" table="CustomerContext.CustomerInfrastructurePersonalComputers">
 
-    <id name="CustomerPersonalComputerId" type="int">
+    <id name="CustomerInfrastructurePersonalComputerId" type="int">
       <generator class="native"/>
     </id>
 
@@ -14,14 +14,16 @@
     <property name="CPU"/>
     <property name="RAM"/>
     <property name="StorageSystem"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
 
     <many-to-one name="Customer"
                  class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
                  column="CustomerId"/>
 
-    <many-to-one name="CustomerPersonalComputerType"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerPersonalComputerType, Samsara.CustomerContext.Core"
-                 column="CustomerPersonalComputerTypeId"/>
+    <many-to-one name="CustomerInfrastructurePersonalComputerType"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputerType, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructurePersonalComputerTypeId"/>
 
     <many-to-one name="ComputerBrand"
                  class="Samsara.CustomerContext.Core.Entities.ComputerBrand, Samsara.CustomerContext.Core"
@@ -33,21 +35,21 @@
     
   </class>
 
-  <query name="CustomerPersonalComputer.GetByParameters">
+  <query name="CustomerInfrastructurePersonalComputer.GetByParameters">
     <![CDATA[
-        from CustomerPersonalComputer where Deleted = 0 and Activated = 1
+        from CustomerInfrastructurePersonalComputer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerPersonalComputer.GetListByParameters">
+  <query name="CustomerInfrastructurePersonalComputer.GetListByParameters">
     <![CDATA[
-        from CustomerPersonalComputer where Deleted = 0 and Activated = 1
+        from CustomerInfrastructurePersonalComputer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerPersonalComputer.SearchByParameters">
+  <query name="CustomerInfrastructurePersonalComputer.SearchByParameters">
     <![CDATA[
-        from CustomerPersonalComputer where Deleted = 0 and Activated = 1
+        from CustomerInfrastructurePersonalComputer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 

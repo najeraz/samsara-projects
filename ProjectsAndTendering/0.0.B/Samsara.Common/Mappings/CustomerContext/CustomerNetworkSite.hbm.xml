@@ -3,45 +3,47 @@
   assembly="Samsara.CustomerContext.Core" 
   namespace="Samsara.CustomerContext.Core.Entities">
   
-  <class name="CustomerNetworkSite" table="CustomerContext.CustomerNetworkSites">
+  <class name="CustomerInfrastructureNetworkSite" table="CustomerContext.CustomerInfrastructureNetworkSites">
 
-    <id name="CustomerNetworkSiteId" type="int">
+    <id name="CustomerInfrastructureNetworkSiteId" type="int">
       <generator class="native"/>
     </id>
 
     <property name="IsolatedRoom"/>
     <property name="SiteCooling"/>
     <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
     
-    <many-to-one name="CustomerNetwork"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerNetwork, Samsara.CustomerContext.Core"
-                 column="CustomerNetworkId"/>
+    <many-to-one name="CustomerInfrastructureNetwork"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureNetworkId"/>
 
 
-    <set name="CustomerNetworkSiteRacks" table="CustomerContext.CustomerNetworkSiteRacks"
+    <set name="CustomerInfrastructureNetworkSiteRacks" table="CustomerContext.CustomerInfrastructureNetworkSiteRacks"
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerNetworkSiteId"/>
+      <key column="CustomerInfrastructureNetworkSiteId"/>
       <one-to-many
-        class="Samsara.CustomerContext.Core.Entities.CustomerNetworkSiteRack, Samsara.CustomerContext.Core"/>
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkSiteRack, Samsara.CustomerContext.Core"/>
     </set>
     
   </class>
 
-  <query name="CustomerNetworkSite.GetByParameters">
+  <query name="CustomerInfrastructureNetworkSite.GetByParameters">
     <![CDATA[
-        from CustomerNetworkSite where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkSite where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerNetworkSite.GetListByParameters">
+  <query name="CustomerInfrastructureNetworkSite.GetListByParameters">
     <![CDATA[
-        from CustomerNetworkSite where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkSite where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerNetworkSite.SearchByParameters">
+  <query name="CustomerInfrastructureNetworkSite.SearchByParameters">
     <![CDATA[
-        from CustomerNetworkSite where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkSite where Deleted = 0 and Activated = 1
     ]]>
   </query>
 

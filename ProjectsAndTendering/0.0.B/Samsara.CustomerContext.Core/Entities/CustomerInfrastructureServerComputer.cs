@@ -4,21 +4,21 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerPersonalComputer : GenericEntity
+    public class CustomerInfrastructureServerComputer : GenericEntity
     {
-        public CustomerPersonalComputer()
+        public CustomerInfrastructureServerComputer()
         {
-            CustomerPersonalComputerId = -1;
+            CustomerInfrastructureServerComputerId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerPersonalComputerId
+        public virtual int CustomerInfrastructureServerComputerId
         {
             get;
             set;
         }
 
-        public virtual Customer Customer
+        public virtual CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
@@ -54,7 +54,13 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual CustomerPersonalComputerType CustomerPersonalComputerType
+        public virtual string Utilization
+        {
+            get;
+            set;
+        }
+
+        public virtual string Scalability
         {
             get;
             set;
@@ -66,7 +72,19 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual ServerModel ServerModel
+        {
+            get;
+            set;
+        }
+
         public virtual OperativeSystem OperativeSystem
+        {
+            get;
+            set;
+        }
+
+        public virtual DBMS DBMS
         {
             get;
             set;

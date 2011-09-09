@@ -3,9 +3,9 @@
   assembly="Samsara.CustomerContext.Core" 
   namespace="Samsara.CustomerContext.Core.Entities">
   
-  <class name="CustomerCustomerServerComputer" table="CustomerContext.CustomerServerComputers">
+  <class name="CustomerCustomerInfrastructureServerComputer" table="CustomerContext.CustomerInfrastructureServerComputers">
 
-    <id name="CustomerServerComputerId" type="int">
+    <id name="CustomerInfrastructureServerComputerId" type="int">
       <generator class="native"/>
     </id>
 
@@ -16,6 +16,8 @@
     <property name="StorageSystem"/>
     <property name="Utilization"/>
     <property name="Scalability"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
 
     <many-to-one name="Customer"
                  class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
@@ -39,21 +41,21 @@
     
   </class>
 
-  <query name="CustomerServerComputer.GetByParameters">
+  <query name="CustomerInfrastructureServerComputer.GetByParameters">
     <![CDATA[
-        from CustomerServerComputer where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureServerComputer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerServerComputer.GetListByParameters">
+  <query name="CustomerInfrastructureServerComputer.GetListByParameters">
     <![CDATA[
-        from CustomerServerComputer where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureServerComputer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="CustomerServerComputer.SearchByParameters">
+  <query name="CustomerInfrastructureServerComputer.SearchByParameters">
     <![CDATA[
-        from CustomerServerComputer where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureServerComputer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
