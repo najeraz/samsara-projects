@@ -51,6 +51,7 @@
     <Compile Include="Entities\CCTVBrand.cs" />
     <Compile Include="Entities\CommutatorType.cs" />
     <Compile Include="Entities\CommutatorBrand.cs" />
+    <Compile Include="Entities\WifiBrand.cs" />
     <Compile Include="Entities\FirewallBrand.cs" />
     <Compile Include="Entities\RouterBrand.cs" />
     <Compile Include="Entities\NetworkCablingType.cs" />
