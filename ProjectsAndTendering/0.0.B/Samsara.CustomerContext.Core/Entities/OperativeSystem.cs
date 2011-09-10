@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             OperativeSystemId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int OperativeSystemId
         {
             get;

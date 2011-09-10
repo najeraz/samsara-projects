@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             ComputerBrandId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int ComputerBrandId
         {
             get;

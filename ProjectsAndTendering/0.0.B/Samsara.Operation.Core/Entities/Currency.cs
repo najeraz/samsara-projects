@@ -11,7 +11,7 @@ namespace Samsara.Operation.Core.Entities
             CurrencyId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CurrencyId
         {
             get;

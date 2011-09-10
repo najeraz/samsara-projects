@@ -12,7 +12,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             OpportunityLogId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int OpportunityLogId
         {
             get;

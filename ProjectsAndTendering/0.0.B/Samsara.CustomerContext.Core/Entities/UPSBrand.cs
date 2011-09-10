@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             UPSBrandId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int UPSBrandId
         {
             get;

@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             ISPId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int ISPId
         {
             get;

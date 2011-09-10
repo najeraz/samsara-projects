@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             EndUserId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int EndUserId
         {
             get;

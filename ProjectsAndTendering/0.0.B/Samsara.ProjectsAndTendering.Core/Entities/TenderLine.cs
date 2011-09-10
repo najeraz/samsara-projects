@@ -17,7 +17,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             TenderLineId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int TenderLineId
         {
             get;

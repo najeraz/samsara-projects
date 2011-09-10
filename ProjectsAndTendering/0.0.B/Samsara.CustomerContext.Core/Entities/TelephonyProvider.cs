@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             TelephonyProviderId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int TelephonyProviderId
         {
             get;

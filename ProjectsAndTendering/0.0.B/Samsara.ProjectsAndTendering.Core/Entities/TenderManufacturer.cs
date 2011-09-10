@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             this.TenderManufacturerId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int TenderManufacturerId
         {
             get;

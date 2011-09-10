@@ -10,7 +10,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
         {
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int PricingStrategyId
         {
             get;

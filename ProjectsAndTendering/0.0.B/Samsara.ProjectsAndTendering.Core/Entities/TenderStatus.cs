@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             TenderStatusId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int TenderStatusId
         {
             get;

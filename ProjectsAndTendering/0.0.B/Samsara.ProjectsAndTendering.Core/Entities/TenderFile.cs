@@ -12,7 +12,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             TenderFileId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int TenderFileId
         {
             get;

@@ -19,7 +19,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CustomerInfrastructureId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CustomerInfrastructureId
         {
             get;

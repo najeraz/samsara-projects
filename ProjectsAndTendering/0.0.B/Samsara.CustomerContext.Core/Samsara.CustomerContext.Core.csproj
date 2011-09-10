@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="Samsara.Base.Core">
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

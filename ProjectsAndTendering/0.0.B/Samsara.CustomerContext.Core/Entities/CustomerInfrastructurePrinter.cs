@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CustomerInfrastructurePrinterId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CustomerInfrastructurePrinterId
         {
             get;

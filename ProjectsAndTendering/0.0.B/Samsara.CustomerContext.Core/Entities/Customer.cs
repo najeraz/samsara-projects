@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CustomerId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CustomerId
         {
             get;

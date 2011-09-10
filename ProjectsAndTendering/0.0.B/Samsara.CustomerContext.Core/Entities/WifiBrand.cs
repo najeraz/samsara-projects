@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             WifiBrandId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int WifiBrandId
         {
             get;

@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             DependencyId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int DependencyId
         {
             get;
