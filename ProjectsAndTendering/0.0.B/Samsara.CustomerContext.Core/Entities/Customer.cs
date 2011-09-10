@@ -4,21 +4,27 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class ComputerBrand : GenericEntity
+    public class Customer : GenericEntity
     {
-        public ComputerBrand()
+        public Customer()
         {
-            ComputerBrandId = -1;
+            CustomerId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int ComputerBrandId
+        public virtual int CustomerId
         {
             get;
             set;
         }
 
         public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual string BusinessType
         {
             get;
             set;

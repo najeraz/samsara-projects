@@ -1,4 +1,5 @@
 ﻿
+using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -6,6 +7,8 @@ namespace Samsara.CustomerContext.Core.Entities
 {
     public class CustomerInfrastructureServerComputer : GenericEntity
     {
+        private ISet<DBMS> dBMSs;
+
         public CustomerInfrastructureServerComputer()
         {
             CustomerInfrastructureServerComputerId = -1;
@@ -72,7 +75,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ServerModel ServerModel
+        public virtual string ServerModel
         {
             get;
             set;
@@ -84,10 +87,19 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual DBMS DBMS
+        public virtual ISet<DBMS> DBMSs
         {
-            get;
-            set;
+            get
+            {
+                if (this.dBMSs == null)
+                    this.dBMSs = new HashedSet<DBMS>();
+
+                return this.dBMSs;
+            }
+            set
+            {
+                this.dBMSs = value;
+            }
         }
     }
 }

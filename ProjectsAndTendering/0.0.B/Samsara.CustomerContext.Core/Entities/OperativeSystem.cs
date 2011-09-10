@@ -17,5 +17,29 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual OperativeSystemType OperativeSystemType
+        {
+            get;
+            set;
+        }
+
+        public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual bool IsLegit
+        {
+            get;
+            set;
+        }
+
+        public virtual string Description
+        {
+            get;
+            set;
+        }
     }
 }

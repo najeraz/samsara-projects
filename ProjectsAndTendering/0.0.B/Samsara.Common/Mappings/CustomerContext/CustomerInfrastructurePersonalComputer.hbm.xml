@@ -13,13 +13,14 @@
     <property name="ManufacturerReferenceNumber"/>
     <property name="CPU"/>
     <property name="RAM"/>
+    <property name="Model"/>
     <property name="StorageSystem"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
-    <many-to-one name="Customer"
-                 class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
-                 column="CustomerId"/>
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
 
     <many-to-one name="CustomerInfrastructurePersonalComputerType"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputerType, Samsara.CustomerContext.Core"
