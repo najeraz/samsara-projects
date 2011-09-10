@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using NUnit.Framework;
 using Samsara.Base.Dao.Impl;
-using Samsara.Common.Context;
+using Samsara.Base.Core.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;

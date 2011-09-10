@@ -6,7 +6,7 @@ using System.Linq;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
-using Samsara.Common.Context;
+using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;

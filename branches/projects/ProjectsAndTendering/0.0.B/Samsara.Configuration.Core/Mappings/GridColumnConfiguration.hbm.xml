@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="GridColumnConfiguration" table="Configuration.GridColumnConfigurations">
+
+    <id name="GridColumnConfigurationId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <many-to-one name="GridConfiguration"
+                 class="Samsara.Configuration.Core.Entities.GridConfiguration, Samsara.Configuration.Core"
+                 column="GridConfigurationId"/>
+    
+    <property name="ColumnName"/>
+    <property name="ColumnEndUserName"/>
+    <property name="Band"/>
+    <property name="Visible"/>
+
+  </class>
+
+</hibernate-mapping>

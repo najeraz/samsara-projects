@@ -2,7 +2,7 @@
 using System;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
-using Samsara.Common.Context;
+using Samsara.Base.Core.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Forms.Controller;
 using Samsara.ProjectsAndTendering.Forms.Templates;

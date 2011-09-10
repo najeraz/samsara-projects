@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="RackType" table="CustomerContext.RackTypes">
+    
+    <id name="RackTypeId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+  </class>
+
+  <query name="RackType.GetByParameters">
+    <![CDATA[
+        from RackType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="RackType.GetListByParameters">
+    <![CDATA[
+        from RackType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="RackType.SearchByParameters">
+    <![CDATA[
+        from RackType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

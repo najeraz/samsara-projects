@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerCustomerInfrastructureServerComputer" table="CustomerContext.CustomerInfrastructureServerComputers">
+
+    <id name="CustomerInfrastructureServerComputerId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="SerialNumber"/>
+    <property name="ManufacturerReferenceNumber"/>
+    <property name="CPU"/>
+    <property name="RAM"/>
+    <property name="StorageSystem"/>
+    <property name="Utilization"/>
+    <property name="Scalability"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="ComputerBrand"
+                 class="Samsara.CustomerContext.Core.Entities.ComputerBrand, Samsara.CustomerContext.Core"
+                 column="ComputerBrandId"/>
+
+    <many-to-one name="ServerModel"
+                 class="Samsara.CustomerContext.Core.Entities.ServerModel, Samsara.CustomerContext.Core"
+                 column="ServerModelId"/>
+
+    <many-to-one name="OperativeSystem"
+                 class="Samsara.CustomerContext.Core.Entities.OperativeSystem, Samsara.CustomerContext.Core"
+                 column="OperativeSystemId"/>
+    
+
+    <set name="DBMSs" table="CustomerContext.DBMSs"
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="DBMSId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.DBMS, Samsara.CustomerContext.Core"/>
+    </set>
+    
+  </class>
+
+  <query name="CustomerInfrastructureServerComputer.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputer where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureServerComputer.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputer where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureServerComputer.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputer where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>
