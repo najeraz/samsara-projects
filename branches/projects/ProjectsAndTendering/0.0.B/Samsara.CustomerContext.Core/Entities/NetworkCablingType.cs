@@ -4,15 +4,15 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class ComputerBrand : GenericEntity
+    public class NetworkCablingType : GenericEntity
     {
-        public ComputerBrand()
+        public NetworkCablingType()
         {
-            ComputerBrandId = -1;
+            NetworkCablingTypeId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int ComputerBrandId
+        public virtual int NetworkCablingTypeId
         {
             get;
             set;

@@ -23,5 +23,29 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual CommutatorType CommutatorType
+        {
+            get;
+            set;
+        }
+
+        public virtual CommutatorBrand CommutatorBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual string TrunkNumber
+        {
+            get;
+            set;
+        }
+
+        public virtual string ExtensionNumber
+        {
+            get;
+            set;
+        }
     }
 }

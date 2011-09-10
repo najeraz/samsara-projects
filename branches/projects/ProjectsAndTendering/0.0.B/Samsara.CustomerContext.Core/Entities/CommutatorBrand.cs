@@ -4,15 +4,15 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class ComputerBrand : GenericEntity
+    public class CommutatorBrand : GenericEntity
     {
-        public ComputerBrand()
+        public CommutatorBrand()
         {
-            ComputerBrandId = -1;
+            CommutatorBrandId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int ComputerBrandId
+        public virtual int CommutatorBrandId
         {
             get;
             set;

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructure" table="CustomerContext.CustomerInfrastructures">
+
+    <id name="CustomerInfrastructureId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="GroundedOutlet"/>
+    <property name="TrainingAndCourses"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructureNetwork"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureNetworkId"/>
+
+    <set name="CustomerInfrastructurePersonalComputers" table="CustomerContext.CustomerInfrastructurePersonalComputers" 
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputer, Samsara.CustomerContext.Core"/>
+    </set>
+
+    <set name="CustomerInfrastructureServerComputers" table="CustomerContext.CustomerInfrastructureServerComputers" 
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureServerComputer, Samsara.CustomerContext.Core"/>
+    </set>
+
+    <set name="CustomerInfrastructureUPSs" table="CustomerContext.CustomerInfrastructureUPSs" 
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureUPS, Samsara.CustomerContext.Core"/>
+    </set>
+
+    <set name="CustomerInfrastructurePrinters" table="CustomerContext.CustomerInfrastructurePrinters" 
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePrinter, Samsara.CustomerContext.Core"/>
+    </set>
+
+    <set name="CustomerTelephonies" table="CustomerContext.CustomerTelephonies" 
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureTelephony, Samsara.CustomerContext.Core"/>
+    </set>
+
+    <set name="CustomerInfrastructureCCTVs" table="CustomerContext.CustomerInfrastructureCCTVs" 
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+      <key column="CustomerId"/>
+      <one-to-many
+        class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureCCTV, Samsara.CustomerContext.Core"/>
+    </set>
+    
+  </class>
+
+  <query name="CustomerInfrastructure.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructure where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructure.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructure where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructure.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructure where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

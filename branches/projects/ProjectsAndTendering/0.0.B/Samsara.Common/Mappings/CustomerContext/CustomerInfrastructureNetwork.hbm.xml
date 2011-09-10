@@ -12,9 +12,9 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
-    <many-to-one name="Customer"
-                 class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
-                 column="CustomerId"/>
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
 
     <many-to-one name="CustomerInfrastructureNetworkSite"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkSite, Samsara.CustomerContext.Core"

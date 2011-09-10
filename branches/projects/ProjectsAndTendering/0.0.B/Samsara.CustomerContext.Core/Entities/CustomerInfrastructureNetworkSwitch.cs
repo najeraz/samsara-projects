@@ -23,5 +23,23 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual SwitchBrand SwitchBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual int PortQuantity
+        {
+            get;
+            set;
+        }
+
+        public virtual string Speed
+        {
+            get;
+            set;
+        }
     }
 }
