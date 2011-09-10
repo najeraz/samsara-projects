@@ -23,5 +23,23 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual FirewallBrand FirewallBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual string FirewallModel
+        {
+            get;
+            set;
+        }
+
+        public virtual string Description
+        {
+            get;
+            set;
+        }
     }
 }

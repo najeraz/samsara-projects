@@ -112,7 +112,7 @@
     <EmbeddedResource Include="Mappings\Configuration\GridConfiguration.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerPersonalComputer.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructurePersonalComputer.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Asesor.hbm.xml" />
@@ -219,22 +219,22 @@
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\WarrantyType.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerServerComputer.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureServerComputer.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerNetwork.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetwork.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerUPS.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureUPS.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerNetworkSite.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSite.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerNetworkSiteRack.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSiteRack.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\RackType.hbm.xml" />

@@ -23,5 +23,23 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual RouterBrand RouterBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual string RouterModel
+        {
+            get;
+            set;
+        }
+
+        public virtual string Description
+        {
+            get;
+            set;
+        }
     }
 }

@@ -49,6 +49,13 @@
     <Compile Include="Entities\ComputerBrand.cs" />
     <Compile Include="Entities\CCTVType.cs" />
     <Compile Include="Entities\CCTVBrand.cs" />
+    <Compile Include="Entities\CommutatorType.cs" />
+    <Compile Include="Entities\CommutatorBrand.cs" />
+    <Compile Include="Entities\FirewallBrand.cs" />
+    <Compile Include="Entities\RouterBrand.cs" />
+    <Compile Include="Entities\NetworkCablingType.cs" />
+    <Compile Include="Entities\SwitchBrand.cs" />
+    <Compile Include="Entities\OperativeSystemType.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\RackType.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSiteRack.cs" />
@@ -65,10 +72,9 @@
     <Compile Include="Entities\UPSType.cs" />
     <Compile Include="Entities\CustomerInfrastructureUPS.cs" />
     <Compile Include="Entities\DBMS.cs" />
-    <Compile Include="Entities\ServerModel.cs" />
     <Compile Include="Entities\CustomerInfrastructureServerComputer.cs" />
     <Compile Include="Entities\OperativeSystem.cs" />
-    <Compile Include="Entities\CustomerInfrastructurePersonalComputerType.cs" />
+    <Compile Include="Entities\ComputerType.cs" />
     <Compile Include="Entities\CustomerInfrastructurePersonalComputer.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkFirewall.cs" />
