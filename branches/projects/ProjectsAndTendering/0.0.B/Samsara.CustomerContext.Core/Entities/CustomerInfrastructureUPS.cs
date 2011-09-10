@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CustomerInfrastructureUPSId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CustomerInfrastructureUPSId
         {
             get;

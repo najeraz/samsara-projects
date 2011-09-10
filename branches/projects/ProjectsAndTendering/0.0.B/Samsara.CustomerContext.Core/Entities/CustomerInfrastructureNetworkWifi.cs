@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CustomerInfrastructureNetworkWifiId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CustomerInfrastructureNetworkWifiId
         {
             get;

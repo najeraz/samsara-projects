@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CustomerInfrastructureNetworkFirewallId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CustomerInfrastructureNetworkFirewallId
         {
             get;

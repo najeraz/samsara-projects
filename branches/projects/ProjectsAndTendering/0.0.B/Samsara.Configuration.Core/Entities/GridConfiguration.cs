@@ -13,7 +13,7 @@ namespace Samsara.Configuration.Core.Entities
             GridConfigurationId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int GridConfigurationId
         {
             get;

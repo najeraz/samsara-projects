@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             CCTVTypeId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int CCTVTypeId
         {
             get;

@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             RackTypeId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int RackTypeId
         {
             get;

@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             WarrantyTypeId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int WarrantyTypeId
         {
             get;

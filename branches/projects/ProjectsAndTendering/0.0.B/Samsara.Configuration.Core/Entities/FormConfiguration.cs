@@ -13,7 +13,7 @@ namespace Samsara.Configuration.Core.Entities
             FormConfigurationId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int FormConfigurationId
         {
             get;

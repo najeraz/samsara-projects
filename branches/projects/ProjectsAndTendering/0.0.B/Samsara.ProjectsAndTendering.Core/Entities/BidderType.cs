@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             BidderTypeId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int BidderTypeId
         {
             get;

@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             OpportunityTypeId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int OpportunityTypeId
         {
             get;

@@ -11,7 +11,7 @@ namespace Samsara.Operation.Core.Entities
             ExchangeRateId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int ExchangeRateId
         {
             get;

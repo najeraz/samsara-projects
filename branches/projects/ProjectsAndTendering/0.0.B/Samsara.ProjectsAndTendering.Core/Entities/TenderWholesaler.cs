@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             TenderWholesalerId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int TenderWholesalerId
         {
             get;

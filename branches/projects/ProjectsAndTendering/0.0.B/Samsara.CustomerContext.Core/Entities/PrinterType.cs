@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
             PrinterTypeId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int PrinterTypeId
         {
             get;

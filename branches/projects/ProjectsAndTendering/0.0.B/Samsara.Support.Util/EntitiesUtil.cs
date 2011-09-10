@@ -20,7 +20,7 @@ namespace Samsara.Support.Util
         /// <returns>Indica si pertenece a la Llave Primaria.</returns>
         public static bool IsPrimaryKeyProperty(PropertyDescriptor propDescriptor)
         {
-            return propDescriptor.Attributes.OfType<PrimaryKeyAttribute>().Count() > 0;
+            return propDescriptor.Attributes.OfType<PrimaryKey>().Count() > 0;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Samsara.Support.Util
         /// <returns>Propiedades para Llave Primaria.</returns>
         public static PropertyInfo[] GetPrimaryKeyProperties(Type entityType)
         {
-            return EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType, typeof(PrimaryKeyAttribute));
+            return EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType, typeof(PrimaryKey));
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Samsara.Support.Util
         {
             foreach (PropertyInfo prop in entityType.GetProperties())
             {
-                if (prop.GetCustomAttributes(false).Count(x => x.GetType() == typeof(PrimaryKeyAttribute)) > 0)
+                if (prop.GetCustomAttributes(false).Count(x => x.GetType() == typeof(PrimaryKey)) > 0)
                     return prop;
             }
 

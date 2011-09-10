@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             AsesorId = -1;
         }
 
-        [PrimaryKeyAttribute]
+        [PrimaryKey]
         public virtual int AsesorId
         {
             get;
