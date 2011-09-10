@@ -112,9 +112,6 @@
     <EmbeddedResource Include="Mappings\Configuration\GridConfiguration.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructurePersonalComputer.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Asesor.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -219,16 +216,49 @@
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\WarrantyType.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureServerComputer.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CCTVBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CCTVType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CommutatorBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CommutatorType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\ComputerBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\ComputerType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\Customer.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureCCTV.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureISP.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetwork.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureUPS.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkCabling.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkCommutator.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkFirewall.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkRouter.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSite.hbm.xml" />
@@ -237,103 +267,73 @@
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSiteRack.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\RackType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\Customer.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CCTVBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CCTVType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\ComputerType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\ComputerBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CommutatorType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CommutatorBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\WifiBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\UPSType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\UPSBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\TelephonyProvider.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\TelephonyLineType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\SwitchBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\RouterBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\PrinterType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\PrinterBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\OperativeSystemType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\NetworkCablingType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\ISP.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\FirewallBrand.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\DBMS.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\OperativeSystem.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureTelephony.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructurePrinter.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSwitch.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkWifi.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSwitch.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructurePersonalComputer.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkRouter.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructurePrinter.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkFirewall.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureServerComputer.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkCommutator.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureTelephony.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetworkCabling.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureUPS.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureISP.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\DBMS.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureCCTV.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\FirewallBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\ISP.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\NetworkCablingType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\OperativeSystem.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\OperativeSystemType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\PrinterBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\PrinterType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\RackType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\RouterBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\SwitchBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\TelephonyLineType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\TelephonyProvider.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\UPSBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\UPSType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\WifiBrand.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
