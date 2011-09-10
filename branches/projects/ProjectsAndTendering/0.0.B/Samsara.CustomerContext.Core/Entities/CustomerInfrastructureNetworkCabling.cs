@@ -23,5 +23,17 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
+
+        public virtual NetworkCablingType NetworkCablingType
+        {
+            get;
+            set;
+        }
+
+        public virtual string Category
+        {
+            get;
+            set;
+        }
     }
 }

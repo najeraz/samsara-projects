@@ -4,27 +4,27 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructureNetworkWifi : GenericEntity
+    public class WifiBrand : GenericEntity
     {
-        public CustomerInfrastructureNetworkWifi()
+        public WifiBrand()
         {
-            CustomerInfrastructureNetworkWifiId = -1;
+            WifiBrandId = -1;
         }
 
         [PrimaryKeyAttribute]
-        public virtual int CustomerInfrastructureNetworkWifiId
+        public virtual int WifiBrandId
         {
             get;
             set;
         }
 
-        public virtual CustomerInfrastructureNetwork CustomerInfrastructureNetwork
+        public virtual string Name
         {
             get;
             set;
         }
 
-        public virtual WifiBrand WifiBrand
+        public virtual string Description
         {
             get;
             set;
