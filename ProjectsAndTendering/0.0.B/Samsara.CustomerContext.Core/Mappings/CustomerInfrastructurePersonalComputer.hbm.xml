@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructurePersonalComputer" table="CustomerContext.CustomerInfrastructurePersonalComputers">
+
+    <id name="CustomerInfrastructurePersonalComputerId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="SerialNumber"/>
+    <property name="ManufacturerReferenceNumber"/>
+    <property name="CPU"/>
+    <property name="RAM"/>
+    <property name="Model"/>
+    <property name="StorageSystem"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="CustomerInfrastructurePersonalComputerType"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputerType, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructurePersonalComputerTypeId"/>
+
+    <many-to-one name="ComputerBrand"
+                 class="Samsara.CustomerContext.Core.Entities.ComputerBrand, Samsara.CustomerContext.Core"
+                 column="ComputerBrandId"/>
+
+    <many-to-one name="OperativeSystem"
+                 class="Samsara.CustomerContext.Core.Entities.OperativeSystem, Samsara.CustomerContext.Core"
+                 column="OperativeSystemId"/>
+    
+  </class>
+
+  <query name="CustomerInfrastructurePersonalComputer.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructurePersonalComputer where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructurePersonalComputer.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructurePersonalComputer where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructurePersonalComputer.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructurePersonalComputer where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

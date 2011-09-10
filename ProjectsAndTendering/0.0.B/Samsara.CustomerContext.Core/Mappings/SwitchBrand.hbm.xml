@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="SwitchBrand" table="CustomerContext.SwitchBrands">
+    
+    <id name="SwitchBrandId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+  </class>
+
+  <query name="SwitchBrand.GetByParameters">
+    <![CDATA[
+        from SwitchBrand where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="SwitchBrand.GetListByParameters">
+    <![CDATA[
+        from SwitchBrand where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="SwitchBrand.SearchByParameters">
+    <![CDATA[
+        from SwitchBrand where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

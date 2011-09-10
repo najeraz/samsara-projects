@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="Tender" table="ProjectsAndTendering.Tenders">
+    
+    <id name="TenderId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="AddExtraCosts"/>
+    <property name="ProrateWarranties"/>
+    <property name="PreResults"/>
+    <property name="AcquisitionReason"/>
+    <property name="RegistrationDate"/>
+    <property name="Name"/>
+    <property name="ClarificationDate"/>
+    <property name="PreRevisionDate"/>
+    <property name="Deadline"/>
+    <property name="PricingStrategy"/>
+    <property name="PriceComparison"/>
+    <property name="Results"/>
+    <property name="Address"/>
+    <property name="VerdictDate"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="Opportunity" lazy="false"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Opportunity, Samsara.ProjectsAndTendering.Core"
+                 column="OpportunityId"/>
+    <many-to-one name="Bidder"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Bidder, Samsara.ProjectsAndTendering.Core"
+                 column="BidderId"/>
+    <many-to-one name="Dependency"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Dependency, Samsara.ProjectsAndTendering.Core"
+                 column="DependencyId"/>
+    <many-to-one name="EndUser"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.EndUser, Samsara.ProjectsAndTendering.Core"
+                 column="EndUserId"/>
+    <many-to-one name="Asesor"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Asesor, Samsara.ProjectsAndTendering.Core"
+                 column="AsesorId"/>
+    <many-to-one name="TenderStatus"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.TenderStatus, Samsara.ProjectsAndTendering.Core"
+                 column="TenderStatusId"/>
+    <many-to-one name="ApprovedBy"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Asesor, Samsara.ProjectsAndTendering.Core"
+                 column="ApprovedBy"/>
+    <many-to-one name="PreviousTender" lazy="false"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
+                 column="PreviousTenderId"/>
+
+    <set name="TenderManufacturers" table="ProjectsAndTendering.TenderManufacturers" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderManufacturer, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
+    <set name="TenderLines" table="ProjectsAndTendering.TenderLines" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderLine, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
+    <set name="TenderLogs" table="ProjectsAndTendering.TenderLogs" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderLog, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
+    <set name="TenderCompetitors" table="ProjectsAndTendering.TenderCompetitors" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderCompetitor, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
+    <set name="TenderWholesalers" table="ProjectsAndTendering.TenderWholesalers" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderWholesaler, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
+    <set name="TenderExchangeRates" table="ProjectsAndTendering.TenderExchangeRates" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderExchangeRate, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+
+    <set name="TenderWarranties" table="ProjectsAndTendering.TenderWarranties" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="TenderId"/>
+      <one-to-many
+        class="Samsara.ProjectsAndTendering.Core.Entities.TenderWarranty, Samsara.ProjectsAndTendering.Core"/>
+    </set>
+    
+  </class>
+
+  <query name="Tender.GetByParameters">
+    <![CDATA[
+        select t from Tender t
+        where t.Deleted = 0 and t.Activated = 1
+        AND 0 = t.Opportunity.Deleted
+        AND 1 = t.Opportunity.Activated
+        AND :OpportunityId = t.Opportunity.OpportunityId
+    ]]>
+  </query>
+
+  <query name="Tender.GetListByParameters">
+    <![CDATA[
+        from Tender where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <sql-query name="Tender.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="TenderId" type="int"/>
+    <return-scalar column="TenderName" type="string"/>
+    <return-scalar column="BidderName" type="string"/>
+    <return-scalar column="DependencyName" type="string"/>
+    <return-scalar column="EndUserName" type="string"/>
+    <return-scalar column="AsesorName" type="string"/>
+    <return-scalar column="RegistrationDate" type="DateTime"/>
+    <return-scalar column="PreRevisionDate" type="DateTime"/>
+    <return-scalar column="Deadline" type="DateTime"/>
+    <return-scalar column="VerdictDate" type="DateTime"/>
+    <return-scalar column="TenderStatusName" type="string"/>
+    <return-scalar column="ApproverName" type="string"/>
+    <return-scalar column="PreviousTenderName" type="string"/>
+    <![CDATA[
+      SELECT t.TenderId, t.RegistrationDate, b.Name BidderName, t.Name TenderName,
+      eu.Name EndUserName, d.Name DependencyName, a.Name AsesorName, t.PreRevisionDate,
+      t.Deadline, t.VerdictDate, 
+      ts.Name TenderStatusName, ap.Name ApproverName, pt.Name PreviousTenderName
+      FROM ProjectsAndTendering.Tenders t
+      INNER JOIN  ProjectsAndTendering.Bidders b	    		ON b.BidderId = t.BidderId AND b.Deleted = 0 and b.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Asesors a		    	ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Dependencies d	  	ON d.DependencyId = t.DependencyId AND d.Deleted = 0 and d.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.EndUsers eu	    	ON eu.EndUserId = t.EndUserId AND eu.Deleted = 0 and eu.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.TenderStatuses ts	ON ts.TenderStatusId = t.TenderStatusId AND ts.Deleted = 0 and ts.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Asesors ap		    	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
+      LEFT JOIN	  ProjectsAndTendering.Tenders pt	  	  	ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
+      WHERE t.Deleted = 0 and t.Activated = 1
+      AND t.Name like :Name
+      AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
+      AND (t.BidderId = :BidderId OR :BidderId = -1)
+      AND (t.DependencyId = :DependencyId OR :DependencyId = -1)
+      AND (t.EndUserId = :EndUserId OR :EndUserId = -1)
+      AND (t.TenderStatusId = :TenderStatusId OR :TenderStatusId = -1)
+      AND (:DateTypeSearchId = 1 and :MinDate <= t.RegistrationDate and :MaxDate >= t.RegistrationDate
+        OR :DateTypeSearchId = 2 and :MinDate <= t.Deadline and :MaxDate >= t.Deadline
+        OR :DateTypeSearchId = 3 and :MinDate <= t.VerdictDate and :MaxDate >= t.VerdictDate
+        OR :DateTypeSearchId = 4 and :MinDate <= t.ClarificationDate and :MaxDate >= t.ClarificationDate
+        OR :DateTypeSearchId = 5 and :MinDate <= t.PreRevisionDate and :MaxDate >= t.PreRevisionDate
+        OR :DateTypeSearchId = -1)
+      ORDER BY TenderId
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>

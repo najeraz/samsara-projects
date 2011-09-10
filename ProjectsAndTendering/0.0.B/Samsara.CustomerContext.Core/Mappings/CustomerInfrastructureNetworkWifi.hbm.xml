@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureNetworkWifi" table="CustomerContext.CustomerInfrastructureNetworkWifis">
+    
+    <id name="CustomerInfrastructureNetworkWifiId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="WifiBrand"
+                 class="Samsara.CustomerContext.Core.Entities.WifiBrand, Samsara.CustomerContext.Core"
+                 column="WifiBrandId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureNetworkWifi.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkWifi where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkWifi.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkWifi where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkWifi.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkWifi where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>
