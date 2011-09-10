@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="TelephonyLineType" table="CustomerContext.TelephonyLineTypes">
+    
+    <id name="TelephonyLineTypeId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+  </class>
+
+  <query name="TelephonyLineType.GetByParameters">
+    <![CDATA[
+        from TelephonyLineType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="TelephonyLineType.GetListByParameters">
+    <![CDATA[
+        from TelephonyLineType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="TelephonyLineType.SearchByParameters">
+    <![CDATA[
+        from TelephonyLineType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>
