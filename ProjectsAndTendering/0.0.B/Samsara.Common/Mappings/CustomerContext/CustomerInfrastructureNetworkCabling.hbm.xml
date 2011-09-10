@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureNetworkCabling" table="CustomerContext.CustomerInfrastructureNetworkCablings">
+    
+    <id name="CustomerInfrastructureNetworkCablingId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Category"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="NetworkCablingType"
+                 class="Samsara.CustomerContext.Core.Entities.NetworkCablingType, Samsara.CustomerContext.Core"
+                 column="NetworkCablingTypeId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureNetworkCabling.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkCabling where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkCabling.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkCabling where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkCabling.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkCabling where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

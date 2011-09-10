@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureNetworkFirewall" table="CustomerContext.CustomerInfrastructureNetworkFirewalls">
+    
+    <id name="CustomerInfrastructureNetworkFirewallId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="FirewallModel"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="FirewallBrand"
+                 class="Samsara.CustomerContext.Core.Entities.FirewallBrand, Samsara.CustomerContext.Core"
+                 column="FirewallBrandId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureNetworkFirewall.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkFirewall where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkFirewall.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkFirewall where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkFirewall.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkFirewall where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>
