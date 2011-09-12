@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureServerComputerDBMS" table="CustomerContext.CustomerInfrastructureServerComputerDBMSs">
+    
+    <id name="CustomerInfrastructureServerComputerDBMSId" type="int">
+      <generator class="native"/>
+    </id>
+    
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="DBMS"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.DBMS, Samsara.ProjectsAndTendering.Core"
+                 column="DBMSId"/>
+
+    <many-to-one name="CustomerInfrastructureServerComputer"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.CustomerInfrastructureServerComputer, Samsara.ProjectsAndTendering.Core"
+                 column="CustomerInfrastructureServerComputerId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureServerComputerDBMS.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputerDBMS where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureServerComputerDBMS.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputerDBMS where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureServerComputerDBMS.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputerDBMS where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+</hibernate-mapping>

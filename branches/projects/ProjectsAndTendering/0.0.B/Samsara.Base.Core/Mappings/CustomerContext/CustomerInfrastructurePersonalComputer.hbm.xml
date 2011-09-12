@@ -22,9 +22,9 @@
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureId"/>
 
-    <many-to-one name="CustomerInfrastructurePersonalComputerType"
+    <many-to-one name="PersonalComputerType"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputerType, Samsara.CustomerContext.Core"
-                 column="CustomerInfrastructurePersonalComputerTypeId"/>
+                 column="PersonalComputerTypeId"/>
 
     <many-to-one name="ComputerBrand"
                  class="Samsara.CustomerContext.Core.Entities.ComputerBrand, Samsara.CustomerContext.Core"

@@ -66,8 +66,84 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Mappings\" />
+    <Content Include="Mappings\Configuration\FormConfiguration.hbm.xml" />
+    <Content Include="Mappings\Configuration\GridColumnConfiguration.hbm.xml" />
+    <Content Include="Mappings\Configuration\GridConfiguration.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CCTVBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CCTVType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CommutatorBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CommutatorType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\ComputerBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureServerComputerDBMS.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\PersonalComputerType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\Customer.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureCCTV.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureISP.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetwork.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkCabling.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkCommutator.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkFirewall.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkRouter.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSite.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSiteRack.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkSwitch.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureNetworkWifi.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructurePersonalComputer.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructurePrinter.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureServerComputer.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureTelephony.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\CustomerInfrastructureUPS.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\DBMS.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\FirewallBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\ISP.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\NetworkCablingType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\OperativeSystem.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\OperativeSystemType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\PrinterBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\PrinterType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\RackType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\RouterBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\SwitchBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\TelephonyLineType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\TelephonyProvider.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\UPSBrand.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\UPSType.hbm.xml" />
+    <Content Include="Mappings\CustomerContext\WifiBrand.hbm.xml" />
+    <Content Include="Mappings\Operation\Currency.hbm.xml" />
+    <Content Include="Mappings\Operation\ExchangeRate.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Asesor.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Bidder.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\BidderType.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Competitor.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Dependency.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\DocumentTypeWarranty.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\EndUser.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Manufacturer.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Opportunity.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\OpportunityLog.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\OpportunityStatus.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\OpportunityType.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Organization.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\PricingStrategy.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Tender.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderCompetitor.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderExchangeRate.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderFile.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderLine.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderLineCompetitor.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderLineExtraCost.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderLineManufacturer.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderLineWholesaler.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderLog.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderManufacturer.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderStatus.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderWarranty.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\TenderWholesaler.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\WarrantyType.hbm.xml" />
+    <Content Include="Mappings\ProjectsAndTendering\Wholesaler.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

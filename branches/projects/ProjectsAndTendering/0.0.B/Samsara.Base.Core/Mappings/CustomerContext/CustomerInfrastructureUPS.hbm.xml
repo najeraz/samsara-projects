@@ -12,6 +12,10 @@
     <property name="Capacity"/>
     <property name="Deleted"/>
     <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
     
     <many-to-one name="UPSType"
                  class="Samsara.CustomerContext.Core.Entities.UPSType, Samsara.CustomerContext.Core"
