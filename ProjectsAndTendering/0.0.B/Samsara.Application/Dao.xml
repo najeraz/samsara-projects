@@ -15,7 +15,7 @@
     
     <property name="MappingAssemblies">
       <list>
-        <value>Samsara.Common</value>
+        <value>Samsara.Base.Core</value>
       </list>
     </property>
     
@@ -30,7 +30,7 @@
 
         <entry key="connection.driver_class"
                value="NHibernate.Driver.SqlClientDriver"/>
-        
+
         <entry key="show_sql" value="True"/>
 
         <!--<entry key="hibernate.hbm2ddl.auto" value="create-drop" />-->
