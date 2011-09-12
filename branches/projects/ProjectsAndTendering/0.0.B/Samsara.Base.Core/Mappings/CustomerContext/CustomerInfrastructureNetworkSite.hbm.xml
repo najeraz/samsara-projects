@@ -14,7 +14,7 @@
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
-    
+
     <many-to-one name="CustomerInfrastructureNetwork"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureNetworkId"/>

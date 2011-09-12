@@ -23,7 +23,7 @@
                  column="CustomerInfrastructureId"/>
 
     <many-to-one name="PersonalComputerType"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputerType, Samsara.CustomerContext.Core"
+                 class="Samsara.CustomerContext.Core.Entities.PersonalComputerType, Samsara.CustomerContext.Core"
                  column="PersonalComputerTypeId"/>
 
     <many-to-one name="ComputerBrand"

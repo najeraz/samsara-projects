@@ -13,11 +13,11 @@
     <property name="Activated"/>
 
     <many-to-one name="DBMS"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.DBMS, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.CustomerContext.Core.Entities.DBMS, Samsara.ProjectsAndTendering.Core"
                  column="DBMSId"/>
 
     <many-to-one name="CustomerInfrastructureServerComputer"
-                 class="Samsara.ProjectsAndTendering.Core.Entities.CustomerInfrastructureServerComputer, Samsara.ProjectsAndTendering.Core"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureServerComputer, Samsara.ProjectsAndTendering.Core"
                  column="CustomerInfrastructureServerComputerId"/>
 
   </class>

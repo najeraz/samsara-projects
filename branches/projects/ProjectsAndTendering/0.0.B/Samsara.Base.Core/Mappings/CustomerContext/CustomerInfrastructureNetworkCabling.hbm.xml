@@ -13,9 +13,9 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
-    <many-to-one name="CustomerInfrastructure"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
-                 column="CustomerInfrastructureId"/>
+    <many-to-one name="CustomerInfrastructureNetwork"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureNetworkId"/>
 
     <many-to-one name="NetworkCablingType"
                  class="Samsara.CustomerContext.Core.Entities.NetworkCablingType, Samsara.CustomerContext.Core"

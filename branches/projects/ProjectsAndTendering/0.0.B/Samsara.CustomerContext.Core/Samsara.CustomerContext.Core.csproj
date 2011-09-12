@@ -52,6 +52,8 @@
     <Compile Include="Entities\CCTVBrand.cs" />
     <Compile Include="Entities\CommutatorType.cs" />
     <Compile Include="Entities\CommutatorBrand.cs" />
+    <Compile Include="Entities\CustomerInfrastructureServerComputerDBMS.cs" />
+    <Compile Include="Entities\PersonalComputerType.cs" />
     <Compile Include="Entities\WifiBrand.cs" />
     <Compile Include="Entities\FirewallBrand.cs" />
     <Compile Include="Entities\RouterBrand.cs" />
@@ -76,7 +78,6 @@
     <Compile Include="Entities\DBMS.cs" />
     <Compile Include="Entities\CustomerInfrastructureServerComputer.cs" />
     <Compile Include="Entities\OperativeSystem.cs" />
-    <Compile Include="Entities\ComputerType.cs" />
     <Compile Include="Entities\CustomerInfrastructurePersonalComputer.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkFirewall.cs" />
