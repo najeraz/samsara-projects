@@ -3,9 +3,9 @@
   assembly="Samsara.CustomerContext.Core" 
   namespace="Samsara.CustomerContext.Core.Entities">
   
-  <class name="ComputerType" table="CustomerContext.ComputerTypes">
+  <class name="PersonalComputerType" table="CustomerContext.PersonalComputerTypes">
     
-    <id name="ComputerTypeId" type="int">
+    <id name="PersonalComputerTypeId" type="int">
       <generator class="native"/>
     </id>
 
@@ -16,21 +16,21 @@
 
   </class>
 
-  <query name="ComputerType.GetByParameters">
+  <query name="PersonalComputerType.GetByParameters">
     <![CDATA[
-        from ComputerType where Deleted = 0 and Activated = 1
+        from PersonalComputerType where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="ComputerType.GetListByParameters">
+  <query name="PersonalComputerType.GetListByParameters">
     <![CDATA[
-        from ComputerType where Deleted = 0 and Activated = 1
+        from PersonalComputerType where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="ComputerType.SearchByParameters">
+  <query name="PersonalComputerType.SearchByParameters">
     <![CDATA[
-        from ComputerType where Deleted = 0 and Activated = 1
+        from PersonalComputerType where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
