@@ -7,7 +7,7 @@ namespace Samsara.CustomerContext.Core.Entities
 {
     public class CustomerInfrastructureServerComputer : GenericEntity
     {
-        private ISet<DBMS> dBMSs;
+        private ISet<CustomerInfrastructureServerComputerDBMS> customerInfrastructureServerComputerDBMSs;
 
         public CustomerInfrastructureServerComputer()
         {
@@ -87,18 +87,18 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ISet<DBMS> DBMSs
+        public virtual ISet<CustomerInfrastructureServerComputerDBMS> CustomerInfrastructureServerComputerDBMSs
         {
             get
             {
-                if (this.dBMSs == null)
-                    this.dBMSs = new HashedSet<DBMS>();
+                if (this.customerInfrastructureServerComputerDBMSs == null)
+                    this.customerInfrastructureServerComputerDBMSs = new HashedSet<CustomerInfrastructureServerComputerDBMS>();
 
-                return this.dBMSs;
+                return this.customerInfrastructureServerComputerDBMSs;
             }
             set
             {
-                this.dBMSs = value;
+                this.customerInfrastructureServerComputerDBMSs = value;
             }
         }
     }
