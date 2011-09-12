@@ -60,7 +60,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual ComputerType CustomerInfrastructurePersonalComputerType
+        public virtual PersonalComputerType PersonalComputerType
         {
             get;
             set;

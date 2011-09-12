@@ -30,7 +30,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual TelephonyProvider TelephonySupplier
+        public virtual TelephonyProvider TelephonyProvider
         {
             get;
             set;

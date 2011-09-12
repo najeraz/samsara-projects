@@ -18,6 +18,12 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual CustomerInfrastructure CustomerInfrastructure
+        {
+            get;
+            set;
+        }
+
         public virtual string Capacity
         {
             get;

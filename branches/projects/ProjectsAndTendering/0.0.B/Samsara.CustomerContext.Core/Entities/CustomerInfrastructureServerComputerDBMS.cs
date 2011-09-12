@@ -4,21 +4,15 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class Customer : GenericEntity
+    public class CustomerInfrastructureServerComputerDBMS : GenericEntity
     {
-        public Customer()
+        public CustomerInfrastructureServerComputerDBMS()
         {
-            CustomerId = -1;
+            CustomerInfrastructureServerComputerDBMSId = -1;
         }
 
         [PrimaryKey]
-        public virtual int CustomerId
-        {
-            get;
-            set;
-        }
-
-        public virtual CustomerInfrastructure CustomerInfrastructure
+        public virtual int CustomerInfrastructureServerComputerDBMSId
         {
             get;
             set;
@@ -30,13 +24,19 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual string BusinessType
+        public virtual string Description
         {
             get;
             set;
         }
 
-        public virtual string Description
+        public virtual CustomerInfrastructureServerComputer CustomerInfrastructureServerComputer
+        {
+            get;
+            set;
+        }
+
+        public virtual DBMS DBMS
         {
             get;
             set;
