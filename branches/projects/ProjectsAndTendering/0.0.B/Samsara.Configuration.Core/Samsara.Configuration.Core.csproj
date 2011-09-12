@@ -39,10 +39,6 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Common">
-      <HintPath>..\bin\Samsara.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

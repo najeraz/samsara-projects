@@ -65,11 +65,6 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Samsara.Operation.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Operation.Core.dll</HintPath>

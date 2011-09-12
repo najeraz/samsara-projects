@@ -47,10 +47,6 @@
       <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Common">
-      <HintPath>..\bin\Samsara.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>

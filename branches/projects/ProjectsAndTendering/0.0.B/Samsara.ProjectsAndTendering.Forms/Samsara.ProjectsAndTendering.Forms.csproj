@@ -95,11 +95,6 @@
       <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Controls.dll</HintPath>
