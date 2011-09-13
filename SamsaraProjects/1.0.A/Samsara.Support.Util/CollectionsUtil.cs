@@ -6,8 +6,8 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Xml.Serialization;
 using System.Reflection;
+using System.Xml.Serialization;
 
 namespace Samsara.Support.Util
 {

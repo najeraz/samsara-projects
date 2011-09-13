@@ -1,12 +1,12 @@
 ﻿
-using Samsara.ProjectsAndTendering.Forms.Templates;
-using Samsara.ProjectsAndTendering.Forms.Controller;
-using Samsara.ProjectsAndTendering.Service.Interfaces;
-using Samsara.Base.Core.Context;
-using NUnit.Framework;
-using Samsara.ProjectsAndTendering.Core.Entities;
-using Infragistics.Win.UltraWinGrid;
 using System;
+using Infragistics.Win.UltraWinGrid;
+using NUnit.Framework;
+using Samsara.Base.Core.Context;
+using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.ProjectsAndTendering.Forms.Controller;
+using Samsara.ProjectsAndTendering.Forms.Templates;
+using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Forms.Forms
 {

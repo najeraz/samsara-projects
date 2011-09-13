@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Samsara.ProjectsAndTendering.Forms.Properties {
-    using System;
-    
-    
+namespace Samsara.ProjectsAndTendering.Forms.Properties
+{
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
