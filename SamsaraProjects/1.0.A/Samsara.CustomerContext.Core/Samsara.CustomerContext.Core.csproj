@@ -88,11 +88,50 @@
     <Compile Include="Entities\CustomerInfrastructure.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSite.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetwork.cs" />
+    <Compile Include="Parameters\CCTVBrandParameters.cs" />
+    <Compile Include="Parameters\CCTVTypeParameters.cs" />
+    <Compile Include="Parameters\CommutatorBrandParameters.cs" />
+    <Compile Include="Parameters\CommutatorTypeParameters.cs" />
+    <Compile Include="Parameters\ComputerBrandParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureCCTVParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureISPParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkCablingParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkCommutatorParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkFirewallParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkRouterParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkSiteParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkSiteRackParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkSwitchParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkWifiParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePersonalComputerParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePrinterParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureServerComputerDBMSParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureServerComputerParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureTelephonyParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureUPSParameters.cs" />
+    <Compile Include="Parameters\CustomerParameters.cs" />
+    <Compile Include="Parameters\DBMSParameters.cs" />
+    <Compile Include="Parameters\FirewallBrandParameters.cs" />
+    <Compile Include="Parameters\ISPParameters.cs" />
+    <Compile Include="Parameters\NetworkCablingTypeParameters.cs" />
+    <Compile Include="Parameters\OperativeSystemParameters.cs" />
+    <Compile Include="Parameters\OperativeSystemTypeParameters.cs" />
+    <Compile Include="Parameters\PersonalComputerTypeParameters.cs" />
+    <Compile Include="Parameters\PrinterBrandParameters.cs" />
+    <Compile Include="Parameters\PrinterTypeParameters.cs" />
+    <Compile Include="Parameters\RackTypeParameters.cs" />
+    <Compile Include="Parameters\RouterBrandParameters.cs" />
+    <Compile Include="Parameters\SwitchBrandParameters.cs" />
+    <Compile Include="Parameters\TelephonyLineTypeParameters.cs" />
+    <Compile Include="Parameters\TelephonyProviderParameters.cs" />
+    <Compile Include="Parameters\UPSBrandParameters.cs" />
+    <Compile Include="Parameters\UPSTypeParameters.cs" />
+    <Compile Include="Parameters\WifiBrandParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parameters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
