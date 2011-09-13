@@ -31,6 +31,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.CustomerContext.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data.NHibernate32, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Data.NHibernate32.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +68,110 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CCTVBrandDao.cs" />
+    <Compile Include="Interfaces\ICCTVBrandDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CCTVTypeDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CommutatorBrandDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CommutatorTypeDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\ComputerBrandDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CustomerDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CustomerInfrastructureCCTVDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CustomerInfrastructureDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\CustomerInfrastructureISPDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkCablingDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkCommutatorDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkFirewallDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkRouterDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkSiteDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkSiteRackDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkSwitchDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkWifiDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePersonalComputerDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePrinterDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureServerComputerDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureServerComputerDBMSDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureTelephonyDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureUPSDao.cs" />
+    <Compile Include="Impl\DBMSDao.cs" />
+    <Compile Include="Impl\FirewallBrandDao.cs" />
+    <Compile Include="Impl\ISPDao.cs" />
+    <Compile Include="Impl\NetworkCablingTypeDao.cs" />
+    <Compile Include="Impl\OperativeSystemDao.cs" />
+    <Compile Include="Impl\OperativeSystemTypeDao.cs" />
+    <Compile Include="Impl\PersonalComputerTypeDao.cs" />
+    <Compile Include="Impl\PrinterBrandDao.cs" />
+    <Compile Include="Impl\PrinterTypeDao.cs" />
+    <Compile Include="Impl\RackTypeDao.cs" />
+    <Compile Include="Impl\RouterBrandDao.cs" />
+    <Compile Include="Impl\SwitchBrandDao.cs" />
+    <Compile Include="Impl\TelephonyLineTypeDao.cs" />
+    <Compile Include="Impl\TelephonyProviderDao.cs" />
+    <Compile Include="Impl\UPSBrandDao.cs" />
+    <Compile Include="Impl\UPSTypeDao.cs" />
+    <Compile Include="Impl\WifiBrandDao.cs" />
+    <Compile Include="Interfaces\ICCTVTypeDao.cs" />
+    <Compile Include="Interfaces\ICommutatorBrandDao.cs" />
+    <Compile Include="Interfaces\ICommutatorTypeDao.cs" />
+    <Compile Include="Interfaces\IComputerBrandDao.cs" />
+    <Compile Include="Interfaces\ICustomerDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureCCTVDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureISPDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkCablingDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkCommutatorDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkFirewallDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkRouterDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkSiteDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkSiteRackDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkSwitchDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePrinterDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureServerComputerDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureServerComputerDBMSDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureTelephonyDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureUPSDao.cs" />
+    <Compile Include="Interfaces\IDBMSDao.cs" />
+    <Compile Include="Interfaces\IFirewallBrandDao.cs" />
+    <Compile Include="Interfaces\IISPDao.cs" />
+    <Compile Include="Interfaces\INetworkCablingTypeDao.cs" />
+    <Compile Include="Interfaces\IOperativeSystemDao.cs" />
+    <Compile Include="Interfaces\IOperativeSystemTypeDao.cs" />
+    <Compile Include="Interfaces\IPersonalComputerTypeDao.cs" />
+    <Compile Include="Interfaces\IPrinterBrandDao.cs" />
+    <Compile Include="Interfaces\IPrinterTypeDao.cs" />
+    <Compile Include="Interfaces\IRackTypeDao.cs" />
+    <Compile Include="Interfaces\IRouterBrandDao.cs" />
+    <Compile Include="Interfaces\ISwitchBrandDao.cs" />
+    <Compile Include="Interfaces\ITelephonyLineTypeDao.cs" />
+    <Compile Include="Interfaces\ITelephonyProviderDao.cs" />
+    <Compile Include="Interfaces\IUPSBrandDao.cs" />
+    <Compile Include="Interfaces\IUPSTypeDao.cs" />
+    <Compile Include="Interfaces\IWifiBrandDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
