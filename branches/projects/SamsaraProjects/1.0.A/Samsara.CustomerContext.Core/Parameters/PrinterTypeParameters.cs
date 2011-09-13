@@ -1,0 +1,30 @@
+﻿
+using Samsara.Base.Core.Parameters;
+
+namespace Samsara.CustomerContext.Core.Parameters
+{
+    public class PrinterTypeParameters : GenericParameters
+    {
+        public PrinterTypeParameters()
+        {
+        }
+
+        public int? PrinterTypeId
+        {
+            get;
+            set;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        public string Description
+        {
+            get;
+            set;
+        }
+    }
+}
