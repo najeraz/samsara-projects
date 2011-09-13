@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
@@ -9,7 +10,6 @@ using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
-using System.Collections.Generic;
 using Samsara.Support.Util;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller

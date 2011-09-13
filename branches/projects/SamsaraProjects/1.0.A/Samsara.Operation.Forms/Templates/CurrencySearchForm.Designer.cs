@@ -1,5 +1,4 @@
-﻿using Samsara.Operation.Core.Entities;
-
+﻿
 namespace Samsara.Operation.Forms.Templates
 {
     public partial class CurrencySearchForm
