@@ -1,2 +1,2 @@
 cd bin
-START "" Samsara.ProjectsAndTendering.Application.exe
+START "" "Samsara Projects.exe"
