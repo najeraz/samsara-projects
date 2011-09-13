@@ -1,12 +1,12 @@
 ﻿
-using Samsara.Operation.Forms.Templates;
-using Samsara.Operation.Forms.Controller;
-using Samsara.Operation.Service.Interfaces;
-using Samsara.Base.Core.Context;
-using NUnit.Framework;
-using Samsara.Operation.Core.Entities;
-using Infragistics.Win.UltraWinGrid;
 using System;
+using Infragistics.Win.UltraWinGrid;
+using NUnit.Framework;
+using Samsara.Base.Core.Context;
+using Samsara.Operation.Core.Entities;
+using Samsara.Operation.Forms.Controller;
+using Samsara.Operation.Forms.Templates;
+using Samsara.Operation.Service.Interfaces;
 
 namespace Samsara.Operation.Forms.Forms
 {
