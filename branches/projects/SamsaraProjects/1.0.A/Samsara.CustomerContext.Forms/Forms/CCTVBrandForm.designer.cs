@@ -212,7 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "CCTVBrandForm";
-            this.Text = "Catálogo de Competencia";
+            this.Text = "Catálogo de Marcas de CCTV";
             this.pnlDetCtgButtons.ResumeLayout(false);
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
