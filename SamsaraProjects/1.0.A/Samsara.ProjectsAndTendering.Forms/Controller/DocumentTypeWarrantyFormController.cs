@@ -125,7 +125,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void DeleteEntity(int DocumentTypeWarrantyId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el tipo de Documento de Fianza?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.DocumentTypeWarranty = this.srvDocumentTypeWarranty.GetById(DocumentTypeWarrantyId);
