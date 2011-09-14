@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmCCTVType.txtDetName.Text == null || 
                 this.frmCCTVType.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Tipo de CCTV.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmCCTVType.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el CCTVType?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Tipo de CCTV?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int CCTVTypeId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar el tipo de CCTV?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Tipo de CCTV?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.CCTVType = this.srvCCTVType.GetById(CCTVTypeId);

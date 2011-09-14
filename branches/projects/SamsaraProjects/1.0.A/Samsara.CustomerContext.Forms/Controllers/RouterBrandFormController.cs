@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmRouterBrand.txtDetName.Text == null || 
                 this.frmRouterBrand.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para la Marca de Router.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmRouterBrand.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el RouterBrand?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar la Marca de Router?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int RouterBrandId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Marca de Router?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.RouterBrand = this.srvRouterBrand.GetById(RouterBrandId);

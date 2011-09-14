@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmDBMS.txtDetName.Text == null || 
                 this.frmDBMS.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el DBMS.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmDBMS.txtDetName.Focus();
                 return false;
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int DBMSId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el DBMS?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.DBMS = this.srvDBMS.GetById(DBMSId);

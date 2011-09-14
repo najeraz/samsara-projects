@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmOperativeSystemType.txtDetName.Text == null || 
                 this.frmOperativeSystemType.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Tipo de Sistema Operativo.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmOperativeSystemType.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el OperativeSystemType?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Tipo de Sistema Operativo?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int OperativeSystemTypeId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Tipo de Sistema Operativo?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.OperativeSystemType = this.srvOperativeSystemType.GetById(OperativeSystemTypeId);

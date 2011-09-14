@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmCommutatorBrand.txtDetName.Text == null || 
                 this.frmCommutatorBrand.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para la Marca de Conmutador.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmCommutatorBrand.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el CommutatorBrand?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar la Marca de Conmutador?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int CommutatorBrandId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar Marca de Conmutador?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Marca de Conmutador?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.CommutatorBrand = this.srvCommutatorBrand.GetById(CommutatorBrandId);
