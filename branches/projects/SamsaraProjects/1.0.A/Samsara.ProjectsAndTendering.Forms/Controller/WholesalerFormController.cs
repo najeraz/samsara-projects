@@ -125,7 +125,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void DeleteEntity(int WholesalerId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Mayorista?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Wholesaler = this.srvWholesaler.GetById(WholesalerId);
