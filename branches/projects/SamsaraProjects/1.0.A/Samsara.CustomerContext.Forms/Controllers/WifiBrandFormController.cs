@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int WifiBrandId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Marca de red Inalámbrica?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.WifiBrand = this.srvWifiBrand.GetById(WifiBrandId);

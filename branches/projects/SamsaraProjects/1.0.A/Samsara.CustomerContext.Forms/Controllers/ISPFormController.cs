@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int ISPId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el ISP?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.ISP = this.srvISP.GetById(ISPId);

@@ -89,24 +89,7 @@
     <Compile Include="Controllers\CommutatorTypeFormController.cs" />
     <Compile Include="Controllers\ComputerBrandFormController.cs" />
     <Compile Include="Controllers\CustomerFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureCCTVFormController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureISPFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkCablingFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkCommutatorFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkFirewallFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkRouterFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkSiteFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkSiteRackFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkSwitchFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkWifiFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructurePersonalComputerFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructurePrinterFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureServerComputerDBMSFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureServerComputerFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureTelephonyFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureUPSFormController.cs" />
     <Compile Include="Controllers\DBMSFormController.cs" />
     <Compile Include="Controllers\FirewallBrandFormController.cs" />
     <Compile Include="Controllers\ISPFormController.cs" />
@@ -160,113 +143,11 @@
     <Compile Include="Forms\CustomerForm.designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CustomerInfrastructureCCTVForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureCCTVForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureCCTVForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CustomerInfrastructureForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CustomerInfrastructureForm.designer.cs">
       <DependentUpon>CustomerInfrastructureForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureISPForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureISPForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureISPForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkCablingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkCablingForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkCablingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkCommutatorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkCommutatorForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkCommutatorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkFirewallForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkFirewallForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkFirewallForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkRouterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkRouterForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkRouterForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkSiteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkSiteForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSiteForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkSiteRackForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkSiteRackForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSiteRackForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkSwitchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkSwitchForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSwitchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkWifiForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureNetworkWifiForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkWifiForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructurePersonalComputerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructurePersonalComputerForm.designer.cs">
-      <DependentUpon>CustomerInfrastructurePersonalComputerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructurePrinterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructurePrinterForm.designer.cs">
-      <DependentUpon>CustomerInfrastructurePrinterForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureServerComputerDBMSForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureServerComputerDBMSForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureServerComputerDBMSForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureServerComputerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureServerComputerForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureServerComputerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureTelephonyForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureTelephonyForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureTelephonyForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureUPSForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureUPSForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureUPSForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DBMSForm.cs">
       <SubType>Form</SubType>
@@ -401,113 +282,11 @@
     <Compile Include="Templates\ComputerBrandSearchForm.Designer.cs">
       <DependentUpon>ComputerBrandSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\CustomerInfrastructureCCTVSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureCCTVSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureCCTVSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureISPSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureISPSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureISPSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkCablingSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkCablingSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkCablingSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkCommutatorSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkCommutatorSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkCommutatorSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkFirewallSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkFirewallSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkFirewallSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkRouterSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkRouterSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkRouterSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSiteRackSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSiteRackSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSiteRackSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSiteSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSiteSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSiteSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSwitchSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkSwitchSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSwitchSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkWifiSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureNetworkWifiSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkWifiSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructurePersonalComputerSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructurePersonalComputerSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructurePersonalComputerSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructurePrinterSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructurePrinterSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructurePrinterSearchForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Templates\CustomerInfrastructureSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Templates\CustomerInfrastructureSearchForm.Designer.cs">
       <DependentUpon>CustomerInfrastructureSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureServerComputerDBMSSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureServerComputerDBMSSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureServerComputerDBMSSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureServerComputerSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureServerComputerSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureServerComputerSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureTelephonySearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureTelephonySearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureTelephonySearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureUPSSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureUPSSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureUPSSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Templates\CustomerSearchForm.cs">
       <SubType>Form</SubType>
@@ -638,59 +417,8 @@
     <EmbeddedResource Include="Forms\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureCCTVForm.resx">
-      <DependentUpon>CustomerInfrastructureCCTVForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerInfrastructureForm.resx">
       <DependentUpon>CustomerInfrastructureForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureISPForm.resx">
-      <DependentUpon>CustomerInfrastructureISPForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkCablingForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkCablingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkCommutatorForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkCommutatorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkFirewallForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkFirewallForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkRouterForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkRouterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkSiteForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkSiteForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkSiteRackForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkSiteRackForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkSwitchForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkSwitchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureNetworkWifiForm.resx">
-      <DependentUpon>CustomerInfrastructureNetworkWifiForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructurePersonalComputerForm.resx">
-      <DependentUpon>CustomerInfrastructurePersonalComputerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructurePrinterForm.resx">
-      <DependentUpon>CustomerInfrastructurePrinterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureServerComputerDBMSForm.resx">
-      <DependentUpon>CustomerInfrastructureServerComputerDBMSForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureServerComputerForm.resx">
-      <DependentUpon>CustomerInfrastructureServerComputerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureTelephonyForm.resx">
-      <DependentUpon>CustomerInfrastructureTelephonyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureUPSForm.resx">
-      <DependentUpon>CustomerInfrastructureUPSForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DBMSForm.resx">
       <DependentUpon>DBMSForm.cs</DependentUpon>

@@ -141,7 +141,7 @@ namespace Samsara.Operation.Forms.Controller
 
         private void DeleteEntity(int CurrencyId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Moneda?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Currency = this.srvCurrency.GetById(CurrencyId);

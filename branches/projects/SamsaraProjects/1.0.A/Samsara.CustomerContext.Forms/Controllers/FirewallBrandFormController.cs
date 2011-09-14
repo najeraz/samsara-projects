@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int FirewallBrandId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Marca de Firewall?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.FirewallBrand = this.srvFirewallBrand.GetById(FirewallBrandId);

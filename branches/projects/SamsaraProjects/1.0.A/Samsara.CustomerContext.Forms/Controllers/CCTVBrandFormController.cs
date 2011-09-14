@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmCCTVBrand.txtDetName.Text == null || 
                 this.frmCCTVBrand.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para la marca del CCTV.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmCCTVBrand.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el CCTVBrand?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar la marca del CCTV", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int CCTVBrandId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Marca de CCTV?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.CCTVBrand = this.srvCCTVBrand.GetById(CCTVBrandId);
