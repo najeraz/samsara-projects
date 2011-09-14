@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmCCTVBrand.txtDetName.Text == null || 
                 this.frmCCTVBrand.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la marca del CCTV.",
+                MessageBox.Show("Favor de elegir un nombre para la Marca del CCTV.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmCCTVBrand.txtDetName.Focus();
                 return false;
