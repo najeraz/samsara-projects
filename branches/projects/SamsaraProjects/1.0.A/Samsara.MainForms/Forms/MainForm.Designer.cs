@@ -223,7 +223,7 @@
             // monedasToolStripMenuItem
             // 
             this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
-            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.monedasToolStripMenuItem.Text = "Monedas";
             this.monedasToolStripMenuItem.Click += new System.EventHandler(this.monedasToolStripMenuItem_Click);
             // 
@@ -479,6 +479,7 @@
             this.dBMSToolStripMenuItem.Name = "dBMSToolStripMenuItem";
             this.dBMSToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.dBMSToolStripMenuItem.Text = "DBMS";
+            this.dBMSToolStripMenuItem.Click += new System.EventHandler(this.dBMSToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
