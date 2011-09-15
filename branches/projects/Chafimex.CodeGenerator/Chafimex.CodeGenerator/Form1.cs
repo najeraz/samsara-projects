@@ -23,6 +23,8 @@ namespace Chafimex.CodeGenerator
         private string formController;
         private string formSearchForm;
         private string formSearchFormDes;
+        private string daoXMLTemplate;
+        private string serviceXMLTemplate;
 
         private static string schemeName = "#Scheme#";
         private static string entityName = "#EntityName#";
@@ -30,10 +32,12 @@ namespace Chafimex.CodeGenerator
         private static string tDaoPath = ".." + Path.DirectorySeparatorChar + "TDao" + Path.DirectorySeparatorChar;
         private static string tServicePath = ".." + Path.DirectorySeparatorChar + "TService" + Path.DirectorySeparatorChar;
         private static string tFormsPath = ".." + Path.DirectorySeparatorChar + "TForms" + Path.DirectorySeparatorChar;
+        private static string tXMLPath = ".." + Path.DirectorySeparatorChar + "TXML" + Path.DirectorySeparatorChar;
 
         private static string daoFolderPath = ".." + Path.DirectorySeparatorChar + "GenDao" + Path.DirectorySeparatorChar;
         private static string serviceFolderPath = ".." + Path.DirectorySeparatorChar + "GenService" + Path.DirectorySeparatorChar;
         private static string formFolderPath = ".." + Path.DirectorySeparatorChar + "GenForms" + Path.DirectorySeparatorChar;
+        private static string xmlFolderPath = ".." + Path.DirectorySeparatorChar + "GenXML" + Path.DirectorySeparatorChar;
 
         private static string implDaoFolderPath = daoFolderPath + "Impl" + Path.DirectorySeparatorChar;
         private static string interfaceDaoFolderPath = daoFolderPath + "Interface" + Path.DirectorySeparatorChar;
@@ -60,10 +64,15 @@ namespace Chafimex.CodeGenerator
             formController = File.ReadAllText(tFormsPath + "Controller.txt");
             formSearchForm = File.ReadAllText(tFormsPath + "SearchForm.txt");
             formSearchFormDes = File.ReadAllText(tFormsPath + "SearchForm.Designer.txt");
+            daoXMLTemplate = File.ReadAllText(tXMLPath + "Dao.txt");
+            serviceXMLTemplate = File.ReadAllText(tXMLPath + "Service.txt");
         }
 
         private void ubtnGenerate_Click(object sender, EventArgs e)
         {
+            string daoXML = string.Empty;
+            string serviceXML = string.Empty;
+
             try
             {
                 if (Directory.Exists(daoFolderPath))
@@ -76,6 +85,7 @@ namespace Chafimex.CodeGenerator
                 Directory.CreateDirectory(daoFolderPath);
                 Directory.CreateDirectory(serviceFolderPath);
                 Directory.CreateDirectory(formFolderPath);
+                Directory.CreateDirectory(xmlFolderPath);
 
                 Directory.CreateDirectory(implDaoFolderPath);
                 Directory.CreateDirectory(interfaceDaoFolderPath);
@@ -105,6 +115,8 @@ namespace Chafimex.CodeGenerator
                     string fc = formController.Replace(entityName, line);
                     string fsf = formSearchForm.Replace(entityName, line);
                     string fsfd = formSearchFormDes.Replace(entityName, line);
+                    string subDaoXML = daoXMLTemplate.Replace(entityName, line);
+                    string subServiceXML = serviceXMLTemplate.Replace(entityName, line);
 
                     imdc = imdc.Replace(schemeName, schema);
                     indc = indc.Replace(schemeName, schema);
@@ -116,6 +128,8 @@ namespace Chafimex.CodeGenerator
                     fc = fc.Replace(schemeName, schema);
                     fsf = fsf.Replace(schemeName, schema);
                     fsfd = fsfd.Replace(schemeName, schema);
+                    daoXML += subDaoXML.Replace(schemeName, schema);
+                    serviceXML += subServiceXML.Replace(schemeName, schema);
 
                     File.WriteAllText(implDaoFolderPath + line + "Dao.cs", imdc, Encoding.UTF8);
                     File.WriteAllText(interfaceDaoFolderPath + "I" + line + "Dao.cs", indc, Encoding.UTF8);
@@ -130,6 +144,9 @@ namespace Chafimex.CodeGenerator
                     File.WriteAllText(templatesFormFolderPath + line + "SearchForm.cs", fsf, Encoding.UTF8);
                     File.WriteAllText(templatesFormFolderPath + line + "SearchForm.Designer.cs", fsfd, Encoding.UTF8);
                 }
+
+                File.WriteAllText(xmlFolderPath + "Dao.xml", daoXML, Encoding.UTF8);
+                File.WriteAllText(xmlFolderPath + "Service.xml", serviceXML, Encoding.UTF8);
             }
             catch
             {
