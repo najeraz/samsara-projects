@@ -1,0 +1,12 @@
+﻿
+using Samsara.Base.Dao.Impl;
+using Samsara.#Scheme#.Core.Entities;
+using Samsara.#Scheme#.Core.Parameters;
+using Samsara.#Scheme#.Dao.Interfaces;
+
+namespace Samsara.#Scheme#.Dao.Impl
+{
+    public class #EntityName#Dao : GenericDao<#EntityName#, int, #EntityName#Parameters>, #EntityName#Dao
+    {
+    }
+}

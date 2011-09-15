@@ -1,0 +1,48 @@
+﻿
+using System;
+using Infragistics.Win.UltraWinGrid;
+using NUnit.Framework;
+using Samsara.Base.Core.Context;
+using Samsara.#Scheme#.Core.Entities;
+using Samsara.#Scheme#.Forms.Controller;
+using Samsara.#Scheme#.Forms.Templates;
+using Samsara.#Scheme#.Service.Interfaces;
+
+namespace Samsara.#Scheme#.Forms.Forms
+{
+    public partial class #EntityName#Form : #EntityName#SearchForm
+    {
+        #region Attributes
+
+        private #EntityName#FormController ctrl#EntityName#Form;
+        private I#EntityName#Service srv#EntityName#;
+
+        #endregion Attributes
+
+        public #EntityName#Form()
+        {
+            InitializeComponent();
+            this.ctrl#EntityName#Form = new #EntityName#FormController(this);
+            this.srv#EntityName# = SamsaraAppContext.Resolve<I#EntityName#Service>();
+            Assert.IsNotNull(this.srv#EntityName#);
+        }
+
+        #region Methods
+
+        public override #EntityName# GetSerchResult()
+        {
+            #EntityName# #EntityName# = null;
+            UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+            {
+                int #EntityName#Id = Convert.ToInt32(activeRow.Cells[0].Value);
+                #EntityName# = this.srv#EntityName#.GetById(#EntityName#Id);
+            }
+
+            return #EntityName#;
+        }
+
+        #endregion Methods
+    }
+}
