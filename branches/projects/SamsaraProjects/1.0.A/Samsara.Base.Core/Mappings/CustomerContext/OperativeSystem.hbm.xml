@@ -10,7 +10,6 @@
     </id>
 
     <property name="Name"/>
-    <property name="IsLegit"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
@@ -36,6 +35,7 @@
   <query name="OperativeSystem.SearchByParameters">
     <![CDATA[
         from OperativeSystem where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 
