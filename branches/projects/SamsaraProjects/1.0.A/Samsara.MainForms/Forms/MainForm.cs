@@ -503,5 +503,19 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void dBMSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                DBMSForm frmDBMS = new DBMSForm();
+                frmDBMS.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
