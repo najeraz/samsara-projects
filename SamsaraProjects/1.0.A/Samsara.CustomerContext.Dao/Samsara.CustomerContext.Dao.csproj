@@ -128,7 +128,6 @@
     <Compile Include="Impl\TelephonyProviderDao.cs" />
     <Compile Include="Impl\UPSBrandDao.cs" />
     <Compile Include="Impl\UPSTypeDao.cs" />
-    <Compile Include="Impl\WifiBrandDao.cs" />
     <Compile Include="Interfaces\ICCTVTypeDao.cs" />
     <Compile Include="Interfaces\ICommutatorBrandDao.cs" />
     <Compile Include="Interfaces\ICommutatorTypeDao.cs" />
@@ -168,7 +167,6 @@
     <Compile Include="Interfaces\ITelephonyProviderDao.cs" />
     <Compile Include="Interfaces\IUPSBrandDao.cs" />
     <Compile Include="Interfaces\IUPSTypeDao.cs" />
-    <Compile Include="Interfaces\IWifiBrandDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

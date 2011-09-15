@@ -105,7 +105,6 @@
     <Compile Include="Impl\TelephonyProviderService.cs" />
     <Compile Include="Impl\UPSBrandService.cs" />
     <Compile Include="Impl\UPSTypeService.cs" />
-    <Compile Include="Impl\WifiBrandService.cs" />
     <Compile Include="Interfaces\ICCTVBrandService.cs" />
     <Compile Include="Interfaces\ICCTVTypeService.cs" />
     <Compile Include="Interfaces\ICommutatorBrandService.cs" />
@@ -146,7 +145,6 @@
     <Compile Include="Interfaces\ITelephonyProviderService.cs" />
     <Compile Include="Interfaces\IUPSBrandService.cs" />
     <Compile Include="Interfaces\IUPSTypeService.cs" />
-    <Compile Include="Interfaces\IWifiBrandService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

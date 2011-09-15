@@ -54,7 +54,6 @@
     <Compile Include="Entities\CommutatorBrand.cs" />
     <Compile Include="Entities\CustomerInfrastructureServerComputerDBMS.cs" />
     <Compile Include="Entities\PersonalComputerType.cs" />
-    <Compile Include="Entities\WifiBrand.cs" />
     <Compile Include="Entities\FirewallBrand.cs" />
     <Compile Include="Entities\RouterBrand.cs" />
     <Compile Include="Entities\NetworkCablingType.cs" />
@@ -128,7 +127,6 @@
     <Compile Include="Parameters\TelephonyProviderParameters.cs" />
     <Compile Include="Parameters\UPSBrandParameters.cs" />
     <Compile Include="Parameters\UPSTypeParameters.cs" />
-    <Compile Include="Parameters\WifiBrandParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

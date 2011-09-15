@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using Samsara.Operation.Forms.Forms;
 using Samsara.ProjectsAndTendering.Forms.Forms;
+using Samsara.CustomerContext.Forms.Forms;
 
 namespace Samsara.MainForms.Forms
 {
@@ -216,6 +217,244 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.WaitCursor;
                 CurrencyForm frmCurrency = new CurrencyForm();
                 frmCurrency.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeComputadorasPersonalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                PersonalComputerTypeForm frmPersonalComputerType = new PersonalComputerTypeForm();
+                frmPersonalComputerType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcasDeComputadorasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                ComputerBrandForm frmComputerBrand = new ComputerBrandForm();
+                frmComputerBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tipoDeCableadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                NetworkCablingTypeForm frmNetworkCablingType = new NetworkCablingTypeForm();
+                frmNetworkCablingType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeRacksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                RackTypeForm frmRackType = new RackTypeForm();
+                frmRackType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcasDeRoutersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                RouterBrandForm frmRouterBrand = new RouterBrandForm();
+                frmRouterBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcasDeSwitchesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                SwitchBrandForm frmSwitchBrand = new SwitchBrandForm();
+                frmSwitchBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcaDeCCTVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CCTVBrandForm frmCCTVBrand = new CCTVBrandForm();
+                frmCCTVBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tipoDeCCTVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CCTVTypeForm frmCCTVType = new CCTVTypeForm();
+                frmCCTVType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcaDeConmutadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CommutatorBrandForm frmCommutatorBrand = new CommutatorBrandForm();
+                frmCommutatorBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tipoDeConmutadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CommutatorTypeForm frmCommutatorType = new CommutatorTypeForm();
+                frmCommutatorType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeLíneasTelefónicasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                TelephonyLineTypeForm frmTelephonyLineType = new TelephonyLineTypeForm();
+                frmTelephonyLineType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcasDeImpresorasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                PrinterBrandForm frmPrinterBrand = new PrinterBrandForm();
+                frmPrinterBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeImpresorasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                PrinterTypeForm frmPrinterType = new PrinterTypeForm();
+                frmPrinterType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcasDeUPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                UPSBrandForm frmUPSBrand = new UPSBrandForm();
+                frmUPSBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tiposDeUPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                UPSTypeForm frmUPSType = new UPSTypeForm();
+                frmUPSType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void iSPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                ISPForm frmISP = new ISPForm();
+                frmISP.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void proveedorDeTelefoníaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                TelephonyProviderForm frmTelephonyProvider = new TelephonyProviderForm();
+                frmTelephonyProvider.Show();
             }
             finally
             {

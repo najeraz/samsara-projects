@@ -106,7 +106,6 @@
     <Compile Include="Controllers\TelephonyProviderFormController.cs" />
     <Compile Include="Controllers\UPSBrandFormController.cs" />
     <Compile Include="Controllers\UPSTypeFormController.cs" />
-    <Compile Include="Controllers\WifiBrandFormController.cs" />
     <Compile Include="Forms\CCTVBrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,12 +243,6 @@
     </Compile>
     <Compile Include="Forms\UPSTypeForm.designer.cs">
       <DependentUpon>UPSTypeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\WifiBrandForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\WifiBrandForm.designer.cs">
-      <DependentUpon>WifiBrandForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\CCTVBrandSearchForm.cs">
@@ -390,12 +383,6 @@
     <Compile Include="Templates\UPSTypeSearchForm.Designer.cs">
       <DependentUpon>UPSTypeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\WifiBrandSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\WifiBrandSearchForm.Designer.cs">
-      <DependentUpon>WifiBrandSearchForm.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\CCTVBrandForm.resx">
@@ -467,9 +454,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UPSTypeForm.resx">
       <DependentUpon>UPSTypeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WifiBrandForm.resx">
-      <DependentUpon>WifiBrandForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

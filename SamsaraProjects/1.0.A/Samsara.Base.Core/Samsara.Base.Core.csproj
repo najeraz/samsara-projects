@@ -111,7 +111,6 @@
     <EmbeddedResource Include="Mappings\CustomerContext\TelephonyProvider.hbm.xml" />
     <EmbeddedResource Include="Mappings\CustomerContext\UPSBrand.hbm.xml" />
     <EmbeddedResource Include="Mappings\CustomerContext\UPSType.hbm.xml" />
-    <EmbeddedResource Include="Mappings\CustomerContext\WifiBrand.hbm.xml" />
     <EmbeddedResource Include="Mappings\Operation\Currency.hbm.xml" />
     <EmbeddedResource Include="Mappings\Operation\ExchangeRate.hbm.xml" />
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Asesor.hbm.xml" />
