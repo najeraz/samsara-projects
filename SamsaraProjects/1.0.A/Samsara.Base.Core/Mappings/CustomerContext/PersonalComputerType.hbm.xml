@@ -31,6 +31,7 @@
   <query name="PersonalComputerType.SearchByParameters">
     <![CDATA[
         from PersonalComputerType where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 

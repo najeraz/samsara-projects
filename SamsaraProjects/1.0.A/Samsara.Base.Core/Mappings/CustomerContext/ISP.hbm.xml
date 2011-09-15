@@ -31,6 +31,7 @@
   <query name="ISP.SearchByParameters">
     <![CDATA[
         from ISP where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 
