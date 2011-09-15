@@ -23,11 +23,5 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
-
-        public virtual WifiBrand WifiBrand
-        {
-            get;
-            set;
-        }
     }
 }

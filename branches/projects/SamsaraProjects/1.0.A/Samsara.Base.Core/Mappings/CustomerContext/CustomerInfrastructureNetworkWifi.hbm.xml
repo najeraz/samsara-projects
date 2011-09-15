@@ -16,10 +16,6 @@
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureNetworkId"/>
 
-    <many-to-one name="WifiBrand"
-                 class="Samsara.CustomerContext.Core.Entities.WifiBrand, Samsara.CustomerContext.Core"
-                 column="WifiBrandId"/>
-
   </class>
 
   <query name="CustomerInfrastructureNetworkWifi.GetByParameters">

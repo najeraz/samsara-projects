@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlFormBackground = new System.Windows.Forms.Panel();
             this.tsmiMainMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.licitacionesYOprtinidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioFinalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,43 @@
             this.mayoristasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeDocumentosDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.operacónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monedasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextoDelClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.catálogoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infraestructuraDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infraestructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.computadorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeComputadorasPersonalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeComputadorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeCableadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeRacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeRoutersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeSwitchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.videoYMonitoreoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaDeCCTVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeCCTVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.telefoníaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaDeConmutadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeConmutadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeLíneasTelefónicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.perifericosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeImpresorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeImpresorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.energíaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeUPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeUPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sistemasOperativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeSistemasOperativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.firewallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dBMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iSPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedorDeTelefoníaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +102,16 @@
             // tsmiMainMenu
             // 
             this.tsmiMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.licitacionesYOprtinidadesToolStripMenuItem,
+            this.operacónToolStripMenuItem,
+            this.contextoDelClienteToolStripMenuItem});
+            this.tsmiMainMenu.Name = "tsmiMainMenu";
+            this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
+            this.tsmiMainMenu.Text = "Catálogos";
+            // 
+            // licitacionesYOprtinidadesToolStripMenuItem
+            // 
+            this.licitacionesYOprtinidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.licitanteToolStripMenuItem,
             this.dependenciaToolStripMenuItem,
             this.usuarioFinalToolStripMenuItem,
@@ -76,11 +123,10 @@
             this.organizacionesToolStripMenuItem,
             this.mayoristasToolStripMenuItem,
             this.tiposDeFianzasToolStripMenuItem,
-            this.tiposDeDocumentosDeFianzasToolStripMenuItem,
-            this.monedasToolStripMenuItem});
-            this.tsmiMainMenu.Name = "tsmiMainMenu";
-            this.tsmiMainMenu.Size = new System.Drawing.Size(72, 20);
-            this.tsmiMainMenu.Text = "Catálogos";
+            this.tiposDeDocumentosDeFianzasToolStripMenuItem});
+            this.licitacionesYOprtinidadesToolStripMenuItem.Name = "licitacionesYOprtinidadesToolStripMenuItem";
+            this.licitacionesYOprtinidadesToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.licitacionesYOprtinidadesToolStripMenuItem.Text = "Licitaciones y Oportinidades";
             // 
             // licitanteToolStripMenuItem
             // 
@@ -166,12 +212,293 @@
             this.tiposDeDocumentosDeFianzasToolStripMenuItem.Text = "Tipos de Documentos de Fianzas";
             this.tiposDeDocumentosDeFianzasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDocumentosDeFianzasToolStripMenuItem_Click);
             // 
+            // operacónToolStripMenuItem
+            // 
+            this.operacónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.monedasToolStripMenuItem});
+            this.operacónToolStripMenuItem.Name = "operacónToolStripMenuItem";
+            this.operacónToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.operacónToolStripMenuItem.Text = "Operación";
+            // 
             // monedasToolStripMenuItem
             // 
             this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
-            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.monedasToolStripMenuItem.Text = "Monedas";
             this.monedasToolStripMenuItem.Click += new System.EventHandler(this.monedasToolStripMenuItem_Click);
+            // 
+            // contextoDelClienteToolStripMenuItem
+            // 
+            this.contextoDelClienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.infraestructuraToolStripMenuItem});
+            this.contextoDelClienteToolStripMenuItem.Name = "contextoDelClienteToolStripMenuItem";
+            this.contextoDelClienteToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.contextoDelClienteToolStripMenuItem.Text = "Contexto del Cliente";
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.catálogoDeClientesToolStripMenuItem,
+            this.infraestructuraDeClientesToolStripMenuItem});
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // catálogoDeClientesToolStripMenuItem
+            // 
+            this.catálogoDeClientesToolStripMenuItem.Name = "catálogoDeClientesToolStripMenuItem";
+            this.catálogoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.catálogoDeClientesToolStripMenuItem.Text = "Catálogo de Clientes";
+            // 
+            // infraestructuraDeClientesToolStripMenuItem
+            // 
+            this.infraestructuraDeClientesToolStripMenuItem.Name = "infraestructuraDeClientesToolStripMenuItem";
+            this.infraestructuraDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.infraestructuraDeClientesToolStripMenuItem.Text = "Infraestructura de Clientes";
+            // 
+            // infraestructuraToolStripMenuItem
+            // 
+            this.infraestructuraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hardwareToolStripMenuItem,
+            this.softwareToolStripMenuItem,
+            this.proveedoresToolStripMenuItem});
+            this.infraestructuraToolStripMenuItem.Name = "infraestructuraToolStripMenuItem";
+            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.infraestructuraToolStripMenuItem.Text = "Infraestructura";
+            // 
+            // hardwareToolStripMenuItem
+            // 
+            this.hardwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.computadorasToolStripMenuItem,
+            this.redesToolStripMenuItem,
+            this.videoYMonitoreoToolStripMenuItem,
+            this.telefoníaToolStripMenuItem,
+            this.perifericosToolStripMenuItem,
+            this.energíaToolStripMenuItem});
+            this.hardwareToolStripMenuItem.Name = "hardwareToolStripMenuItem";
+            this.hardwareToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.hardwareToolStripMenuItem.Text = "Hardware";
+            // 
+            // computadorasToolStripMenuItem
+            // 
+            this.computadorasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tiposDeComputadorasPersonalesToolStripMenuItem,
+            this.marcasDeComputadorasToolStripMenuItem});
+            this.computadorasToolStripMenuItem.Name = "computadorasToolStripMenuItem";
+            this.computadorasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.computadorasToolStripMenuItem.Text = "Computadoras";
+            // 
+            // tiposDeComputadorasPersonalesToolStripMenuItem
+            // 
+            this.tiposDeComputadorasPersonalesToolStripMenuItem.Name = "tiposDeComputadorasPersonalesToolStripMenuItem";
+            this.tiposDeComputadorasPersonalesToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.tiposDeComputadorasPersonalesToolStripMenuItem.Text = "Tipos de Computadoras Personales";
+            this.tiposDeComputadorasPersonalesToolStripMenuItem.Click += new System.EventHandler(this.tiposDeComputadorasPersonalesToolStripMenuItem_Click);
+            // 
+            // marcasDeComputadorasToolStripMenuItem
+            // 
+            this.marcasDeComputadorasToolStripMenuItem.Name = "marcasDeComputadorasToolStripMenuItem";
+            this.marcasDeComputadorasToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.marcasDeComputadorasToolStripMenuItem.Text = "Marcas de Computadoras";
+            this.marcasDeComputadorasToolStripMenuItem.Click += new System.EventHandler(this.marcasDeComputadorasToolStripMenuItem_Click);
+            // 
+            // redesToolStripMenuItem
+            // 
+            this.redesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tipoDeCableadoToolStripMenuItem,
+            this.tiposDeRacksToolStripMenuItem,
+            this.marcasDeRoutersToolStripMenuItem,
+            this.marcasDeSwitchesToolStripMenuItem});
+            this.redesToolStripMenuItem.Name = "redesToolStripMenuItem";
+            this.redesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.redesToolStripMenuItem.Text = "Site y Redes";
+            // 
+            // tipoDeCableadoToolStripMenuItem
+            // 
+            this.tipoDeCableadoToolStripMenuItem.Name = "tipoDeCableadoToolStripMenuItem";
+            this.tipoDeCableadoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tipoDeCableadoToolStripMenuItem.Text = "Tipos de Cableado";
+            this.tipoDeCableadoToolStripMenuItem.Click += new System.EventHandler(this.tipoDeCableadoToolStripMenuItem_Click);
+            // 
+            // tiposDeRacksToolStripMenuItem
+            // 
+            this.tiposDeRacksToolStripMenuItem.Name = "tiposDeRacksToolStripMenuItem";
+            this.tiposDeRacksToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tiposDeRacksToolStripMenuItem.Text = "Tipos de Racks";
+            this.tiposDeRacksToolStripMenuItem.Click += new System.EventHandler(this.tiposDeRacksToolStripMenuItem_Click);
+            // 
+            // marcasDeRoutersToolStripMenuItem
+            // 
+            this.marcasDeRoutersToolStripMenuItem.Name = "marcasDeRoutersToolStripMenuItem";
+            this.marcasDeRoutersToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.marcasDeRoutersToolStripMenuItem.Text = "Marcas de Routers";
+            this.marcasDeRoutersToolStripMenuItem.Click += new System.EventHandler(this.marcasDeRoutersToolStripMenuItem_Click);
+            // 
+            // marcasDeSwitchesToolStripMenuItem
+            // 
+            this.marcasDeSwitchesToolStripMenuItem.Name = "marcasDeSwitchesToolStripMenuItem";
+            this.marcasDeSwitchesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.marcasDeSwitchesToolStripMenuItem.Text = "Marcas de Switches";
+            this.marcasDeSwitchesToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSwitchesToolStripMenuItem_Click);
+            // 
+            // videoYMonitoreoToolStripMenuItem
+            // 
+            this.videoYMonitoreoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcaDeCCTVToolStripMenuItem,
+            this.tipoDeCCTVToolStripMenuItem});
+            this.videoYMonitoreoToolStripMenuItem.Name = "videoYMonitoreoToolStripMenuItem";
+            this.videoYMonitoreoToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.videoYMonitoreoToolStripMenuItem.Text = "Video y Monitoreo";
+            // 
+            // marcaDeCCTVToolStripMenuItem
+            // 
+            this.marcaDeCCTVToolStripMenuItem.Name = "marcaDeCCTVToolStripMenuItem";
+            this.marcaDeCCTVToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.marcaDeCCTVToolStripMenuItem.Text = "Marca de CCTV";
+            this.marcaDeCCTVToolStripMenuItem.Click += new System.EventHandler(this.marcaDeCCTVToolStripMenuItem_Click);
+            // 
+            // tipoDeCCTVToolStripMenuItem
+            // 
+            this.tipoDeCCTVToolStripMenuItem.Name = "tipoDeCCTVToolStripMenuItem";
+            this.tipoDeCCTVToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.tipoDeCCTVToolStripMenuItem.Text = "Tipo de CCTV";
+            this.tipoDeCCTVToolStripMenuItem.Click += new System.EventHandler(this.tipoDeCCTVToolStripMenuItem_Click);
+            // 
+            // telefoníaToolStripMenuItem
+            // 
+            this.telefoníaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcaDeConmutadorToolStripMenuItem,
+            this.tipoDeConmutadorToolStripMenuItem,
+            this.tiposDeLíneasTelefónicasToolStripMenuItem});
+            this.telefoníaToolStripMenuItem.Name = "telefoníaToolStripMenuItem";
+            this.telefoníaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.telefoníaToolStripMenuItem.Text = "Telefonía";
+            // 
+            // marcaDeConmutadorToolStripMenuItem
+            // 
+            this.marcaDeConmutadorToolStripMenuItem.Name = "marcaDeConmutadorToolStripMenuItem";
+            this.marcaDeConmutadorToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.marcaDeConmutadorToolStripMenuItem.Text = "Marca de Conmutador";
+            this.marcaDeConmutadorToolStripMenuItem.Click += new System.EventHandler(this.marcaDeConmutadorToolStripMenuItem_Click);
+            // 
+            // tipoDeConmutadorToolStripMenuItem
+            // 
+            this.tipoDeConmutadorToolStripMenuItem.Name = "tipoDeConmutadorToolStripMenuItem";
+            this.tipoDeConmutadorToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.tipoDeConmutadorToolStripMenuItem.Text = "Tipo de Conmutador";
+            this.tipoDeConmutadorToolStripMenuItem.Click += new System.EventHandler(this.tipoDeConmutadorToolStripMenuItem_Click);
+            // 
+            // tiposDeLíneasTelefónicasToolStripMenuItem
+            // 
+            this.tiposDeLíneasTelefónicasToolStripMenuItem.Name = "tiposDeLíneasTelefónicasToolStripMenuItem";
+            this.tiposDeLíneasTelefónicasToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.tiposDeLíneasTelefónicasToolStripMenuItem.Text = "Tipos de Líneas Telefónicas";
+            this.tiposDeLíneasTelefónicasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeLíneasTelefónicasToolStripMenuItem_Click);
+            // 
+            // perifericosToolStripMenuItem
+            // 
+            this.perifericosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcasDeImpresorasToolStripMenuItem,
+            this.tiposDeImpresorasToolStripMenuItem});
+            this.perifericosToolStripMenuItem.Name = "perifericosToolStripMenuItem";
+            this.perifericosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.perifericosToolStripMenuItem.Text = "Perifericos";
+            // 
+            // marcasDeImpresorasToolStripMenuItem
+            // 
+            this.marcasDeImpresorasToolStripMenuItem.Name = "marcasDeImpresorasToolStripMenuItem";
+            this.marcasDeImpresorasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.marcasDeImpresorasToolStripMenuItem.Text = "Marcas de Impresoras";
+            this.marcasDeImpresorasToolStripMenuItem.Click += new System.EventHandler(this.marcasDeImpresorasToolStripMenuItem_Click);
+            // 
+            // tiposDeImpresorasToolStripMenuItem
+            // 
+            this.tiposDeImpresorasToolStripMenuItem.Name = "tiposDeImpresorasToolStripMenuItem";
+            this.tiposDeImpresorasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tiposDeImpresorasToolStripMenuItem.Text = "Tipos de Impresoras";
+            this.tiposDeImpresorasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeImpresorasToolStripMenuItem_Click);
+            // 
+            // energíaToolStripMenuItem
+            // 
+            this.energíaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcasDeUPSToolStripMenuItem,
+            this.tiposDeUPSToolStripMenuItem});
+            this.energíaToolStripMenuItem.Name = "energíaToolStripMenuItem";
+            this.energíaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.energíaToolStripMenuItem.Text = "Energía";
+            // 
+            // marcasDeUPSToolStripMenuItem
+            // 
+            this.marcasDeUPSToolStripMenuItem.Name = "marcasDeUPSToolStripMenuItem";
+            this.marcasDeUPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.marcasDeUPSToolStripMenuItem.Text = "Marcas de UPS";
+            this.marcasDeUPSToolStripMenuItem.Click += new System.EventHandler(this.marcasDeUPSToolStripMenuItem_Click);
+            // 
+            // tiposDeUPSToolStripMenuItem
+            // 
+            this.tiposDeUPSToolStripMenuItem.Name = "tiposDeUPSToolStripMenuItem";
+            this.tiposDeUPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tiposDeUPSToolStripMenuItem.Text = "Tipos de UPS";
+            this.tiposDeUPSToolStripMenuItem.Click += new System.EventHandler(this.tiposDeUPSToolStripMenuItem_Click);
+            // 
+            // softwareToolStripMenuItem
+            // 
+            this.softwareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sistemasOperativosToolStripMenuItem,
+            this.tiposDeSistemasOperativosToolStripMenuItem,
+            this.firewallsToolStripMenuItem,
+            this.dBMSToolStripMenuItem});
+            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.softwareToolStripMenuItem.Text = "Software";
+            // 
+            // sistemasOperativosToolStripMenuItem
+            // 
+            this.sistemasOperativosToolStripMenuItem.Name = "sistemasOperativosToolStripMenuItem";
+            this.sistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.sistemasOperativosToolStripMenuItem.Text = "Sistemas Operativos";
+            // 
+            // tiposDeSistemasOperativosToolStripMenuItem
+            // 
+            this.tiposDeSistemasOperativosToolStripMenuItem.Name = "tiposDeSistemasOperativosToolStripMenuItem";
+            this.tiposDeSistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.tiposDeSistemasOperativosToolStripMenuItem.Text = "Tipos de Sistemas Operativos";
+            // 
+            // firewallsToolStripMenuItem
+            // 
+            this.firewallsToolStripMenuItem.Name = "firewallsToolStripMenuItem";
+            this.firewallsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.firewallsToolStripMenuItem.Text = "Firewalls";
+            // 
+            // dBMSToolStripMenuItem
+            // 
+            this.dBMSToolStripMenuItem.Name = "dBMSToolStripMenuItem";
+            this.dBMSToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.dBMSToolStripMenuItem.Text = "DBMS";
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iSPToolStripMenuItem,
+            this.proveedorDeTelefoníaToolStripMenuItem});
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
+            // iSPToolStripMenuItem
+            // 
+            this.iSPToolStripMenuItem.Name = "iSPToolStripMenuItem";
+            this.iSPToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.iSPToolStripMenuItem.Text = "Proveedor de Internet";
+            this.iSPToolStripMenuItem.Click += new System.EventHandler(this.iSPToolStripMenuItem_Click);
+            // 
+            // proveedorDeTelefoníaToolStripMenuItem
+            // 
+            this.proveedorDeTelefoníaToolStripMenuItem.Name = "proveedorDeTelefoníaToolStripMenuItem";
+            this.proveedorDeTelefoníaToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.proveedorDeTelefoníaToolStripMenuItem.Text = "Proveedor de Telefonía";
+            this.proveedorDeTelefoníaToolStripMenuItem.Click += new System.EventHandler(this.proveedorDeTelefoníaToolStripMenuItem_Click);
             // 
             // licitacionesToolStripMenuItem
             // 
@@ -214,6 +541,7 @@
             this.ClientSize = new System.Drawing.Size(811, 375);
             this.Controls.Add(this.pnlFormBackground);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Licitaciones y Oportunidades";
@@ -228,6 +556,11 @@
 
         private System.Windows.Forms.Panel pnlFormBackground;
         private System.Windows.Forms.ToolStripMenuItem tsmiMainMenu;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem oportunidadesToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem licitacionesYOprtinidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licitanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dependenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioFinalToolStripMenuItem;
@@ -240,11 +573,43 @@
         private System.Windows.Forms.ToolStripMenuItem mayoristasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeFianzasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeDocumentosDeFianzasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem operacónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monedasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licitacionesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem oportunidadesToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem contextoDelClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem catálogoDeClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infraestructuraDeClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infraestructuraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hardwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem computadorasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeComputadorasPersonalesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeComputadorasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDeCableadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeRacksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeRoutersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeSwitchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem videoYMonitoreoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaDeCCTVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDeCCTVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem telefoníaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaDeConmutadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDeConmutadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeLíneasTelefónicasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem perifericosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeImpresorasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeImpresorasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem energíaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeUPSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeUPSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sistemasOperativosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeSistemasOperativosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem firewallsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dBMSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iSPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedorDeTelefoníaToolStripMenuItem;
     }
 }
 

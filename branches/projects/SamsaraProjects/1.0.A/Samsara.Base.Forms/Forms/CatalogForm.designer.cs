@@ -40,6 +40,7 @@
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogForm));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.Search = new System.Windows.Forms.TabPage();
             this.grdSchSearch = new Samsara.Controls.SamsaraUltraGrid();
@@ -461,6 +462,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 443);
             this.Controls.Add(this.tabPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CatalogForm";
             this.Text = "CatalogForm";
             this.tabPrincipal.ResumeLayout(false);
