@@ -1,0 +1,198 @@
+﻿
+using System;
+using System.Data;
+using System.Windows.Forms;
+using Infragistics.Win.UltraWinGrid;
+using NUnit.Framework;
+using Samsara.Base.Core.Context;
+using Samsara.#Scheme#.Core.Entities;
+using Samsara.#Scheme#.Core.Parameters;
+using Samsara.#Scheme#.Forms.Forms;
+using Samsara.#Scheme#.Service.Interfaces;
+
+namespace Samsara.#Scheme#.Forms.Controller
+{
+    public class #EntityName#FormController
+    {
+        #region Attributes
+
+        private #EntityName#Form frm#EntityName#;
+        private #EntityName# #EntityName#;
+        private I#EntityName#Service srv#EntityName#;
+
+        #endregion Attributes
+
+        #region Constructor
+
+        public #EntityName#FormController(#EntityName#Form instance)
+        {
+            this.frm#EntityName# = instance;
+            this.srv#EntityName# = SamsaraAppContext.Resolve<I#EntityName#Service>();
+            Assert.IsNotNull(this.srv#EntityName#);
+            this.InitializeFormControls();
+        }
+
+        #endregion Constructor
+        
+        #region Methods
+
+        private void InitializeFormControls()
+        {
+            this.frm#EntityName#.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
+            this.frm#EntityName#.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
+            this.frm#EntityName#.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
+            this.frm#EntityName#.btnDetSave.Click += new EventHandler(btnDetSave_Click);
+            this.frm#EntityName#.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
+            this.frm#EntityName#.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frm#EntityName#.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
+
+            this.frm#EntityName#.HiddenDetail(true);
+            this.ClearSearchControls();
+        }
+
+        private void ShowDetail(bool show)
+        {
+            this.frm#EntityName#.HiddenDetail(!show);
+            if (show)
+                this.frm#EntityName#.tabPrincipal.SelectedTab = this.frm#EntityName#.tabPrincipal.TabPages["New"];
+            else
+                this.frm#EntityName#.tabPrincipal.SelectedTab = this.frm#EntityName#.tabPrincipal.TabPages["Search"];
+        }
+
+        private bool ValidateFormInformation()
+        {
+            if (this.frm#EntityName#.txtDetName.Text == null || 
+                this.frm#EntityName#.txtDetName.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frm#EntityName#.txtDetName.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void LoadEntity()
+        {
+            this.#EntityName#.Name = this.frm#EntityName#.txtDetName.Text;
+            this.#EntityName#.Description = this.frm#EntityName#.txtDetDescription.Text;
+
+            this.#EntityName#.Activated = true;
+            this.#EntityName#.Deleted = false;
+        }
+
+        private void ClearDetailControls()
+        {
+            this.frm#EntityName#.txtDetName.Text = string.Empty;
+            this.frm#EntityName#.txtDetDescription.Text = string.Empty;
+        }
+
+        private void ClearSearchControls()
+        {
+            this.frm#EntityName#.txtSchName.Text = string.Empty;
+        }
+
+        private void Save#EntityName#()
+        {
+            if (this.ValidateFormInformation())
+            {
+                if (MessageBox.Show("¿Esta seguro de guardar el #EntityName#?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                    return;
+                this.LoadEntity();
+                this.srv#EntityName#.SaveOrUpdate(this.#EntityName#);
+                this.frm#EntityName#.HiddenDetail(true);
+                this.Search();
+            }
+        }
+
+        private void Edit#EntityName#(int #EntityName#Id)
+        {
+            this.#EntityName# = this.srv#EntityName#.GetById(#EntityName#Id);
+
+            this.ClearDetailControls();
+            this.LoadFormFromEntity();
+            this.frm#EntityName#.HiddenDetail(false);
+            this.ShowDetail(true);
+        }
+
+        private void LoadFormFromEntity()
+        {
+            this.frm#EntityName#.txtDetName.Text = this.#EntityName#.Name;
+            this.frm#EntityName#.txtDetDescription.Text = this.#EntityName#.Description;
+        }
+
+        private void DeleteEntity(int #EntityName#Id)
+        {
+            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                return;
+            this.#EntityName# = this.srv#EntityName#.GetById(#EntityName#Id);
+            this.#EntityName#.Activated = false;
+            this.#EntityName#.Deleted = true;
+            this.srv#EntityName#.SaveOrUpdate(this.#EntityName#);
+            this.Search();
+        }
+
+        private void Search()
+        {
+            #EntityName#Parameters pmt#EntityName# = new #EntityName#Parameters();
+
+            pmt#EntityName#.Name = "%" + this.frm#EntityName#.txtSchName.Text + "%";
+
+            DataTable dt#EntityName#s = srv#EntityName#.SearchByParameters(pmt#EntityName#);
+
+            this.frm#EntityName#.grdSchSearch.DataSource = null;
+            this.frm#EntityName#.grdSchSearch.DataSource = dt#EntityName#s;
+        }
+
+        #endregion Methods
+        
+        #region Events
+        
+        private void btnSchSearch_Click(object sender, EventArgs e)
+        {
+            this.Search();
+        }
+
+        private void btnSchCreate_Click(object sender, EventArgs e)
+        {
+            this.#EntityName# = new #EntityName#();
+            this.ClearDetailControls();
+            this.ShowDetail(true);
+        }
+
+        private void btnDetSave_Click(object sender, EventArgs e)
+        {
+            this.Save#EntityName#();
+        }
+        
+        private void btnSchEdit_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frm#EntityName#.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.Edit#EntityName#(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+
+        private void btnDetCancel_Click(object sender, EventArgs e)
+        {
+            this.frm#EntityName#.HiddenDetail(true);
+        }
+
+        private void btnSchClear_Click(object sender, EventArgs e)
+        {
+            this.ClearSearchControls();
+        }
+
+        private void btnSchDelete_Click(object sender, EventArgs e)
+        {
+            UltraGridRow activeRow = this.frm#EntityName#.grdSchSearch.ActiveRow;
+
+            if (activeRow != null)
+                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+        #endregion Events
+    }
+}

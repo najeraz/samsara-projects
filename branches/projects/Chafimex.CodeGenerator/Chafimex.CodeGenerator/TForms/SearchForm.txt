@@ -1,0 +1,19 @@
+﻿
+using Samsara.Base.Forms.Forms;
+using Samsara.#Scheme#.Core.Entities;
+
+namespace Samsara.#Scheme#.Forms.Templates
+{
+    public partial class #EntityName#SearchForm : GenericSearchForm<#EntityName#>
+    {
+        public #EntityName#SearchForm()
+        {
+            InitializeComponent();
+        }
+
+        public override #EntityName# GetSerchResult()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}
