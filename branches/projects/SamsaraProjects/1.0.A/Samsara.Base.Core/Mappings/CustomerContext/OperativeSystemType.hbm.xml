@@ -25,12 +25,14 @@
   <query name="OperativeSystemType.GetListByParameters">
     <![CDATA[
         from OperativeSystemType where Deleted = 0 and Activated = 1
+        and (OperativeSystemTypeId = :OperativeSystemTypeId or :OperativeSystemTypeId = -1)
     ]]>
   </query>
 
   <query name="OperativeSystemType.SearchByParameters">
     <![CDATA[
         from OperativeSystemType where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 

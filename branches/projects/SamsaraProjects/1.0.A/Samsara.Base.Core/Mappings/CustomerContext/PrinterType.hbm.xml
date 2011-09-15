@@ -31,6 +31,7 @@
   <query name="PrinterType.SearchByParameters">
     <![CDATA[
         from PrinterType where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 

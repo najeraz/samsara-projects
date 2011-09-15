@@ -223,7 +223,7 @@
             // monedasToolStripMenuItem
             // 
             this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
-            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.monedasToolStripMenuItem.Text = "Monedas";
             this.monedasToolStripMenuItem.Click += new System.EventHandler(this.monedasToolStripMenuItem_Click);
             // 
@@ -242,7 +242,7 @@
             this.catálogoDeClientesToolStripMenuItem,
             this.infraestructuraDeClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // catálogoDeClientesToolStripMenuItem
@@ -264,7 +264,7 @@
             this.softwareToolStripMenuItem,
             this.proveedoresToolStripMenuItem});
             this.infraestructuraToolStripMenuItem.Name = "infraestructuraToolStripMenuItem";
-            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.infraestructuraToolStripMenuItem.Text = "Infraestructura";
             // 
             // hardwareToolStripMenuItem
@@ -277,7 +277,7 @@
             this.perifericosToolStripMenuItem,
             this.energíaToolStripMenuItem});
             this.hardwareToolStripMenuItem.Name = "hardwareToolStripMenuItem";
-            this.hardwareToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.hardwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hardwareToolStripMenuItem.Text = "Hardware";
             // 
             // computadorasToolStripMenuItem
@@ -450,7 +450,7 @@
             this.firewallsToolStripMenuItem,
             this.dBMSToolStripMenuItem});
             this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.softwareToolStripMenuItem.Text = "Software";
             // 
             // sistemasOperativosToolStripMenuItem
@@ -458,18 +458,21 @@
             this.sistemasOperativosToolStripMenuItem.Name = "sistemasOperativosToolStripMenuItem";
             this.sistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.sistemasOperativosToolStripMenuItem.Text = "Sistemas Operativos";
+            this.sistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.sistemasOperativosToolStripMenuItem_Click);
             // 
             // tiposDeSistemasOperativosToolStripMenuItem
             // 
             this.tiposDeSistemasOperativosToolStripMenuItem.Name = "tiposDeSistemasOperativosToolStripMenuItem";
             this.tiposDeSistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.tiposDeSistemasOperativosToolStripMenuItem.Text = "Tipos de Sistemas Operativos";
+            this.tiposDeSistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeSistemasOperativosToolStripMenuItem_Click);
             // 
             // firewallsToolStripMenuItem
             // 
             this.firewallsToolStripMenuItem.Name = "firewallsToolStripMenuItem";
             this.firewallsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.firewallsToolStripMenuItem.Text = "Firewalls";
+            this.firewallsToolStripMenuItem.Text = "Marcas de Firewalls";
+            this.firewallsToolStripMenuItem.Click += new System.EventHandler(this.firewallsToolStripMenuItem_Click);
             // 
             // dBMSToolStripMenuItem
             // 
@@ -483,7 +486,7 @@
             this.iSPToolStripMenuItem,
             this.proveedorDeTelefoníaToolStripMenuItem});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
             // iSPToolStripMenuItem

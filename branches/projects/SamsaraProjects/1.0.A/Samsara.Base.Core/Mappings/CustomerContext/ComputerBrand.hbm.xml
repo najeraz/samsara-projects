@@ -31,6 +31,7 @@
   <query name="ComputerBrand.SearchByParameters">
     <![CDATA[
         from ComputerBrand where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 

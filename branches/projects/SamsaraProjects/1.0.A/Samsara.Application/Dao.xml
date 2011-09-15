@@ -179,5 +179,166 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <object id="ICCTVBrandService"
+          type="Samsara.CustomerContext.Service.Impl.CCTVBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICCTVBrandDao"/>
+  </object>
+  <object id="ICCTVTypeService"
+          type="Samsara.CustomerContext.Service.Impl.CCTVTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICCTVTypeDao"/>
+  </object>
+  <object id="ICommutatorBrandService"
+          type="Samsara.CustomerContext.Service.Impl.CommutatorBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICommutatorBrandDao"/>
+  </object>
+  <object id="ICommutatorTypeService"
+          type="Samsara.CustomerContext.Service.Impl.CommutatorTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICommutatorTypeDao"/>
+  </object>
+  <object id="IComputerBrandService"
+          type="Samsara.CustomerContext.Service.Impl.ComputerBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IComputerBrandDao"/>
+  </object>
+  <object id="ICustomerService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerDao"/>
+  </object>
+  <object id="ICustomerInfrastructureService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureDao"/>
+  </object>
+  <object id="ICustomerInfrastructureCCTVService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureCCTVService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureCCTVDao"/>
+  </object>
+  <object id="ICustomerInfrastructureISPService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureISPService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureISPDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkCablingService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkCablingService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkCablingDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkCommutatorService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkCommutatorService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkCommutatorDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkFirewallService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkFirewallService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkFirewallDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkRouterService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkRouterService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkRouterDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkSiteService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkSiteService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkSiteDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkSiteRackService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkSiteRackService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkSiteRackDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkSwitchService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkSwitchService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkSwitchDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkWifiService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkWifiService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkWifiDao"/>
+  </object>
+  <object id="ICustomerInfrastructurePersonalComputerService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructurePersonalComputerService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructurePersonalComputerDao"/>
+  </object>
+  <object id="ICustomerInfrastructurePrinterService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructurePrinterService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructurePrinterDao"/>
+  </object>
+  <object id="ICustomerInfrastructureServerComputerService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureServerComputerService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureServerComputerDao"/>
+  </object>
+  <object id="ICustomerInfrastructureServerComputerDBMSService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureServerComputerDBMSService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureServerComputerDBMSDao"/>
+  </object>
+  <object id="ICustomerInfrastructureTelephonyService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureTelephonyService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureTelephonyDao"/>
+  </object>
+  <object id="ICustomerInfrastructureUPSService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureUPSService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureUPSDao"/>
+  </object>
+  <object id="IDBMSService"
+          type="Samsara.CustomerContext.Service.Impl.DBMSService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IDBMSDao"/>
+  </object>
+  <object id="IFirewallBrandService"
+          type="Samsara.CustomerContext.Service.Impl.FirewallBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IFirewallBrandDao"/>
+  </object>
+  <object id="IISPService"
+          type="Samsara.CustomerContext.Service.Impl.ISPService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IISPDao"/>
+  </object>
+  <object id="INetworkCablingTypeService"
+          type="Samsara.CustomerContext.Service.Impl.NetworkCablingTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="INetworkCablingTypeDao"/>
+  </object>
+  <object id="IOperativeSystemService"
+          type="Samsara.CustomerContext.Service.Impl.OperativeSystemService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IOperativeSystemDao"/>
+  </object>
+  <object id="IOperativeSystemTypeService"
+          type="Samsara.CustomerContext.Service.Impl.OperativeSystemTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IOperativeSystemTypeDao"/>
+  </object>
+  <object id="IPersonalComputerTypeService"
+          type="Samsara.CustomerContext.Service.Impl.PersonalComputerTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IPersonalComputerTypeDao"/>
+  </object>
+  <object id="IPrinterBrandService"
+          type="Samsara.CustomerContext.Service.Impl.PrinterBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IPrinterBrandDao"/>
+  </object>
+  <object id="IPrinterTypeService"
+          type="Samsara.CustomerContext.Service.Impl.PrinterTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IPrinterTypeDao"/>
+  </object>
+  <object id="IRackTypeService"
+          type="Samsara.CustomerContext.Service.Impl.RackTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IRackTypeDao"/>
+  </object>
+  <object id="IRouterBrandService"
+          type="Samsara.CustomerContext.Service.Impl.RouterBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IRouterBrandDao"/>
+  </object>
+  <object id="ISwitchBrandService"
+          type="Samsara.CustomerContext.Service.Impl.SwitchBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ISwitchBrandDao"/>
+  </object>
+  <object id="ITelephonyLineTypeService"
+          type="Samsara.CustomerContext.Service.Impl.TelephonyLineTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ITelephonyLineTypeDao"/>
+  </object>
+  <object id="ITelephonyProviderService"
+          type="Samsara.CustomerContext.Service.Impl.TelephonyProviderService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ITelephonyProviderDao"/>
+  </object>
+  <object id="IUPSBrandService"
+          type="Samsara.CustomerContext.Service.Impl.UPSBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IUPSBrandDao"/>
+  </object>
+  <object id="IUPSTypeService"
+          type="Samsara.CustomerContext.Service.Impl.UPSTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IUPSTypeDao"/>
+  </object>
+
 </objects>
 

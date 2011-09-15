@@ -30,12 +30,6 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual bool IsLegit
-        {
-            get;
-            set;
-        }
-
         public virtual string Description
         {
             get;

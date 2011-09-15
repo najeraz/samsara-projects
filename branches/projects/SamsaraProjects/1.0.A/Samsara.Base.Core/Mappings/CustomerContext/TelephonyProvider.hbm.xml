@@ -31,6 +31,7 @@
   <query name="TelephonyProvider.SearchByParameters">
     <![CDATA[
         from TelephonyProvider where Deleted = 0 and Activated = 1
+        and Name like :Name
     ]]>
   </query>
 

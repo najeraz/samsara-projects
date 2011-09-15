@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
@@ -9,6 +10,7 @@ using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.CustomerContext.Service.Interfaces;
+using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Forms.Controller
 {
@@ -19,6 +21,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         private OperativeSystemForm frmOperativeSystem;
         private OperativeSystem OperativeSystem;
         private IOperativeSystemService srvOperativeSystem;
+        private IOperativeSystemTypeService srvOperativeSystemType;
 
         #endregion Attributes
 
@@ -29,6 +32,8 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmOperativeSystem = instance;
             this.srvOperativeSystem = SamsaraAppContext.Resolve<IOperativeSystemService>();
             Assert.IsNotNull(this.srvOperativeSystem);
+            this.srvOperativeSystemType = SamsaraAppContext.Resolve<IOperativeSystemTypeService>();
+            Assert.IsNotNull(this.srvOperativeSystemType);
             this.InitializeFormControls();
         }
 
@@ -38,6 +43,17 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void InitializeFormControls()
         {
+            // OperativeSystemType
+            OperativeSystemTypeParameters pmtOperativeSystemType = new OperativeSystemTypeParameters();
+            pmtOperativeSystemType.OperativeSystemTypeId = ParameterConstants.IntDefault;
+            IList<OperativeSystemType> lstDependencies =
+                srvOperativeSystemType.GetListByParameters(pmtOperativeSystemType);
+
+            WindowsFormsUtil.LoadCombo<OperativeSystemType>(this.frmOperativeSystem.uceSchOperativeSystemType,
+                lstDependencies, "OperativeSystemTypeId", "Name", "Seleccione");
+            WindowsFormsUtil.LoadCombo<OperativeSystemType>(this.frmOperativeSystem.uceDetOperativeSystemType,
+                lstDependencies, "OperativeSystemTypeId", "Name", "Seleccione");
+
             this.frmOperativeSystem.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmOperativeSystem.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmOperativeSystem.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
@@ -70,6 +86,15 @@ namespace Samsara.CustomerContext.Forms.Controller
                 return false;
             }
 
+            if (this.frmOperativeSystem.uceDetOperativeSystemType.Value == null ||
+                Convert.ToInt32(this.frmOperativeSystem.uceDetOperativeSystemType.Value) <= 0)
+            {
+                MessageBox.Show("Favor de seleccionar el Tipo de Sistema Operativo.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmOperativeSystem.uceDetOperativeSystemType.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -77,6 +102,8 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.OperativeSystem.Name = this.frmOperativeSystem.txtDetName.Text;
             this.OperativeSystem.Description = this.frmOperativeSystem.txtDetDescription.Text;
+            this.OperativeSystem.OperativeSystemType = this.srvOperativeSystemType.GetById(
+                Convert.ToInt32(this.frmOperativeSystem.uceDetOperativeSystemType.Value));
 
             this.OperativeSystem.Activated = true;
             this.OperativeSystem.Deleted = false;
@@ -86,6 +113,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.frmOperativeSystem.txtDetName.Text = string.Empty;
             this.frmOperativeSystem.txtDetDescription.Text = string.Empty;
+            this.frmOperativeSystem.uceDetOperativeSystemType.Value = -1;
         }
 
         private void ClearSearchControls()
@@ -121,6 +149,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.frmOperativeSystem.txtDetName.Text = this.OperativeSystem.Name;
             this.frmOperativeSystem.txtDetDescription.Text = this.OperativeSystem.Description;
+            this.frmOperativeSystem.uceDetOperativeSystemType.Value = this.OperativeSystem.OperativeSystemType.OperativeSystemTypeId;
         }
 
         private void DeleteEntity(int OperativeSystemId)
