@@ -39,4 +39,4 @@ TelephonyLineType
 TelephonyProvider
 UPSBrand
 UPSType
-WifiBrand
+BussinessType
