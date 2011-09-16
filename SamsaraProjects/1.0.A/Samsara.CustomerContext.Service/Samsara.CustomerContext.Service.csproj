@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\BusinessTypeService.cs" />
     <Compile Include="Impl\CCTVBrandService.cs" />
     <Compile Include="Impl\CCTVTypeService.cs" />
     <Compile Include="Impl\CommutatorBrandService.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Impl\TelephonyProviderService.cs" />
     <Compile Include="Impl\UPSBrandService.cs" />
     <Compile Include="Impl\UPSTypeService.cs" />
+    <Compile Include="Interfaces\IBusinessTypeService.cs" />
     <Compile Include="Interfaces\ICCTVBrandService.cs" />
     <Compile Include="Interfaces\ICCTVTypeService.cs" />
     <Compile Include="Interfaces\ICommutatorBrandService.cs" />

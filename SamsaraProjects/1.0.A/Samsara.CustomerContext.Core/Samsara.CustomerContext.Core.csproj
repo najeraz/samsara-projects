@@ -52,6 +52,7 @@
     <Compile Include="Entities\CCTVBrand.cs" />
     <Compile Include="Entities\CommutatorType.cs" />
     <Compile Include="Entities\CommutatorBrand.cs" />
+    <Compile Include="Entities\BusinessType.cs" />
     <Compile Include="Entities\CustomerInfrastructureServerComputerDBMS.cs" />
     <Compile Include="Entities\PersonalComputerType.cs" />
     <Compile Include="Entities\FirewallBrand.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Parameters\CommutatorBrandParameters.cs" />
     <Compile Include="Parameters\CommutatorTypeParameters.cs" />
     <Compile Include="Parameters\ComputerBrandParameters.cs" />
+    <Compile Include="Parameters\BusinessTypeParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureCCTVParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureISPParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureNetworkCablingParameters.cs" />

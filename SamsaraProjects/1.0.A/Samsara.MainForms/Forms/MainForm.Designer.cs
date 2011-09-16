@@ -250,12 +250,14 @@
             this.catálogoDeClientesToolStripMenuItem.Name = "catálogoDeClientesToolStripMenuItem";
             this.catálogoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.catálogoDeClientesToolStripMenuItem.Text = "Catálogo de Clientes";
+            this.catálogoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.catálogoDeClientesToolStripMenuItem_Click);
             // 
             // infraestructuraDeClientesToolStripMenuItem
             // 
             this.infraestructuraDeClientesToolStripMenuItem.Name = "infraestructuraDeClientesToolStripMenuItem";
             this.infraestructuraDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.infraestructuraDeClientesToolStripMenuItem.Text = "Infraestructura de Clientes";
+            this.infraestructuraDeClientesToolStripMenuItem.Click += new System.EventHandler(this.infraestructuraDeClientesToolStripMenuItem_Click);
             // 
             // infraestructuraToolStripMenuItem
             // 
