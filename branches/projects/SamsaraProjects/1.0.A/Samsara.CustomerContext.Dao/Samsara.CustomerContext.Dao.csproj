@@ -71,7 +71,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\BusinessTypeDao.cs" />
     <Compile Include="Impl\CCTVBrandDao.cs" />
+    <Compile Include="Interfaces\IBusinessTypeDao.cs" />
     <Compile Include="Interfaces\ICCTVBrandDao.cs">
       <SubType>Code</SubType>
     </Compile>

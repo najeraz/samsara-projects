@@ -74,6 +74,7 @@
     <Reference Include="Samsara.Support.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Support.Util.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -87,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BusinessTypeFormController.cs" />
     <Compile Include="Controllers\CCTVBrandFormController.cs" />
     <Compile Include="Controllers\CCTVTypeFormController.cs" />
     <Compile Include="Controllers\CommutatorBrandFormController.cs" />
@@ -110,6 +112,12 @@
     <Compile Include="Controllers\TelephonyProviderFormController.cs" />
     <Compile Include="Controllers\UPSBrandFormController.cs" />
     <Compile Include="Controllers\UPSTypeFormController.cs" />
+    <Compile Include="Forms\BusinessTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BusinessTypeForm.designer.cs">
+      <DependentUpon>BusinessTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CCTVBrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +257,12 @@
       <DependentUpon>UPSTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\BusinessTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\BusinessTypeSearchForm.designer.cs">
+      <DependentUpon>BusinessTypeSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\CCTVBrandSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +403,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\BusinessTypeForm.resx">
+      <DependentUpon>BusinessTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CCTVBrandForm.resx">
       <DependentUpon>CCTVBrandForm.cs</DependentUpon>
       <SubType>Designer</SubType>
