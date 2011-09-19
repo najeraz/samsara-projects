@@ -65,12 +65,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\BackupSoftwareBrandService.cs" />
     <Compile Include="Impl\BusinessTypeService.cs" />
     <Compile Include="Impl\CCTVBrandService.cs" />
     <Compile Include="Impl\CCTVTypeService.cs" />
     <Compile Include="Impl\CommutatorBrandService.cs" />
     <Compile Include="Impl\CommutatorTypeService.cs" />
     <Compile Include="Impl\ComputerBrandService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureAdministationSoftwareService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureBackupSoftwareService.cs" />
     <Compile Include="Impl\CustomerInfrastructureCCTVService.cs" />
     <Compile Include="Impl\CustomerInfrastructureISPService.cs" />
     <Compile Include="Impl\CustomerInfrastructureNetworkCablingService.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="Impl\CustomerInfrastructureNetworkWifiService.cs" />
     <Compile Include="Impl\CustomerInfrastructurePersonalComputerService.cs" />
     <Compile Include="Impl\CustomerInfrastructurePrinterService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareService.cs" />
     <Compile Include="Impl\CustomerInfrastructureServerComputerDBMSService.cs" />
     <Compile Include="Impl\CustomerInfrastructureServerComputerService.cs" />
     <Compile Include="Impl\CustomerInfrastructureService.cs" />
@@ -101,17 +105,21 @@
     <Compile Include="Impl\PrinterTypeService.cs" />
     <Compile Include="Impl\RackTypeService.cs" />
     <Compile Include="Impl\RouterBrandService.cs" />
+    <Compile Include="Impl\SecuritySoftwareBrandService.cs" />
     <Compile Include="Impl\SwitchBrandService.cs" />
     <Compile Include="Impl\TelephonyLineTypeService.cs" />
     <Compile Include="Impl\TelephonyProviderService.cs" />
     <Compile Include="Impl\UPSBrandService.cs" />
     <Compile Include="Impl\UPSTypeService.cs" />
+    <Compile Include="Interfaces\IBackupSoftwareBrandService.cs" />
     <Compile Include="Interfaces\IBusinessTypeService.cs" />
     <Compile Include="Interfaces\ICCTVBrandService.cs" />
     <Compile Include="Interfaces\ICCTVTypeService.cs" />
     <Compile Include="Interfaces\ICommutatorBrandService.cs" />
     <Compile Include="Interfaces\ICommutatorTypeService.cs" />
     <Compile Include="Interfaces\IComputerBrandService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureAdministationSoftwareService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureBackupSoftwareService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureCCTVService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureISPService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkCablingService.cs" />
@@ -125,6 +133,7 @@
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePrinterService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureSecuritySoftwareService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureServerComputerDBMSService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureServerComputerService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureService.cs" />
@@ -142,6 +151,7 @@
     <Compile Include="Interfaces\IPrinterTypeService.cs" />
     <Compile Include="Interfaces\IRackTypeService.cs" />
     <Compile Include="Interfaces\IRouterBrandService.cs" />
+    <Compile Include="Interfaces\ISecuritySoftwareBrandService.cs" />
     <Compile Include="Interfaces\ISwitchBrandService.cs" />
     <Compile Include="Interfaces\ITelephonyLineTypeService.cs" />
     <Compile Include="Interfaces\ITelephonyProviderService.cs" />
