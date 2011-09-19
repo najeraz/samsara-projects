@@ -545,5 +545,19 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void girosDeNegocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                BusinessTypeForm frmBusinessType = new BusinessTypeForm();
+                frmBusinessType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
