@@ -1,6 +1,6 @@
 ﻿namespace Samsara.CustomerContext.Forms.Forms
 {
-    partial class BusinessTypeForm
+    partial class SecuritySoftwareBrandForm
     {
         /// <summary>
         /// Required designer variable.
@@ -135,13 +135,13 @@
             this.txtDetDescription.Size = new System.Drawing.Size(341, 56);
             this.txtDetDescription.TabIndex = 26;
             // 
-            // BusinessTypeForm
+            // SecuritySoftwareBrandForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
-            this.Name = "BusinessTypeForm";
-            this.Text = "Catálogo de Giros de Negocio";
+            this.Name = "SecuritySoftwareBrandForm";
+            this.Text = "Catálogo de Marcas de Software de Seguridad";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);

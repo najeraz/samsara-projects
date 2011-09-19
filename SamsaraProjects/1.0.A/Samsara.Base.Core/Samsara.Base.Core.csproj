@@ -146,6 +146,21 @@
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\WarrantyType.hbm.xml" />
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\Wholesaler.hbm.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureAdministationSoftware.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\SecuritySoftwareBrand.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureSecuritySoftware.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureBackupSoftware.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\CustomerContext\BackupSoftwareBrand.hbm.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

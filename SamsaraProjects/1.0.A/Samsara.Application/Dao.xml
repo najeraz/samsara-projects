@@ -343,6 +343,26 @@
           type="Samsara.CustomerContext.Dao.Impl.BusinessTypeDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IBackupSoftwareBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.BackupSoftwareBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureAdministationSoftwareDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureAdministationSoftwareDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureBackupSoftwareDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureBackupSoftwareDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureSecuritySoftwareDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureSecuritySoftwareDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ISecuritySoftwareBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.SecuritySoftwareBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 

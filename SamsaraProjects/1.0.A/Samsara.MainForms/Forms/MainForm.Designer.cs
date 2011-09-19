@@ -85,6 +85,7 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.girosDeNegocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,7 +241,8 @@
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catálogoDeClientesToolStripMenuItem,
-            this.infraestructuraDeClientesToolStripMenuItem});
+            this.infraestructuraDeClientesToolStripMenuItem,
+            this.girosDeNegocioToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
@@ -540,6 +542,13 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // girosDeNegocioToolStripMenuItem
+            // 
+            this.girosDeNegocioToolStripMenuItem.Name = "girosDeNegocioToolStripMenuItem";
+            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.girosDeNegocioToolStripMenuItem.Text = "Giros de Negocio";
+            this.girosDeNegocioToolStripMenuItem.Click += new System.EventHandler(this.girosDeNegocioToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +625,7 @@
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iSPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorDeTelefoníaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem girosDeNegocioToolStripMenuItem;
     }
 }
 

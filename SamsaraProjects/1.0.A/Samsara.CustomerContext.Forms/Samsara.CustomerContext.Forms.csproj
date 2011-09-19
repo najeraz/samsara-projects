@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BackupSoftwareBrandFormController.cs" />
     <Compile Include="Controllers\BusinessTypeFormController.cs" />
     <Compile Include="Controllers\CCTVBrandFormController.cs" />
     <Compile Include="Controllers\CCTVTypeFormController.cs" />
@@ -107,11 +108,18 @@
     <Compile Include="Controllers\PrinterTypeFormController.cs" />
     <Compile Include="Controllers\RackTypeFormController.cs" />
     <Compile Include="Controllers\RouterBrandFormController.cs" />
+    <Compile Include="Controllers\SecuritySoftwareBrandFormController.cs" />
     <Compile Include="Controllers\SwitchBrandFormController.cs" />
     <Compile Include="Controllers\TelephonyLineTypeFormController.cs" />
     <Compile Include="Controllers\TelephonyProviderFormController.cs" />
     <Compile Include="Controllers\UPSBrandFormController.cs" />
     <Compile Include="Controllers\UPSTypeFormController.cs" />
+    <Compile Include="Forms\BackupSoftwareBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BackupSoftwareBrandForm.designer.cs">
+      <DependentUpon>BackupSoftwareBrandForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BusinessTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +234,12 @@
     <Compile Include="Forms\RouterBrandForm.designer.cs">
       <DependentUpon>RouterBrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandForm.designer.cs">
+      <DependentUpon>SecuritySoftwareBrandForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SwitchBrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +271,12 @@
       <DependentUpon>UPSTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\BackupSoftwareBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\BackupSoftwareBrandSearchForm.designer.cs">
+      <DependentUpon>BackupSoftwareBrandSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\BusinessTypeSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +391,10 @@
     <Compile Include="Templates\RouterBrandSearchForm.Designer.cs">
       <DependentUpon>RouterBrandSearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Templates\SecuritySoftwareBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\SecuritySoftwareBrandSearchForm.Designer.cs" />
     <Compile Include="Templates\SwitchBrandSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,6 +427,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\BackupSoftwareBrandForm.resx">
+      <DependentUpon>BackupSoftwareBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BusinessTypeForm.resx">
       <DependentUpon>BusinessTypeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RouterBrandForm.resx">
       <DependentUpon>RouterBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SecuritySoftwareBrandForm.resx">
+      <DependentUpon>SecuritySoftwareBrandForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SwitchBrandForm.resx">
       <DependentUpon>SwitchBrandForm.cs</DependentUpon>

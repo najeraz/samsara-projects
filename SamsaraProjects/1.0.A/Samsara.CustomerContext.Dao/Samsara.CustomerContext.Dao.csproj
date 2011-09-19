@@ -71,8 +71,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\BackupSoftwareBrandDao.cs" />
     <Compile Include="Impl\BusinessTypeDao.cs" />
     <Compile Include="Impl\CCTVBrandDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureAdministationSoftwareDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureBackupSoftwareDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareDao.cs" />
+    <Compile Include="Impl\SecuritySoftwareBrandDao.cs" />
+    <Compile Include="Interfaces\IBackupSoftwareBrandDao.cs" />
     <Compile Include="Interfaces\IBusinessTypeDao.cs" />
     <Compile Include="Interfaces\ICCTVBrandDao.cs">
       <SubType>Code</SubType>
@@ -135,6 +141,8 @@
     <Compile Include="Interfaces\ICommutatorTypeDao.cs" />
     <Compile Include="Interfaces\IComputerBrandDao.cs" />
     <Compile Include="Interfaces\ICustomerDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureAdministationSoftwareDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureBackupSoftwareDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureCCTVDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureISPDao.cs" />
@@ -149,6 +157,7 @@
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePrinterDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureSecuritySoftwareDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureServerComputerDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureServerComputerDBMSDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureTelephonyDao.cs" />
@@ -164,6 +173,7 @@
     <Compile Include="Interfaces\IPrinterTypeDao.cs" />
     <Compile Include="Interfaces\IRackTypeDao.cs" />
     <Compile Include="Interfaces\IRouterBrandDao.cs" />
+    <Compile Include="Interfaces\ISecuritySoftwareBrandDao.cs" />
     <Compile Include="Interfaces\ISwitchBrandDao.cs" />
     <Compile Include="Interfaces\ITelephonyLineTypeDao.cs" />
     <Compile Include="Interfaces\ITelephonyProviderDao.cs" />

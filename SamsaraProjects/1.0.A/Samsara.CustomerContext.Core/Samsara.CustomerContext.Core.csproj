@@ -53,6 +53,11 @@
     <Compile Include="Entities\CommutatorType.cs" />
     <Compile Include="Entities\CommutatorBrand.cs" />
     <Compile Include="Entities\BusinessType.cs" />
+    <Compile Include="Entities\BackupSoftwareBrand.cs" />
+    <Compile Include="Entities\CustomerInfrastructureBackupSoftware.cs" />
+    <Compile Include="Entities\CustomerInfrastructureAdministationSoftware.cs" />
+    <Compile Include="Entities\SecuritySoftwareBrand.cs" />
+    <Compile Include="Entities\CustomerInfrastructureSecuritySoftware.cs" />
     <Compile Include="Entities\CustomerInfrastructureServerComputerDBMS.cs" />
     <Compile Include="Entities\PersonalComputerType.cs" />
     <Compile Include="Entities\FirewallBrand.cs" />
@@ -88,12 +93,15 @@
     <Compile Include="Entities\CustomerInfrastructure.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSite.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetwork.cs" />
+    <Compile Include="Parameters\BackupSoftwareBrandParameters.cs" />
     <Compile Include="Parameters\CCTVBrandParameters.cs" />
     <Compile Include="Parameters\CCTVTypeParameters.cs" />
     <Compile Include="Parameters\CommutatorBrandParameters.cs" />
     <Compile Include="Parameters\CommutatorTypeParameters.cs" />
     <Compile Include="Parameters\ComputerBrandParameters.cs" />
     <Compile Include="Parameters\BusinessTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureAdministationSoftwareParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureBackupSoftwarParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureCCTVParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureISPParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureNetworkCablingParameters.cs" />
@@ -108,6 +116,7 @@
     <Compile Include="Parameters\CustomerInfrastructureParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructurePersonalComputerParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructurePrinterParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureSecuritySoftwareParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureServerComputerDBMSParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureServerComputerParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureTelephonyParameters.cs" />
@@ -124,6 +133,7 @@
     <Compile Include="Parameters\PrinterTypeParameters.cs" />
     <Compile Include="Parameters\RackTypeParameters.cs" />
     <Compile Include="Parameters\RouterBrandParameters.cs" />
+    <Compile Include="Parameters\SecuritySoftwareBrandParameters.cs" />
     <Compile Include="Parameters\SwitchBrandParameters.cs" />
     <Compile Include="Parameters\TelephonyLineTypeParameters.cs" />
     <Compile Include="Parameters\TelephonyProviderParameters.cs" />

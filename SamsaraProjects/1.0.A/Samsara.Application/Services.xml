@@ -296,6 +296,26 @@
           type="Samsara.CustomerContext.Service.Impl.BusinessTypeService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="IBusinessTypeDao"/>
   </object>
+  <object id="IBackupSoftwareBrandService"
+          type="Samsara.CustomerContext.Service.Impl.BackupSoftwareBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IBackupSoftwareBrandDao"/>
+  </object>
+  <object id="ICustomerInfrastructureAdministationSoftwareService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureAdministationSoftwareService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureAdministationSoftwareDao"/>
+  </object>
+  <object id="ICustomerInfrastructureBackupSoftwareService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureBackupSoftwareService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureBackupSoftwareDao"/>
+  </object>
+  <object id="ICustomerInfrastructureSecuritySoftwareService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureSecuritySoftwareService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureSecuritySoftwareDao"/>
+  </object>
+  <object id="ISecuritySoftwareBrandService"
+          type="Samsara.CustomerContext.Service.Impl.SecuritySoftwareBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ISecuritySoftwareBrandDao"/>
+  </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 
