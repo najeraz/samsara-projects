@@ -559,5 +559,33 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void marcasDeSoftwareDeSeguridadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                SecuritySoftwareBrandForm frmSecuritySoftwareBrand = new SecuritySoftwareBrandForm();
+                frmSecuritySoftwareBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcasDeSoftwareDeRespaldoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                BackupSoftwareBrandForm frmBackupSoftwareBrand = new BackupSoftwareBrandForm();
+                frmBackupSoftwareBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
