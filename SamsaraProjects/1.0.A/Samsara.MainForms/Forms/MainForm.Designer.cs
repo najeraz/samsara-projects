@@ -50,6 +50,7 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catálogoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infraestructuraDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.girosDeNegocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infraestructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +86,8 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.girosDeNegocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,6 +262,13 @@
             this.infraestructuraDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.infraestructuraDeClientesToolStripMenuItem.Text = "Infraestructura de Clientes";
             this.infraestructuraDeClientesToolStripMenuItem.Click += new System.EventHandler(this.infraestructuraDeClientesToolStripMenuItem_Click);
+            // 
+            // girosDeNegocioToolStripMenuItem
+            // 
+            this.girosDeNegocioToolStripMenuItem.Name = "girosDeNegocioToolStripMenuItem";
+            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.girosDeNegocioToolStripMenuItem.Text = "Giros de Negocio";
+            this.girosDeNegocioToolStripMenuItem.Click += new System.EventHandler(this.girosDeNegocioToolStripMenuItem_Click);
             // 
             // infraestructuraToolStripMenuItem
             // 
@@ -452,7 +461,9 @@
             this.sistemasOperativosToolStripMenuItem,
             this.tiposDeSistemasOperativosToolStripMenuItem,
             this.firewallsToolStripMenuItem,
-            this.dBMSToolStripMenuItem});
+            this.dBMSToolStripMenuItem,
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem,
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem});
             this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
             this.softwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.softwareToolStripMenuItem.Text = "Software";
@@ -460,28 +471,28 @@
             // sistemasOperativosToolStripMenuItem
             // 
             this.sistemasOperativosToolStripMenuItem.Name = "sistemasOperativosToolStripMenuItem";
-            this.sistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.sistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.sistemasOperativosToolStripMenuItem.Text = "Sistemas Operativos";
             this.sistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.sistemasOperativosToolStripMenuItem_Click);
             // 
             // tiposDeSistemasOperativosToolStripMenuItem
             // 
             this.tiposDeSistemasOperativosToolStripMenuItem.Name = "tiposDeSistemasOperativosToolStripMenuItem";
-            this.tiposDeSistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.tiposDeSistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.tiposDeSistemasOperativosToolStripMenuItem.Text = "Tipos de Sistemas Operativos";
             this.tiposDeSistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeSistemasOperativosToolStripMenuItem_Click);
             // 
             // firewallsToolStripMenuItem
             // 
             this.firewallsToolStripMenuItem.Name = "firewallsToolStripMenuItem";
-            this.firewallsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.firewallsToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.firewallsToolStripMenuItem.Text = "Marcas de Firewalls";
             this.firewallsToolStripMenuItem.Click += new System.EventHandler(this.firewallsToolStripMenuItem_Click);
             // 
             // dBMSToolStripMenuItem
             // 
             this.dBMSToolStripMenuItem.Name = "dBMSToolStripMenuItem";
-            this.dBMSToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.dBMSToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.dBMSToolStripMenuItem.Text = "DBMS";
             this.dBMSToolStripMenuItem.Click += new System.EventHandler(this.dBMSToolStripMenuItem_Click);
             // 
@@ -542,12 +553,19 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // girosDeNegocioToolStripMenuItem
+            // marcasDeSoftwareDeSeguridadToolStripMenuItem
             // 
-            this.girosDeNegocioToolStripMenuItem.Name = "girosDeNegocioToolStripMenuItem";
-            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.girosDeNegocioToolStripMenuItem.Text = "Giros de Negocio";
-            this.girosDeNegocioToolStripMenuItem.Click += new System.EventHandler(this.girosDeNegocioToolStripMenuItem_Click);
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Name = "marcasDeSoftwareDeSeguridadToolStripMenuItem";
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Text = "Marcas de Software de Seguridad";
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeSeguridadToolStripMenuItem_Click);
+            // 
+            // marcasDeSoftwareDeRespaldoToolStripMenuItem
+            // 
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Name = "marcasDeSoftwareDeRespaldoToolStripMenuItem";
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Text = "Marcas de Software de Respaldo";
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeRespaldoToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -626,6 +644,8 @@
         private System.Windows.Forms.ToolStripMenuItem iSPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorDeTelefoníaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem girosDeNegocioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeSoftwareDeSeguridadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeSoftwareDeRespaldoToolStripMenuItem;
     }
 }
 
