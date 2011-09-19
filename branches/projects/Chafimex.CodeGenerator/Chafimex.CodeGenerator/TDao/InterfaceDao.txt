@@ -5,7 +5,7 @@ using Samsara.#Scheme#.Core.Parameters;
 
 namespace Samsara.#Scheme#.Dao.Interfaces
 {
-    public interface #EntityName#Dao : IGenericDao<#EntityName#, int, #EntityName#Parameters>
+    public interface I#EntityName#Dao : IGenericDao<#EntityName#, int, #EntityName#Parameters>
     {
     }
 }
