@@ -40,3 +40,8 @@ TelephonyProvider
 UPSBrand
 UPSType
 BussinessType
+BackupSoftwareBrand
+CustomerInfrastructureAdministationSoftware
+CustomerInfrastructureBackupSoftware
+CustomerInfrastructureSecuritySoftware
+SecuritySoftwareBrand
