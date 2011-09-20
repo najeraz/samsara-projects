@@ -36,13 +36,13 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual string TrunkNumber
+        public virtual int NumberOfTrunks
         {
             get;
             set;
         }
 
-        public virtual string ExtensionNumber
+        public virtual int NumberOfExtensions
         {
             get;
             set;

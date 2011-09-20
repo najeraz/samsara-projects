@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Infragistics.Win.Appearance appearance146 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance147 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance148 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance149 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance150 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance151 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance152 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance153 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance154 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance85 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance86 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance87 = new Infragistics.Win.Appearance();
@@ -358,8 +367,10 @@
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
+            this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             this.tabDetDetail.SuspendLayout();
             this.Principal.SuspendLayout();
             this.upDetControls.ClientArea.SuspendLayout();
@@ -501,6 +512,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 387);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(750, 25);
             // 
             // gbxSearchParameters
             // 
@@ -552,6 +564,66 @@
             // btnSchDelete
             // 
             this.btnSchDelete.Location = new System.Drawing.Point(477, 0);
+            // 
+            // grdSchSearch
+            // 
+            appearance146.BackColor = System.Drawing.SystemColors.Window;
+            appearance146.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdSchSearch.DisplayLayout.Appearance = appearance146;
+            this.grdSchSearch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdSchSearch.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance147.BackColor = System.Drawing.SystemColors.Window;
+            appearance147.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdSchSearch.DisplayLayout.Override.ActiveCellAppearance = appearance147;
+            appearance148.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance148.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdSchSearch.DisplayLayout.Override.ActiveRowAppearance = appearance148;
+            this.grdSchSearch.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdSchSearch.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance149.BackColor = System.Drawing.SystemColors.Window;
+            this.grdSchSearch.DisplayLayout.Override.CardAreaAppearance = appearance149;
+            appearance150.BorderColor = System.Drawing.Color.Silver;
+            appearance150.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdSchSearch.DisplayLayout.Override.CellAppearance = appearance150;
+            this.grdSchSearch.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdSchSearch.DisplayLayout.Override.CellPadding = 0;
+            appearance151.BackColor = System.Drawing.SystemColors.Control;
+            appearance151.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance151.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance151.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance151.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdSchSearch.DisplayLayout.Override.GroupByRowAppearance = appearance151;
+            appearance152.TextHAlignAsString = "Left";
+            this.grdSchSearch.DisplayLayout.Override.HeaderAppearance = appearance152;
+            this.grdSchSearch.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdSchSearch.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance153.BackColor = System.Drawing.SystemColors.Window;
+            appearance153.BorderColor = System.Drawing.Color.Silver;
+            this.grdSchSearch.DisplayLayout.Override.RowAppearance = appearance153;
+            this.grdSchSearch.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance154.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdSchSearch.DisplayLayout.Override.TemplateAddRowAppearance = appearance154;
+            this.grdSchSearch.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdSchSearch.Location = new System.Drawing.Point(3, 217);
+            this.grdSchSearch.Size = new System.Drawing.Size(750, 170);
+            // 
+            // btnDetCancel
+            // 
+            this.btnDetCancel.Location = new System.Drawing.Point(659, 0);
+            // 
+            // btnDetSave
+            // 
+            this.btnDetSave.Location = new System.Drawing.Point(568, 0);
+            // 
+            // tabPrincipal
+            // 
+            this.tabPrincipal.Size = new System.Drawing.Size(764, 441);
             // 
             // tabDetDetail
             // 
@@ -2981,9 +3053,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TenderForm";
             this.Text = "Licitaciones";
+            this.pnlDetCtgButtons.ResumeLayout(false);
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             this.tabDetDetail.ResumeLayout(false);
             this.Principal.ResumeLayout(false);
             this.upDetControls.ClientArea.ResumeLayout(false);

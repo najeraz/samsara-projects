@@ -61,14 +61,14 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmCustomerInfrastructure.txtDetName.Text == null || 
-                this.frmCustomerInfrastructure.txtDetName.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Favor de elegir un nombre para la Infraestructura del Cliente.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmCustomerInfrastructure.txtDetName.Focus();
-                return false;
-            }
+            //if (this.frmCustomerInfrastructure.txtDetName.Text == null || 
+            //    this.frmCustomerInfrastructure.txtDetName.Text.Trim() == string.Empty)
+            //{
+            //    MessageBox.Show("Favor de elegir un nombre para la Infraestructura del Cliente.",
+            //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    this.frmCustomerInfrastructure.txtDetName.Focus();
+            //    return false;
+            //}
 
             return true;
         }
@@ -84,8 +84,8 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void ClearDetailControls()
         {
-            this.frmCustomerInfrastructure.txtDetName.Text = string.Empty;
-            this.frmCustomerInfrastructure.txtDetDescription.Text = string.Empty;
+            //this.frmCustomerInfrastructure.txtDetName.Text = string.Empty;
+            //this.frmCustomerInfrastructure.txtDetDescription.Text = string.Empty;
         }
 
         private void ClearSearchControls()
