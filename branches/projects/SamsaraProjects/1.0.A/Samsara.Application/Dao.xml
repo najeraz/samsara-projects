@@ -363,6 +363,10 @@
           type="Samsara.CustomerContext.Dao.Impl.SecuritySoftwareBrandDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ISecuritySoftwareTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.SecuritySoftwareTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 

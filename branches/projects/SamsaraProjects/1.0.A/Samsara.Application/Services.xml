@@ -316,6 +316,10 @@
           type="Samsara.CustomerContext.Service.Impl.SecuritySoftwareBrandService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ISecuritySoftwareBrandDao"/>
   </object>
+  <object id="ISecuritySoftwareTypeService"
+          type="Samsara.CustomerContext.Service.Impl.SecuritySoftwareTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ISecuritySoftwareTypeDao"/>
+  </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 

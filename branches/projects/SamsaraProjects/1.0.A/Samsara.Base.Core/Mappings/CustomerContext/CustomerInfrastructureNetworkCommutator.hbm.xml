@@ -9,8 +9,8 @@
       <generator class="native"/>
     </id>
 
-    <property name="TrunkNumber"/>
-    <property name="ExtensionNumber"/>
+    <property name="NumberOfTrunks"/>
+    <property name="NumberOfExtensions"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 

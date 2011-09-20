@@ -54,6 +54,7 @@
     <Compile Include="Entities\CommutatorBrand.cs" />
     <Compile Include="Entities\BusinessType.cs" />
     <Compile Include="Entities\BackupSoftwareBrand.cs" />
+    <Compile Include="Entities\SecuritySoftwareType.cs" />
     <Compile Include="Entities\CustomerInfrastructureBackupSoftware.cs" />
     <Compile Include="Entities\CustomerInfrastructureAdministationSoftware.cs" />
     <Compile Include="Entities\SecuritySoftwareBrand.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Parameters\CommutatorTypeParameters.cs" />
     <Compile Include="Parameters\ComputerBrandParameters.cs" />
     <Compile Include="Parameters\BusinessTypeParameters.cs" />
+    <Compile Include="Parameters\SecuritySoftwareTypeParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureAdministationSoftwareParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureBackupSoftwarParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureCCTVParameters.cs" />
