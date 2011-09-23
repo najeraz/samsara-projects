@@ -61,6 +61,18 @@
             Infragistics.Win.Appearance appearance31 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance32 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance33 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance70 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance71 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance72 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance73 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance74 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance75 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance76 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance77 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance78 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance79 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance80 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance81 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
@@ -85,18 +97,6 @@
             Infragistics.Win.Appearance appearance91 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance92 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance93 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance70 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance71 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance72 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance73 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance74 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance75 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance76 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance77 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance78 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance79 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance80 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance81 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance34 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance35 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance36 = new Infragistics.Win.Appearance();
@@ -181,18 +181,6 @@
             Infragistics.Win.Appearance appearance163 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance164 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance165 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance178 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance179 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance180 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance181 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance182 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance183 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance184 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance185 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance186 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance187 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance188 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance189 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance166 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance167 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance168 = new Infragistics.Win.Appearance();
@@ -205,6 +193,18 @@
             Infragistics.Win.Appearance appearance175 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance176 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance177 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance178 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance179 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance180 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance181 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance182 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance183 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance184 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance185 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance186 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance187 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance188 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance189 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance37 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance38 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance39 = new Infragistics.Win.Appearance();
@@ -217,6 +217,42 @@
             Infragistics.Win.Appearance appearance94 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance95 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance96 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance214 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance215 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance216 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance217 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance218 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance219 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance220 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance221 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance222 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance223 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance224 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance225 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance202 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance203 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance204 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance205 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance206 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance207 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance208 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance209 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance210 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance211 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance212 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance213 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance190 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance191 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance192 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance193 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance194 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance195 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance196 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance197 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance198 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance199 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance200 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance201 = new Infragistics.Win.Appearance();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetName = new System.Windows.Forms.Label();
             this.txtSchName = new System.Windows.Forms.TextBox();
@@ -304,6 +340,14 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.ultraComboEditor4 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel12 = new Infragistics.Win.Misc.UltraLabel();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.samsaraUltraGrid3 = new Samsara.Controls.SamsaraUltraGrid();
+            this.upDetManufactuerButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparator123 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDeleteManufacturer = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator143 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCreateManufacturer = new Infragistics.Win.Misc.UltraButton();
+            this.upDetSeparator432 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel5 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel6 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton3 = new Infragistics.Win.Misc.UltraButton();
@@ -313,17 +357,6 @@
             this.tabDetNetwork = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabDetEnergy = new System.Windows.Forms.TabPage();
-            this.tabDetPeripherals = new System.Windows.Forms.TabPage();
-            this.tabDetSoftware = new System.Windows.Forms.TabPage();
-            this.tabDetSuppliers = new System.Windows.Forms.TabPage();
-            this.tabDetVideo = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid4 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel14 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel15 = new Infragistics.Win.Misc.UltraPanel();
@@ -336,34 +369,27 @@
             this.ultraGroupBox4 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl7 = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.ultraPanel19 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraPanel20 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton11 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel21 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton12 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel22 = new Infragistics.Win.Misc.UltraPanel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ultraTextEditor14 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ultraTextEditor12 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.ultraTextEditor13 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ultraTextEditor14 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.samsaraUltraGrid5 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel23 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel24 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton13 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel25 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton14 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel26 = new Infragistics.Win.Misc.UltraPanel();
-            this.samsaraUltraGrid5 = new Samsara.Controls.SamsaraUltraGrid();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.upDetManufactuerButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.upDetSeparator123 = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeleteManufacturer = new Infragistics.Win.Misc.UltraButton();
-            this.upDetSeparator143 = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetCreateManufacturer = new Infragistics.Win.Misc.UltraButton();
-            this.upDetSeparator432 = new Infragistics.Win.Misc.UltraPanel();
-            this.samsaraUltraGrid3 = new Samsara.Controls.SamsaraUltraGrid();
+            this.ultraPanel19 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel20 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton11 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel21 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton12 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel22 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid6 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel27 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel28 = new Infragistics.Win.Misc.UltraPanel();
@@ -376,18 +402,19 @@
             this.ultraGroupBox3 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl8 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.ultraPanel36 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraPanel37 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton20 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel38 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton21 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel39 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraTextEditor15 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraTextEditor16 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraComboEditor6 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel15 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel17 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel18 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraPanel36 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel37 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton20 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel38 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton21 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel39 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid7 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel32 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel33 = new Infragistics.Win.Misc.UltraPanel();
@@ -402,7 +429,9 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.ultraTextEditor17 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraTextEditor18 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraComboEditor8 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraComboEditor7 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel21 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel16 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel19 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel20 = new Infragistics.Win.Misc.UltraLabel();
@@ -412,8 +441,7 @@
             this.ultraPanel43 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton24 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel44 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraLabel21 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraComboEditor8 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid8 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel45 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel46 = new Infragistics.Win.Misc.UltraPanel();
@@ -436,6 +464,7 @@
             this.ultraPanel52 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton29 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel53 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid9 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel54 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel55 = new Infragistics.Win.Misc.UltraPanel();
@@ -448,6 +477,8 @@
             this.ultraGroupBox7 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl11 = new System.Windows.Forms.TabControl();
             this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.ultraTextEditor21 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraTextEditor20 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraComboEditor11 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel25 = new Infragistics.Win.Misc.UltraLabel();
@@ -458,8 +489,7 @@
             this.ultraPanel61 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton34 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel62 = new Infragistics.Win.Misc.UltraPanel();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.ultraTextEditor21 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid10 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel63 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel64 = new Infragistics.Win.Misc.UltraPanel();
@@ -484,6 +514,8 @@
             this.ultraPanel70 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton39 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel71 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabDetEnergy = new System.Windows.Forms.TabPage();
             this.tabControl13 = new System.Windows.Forms.TabControl();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid11 = new Samsara.Controls.SamsaraUltraGrid();
@@ -498,6 +530,10 @@
             this.ultraGroupBox9 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl14 = new System.Windows.Forms.TabControl();
             this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.ultraTextEditor24 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraLabel30 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor13 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel28 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraComboEditor12 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel29 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraPanel77 = new Infragistics.Win.Misc.UltraPanel();
@@ -506,10 +542,7 @@
             this.ultraPanel79 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton44 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel80 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraLabel28 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraComboEditor13 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.ultraTextEditor24 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraLabel30 = new Infragistics.Win.Misc.UltraLabel();
+            this.tabDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabControl15 = new System.Windows.Forms.TabControl();
             this.tabPage22 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid12 = new Samsara.Controls.SamsaraUltraGrid();
@@ -536,7 +569,40 @@
             this.ultraPanel88 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton49 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel89 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabDetSoftware = new System.Windows.Forms.TabPage();
             this.tabControl17 = new System.Windows.Forms.TabControl();
+            this.tabPage26 = new System.Windows.Forms.TabPage();
+            this.samsaraUltraGrid14 = new Samsara.Controls.SamsaraUltraGrid();
+            this.ultraPanel99 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel100 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton55 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel101 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton56 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel102 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton57 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel103 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraGroupBox12 = new Infragistics.Win.Misc.UltraGroupBox();
+            this.tabControl19 = new System.Windows.Forms.TabControl();
+            this.tabPage28 = new System.Windows.Forms.TabPage();
+            this.ultraTextEditor29 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraLabel43 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraTextEditor27 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraLabel37 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor18 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel38 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor19 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel39 = new Infragistics.Win.Misc.UltraLabel();
+            this.tabPage30 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.ultraTextEditor31 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.ultraTextEditor30 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraPanel104 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel105 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton58 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel106 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton59 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel107 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage24 = new System.Windows.Forms.TabPage();
             this.samsaraUltraGrid13 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel90 = new Infragistics.Win.Misc.UltraPanel();
@@ -550,6 +616,7 @@
             this.ultraGroupBox11 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl18 = new System.Windows.Forms.TabControl();
             this.tabPage25 = new System.Windows.Forms.TabPage();
+            this.ultraCheckEditor1 = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.ultraTextEditor26 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraLabel34 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraComboEditor16 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
@@ -562,32 +629,7 @@
             this.ultraPanel97 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton54 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel98 = new Infragistics.Win.Misc.UltraPanel();
-            this.tabPage26 = new System.Windows.Forms.TabPage();
             this.tabPage27 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid14 = new Samsara.Controls.SamsaraUltraGrid();
-            this.ultraPanel99 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraPanel100 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton55 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel101 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton56 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel102 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton57 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel103 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraGroupBox12 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.tabControl19 = new System.Windows.Forms.TabControl();
-            this.tabPage28 = new System.Windows.Forms.TabPage();
-            this.ultraTextEditor27 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraLabel37 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraComboEditor18 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.ultraLabel38 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraComboEditor19 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.ultraLabel39 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraPanel104 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraPanel105 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton58 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel106 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton59 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel107 = new Infragistics.Win.Misc.UltraPanel();
             this.samsaraUltraGrid15 = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel108 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel109 = new Infragistics.Win.Misc.UltraPanel();
@@ -600,8 +642,8 @@
             this.ultraGroupBox13 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl20 = new System.Windows.Forms.TabControl();
             this.tabPage29 = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.ultraTextEditor28 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraLabel40 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraComboEditor20 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel41 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraComboEditor21 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
@@ -612,13 +654,83 @@
             this.ultraPanel115 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton64 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel116 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraLabel43 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraTextEditor29 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.tabPage30 = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.ultraTextEditor30 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.ultraTextEditor31 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.tabDetSuppliers = new System.Windows.Forms.TabPage();
+            this.tabControl21 = new System.Windows.Forms.TabControl();
+            this.tabPage31 = new System.Windows.Forms.TabPage();
+            this.samsaraUltraGrid16 = new Samsara.Controls.SamsaraUltraGrid();
+            this.ultraPanel117 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel118 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton65 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel119 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton66 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel120 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton67 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel121 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraGroupBox14 = new Infragistics.Win.Misc.UltraGroupBox();
+            this.tabControl22 = new System.Windows.Forms.TabControl();
+            this.tabPage32 = new System.Windows.Forms.TabPage();
+            this.ultraTextEditor32 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraLabel44 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor23 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel45 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraPanel122 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel123 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton68 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel124 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton69 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel125 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabPage33 = new System.Windows.Forms.TabPage();
+            this.samsaraUltraGrid17 = new Samsara.Controls.SamsaraUltraGrid();
+            this.ultraPanel126 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel127 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton70 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel128 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton71 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel129 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton72 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel130 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraGroupBox15 = new Infragistics.Win.Misc.UltraGroupBox();
+            this.tabControl23 = new System.Windows.Forms.TabControl();
+            this.tabPage34 = new System.Windows.Forms.TabPage();
+            this.ultraTextEditor33 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ultraLabel40 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor24 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel47 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor22 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel46 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraPanel131 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel132 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton73 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel133 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton74 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel134 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabDetVideo = new System.Windows.Forms.TabPage();
+            this.tabControl24 = new System.Windows.Forms.TabControl();
+            this.tabPage35 = new System.Windows.Forms.TabPage();
+            this.samsaraUltraGrid18 = new Samsara.Controls.SamsaraUltraGrid();
+            this.ultraPanel135 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel136 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton75 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel137 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton76 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel138 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton77 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel139 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraGroupBox16 = new Infragistics.Win.Misc.UltraGroupBox();
+            this.tabControl25 = new System.Windows.Forms.TabControl();
+            this.tabPage36 = new System.Windows.Forms.TabPage();
+            this.ultraComboEditor25 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel49 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraComboEditor26 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ultraLabel50 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraPanel140 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel141 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton78 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel142 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraButton79 = new Infragistics.Win.Misc.UltraButton();
+            this.ultraPanel143 = new Infragistics.Win.Misc.UltraPanel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.ultraTextEditor34 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -687,6 +799,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor9)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor4)).BeginInit();
+            this.tabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid3)).BeginInit();
+            this.upDetManufactuerButtons.ClientArea.SuspendLayout();
+            this.upDetManufactuerButtons.SuspendLayout();
+            this.upDetSeparator123.SuspendLayout();
+            this.upDetSeparator143.SuspendLayout();
+            this.upDetSeparator432.SuspendLayout();
             this.ultraPanel5.ClientArea.SuspendLayout();
             this.ultraPanel5.SuspendLayout();
             this.ultraPanel6.SuspendLayout();
@@ -695,14 +814,6 @@
             this.tabDetNetwork.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.tabPage10.SuspendLayout();
-            this.tabDetEnergy.SuspendLayout();
-            this.tabDetPeripherals.SuspendLayout();
-            this.tabDetSoftware.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid4)).BeginInit();
             this.ultraPanel14.ClientArea.SuspendLayout();
             this.ultraPanel14.SuspendLayout();
@@ -714,31 +825,25 @@
             this.ultraGroupBox4.SuspendLayout();
             this.tabControl7.SuspendLayout();
             this.tabPage12.SuspendLayout();
-            this.tabPage13.SuspendLayout();
-            this.ultraPanel19.ClientArea.SuspendLayout();
-            this.ultraPanel19.SuspendLayout();
-            this.ultraPanel20.SuspendLayout();
-            this.ultraPanel21.SuspendLayout();
-            this.ultraPanel22.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor14)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor12)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor13)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor14)).BeginInit();
+            this.tabPage13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid5)).BeginInit();
             this.ultraPanel23.ClientArea.SuspendLayout();
             this.ultraPanel23.SuspendLayout();
             this.ultraPanel24.SuspendLayout();
             this.ultraPanel25.SuspendLayout();
             this.ultraPanel26.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid5)).BeginInit();
-            this.tabPage14.SuspendLayout();
-            this.upDetManufactuerButtons.ClientArea.SuspendLayout();
-            this.upDetManufactuerButtons.SuspendLayout();
-            this.upDetSeparator123.SuspendLayout();
-            this.upDetSeparator143.SuspendLayout();
-            this.upDetSeparator432.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid3)).BeginInit();
+            this.ultraPanel19.ClientArea.SuspendLayout();
+            this.ultraPanel19.SuspendLayout();
+            this.ultraPanel20.SuspendLayout();
+            this.ultraPanel21.SuspendLayout();
+            this.ultraPanel22.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid6)).BeginInit();
             this.ultraPanel27.ClientArea.SuspendLayout();
             this.ultraPanel27.SuspendLayout();
@@ -750,14 +855,15 @@
             this.ultraGroupBox3.SuspendLayout();
             this.tabControl8.SuspendLayout();
             this.tabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor6)).BeginInit();
             this.ultraPanel36.ClientArea.SuspendLayout();
             this.ultraPanel36.SuspendLayout();
             this.ultraPanel37.SuspendLayout();
             this.ultraPanel38.SuspendLayout();
             this.ultraPanel39.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor6)).BeginInit();
+            this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid7)).BeginInit();
             this.ultraPanel32.ClientArea.SuspendLayout();
             this.ultraPanel32.SuspendLayout();
@@ -771,13 +877,14 @@
             this.tabPage16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor7)).BeginInit();
             this.ultraPanel41.ClientArea.SuspendLayout();
             this.ultraPanel41.SuspendLayout();
             this.ultraPanel42.SuspendLayout();
             this.ultraPanel43.SuspendLayout();
             this.ultraPanel44.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor8)).BeginInit();
+            this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid8)).BeginInit();
             this.ultraPanel45.ClientArea.SuspendLayout();
             this.ultraPanel45.SuspendLayout();
@@ -796,6 +903,7 @@
             this.ultraPanel51.SuspendLayout();
             this.ultraPanel52.SuspendLayout();
             this.ultraPanel53.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid9)).BeginInit();
             this.ultraPanel54.ClientArea.SuspendLayout();
             this.ultraPanel54.SuspendLayout();
@@ -807,6 +915,8 @@
             this.ultraGroupBox7.SuspendLayout();
             this.tabControl11.SuspendLayout();
             this.tabPage18.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor11)).BeginInit();
             this.ultraPanel59.ClientArea.SuspendLayout();
@@ -814,8 +924,7 @@
             this.ultraPanel60.SuspendLayout();
             this.ultraPanel61.SuspendLayout();
             this.ultraPanel62.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor21)).BeginInit();
+            this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid10)).BeginInit();
             this.ultraPanel63.ClientArea.SuspendLayout();
             this.ultraPanel63.SuspendLayout();
@@ -836,6 +945,7 @@
             this.ultraPanel69.SuspendLayout();
             this.ultraPanel70.SuspendLayout();
             this.ultraPanel71.SuspendLayout();
+            this.tabDetEnergy.SuspendLayout();
             this.tabControl13.SuspendLayout();
             this.tabPage20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid11)).BeginInit();
@@ -849,14 +959,15 @@
             this.ultraGroupBox9.SuspendLayout();
             this.tabControl14.SuspendLayout();
             this.tabPage21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor12)).BeginInit();
             this.ultraPanel77.ClientArea.SuspendLayout();
             this.ultraPanel77.SuspendLayout();
             this.ultraPanel78.SuspendLayout();
             this.ultraPanel79.SuspendLayout();
             this.ultraPanel80.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor24)).BeginInit();
+            this.tabDetPeripherals.SuspendLayout();
             this.tabControl15.SuspendLayout();
             this.tabPage22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid12)).BeginInit();
@@ -878,7 +989,34 @@
             this.ultraPanel87.SuspendLayout();
             this.ultraPanel88.SuspendLayout();
             this.ultraPanel89.SuspendLayout();
+            this.tabDetSoftware.SuspendLayout();
             this.tabControl17.SuspendLayout();
+            this.tabPage26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid14)).BeginInit();
+            this.ultraPanel99.ClientArea.SuspendLayout();
+            this.ultraPanel99.SuspendLayout();
+            this.ultraPanel100.SuspendLayout();
+            this.ultraPanel101.SuspendLayout();
+            this.ultraPanel102.SuspendLayout();
+            this.ultraPanel103.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox12)).BeginInit();
+            this.ultraGroupBox12.SuspendLayout();
+            this.tabControl19.SuspendLayout();
+            this.tabPage28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor19)).BeginInit();
+            this.tabPage30.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor31)).BeginInit();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor30)).BeginInit();
+            this.ultraPanel104.ClientArea.SuspendLayout();
+            this.ultraPanel104.SuspendLayout();
+            this.ultraPanel105.SuspendLayout();
+            this.ultraPanel106.SuspendLayout();
+            this.ultraPanel107.SuspendLayout();
             this.tabPage24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid13)).BeginInit();
             this.ultraPanel90.ClientArea.SuspendLayout();
@@ -891,6 +1029,7 @@
             this.ultraGroupBox11.SuspendLayout();
             this.tabControl18.SuspendLayout();
             this.tabPage25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor17)).BeginInit();
@@ -899,27 +1038,7 @@
             this.ultraPanel96.SuspendLayout();
             this.ultraPanel97.SuspendLayout();
             this.ultraPanel98.SuspendLayout();
-            this.tabPage26.SuspendLayout();
             this.tabPage27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid14)).BeginInit();
-            this.ultraPanel99.ClientArea.SuspendLayout();
-            this.ultraPanel99.SuspendLayout();
-            this.ultraPanel100.SuspendLayout();
-            this.ultraPanel101.SuspendLayout();
-            this.ultraPanel102.SuspendLayout();
-            this.ultraPanel103.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox12)).BeginInit();
-            this.ultraGroupBox12.SuspendLayout();
-            this.tabControl19.SuspendLayout();
-            this.tabPage28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor19)).BeginInit();
-            this.ultraPanel104.ClientArea.SuspendLayout();
-            this.ultraPanel104.SuspendLayout();
-            this.ultraPanel105.SuspendLayout();
-            this.ultraPanel106.SuspendLayout();
-            this.ultraPanel107.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid15)).BeginInit();
             this.ultraPanel108.ClientArea.SuspendLayout();
             this.ultraPanel108.SuspendLayout();
@@ -931,6 +1050,7 @@
             this.ultraGroupBox13.SuspendLayout();
             this.tabControl20.SuspendLayout();
             this.tabPage29.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor21)).BeginInit();
@@ -939,12 +1059,70 @@
             this.ultraPanel114.SuspendLayout();
             this.ultraPanel115.SuspendLayout();
             this.ultraPanel116.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor29)).BeginInit();
-            this.tabPage30.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor30)).BeginInit();
-            this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor31)).BeginInit();
+            this.tabDetSuppliers.SuspendLayout();
+            this.tabControl21.SuspendLayout();
+            this.tabPage31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid16)).BeginInit();
+            this.ultraPanel117.ClientArea.SuspendLayout();
+            this.ultraPanel117.SuspendLayout();
+            this.ultraPanel118.SuspendLayout();
+            this.ultraPanel119.SuspendLayout();
+            this.ultraPanel120.SuspendLayout();
+            this.ultraPanel121.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox14)).BeginInit();
+            this.ultraGroupBox14.SuspendLayout();
+            this.tabControl22.SuspendLayout();
+            this.tabPage32.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor23)).BeginInit();
+            this.ultraPanel122.ClientArea.SuspendLayout();
+            this.ultraPanel122.SuspendLayout();
+            this.ultraPanel123.SuspendLayout();
+            this.ultraPanel124.SuspendLayout();
+            this.ultraPanel125.SuspendLayout();
+            this.tabPage33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid17)).BeginInit();
+            this.ultraPanel126.ClientArea.SuspendLayout();
+            this.ultraPanel126.SuspendLayout();
+            this.ultraPanel127.SuspendLayout();
+            this.ultraPanel128.SuspendLayout();
+            this.ultraPanel129.SuspendLayout();
+            this.ultraPanel130.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox15)).BeginInit();
+            this.ultraGroupBox15.SuspendLayout();
+            this.tabControl23.SuspendLayout();
+            this.tabPage34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor22)).BeginInit();
+            this.ultraPanel131.ClientArea.SuspendLayout();
+            this.ultraPanel131.SuspendLayout();
+            this.ultraPanel132.SuspendLayout();
+            this.ultraPanel133.SuspendLayout();
+            this.ultraPanel134.SuspendLayout();
+            this.tabDetVideo.SuspendLayout();
+            this.tabControl24.SuspendLayout();
+            this.tabPage35.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid18)).BeginInit();
+            this.ultraPanel135.ClientArea.SuspendLayout();
+            this.ultraPanel135.SuspendLayout();
+            this.ultraPanel136.SuspendLayout();
+            this.ultraPanel137.SuspendLayout();
+            this.ultraPanel138.SuspendLayout();
+            this.ultraPanel139.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox16)).BeginInit();
+            this.ultraGroupBox16.SuspendLayout();
+            this.tabControl25.SuspendLayout();
+            this.tabPage36.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor26)).BeginInit();
+            this.ultraPanel140.ClientArea.SuspendLayout();
+            this.ultraPanel140.SuspendLayout();
+            this.ultraPanel141.SuspendLayout();
+            this.ultraPanel142.SuspendLayout();
+            this.ultraPanel143.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -2001,6 +2179,137 @@
             this.ultraLabel12.TabIndex = 88;
             this.ultraLabel12.Text = "Sistema Operativo:";
             // 
+            // tabPage14
+            // 
+            this.tabPage14.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage14.Controls.Add(this.samsaraUltraGrid3);
+            this.tabPage14.Controls.Add(this.upDetManufactuerButtons);
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Size = new System.Drawing.Size(708, 176);
+            this.tabPage14.TabIndex = 4;
+            this.tabPage14.Text = "Sistemas Gestores de Bases de Datos";
+            // 
+            // samsaraUltraGrid3
+            // 
+            appearance70.BackColor = System.Drawing.SystemColors.Window;
+            appearance70.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.samsaraUltraGrid3.DisplayLayout.Appearance = appearance70;
+            this.samsaraUltraGrid3.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.samsaraUltraGrid3.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance71.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance71.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance71.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance71.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.Appearance = appearance71;
+            appearance72.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.BandLabelAppearance = appearance72;
+            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance73.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance73.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance73.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance73.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.PromptAppearance = appearance73;
+            this.samsaraUltraGrid3.DisplayLayout.MaxColScrollRegions = 1;
+            this.samsaraUltraGrid3.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance74.BackColor = System.Drawing.SystemColors.Window;
+            appearance74.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.samsaraUltraGrid3.DisplayLayout.Override.ActiveCellAppearance = appearance74;
+            appearance75.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance75.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.samsaraUltraGrid3.DisplayLayout.Override.ActiveRowAppearance = appearance75;
+            this.samsaraUltraGrid3.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.samsaraUltraGrid3.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance76.BackColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid3.DisplayLayout.Override.CardAreaAppearance = appearance76;
+            appearance77.BorderColor = System.Drawing.Color.Silver;
+            appearance77.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.samsaraUltraGrid3.DisplayLayout.Override.CellAppearance = appearance77;
+            this.samsaraUltraGrid3.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.samsaraUltraGrid3.DisplayLayout.Override.CellPadding = 0;
+            appearance78.BackColor = System.Drawing.SystemColors.Control;
+            appearance78.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance78.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance78.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance78.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid3.DisplayLayout.Override.GroupByRowAppearance = appearance78;
+            appearance79.TextHAlignAsString = "Left";
+            this.samsaraUltraGrid3.DisplayLayout.Override.HeaderAppearance = appearance79;
+            this.samsaraUltraGrid3.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.samsaraUltraGrid3.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance80.BackColor = System.Drawing.SystemColors.Window;
+            appearance80.BorderColor = System.Drawing.Color.Silver;
+            this.samsaraUltraGrid3.DisplayLayout.Override.RowAppearance = appearance80;
+            this.samsaraUltraGrid3.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance81.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.samsaraUltraGrid3.DisplayLayout.Override.TemplateAddRowAppearance = appearance81;
+            this.samsaraUltraGrid3.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.samsaraUltraGrid3.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.samsaraUltraGrid3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.samsaraUltraGrid3.Location = new System.Drawing.Point(0, 0);
+            this.samsaraUltraGrid3.Name = "samsaraUltraGrid3";
+            this.samsaraUltraGrid3.Size = new System.Drawing.Size(708, 151);
+            this.samsaraUltraGrid3.TabIndex = 96;
+            this.samsaraUltraGrid3.Text = "samsaraUltraGrid3";
+            // 
+            // upDetManufactuerButtons
+            // 
+            // 
+            // upDetManufactuerButtons.ClientArea
+            // 
+            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator123);
+            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.ubtnDetDeleteManufacturer);
+            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator143);
+            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.ubtnDetCreateManufacturer);
+            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator432);
+            this.upDetManufactuerButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upDetManufactuerButtons.Location = new System.Drawing.Point(0, 151);
+            this.upDetManufactuerButtons.Name = "upDetManufactuerButtons";
+            this.upDetManufactuerButtons.Size = new System.Drawing.Size(708, 25);
+            this.upDetManufactuerButtons.TabIndex = 97;
+            // 
+            // upDetSeparator123
+            // 
+            this.upDetSeparator123.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator123.Location = new System.Drawing.Point(506, 0);
+            this.upDetSeparator123.Name = "upDetSeparator123";
+            this.upDetSeparator123.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator123.TabIndex = 7;
+            // 
+            // ubtnDetDeleteManufacturer
+            // 
+            this.ubtnDetDeleteManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeleteManufacturer.Location = new System.Drawing.Point(522, 0);
+            this.ubtnDetDeleteManufacturer.Name = "ubtnDetDeleteManufacturer";
+            this.ubtnDetDeleteManufacturer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDeleteManufacturer.TabIndex = 0;
+            this.ubtnDetDeleteManufacturer.Text = "Borrar";
+            // 
+            // upDetSeparator143
+            // 
+            this.upDetSeparator143.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator143.Location = new System.Drawing.Point(599, 0);
+            this.upDetSeparator143.Name = "upDetSeparator143";
+            this.upDetSeparator143.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator143.TabIndex = 5;
+            // 
+            // ubtnDetCreateManufacturer
+            // 
+            this.ubtnDetCreateManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreateManufacturer.Location = new System.Drawing.Point(615, 0);
+            this.ubtnDetCreateManufacturer.Name = "ubtnDetCreateManufacturer";
+            this.ubtnDetCreateManufacturer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCreateManufacturer.TabIndex = 0;
+            this.ubtnDetCreateManufacturer.Text = "Nuevo";
+            // 
+            // upDetSeparator432
+            // 
+            this.upDetSeparator432.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator432.Location = new System.Drawing.Point(692, 0);
+            this.upDetSeparator432.Name = "upDetSeparator432";
+            this.upDetSeparator432.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator432.TabIndex = 6;
+            // 
             // ultraPanel5
             // 
             // 
@@ -2098,124 +2407,6 @@
             this.tabPage5.Size = new System.Drawing.Size(728, 396);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Site";
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage6.Controls.Add(this.samsaraUltraGrid6);
-            this.tabPage6.Controls.Add(this.ultraPanel27);
-            this.tabPage6.Controls.Add(this.ultraGroupBox3);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(728, 396);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Switches";
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage7.Controls.Add(this.samsaraUltraGrid7);
-            this.tabPage7.Controls.Add(this.ultraPanel32);
-            this.tabPage7.Controls.Add(this.ultraGroupBox5);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(728, 396);
-            this.tabPage7.TabIndex = 3;
-            this.tabPage7.Text = "Conmutadores";
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage8.Controls.Add(this.samsaraUltraGrid8);
-            this.tabPage8.Controls.Add(this.ultraPanel45);
-            this.tabPage8.Controls.Add(this.ultraGroupBox6);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(728, 396);
-            this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "Cableado";
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage9.Controls.Add(this.samsaraUltraGrid9);
-            this.tabPage9.Controls.Add(this.ultraPanel54);
-            this.tabPage9.Controls.Add(this.ultraGroupBox7);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(728, 396);
-            this.tabPage9.TabIndex = 4;
-            this.tabPage9.Text = "Routers";
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage10.Controls.Add(this.samsaraUltraGrid10);
-            this.tabPage10.Controls.Add(this.ultraPanel63);
-            this.tabPage10.Controls.Add(this.ultraGroupBox8);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(728, 396);
-            this.tabPage10.TabIndex = 5;
-            this.tabPage10.Text = "Firewalls";
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(728, 396);
-            this.tabPage11.TabIndex = 6;
-            this.tabPage11.Text = "Redes inalámbricas";
-            // 
-            // tabDetEnergy
-            // 
-            this.tabDetEnergy.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetEnergy.Controls.Add(this.tabControl13);
-            this.tabDetEnergy.Location = new System.Drawing.Point(4, 22);
-            this.tabDetEnergy.Name = "tabDetEnergy";
-            this.tabDetEnergy.Size = new System.Drawing.Size(742, 428);
-            this.tabDetEnergy.TabIndex = 2;
-            this.tabDetEnergy.Text = "Energía";
-            // 
-            // tabDetPeripherals
-            // 
-            this.tabDetPeripherals.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPeripherals.Controls.Add(this.tabControl15);
-            this.tabDetPeripherals.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPeripherals.Name = "tabDetPeripherals";
-            this.tabDetPeripherals.Size = new System.Drawing.Size(742, 428);
-            this.tabDetPeripherals.TabIndex = 3;
-            this.tabDetPeripherals.Text = "Periféricos";
-            // 
-            // tabDetSoftware
-            // 
-            this.tabDetSoftware.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetSoftware.Controls.Add(this.tabControl17);
-            this.tabDetSoftware.Location = new System.Drawing.Point(4, 22);
-            this.tabDetSoftware.Name = "tabDetSoftware";
-            this.tabDetSoftware.Size = new System.Drawing.Size(742, 428);
-            this.tabDetSoftware.TabIndex = 4;
-            this.tabDetSoftware.Text = "Software";
-            // 
-            // tabDetSuppliers
-            // 
-            this.tabDetSuppliers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetSuppliers.Location = new System.Drawing.Point(4, 22);
-            this.tabDetSuppliers.Name = "tabDetSuppliers";
-            this.tabDetSuppliers.Size = new System.Drawing.Size(742, 428);
-            this.tabDetSuppliers.TabIndex = 5;
-            this.tabDetSuppliers.Text = "Proveedores y Servicios";
-            // 
-            // tabDetVideo
-            // 
-            this.tabDetVideo.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetVideo.Location = new System.Drawing.Point(4, 22);
-            this.tabDetVideo.Name = "tabDetVideo";
-            this.tabDetVideo.Size = new System.Drawing.Size(742, 428);
-            this.tabDetVideo.TabIndex = 6;
-            this.tabDetVideo.Text = "Video y Monitoreo";
             // 
             // samsaraUltraGrid4
             // 
@@ -2391,95 +2582,6 @@
             this.tabPage12.TabIndex = 0;
             this.tabPage12.Text = "Principal";
             // 
-            // tabPage13
-            // 
-            this.tabPage13.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage13.Controls.Add(this.samsaraUltraGrid5);
-            this.tabPage13.Controls.Add(this.ultraPanel23);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(708, 164);
-            this.tabPage13.TabIndex = 1;
-            this.tabPage13.Text = "Racks";
-            // 
-            // ultraPanel19
-            // 
-            // 
-            // ultraPanel19.ClientArea
-            // 
-            this.ultraPanel19.ClientArea.Controls.Add(this.ultraPanel20);
-            this.ultraPanel19.ClientArea.Controls.Add(this.ultraButton11);
-            this.ultraPanel19.ClientArea.Controls.Add(this.ultraPanel21);
-            this.ultraPanel19.ClientArea.Controls.Add(this.ultraButton12);
-            this.ultraPanel19.ClientArea.Controls.Add(this.ultraPanel22);
-            this.ultraPanel19.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel19.Location = new System.Drawing.Point(3, 206);
-            this.ultraPanel19.Name = "ultraPanel19";
-            this.ultraPanel19.Size = new System.Drawing.Size(716, 25);
-            this.ultraPanel19.TabIndex = 86;
-            // 
-            // ultraPanel20
-            // 
-            this.ultraPanel20.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel20.Location = new System.Drawing.Point(514, 0);
-            this.ultraPanel20.Name = "ultraPanel20";
-            this.ultraPanel20.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel20.TabIndex = 11;
-            // 
-            // ultraButton11
-            // 
-            this.ultraButton11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton11.Location = new System.Drawing.Point(530, 0);
-            this.ultraButton11.Name = "ultraButton11";
-            this.ultraButton11.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton11.TabIndex = 10;
-            this.ultraButton11.Text = "Guardar";
-            // 
-            // ultraPanel21
-            // 
-            this.ultraPanel21.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel21.Location = new System.Drawing.Point(607, 0);
-            this.ultraPanel21.Name = "ultraPanel21";
-            this.ultraPanel21.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel21.TabIndex = 13;
-            // 
-            // ultraButton12
-            // 
-            this.ultraButton12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton12.Location = new System.Drawing.Point(623, 0);
-            this.ultraButton12.Name = "ultraButton12";
-            this.ultraButton12.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton12.TabIndex = 12;
-            this.ultraButton12.Text = "Cancelar";
-            // 
-            // ultraPanel22
-            // 
-            this.ultraPanel22.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel22.Location = new System.Drawing.Point(700, 0);
-            this.ultraPanel22.Name = "ultraPanel22";
-            this.ultraPanel22.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel22.TabIndex = 14;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.ultraTextEditor14);
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(346, 75);
-            this.groupBox4.TabIndex = 95;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Cuarto Aislado:";
-            // 
-            // ultraTextEditor14
-            // 
-            this.ultraTextEditor14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor14.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor14.Multiline = true;
-            this.ultraTextEditor14.Name = "ultraTextEditor14";
-            this.ultraTextEditor14.Size = new System.Drawing.Size(340, 56);
-            this.ultraTextEditor14.TabIndex = 0;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.ultraTextEditor12);
@@ -2518,63 +2620,36 @@
             this.ultraTextEditor13.Size = new System.Drawing.Size(340, 56);
             this.ultraTextEditor13.TabIndex = 0;
             // 
-            // ultraPanel23
+            // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.ultraTextEditor14);
+            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(346, 75);
+            this.groupBox4.TabIndex = 95;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Cuarto Aislado:";
             // 
-            // ultraPanel23.ClientArea
+            // ultraTextEditor14
             // 
-            this.ultraPanel23.ClientArea.Controls.Add(this.ultraPanel24);
-            this.ultraPanel23.ClientArea.Controls.Add(this.ultraButton13);
-            this.ultraPanel23.ClientArea.Controls.Add(this.ultraPanel25);
-            this.ultraPanel23.ClientArea.Controls.Add(this.ultraButton14);
-            this.ultraPanel23.ClientArea.Controls.Add(this.ultraPanel26);
-            this.ultraPanel23.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel23.Location = new System.Drawing.Point(3, 136);
-            this.ultraPanel23.Name = "ultraPanel23";
-            this.ultraPanel23.Size = new System.Drawing.Size(702, 25);
-            this.ultraPanel23.TabIndex = 97;
+            this.ultraTextEditor14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor14.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor14.Multiline = true;
+            this.ultraTextEditor14.Name = "ultraTextEditor14";
+            this.ultraTextEditor14.Size = new System.Drawing.Size(340, 56);
+            this.ultraTextEditor14.TabIndex = 0;
             // 
-            // ultraPanel24
+            // tabPage13
             // 
-            this.ultraPanel24.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel24.Location = new System.Drawing.Point(500, 0);
-            this.ultraPanel24.Name = "ultraPanel24";
-            this.ultraPanel24.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel24.TabIndex = 7;
-            // 
-            // ultraButton13
-            // 
-            this.ultraButton13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton13.Location = new System.Drawing.Point(516, 0);
-            this.ultraButton13.Name = "ultraButton13";
-            this.ultraButton13.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton13.TabIndex = 0;
-            this.ultraButton13.Text = "Borrar";
-            // 
-            // ultraPanel25
-            // 
-            this.ultraPanel25.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel25.Location = new System.Drawing.Point(593, 0);
-            this.ultraPanel25.Name = "ultraPanel25";
-            this.ultraPanel25.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel25.TabIndex = 5;
-            // 
-            // ultraButton14
-            // 
-            this.ultraButton14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton14.Location = new System.Drawing.Point(609, 0);
-            this.ultraButton14.Name = "ultraButton14";
-            this.ultraButton14.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton14.TabIndex = 0;
-            this.ultraButton14.Text = "Nuevo";
-            // 
-            // ultraPanel26
-            // 
-            this.ultraPanel26.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel26.Location = new System.Drawing.Point(686, 0);
-            this.ultraPanel26.Name = "ultraPanel26";
-            this.ultraPanel26.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel26.TabIndex = 6;
+            this.tabPage13.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage13.Controls.Add(this.samsaraUltraGrid5);
+            this.tabPage13.Controls.Add(this.ultraPanel23);
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(708, 164);
+            this.tabPage13.TabIndex = 1;
+            this.tabPage13.Text = "Racks";
             // 
             // samsaraUltraGrid5
             // 
@@ -2638,136 +2713,134 @@
             this.samsaraUltraGrid5.TabIndex = 96;
             this.samsaraUltraGrid5.Text = "samsaraUltraGrid5";
             // 
-            // tabPage14
-            // 
-            this.tabPage14.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage14.Controls.Add(this.samsaraUltraGrid3);
-            this.tabPage14.Controls.Add(this.upDetManufactuerButtons);
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(708, 176);
-            this.tabPage14.TabIndex = 4;
-            this.tabPage14.Text = "Sistemas Gestores de Bases de Datos";
-            // 
-            // upDetManufactuerButtons
+            // ultraPanel23
             // 
             // 
-            // upDetManufactuerButtons.ClientArea
+            // ultraPanel23.ClientArea
             // 
-            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator123);
-            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.ubtnDetDeleteManufacturer);
-            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator143);
-            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.ubtnDetCreateManufacturer);
-            this.upDetManufactuerButtons.ClientArea.Controls.Add(this.upDetSeparator432);
-            this.upDetManufactuerButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upDetManufactuerButtons.Location = new System.Drawing.Point(0, 151);
-            this.upDetManufactuerButtons.Name = "upDetManufactuerButtons";
-            this.upDetManufactuerButtons.Size = new System.Drawing.Size(708, 25);
-            this.upDetManufactuerButtons.TabIndex = 97;
+            this.ultraPanel23.ClientArea.Controls.Add(this.ultraPanel24);
+            this.ultraPanel23.ClientArea.Controls.Add(this.ultraButton13);
+            this.ultraPanel23.ClientArea.Controls.Add(this.ultraPanel25);
+            this.ultraPanel23.ClientArea.Controls.Add(this.ultraButton14);
+            this.ultraPanel23.ClientArea.Controls.Add(this.ultraPanel26);
+            this.ultraPanel23.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel23.Location = new System.Drawing.Point(3, 136);
+            this.ultraPanel23.Name = "ultraPanel23";
+            this.ultraPanel23.Size = new System.Drawing.Size(702, 25);
+            this.ultraPanel23.TabIndex = 97;
             // 
-            // upDetSeparator123
+            // ultraPanel24
             // 
-            this.upDetSeparator123.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator123.Location = new System.Drawing.Point(506, 0);
-            this.upDetSeparator123.Name = "upDetSeparator123";
-            this.upDetSeparator123.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator123.TabIndex = 7;
+            this.ultraPanel24.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel24.Location = new System.Drawing.Point(500, 0);
+            this.ultraPanel24.Name = "ultraPanel24";
+            this.ultraPanel24.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel24.TabIndex = 7;
             // 
-            // ubtnDetDeleteManufacturer
+            // ultraButton13
             // 
-            this.ubtnDetDeleteManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteManufacturer.Location = new System.Drawing.Point(522, 0);
-            this.ubtnDetDeleteManufacturer.Name = "ubtnDetDeleteManufacturer";
-            this.ubtnDetDeleteManufacturer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeleteManufacturer.TabIndex = 0;
-            this.ubtnDetDeleteManufacturer.Text = "Borrar";
+            this.ultraButton13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton13.Location = new System.Drawing.Point(516, 0);
+            this.ultraButton13.Name = "ultraButton13";
+            this.ultraButton13.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton13.TabIndex = 0;
+            this.ultraButton13.Text = "Borrar";
             // 
-            // upDetSeparator143
+            // ultraPanel25
             // 
-            this.upDetSeparator143.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator143.Location = new System.Drawing.Point(599, 0);
-            this.upDetSeparator143.Name = "upDetSeparator143";
-            this.upDetSeparator143.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator143.TabIndex = 5;
+            this.ultraPanel25.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel25.Location = new System.Drawing.Point(593, 0);
+            this.ultraPanel25.Name = "ultraPanel25";
+            this.ultraPanel25.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel25.TabIndex = 5;
             // 
-            // ubtnDetCreateManufacturer
+            // ultraButton14
             // 
-            this.ubtnDetCreateManufacturer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreateManufacturer.Location = new System.Drawing.Point(615, 0);
-            this.ubtnDetCreateManufacturer.Name = "ubtnDetCreateManufacturer";
-            this.ubtnDetCreateManufacturer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetCreateManufacturer.TabIndex = 0;
-            this.ubtnDetCreateManufacturer.Text = "Nuevo";
+            this.ultraButton14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton14.Location = new System.Drawing.Point(609, 0);
+            this.ultraButton14.Name = "ultraButton14";
+            this.ultraButton14.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton14.TabIndex = 0;
+            this.ultraButton14.Text = "Nuevo";
             // 
-            // upDetSeparator432
+            // ultraPanel26
             // 
-            this.upDetSeparator432.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator432.Location = new System.Drawing.Point(692, 0);
-            this.upDetSeparator432.Name = "upDetSeparator432";
-            this.upDetSeparator432.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator432.TabIndex = 6;
+            this.ultraPanel26.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel26.Location = new System.Drawing.Point(686, 0);
+            this.ultraPanel26.Name = "ultraPanel26";
+            this.ultraPanel26.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel26.TabIndex = 6;
             // 
-            // samsaraUltraGrid3
+            // ultraPanel19
             // 
-            appearance70.BackColor = System.Drawing.SystemColors.Window;
-            appearance70.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid3.DisplayLayout.Appearance = appearance70;
-            this.samsaraUltraGrid3.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid3.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance71.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance71.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance71.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance71.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.Appearance = appearance71;
-            appearance72.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.BandLabelAppearance = appearance72;
-            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance73.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance73.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance73.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance73.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid3.DisplayLayout.GroupByBox.PromptAppearance = appearance73;
-            this.samsaraUltraGrid3.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid3.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance74.BackColor = System.Drawing.SystemColors.Window;
-            appearance74.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid3.DisplayLayout.Override.ActiveCellAppearance = appearance74;
-            appearance75.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance75.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid3.DisplayLayout.Override.ActiveRowAppearance = appearance75;
-            this.samsaraUltraGrid3.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid3.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance76.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid3.DisplayLayout.Override.CardAreaAppearance = appearance76;
-            appearance77.BorderColor = System.Drawing.Color.Silver;
-            appearance77.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid3.DisplayLayout.Override.CellAppearance = appearance77;
-            this.samsaraUltraGrid3.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid3.DisplayLayout.Override.CellPadding = 0;
-            appearance78.BackColor = System.Drawing.SystemColors.Control;
-            appearance78.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance78.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance78.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance78.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid3.DisplayLayout.Override.GroupByRowAppearance = appearance78;
-            appearance79.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid3.DisplayLayout.Override.HeaderAppearance = appearance79;
-            this.samsaraUltraGrid3.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid3.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance80.BackColor = System.Drawing.SystemColors.Window;
-            appearance80.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid3.DisplayLayout.Override.RowAppearance = appearance80;
-            this.samsaraUltraGrid3.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance81.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid3.DisplayLayout.Override.TemplateAddRowAppearance = appearance81;
-            this.samsaraUltraGrid3.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid3.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid3.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid3.Name = "samsaraUltraGrid3";
-            this.samsaraUltraGrid3.Size = new System.Drawing.Size(708, 151);
-            this.samsaraUltraGrid3.TabIndex = 96;
-            this.samsaraUltraGrid3.Text = "samsaraUltraGrid3";
+            // 
+            // ultraPanel19.ClientArea
+            // 
+            this.ultraPanel19.ClientArea.Controls.Add(this.ultraPanel20);
+            this.ultraPanel19.ClientArea.Controls.Add(this.ultraButton11);
+            this.ultraPanel19.ClientArea.Controls.Add(this.ultraPanel21);
+            this.ultraPanel19.ClientArea.Controls.Add(this.ultraButton12);
+            this.ultraPanel19.ClientArea.Controls.Add(this.ultraPanel22);
+            this.ultraPanel19.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel19.Location = new System.Drawing.Point(3, 206);
+            this.ultraPanel19.Name = "ultraPanel19";
+            this.ultraPanel19.Size = new System.Drawing.Size(716, 25);
+            this.ultraPanel19.TabIndex = 86;
+            // 
+            // ultraPanel20
+            // 
+            this.ultraPanel20.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel20.Location = new System.Drawing.Point(514, 0);
+            this.ultraPanel20.Name = "ultraPanel20";
+            this.ultraPanel20.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel20.TabIndex = 11;
+            // 
+            // ultraButton11
+            // 
+            this.ultraButton11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton11.Location = new System.Drawing.Point(530, 0);
+            this.ultraButton11.Name = "ultraButton11";
+            this.ultraButton11.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton11.TabIndex = 10;
+            this.ultraButton11.Text = "Guardar";
+            // 
+            // ultraPanel21
+            // 
+            this.ultraPanel21.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel21.Location = new System.Drawing.Point(607, 0);
+            this.ultraPanel21.Name = "ultraPanel21";
+            this.ultraPanel21.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel21.TabIndex = 13;
+            // 
+            // ultraButton12
+            // 
+            this.ultraButton12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton12.Location = new System.Drawing.Point(623, 0);
+            this.ultraButton12.Name = "ultraButton12";
+            this.ultraButton12.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton12.TabIndex = 12;
+            this.ultraButton12.Text = "Cancelar";
+            // 
+            // ultraPanel22
+            // 
+            this.ultraPanel22.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel22.Location = new System.Drawing.Point(700, 0);
+            this.ultraPanel22.Name = "ultraPanel22";
+            this.ultraPanel22.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel22.TabIndex = 14;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage6.Controls.Add(this.samsaraUltraGrid6);
+            this.tabPage6.Controls.Add(this.ultraPanel27);
+            this.tabPage6.Controls.Add(this.ultraGroupBox3);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(728, 396);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Switches";
             // 
             // samsaraUltraGrid6
             // 
@@ -2945,6 +3018,54 @@
             this.tabPage15.TabIndex = 0;
             this.tabPage15.Text = "Principal";
             // 
+            // ultraTextEditor15
+            // 
+            this.ultraTextEditor15.Location = new System.Drawing.Point(118, 33);
+            this.ultraTextEditor15.Name = "ultraTextEditor15";
+            this.ultraTextEditor15.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor15.TabIndex = 98;
+            // 
+            // ultraTextEditor16
+            // 
+            this.ultraTextEditor16.Location = new System.Drawing.Point(118, 60);
+            this.ultraTextEditor16.Name = "ultraTextEditor16";
+            this.ultraTextEditor16.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor16.TabIndex = 100;
+            // 
+            // ultraComboEditor6
+            // 
+            this.ultraComboEditor6.Location = new System.Drawing.Point(118, 6);
+            this.ultraComboEditor6.Name = "ultraComboEditor6";
+            this.ultraComboEditor6.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor6.TabIndex = 96;
+            // 
+            // ultraLabel15
+            // 
+            this.ultraLabel15.AutoSize = true;
+            this.ultraLabel15.Location = new System.Drawing.Point(8, 64);
+            this.ultraLabel15.Name = "ultraLabel15";
+            this.ultraLabel15.Size = new System.Drawing.Size(57, 14);
+            this.ultraLabel15.TabIndex = 95;
+            this.ultraLabel15.Text = "Velocidad:";
+            // 
+            // ultraLabel17
+            // 
+            this.ultraLabel17.AutoSize = true;
+            this.ultraLabel17.Location = new System.Drawing.Point(8, 10);
+            this.ultraLabel17.Name = "ultraLabel17";
+            this.ultraLabel17.Size = new System.Drawing.Size(39, 14);
+            this.ultraLabel17.TabIndex = 94;
+            this.ultraLabel17.Text = "Marca:";
+            // 
+            // ultraLabel18
+            // 
+            this.ultraLabel18.AutoSize = true;
+            this.ultraLabel18.Location = new System.Drawing.Point(8, 37);
+            this.ultraLabel18.Name = "ultraLabel18";
+            this.ultraLabel18.Size = new System.Drawing.Size(105, 14);
+            this.ultraLabel18.TabIndex = 93;
+            this.ultraLabel18.Text = "Numero de Puertos:";
+            // 
             // ultraPanel36
             // 
             // 
@@ -3003,53 +3124,17 @@
             this.ultraPanel39.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel39.TabIndex = 14;
             // 
-            // ultraTextEditor15
+            // tabPage7
             // 
-            this.ultraTextEditor15.Location = new System.Drawing.Point(118, 33);
-            this.ultraTextEditor15.Name = "ultraTextEditor15";
-            this.ultraTextEditor15.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor15.TabIndex = 98;
-            // 
-            // ultraTextEditor16
-            // 
-            this.ultraTextEditor16.Location = new System.Drawing.Point(118, 60);
-            this.ultraTextEditor16.Name = "ultraTextEditor16";
-            this.ultraTextEditor16.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor16.TabIndex = 100;
-            // 
-            // ultraComboEditor6
-            // 
-            this.ultraComboEditor6.Location = new System.Drawing.Point(118, 6);
-            this.ultraComboEditor6.Name = "ultraComboEditor6";
-            this.ultraComboEditor6.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor6.TabIndex = 96;
-            // 
-            // ultraLabel15
-            // 
-            this.ultraLabel15.AutoSize = true;
-            this.ultraLabel15.Location = new System.Drawing.Point(8, 64);
-            this.ultraLabel15.Name = "ultraLabel15";
-            this.ultraLabel15.Size = new System.Drawing.Size(57, 14);
-            this.ultraLabel15.TabIndex = 95;
-            this.ultraLabel15.Text = "Velocidad:";
-            // 
-            // ultraLabel17
-            // 
-            this.ultraLabel17.AutoSize = true;
-            this.ultraLabel17.Location = new System.Drawing.Point(8, 10);
-            this.ultraLabel17.Name = "ultraLabel17";
-            this.ultraLabel17.Size = new System.Drawing.Size(39, 14);
-            this.ultraLabel17.TabIndex = 94;
-            this.ultraLabel17.Text = "Marca:";
-            // 
-            // ultraLabel18
-            // 
-            this.ultraLabel18.AutoSize = true;
-            this.ultraLabel18.Location = new System.Drawing.Point(8, 37);
-            this.ultraLabel18.Name = "ultraLabel18";
-            this.ultraLabel18.Size = new System.Drawing.Size(105, 14);
-            this.ultraLabel18.TabIndex = 93;
-            this.ultraLabel18.Text = "Numero de Puertos:";
+            this.tabPage7.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage7.Controls.Add(this.samsaraUltraGrid7);
+            this.tabPage7.Controls.Add(this.ultraPanel32);
+            this.tabPage7.Controls.Add(this.ultraGroupBox5);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(728, 396);
+            this.tabPage7.TabIndex = 3;
+            this.tabPage7.Text = "Conmutadores";
             // 
             // samsaraUltraGrid7
             // 
@@ -3243,12 +3328,28 @@
             this.ultraTextEditor18.Size = new System.Drawing.Size(226, 21);
             this.ultraTextEditor18.TabIndex = 100;
             // 
+            // ultraComboEditor8
+            // 
+            this.ultraComboEditor8.Location = new System.Drawing.Point(83, 33);
+            this.ultraComboEditor8.Name = "ultraComboEditor8";
+            this.ultraComboEditor8.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor8.TabIndex = 96;
+            // 
             // ultraComboEditor7
             // 
             this.ultraComboEditor7.Location = new System.Drawing.Point(83, 6);
             this.ultraComboEditor7.Name = "ultraComboEditor7";
             this.ultraComboEditor7.Size = new System.Drawing.Size(226, 21);
             this.ultraComboEditor7.TabIndex = 96;
+            // 
+            // ultraLabel21
+            // 
+            this.ultraLabel21.AutoSize = true;
+            this.ultraLabel21.Location = new System.Drawing.Point(8, 37);
+            this.ultraLabel21.Name = "ultraLabel21";
+            this.ultraLabel21.Size = new System.Drawing.Size(29, 14);
+            this.ultraLabel21.TabIndex = 94;
+            this.ultraLabel21.Text = "Tipo:";
             // 
             // ultraLabel16
             // 
@@ -3335,21 +3436,17 @@
             this.ultraPanel44.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel44.TabIndex = 14;
             // 
-            // ultraLabel21
+            // tabPage8
             // 
-            this.ultraLabel21.AutoSize = true;
-            this.ultraLabel21.Location = new System.Drawing.Point(8, 37);
-            this.ultraLabel21.Name = "ultraLabel21";
-            this.ultraLabel21.Size = new System.Drawing.Size(29, 14);
-            this.ultraLabel21.TabIndex = 94;
-            this.ultraLabel21.Text = "Tipo:";
-            // 
-            // ultraComboEditor8
-            // 
-            this.ultraComboEditor8.Location = new System.Drawing.Point(83, 33);
-            this.ultraComboEditor8.Name = "ultraComboEditor8";
-            this.ultraComboEditor8.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor8.TabIndex = 96;
+            this.tabPage8.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage8.Controls.Add(this.samsaraUltraGrid8);
+            this.tabPage8.Controls.Add(this.ultraPanel45);
+            this.tabPage8.Controls.Add(this.ultraGroupBox6);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(728, 396);
+            this.tabPage8.TabIndex = 2;
+            this.tabPage8.Text = "Cableado";
             // 
             // samsaraUltraGrid8
             // 
@@ -3615,6 +3712,18 @@
             this.ultraPanel53.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel53.TabIndex = 14;
             // 
+            // tabPage9
+            // 
+            this.tabPage9.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage9.Controls.Add(this.samsaraUltraGrid9);
+            this.tabPage9.Controls.Add(this.ultraPanel54);
+            this.tabPage9.Controls.Add(this.ultraGroupBox7);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(728, 396);
+            this.tabPage9.TabIndex = 4;
+            this.tabPage9.Text = "Routers";
+            // 
             // samsaraUltraGrid9
             // 
             appearance118.BackColor = System.Drawing.SystemColors.Window;
@@ -3790,6 +3899,25 @@
             this.tabPage18.TabIndex = 0;
             this.tabPage18.Text = "Principal";
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.ultraTextEditor21);
+            this.groupBox7.Location = new System.Drawing.Point(330, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(375, 75);
+            this.groupBox7.TabIndex = 99;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Descripción:";
+            // 
+            // ultraTextEditor21
+            // 
+            this.ultraTextEditor21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor21.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor21.Multiline = true;
+            this.ultraTextEditor21.Name = "ultraTextEditor21";
+            this.ultraTextEditor21.Size = new System.Drawing.Size(369, 56);
+            this.ultraTextEditor21.TabIndex = 0;
+            // 
             // ultraTextEditor20
             // 
             this.ultraTextEditor20.Location = new System.Drawing.Point(83, 45);
@@ -3880,24 +4008,17 @@
             this.ultraPanel62.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel62.TabIndex = 14;
             // 
-            // groupBox7
+            // tabPage10
             // 
-            this.groupBox7.Controls.Add(this.ultraTextEditor21);
-            this.groupBox7.Location = new System.Drawing.Point(330, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(375, 75);
-            this.groupBox7.TabIndex = 99;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Descripción:";
-            // 
-            // ultraTextEditor21
-            // 
-            this.ultraTextEditor21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor21.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor21.Multiline = true;
-            this.ultraTextEditor21.Name = "ultraTextEditor21";
-            this.ultraTextEditor21.Size = new System.Drawing.Size(369, 56);
-            this.ultraTextEditor21.TabIndex = 0;
+            this.tabPage10.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage10.Controls.Add(this.samsaraUltraGrid10);
+            this.tabPage10.Controls.Add(this.ultraPanel63);
+            this.tabPage10.Controls.Add(this.ultraGroupBox8);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(728, 396);
+            this.tabPage10.TabIndex = 5;
+            this.tabPage10.Text = "Firewalls";
             // 
             // samsaraUltraGrid10
             // 
@@ -4183,6 +4304,25 @@
             this.ultraPanel71.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel71.TabIndex = 14;
             // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(728, 396);
+            this.tabPage11.TabIndex = 6;
+            this.tabPage11.Text = "Redes inalámbricas";
+            // 
+            // tabDetEnergy
+            // 
+            this.tabDetEnergy.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetEnergy.Controls.Add(this.tabControl13);
+            this.tabDetEnergy.Location = new System.Drawing.Point(4, 22);
+            this.tabDetEnergy.Name = "tabDetEnergy";
+            this.tabDetEnergy.Size = new System.Drawing.Size(742, 428);
+            this.tabDetEnergy.TabIndex = 2;
+            this.tabDetEnergy.Text = "Energía";
+            // 
             // tabControl13
             // 
             this.tabControl13.Controls.Add(this.tabPage20);
@@ -4382,6 +4522,38 @@
             this.tabPage21.TabIndex = 0;
             this.tabPage21.Text = "Principal";
             // 
+            // ultraTextEditor24
+            // 
+            this.ultraTextEditor24.Location = new System.Drawing.Point(442, 6);
+            this.ultraTextEditor24.Name = "ultraTextEditor24";
+            this.ultraTextEditor24.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor24.TabIndex = 100;
+            // 
+            // ultraLabel30
+            // 
+            this.ultraLabel30.AutoSize = true;
+            this.ultraLabel30.Location = new System.Drawing.Point(345, 10);
+            this.ultraLabel30.Name = "ultraLabel30";
+            this.ultraLabel30.Size = new System.Drawing.Size(62, 14);
+            this.ultraLabel30.TabIndex = 99;
+            this.ultraLabel30.Text = "Capacidad:";
+            // 
+            // ultraComboEditor13
+            // 
+            this.ultraComboEditor13.Location = new System.Drawing.Point(82, 33);
+            this.ultraComboEditor13.Name = "ultraComboEditor13";
+            this.ultraComboEditor13.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor13.TabIndex = 96;
+            // 
+            // ultraLabel28
+            // 
+            this.ultraLabel28.AutoSize = true;
+            this.ultraLabel28.Location = new System.Drawing.Point(7, 37);
+            this.ultraLabel28.Name = "ultraLabel28";
+            this.ultraLabel28.Size = new System.Drawing.Size(29, 14);
+            this.ultraLabel28.TabIndex = 94;
+            this.ultraLabel28.Text = "Tipo:";
+            // 
             // ultraComboEditor12
             // 
             this.ultraComboEditor12.Location = new System.Drawing.Point(82, 6);
@@ -4456,37 +4628,15 @@
             this.ultraPanel80.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel80.TabIndex = 14;
             // 
-            // ultraLabel28
+            // tabDetPeripherals
             // 
-            this.ultraLabel28.AutoSize = true;
-            this.ultraLabel28.Location = new System.Drawing.Point(7, 37);
-            this.ultraLabel28.Name = "ultraLabel28";
-            this.ultraLabel28.Size = new System.Drawing.Size(29, 14);
-            this.ultraLabel28.TabIndex = 94;
-            this.ultraLabel28.Text = "Tipo:";
-            // 
-            // ultraComboEditor13
-            // 
-            this.ultraComboEditor13.Location = new System.Drawing.Point(82, 33);
-            this.ultraComboEditor13.Name = "ultraComboEditor13";
-            this.ultraComboEditor13.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor13.TabIndex = 96;
-            // 
-            // ultraTextEditor24
-            // 
-            this.ultraTextEditor24.Location = new System.Drawing.Point(442, 6);
-            this.ultraTextEditor24.Name = "ultraTextEditor24";
-            this.ultraTextEditor24.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor24.TabIndex = 100;
-            // 
-            // ultraLabel30
-            // 
-            this.ultraLabel30.AutoSize = true;
-            this.ultraLabel30.Location = new System.Drawing.Point(345, 10);
-            this.ultraLabel30.Name = "ultraLabel30";
-            this.ultraLabel30.Size = new System.Drawing.Size(62, 14);
-            this.ultraLabel30.TabIndex = 99;
-            this.ultraLabel30.Text = "Capacidad:";
+            this.tabDetPeripherals.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetPeripherals.Controls.Add(this.tabControl15);
+            this.tabDetPeripherals.Location = new System.Drawing.Point(4, 22);
+            this.tabDetPeripherals.Name = "tabDetPeripherals";
+            this.tabDetPeripherals.Size = new System.Drawing.Size(742, 428);
+            this.tabDetPeripherals.TabIndex = 3;
+            this.tabDetPeripherals.Text = "Periféricos";
             // 
             // tabControl15
             // 
@@ -4793,6 +4943,16 @@
             this.ultraPanel89.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel89.TabIndex = 14;
             // 
+            // tabDetSoftware
+            // 
+            this.tabDetSoftware.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetSoftware.Controls.Add(this.tabControl17);
+            this.tabDetSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabDetSoftware.Name = "tabDetSoftware";
+            this.tabDetSoftware.Size = new System.Drawing.Size(742, 428);
+            this.tabDetSoftware.TabIndex = 4;
+            this.tabDetSoftware.Text = "Software";
+            // 
             // tabControl17
             // 
             this.tabControl17.Controls.Add(this.tabPage26);
@@ -4805,301 +4965,6 @@
             this.tabControl17.Size = new System.Drawing.Size(742, 428);
             this.tabControl17.TabIndex = 91;
             // 
-            // tabPage24
-            // 
-            this.tabPage24.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage24.Controls.Add(this.samsaraUltraGrid13);
-            this.tabPage24.Controls.Add(this.ultraPanel90);
-            this.tabPage24.Controls.Add(this.ultraGroupBox11);
-            this.tabPage24.Location = new System.Drawing.Point(4, 22);
-            this.tabPage24.Name = "tabPage24";
-            this.tabPage24.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage24.Size = new System.Drawing.Size(734, 402);
-            this.tabPage24.TabIndex = 0;
-            this.tabPage24.Text = "Software de Seguridad";
-            // 
-            // samsaraUltraGrid13
-            // 
-            appearance178.BackColor = System.Drawing.SystemColors.Window;
-            appearance178.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid13.DisplayLayout.Appearance = appearance178;
-            this.samsaraUltraGrid13.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid13.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance179.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance179.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance179.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance179.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.Appearance = appearance179;
-            appearance180.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.BandLabelAppearance = appearance180;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance181.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance181.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance181.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance181.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.PromptAppearance = appearance181;
-            this.samsaraUltraGrid13.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid13.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance182.BackColor = System.Drawing.SystemColors.Window;
-            appearance182.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid13.DisplayLayout.Override.ActiveCellAppearance = appearance182;
-            appearance183.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance183.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid13.DisplayLayout.Override.ActiveRowAppearance = appearance183;
-            this.samsaraUltraGrid13.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid13.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance184.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CardAreaAppearance = appearance184;
-            appearance185.BorderColor = System.Drawing.Color.Silver;
-            appearance185.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CellAppearance = appearance185;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CellPadding = 0;
-            appearance186.BackColor = System.Drawing.SystemColors.Control;
-            appearance186.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance186.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance186.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance186.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid13.DisplayLayout.Override.GroupByRowAppearance = appearance186;
-            appearance187.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderAppearance = appearance187;
-            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance188.BackColor = System.Drawing.SystemColors.Window;
-            appearance188.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid13.DisplayLayout.Override.RowAppearance = appearance188;
-            this.samsaraUltraGrid13.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance189.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid13.DisplayLayout.Override.TemplateAddRowAppearance = appearance189;
-            this.samsaraUltraGrid13.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid13.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid13.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid13.Name = "samsaraUltraGrid13";
-            this.samsaraUltraGrid13.Size = new System.Drawing.Size(728, 240);
-            this.samsaraUltraGrid13.TabIndex = 113;
-            this.samsaraUltraGrid13.Text = "samsaraUltraGrid13";
-            // 
-            // ultraPanel90
-            // 
-            // 
-            // ultraPanel90.ClientArea
-            // 
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel91);
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraButton50);
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel92);
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraButton51);
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel93);
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraButton52);
-            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel94);
-            this.ultraPanel90.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel90.Location = new System.Drawing.Point(3, 243);
-            this.ultraPanel90.Name = "ultraPanel90";
-            this.ultraPanel90.Size = new System.Drawing.Size(728, 25);
-            this.ultraPanel90.TabIndex = 112;
-            // 
-            // ultraPanel91
-            // 
-            this.ultraPanel91.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel91.Location = new System.Drawing.Point(433, 0);
-            this.ultraPanel91.Name = "ultraPanel91";
-            this.ultraPanel91.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel91.TabIndex = 5;
-            // 
-            // ultraButton50
-            // 
-            this.ultraButton50.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton50.Location = new System.Drawing.Point(449, 0);
-            this.ultraButton50.Name = "ultraButton50";
-            this.ultraButton50.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton50.TabIndex = 0;
-            this.ultraButton50.Text = "Borrar";
-            // 
-            // ultraPanel92
-            // 
-            this.ultraPanel92.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel92.Location = new System.Drawing.Point(526, 0);
-            this.ultraPanel92.Name = "ultraPanel92";
-            this.ultraPanel92.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel92.TabIndex = 15;
-            // 
-            // ultraButton51
-            // 
-            this.ultraButton51.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton51.Location = new System.Drawing.Point(542, 0);
-            this.ultraButton51.Name = "ultraButton51";
-            this.ultraButton51.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton51.TabIndex = 14;
-            this.ultraButton51.Text = "Modificar";
-            // 
-            // ultraPanel93
-            // 
-            this.ultraPanel93.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel93.Location = new System.Drawing.Point(619, 0);
-            this.ultraPanel93.Name = "ultraPanel93";
-            this.ultraPanel93.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel93.TabIndex = 13;
-            // 
-            // ultraButton52
-            // 
-            this.ultraButton52.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton52.Location = new System.Drawing.Point(635, 0);
-            this.ultraButton52.Name = "ultraButton52";
-            this.ultraButton52.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton52.TabIndex = 12;
-            this.ultraButton52.Text = "Nuevo";
-            // 
-            // ultraPanel94
-            // 
-            this.ultraPanel94.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel94.Location = new System.Drawing.Point(712, 0);
-            this.ultraPanel94.Name = "ultraPanel94";
-            this.ultraPanel94.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel94.TabIndex = 6;
-            // 
-            // ultraGroupBox11
-            // 
-            this.ultraGroupBox11.Controls.Add(this.tabControl18);
-            this.ultraGroupBox11.Controls.Add(this.ultraPanel95);
-            this.ultraGroupBox11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraGroupBox11.Location = new System.Drawing.Point(3, 268);
-            this.ultraGroupBox11.Name = "ultraGroupBox11";
-            this.ultraGroupBox11.Size = new System.Drawing.Size(728, 131);
-            this.ultraGroupBox11.TabIndex = 111;
-            this.ultraGroupBox11.Text = "Detalle del registro";
-            // 
-            // tabControl18
-            // 
-            this.tabControl18.Controls.Add(this.tabPage25);
-            this.tabControl18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl18.Location = new System.Drawing.Point(3, 16);
-            this.tabControl18.Name = "tabControl18";
-            this.tabControl18.SelectedIndex = 0;
-            this.tabControl18.Size = new System.Drawing.Size(722, 87);
-            this.tabControl18.TabIndex = 88;
-            // 
-            // tabPage25
-            // 
-            this.tabPage25.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage25.Controls.Add(this.ultraTextEditor26);
-            this.tabPage25.Controls.Add(this.ultraLabel34);
-            this.tabPage25.Controls.Add(this.ultraComboEditor16);
-            this.tabPage25.Controls.Add(this.ultraLabel35);
-            this.tabPage25.Controls.Add(this.ultraComboEditor17);
-            this.tabPage25.Controls.Add(this.ultraLabel36);
-            this.tabPage25.Location = new System.Drawing.Point(4, 22);
-            this.tabPage25.Name = "tabPage25";
-            this.tabPage25.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage25.Size = new System.Drawing.Size(714, 61);
-            this.tabPage25.TabIndex = 0;
-            this.tabPage25.Text = "Principal";
-            // 
-            // ultraTextEditor26
-            // 
-            this.ultraTextEditor26.Location = new System.Drawing.Point(442, 6);
-            this.ultraTextEditor26.Name = "ultraTextEditor26";
-            this.ultraTextEditor26.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor26.TabIndex = 100;
-            // 
-            // ultraLabel34
-            // 
-            this.ultraLabel34.AutoSize = true;
-            this.ultraLabel34.Location = new System.Drawing.Point(345, 10);
-            this.ultraLabel34.Name = "ultraLabel34";
-            this.ultraLabel34.Size = new System.Drawing.Size(91, 14);
-            this.ultraLabel34.TabIndex = 99;
-            this.ultraLabel34.Text = "Número de serie:";
-            // 
-            // ultraComboEditor16
-            // 
-            this.ultraComboEditor16.Location = new System.Drawing.Point(82, 33);
-            this.ultraComboEditor16.Name = "ultraComboEditor16";
-            this.ultraComboEditor16.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor16.TabIndex = 96;
-            // 
-            // ultraLabel35
-            // 
-            this.ultraLabel35.AutoSize = true;
-            this.ultraLabel35.Location = new System.Drawing.Point(7, 37);
-            this.ultraLabel35.Name = "ultraLabel35";
-            this.ultraLabel35.Size = new System.Drawing.Size(29, 14);
-            this.ultraLabel35.TabIndex = 94;
-            this.ultraLabel35.Text = "Tipo:";
-            // 
-            // ultraComboEditor17
-            // 
-            this.ultraComboEditor17.Location = new System.Drawing.Point(82, 6);
-            this.ultraComboEditor17.Name = "ultraComboEditor17";
-            this.ultraComboEditor17.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor17.TabIndex = 96;
-            // 
-            // ultraLabel36
-            // 
-            this.ultraLabel36.AutoSize = true;
-            this.ultraLabel36.Location = new System.Drawing.Point(7, 10);
-            this.ultraLabel36.Name = "ultraLabel36";
-            this.ultraLabel36.Size = new System.Drawing.Size(39, 14);
-            this.ultraLabel36.TabIndex = 94;
-            this.ultraLabel36.Text = "Marca:";
-            // 
-            // ultraPanel95
-            // 
-            // 
-            // ultraPanel95.ClientArea
-            // 
-            this.ultraPanel95.ClientArea.Controls.Add(this.ultraPanel96);
-            this.ultraPanel95.ClientArea.Controls.Add(this.ultraButton53);
-            this.ultraPanel95.ClientArea.Controls.Add(this.ultraPanel97);
-            this.ultraPanel95.ClientArea.Controls.Add(this.ultraButton54);
-            this.ultraPanel95.ClientArea.Controls.Add(this.ultraPanel98);
-            this.ultraPanel95.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel95.Location = new System.Drawing.Point(3, 103);
-            this.ultraPanel95.Name = "ultraPanel95";
-            this.ultraPanel95.Size = new System.Drawing.Size(722, 25);
-            this.ultraPanel95.TabIndex = 86;
-            // 
-            // ultraPanel96
-            // 
-            this.ultraPanel96.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel96.Location = new System.Drawing.Point(520, 0);
-            this.ultraPanel96.Name = "ultraPanel96";
-            this.ultraPanel96.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel96.TabIndex = 11;
-            // 
-            // ultraButton53
-            // 
-            this.ultraButton53.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton53.Location = new System.Drawing.Point(536, 0);
-            this.ultraButton53.Name = "ultraButton53";
-            this.ultraButton53.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton53.TabIndex = 10;
-            this.ultraButton53.Text = "Guardar";
-            // 
-            // ultraPanel97
-            // 
-            this.ultraPanel97.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel97.Location = new System.Drawing.Point(613, 0);
-            this.ultraPanel97.Name = "ultraPanel97";
-            this.ultraPanel97.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel97.TabIndex = 13;
-            // 
-            // ultraButton54
-            // 
-            this.ultraButton54.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton54.Location = new System.Drawing.Point(629, 0);
-            this.ultraButton54.Name = "ultraButton54";
-            this.ultraButton54.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton54.TabIndex = 12;
-            this.ultraButton54.Text = "Cancelar";
-            // 
-            // ultraPanel98
-            // 
-            this.ultraPanel98.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel98.Location = new System.Drawing.Point(706, 0);
-            this.ultraPanel98.Name = "ultraPanel98";
-            this.ultraPanel98.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel98.TabIndex = 14;
-            // 
             // tabPage26
             // 
             this.tabPage26.BackColor = System.Drawing.Color.Transparent;
@@ -5111,18 +4976,6 @@
             this.tabPage26.Size = new System.Drawing.Size(734, 402);
             this.tabPage26.TabIndex = 1;
             this.tabPage26.Text = "Software de Administración";
-            // 
-            // tabPage27
-            // 
-            this.tabPage27.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage27.Controls.Add(this.samsaraUltraGrid15);
-            this.tabPage27.Controls.Add(this.ultraPanel108);
-            this.tabPage27.Controls.Add(this.ultraGroupBox13);
-            this.tabPage27.Location = new System.Drawing.Point(4, 22);
-            this.tabPage27.Name = "tabPage27";
-            this.tabPage27.Size = new System.Drawing.Size(734, 402);
-            this.tabPage27.TabIndex = 2;
-            this.tabPage27.Text = "Software de Respaldos";
             // 
             // samsaraUltraGrid14
             // 
@@ -5303,6 +5156,22 @@
             this.tabPage28.TabIndex = 0;
             this.tabPage28.Text = "Principal";
             // 
+            // ultraTextEditor29
+            // 
+            this.ultraTextEditor29.Location = new System.Drawing.Point(110, 42);
+            this.ultraTextEditor29.Name = "ultraTextEditor29";
+            this.ultraTextEditor29.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor29.TabIndex = 100;
+            // 
+            // ultraLabel43
+            // 
+            this.ultraLabel43.AutoSize = true;
+            this.ultraLabel43.Location = new System.Drawing.Point(13, 46);
+            this.ultraLabel43.Name = "ultraLabel43";
+            this.ultraLabel43.Size = new System.Drawing.Size(95, 14);
+            this.ultraLabel43.TabIndex = 99;
+            this.ultraLabel43.Text = "Num de Usuarios:";
+            // 
             // ultraTextEditor27
             // 
             this.ultraTextEditor27.Location = new System.Drawing.Point(110, 15);
@@ -5350,6 +5219,55 @@
             this.ultraLabel39.Size = new System.Drawing.Size(39, 14);
             this.ultraLabel39.TabIndex = 94;
             this.ultraLabel39.Text = "SGBD:";
+            // 
+            // tabPage30
+            // 
+            this.tabPage30.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage30.Controls.Add(this.groupBox10);
+            this.tabPage30.Controls.Add(this.groupBox9);
+            this.tabPage30.Location = new System.Drawing.Point(4, 22);
+            this.tabPage30.Name = "tabPage30";
+            this.tabPage30.Size = new System.Drawing.Size(720, 82);
+            this.tabPage30.TabIndex = 1;
+            this.tabPage30.Text = "Detalles";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.ultraTextEditor31);
+            this.groupBox10.Location = new System.Drawing.Point(360, 5);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(351, 75);
+            this.groupBox10.TabIndex = 95;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Descripción General:";
+            // 
+            // ultraTextEditor31
+            // 
+            this.ultraTextEditor31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor31.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor31.Multiline = true;
+            this.ultraTextEditor31.Name = "ultraTextEditor31";
+            this.ultraTextEditor31.Size = new System.Drawing.Size(345, 56);
+            this.ultraTextEditor31.TabIndex = 0;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.ultraTextEditor30);
+            this.groupBox9.Location = new System.Drawing.Point(3, 5);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(351, 75);
+            this.groupBox9.TabIndex = 95;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Modulos:";
+            // 
+            // ultraTextEditor30
+            // 
+            this.ultraTextEditor30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor30.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor30.Multiline = true;
+            this.ultraTextEditor30.Name = "ultraTextEditor30";
+            this.ultraTextEditor30.Size = new System.Drawing.Size(345, 56);
+            this.ultraTextEditor30.TabIndex = 0;
             // 
             // ultraPanel104
             // 
@@ -5409,6 +5327,323 @@
             this.ultraPanel107.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel107.TabIndex = 14;
             // 
+            // tabPage24
+            // 
+            this.tabPage24.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage24.Controls.Add(this.samsaraUltraGrid13);
+            this.tabPage24.Controls.Add(this.ultraPanel90);
+            this.tabPage24.Controls.Add(this.ultraGroupBox11);
+            this.tabPage24.Location = new System.Drawing.Point(4, 22);
+            this.tabPage24.Name = "tabPage24";
+            this.tabPage24.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage24.Size = new System.Drawing.Size(734, 402);
+            this.tabPage24.TabIndex = 0;
+            this.tabPage24.Text = "Software de Seguridad";
+            // 
+            // samsaraUltraGrid13
+            // 
+            appearance178.BackColor = System.Drawing.SystemColors.Window;
+            appearance178.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.samsaraUltraGrid13.DisplayLayout.Appearance = appearance178;
+            this.samsaraUltraGrid13.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.samsaraUltraGrid13.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance179.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance179.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance179.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance179.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.Appearance = appearance179;
+            appearance180.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.BandLabelAppearance = appearance180;
+            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance181.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance181.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance181.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance181.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.PromptAppearance = appearance181;
+            this.samsaraUltraGrid13.DisplayLayout.MaxColScrollRegions = 1;
+            this.samsaraUltraGrid13.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance182.BackColor = System.Drawing.SystemColors.Window;
+            appearance182.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.samsaraUltraGrid13.DisplayLayout.Override.ActiveCellAppearance = appearance182;
+            appearance183.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance183.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.samsaraUltraGrid13.DisplayLayout.Override.ActiveRowAppearance = appearance183;
+            this.samsaraUltraGrid13.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.samsaraUltraGrid13.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance184.BackColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid13.DisplayLayout.Override.CardAreaAppearance = appearance184;
+            appearance185.BorderColor = System.Drawing.Color.Silver;
+            appearance185.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.samsaraUltraGrid13.DisplayLayout.Override.CellAppearance = appearance185;
+            this.samsaraUltraGrid13.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.samsaraUltraGrid13.DisplayLayout.Override.CellPadding = 0;
+            appearance186.BackColor = System.Drawing.SystemColors.Control;
+            appearance186.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance186.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance186.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance186.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid13.DisplayLayout.Override.GroupByRowAppearance = appearance186;
+            appearance187.TextHAlignAsString = "Left";
+            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderAppearance = appearance187;
+            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance188.BackColor = System.Drawing.SystemColors.Window;
+            appearance188.BorderColor = System.Drawing.Color.Silver;
+            this.samsaraUltraGrid13.DisplayLayout.Override.RowAppearance = appearance188;
+            this.samsaraUltraGrid13.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance189.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.samsaraUltraGrid13.DisplayLayout.Override.TemplateAddRowAppearance = appearance189;
+            this.samsaraUltraGrid13.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.samsaraUltraGrid13.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.samsaraUltraGrid13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.samsaraUltraGrid13.Location = new System.Drawing.Point(3, 3);
+            this.samsaraUltraGrid13.Name = "samsaraUltraGrid13";
+            this.samsaraUltraGrid13.Size = new System.Drawing.Size(728, 240);
+            this.samsaraUltraGrid13.TabIndex = 113;
+            this.samsaraUltraGrid13.Text = "samsaraUltraGrid13";
+            // 
+            // ultraPanel90
+            // 
+            // 
+            // ultraPanel90.ClientArea
+            // 
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel91);
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraButton50);
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel92);
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraButton51);
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel93);
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraButton52);
+            this.ultraPanel90.ClientArea.Controls.Add(this.ultraPanel94);
+            this.ultraPanel90.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel90.Location = new System.Drawing.Point(3, 243);
+            this.ultraPanel90.Name = "ultraPanel90";
+            this.ultraPanel90.Size = new System.Drawing.Size(728, 25);
+            this.ultraPanel90.TabIndex = 112;
+            // 
+            // ultraPanel91
+            // 
+            this.ultraPanel91.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel91.Location = new System.Drawing.Point(433, 0);
+            this.ultraPanel91.Name = "ultraPanel91";
+            this.ultraPanel91.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel91.TabIndex = 5;
+            // 
+            // ultraButton50
+            // 
+            this.ultraButton50.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton50.Location = new System.Drawing.Point(449, 0);
+            this.ultraButton50.Name = "ultraButton50";
+            this.ultraButton50.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton50.TabIndex = 0;
+            this.ultraButton50.Text = "Borrar";
+            // 
+            // ultraPanel92
+            // 
+            this.ultraPanel92.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel92.Location = new System.Drawing.Point(526, 0);
+            this.ultraPanel92.Name = "ultraPanel92";
+            this.ultraPanel92.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel92.TabIndex = 15;
+            // 
+            // ultraButton51
+            // 
+            this.ultraButton51.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton51.Location = new System.Drawing.Point(542, 0);
+            this.ultraButton51.Name = "ultraButton51";
+            this.ultraButton51.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton51.TabIndex = 14;
+            this.ultraButton51.Text = "Modificar";
+            // 
+            // ultraPanel93
+            // 
+            this.ultraPanel93.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel93.Location = new System.Drawing.Point(619, 0);
+            this.ultraPanel93.Name = "ultraPanel93";
+            this.ultraPanel93.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel93.TabIndex = 13;
+            // 
+            // ultraButton52
+            // 
+            this.ultraButton52.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton52.Location = new System.Drawing.Point(635, 0);
+            this.ultraButton52.Name = "ultraButton52";
+            this.ultraButton52.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton52.TabIndex = 12;
+            this.ultraButton52.Text = "Nuevo";
+            // 
+            // ultraPanel94
+            // 
+            this.ultraPanel94.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel94.Location = new System.Drawing.Point(712, 0);
+            this.ultraPanel94.Name = "ultraPanel94";
+            this.ultraPanel94.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel94.TabIndex = 6;
+            // 
+            // ultraGroupBox11
+            // 
+            this.ultraGroupBox11.Controls.Add(this.tabControl18);
+            this.ultraGroupBox11.Controls.Add(this.ultraPanel95);
+            this.ultraGroupBox11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraGroupBox11.Location = new System.Drawing.Point(3, 268);
+            this.ultraGroupBox11.Name = "ultraGroupBox11";
+            this.ultraGroupBox11.Size = new System.Drawing.Size(728, 131);
+            this.ultraGroupBox11.TabIndex = 111;
+            this.ultraGroupBox11.Text = "Detalle del registro";
+            // 
+            // tabControl18
+            // 
+            this.tabControl18.Controls.Add(this.tabPage25);
+            this.tabControl18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl18.Location = new System.Drawing.Point(3, 16);
+            this.tabControl18.Name = "tabControl18";
+            this.tabControl18.SelectedIndex = 0;
+            this.tabControl18.Size = new System.Drawing.Size(722, 87);
+            this.tabControl18.TabIndex = 88;
+            // 
+            // tabPage25
+            // 
+            this.tabPage25.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage25.Controls.Add(this.ultraCheckEditor1);
+            this.tabPage25.Controls.Add(this.ultraTextEditor26);
+            this.tabPage25.Controls.Add(this.ultraLabel34);
+            this.tabPage25.Controls.Add(this.ultraComboEditor16);
+            this.tabPage25.Controls.Add(this.ultraLabel35);
+            this.tabPage25.Controls.Add(this.ultraComboEditor17);
+            this.tabPage25.Controls.Add(this.ultraLabel36);
+            this.tabPage25.Location = new System.Drawing.Point(4, 22);
+            this.tabPage25.Name = "tabPage25";
+            this.tabPage25.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage25.Size = new System.Drawing.Size(714, 61);
+            this.tabPage25.TabIndex = 0;
+            this.tabPage25.Text = "Principal";
+            // 
+            // ultraCheckEditor1
+            // 
+            this.ultraCheckEditor1.AutoSize = true;
+            this.ultraCheckEditor1.Location = new System.Drawing.Point(345, 36);
+            this.ultraCheckEditor1.Name = "ultraCheckEditor1";
+            this.ultraCheckEditor1.Size = new System.Drawing.Size(112, 17);
+            this.ultraCheckEditor1.TabIndex = 101;
+            this.ultraCheckEditor1.Text = "Consola Instalada";
+            // 
+            // ultraTextEditor26
+            // 
+            this.ultraTextEditor26.Location = new System.Drawing.Point(442, 6);
+            this.ultraTextEditor26.Name = "ultraTextEditor26";
+            this.ultraTextEditor26.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor26.TabIndex = 100;
+            // 
+            // ultraLabel34
+            // 
+            this.ultraLabel34.AutoSize = true;
+            this.ultraLabel34.Location = new System.Drawing.Point(345, 10);
+            this.ultraLabel34.Name = "ultraLabel34";
+            this.ultraLabel34.Size = new System.Drawing.Size(95, 14);
+            this.ultraLabel34.TabIndex = 99;
+            this.ultraLabel34.Text = "Número Usuarios:";
+            // 
+            // ultraComboEditor16
+            // 
+            this.ultraComboEditor16.Location = new System.Drawing.Point(82, 33);
+            this.ultraComboEditor16.Name = "ultraComboEditor16";
+            this.ultraComboEditor16.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor16.TabIndex = 96;
+            // 
+            // ultraLabel35
+            // 
+            this.ultraLabel35.AutoSize = true;
+            this.ultraLabel35.Location = new System.Drawing.Point(7, 37);
+            this.ultraLabel35.Name = "ultraLabel35";
+            this.ultraLabel35.Size = new System.Drawing.Size(29, 14);
+            this.ultraLabel35.TabIndex = 94;
+            this.ultraLabel35.Text = "Tipo:";
+            // 
+            // ultraComboEditor17
+            // 
+            this.ultraComboEditor17.Location = new System.Drawing.Point(82, 6);
+            this.ultraComboEditor17.Name = "ultraComboEditor17";
+            this.ultraComboEditor17.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor17.TabIndex = 96;
+            // 
+            // ultraLabel36
+            // 
+            this.ultraLabel36.AutoSize = true;
+            this.ultraLabel36.Location = new System.Drawing.Point(7, 10);
+            this.ultraLabel36.Name = "ultraLabel36";
+            this.ultraLabel36.Size = new System.Drawing.Size(39, 14);
+            this.ultraLabel36.TabIndex = 94;
+            this.ultraLabel36.Text = "Marca:";
+            // 
+            // ultraPanel95
+            // 
+            // 
+            // ultraPanel95.ClientArea
+            // 
+            this.ultraPanel95.ClientArea.Controls.Add(this.ultraPanel96);
+            this.ultraPanel95.ClientArea.Controls.Add(this.ultraButton53);
+            this.ultraPanel95.ClientArea.Controls.Add(this.ultraPanel97);
+            this.ultraPanel95.ClientArea.Controls.Add(this.ultraButton54);
+            this.ultraPanel95.ClientArea.Controls.Add(this.ultraPanel98);
+            this.ultraPanel95.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel95.Location = new System.Drawing.Point(3, 103);
+            this.ultraPanel95.Name = "ultraPanel95";
+            this.ultraPanel95.Size = new System.Drawing.Size(722, 25);
+            this.ultraPanel95.TabIndex = 86;
+            // 
+            // ultraPanel96
+            // 
+            this.ultraPanel96.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel96.Location = new System.Drawing.Point(520, 0);
+            this.ultraPanel96.Name = "ultraPanel96";
+            this.ultraPanel96.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel96.TabIndex = 11;
+            // 
+            // ultraButton53
+            // 
+            this.ultraButton53.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton53.Location = new System.Drawing.Point(536, 0);
+            this.ultraButton53.Name = "ultraButton53";
+            this.ultraButton53.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton53.TabIndex = 10;
+            this.ultraButton53.Text = "Guardar";
+            // 
+            // ultraPanel97
+            // 
+            this.ultraPanel97.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel97.Location = new System.Drawing.Point(613, 0);
+            this.ultraPanel97.Name = "ultraPanel97";
+            this.ultraPanel97.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel97.TabIndex = 13;
+            // 
+            // ultraButton54
+            // 
+            this.ultraButton54.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton54.Location = new System.Drawing.Point(629, 0);
+            this.ultraButton54.Name = "ultraButton54";
+            this.ultraButton54.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton54.TabIndex = 12;
+            this.ultraButton54.Text = "Cancelar";
+            // 
+            // ultraPanel98
+            // 
+            this.ultraPanel98.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel98.Location = new System.Drawing.Point(706, 0);
+            this.ultraPanel98.Name = "ultraPanel98";
+            this.ultraPanel98.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel98.TabIndex = 14;
+            // 
+            // tabPage27
+            // 
+            this.tabPage27.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage27.Controls.Add(this.samsaraUltraGrid15);
+            this.tabPage27.Controls.Add(this.ultraPanel108);
+            this.tabPage27.Controls.Add(this.ultraGroupBox13);
+            this.tabPage27.Location = new System.Drawing.Point(4, 22);
+            this.tabPage27.Name = "tabPage27";
+            this.tabPage27.Size = new System.Drawing.Size(734, 402);
+            this.tabPage27.TabIndex = 2;
+            this.tabPage27.Text = "Software de Respaldos";
+            // 
             // samsaraUltraGrid15
             // 
             appearance37.BackColor = System.Drawing.SystemColors.Window;
@@ -5467,7 +5702,7 @@
             this.samsaraUltraGrid15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.samsaraUltraGrid15.Location = new System.Drawing.Point(0, 0);
             this.samsaraUltraGrid15.Name = "samsaraUltraGrid15";
-            this.samsaraUltraGrid15.Size = new System.Drawing.Size(734, 246);
+            this.samsaraUltraGrid15.Size = new System.Drawing.Size(734, 227);
             this.samsaraUltraGrid15.TabIndex = 116;
             this.samsaraUltraGrid15.Text = "samsaraUltraGrid15";
             // 
@@ -5484,7 +5719,7 @@
             this.ultraPanel108.ClientArea.Controls.Add(this.ultraButton62);
             this.ultraPanel108.ClientArea.Controls.Add(this.ultraPanel112);
             this.ultraPanel108.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel108.Location = new System.Drawing.Point(0, 246);
+            this.ultraPanel108.Location = new System.Drawing.Point(0, 227);
             this.ultraPanel108.Name = "ultraPanel108";
             this.ultraPanel108.Size = new System.Drawing.Size(734, 25);
             this.ultraPanel108.TabIndex = 115;
@@ -5553,9 +5788,9 @@
             this.ultraGroupBox13.Controls.Add(this.tabControl20);
             this.ultraGroupBox13.Controls.Add(this.ultraPanel113);
             this.ultraGroupBox13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraGroupBox13.Location = new System.Drawing.Point(0, 271);
+            this.ultraGroupBox13.Location = new System.Drawing.Point(0, 252);
             this.ultraGroupBox13.Name = "ultraGroupBox13";
-            this.ultraGroupBox13.Size = new System.Drawing.Size(734, 131);
+            this.ultraGroupBox13.Size = new System.Drawing.Size(734, 150);
             this.ultraGroupBox13.TabIndex = 114;
             this.ultraGroupBox13.Text = "Detalle del registro";
             // 
@@ -5566,14 +5801,13 @@
             this.tabControl20.Location = new System.Drawing.Point(3, 16);
             this.tabControl20.Name = "tabControl20";
             this.tabControl20.SelectedIndex = 0;
-            this.tabControl20.Size = new System.Drawing.Size(728, 87);
+            this.tabControl20.Size = new System.Drawing.Size(728, 106);
             this.tabControl20.TabIndex = 88;
             // 
             // tabPage29
             // 
             this.tabPage29.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage29.Controls.Add(this.ultraTextEditor28);
-            this.tabPage29.Controls.Add(this.ultraLabel40);
+            this.tabPage29.Controls.Add(this.groupBox11);
             this.tabPage29.Controls.Add(this.ultraComboEditor20);
             this.tabPage29.Controls.Add(this.ultraLabel41);
             this.tabPage29.Controls.Add(this.ultraComboEditor21);
@@ -5581,29 +5815,32 @@
             this.tabPage29.Location = new System.Drawing.Point(4, 22);
             this.tabPage29.Name = "tabPage29";
             this.tabPage29.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage29.Size = new System.Drawing.Size(720, 61);
+            this.tabPage29.Size = new System.Drawing.Size(720, 80);
             this.tabPage29.TabIndex = 0;
             this.tabPage29.Text = "Principal";
             // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.ultraTextEditor28);
+            this.groupBox11.Location = new System.Drawing.Point(340, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(351, 75);
+            this.groupBox11.TabIndex = 97;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Descripción:";
+            // 
             // ultraTextEditor28
             // 
-            this.ultraTextEditor28.Location = new System.Drawing.Point(442, 6);
+            this.ultraTextEditor28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor28.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor28.Multiline = true;
             this.ultraTextEditor28.Name = "ultraTextEditor28";
-            this.ultraTextEditor28.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor28.TabIndex = 100;
-            // 
-            // ultraLabel40
-            // 
-            this.ultraLabel40.AutoSize = true;
-            this.ultraLabel40.Location = new System.Drawing.Point(345, 10);
-            this.ultraLabel40.Name = "ultraLabel40";
-            this.ultraLabel40.Size = new System.Drawing.Size(91, 14);
-            this.ultraLabel40.TabIndex = 99;
-            this.ultraLabel40.Text = "Número de serie:";
+            this.ultraTextEditor28.Size = new System.Drawing.Size(345, 56);
+            this.ultraTextEditor28.TabIndex = 0;
             // 
             // ultraComboEditor20
             // 
-            this.ultraComboEditor20.Location = new System.Drawing.Point(82, 33);
+            this.ultraComboEditor20.Location = new System.Drawing.Point(85, 45);
             this.ultraComboEditor20.Name = "ultraComboEditor20";
             this.ultraComboEditor20.Size = new System.Drawing.Size(226, 21);
             this.ultraComboEditor20.TabIndex = 96;
@@ -5611,15 +5848,15 @@
             // ultraLabel41
             // 
             this.ultraLabel41.AutoSize = true;
-            this.ultraLabel41.Location = new System.Drawing.Point(7, 37);
+            this.ultraLabel41.Location = new System.Drawing.Point(10, 49);
             this.ultraLabel41.Name = "ultraLabel41";
-            this.ultraLabel41.Size = new System.Drawing.Size(29, 14);
+            this.ultraLabel41.Size = new System.Drawing.Size(50, 14);
             this.ultraLabel41.TabIndex = 94;
-            this.ultraLabel41.Text = "Tipo:";
+            this.ultraLabel41.Text = "Servidor:";
             // 
             // ultraComboEditor21
             // 
-            this.ultraComboEditor21.Location = new System.Drawing.Point(82, 6);
+            this.ultraComboEditor21.Location = new System.Drawing.Point(85, 18);
             this.ultraComboEditor21.Name = "ultraComboEditor21";
             this.ultraComboEditor21.Size = new System.Drawing.Size(226, 21);
             this.ultraComboEditor21.TabIndex = 96;
@@ -5627,7 +5864,7 @@
             // ultraLabel42
             // 
             this.ultraLabel42.AutoSize = true;
-            this.ultraLabel42.Location = new System.Drawing.Point(7, 10);
+            this.ultraLabel42.Location = new System.Drawing.Point(10, 22);
             this.ultraLabel42.Name = "ultraLabel42";
             this.ultraLabel42.Size = new System.Drawing.Size(39, 14);
             this.ultraLabel42.TabIndex = 94;
@@ -5644,7 +5881,7 @@
             this.ultraPanel113.ClientArea.Controls.Add(this.ultraButton64);
             this.ultraPanel113.ClientArea.Controls.Add(this.ultraPanel116);
             this.ultraPanel113.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel113.Location = new System.Drawing.Point(3, 103);
+            this.ultraPanel113.Location = new System.Drawing.Point(3, 122);
             this.ultraPanel113.Name = "ultraPanel113";
             this.ultraPanel113.Size = new System.Drawing.Size(728, 25);
             this.ultraPanel113.TabIndex = 86;
@@ -5691,70 +5928,914 @@
             this.ultraPanel116.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel116.TabIndex = 14;
             // 
-            // ultraLabel43
+            // tabDetSuppliers
             // 
-            this.ultraLabel43.AutoSize = true;
-            this.ultraLabel43.Location = new System.Drawing.Point(13, 46);
-            this.ultraLabel43.Name = "ultraLabel43";
-            this.ultraLabel43.Size = new System.Drawing.Size(95, 14);
-            this.ultraLabel43.TabIndex = 99;
-            this.ultraLabel43.Text = "Num de Usuarios:";
+            this.tabDetSuppliers.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetSuppliers.Controls.Add(this.tabControl21);
+            this.tabDetSuppliers.Location = new System.Drawing.Point(4, 22);
+            this.tabDetSuppliers.Name = "tabDetSuppliers";
+            this.tabDetSuppliers.Size = new System.Drawing.Size(742, 428);
+            this.tabDetSuppliers.TabIndex = 5;
+            this.tabDetSuppliers.Text = "Proveedores y Servicios";
             // 
-            // ultraTextEditor29
+            // tabControl21
             // 
-            this.ultraTextEditor29.Location = new System.Drawing.Point(110, 42);
-            this.ultraTextEditor29.Name = "ultraTextEditor29";
-            this.ultraTextEditor29.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor29.TabIndex = 100;
+            this.tabControl21.Controls.Add(this.tabPage31);
+            this.tabControl21.Controls.Add(this.tabPage33);
+            this.tabControl21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl21.Location = new System.Drawing.Point(0, 0);
+            this.tabControl21.Name = "tabControl21";
+            this.tabControl21.SelectedIndex = 0;
+            this.tabControl21.Size = new System.Drawing.Size(742, 428);
+            this.tabControl21.TabIndex = 91;
             // 
-            // tabPage30
+            // tabPage31
             // 
-            this.tabPage30.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage30.Controls.Add(this.groupBox10);
-            this.tabPage30.Controls.Add(this.groupBox9);
-            this.tabPage30.Location = new System.Drawing.Point(4, 22);
-            this.tabPage30.Name = "tabPage30";
-            this.tabPage30.Size = new System.Drawing.Size(720, 82);
-            this.tabPage30.TabIndex = 1;
-            this.tabPage30.Text = "Detalles";
+            this.tabPage31.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage31.Controls.Add(this.samsaraUltraGrid16);
+            this.tabPage31.Controls.Add(this.ultraPanel117);
+            this.tabPage31.Controls.Add(this.ultraGroupBox14);
+            this.tabPage31.Location = new System.Drawing.Point(4, 22);
+            this.tabPage31.Name = "tabPage31";
+            this.tabPage31.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage31.Size = new System.Drawing.Size(734, 402);
+            this.tabPage31.TabIndex = 0;
+            this.tabPage31.Text = "Proveedor de Internet";
             // 
-            // groupBox9
+            // samsaraUltraGrid16
             // 
-            this.groupBox9.Controls.Add(this.ultraTextEditor30);
-            this.groupBox9.Location = new System.Drawing.Point(3, 5);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(351, 75);
-            this.groupBox9.TabIndex = 95;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Modulos:";
+            appearance214.BackColor = System.Drawing.SystemColors.Window;
+            appearance214.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.samsaraUltraGrid16.DisplayLayout.Appearance = appearance214;
+            this.samsaraUltraGrid16.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.samsaraUltraGrid16.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance215.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance215.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance215.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance215.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.Appearance = appearance215;
+            appearance216.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.BandLabelAppearance = appearance216;
+            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance217.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance217.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance217.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance217.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.PromptAppearance = appearance217;
+            this.samsaraUltraGrid16.DisplayLayout.MaxColScrollRegions = 1;
+            this.samsaraUltraGrid16.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance218.BackColor = System.Drawing.SystemColors.Window;
+            appearance218.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.samsaraUltraGrid16.DisplayLayout.Override.ActiveCellAppearance = appearance218;
+            appearance219.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance219.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.samsaraUltraGrid16.DisplayLayout.Override.ActiveRowAppearance = appearance219;
+            this.samsaraUltraGrid16.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.samsaraUltraGrid16.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance220.BackColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid16.DisplayLayout.Override.CardAreaAppearance = appearance220;
+            appearance221.BorderColor = System.Drawing.Color.Silver;
+            appearance221.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.samsaraUltraGrid16.DisplayLayout.Override.CellAppearance = appearance221;
+            this.samsaraUltraGrid16.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.samsaraUltraGrid16.DisplayLayout.Override.CellPadding = 0;
+            appearance222.BackColor = System.Drawing.SystemColors.Control;
+            appearance222.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance222.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance222.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance222.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid16.DisplayLayout.Override.GroupByRowAppearance = appearance222;
+            appearance223.TextHAlignAsString = "Left";
+            this.samsaraUltraGrid16.DisplayLayout.Override.HeaderAppearance = appearance223;
+            this.samsaraUltraGrid16.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.samsaraUltraGrid16.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance224.BackColor = System.Drawing.SystemColors.Window;
+            appearance224.BorderColor = System.Drawing.Color.Silver;
+            this.samsaraUltraGrid16.DisplayLayout.Override.RowAppearance = appearance224;
+            this.samsaraUltraGrid16.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance225.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.samsaraUltraGrid16.DisplayLayout.Override.TemplateAddRowAppearance = appearance225;
+            this.samsaraUltraGrid16.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.samsaraUltraGrid16.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.samsaraUltraGrid16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.samsaraUltraGrid16.Location = new System.Drawing.Point(3, 3);
+            this.samsaraUltraGrid16.Name = "samsaraUltraGrid16";
+            this.samsaraUltraGrid16.Size = new System.Drawing.Size(728, 240);
+            this.samsaraUltraGrid16.TabIndex = 113;
+            this.samsaraUltraGrid16.Text = "samsaraUltraGrid16";
             // 
-            // ultraTextEditor30
+            // ultraPanel117
             // 
-            this.ultraTextEditor30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor30.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor30.Multiline = true;
-            this.ultraTextEditor30.Name = "ultraTextEditor30";
-            this.ultraTextEditor30.Size = new System.Drawing.Size(345, 56);
-            this.ultraTextEditor30.TabIndex = 0;
             // 
-            // groupBox10
+            // ultraPanel117.ClientArea
             // 
-            this.groupBox10.Controls.Add(this.ultraTextEditor31);
-            this.groupBox10.Location = new System.Drawing.Point(360, 5);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(351, 75);
-            this.groupBox10.TabIndex = 95;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Descripción General:";
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraPanel118);
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraButton65);
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraPanel119);
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraButton66);
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraPanel120);
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraButton67);
+            this.ultraPanel117.ClientArea.Controls.Add(this.ultraPanel121);
+            this.ultraPanel117.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel117.Location = new System.Drawing.Point(3, 243);
+            this.ultraPanel117.Name = "ultraPanel117";
+            this.ultraPanel117.Size = new System.Drawing.Size(728, 25);
+            this.ultraPanel117.TabIndex = 112;
             // 
-            // ultraTextEditor31
+            // ultraPanel118
             // 
-            this.ultraTextEditor31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor31.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor31.Multiline = true;
-            this.ultraTextEditor31.Name = "ultraTextEditor31";
-            this.ultraTextEditor31.Size = new System.Drawing.Size(345, 56);
-            this.ultraTextEditor31.TabIndex = 0;
+            this.ultraPanel118.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel118.Location = new System.Drawing.Point(433, 0);
+            this.ultraPanel118.Name = "ultraPanel118";
+            this.ultraPanel118.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel118.TabIndex = 5;
+            // 
+            // ultraButton65
+            // 
+            this.ultraButton65.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton65.Location = new System.Drawing.Point(449, 0);
+            this.ultraButton65.Name = "ultraButton65";
+            this.ultraButton65.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton65.TabIndex = 0;
+            this.ultraButton65.Text = "Borrar";
+            // 
+            // ultraPanel119
+            // 
+            this.ultraPanel119.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel119.Location = new System.Drawing.Point(526, 0);
+            this.ultraPanel119.Name = "ultraPanel119";
+            this.ultraPanel119.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel119.TabIndex = 15;
+            // 
+            // ultraButton66
+            // 
+            this.ultraButton66.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton66.Location = new System.Drawing.Point(542, 0);
+            this.ultraButton66.Name = "ultraButton66";
+            this.ultraButton66.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton66.TabIndex = 14;
+            this.ultraButton66.Text = "Modificar";
+            // 
+            // ultraPanel120
+            // 
+            this.ultraPanel120.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel120.Location = new System.Drawing.Point(619, 0);
+            this.ultraPanel120.Name = "ultraPanel120";
+            this.ultraPanel120.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel120.TabIndex = 13;
+            // 
+            // ultraButton67
+            // 
+            this.ultraButton67.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton67.Location = new System.Drawing.Point(635, 0);
+            this.ultraButton67.Name = "ultraButton67";
+            this.ultraButton67.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton67.TabIndex = 12;
+            this.ultraButton67.Text = "Nuevo";
+            // 
+            // ultraPanel121
+            // 
+            this.ultraPanel121.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel121.Location = new System.Drawing.Point(712, 0);
+            this.ultraPanel121.Name = "ultraPanel121";
+            this.ultraPanel121.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel121.TabIndex = 6;
+            // 
+            // ultraGroupBox14
+            // 
+            this.ultraGroupBox14.Controls.Add(this.tabControl22);
+            this.ultraGroupBox14.Controls.Add(this.ultraPanel122);
+            this.ultraGroupBox14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraGroupBox14.Location = new System.Drawing.Point(3, 268);
+            this.ultraGroupBox14.Name = "ultraGroupBox14";
+            this.ultraGroupBox14.Size = new System.Drawing.Size(728, 131);
+            this.ultraGroupBox14.TabIndex = 111;
+            this.ultraGroupBox14.Text = "Detalle del registro";
+            // 
+            // tabControl22
+            // 
+            this.tabControl22.Controls.Add(this.tabPage32);
+            this.tabControl22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl22.Location = new System.Drawing.Point(3, 16);
+            this.tabControl22.Name = "tabControl22";
+            this.tabControl22.SelectedIndex = 0;
+            this.tabControl22.Size = new System.Drawing.Size(722, 87);
+            this.tabControl22.TabIndex = 88;
+            // 
+            // tabPage32
+            // 
+            this.tabPage32.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage32.Controls.Add(this.ultraTextEditor32);
+            this.tabPage32.Controls.Add(this.ultraLabel44);
+            this.tabPage32.Controls.Add(this.ultraComboEditor23);
+            this.tabPage32.Controls.Add(this.ultraLabel45);
+            this.tabPage32.Location = new System.Drawing.Point(4, 22);
+            this.tabPage32.Name = "tabPage32";
+            this.tabPage32.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage32.Size = new System.Drawing.Size(714, 61);
+            this.tabPage32.TabIndex = 0;
+            this.tabPage32.Text = "Principal";
+            // 
+            // ultraTextEditor32
+            // 
+            this.ultraTextEditor32.Location = new System.Drawing.Point(104, 33);
+            this.ultraTextEditor32.Name = "ultraTextEditor32";
+            this.ultraTextEditor32.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor32.TabIndex = 100;
+            // 
+            // ultraLabel44
+            // 
+            this.ultraLabel44.AutoSize = true;
+            this.ultraLabel44.Location = new System.Drawing.Point(7, 37);
+            this.ultraLabel44.Name = "ultraLabel44";
+            this.ultraLabel44.Size = new System.Drawing.Size(91, 14);
+            this.ultraLabel44.TabIndex = 94;
+            this.ultraLabel44.Text = "Ancho de Banda:";
+            // 
+            // ultraComboEditor23
+            // 
+            this.ultraComboEditor23.Location = new System.Drawing.Point(104, 6);
+            this.ultraComboEditor23.Name = "ultraComboEditor23";
+            this.ultraComboEditor23.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor23.TabIndex = 96;
+            // 
+            // ultraLabel45
+            // 
+            this.ultraLabel45.AutoSize = true;
+            this.ultraLabel45.Location = new System.Drawing.Point(7, 10);
+            this.ultraLabel45.Name = "ultraLabel45";
+            this.ultraLabel45.Size = new System.Drawing.Size(60, 14);
+            this.ultraLabel45.TabIndex = 94;
+            this.ultraLabel45.Text = "Proveedor:";
+            // 
+            // ultraPanel122
+            // 
+            // 
+            // ultraPanel122.ClientArea
+            // 
+            this.ultraPanel122.ClientArea.Controls.Add(this.ultraPanel123);
+            this.ultraPanel122.ClientArea.Controls.Add(this.ultraButton68);
+            this.ultraPanel122.ClientArea.Controls.Add(this.ultraPanel124);
+            this.ultraPanel122.ClientArea.Controls.Add(this.ultraButton69);
+            this.ultraPanel122.ClientArea.Controls.Add(this.ultraPanel125);
+            this.ultraPanel122.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel122.Location = new System.Drawing.Point(3, 103);
+            this.ultraPanel122.Name = "ultraPanel122";
+            this.ultraPanel122.Size = new System.Drawing.Size(722, 25);
+            this.ultraPanel122.TabIndex = 86;
+            // 
+            // ultraPanel123
+            // 
+            this.ultraPanel123.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel123.Location = new System.Drawing.Point(520, 0);
+            this.ultraPanel123.Name = "ultraPanel123";
+            this.ultraPanel123.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel123.TabIndex = 11;
+            // 
+            // ultraButton68
+            // 
+            this.ultraButton68.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton68.Location = new System.Drawing.Point(536, 0);
+            this.ultraButton68.Name = "ultraButton68";
+            this.ultraButton68.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton68.TabIndex = 10;
+            this.ultraButton68.Text = "Guardar";
+            // 
+            // ultraPanel124
+            // 
+            this.ultraPanel124.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel124.Location = new System.Drawing.Point(613, 0);
+            this.ultraPanel124.Name = "ultraPanel124";
+            this.ultraPanel124.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel124.TabIndex = 13;
+            // 
+            // ultraButton69
+            // 
+            this.ultraButton69.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton69.Location = new System.Drawing.Point(629, 0);
+            this.ultraButton69.Name = "ultraButton69";
+            this.ultraButton69.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton69.TabIndex = 12;
+            this.ultraButton69.Text = "Cancelar";
+            // 
+            // ultraPanel125
+            // 
+            this.ultraPanel125.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel125.Location = new System.Drawing.Point(706, 0);
+            this.ultraPanel125.Name = "ultraPanel125";
+            this.ultraPanel125.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel125.TabIndex = 14;
+            // 
+            // tabPage33
+            // 
+            this.tabPage33.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage33.Controls.Add(this.samsaraUltraGrid17);
+            this.tabPage33.Controls.Add(this.ultraPanel126);
+            this.tabPage33.Controls.Add(this.ultraGroupBox15);
+            this.tabPage33.Location = new System.Drawing.Point(4, 22);
+            this.tabPage33.Name = "tabPage33";
+            this.tabPage33.Size = new System.Drawing.Size(734, 402);
+            this.tabPage33.TabIndex = 1;
+            this.tabPage33.Text = "Proveedor de Telefonía";
+            // 
+            // samsaraUltraGrid17
+            // 
+            appearance202.BackColor = System.Drawing.SystemColors.Window;
+            appearance202.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.samsaraUltraGrid17.DisplayLayout.Appearance = appearance202;
+            this.samsaraUltraGrid17.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.samsaraUltraGrid17.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance203.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance203.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance203.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance203.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.Appearance = appearance203;
+            appearance204.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.BandLabelAppearance = appearance204;
+            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance205.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance205.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance205.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance205.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.PromptAppearance = appearance205;
+            this.samsaraUltraGrid17.DisplayLayout.MaxColScrollRegions = 1;
+            this.samsaraUltraGrid17.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance206.BackColor = System.Drawing.SystemColors.Window;
+            appearance206.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.samsaraUltraGrid17.DisplayLayout.Override.ActiveCellAppearance = appearance206;
+            appearance207.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance207.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.samsaraUltraGrid17.DisplayLayout.Override.ActiveRowAppearance = appearance207;
+            this.samsaraUltraGrid17.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.samsaraUltraGrid17.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance208.BackColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid17.DisplayLayout.Override.CardAreaAppearance = appearance208;
+            appearance209.BorderColor = System.Drawing.Color.Silver;
+            appearance209.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.samsaraUltraGrid17.DisplayLayout.Override.CellAppearance = appearance209;
+            this.samsaraUltraGrid17.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.samsaraUltraGrid17.DisplayLayout.Override.CellPadding = 0;
+            appearance210.BackColor = System.Drawing.SystemColors.Control;
+            appearance210.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance210.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance210.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance210.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid17.DisplayLayout.Override.GroupByRowAppearance = appearance210;
+            appearance211.TextHAlignAsString = "Left";
+            this.samsaraUltraGrid17.DisplayLayout.Override.HeaderAppearance = appearance211;
+            this.samsaraUltraGrid17.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.samsaraUltraGrid17.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance212.BackColor = System.Drawing.SystemColors.Window;
+            appearance212.BorderColor = System.Drawing.Color.Silver;
+            this.samsaraUltraGrid17.DisplayLayout.Override.RowAppearance = appearance212;
+            this.samsaraUltraGrid17.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance213.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.samsaraUltraGrid17.DisplayLayout.Override.TemplateAddRowAppearance = appearance213;
+            this.samsaraUltraGrid17.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.samsaraUltraGrid17.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.samsaraUltraGrid17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.samsaraUltraGrid17.Location = new System.Drawing.Point(0, 0);
+            this.samsaraUltraGrid17.Name = "samsaraUltraGrid17";
+            this.samsaraUltraGrid17.Size = new System.Drawing.Size(734, 246);
+            this.samsaraUltraGrid17.TabIndex = 116;
+            this.samsaraUltraGrid17.Text = "samsaraUltraGrid17";
+            // 
+            // ultraPanel126
+            // 
+            // 
+            // ultraPanel126.ClientArea
+            // 
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraPanel127);
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraButton70);
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraPanel128);
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraButton71);
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraPanel129);
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraButton72);
+            this.ultraPanel126.ClientArea.Controls.Add(this.ultraPanel130);
+            this.ultraPanel126.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel126.Location = new System.Drawing.Point(0, 246);
+            this.ultraPanel126.Name = "ultraPanel126";
+            this.ultraPanel126.Size = new System.Drawing.Size(734, 25);
+            this.ultraPanel126.TabIndex = 115;
+            // 
+            // ultraPanel127
+            // 
+            this.ultraPanel127.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel127.Location = new System.Drawing.Point(439, 0);
+            this.ultraPanel127.Name = "ultraPanel127";
+            this.ultraPanel127.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel127.TabIndex = 5;
+            // 
+            // ultraButton70
+            // 
+            this.ultraButton70.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton70.Location = new System.Drawing.Point(455, 0);
+            this.ultraButton70.Name = "ultraButton70";
+            this.ultraButton70.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton70.TabIndex = 0;
+            this.ultraButton70.Text = "Borrar";
+            // 
+            // ultraPanel128
+            // 
+            this.ultraPanel128.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel128.Location = new System.Drawing.Point(532, 0);
+            this.ultraPanel128.Name = "ultraPanel128";
+            this.ultraPanel128.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel128.TabIndex = 15;
+            // 
+            // ultraButton71
+            // 
+            this.ultraButton71.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton71.Location = new System.Drawing.Point(548, 0);
+            this.ultraButton71.Name = "ultraButton71";
+            this.ultraButton71.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton71.TabIndex = 14;
+            this.ultraButton71.Text = "Modificar";
+            // 
+            // ultraPanel129
+            // 
+            this.ultraPanel129.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel129.Location = new System.Drawing.Point(625, 0);
+            this.ultraPanel129.Name = "ultraPanel129";
+            this.ultraPanel129.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel129.TabIndex = 13;
+            // 
+            // ultraButton72
+            // 
+            this.ultraButton72.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton72.Location = new System.Drawing.Point(641, 0);
+            this.ultraButton72.Name = "ultraButton72";
+            this.ultraButton72.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton72.TabIndex = 12;
+            this.ultraButton72.Text = "Nuevo";
+            // 
+            // ultraPanel130
+            // 
+            this.ultraPanel130.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel130.Location = new System.Drawing.Point(718, 0);
+            this.ultraPanel130.Name = "ultraPanel130";
+            this.ultraPanel130.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel130.TabIndex = 6;
+            // 
+            // ultraGroupBox15
+            // 
+            this.ultraGroupBox15.Controls.Add(this.tabControl23);
+            this.ultraGroupBox15.Controls.Add(this.ultraPanel131);
+            this.ultraGroupBox15.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraGroupBox15.Location = new System.Drawing.Point(0, 271);
+            this.ultraGroupBox15.Name = "ultraGroupBox15";
+            this.ultraGroupBox15.Size = new System.Drawing.Size(734, 131);
+            this.ultraGroupBox15.TabIndex = 114;
+            this.ultraGroupBox15.Text = "Detalle del registro";
+            // 
+            // tabControl23
+            // 
+            this.tabControl23.Controls.Add(this.tabPage34);
+            this.tabControl23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl23.Location = new System.Drawing.Point(3, 16);
+            this.tabControl23.Name = "tabControl23";
+            this.tabControl23.SelectedIndex = 0;
+            this.tabControl23.Size = new System.Drawing.Size(728, 87);
+            this.tabControl23.TabIndex = 88;
+            // 
+            // tabPage34
+            // 
+            this.tabPage34.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage34.Controls.Add(this.ultraTextEditor33);
+            this.tabPage34.Controls.Add(this.ultraLabel40);
+            this.tabPage34.Controls.Add(this.ultraComboEditor24);
+            this.tabPage34.Controls.Add(this.ultraLabel47);
+            this.tabPage34.Controls.Add(this.ultraComboEditor22);
+            this.tabPage34.Controls.Add(this.ultraLabel46);
+            this.tabPage34.Location = new System.Drawing.Point(4, 22);
+            this.tabPage34.Name = "tabPage34";
+            this.tabPage34.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage34.Size = new System.Drawing.Size(720, 61);
+            this.tabPage34.TabIndex = 0;
+            this.tabPage34.Text = "Principal";
+            // 
+            // ultraTextEditor33
+            // 
+            this.ultraTextEditor33.Location = new System.Drawing.Point(465, 6);
+            this.ultraTextEditor33.Name = "ultraTextEditor33";
+            this.ultraTextEditor33.Size = new System.Drawing.Size(226, 21);
+            this.ultraTextEditor33.TabIndex = 100;
+            // 
+            // ultraLabel40
+            // 
+            this.ultraLabel40.AutoSize = true;
+            this.ultraLabel40.Location = new System.Drawing.Point(359, 10);
+            this.ultraLabel40.Name = "ultraLabel40";
+            this.ultraLabel40.Size = new System.Drawing.Size(100, 14);
+            this.ultraLabel40.TabIndex = 94;
+            this.ultraLabel40.Text = "Número de Lineas:";
+            // 
+            // ultraComboEditor24
+            // 
+            this.ultraComboEditor24.Location = new System.Drawing.Point(104, 33);
+            this.ultraComboEditor24.Name = "ultraComboEditor24";
+            this.ultraComboEditor24.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor24.TabIndex = 96;
+            // 
+            // ultraLabel47
+            // 
+            this.ultraLabel47.AutoSize = true;
+            this.ultraLabel47.Location = new System.Drawing.Point(7, 37);
+            this.ultraLabel47.Name = "ultraLabel47";
+            this.ultraLabel47.Size = new System.Drawing.Size(72, 14);
+            this.ultraLabel47.TabIndex = 94;
+            this.ultraLabel47.Text = "Tipo de linea:";
+            // 
+            // ultraComboEditor22
+            // 
+            this.ultraComboEditor22.Location = new System.Drawing.Point(104, 6);
+            this.ultraComboEditor22.Name = "ultraComboEditor22";
+            this.ultraComboEditor22.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor22.TabIndex = 96;
+            // 
+            // ultraLabel46
+            // 
+            this.ultraLabel46.AutoSize = true;
+            this.ultraLabel46.Location = new System.Drawing.Point(7, 10);
+            this.ultraLabel46.Name = "ultraLabel46";
+            this.ultraLabel46.Size = new System.Drawing.Size(60, 14);
+            this.ultraLabel46.TabIndex = 94;
+            this.ultraLabel46.Text = "Proveedor:";
+            // 
+            // ultraPanel131
+            // 
+            // 
+            // ultraPanel131.ClientArea
+            // 
+            this.ultraPanel131.ClientArea.Controls.Add(this.ultraPanel132);
+            this.ultraPanel131.ClientArea.Controls.Add(this.ultraButton73);
+            this.ultraPanel131.ClientArea.Controls.Add(this.ultraPanel133);
+            this.ultraPanel131.ClientArea.Controls.Add(this.ultraButton74);
+            this.ultraPanel131.ClientArea.Controls.Add(this.ultraPanel134);
+            this.ultraPanel131.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel131.Location = new System.Drawing.Point(3, 103);
+            this.ultraPanel131.Name = "ultraPanel131";
+            this.ultraPanel131.Size = new System.Drawing.Size(728, 25);
+            this.ultraPanel131.TabIndex = 86;
+            // 
+            // ultraPanel132
+            // 
+            this.ultraPanel132.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel132.Location = new System.Drawing.Point(526, 0);
+            this.ultraPanel132.Name = "ultraPanel132";
+            this.ultraPanel132.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel132.TabIndex = 11;
+            // 
+            // ultraButton73
+            // 
+            this.ultraButton73.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton73.Location = new System.Drawing.Point(542, 0);
+            this.ultraButton73.Name = "ultraButton73";
+            this.ultraButton73.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton73.TabIndex = 10;
+            this.ultraButton73.Text = "Guardar";
+            // 
+            // ultraPanel133
+            // 
+            this.ultraPanel133.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel133.Location = new System.Drawing.Point(619, 0);
+            this.ultraPanel133.Name = "ultraPanel133";
+            this.ultraPanel133.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel133.TabIndex = 13;
+            // 
+            // ultraButton74
+            // 
+            this.ultraButton74.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton74.Location = new System.Drawing.Point(635, 0);
+            this.ultraButton74.Name = "ultraButton74";
+            this.ultraButton74.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton74.TabIndex = 12;
+            this.ultraButton74.Text = "Cancelar";
+            // 
+            // ultraPanel134
+            // 
+            this.ultraPanel134.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel134.Location = new System.Drawing.Point(712, 0);
+            this.ultraPanel134.Name = "ultraPanel134";
+            this.ultraPanel134.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel134.TabIndex = 14;
+            // 
+            // tabDetVideo
+            // 
+            this.tabDetVideo.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetVideo.Controls.Add(this.tabControl24);
+            this.tabDetVideo.Location = new System.Drawing.Point(4, 22);
+            this.tabDetVideo.Name = "tabDetVideo";
+            this.tabDetVideo.Size = new System.Drawing.Size(742, 428);
+            this.tabDetVideo.TabIndex = 6;
+            this.tabDetVideo.Text = "Video y Monitoreo";
+            // 
+            // tabControl24
+            // 
+            this.tabControl24.Controls.Add(this.tabPage35);
+            this.tabControl24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl24.Location = new System.Drawing.Point(0, 0);
+            this.tabControl24.Name = "tabControl24";
+            this.tabControl24.SelectedIndex = 0;
+            this.tabControl24.Size = new System.Drawing.Size(742, 428);
+            this.tabControl24.TabIndex = 91;
+            // 
+            // tabPage35
+            // 
+            this.tabPage35.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage35.Controls.Add(this.samsaraUltraGrid18);
+            this.tabPage35.Controls.Add(this.ultraPanel135);
+            this.tabPage35.Controls.Add(this.ultraGroupBox16);
+            this.tabPage35.Location = new System.Drawing.Point(4, 22);
+            this.tabPage35.Name = "tabPage35";
+            this.tabPage35.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage35.Size = new System.Drawing.Size(734, 402);
+            this.tabPage35.TabIndex = 0;
+            this.tabPage35.Text = "Impresoras";
+            // 
+            // samsaraUltraGrid18
+            // 
+            appearance190.BackColor = System.Drawing.SystemColors.Window;
+            appearance190.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.samsaraUltraGrid18.DisplayLayout.Appearance = appearance190;
+            this.samsaraUltraGrid18.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.samsaraUltraGrid18.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance191.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance191.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance191.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance191.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.Appearance = appearance191;
+            appearance192.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.BandLabelAppearance = appearance192;
+            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance193.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance193.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance193.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance193.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.PromptAppearance = appearance193;
+            this.samsaraUltraGrid18.DisplayLayout.MaxColScrollRegions = 1;
+            this.samsaraUltraGrid18.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance194.BackColor = System.Drawing.SystemColors.Window;
+            appearance194.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.samsaraUltraGrid18.DisplayLayout.Override.ActiveCellAppearance = appearance194;
+            appearance195.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance195.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.samsaraUltraGrid18.DisplayLayout.Override.ActiveRowAppearance = appearance195;
+            this.samsaraUltraGrid18.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.samsaraUltraGrid18.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance196.BackColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid18.DisplayLayout.Override.CardAreaAppearance = appearance196;
+            appearance197.BorderColor = System.Drawing.Color.Silver;
+            appearance197.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.samsaraUltraGrid18.DisplayLayout.Override.CellAppearance = appearance197;
+            this.samsaraUltraGrid18.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.samsaraUltraGrid18.DisplayLayout.Override.CellPadding = 0;
+            appearance198.BackColor = System.Drawing.SystemColors.Control;
+            appearance198.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance198.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance198.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance198.BorderColor = System.Drawing.SystemColors.Window;
+            this.samsaraUltraGrid18.DisplayLayout.Override.GroupByRowAppearance = appearance198;
+            appearance199.TextHAlignAsString = "Left";
+            this.samsaraUltraGrid18.DisplayLayout.Override.HeaderAppearance = appearance199;
+            this.samsaraUltraGrid18.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.samsaraUltraGrid18.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance200.BackColor = System.Drawing.SystemColors.Window;
+            appearance200.BorderColor = System.Drawing.Color.Silver;
+            this.samsaraUltraGrid18.DisplayLayout.Override.RowAppearance = appearance200;
+            this.samsaraUltraGrid18.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance201.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.samsaraUltraGrid18.DisplayLayout.Override.TemplateAddRowAppearance = appearance201;
+            this.samsaraUltraGrid18.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.samsaraUltraGrid18.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.samsaraUltraGrid18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.samsaraUltraGrid18.Location = new System.Drawing.Point(3, 3);
+            this.samsaraUltraGrid18.Name = "samsaraUltraGrid18";
+            this.samsaraUltraGrid18.Size = new System.Drawing.Size(728, 221);
+            this.samsaraUltraGrid18.TabIndex = 113;
+            this.samsaraUltraGrid18.Text = "samsaraUltraGrid18";
+            // 
+            // ultraPanel135
+            // 
+            // 
+            // ultraPanel135.ClientArea
+            // 
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraPanel136);
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraButton75);
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraPanel137);
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraButton76);
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraPanel138);
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraButton77);
+            this.ultraPanel135.ClientArea.Controls.Add(this.ultraPanel139);
+            this.ultraPanel135.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel135.Location = new System.Drawing.Point(3, 224);
+            this.ultraPanel135.Name = "ultraPanel135";
+            this.ultraPanel135.Size = new System.Drawing.Size(728, 25);
+            this.ultraPanel135.TabIndex = 112;
+            // 
+            // ultraPanel136
+            // 
+            this.ultraPanel136.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel136.Location = new System.Drawing.Point(433, 0);
+            this.ultraPanel136.Name = "ultraPanel136";
+            this.ultraPanel136.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel136.TabIndex = 5;
+            // 
+            // ultraButton75
+            // 
+            this.ultraButton75.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton75.Location = new System.Drawing.Point(449, 0);
+            this.ultraButton75.Name = "ultraButton75";
+            this.ultraButton75.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton75.TabIndex = 0;
+            this.ultraButton75.Text = "Borrar";
+            // 
+            // ultraPanel137
+            // 
+            this.ultraPanel137.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel137.Location = new System.Drawing.Point(526, 0);
+            this.ultraPanel137.Name = "ultraPanel137";
+            this.ultraPanel137.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel137.TabIndex = 15;
+            // 
+            // ultraButton76
+            // 
+            this.ultraButton76.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton76.Location = new System.Drawing.Point(542, 0);
+            this.ultraButton76.Name = "ultraButton76";
+            this.ultraButton76.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton76.TabIndex = 14;
+            this.ultraButton76.Text = "Modificar";
+            // 
+            // ultraPanel138
+            // 
+            this.ultraPanel138.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel138.Location = new System.Drawing.Point(619, 0);
+            this.ultraPanel138.Name = "ultraPanel138";
+            this.ultraPanel138.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel138.TabIndex = 13;
+            // 
+            // ultraButton77
+            // 
+            this.ultraButton77.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton77.Location = new System.Drawing.Point(635, 0);
+            this.ultraButton77.Name = "ultraButton77";
+            this.ultraButton77.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton77.TabIndex = 12;
+            this.ultraButton77.Text = "Nuevo";
+            // 
+            // ultraPanel139
+            // 
+            this.ultraPanel139.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel139.Location = new System.Drawing.Point(712, 0);
+            this.ultraPanel139.Name = "ultraPanel139";
+            this.ultraPanel139.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel139.TabIndex = 6;
+            // 
+            // ultraGroupBox16
+            // 
+            this.ultraGroupBox16.Controls.Add(this.tabControl25);
+            this.ultraGroupBox16.Controls.Add(this.ultraPanel140);
+            this.ultraGroupBox16.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraGroupBox16.Location = new System.Drawing.Point(3, 249);
+            this.ultraGroupBox16.Name = "ultraGroupBox16";
+            this.ultraGroupBox16.Size = new System.Drawing.Size(728, 150);
+            this.ultraGroupBox16.TabIndex = 111;
+            this.ultraGroupBox16.Text = "Detalle del registro";
+            // 
+            // tabControl25
+            // 
+            this.tabControl25.Controls.Add(this.tabPage36);
+            this.tabControl25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl25.Location = new System.Drawing.Point(3, 16);
+            this.tabControl25.Name = "tabControl25";
+            this.tabControl25.SelectedIndex = 0;
+            this.tabControl25.Size = new System.Drawing.Size(722, 106);
+            this.tabControl25.TabIndex = 88;
+            // 
+            // tabPage36
+            // 
+            this.tabPage36.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage36.Controls.Add(this.groupBox12);
+            this.tabPage36.Controls.Add(this.ultraComboEditor25);
+            this.tabPage36.Controls.Add(this.ultraLabel49);
+            this.tabPage36.Controls.Add(this.ultraComboEditor26);
+            this.tabPage36.Controls.Add(this.ultraLabel50);
+            this.tabPage36.Location = new System.Drawing.Point(4, 22);
+            this.tabPage36.Name = "tabPage36";
+            this.tabPage36.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage36.Size = new System.Drawing.Size(714, 80);
+            this.tabPage36.TabIndex = 0;
+            this.tabPage36.Text = "Principal";
+            // 
+            // ultraComboEditor25
+            // 
+            this.ultraComboEditor25.Location = new System.Drawing.Point(89, 45);
+            this.ultraComboEditor25.Name = "ultraComboEditor25";
+            this.ultraComboEditor25.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor25.TabIndex = 96;
+            // 
+            // ultraLabel49
+            // 
+            this.ultraLabel49.AutoSize = true;
+            this.ultraLabel49.Location = new System.Drawing.Point(14, 49);
+            this.ultraLabel49.Name = "ultraLabel49";
+            this.ultraLabel49.Size = new System.Drawing.Size(29, 14);
+            this.ultraLabel49.TabIndex = 94;
+            this.ultraLabel49.Text = "Tipo:";
+            // 
+            // ultraComboEditor26
+            // 
+            this.ultraComboEditor26.Location = new System.Drawing.Point(89, 18);
+            this.ultraComboEditor26.Name = "ultraComboEditor26";
+            this.ultraComboEditor26.Size = new System.Drawing.Size(226, 21);
+            this.ultraComboEditor26.TabIndex = 96;
+            // 
+            // ultraLabel50
+            // 
+            this.ultraLabel50.AutoSize = true;
+            this.ultraLabel50.Location = new System.Drawing.Point(14, 22);
+            this.ultraLabel50.Name = "ultraLabel50";
+            this.ultraLabel50.Size = new System.Drawing.Size(39, 14);
+            this.ultraLabel50.TabIndex = 94;
+            this.ultraLabel50.Text = "Marca:";
+            // 
+            // ultraPanel140
+            // 
+            // 
+            // ultraPanel140.ClientArea
+            // 
+            this.ultraPanel140.ClientArea.Controls.Add(this.ultraPanel141);
+            this.ultraPanel140.ClientArea.Controls.Add(this.ultraButton78);
+            this.ultraPanel140.ClientArea.Controls.Add(this.ultraPanel142);
+            this.ultraPanel140.ClientArea.Controls.Add(this.ultraButton79);
+            this.ultraPanel140.ClientArea.Controls.Add(this.ultraPanel143);
+            this.ultraPanel140.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel140.Location = new System.Drawing.Point(3, 122);
+            this.ultraPanel140.Name = "ultraPanel140";
+            this.ultraPanel140.Size = new System.Drawing.Size(722, 25);
+            this.ultraPanel140.TabIndex = 86;
+            // 
+            // ultraPanel141
+            // 
+            this.ultraPanel141.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel141.Location = new System.Drawing.Point(520, 0);
+            this.ultraPanel141.Name = "ultraPanel141";
+            this.ultraPanel141.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel141.TabIndex = 11;
+            // 
+            // ultraButton78
+            // 
+            this.ultraButton78.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton78.Location = new System.Drawing.Point(536, 0);
+            this.ultraButton78.Name = "ultraButton78";
+            this.ultraButton78.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton78.TabIndex = 10;
+            this.ultraButton78.Text = "Guardar";
+            // 
+            // ultraPanel142
+            // 
+            this.ultraPanel142.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel142.Location = new System.Drawing.Point(613, 0);
+            this.ultraPanel142.Name = "ultraPanel142";
+            this.ultraPanel142.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel142.TabIndex = 13;
+            // 
+            // ultraButton79
+            // 
+            this.ultraButton79.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraButton79.Location = new System.Drawing.Point(629, 0);
+            this.ultraButton79.Name = "ultraButton79";
+            this.ultraButton79.Size = new System.Drawing.Size(77, 25);
+            this.ultraButton79.TabIndex = 12;
+            this.ultraButton79.Text = "Cancelar";
+            // 
+            // ultraPanel143
+            // 
+            this.ultraPanel143.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ultraPanel143.Location = new System.Drawing.Point(706, 0);
+            this.ultraPanel143.Name = "ultraPanel143";
+            this.ultraPanel143.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel143.TabIndex = 14;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.ultraTextEditor34);
+            this.groupBox12.Location = new System.Drawing.Point(337, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(351, 75);
+            this.groupBox12.TabIndex = 97;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Descripción:";
+            // 
+            // ultraTextEditor34
+            // 
+            this.ultraTextEditor34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor34.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor34.Multiline = true;
+            this.ultraTextEditor34.Name = "ultraTextEditor34";
+            this.ultraTextEditor34.Size = new System.Drawing.Size(345, 56);
+            this.ultraTextEditor34.TabIndex = 0;
             // 
             // CustomerForm
             // 
@@ -5843,6 +6924,13 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor4)).EndInit();
+            this.tabPage14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid3)).EndInit();
+            this.upDetManufactuerButtons.ClientArea.ResumeLayout(false);
+            this.upDetManufactuerButtons.ResumeLayout(false);
+            this.upDetSeparator123.ResumeLayout(false);
+            this.upDetSeparator143.ResumeLayout(false);
+            this.upDetSeparator432.ResumeLayout(false);
             this.ultraPanel5.ClientArea.ResumeLayout(false);
             this.ultraPanel5.ResumeLayout(false);
             this.ultraPanel6.ResumeLayout(false);
@@ -5851,14 +6939,6 @@
             this.tabDetNetwork.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
-            this.tabDetEnergy.ResumeLayout(false);
-            this.tabDetPeripherals.ResumeLayout(false);
-            this.tabDetSoftware.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid4)).EndInit();
             this.ultraPanel14.ClientArea.ResumeLayout(false);
             this.ultraPanel14.ResumeLayout(false);
@@ -5870,34 +6950,28 @@
             this.ultraGroupBox4.ResumeLayout(false);
             this.tabControl7.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
-            this.tabPage13.ResumeLayout(false);
-            this.ultraPanel19.ClientArea.ResumeLayout(false);
-            this.ultraPanel19.ResumeLayout(false);
-            this.ultraPanel20.ResumeLayout(false);
-            this.ultraPanel21.ResumeLayout(false);
-            this.ultraPanel22.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor14)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor12)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor13)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor14)).EndInit();
+            this.tabPage13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid5)).EndInit();
             this.ultraPanel23.ClientArea.ResumeLayout(false);
             this.ultraPanel23.ResumeLayout(false);
             this.ultraPanel24.ResumeLayout(false);
             this.ultraPanel25.ResumeLayout(false);
             this.ultraPanel26.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid5)).EndInit();
-            this.tabPage14.ResumeLayout(false);
-            this.upDetManufactuerButtons.ClientArea.ResumeLayout(false);
-            this.upDetManufactuerButtons.ResumeLayout(false);
-            this.upDetSeparator123.ResumeLayout(false);
-            this.upDetSeparator143.ResumeLayout(false);
-            this.upDetSeparator432.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid3)).EndInit();
+            this.ultraPanel19.ClientArea.ResumeLayout(false);
+            this.ultraPanel19.ResumeLayout(false);
+            this.ultraPanel20.ResumeLayout(false);
+            this.ultraPanel21.ResumeLayout(false);
+            this.ultraPanel22.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid6)).EndInit();
             this.ultraPanel27.ClientArea.ResumeLayout(false);
             this.ultraPanel27.ResumeLayout(false);
@@ -5910,14 +6984,15 @@
             this.tabControl8.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor6)).EndInit();
             this.ultraPanel36.ClientArea.ResumeLayout(false);
             this.ultraPanel36.ResumeLayout(false);
             this.ultraPanel37.ResumeLayout(false);
             this.ultraPanel38.ResumeLayout(false);
             this.ultraPanel39.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor6)).EndInit();
+            this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid7)).EndInit();
             this.ultraPanel32.ClientArea.ResumeLayout(false);
             this.ultraPanel32.ResumeLayout(false);
@@ -5932,13 +7007,14 @@
             this.tabPage16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor7)).EndInit();
             this.ultraPanel41.ClientArea.ResumeLayout(false);
             this.ultraPanel41.ResumeLayout(false);
             this.ultraPanel42.ResumeLayout(false);
             this.ultraPanel43.ResumeLayout(false);
             this.ultraPanel44.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor8)).EndInit();
+            this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid8)).EndInit();
             this.ultraPanel45.ClientArea.ResumeLayout(false);
             this.ultraPanel45.ResumeLayout(false);
@@ -5958,6 +7034,7 @@
             this.ultraPanel51.ResumeLayout(false);
             this.ultraPanel52.ResumeLayout(false);
             this.ultraPanel53.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid9)).EndInit();
             this.ultraPanel54.ClientArea.ResumeLayout(false);
             this.ultraPanel54.ResumeLayout(false);
@@ -5970,6 +7047,9 @@
             this.tabControl11.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
             this.tabPage18.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor11)).EndInit();
             this.ultraPanel59.ClientArea.ResumeLayout(false);
@@ -5977,9 +7057,7 @@
             this.ultraPanel60.ResumeLayout(false);
             this.ultraPanel61.ResumeLayout(false);
             this.ultraPanel62.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor21)).EndInit();
+            this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid10)).EndInit();
             this.ultraPanel63.ClientArea.ResumeLayout(false);
             this.ultraPanel63.ResumeLayout(false);
@@ -6002,6 +7080,7 @@
             this.ultraPanel69.ResumeLayout(false);
             this.ultraPanel70.ResumeLayout(false);
             this.ultraPanel71.ResumeLayout(false);
+            this.tabDetEnergy.ResumeLayout(false);
             this.tabControl13.ResumeLayout(false);
             this.tabPage20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid11)).EndInit();
@@ -6016,14 +7095,15 @@
             this.tabControl14.ResumeLayout(false);
             this.tabPage21.ResumeLayout(false);
             this.tabPage21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor12)).EndInit();
             this.ultraPanel77.ClientArea.ResumeLayout(false);
             this.ultraPanel77.ResumeLayout(false);
             this.ultraPanel78.ResumeLayout(false);
             this.ultraPanel79.ResumeLayout(false);
             this.ultraPanel80.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor24)).EndInit();
+            this.tabDetPeripherals.ResumeLayout(false);
             this.tabControl15.ResumeLayout(false);
             this.tabPage22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid12)).EndInit();
@@ -6046,7 +7126,37 @@
             this.ultraPanel87.ResumeLayout(false);
             this.ultraPanel88.ResumeLayout(false);
             this.ultraPanel89.ResumeLayout(false);
+            this.tabDetSoftware.ResumeLayout(false);
             this.tabControl17.ResumeLayout(false);
+            this.tabPage26.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid14)).EndInit();
+            this.ultraPanel99.ClientArea.ResumeLayout(false);
+            this.ultraPanel99.ResumeLayout(false);
+            this.ultraPanel100.ResumeLayout(false);
+            this.ultraPanel101.ResumeLayout(false);
+            this.ultraPanel102.ResumeLayout(false);
+            this.ultraPanel103.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox12)).EndInit();
+            this.ultraGroupBox12.ResumeLayout(false);
+            this.tabControl19.ResumeLayout(false);
+            this.tabPage28.ResumeLayout(false);
+            this.tabPage28.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor19)).EndInit();
+            this.tabPage30.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor31)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor30)).EndInit();
+            this.ultraPanel104.ClientArea.ResumeLayout(false);
+            this.ultraPanel104.ResumeLayout(false);
+            this.ultraPanel105.ResumeLayout(false);
+            this.ultraPanel106.ResumeLayout(false);
+            this.ultraPanel107.ResumeLayout(false);
             this.tabPage24.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid13)).EndInit();
             this.ultraPanel90.ClientArea.ResumeLayout(false);
@@ -6060,6 +7170,7 @@
             this.tabControl18.ResumeLayout(false);
             this.tabPage25.ResumeLayout(false);
             this.tabPage25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor17)).EndInit();
@@ -6068,28 +7179,7 @@
             this.ultraPanel96.ResumeLayout(false);
             this.ultraPanel97.ResumeLayout(false);
             this.ultraPanel98.ResumeLayout(false);
-            this.tabPage26.ResumeLayout(false);
             this.tabPage27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid14)).EndInit();
-            this.ultraPanel99.ClientArea.ResumeLayout(false);
-            this.ultraPanel99.ResumeLayout(false);
-            this.ultraPanel100.ResumeLayout(false);
-            this.ultraPanel101.ResumeLayout(false);
-            this.ultraPanel102.ResumeLayout(false);
-            this.ultraPanel103.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox12)).EndInit();
-            this.ultraGroupBox12.ResumeLayout(false);
-            this.tabControl19.ResumeLayout(false);
-            this.tabPage28.ResumeLayout(false);
-            this.tabPage28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor19)).EndInit();
-            this.ultraPanel104.ClientArea.ResumeLayout(false);
-            this.ultraPanel104.ResumeLayout(false);
-            this.ultraPanel105.ResumeLayout(false);
-            this.ultraPanel106.ResumeLayout(false);
-            this.ultraPanel107.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid15)).EndInit();
             this.ultraPanel108.ClientArea.ResumeLayout(false);
             this.ultraPanel108.ResumeLayout(false);
@@ -6102,6 +7192,8 @@
             this.tabControl20.ResumeLayout(false);
             this.tabPage29.ResumeLayout(false);
             this.tabPage29.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor21)).EndInit();
@@ -6110,14 +7202,74 @@
             this.ultraPanel114.ResumeLayout(false);
             this.ultraPanel115.ResumeLayout(false);
             this.ultraPanel116.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor29)).EndInit();
-            this.tabPage30.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor30)).EndInit();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor31)).EndInit();
+            this.tabDetSuppliers.ResumeLayout(false);
+            this.tabControl21.ResumeLayout(false);
+            this.tabPage31.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid16)).EndInit();
+            this.ultraPanel117.ClientArea.ResumeLayout(false);
+            this.ultraPanel117.ResumeLayout(false);
+            this.ultraPanel118.ResumeLayout(false);
+            this.ultraPanel119.ResumeLayout(false);
+            this.ultraPanel120.ResumeLayout(false);
+            this.ultraPanel121.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox14)).EndInit();
+            this.ultraGroupBox14.ResumeLayout(false);
+            this.tabControl22.ResumeLayout(false);
+            this.tabPage32.ResumeLayout(false);
+            this.tabPage32.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor23)).EndInit();
+            this.ultraPanel122.ClientArea.ResumeLayout(false);
+            this.ultraPanel122.ResumeLayout(false);
+            this.ultraPanel123.ResumeLayout(false);
+            this.ultraPanel124.ResumeLayout(false);
+            this.ultraPanel125.ResumeLayout(false);
+            this.tabPage33.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid17)).EndInit();
+            this.ultraPanel126.ClientArea.ResumeLayout(false);
+            this.ultraPanel126.ResumeLayout(false);
+            this.ultraPanel127.ResumeLayout(false);
+            this.ultraPanel128.ResumeLayout(false);
+            this.ultraPanel129.ResumeLayout(false);
+            this.ultraPanel130.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox15)).EndInit();
+            this.ultraGroupBox15.ResumeLayout(false);
+            this.tabControl23.ResumeLayout(false);
+            this.tabPage34.ResumeLayout(false);
+            this.tabPage34.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor22)).EndInit();
+            this.ultraPanel131.ClientArea.ResumeLayout(false);
+            this.ultraPanel131.ResumeLayout(false);
+            this.ultraPanel132.ResumeLayout(false);
+            this.ultraPanel133.ResumeLayout(false);
+            this.ultraPanel134.ResumeLayout(false);
+            this.tabDetVideo.ResumeLayout(false);
+            this.tabControl24.ResumeLayout(false);
+            this.tabPage35.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid18)).EndInit();
+            this.ultraPanel135.ClientArea.ResumeLayout(false);
+            this.ultraPanel135.ResumeLayout(false);
+            this.ultraPanel136.ResumeLayout(false);
+            this.ultraPanel137.ResumeLayout(false);
+            this.ultraPanel138.ResumeLayout(false);
+            this.ultraPanel139.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox16)).EndInit();
+            this.ultraGroupBox16.ResumeLayout(false);
+            this.tabControl25.ResumeLayout(false);
+            this.tabPage36.ResumeLayout(false);
+            this.tabPage36.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor26)).EndInit();
+            this.ultraPanel140.ClientArea.ResumeLayout(false);
+            this.ultraPanel140.ResumeLayout(false);
+            this.ultraPanel141.ResumeLayout(false);
+            this.ultraPanel142.ResumeLayout(false);
+            this.ultraPanel143.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6484,8 +7636,6 @@
         private System.Windows.Forms.TabPage tabPage25;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor26;
         private Infragistics.Win.Misc.UltraLabel ultraLabel34;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor16;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel35;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor17;
         private Infragistics.Win.Misc.UltraLabel ultraLabel36;
         private Infragistics.Win.Misc.UltraPanel ultraPanel95;
@@ -6507,10 +7657,6 @@
         private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox13;
         private System.Windows.Forms.TabControl tabControl20;
         private System.Windows.Forms.TabPage tabPage29;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor28;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel40;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor20;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel41;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor21;
         private Infragistics.Win.Misc.UltraLabel ultraLabel42;
         private Infragistics.Win.Misc.UltraPanel ultraPanel113;
@@ -6526,5 +7672,87 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor31;
         internal System.Windows.Forms.GroupBox groupBox9;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor30;
+        private Infragistics.Win.UltraWinEditors.UltraCheckEditor ultraCheckEditor1;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor16;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel35;
+        internal System.Windows.Forms.GroupBox groupBox11;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor28;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor20;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel41;
+        private System.Windows.Forms.TabControl tabControl21;
+        private System.Windows.Forms.TabPage tabPage31;
+        private Controls.SamsaraUltraGrid samsaraUltraGrid16;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel117;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel118;
+        internal Infragistics.Win.Misc.UltraButton ultraButton65;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel119;
+        internal Infragistics.Win.Misc.UltraButton ultraButton66;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel120;
+        internal Infragistics.Win.Misc.UltraButton ultraButton67;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel121;
+        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox14;
+        private System.Windows.Forms.TabControl tabControl22;
+        private System.Windows.Forms.TabPage tabPage32;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor32;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel44;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor23;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel45;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel122;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel123;
+        internal Infragistics.Win.Misc.UltraButton ultraButton68;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel124;
+        internal Infragistics.Win.Misc.UltraButton ultraButton69;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel125;
+        private System.Windows.Forms.TabPage tabPage33;
+        private Controls.SamsaraUltraGrid samsaraUltraGrid17;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel126;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel127;
+        internal Infragistics.Win.Misc.UltraButton ultraButton70;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel128;
+        internal Infragistics.Win.Misc.UltraButton ultraButton71;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel129;
+        internal Infragistics.Win.Misc.UltraButton ultraButton72;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel130;
+        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox15;
+        private System.Windows.Forms.TabControl tabControl23;
+        private System.Windows.Forms.TabPage tabPage34;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor33;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel40;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor22;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel46;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel131;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel132;
+        internal Infragistics.Win.Misc.UltraButton ultraButton73;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel133;
+        internal Infragistics.Win.Misc.UltraButton ultraButton74;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel134;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor24;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel47;
+        private System.Windows.Forms.TabControl tabControl24;
+        private System.Windows.Forms.TabPage tabPage35;
+        private Controls.SamsaraUltraGrid samsaraUltraGrid18;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel135;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel136;
+        internal Infragistics.Win.Misc.UltraButton ultraButton75;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel137;
+        internal Infragistics.Win.Misc.UltraButton ultraButton76;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel138;
+        internal Infragistics.Win.Misc.UltraButton ultraButton77;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel139;
+        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox16;
+        private System.Windows.Forms.TabControl tabControl25;
+        private System.Windows.Forms.TabPage tabPage36;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor25;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel49;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor26;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel50;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel140;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel141;
+        internal Infragistics.Win.Misc.UltraButton ultraButton78;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel142;
+        internal Infragistics.Win.Misc.UltraButton ultraButton79;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel143;
+        internal System.Windows.Forms.GroupBox groupBox12;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor34;
     }
 }
