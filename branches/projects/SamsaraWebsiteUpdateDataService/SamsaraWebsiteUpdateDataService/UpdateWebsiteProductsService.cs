@@ -99,7 +99,7 @@ namespace SamsaraWebsiteUpdateDataService
 
             foreach (KeyValuePair<string, int> element in currentCategoriesStock)
             {
-                if (oldCategories.ContainsKey(element.Key) && element.Value != oldCategories[element.Key])
+                if (element.Value != oldCategories[element.Key])
                 {
                     string updateQuery = string.Format("UPDATE categorias SET categoria = {0} WHERE codigo = '{1}'",
                         element.Value, element.Key);
@@ -230,7 +230,7 @@ namespace SamsaraWebsiteUpdateDataService
 
             foreach (KeyValuePair<string, int> element in currentProductsStock)
             {
-                if (oldProductsStock.ContainsKey(element.Key) && element.Value != oldProductsStock[element.Key])
+                if (element.Value != oldProductsStock[element.Key])
                 {
                     string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE producto = '{1}'",
                         element.Value, element.Key);
