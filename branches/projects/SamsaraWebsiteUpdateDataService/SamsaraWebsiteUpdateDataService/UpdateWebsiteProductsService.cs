@@ -13,6 +13,8 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Net;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace SamsaraWebsiteUpdateDataService
 {
@@ -291,8 +293,8 @@ namespace SamsaraWebsiteUpdateDataService
                 foreach (DataRow row in ds.Tables["Articulos"].AsEnumerable())
                 {
                     string insertQuery = string.Format("INSERT INTO productos (nombre, foto, stock, codigo) "
-                        + "VALUES ({0}, {1}, {2}, {3})", row["nombre_articulo"], 
-                        row["nombre_articulo"].ToString().Trim() + ".jpg", row["stock"], row["clave_articulo"]);
+                        + "VALUES ({0}, {1}, {2}, {3})", row["nombre_articulo"],
+                        row["clave_articulo"] + ".jpg", row["stock"], row["clave_articulo"]);
 
                     this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
                     this.mySqlCommand.ExecuteNonQuery();
@@ -355,6 +357,45 @@ namespace SamsaraWebsiteUpdateDataService
 
             IEnumerable<int> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => Convert.ToInt32(x["clave_articulo"]));
+
+            foreach (int productCode in erpProductCodes)
+            {
+                string fileName = productCode + ".jpg";
+
+                if (!this.ExistsFile(fileName))
+                {
+                    this.sqlServerCommand = new SqlCommand
+                        ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE clave_integer = ",
+                        this.sqlServerConnection);
+
+                    byte[] imagedata = (byte[])this.sqlServerCommand.ExecuteScalar();
+
+                    this.sqlServerCommand = new SqlCommand
+                        ("SELECT extension FROM Imagenes.dbo.Fotos WHERE clave_integer = ",
+                        this.sqlServerConnection);
+
+                    string fileType = (string)this.sqlServerCommand.ExecuteScalar();
+
+                    Image image = Image.FromStream(new MemoryStream(imagedata));
+
+                    MemoryStream converterStream = new MemoryStream();
+                    image.Save(converterStream, ImageFormat.Bmp);
+                    image = Image.FromStream(converterStream);
+
+                    if (image.Size.Width > 500)
+                    {
+                        decimal percentage = 500M / Convert.ToDecimal(image.Size.Width);
+
+                        image = ImagesHelper.Resize(image, percentage);
+                    }
+
+                    converterStream = new MemoryStream();
+                    image.Save(converterStream, ImageFormat.Jpeg);
+                    image = Image.FromStream(converterStream);
+
+                    this.Upload(imagedata, fileName);
+                }
+            }
         }
     }
 }
