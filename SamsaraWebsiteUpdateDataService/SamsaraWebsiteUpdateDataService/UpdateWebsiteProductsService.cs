@@ -23,6 +23,10 @@ namespace SamsaraWebsiteUpdateDataService
         private static int oneMinute = 60000;
         private static long criticalInterval = 10 * oneMinute;
 
+        private static int numProdutcsInsert = 50;
+        private static int numCategoriesInsert = 50;
+        private static int numProdutcsCategoriesInsert = 200;
+
         private static string ftpUser = "productos@samsaracomputacion.com.mx";
         private static string ftpPassword = "Pr0DuCT05";
         private static string ftpServerIP = "samsaracomputacion.com.mx";
@@ -73,11 +77,46 @@ namespace SamsaraWebsiteUpdateDataService
             this.sqlServerConnection.Open();
             this.mySqlConnection.Open();
 
-            this.InsertNewProducts();
-            this.UpdateStock();
-            this.InsertNewCategories();
-            this.UpdateCategories();
-            this.UpdateImages();
+            try
+            {
+                this.InsertNewProducts();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message);
+            }
+            try
+            {
+                this.UpdateStock();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateStock : " + ex.Message);
+            }
+            try
+            {
+                this.InsertNewCategories();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - InsertNewCategories : " + ex.Message);
+            }
+            try
+            {
+                this.UpdateCategories();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateCategories : " + ex.Message);
+            }
+            try
+            {
+                this.UpdateImages();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateImages : " + ex.Message);
+            }
             
             this.mySqlConnection.Close();
             this.sqlServerConnection.Close();
@@ -140,25 +179,34 @@ namespace SamsaraWebsiteUpdateDataService
             ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            var productsCategories = ds.Tables["Articulos"].AsEnumerable()
-                .Select(x => new
-                {
-                    product = Convert.ToInt32(x["clave_articulo"]),
-                    category = Convert.ToInt32(x["familia"])
-                });
+            Dictionary<int, int> productsCategories = ds.Tables["Articulos"].AsEnumerable()
+                .ToDictionary(x => Convert.ToInt32(x["clave_articulo"]), x => Convert.ToInt32(x["familia"]));
 
             this.mySqlCommand = new MySqlCommand("DELETE FROM productos_categorias", this.mySqlConnection);
             this.mySqlCommand.ExecuteNonQuery();
 
-            foreach (var productCategory in productsCategories)
+            do
             {
-                string insertQuery = string.Format("INSERT INTO productos_categorias (id_producto, id_categoria) "
-                    + "VALUES ({0}, {1})", externalProductsIds[productCategory.product],
-                    externalCategoriesIds[productCategory.category]);
+                string insertQuery = string.Empty;
+                Dictionary<int, int> currentRows = productsCategories.Take(numProdutcsCategoriesInsert)
+                    .ToDictionary(x => x.Key, x => x.Value);
+
+                if (currentRows.Count == 0)
+                    break;
+
+                foreach (var productCategory in currentRows)
+                {
+                    insertQuery += string.Format("INSERT INTO productos_categorias (id_producto, id_categoria) "
+                        + "VALUES ({0}, {1}); \n", externalProductsIds[productCategory.Key],
+                        externalCategoriesIds[productCategory.Value]);
+                }
 
                 this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
-            }
+
+                productsCategories = productsCategories.Except(currentRows)
+                    .ToDictionary(x => x.Key, x => x.Value);
+            } while (true);
         }
 
         private void InsertNewCategories()
@@ -185,7 +233,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             do
             {
-                IList<int> currentCodes = categoriesToInsert.Take(10).ToList();
+                string insertQuery = string.Empty;
+                IList<int> currentCodes = categoriesToInsert.Take(numCategoriesInsert).ToList();
 
                 if (currentCodes.Count == 0)
                     break;
@@ -201,13 +250,13 @@ namespace SamsaraWebsiteUpdateDataService
 
                 foreach (DataRow row in ds.Tables["Familias"].AsEnumerable())
                 {
-                    string insertQuery = string.Format("INSERT INTO categorias (descripcion, activo, codigo, categoria) "
-                        + "VALUES ('{0}', 1, '{1}', '')", row["nombre_familia"].ToString().Trim().Replace("'", "''"),
+                    insertQuery += string.Format("INSERT INTO categorias (descripcion, activo, codigo, categoria) "
+                        + "VALUES ('{0}', 1, '{1}', '');\n", row["nombre_familia"].ToString().Trim().Replace("'", "''"),
                         row["familia"]);
-
-                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
                 }
+
+                this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
 
                 categoriesToInsert = categoriesToInsert.Except(currentCodes).ToList();
             } while (true);
@@ -272,7 +321,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             do
             {
-                IList<int> currentCodes = productsToInsert.Take(10).ToList();
+                string insertQuery = string.Empty;
+                IList<int> currentCodes = productsToInsert.Take(numProdutcsInsert).ToList();
 
                 if (currentCodes.Count == 0)
                     break;
@@ -291,15 +341,15 @@ namespace SamsaraWebsiteUpdateDataService
 
                 foreach (DataRow row in ds.Tables["Articulos"].AsEnumerable())
                 {
-                    string insertQuery = string.Format("INSERT INTO productos ("
+                    insertQuery += string.Format("INSERT INTO productos ("
                         + "descripcion, foto, stock, codigo, nombre, descripcion_larga) "
-                        + "VALUES ('{0}', '{1}', {2}, {3}, '', '')",
+                        + "VALUES ('{0}', '{1}', {2}, {3}, '', '');\n",
                         row["nombre_articulo"].ToString().Trim().Replace("'", "''"),
                         row["clave_articulo"] + ".jpg", row["stock"], row["clave_articulo"]);
-
-                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
                 }
+
+                this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
 
                 productsToInsert = productsToInsert.Except(currentCodes).ToList();
             } while (true);
@@ -322,30 +372,6 @@ namespace SamsaraWebsiteUpdateDataService
             strm.Close();
         }
 
-        private bool ExistsFile(string fileName)
-        {
-            string uri = "ftp://" + ftpServerIP + "/" + fileName;
-            FtpWebRequest reqFTP = (FtpWebRequest)WebRequest.Create(uri);
-            reqFTP.Credentials = new NetworkCredential(ftpUser, ftpPassword);
-            reqFTP.Method = WebRequestMethods.Ftp.GetFileSize;
-
-            try
-            {
-                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
-            }
-            catch (WebException ex)
-            {
-                FtpWebResponse response = (FtpWebResponse)ex.Response;
-                if (response.StatusCode ==
-                    FtpStatusCode.ActionNotTakenFileUnavailable)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         private void UpdateImages()
         {
             sqlServerDataAdapter = new SqlDataAdapter(
@@ -363,31 +389,33 @@ namespace SamsaraWebsiteUpdateDataService
             {
                 string fileName = productCode + ".jpg";
 
-                if (!this.ExistsFile(fileName))
+                this.sqlServerCommand = new SqlCommand
+                    ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE clave_integer = "
+                    + productCode, this.sqlServerConnection);
+
+                byte[] imagedata = (byte[])this.sqlServerCommand.ExecuteScalar();
+
+                Image image = Image.FromStream(new MemoryStream(imagedata));
+
+                MemoryStream converterStream = new MemoryStream();
+                image.Save(converterStream, ImageFormat.Bmp);
+                image = Image.FromStream(converterStream);
+
+                if (image.Size.Width > 500)
                 {
-                    this.sqlServerCommand = new SqlCommand
-                        ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE clave_integer = "
-                        + productCode, this.sqlServerConnection);
+                    decimal percentage = 500M / Convert.ToDecimal(image.Size.Width);
+                    image = ImagesHelper.Resize(image, percentage);
+                }
 
-                    byte[] imagedata = (byte[])this.sqlServerCommand.ExecuteScalar();
+                converterStream = new MemoryStream();
+                image.Save(converterStream, ImageFormat.Jpeg);
 
-                    Image image = Image.FromStream(new MemoryStream(imagedata));
+                byte[] file = converterStream.ToArray();
 
-                    MemoryStream converterStream = new MemoryStream();
-                    image.Save(converterStream, ImageFormat.Bmp);
-                    image = Image.FromStream(converterStream);
-
-                    if (image.Size.Width > 500)
-                    {
-                        decimal percentage = 500M / Convert.ToDecimal(image.Size.Width);
-                        image = ImagesHelper.Resize(image, percentage);
-                    }
-
-                    converterStream = new MemoryStream();
-                    image.Save(converterStream, ImageFormat.Jpeg);
-                    image = Image.FromStream(converterStream);
-
-                    this.Upload(imagedata, fileName);
+                if (!FTPHelper.ExistsFile(ftpServerIP, ftpUser, ftpPassword, fileName) || 
+                    FTPHelper.FileSize(ftpServerIP, ftpUser, ftpPassword, fileName) != file.Length)
+                {
+                    this.Upload(file, fileName);
                 }
             }
         }
