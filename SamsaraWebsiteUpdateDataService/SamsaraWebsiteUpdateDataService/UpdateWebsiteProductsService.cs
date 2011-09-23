@@ -1,20 +1,16 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using System.Timers;
-using System.Threading;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
-using System.IO;
-using System.Net;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.ServiceProcess;
+using System.Threading;
+using MySql.Data.MySqlClient;
 
 namespace SamsaraWebsiteUpdateDataService
 {
