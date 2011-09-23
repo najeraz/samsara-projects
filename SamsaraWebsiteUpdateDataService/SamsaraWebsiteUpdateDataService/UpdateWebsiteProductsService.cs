@@ -11,6 +11,8 @@ using System.Timers;
 using System.Threading;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Net;
 
 namespace SamsaraWebsiteUpdateDataService
 {
@@ -19,6 +21,10 @@ namespace SamsaraWebsiteUpdateDataService
         private static int oneMinute = 60000;
         private static long criticalInterval = 10 * oneMinute;
 
+        private static string ftpUser = "productos@samsaracomputacion.com.mx";
+        private static string ftpPassword = "Pr0DuCT05";
+        private static string ftpServerIP = "samsaracomputacion.com.mx";
+        
         private static string sqlServerConnectionString 
             = "Data Source=192.168.10.4;Initial Catalog=ERP_CIE;User Id=javier;Password=javier;";
         private static string mySqlConnectionString 
@@ -71,6 +77,7 @@ namespace SamsaraWebsiteUpdateDataService
             this.UpdateStock();
             this.InsertNewCategories();
             this.UpdateCategories();
+            this.UpdateImages();
             
             this.mySqlConnection.Close();
             this.sqlServerConnection.Close();
@@ -124,11 +131,11 @@ namespace SamsaraWebsiteUpdateDataService
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "productos");
 
-            Dictionary<string, int> externalProductsIds = ds.Tables["productos"].AsEnumerable()
-                .ToDictionary(x => x["codigo"].ToString(), x => Convert.ToInt32(x["id_producto"]));
+            Dictionary<int, int> externalProductsIds = ds.Tables["productos"].AsEnumerable()
+                .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => Convert.ToInt32(x["id_producto"]));
 
             sqlServerCommand = new SqlCommand(
-                    "SELECT a.articulo, a.familia FROM Articulos a", this.sqlServerConnection);
+                    "SELECT a.clave_articulo, a.familia FROM Articulos a", this.sqlServerConnection);
 
             ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
@@ -136,7 +143,7 @@ namespace SamsaraWebsiteUpdateDataService
             var productsCategories = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => new
                 {
-                    product = x["articulo"].ToString(),
+                    product = Convert.ToInt32(x["clave_articulo"]),
                     category = x["familia"].ToString()
                 });
 
@@ -163,7 +170,7 @@ namespace SamsaraWebsiteUpdateDataService
             sqlServerDataAdapter.Fill(ds, "Familias");
 
             IEnumerable<string> erpCategoriesCodes = ds.Tables["Familias"].AsEnumerable()
-                .Select(x => x["articulo"].ToString());
+                .Select(x => x["familia"].ToString());
 
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo FROM categorias c;", 
                 this.mySqlConnection);
@@ -209,7 +216,7 @@ namespace SamsaraWebsiteUpdateDataService
         private void UpdateStock()
         {
             sqlServerCommand = new SqlCommand(
-                    "SELECT a.articulo, ea.stock FROM Articulos a "
+                    "SELECT a.clave_articulo, ea.stock FROM Articulos a "
                     + "INNER JOIN ( SELECT sum(disponible) stock, articulo "
                     + "FROM existencias_articulos ea GROUP BY ea.articulo "
                     + ") ea ON ea.articulo = a.articulo", this.sqlServerConnection);
@@ -217,22 +224,22 @@ namespace SamsaraWebsiteUpdateDataService
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            Dictionary<string, int> currentProductsStock = ds.Tables["Articulos"].AsEnumerable()
-                .ToDictionary(x => x["articulo"].ToString(), x => Convert.ToInt32(x["stock"]));
+            Dictionary<int, int> currentProductsStock = ds.Tables["Articulos"].AsEnumerable()
+                .ToDictionary(x => Convert.ToInt32(x["clave_articulo"]), x => Convert.ToInt32(x["stock"]));
 
-            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT producto, stock FROM productos", this.mySqlConnection);
+            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT codigo, stock FROM productos", this.mySqlConnection);
 
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "productos");
 
-            Dictionary<string, int> oldProductsStock = ds.Tables["productos"].AsEnumerable()
-                .ToDictionary(x => x["producto"].ToString(), x => Convert.ToInt32(x["stock"]));
+            Dictionary<int, int> oldProductsStock = ds.Tables["productos"].AsEnumerable()
+                .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => Convert.ToInt32(x["stock"]));
 
-            foreach (KeyValuePair<string, int> element in currentProductsStock)
+            foreach (KeyValuePair<int, int> element in currentProductsStock)
             {
                 if (element.Value != oldProductsStock[element.Key])
                 {
-                    string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE producto = '{1}'",
+                    string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}'",
                         element.Value, element.Key);
 
                     this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
@@ -243,40 +250,40 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void InsertNewProducts()
         {
-            sqlServerDataAdapter = new SqlDataAdapter("SELECT articulo FROM Articulos",
+            sqlServerDataAdapter = new SqlDataAdapter("SELECT clave_articulo FROM Articulos",
                 this.sqlServerConnection);
 
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            IEnumerable<string> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
-                .Select(x => x["articulo"].ToString());
+            IEnumerable<int> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["clave_articulo"]));
             
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT codigo FROM productos", this.mySqlConnection);
 
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "productos");
 
-            IEnumerable<string> websiteProductCodes = ds.Tables["productos"].AsEnumerable()
-                .Select(x => x["codigo"].ToString());
+            IEnumerable<int> websiteProductCodes = ds.Tables["productos"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["codigo"]));
 
-            IEnumerable<string> productsToInsert = erpProductCodes.Except(websiteProductCodes);
+            IEnumerable<int> productsToInsert = erpProductCodes.Except(websiteProductCodes);
 
             do
             {
-                IEnumerable<string> currentCodes = productsToInsert.Take(10);
+                IEnumerable<int> currentCodes = productsToInsert.Take(10);
 
                 if (currentCodes.Count() == 0)
                     break;
 
-                string allCodes = string.Join("','", currentCodes.ToArray());
+                string allCodes = string.Join(",", currentCodes.ToArray());
 
                 sqlServerCommand = new SqlCommand(
-                    "SELECT a.articulo, a.nombre_articulo, ea.stock FROM Articulos a " 
+                    "SELECT a.clave_articulo, a.nombre_articulo, ea.stock FROM Articulos a " 
                     + "INNER JOIN ( SELECT sum(disponible) stock, articulo "
                     + "FROM existencias_articulos ea GROUP BY ea.articulo "
-                    + ") ea ON ea.articulo = a.articulo WHERE a.articulo in ('"
-                    + allCodes + "')", this.sqlServerConnection);
+                    + ") ea ON ea.articulo = a.articulo WHERE a.clave_articulo in ("
+                    + allCodes + ")", this.sqlServerConnection);
 
                 ds = new DataSet();
                 sqlServerDataAdapter.Fill(ds, "Articulos");
@@ -285,7 +292,7 @@ namespace SamsaraWebsiteUpdateDataService
                 {
                     string insertQuery = string.Format("INSERT INTO productos (nombre, foto, stock, codigo) "
                         + "VALUES ({0}, {1}, {2}, {3})", row["nombre_articulo"], 
-                        row["nombre_articulo"].ToString().Trim() + ".jpg", row["stock"], row["articulo"]);
+                        row["nombre_articulo"].ToString().Trim() + ".jpg", row["stock"], row["clave_articulo"]);
 
                     this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
                     this.mySqlCommand.ExecuteNonQuery();
@@ -296,5 +303,58 @@ namespace SamsaraWebsiteUpdateDataService
 
         }
 
+        private void Upload(byte[] file, string fileName)
+        {
+            string uri = "ftp://" + ftpServerIP + "/" + fileName;
+
+            FtpWebRequest reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
+            reqFTP.Credentials = new NetworkCredential(ftpUser, ftpPassword);
+            reqFTP.KeepAlive = false;
+            reqFTP.Method = WebRequestMethods.Ftp.UploadFile;
+            reqFTP.UseBinary = true;
+            reqFTP.ContentLength = file.Length;
+
+            Stream strm = reqFTP.GetRequestStream();
+            strm.Write(file, 0, file.Length);
+            strm.Close();
+        }
+
+        private bool ExistsFile(string fileName)
+        {
+            string uri = "ftp://" + ftpServerIP + "/" + fileName;
+            FtpWebRequest reqFTP = (FtpWebRequest)WebRequest.Create(uri);
+            reqFTP.Credentials = new NetworkCredential(ftpUser, ftpPassword);
+            reqFTP.Method = WebRequestMethods.Ftp.GetFileSize;
+
+            try
+            {
+                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                FtpWebResponse response = (FtpWebResponse)ex.Response;
+                if (response.StatusCode ==
+                    FtpStatusCode.ActionNotTakenFileUnavailable)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void UpdateImages()
+        {
+            sqlServerDataAdapter = new SqlDataAdapter(
+                "SELECT clave_integer clave_articulo FROM Imagenes.dbo.Fotos"
+                + "WHERE tabla = 'Articulos' and clave_integer != 0",
+                this.sqlServerConnection);
+
+            DataSet ds = new DataSet();
+            sqlServerDataAdapter.Fill(ds, "Articulos");
+
+            IEnumerable<int> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["clave_articulo"]));
+        }
     }
 }
