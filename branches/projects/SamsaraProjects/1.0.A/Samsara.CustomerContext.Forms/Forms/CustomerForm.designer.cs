@@ -719,6 +719,8 @@
             this.ultraGroupBox16 = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabControl25 = new System.Windows.Forms.TabControl();
             this.tabPage36 = new System.Windows.Forms.TabPage();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.ultraTextEditor34 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraComboEditor25 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel49 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraComboEditor26 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
@@ -729,8 +731,6 @@
             this.ultraPanel142 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton79 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel143 = new Infragistics.Win.Misc.UltraPanel();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.ultraTextEditor34 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -1114,6 +1114,8 @@
             this.ultraGroupBox16.SuspendLayout();
             this.tabControl25.SuspendLayout();
             this.tabPage36.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor26)).BeginInit();
             this.ultraPanel140.ClientArea.SuspendLayout();
@@ -1121,8 +1123,6 @@
             this.ultraPanel141.SuspendLayout();
             this.ultraPanel142.SuspendLayout();
             this.ultraPanel143.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -6728,6 +6728,25 @@
             this.tabPage36.TabIndex = 0;
             this.tabPage36.Text = "Principal";
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.ultraTextEditor34);
+            this.groupBox12.Location = new System.Drawing.Point(337, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(351, 75);
+            this.groupBox12.TabIndex = 97;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Descripción:";
+            // 
+            // ultraTextEditor34
+            // 
+            this.ultraTextEditor34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTextEditor34.Location = new System.Drawing.Point(3, 16);
+            this.ultraTextEditor34.Multiline = true;
+            this.ultraTextEditor34.Name = "ultraTextEditor34";
+            this.ultraTextEditor34.Size = new System.Drawing.Size(345, 56);
+            this.ultraTextEditor34.TabIndex = 0;
+            // 
             // ultraComboEditor25
             // 
             this.ultraComboEditor25.Location = new System.Drawing.Point(89, 45);
@@ -6817,25 +6836,6 @@
             this.ultraPanel143.Name = "ultraPanel143";
             this.ultraPanel143.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel143.TabIndex = 14;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.ultraTextEditor34);
-            this.groupBox12.Location = new System.Drawing.Point(337, 3);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(351, 75);
-            this.groupBox12.TabIndex = 97;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Descripción:";
-            // 
-            // ultraTextEditor34
-            // 
-            this.ultraTextEditor34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor34.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor34.Multiline = true;
-            this.ultraTextEditor34.Name = "ultraTextEditor34";
-            this.ultraTextEditor34.Size = new System.Drawing.Size(345, 56);
-            this.ultraTextEditor34.TabIndex = 0;
             // 
             // CustomerForm
             // 
@@ -7260,6 +7260,9 @@
             this.tabControl25.ResumeLayout(false);
             this.tabPage36.ResumeLayout(false);
             this.tabPage36.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor26)).EndInit();
             this.ultraPanel140.ClientArea.ResumeLayout(false);
@@ -7267,9 +7270,6 @@
             this.ultraPanel141.ResumeLayout(false);
             this.ultraPanel142.ResumeLayout(false);
             this.ultraPanel143.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -7278,7 +7278,6 @@
 
         private System.Windows.Forms.Label lblDetName;
         private System.Windows.Forms.Label lblSchName;
-        public System.Windows.Forms.TextBox txtDetName;
         private System.Windows.Forms.Label lblDetFullName;
         internal System.Windows.Forms.TextBox txtSchName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetDescription;
@@ -7341,7 +7340,6 @@
         internal System.Windows.Forms.GroupBox groupBox2;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor9;
         private Controls.SamsaraUltraGrid samsaraUltraGrid1;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid2;
         private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
         private System.Windows.Forms.TabControl tabControl4;
         private System.Windows.Forms.TabPage tabDetPCPrincipal;
@@ -7383,7 +7381,6 @@
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
         private System.Windows.Forms.TabPage tabPage11;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid4;
         private Infragistics.Win.Misc.UltraPanel ultraPanel14;
         private Infragistics.Win.Misc.UltraPanel ultraPanel15;
         internal Infragistics.Win.Misc.UltraButton ultraButton8;
@@ -7409,7 +7406,6 @@
         internal System.Windows.Forms.GroupBox groupBox4;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor14;
         private System.Windows.Forms.TabPage tabPage14;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid3;
         private Infragistics.Win.Misc.UltraPanel upDetManufactuerButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator123;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteManufacturer;
@@ -7422,8 +7418,6 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel25;
         internal Infragistics.Win.Misc.UltraButton ultraButton14;
         private Infragistics.Win.Misc.UltraPanel ultraPanel26;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid5;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid6;
         private Infragistics.Win.Misc.UltraPanel ultraPanel27;
         private Infragistics.Win.Misc.UltraPanel ultraPanel28;
         internal Infragistics.Win.Misc.UltraButton ultraButton15;
@@ -7447,7 +7441,6 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel15;
         private Infragistics.Win.Misc.UltraLabel ultraLabel17;
         private Infragistics.Win.Misc.UltraLabel ultraLabel18;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid7;
         private Infragistics.Win.Misc.UltraPanel ultraPanel32;
         private Infragistics.Win.Misc.UltraPanel ultraPanel33;
         internal Infragistics.Win.Misc.UltraButton ultraButton18;
@@ -7473,7 +7466,6 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel43;
         internal Infragistics.Win.Misc.UltraButton ultraButton24;
         private Infragistics.Win.Misc.UltraPanel ultraPanel44;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid8;
         private Infragistics.Win.Misc.UltraPanel ultraPanel45;
         private Infragistics.Win.Misc.UltraPanel ultraPanel46;
         internal Infragistics.Win.Misc.UltraButton ultraButton25;
@@ -7495,7 +7487,6 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel52;
         internal Infragistics.Win.Misc.UltraButton ultraButton29;
         private Infragistics.Win.Misc.UltraPanel ultraPanel53;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid9;
         private Infragistics.Win.Misc.UltraPanel ultraPanel54;
         private Infragistics.Win.Misc.UltraPanel ultraPanel55;
         internal Infragistics.Win.Misc.UltraButton ultraButton30;
@@ -7519,7 +7510,6 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel62;
         internal System.Windows.Forms.GroupBox groupBox7;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor21;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid10;
         private Infragistics.Win.Misc.UltraPanel ultraPanel63;
         private Infragistics.Win.Misc.UltraPanel ultraPanel64;
         internal Infragistics.Win.Misc.UltraButton ultraButton35;
@@ -7672,7 +7662,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor31;
         internal System.Windows.Forms.GroupBox groupBox9;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor30;
-        private Infragistics.Win.UltraWinEditors.UltraCheckEditor ultraCheckEditor1;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor16;
         private Infragistics.Win.Misc.UltraLabel ultraLabel35;
         internal System.Windows.Forms.GroupBox groupBox11;
@@ -7754,5 +7743,16 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel143;
         internal System.Windows.Forms.GroupBox groupBox12;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor34;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor ultraCheckEditor1;
+        internal System.Windows.Forms.TextBox txtDetName;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid2;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid4;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid3;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid5;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid6;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid7;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid8;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid9;
+        internal Controls.SamsaraUltraGrid samsaraUltraGrid10;
     }
 }
