@@ -306,21 +306,21 @@
             this.grdDetServerComputers = new Samsara.Controls.SamsaraUltraGrid();
             this.upnlDetServerComputersDetailButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upnlSeparatorDeleteServerComputer = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton5 = new Infragistics.Win.Misc.UltraButton();
+            this.ubtnDetDeleteServerComputer = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorEditServerComputer = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton6 = new Infragistics.Win.Misc.UltraButton();
+            this.ubtnDetEditServerComputer = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCreateServerComputer = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton7 = new Infragistics.Win.Misc.UltraButton();
+            this.ubtnDetCreateServerComputer = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorServerComputerDetailButtons = new Infragistics.Win.Misc.UltraPanel();
             this.gbxDetServerComputerDetail = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabDetServerComputerDetail = new System.Windows.Forms.TabControl();
             this.tabDetServerComputerPrincipal = new System.Windows.Forms.TabPage();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor10 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor5 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraComboEditor5 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.txtDetServerComputerManufacturerNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetServerComputerModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetServerComputerSerial = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetServerComputerBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel14 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraComboEditor3 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.txtDetServerComputerType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel13 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel6 = new Infragistics.Win.Misc.UltraLabel();
@@ -716,8 +716,8 @@
             this.ultraPanel138 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton77 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel139 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraGroupBox16 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.tabControl25 = new System.Windows.Forms.TabControl();
+            this.gbxDetVideoCCTVsDetail = new Infragistics.Win.Misc.UltraGroupBox();
+            this.tabDetVideoCCTVsDetail = new System.Windows.Forms.TabControl();
             this.tabPage36 = new System.Windows.Forms.TabPage();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.ultraTextEditor34 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -782,11 +782,11 @@
             this.gbxDetServerComputerDetail.SuspendLayout();
             this.tabDetServerComputerDetail.SuspendLayout();
             this.tabDetServerComputerPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerManufacturerNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerModel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerSerial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerBrand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerType)).BeginInit();
             this.tabDetServerComputerSpecs.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor6)).BeginInit();
@@ -1110,9 +1110,9 @@
             this.ultraPanel137.SuspendLayout();
             this.ultraPanel138.SuspendLayout();
             this.ultraPanel139.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox16)).BeginInit();
-            this.ultraGroupBox16.SuspendLayout();
-            this.tabControl25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbxDetVideoCCTVsDetail)).BeginInit();
+            this.gbxDetVideoCCTVsDetail.SuspendLayout();
+            this.tabDetVideoCCTVsDetail.SuspendLayout();
             this.tabPage36.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor34)).BeginInit();
@@ -1841,11 +1841,11 @@
             // upnlDetServerComputersDetailButtons.ClientArea
             // 
             this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorDeleteServerComputer);
-            this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.ultraButton5);
+            this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetDeleteServerComputer);
             this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorEditServerComputer);
-            this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.ultraButton6);
+            this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetEditServerComputer);
             this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateServerComputer);
-            this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.ultraButton7);
+            this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetCreateServerComputer);
             this.upnlDetServerComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorServerComputerDetailButtons);
             this.upnlDetServerComputersDetailButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.upnlDetServerComputersDetailButtons.Location = new System.Drawing.Point(3, 122);
@@ -1861,14 +1861,14 @@
             this.upnlSeparatorDeleteServerComputer.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorDeleteServerComputer.TabIndex = 5;
             // 
-            // ultraButton5
+            // ubtnDetDeleteServerComputer
             // 
-            this.ultraButton5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton5.Location = new System.Drawing.Point(443, 0);
-            this.ultraButton5.Name = "ultraButton5";
-            this.ultraButton5.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton5.TabIndex = 0;
-            this.ultraButton5.Text = "Borrar";
+            this.ubtnDetDeleteServerComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeleteServerComputer.Location = new System.Drawing.Point(443, 0);
+            this.ubtnDetDeleteServerComputer.Name = "ubtnDetDeleteServerComputer";
+            this.ubtnDetDeleteServerComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDeleteServerComputer.TabIndex = 0;
+            this.ubtnDetDeleteServerComputer.Text = "Borrar";
             // 
             // upnlSeparatorEditServerComputer
             // 
@@ -1878,14 +1878,14 @@
             this.upnlSeparatorEditServerComputer.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorEditServerComputer.TabIndex = 15;
             // 
-            // ultraButton6
+            // ubtnDetEditServerComputer
             // 
-            this.ultraButton6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton6.Location = new System.Drawing.Point(536, 0);
-            this.ultraButton6.Name = "ultraButton6";
-            this.ultraButton6.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton6.TabIndex = 14;
-            this.ultraButton6.Text = "Modificar";
+            this.ubtnDetEditServerComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetEditServerComputer.Location = new System.Drawing.Point(536, 0);
+            this.ubtnDetEditServerComputer.Name = "ubtnDetEditServerComputer";
+            this.ubtnDetEditServerComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetEditServerComputer.TabIndex = 14;
+            this.ubtnDetEditServerComputer.Text = "Modificar";
             // 
             // upnlSeparatorCreateServerComputer
             // 
@@ -1895,14 +1895,14 @@
             this.upnlSeparatorCreateServerComputer.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorCreateServerComputer.TabIndex = 13;
             // 
-            // ultraButton7
+            // ubtnDetCreateServerComputer
             // 
-            this.ultraButton7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton7.Location = new System.Drawing.Point(629, 0);
-            this.ultraButton7.Name = "ultraButton7";
-            this.ultraButton7.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton7.TabIndex = 12;
-            this.ultraButton7.Text = "Nuevo";
+            this.ubtnDetCreateServerComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreateServerComputer.Location = new System.Drawing.Point(629, 0);
+            this.ubtnDetCreateServerComputer.Name = "ubtnDetCreateServerComputer";
+            this.ubtnDetCreateServerComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCreateServerComputer.TabIndex = 12;
+            this.ubtnDetCreateServerComputer.Text = "Nuevo";
             // 
             // upnlSeparatorServerComputerDetailButtons
             // 
@@ -1940,12 +1940,12 @@
             // tabDetServerComputerPrincipal
             // 
             this.tabDetServerComputerPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetServerComputerPrincipal.Controls.Add(this.ultraTextEditor1);
-            this.tabDetServerComputerPrincipal.Controls.Add(this.ultraTextEditor10);
-            this.tabDetServerComputerPrincipal.Controls.Add(this.ultraTextEditor5);
-            this.tabDetServerComputerPrincipal.Controls.Add(this.ultraComboEditor5);
+            this.tabDetServerComputerPrincipal.Controls.Add(this.txtDetServerComputerManufacturerNumber);
+            this.tabDetServerComputerPrincipal.Controls.Add(this.txtDetServerComputerModel);
+            this.tabDetServerComputerPrincipal.Controls.Add(this.txtDetServerComputerSerial);
+            this.tabDetServerComputerPrincipal.Controls.Add(this.txtDetServerComputerBrand);
             this.tabDetServerComputerPrincipal.Controls.Add(this.ultraLabel14);
-            this.tabDetServerComputerPrincipal.Controls.Add(this.ultraComboEditor3);
+            this.tabDetServerComputerPrincipal.Controls.Add(this.txtDetServerComputerType);
             this.tabDetServerComputerPrincipal.Controls.Add(this.ultraLabel3);
             this.tabDetServerComputerPrincipal.Controls.Add(this.ultraLabel13);
             this.tabDetServerComputerPrincipal.Controls.Add(this.ultraLabel6);
@@ -1957,33 +1957,33 @@
             this.tabDetServerComputerPrincipal.TabIndex = 0;
             this.tabDetServerComputerPrincipal.Text = "Principal";
             // 
-            // ultraTextEditor1
+            // txtDetServerComputerManufacturerNumber
             // 
-            this.ultraTextEditor1.Location = new System.Drawing.Point(116, 33);
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor1.TabIndex = 90;
+            this.txtDetServerComputerManufacturerNumber.Location = new System.Drawing.Point(116, 33);
+            this.txtDetServerComputerManufacturerNumber.Name = "txtDetServerComputerManufacturerNumber";
+            this.txtDetServerComputerManufacturerNumber.Size = new System.Drawing.Size(226, 21);
+            this.txtDetServerComputerManufacturerNumber.TabIndex = 90;
             // 
-            // ultraTextEditor10
+            // txtDetServerComputerModel
             // 
-            this.ultraTextEditor10.Location = new System.Drawing.Point(116, 60);
-            this.ultraTextEditor10.Name = "ultraTextEditor10";
-            this.ultraTextEditor10.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor10.TabIndex = 90;
+            this.txtDetServerComputerModel.Location = new System.Drawing.Point(116, 60);
+            this.txtDetServerComputerModel.Name = "txtDetServerComputerModel";
+            this.txtDetServerComputerModel.Size = new System.Drawing.Size(226, 21);
+            this.txtDetServerComputerModel.TabIndex = 90;
             // 
-            // ultraTextEditor5
+            // txtDetServerComputerSerial
             // 
-            this.ultraTextEditor5.Location = new System.Drawing.Point(116, 6);
-            this.ultraTextEditor5.Name = "ultraTextEditor5";
-            this.ultraTextEditor5.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor5.TabIndex = 90;
+            this.txtDetServerComputerSerial.Location = new System.Drawing.Point(116, 6);
+            this.txtDetServerComputerSerial.Name = "txtDetServerComputerSerial";
+            this.txtDetServerComputerSerial.Size = new System.Drawing.Size(226, 21);
+            this.txtDetServerComputerSerial.TabIndex = 90;
             // 
-            // ultraComboEditor5
+            // txtDetServerComputerBrand
             // 
-            this.ultraComboEditor5.Location = new System.Drawing.Point(470, 33);
-            this.ultraComboEditor5.Name = "ultraComboEditor5";
-            this.ultraComboEditor5.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor5.TabIndex = 88;
+            this.txtDetServerComputerBrand.Location = new System.Drawing.Point(470, 33);
+            this.txtDetServerComputerBrand.Name = "txtDetServerComputerBrand";
+            this.txtDetServerComputerBrand.Size = new System.Drawing.Size(226, 21);
+            this.txtDetServerComputerBrand.TabIndex = 88;
             // 
             // ultraLabel14
             // 
@@ -1994,12 +1994,12 @@
             this.ultraLabel14.TabIndex = 87;
             this.ultraLabel14.Text = "Modelo:";
             // 
-            // ultraComboEditor3
+            // txtDetServerComputerType
             // 
-            this.ultraComboEditor3.Location = new System.Drawing.Point(470, 6);
-            this.ultraComboEditor3.Name = "ultraComboEditor3";
-            this.ultraComboEditor3.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor3.TabIndex = 88;
+            this.txtDetServerComputerType.Location = new System.Drawing.Point(470, 6);
+            this.txtDetServerComputerType.Name = "txtDetServerComputerType";
+            this.txtDetServerComputerType.Size = new System.Drawing.Size(226, 21);
+            this.txtDetServerComputerType.TabIndex = 88;
             // 
             // ultraLabel3
             // 
@@ -6545,7 +6545,7 @@
             this.tabPage35.BackColor = System.Drawing.Color.Transparent;
             this.tabPage35.Controls.Add(this.grdDetCCTVs);
             this.tabPage35.Controls.Add(this.ultraPanel135);
-            this.tabPage35.Controls.Add(this.ultraGroupBox16);
+            this.tabPage35.Controls.Add(this.gbxDetVideoCCTVsDetail);
             this.tabPage35.Location = new System.Drawing.Point(4, 22);
             this.tabPage35.Name = "tabPage35";
             this.tabPage35.Padding = new System.Windows.Forms.Padding(3);
@@ -6692,26 +6692,26 @@
             this.ultraPanel139.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel139.TabIndex = 6;
             // 
-            // ultraGroupBox16
+            // gbxDetVideoCCTVsDetail
             // 
-            this.ultraGroupBox16.Controls.Add(this.tabControl25);
-            this.ultraGroupBox16.Controls.Add(this.ultraPanel140);
-            this.ultraGroupBox16.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraGroupBox16.Location = new System.Drawing.Point(3, 249);
-            this.ultraGroupBox16.Name = "ultraGroupBox16";
-            this.ultraGroupBox16.Size = new System.Drawing.Size(728, 150);
-            this.ultraGroupBox16.TabIndex = 111;
-            this.ultraGroupBox16.Text = "Detalle del registro";
+            this.gbxDetVideoCCTVsDetail.Controls.Add(this.tabDetVideoCCTVsDetail);
+            this.gbxDetVideoCCTVsDetail.Controls.Add(this.ultraPanel140);
+            this.gbxDetVideoCCTVsDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbxDetVideoCCTVsDetail.Location = new System.Drawing.Point(3, 249);
+            this.gbxDetVideoCCTVsDetail.Name = "gbxDetVideoCCTVsDetail";
+            this.gbxDetVideoCCTVsDetail.Size = new System.Drawing.Size(728, 150);
+            this.gbxDetVideoCCTVsDetail.TabIndex = 111;
+            this.gbxDetVideoCCTVsDetail.Text = "Detalle del registro";
             // 
-            // tabControl25
+            // tabDetVideoCCTVsDetail
             // 
-            this.tabControl25.Controls.Add(this.tabPage36);
-            this.tabControl25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl25.Location = new System.Drawing.Point(3, 16);
-            this.tabControl25.Name = "tabControl25";
-            this.tabControl25.SelectedIndex = 0;
-            this.tabControl25.Size = new System.Drawing.Size(722, 106);
-            this.tabControl25.TabIndex = 88;
+            this.tabDetVideoCCTVsDetail.Controls.Add(this.tabPage36);
+            this.tabDetVideoCCTVsDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDetVideoCCTVsDetail.Location = new System.Drawing.Point(3, 16);
+            this.tabDetVideoCCTVsDetail.Name = "tabDetVideoCCTVsDetail";
+            this.tabDetVideoCCTVsDetail.SelectedIndex = 0;
+            this.tabDetVideoCCTVsDetail.Size = new System.Drawing.Size(722, 106);
+            this.tabDetVideoCCTVsDetail.TabIndex = 88;
             // 
             // tabPage36
             // 
@@ -6902,11 +6902,11 @@
             this.tabDetServerComputerDetail.ResumeLayout(false);
             this.tabDetServerComputerPrincipal.ResumeLayout(false);
             this.tabDetServerComputerPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerManufacturerNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerModel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerSerial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerBrand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerType)).EndInit();
             this.tabDetServerComputerSpecs.ResumeLayout(false);
             this.tabDetServerComputerSpecs.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -7255,9 +7255,9 @@
             this.ultraPanel137.ResumeLayout(false);
             this.ultraPanel138.ResumeLayout(false);
             this.ultraPanel139.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox16)).EndInit();
-            this.ultraGroupBox16.ResumeLayout(false);
-            this.tabControl25.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gbxDetVideoCCTVsDetail)).EndInit();
+            this.gbxDetVideoCCTVsDetail.ResumeLayout(false);
+            this.tabDetVideoCCTVsDetail.ResumeLayout(false);
             this.tabPage36.ResumeLayout(false);
             this.tabPage36.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -7308,9 +7308,9 @@
         private Infragistics.Win.Misc.UltraGroupBox gbxDetServerComputerDetail;
         private System.Windows.Forms.TabControl tabDetServerComputerDetail;
         private System.Windows.Forms.TabPage tabDetServerComputerPrincipal;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor5;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor3;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerComputerManufacturerNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerComputerSerial;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor txtDetServerComputerType;
         private Infragistics.Win.Misc.UltraLabel ultraLabel3;
         private Infragistics.Win.Misc.UltraLabel ultraLabel6;
         private Infragistics.Win.Misc.UltraLabel ultraLabel9;
@@ -7330,9 +7330,9 @@
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelServerComputer;
         internal Infragistics.Win.Misc.UltraButton ultraButton4;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorServerComputerButtons;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor5;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor txtDetServerComputerBrand;
         private Infragistics.Win.Misc.UltraLabel ultraLabel13;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor10;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerComputerModel;
         private Infragistics.Win.Misc.UltraLabel ultraLabel14;
         private System.Windows.Forms.TabPage tabDetServerComputerDescription;
         internal System.Windows.Forms.GroupBox groupBox3;
@@ -7367,11 +7367,11 @@
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorPersonalComputersButtons;
         private Infragistics.Win.Misc.UltraPanel upnlDetServerComputersDetailButtons;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorDeleteServerComputer;
-        internal Infragistics.Win.Misc.UltraButton ultraButton5;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteServerComputer;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditServerComputer;
-        internal Infragistics.Win.Misc.UltraButton ultraButton6;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetEditServerComputer;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorCreateServerComputer;
-        internal Infragistics.Win.Misc.UltraButton ultraButton7;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetCreateServerComputer;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorServerComputerDetailButtons;
         private System.Windows.Forms.TabControl tabDetInfraestructureNetwork;
         private System.Windows.Forms.TabPage tabPage5;
@@ -7728,8 +7728,8 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel138;
         internal Infragistics.Win.Misc.UltraButton ultraButton77;
         private Infragistics.Win.Misc.UltraPanel ultraPanel139;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox16;
-        private System.Windows.Forms.TabControl tabControl25;
+        private Infragistics.Win.Misc.UltraGroupBox gbxDetVideoCCTVsDetail;
+        private System.Windows.Forms.TabControl tabDetVideoCCTVsDetail;
         private System.Windows.Forms.TabPage tabPage36;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor25;
         private Infragistics.Win.Misc.UltraLabel ultraLabel49;
