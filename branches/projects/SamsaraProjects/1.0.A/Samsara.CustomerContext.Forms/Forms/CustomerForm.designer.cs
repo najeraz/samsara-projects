@@ -266,44 +266,44 @@
             this.tabDetInfraestructure = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabDetComputers = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabDetComputers1 = new System.Windows.Forms.TabControl();
             this.tabDetPersonalComputers = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid1 = new Samsara.Controls.SamsaraUltraGrid();
-            this.upnlDetPreresultButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.upnlSeparatorDeletePreresult = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeletePreresult = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel4 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton2 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel3 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton1 = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorPreresults = new Infragistics.Win.Misc.UltraPanel();
+            this.grdDetPersonalComputers = new Samsara.Controls.SamsaraUltraGrid();
+            this.upnlDetComputersDetailButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upnlSeparatorDeletePersonalComputer = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetDeletePersonalComputer = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorEditPersonalComputer = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetEditPersonalComputer = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorCreatePersonalComputer = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCreatePersonalComputer = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorPersonalComputersDetailButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabDetPCPrincipal = new System.Windows.Forms.TabPage();
-            this.ultraTextEditor2 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtDetFileName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.uceDetBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
-            this.tabDetPCSpecs = new System.Windows.Forms.TabPage();
-            this.gbxDetFileDescription = new System.Windows.Forms.GroupBox();
-            this.txtDetFileDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor4 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor3 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraLabel8 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel5 = new Infragistics.Win.Misc.UltraLabel();
-            this.tabDetPCSoftware = new System.Windows.Forms.TabPage();
-            this.ultraComboEditor2 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.ultraLabel7 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
+            this.tabDetPersonalDetail = new System.Windows.Forms.TabControl();
+            this.tabDetPersonalComputerPrincipal = new System.Windows.Forms.TabPage();
+            this.txtDetManufacturerReferenceNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetPersonalComputerSerialNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uceDetPersonalComputerType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblDetPersonalComputerSerie = new Infragistics.Win.Misc.UltraLabel();
+            this.lblDetManufacturerReferenceNumber = new Infragistics.Win.Misc.UltraLabel();
+            this.lblDetPersonalComputerType = new Infragistics.Win.Misc.UltraLabel();
+            this.tabDetPersonalComputerSpecs = new System.Windows.Forms.TabPage();
+            this.gbxDetPersonalComputerStorage = new System.Windows.Forms.GroupBox();
+            this.txtDetPersonalComputerStorage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetPersonalComputerRAM = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetPersonalComputerCPU = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.lblDetPersonalComputerCPU = new Infragistics.Win.Misc.UltraLabel();
+            this.lblDetPersonalComputerRAM = new Infragistics.Win.Misc.UltraLabel();
+            this.tabDetPersonalComputerSoftware = new System.Windows.Forms.TabPage();
+            this.uceDetPersonalComputerOS = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblDetPersonalComputerOS = new Infragistics.Win.Misc.UltraLabel();
+            this.upnlDetComputersButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upnlSeparatorSavePreresult = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetSavePreresult = new Infragistics.Win.Misc.UltraButton();
+            this.ubtnDetSavePersonalComputer = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCancelPreresult = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetCancelPreresult = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel2 = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDetCancelPersonalComputer = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorPersonalComputersButtons = new Infragistics.Win.Misc.UltraPanel();
             this.tabDetServerComputers = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid2 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetServerComputers = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel9 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel10 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton5 = new Infragistics.Win.Misc.UltraButton();
@@ -357,7 +357,7 @@
             this.tabDetNetwork = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid4 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetSites = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel14 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel15 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton8 = new Infragistics.Win.Misc.UltraButton();
@@ -390,7 +390,7 @@
             this.ultraButton12 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel22 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid6 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetSwitches = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel27 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel28 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton15 = new Infragistics.Win.Misc.UltraButton();
@@ -415,7 +415,7 @@
             this.ultraButton21 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel39 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid7 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetCommutators = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel32 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel33 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton18 = new Infragistics.Win.Misc.UltraButton();
@@ -442,7 +442,7 @@
             this.ultraButton24 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel44 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid8 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetCabling = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel45 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel46 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton25 = new Infragistics.Win.Misc.UltraButton();
@@ -465,7 +465,7 @@
             this.ultraButton29 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel53 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid9 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetRouters = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel54 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel55 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton30 = new Infragistics.Win.Misc.UltraButton();
@@ -490,7 +490,7 @@
             this.ultraButton34 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel62 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid10 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetFirewalls = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel63 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel64 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton35 = new Infragistics.Win.Misc.UltraButton();
@@ -518,7 +518,7 @@
             this.tabDetEnergy = new System.Windows.Forms.TabPage();
             this.tabControl13 = new System.Windows.Forms.TabControl();
             this.tabPage20 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid11 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetUPSs = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel72 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel73 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton40 = new Infragistics.Win.Misc.UltraButton();
@@ -545,7 +545,7 @@
             this.tabDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabControl15 = new System.Windows.Forms.TabControl();
             this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid12 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetPrinters = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel81 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel82 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton45 = new Infragistics.Win.Misc.UltraButton();
@@ -572,7 +572,7 @@
             this.tabDetSoftware = new System.Windows.Forms.TabPage();
             this.tabControl17 = new System.Windows.Forms.TabControl();
             this.tabPage26 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid14 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetAdministrationSoftware = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel99 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel100 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton55 = new Infragistics.Win.Misc.UltraButton();
@@ -604,7 +604,7 @@
             this.ultraButton59 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel107 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage24 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid13 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetSecuritySoftware = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel90 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel91 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton50 = new Infragistics.Win.Misc.UltraButton();
@@ -630,7 +630,7 @@
             this.ultraButton54 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel98 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage27 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid15 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetBackupSoftware = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel108 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel109 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton60 = new Infragistics.Win.Misc.UltraButton();
@@ -657,7 +657,7 @@
             this.tabDetSuppliers = new System.Windows.Forms.TabPage();
             this.tabControl21 = new System.Windows.Forms.TabControl();
             this.tabPage31 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid16 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetISPs = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel117 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel118 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton65 = new Infragistics.Win.Misc.UltraButton();
@@ -680,7 +680,7 @@
             this.ultraButton69 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel125 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage33 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid17 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetTelephonies = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel126 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel127 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton70 = new Infragistics.Win.Misc.UltraButton();
@@ -707,7 +707,7 @@
             this.tabDetVideo = new System.Windows.Forms.TabPage();
             this.tabControl24 = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
-            this.samsaraUltraGrid18 = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetCCTVs = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel135 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraPanel136 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton75 = new Infragistics.Win.Misc.UltraButton();
@@ -742,36 +742,36 @@
             this.tabDetInfraestructure.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabDetComputers.SuspendLayout();
-            this.tabControl3.SuspendLayout();
+            this.tabDetComputers1.SuspendLayout();
             this.tabDetPersonalComputers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid1)).BeginInit();
-            this.upnlDetPreresultButtons.ClientArea.SuspendLayout();
-            this.upnlDetPreresultButtons.SuspendLayout();
-            this.upnlSeparatorDeletePreresult.SuspendLayout();
-            this.ultraPanel4.SuspendLayout();
-            this.ultraPanel3.SuspendLayout();
-            this.upnlSeparatorPreresults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPersonalComputers)).BeginInit();
+            this.upnlDetComputersDetailButtons.ClientArea.SuspendLayout();
+            this.upnlDetComputersDetailButtons.SuspendLayout();
+            this.upnlSeparatorDeletePersonalComputer.SuspendLayout();
+            this.upnlSeparatorEditPersonalComputer.SuspendLayout();
+            this.upnlSeparatorCreatePersonalComputer.SuspendLayout();
+            this.upnlSeparatorPersonalComputersDetailButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
             this.ultraGroupBox1.SuspendLayout();
-            this.tabControl4.SuspendLayout();
-            this.tabDetPCPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).BeginInit();
-            this.tabDetPCSpecs.SuspendLayout();
-            this.gbxDetFileDescription.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor3)).BeginInit();
-            this.tabDetPCSoftware.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor2)).BeginInit();
-            this.ultraPanel1.ClientArea.SuspendLayout();
-            this.ultraPanel1.SuspendLayout();
+            this.tabDetPersonalDetail.SuspendLayout();
+            this.tabDetPersonalComputerPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetManufacturerReferenceNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerSerialNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerType)).BeginInit();
+            this.tabDetPersonalComputerSpecs.SuspendLayout();
+            this.gbxDetPersonalComputerStorage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerStorage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerRAM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerCPU)).BeginInit();
+            this.tabDetPersonalComputerSoftware.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerOS)).BeginInit();
+            this.upnlDetComputersButtons.ClientArea.SuspendLayout();
+            this.upnlDetComputersButtons.SuspendLayout();
             this.upnlSeparatorSavePreresult.SuspendLayout();
             this.upnlSeparatorCancelPreresult.SuspendLayout();
-            this.ultraPanel2.SuspendLayout();
+            this.upnlSeparatorPersonalComputersButtons.SuspendLayout();
             this.tabDetServerComputers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetServerComputers)).BeginInit();
             this.ultraPanel9.ClientArea.SuspendLayout();
             this.ultraPanel9.SuspendLayout();
             this.ultraPanel10.SuspendLayout();
@@ -814,7 +814,7 @@
             this.tabDetNetwork.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSites)).BeginInit();
             this.ultraPanel14.ClientArea.SuspendLayout();
             this.ultraPanel14.SuspendLayout();
             this.ultraPanel15.SuspendLayout();
@@ -844,7 +844,7 @@
             this.ultraPanel21.SuspendLayout();
             this.ultraPanel22.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSwitches)).BeginInit();
             this.ultraPanel27.ClientArea.SuspendLayout();
             this.ultraPanel27.SuspendLayout();
             this.ultraPanel28.SuspendLayout();
@@ -864,7 +864,7 @@
             this.ultraPanel38.SuspendLayout();
             this.ultraPanel39.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetCommutators)).BeginInit();
             this.ultraPanel32.ClientArea.SuspendLayout();
             this.ultraPanel32.SuspendLayout();
             this.ultraPanel33.SuspendLayout();
@@ -885,7 +885,7 @@
             this.ultraPanel43.SuspendLayout();
             this.ultraPanel44.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetCabling)).BeginInit();
             this.ultraPanel45.ClientArea.SuspendLayout();
             this.ultraPanel45.SuspendLayout();
             this.ultraPanel46.SuspendLayout();
@@ -904,7 +904,7 @@
             this.ultraPanel52.SuspendLayout();
             this.ultraPanel53.SuspendLayout();
             this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetRouters)).BeginInit();
             this.ultraPanel54.ClientArea.SuspendLayout();
             this.ultraPanel54.SuspendLayout();
             this.ultraPanel55.SuspendLayout();
@@ -925,7 +925,7 @@
             this.ultraPanel61.SuspendLayout();
             this.ultraPanel62.SuspendLayout();
             this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetFirewalls)).BeginInit();
             this.ultraPanel63.ClientArea.SuspendLayout();
             this.ultraPanel63.SuspendLayout();
             this.ultraPanel64.SuspendLayout();
@@ -948,7 +948,7 @@
             this.tabDetEnergy.SuspendLayout();
             this.tabControl13.SuspendLayout();
             this.tabPage20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetUPSs)).BeginInit();
             this.ultraPanel72.ClientArea.SuspendLayout();
             this.ultraPanel72.SuspendLayout();
             this.ultraPanel73.SuspendLayout();
@@ -970,7 +970,7 @@
             this.tabDetPeripherals.SuspendLayout();
             this.tabControl15.SuspendLayout();
             this.tabPage22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPrinters)).BeginInit();
             this.ultraPanel81.ClientArea.SuspendLayout();
             this.ultraPanel81.SuspendLayout();
             this.ultraPanel82.SuspendLayout();
@@ -992,7 +992,7 @@
             this.tabDetSoftware.SuspendLayout();
             this.tabControl17.SuspendLayout();
             this.tabPage26.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetAdministrationSoftware)).BeginInit();
             this.ultraPanel99.ClientArea.SuspendLayout();
             this.ultraPanel99.SuspendLayout();
             this.ultraPanel100.SuspendLayout();
@@ -1018,7 +1018,7 @@
             this.ultraPanel106.SuspendLayout();
             this.ultraPanel107.SuspendLayout();
             this.tabPage24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSecuritySoftware)).BeginInit();
             this.ultraPanel90.ClientArea.SuspendLayout();
             this.ultraPanel90.SuspendLayout();
             this.ultraPanel91.SuspendLayout();
@@ -1039,7 +1039,7 @@
             this.ultraPanel97.SuspendLayout();
             this.ultraPanel98.SuspendLayout();
             this.tabPage27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetBackupSoftware)).BeginInit();
             this.ultraPanel108.ClientArea.SuspendLayout();
             this.ultraPanel108.SuspendLayout();
             this.ultraPanel109.SuspendLayout();
@@ -1062,7 +1062,7 @@
             this.tabDetSuppliers.SuspendLayout();
             this.tabControl21.SuspendLayout();
             this.tabPage31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetISPs)).BeginInit();
             this.ultraPanel117.ClientArea.SuspendLayout();
             this.ultraPanel117.SuspendLayout();
             this.ultraPanel118.SuspendLayout();
@@ -1081,7 +1081,7 @@
             this.ultraPanel124.SuspendLayout();
             this.ultraPanel125.SuspendLayout();
             this.tabPage33.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetTelephonies)).BeginInit();
             this.ultraPanel126.ClientArea.SuspendLayout();
             this.ultraPanel126.SuspendLayout();
             this.ultraPanel127.SuspendLayout();
@@ -1103,7 +1103,7 @@
             this.tabDetVideo.SuspendLayout();
             this.tabControl24.SuspendLayout();
             this.tabPage35.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetCCTVs)).BeginInit();
             this.ultraPanel135.ClientArea.SuspendLayout();
             this.ultraPanel135.SuspendLayout();
             this.ultraPanel136.SuspendLayout();
@@ -1351,7 +1351,7 @@
             // tabDetComputers
             // 
             this.tabDetComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetComputers.Controls.Add(this.tabControl3);
+            this.tabDetComputers.Controls.Add(this.tabDetComputers1);
             this.tabDetComputers.Location = new System.Drawing.Point(4, 22);
             this.tabDetComputers.Name = "tabDetComputers";
             this.tabDetComputers.Padding = new System.Windows.Forms.Padding(3);
@@ -1359,22 +1359,22 @@
             this.tabDetComputers.TabIndex = 0;
             this.tabDetComputers.Text = "Computadoras";
             // 
-            // tabControl3
+            // tabDetComputers1
             // 
-            this.tabControl3.Controls.Add(this.tabDetPersonalComputers);
-            this.tabControl3.Controls.Add(this.tabDetServerComputers);
-            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl3.Location = new System.Drawing.Point(3, 3);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(736, 422);
-            this.tabControl3.TabIndex = 1;
+            this.tabDetComputers1.Controls.Add(this.tabDetPersonalComputers);
+            this.tabDetComputers1.Controls.Add(this.tabDetServerComputers);
+            this.tabDetComputers1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDetComputers1.Location = new System.Drawing.Point(3, 3);
+            this.tabDetComputers1.Name = "tabDetComputers1";
+            this.tabDetComputers1.SelectedIndex = 0;
+            this.tabDetComputers1.Size = new System.Drawing.Size(736, 422);
+            this.tabDetComputers1.TabIndex = 1;
             // 
             // tabDetPersonalComputers
             // 
             this.tabDetPersonalComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPersonalComputers.Controls.Add(this.samsaraUltraGrid1);
-            this.tabDetPersonalComputers.Controls.Add(this.upnlDetPreresultButtons);
+            this.tabDetPersonalComputers.Controls.Add(this.grdDetPersonalComputers);
+            this.tabDetPersonalComputers.Controls.Add(this.upnlDetComputersDetailButtons);
             this.tabDetPersonalComputers.Controls.Add(this.ultraGroupBox1);
             this.tabDetPersonalComputers.Location = new System.Drawing.Point(4, 22);
             this.tabDetPersonalComputers.Name = "tabDetPersonalComputers";
@@ -1383,149 +1383,149 @@
             this.tabDetPersonalComputers.TabIndex = 0;
             this.tabDetPersonalComputers.Text = "Personales";
             // 
-            // samsaraUltraGrid1
+            // grdDetPersonalComputers
             // 
             appearance58.BackColor = System.Drawing.SystemColors.Window;
             appearance58.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid1.DisplayLayout.Appearance = appearance58;
-            this.samsaraUltraGrid1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetPersonalComputers.DisplayLayout.Appearance = appearance58;
+            this.grdDetPersonalComputers.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPersonalComputers.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance59.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance59.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance59.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance59.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.Appearance = appearance59;
+            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.Appearance = appearance59;
             appearance60.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.BandLabelAppearance = appearance60;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance60;
+            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance61.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance61.BackColor2 = System.Drawing.SystemColors.Control;
             appearance61.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance61.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid1.DisplayLayout.GroupByBox.PromptAppearance = appearance61;
-            this.samsaraUltraGrid1.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid1.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.PromptAppearance = appearance61;
+            this.grdDetPersonalComputers.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetPersonalComputers.DisplayLayout.MaxRowScrollRegions = 1;
             appearance62.BackColor = System.Drawing.SystemColors.Window;
             appearance62.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid1.DisplayLayout.Override.ActiveCellAppearance = appearance62;
+            this.grdDetPersonalComputers.DisplayLayout.Override.ActiveCellAppearance = appearance62;
             appearance63.BackColor = System.Drawing.SystemColors.Highlight;
             appearance63.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid1.DisplayLayout.Override.ActiveRowAppearance = appearance63;
-            this.samsaraUltraGrid1.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid1.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetPersonalComputers.DisplayLayout.Override.ActiveRowAppearance = appearance63;
+            this.grdDetPersonalComputers.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetPersonalComputers.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance64.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CardAreaAppearance = appearance64;
+            this.grdDetPersonalComputers.DisplayLayout.Override.CardAreaAppearance = appearance64;
             appearance65.BorderColor = System.Drawing.Color.Silver;
             appearance65.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CellAppearance = appearance65;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid1.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetPersonalComputers.DisplayLayout.Override.CellAppearance = appearance65;
+            this.grdDetPersonalComputers.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetPersonalComputers.DisplayLayout.Override.CellPadding = 0;
             appearance66.BackColor = System.Drawing.SystemColors.Control;
             appearance66.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance66.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance66.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance66.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid1.DisplayLayout.Override.GroupByRowAppearance = appearance66;
+            this.grdDetPersonalComputers.DisplayLayout.Override.GroupByRowAppearance = appearance66;
             appearance67.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid1.DisplayLayout.Override.HeaderAppearance = appearance67;
-            this.samsaraUltraGrid1.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid1.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetPersonalComputers.DisplayLayout.Override.HeaderAppearance = appearance67;
+            this.grdDetPersonalComputers.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetPersonalComputers.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance68.BackColor = System.Drawing.SystemColors.Window;
             appearance68.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid1.DisplayLayout.Override.RowAppearance = appearance68;
-            this.samsaraUltraGrid1.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetPersonalComputers.DisplayLayout.Override.RowAppearance = appearance68;
+            this.grdDetPersonalComputers.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance69.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid1.DisplayLayout.Override.TemplateAddRowAppearance = appearance69;
-            this.samsaraUltraGrid1.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid1.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid1.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid1.Name = "samsaraUltraGrid1";
-            this.samsaraUltraGrid1.Size = new System.Drawing.Size(722, 206);
-            this.samsaraUltraGrid1.TabIndex = 95;
-            this.samsaraUltraGrid1.Text = "samsaraUltraGrid1";
+            this.grdDetPersonalComputers.DisplayLayout.Override.TemplateAddRowAppearance = appearance69;
+            this.grdDetPersonalComputers.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetPersonalComputers.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetPersonalComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetPersonalComputers.Location = new System.Drawing.Point(3, 3);
+            this.grdDetPersonalComputers.Name = "grdDetPersonalComputers";
+            this.grdDetPersonalComputers.Size = new System.Drawing.Size(722, 206);
+            this.grdDetPersonalComputers.TabIndex = 95;
+            this.grdDetPersonalComputers.Text = "samsaraUltraGrid1";
             // 
-            // upnlDetPreresultButtons
+            // upnlDetComputersDetailButtons
             // 
             // 
-            // upnlDetPreresultButtons.ClientArea
+            // upnlDetComputersDetailButtons.ClientArea
             // 
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.upnlSeparatorDeletePreresult);
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.ubtnDetDeletePreresult);
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.ultraPanel4);
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.ultraButton2);
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.ultraPanel3);
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.ultraButton1);
-            this.upnlDetPreresultButtons.ClientArea.Controls.Add(this.upnlSeparatorPreresults);
-            this.upnlDetPreresultButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlDetPreresultButtons.Location = new System.Drawing.Point(3, 209);
-            this.upnlDetPreresultButtons.Name = "upnlDetPreresultButtons";
-            this.upnlDetPreresultButtons.Size = new System.Drawing.Size(722, 25);
-            this.upnlDetPreresultButtons.TabIndex = 85;
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorDeletePersonalComputer);
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetDeletePersonalComputer);
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorEditPersonalComputer);
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetEditPersonalComputer);
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorCreatePersonalComputer);
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetCreatePersonalComputer);
+            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorPersonalComputersDetailButtons);
+            this.upnlDetComputersDetailButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlDetComputersDetailButtons.Location = new System.Drawing.Point(3, 209);
+            this.upnlDetComputersDetailButtons.Name = "upnlDetComputersDetailButtons";
+            this.upnlDetComputersDetailButtons.Size = new System.Drawing.Size(722, 25);
+            this.upnlDetComputersDetailButtons.TabIndex = 85;
             // 
-            // upnlSeparatorDeletePreresult
+            // upnlSeparatorDeletePersonalComputer
             // 
-            this.upnlSeparatorDeletePreresult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorDeletePreresult.Location = new System.Drawing.Point(427, 0);
-            this.upnlSeparatorDeletePreresult.Name = "upnlSeparatorDeletePreresult";
-            this.upnlSeparatorDeletePreresult.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorDeletePreresult.TabIndex = 5;
+            this.upnlSeparatorDeletePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorDeletePersonalComputer.Location = new System.Drawing.Point(427, 0);
+            this.upnlSeparatorDeletePersonalComputer.Name = "upnlSeparatorDeletePersonalComputer";
+            this.upnlSeparatorDeletePersonalComputer.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorDeletePersonalComputer.TabIndex = 5;
             // 
-            // ubtnDetDeletePreresult
+            // ubtnDetDeletePersonalComputer
             // 
-            this.ubtnDetDeletePreresult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeletePreresult.Location = new System.Drawing.Point(443, 0);
-            this.ubtnDetDeletePreresult.Name = "ubtnDetDeletePreresult";
-            this.ubtnDetDeletePreresult.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeletePreresult.TabIndex = 0;
-            this.ubtnDetDeletePreresult.Text = "Borrar";
+            this.ubtnDetDeletePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetDeletePersonalComputer.Location = new System.Drawing.Point(443, 0);
+            this.ubtnDetDeletePersonalComputer.Name = "ubtnDetDeletePersonalComputer";
+            this.ubtnDetDeletePersonalComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetDeletePersonalComputer.TabIndex = 0;
+            this.ubtnDetDeletePersonalComputer.Text = "Borrar";
             // 
-            // ultraPanel4
+            // upnlSeparatorEditPersonalComputer
             // 
-            this.ultraPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel4.Location = new System.Drawing.Point(520, 0);
-            this.ultraPanel4.Name = "ultraPanel4";
-            this.ultraPanel4.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel4.TabIndex = 15;
+            this.upnlSeparatorEditPersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorEditPersonalComputer.Location = new System.Drawing.Point(520, 0);
+            this.upnlSeparatorEditPersonalComputer.Name = "upnlSeparatorEditPersonalComputer";
+            this.upnlSeparatorEditPersonalComputer.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorEditPersonalComputer.TabIndex = 15;
             // 
-            // ultraButton2
+            // ubtnDetEditPersonalComputer
             // 
-            this.ultraButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton2.Location = new System.Drawing.Point(536, 0);
-            this.ultraButton2.Name = "ultraButton2";
-            this.ultraButton2.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton2.TabIndex = 14;
-            this.ultraButton2.Text = "Modificar";
+            this.ubtnDetEditPersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetEditPersonalComputer.Location = new System.Drawing.Point(536, 0);
+            this.ubtnDetEditPersonalComputer.Name = "ubtnDetEditPersonalComputer";
+            this.ubtnDetEditPersonalComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetEditPersonalComputer.TabIndex = 14;
+            this.ubtnDetEditPersonalComputer.Text = "Modificar";
             // 
-            // ultraPanel3
+            // upnlSeparatorCreatePersonalComputer
             // 
-            this.ultraPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel3.Location = new System.Drawing.Point(613, 0);
-            this.ultraPanel3.Name = "ultraPanel3";
-            this.ultraPanel3.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel3.TabIndex = 13;
+            this.upnlSeparatorCreatePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCreatePersonalComputer.Location = new System.Drawing.Point(613, 0);
+            this.upnlSeparatorCreatePersonalComputer.Name = "upnlSeparatorCreatePersonalComputer";
+            this.upnlSeparatorCreatePersonalComputer.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorCreatePersonalComputer.TabIndex = 13;
             // 
-            // ultraButton1
+            // ubtnDetCreatePersonalComputer
             // 
-            this.ultraButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton1.Location = new System.Drawing.Point(629, 0);
-            this.ultraButton1.Name = "ultraButton1";
-            this.ultraButton1.Size = new System.Drawing.Size(77, 25);
-            this.ultraButton1.TabIndex = 12;
-            this.ultraButton1.Text = "Nuevo";
+            this.ubtnDetCreatePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCreatePersonalComputer.Location = new System.Drawing.Point(629, 0);
+            this.ubtnDetCreatePersonalComputer.Name = "ubtnDetCreatePersonalComputer";
+            this.ubtnDetCreatePersonalComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCreatePersonalComputer.TabIndex = 12;
+            this.ubtnDetCreatePersonalComputer.Text = "Nuevo";
             // 
-            // upnlSeparatorPreresults
+            // upnlSeparatorPersonalComputersDetailButtons
             // 
-            this.upnlSeparatorPreresults.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorPreresults.Location = new System.Drawing.Point(706, 0);
-            this.upnlSeparatorPreresults.Name = "upnlSeparatorPreresults";
-            this.upnlSeparatorPreresults.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorPreresults.TabIndex = 6;
+            this.upnlSeparatorPersonalComputersDetailButtons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorPersonalComputersDetailButtons.Location = new System.Drawing.Point(706, 0);
+            this.upnlSeparatorPersonalComputersDetailButtons.Name = "upnlSeparatorPersonalComputersDetailButtons";
+            this.upnlSeparatorPersonalComputersDetailButtons.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorPersonalComputersDetailButtons.TabIndex = 6;
             // 
             // ultraGroupBox1
             // 
-            this.ultraGroupBox1.Controls.Add(this.tabControl4);
-            this.ultraGroupBox1.Controls.Add(this.ultraPanel1);
+            this.ultraGroupBox1.Controls.Add(this.tabDetPersonalDetail);
+            this.ultraGroupBox1.Controls.Add(this.upnlDetComputersButtons);
             this.ultraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ultraGroupBox1.Location = new System.Drawing.Point(3, 234);
             this.ultraGroupBox1.Name = "ultraGroupBox1";
@@ -1533,190 +1533,190 @@
             this.ultraGroupBox1.TabIndex = 0;
             this.ultraGroupBox1.Text = "Detalle del registro";
             // 
-            // tabControl4
+            // tabDetPersonalDetail
             // 
-            this.tabControl4.Controls.Add(this.tabDetPCPrincipal);
-            this.tabControl4.Controls.Add(this.tabDetPCSpecs);
-            this.tabControl4.Controls.Add(this.tabDetPCSoftware);
-            this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl4.Location = new System.Drawing.Point(3, 16);
-            this.tabControl4.Name = "tabControl4";
-            this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(716, 115);
-            this.tabControl4.TabIndex = 88;
+            this.tabDetPersonalDetail.Controls.Add(this.tabDetPersonalComputerPrincipal);
+            this.tabDetPersonalDetail.Controls.Add(this.tabDetPersonalComputerSpecs);
+            this.tabDetPersonalDetail.Controls.Add(this.tabDetPersonalComputerSoftware);
+            this.tabDetPersonalDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDetPersonalDetail.Location = new System.Drawing.Point(3, 16);
+            this.tabDetPersonalDetail.Name = "tabDetPersonalDetail";
+            this.tabDetPersonalDetail.SelectedIndex = 0;
+            this.tabDetPersonalDetail.Size = new System.Drawing.Size(716, 115);
+            this.tabDetPersonalDetail.TabIndex = 88;
             // 
-            // tabDetPCPrincipal
+            // tabDetPersonalComputerPrincipal
             // 
-            this.tabDetPCPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPCPrincipal.Controls.Add(this.ultraTextEditor2);
-            this.tabDetPCPrincipal.Controls.Add(this.txtDetFileName);
-            this.tabDetPCPrincipal.Controls.Add(this.uceDetBidder);
-            this.tabDetPCPrincipal.Controls.Add(this.ultraLabel1);
-            this.tabDetPCPrincipal.Controls.Add(this.ultraLabel2);
-            this.tabDetPCPrincipal.Controls.Add(this.ultraLabel4);
-            this.tabDetPCPrincipal.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPCPrincipal.Name = "tabDetPCPrincipal";
-            this.tabDetPCPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetPCPrincipal.Size = new System.Drawing.Size(708, 89);
-            this.tabDetPCPrincipal.TabIndex = 0;
-            this.tabDetPCPrincipal.Text = "Principal";
+            this.tabDetPersonalComputerPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetPersonalComputerPrincipal.Controls.Add(this.txtDetManufacturerReferenceNumber);
+            this.tabDetPersonalComputerPrincipal.Controls.Add(this.txtDetPersonalComputerSerialNumber);
+            this.tabDetPersonalComputerPrincipal.Controls.Add(this.uceDetPersonalComputerType);
+            this.tabDetPersonalComputerPrincipal.Controls.Add(this.lblDetPersonalComputerSerie);
+            this.tabDetPersonalComputerPrincipal.Controls.Add(this.lblDetManufacturerReferenceNumber);
+            this.tabDetPersonalComputerPrincipal.Controls.Add(this.lblDetPersonalComputerType);
+            this.tabDetPersonalComputerPrincipal.Location = new System.Drawing.Point(4, 22);
+            this.tabDetPersonalComputerPrincipal.Name = "tabDetPersonalComputerPrincipal";
+            this.tabDetPersonalComputerPrincipal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDetPersonalComputerPrincipal.Size = new System.Drawing.Size(708, 89);
+            this.tabDetPersonalComputerPrincipal.TabIndex = 0;
+            this.tabDetPersonalComputerPrincipal.Text = "Principal";
             // 
-            // ultraTextEditor2
+            // txtDetManufacturerReferenceNumber
             // 
-            this.ultraTextEditor2.Location = new System.Drawing.Point(116, 33);
-            this.ultraTextEditor2.Name = "ultraTextEditor2";
-            this.ultraTextEditor2.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor2.TabIndex = 90;
+            this.txtDetManufacturerReferenceNumber.Location = new System.Drawing.Point(116, 33);
+            this.txtDetManufacturerReferenceNumber.Name = "txtDetManufacturerReferenceNumber";
+            this.txtDetManufacturerReferenceNumber.Size = new System.Drawing.Size(226, 21);
+            this.txtDetManufacturerReferenceNumber.TabIndex = 90;
             // 
-            // txtDetFileName
+            // txtDetPersonalComputerSerialNumber
             // 
-            this.txtDetFileName.Location = new System.Drawing.Point(116, 6);
-            this.txtDetFileName.Name = "txtDetFileName";
-            this.txtDetFileName.Size = new System.Drawing.Size(226, 21);
-            this.txtDetFileName.TabIndex = 90;
+            this.txtDetPersonalComputerSerialNumber.Location = new System.Drawing.Point(116, 6);
+            this.txtDetPersonalComputerSerialNumber.Name = "txtDetPersonalComputerSerialNumber";
+            this.txtDetPersonalComputerSerialNumber.Size = new System.Drawing.Size(226, 21);
+            this.txtDetPersonalComputerSerialNumber.TabIndex = 90;
             // 
-            // uceDetBidder
+            // uceDetPersonalComputerType
             // 
-            this.uceDetBidder.Location = new System.Drawing.Point(116, 60);
-            this.uceDetBidder.Name = "uceDetBidder";
-            this.uceDetBidder.Size = new System.Drawing.Size(226, 21);
-            this.uceDetBidder.TabIndex = 88;
+            this.uceDetPersonalComputerType.Location = new System.Drawing.Point(116, 60);
+            this.uceDetPersonalComputerType.Name = "uceDetPersonalComputerType";
+            this.uceDetPersonalComputerType.Size = new System.Drawing.Size(226, 21);
+            this.uceDetPersonalComputerType.TabIndex = 88;
             // 
-            // ultraLabel1
+            // lblDetPersonalComputerSerie
             // 
-            this.ultraLabel1.AutoSize = true;
-            this.ultraLabel1.Location = new System.Drawing.Point(6, 10);
-            this.ultraLabel1.Name = "ultraLabel1";
-            this.ultraLabel1.Size = new System.Drawing.Size(34, 14);
-            this.ultraLabel1.TabIndex = 87;
-            this.ultraLabel1.Text = "Serie:";
+            this.lblDetPersonalComputerSerie.AutoSize = true;
+            this.lblDetPersonalComputerSerie.Location = new System.Drawing.Point(6, 10);
+            this.lblDetPersonalComputerSerie.Name = "lblDetPersonalComputerSerie";
+            this.lblDetPersonalComputerSerie.Size = new System.Drawing.Size(34, 14);
+            this.lblDetPersonalComputerSerie.TabIndex = 87;
+            this.lblDetPersonalComputerSerie.Text = "Serie:";
             // 
-            // ultraLabel2
+            // lblDetManufacturerReferenceNumber
             // 
-            this.ultraLabel2.AutoSize = true;
-            this.ultraLabel2.Location = new System.Drawing.Point(6, 37);
-            this.ultraLabel2.Name = "ultraLabel2";
-            this.ultraLabel2.Size = new System.Drawing.Size(104, 14);
-            this.ultraLabel2.TabIndex = 87;
-            this.ultraLabel2.Text = "Numero Fabricante:";
+            this.lblDetManufacturerReferenceNumber.AutoSize = true;
+            this.lblDetManufacturerReferenceNumber.Location = new System.Drawing.Point(6, 37);
+            this.lblDetManufacturerReferenceNumber.Name = "lblDetManufacturerReferenceNumber";
+            this.lblDetManufacturerReferenceNumber.Size = new System.Drawing.Size(104, 14);
+            this.lblDetManufacturerReferenceNumber.TabIndex = 87;
+            this.lblDetManufacturerReferenceNumber.Text = "Numero Fabricante:";
             // 
-            // ultraLabel4
+            // lblDetPersonalComputerType
             // 
-            this.ultraLabel4.AutoSize = true;
-            this.ultraLabel4.Location = new System.Drawing.Point(6, 64);
-            this.ultraLabel4.Name = "ultraLabel4";
-            this.ultraLabel4.Size = new System.Drawing.Size(29, 14);
-            this.ultraLabel4.TabIndex = 87;
-            this.ultraLabel4.Text = "Tipo:";
+            this.lblDetPersonalComputerType.AutoSize = true;
+            this.lblDetPersonalComputerType.Location = new System.Drawing.Point(6, 64);
+            this.lblDetPersonalComputerType.Name = "lblDetPersonalComputerType";
+            this.lblDetPersonalComputerType.Size = new System.Drawing.Size(29, 14);
+            this.lblDetPersonalComputerType.TabIndex = 87;
+            this.lblDetPersonalComputerType.Text = "Tipo:";
             // 
-            // tabDetPCSpecs
+            // tabDetPersonalComputerSpecs
             // 
-            this.tabDetPCSpecs.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPCSpecs.Controls.Add(this.gbxDetFileDescription);
-            this.tabDetPCSpecs.Controls.Add(this.ultraTextEditor4);
-            this.tabDetPCSpecs.Controls.Add(this.ultraTextEditor3);
-            this.tabDetPCSpecs.Controls.Add(this.ultraLabel8);
-            this.tabDetPCSpecs.Controls.Add(this.ultraLabel5);
-            this.tabDetPCSpecs.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPCSpecs.Name = "tabDetPCSpecs";
-            this.tabDetPCSpecs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetPCSpecs.Size = new System.Drawing.Size(708, 89);
-            this.tabDetPCSpecs.TabIndex = 1;
-            this.tabDetPCSpecs.Text = "Especificaciones";
+            this.tabDetPersonalComputerSpecs.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetPersonalComputerSpecs.Controls.Add(this.gbxDetPersonalComputerStorage);
+            this.tabDetPersonalComputerSpecs.Controls.Add(this.txtDetPersonalComputerRAM);
+            this.tabDetPersonalComputerSpecs.Controls.Add(this.txtDetPersonalComputerCPU);
+            this.tabDetPersonalComputerSpecs.Controls.Add(this.lblDetPersonalComputerCPU);
+            this.tabDetPersonalComputerSpecs.Controls.Add(this.lblDetPersonalComputerRAM);
+            this.tabDetPersonalComputerSpecs.Location = new System.Drawing.Point(4, 22);
+            this.tabDetPersonalComputerSpecs.Name = "tabDetPersonalComputerSpecs";
+            this.tabDetPersonalComputerSpecs.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDetPersonalComputerSpecs.Size = new System.Drawing.Size(708, 89);
+            this.tabDetPersonalComputerSpecs.TabIndex = 1;
+            this.tabDetPersonalComputerSpecs.Text = "Especificaciones";
             // 
-            // gbxDetFileDescription
+            // gbxDetPersonalComputerStorage
             // 
-            this.gbxDetFileDescription.Controls.Add(this.txtDetFileDescription);
-            this.gbxDetFileDescription.Location = new System.Drawing.Point(289, 10);
-            this.gbxDetFileDescription.Name = "gbxDetFileDescription";
-            this.gbxDetFileDescription.Size = new System.Drawing.Size(407, 75);
-            this.gbxDetFileDescription.TabIndex = 94;
-            this.gbxDetFileDescription.TabStop = false;
-            this.gbxDetFileDescription.Text = "Sistema Almacenamiento:";
+            this.gbxDetPersonalComputerStorage.Controls.Add(this.txtDetPersonalComputerStorage);
+            this.gbxDetPersonalComputerStorage.Location = new System.Drawing.Point(289, 10);
+            this.gbxDetPersonalComputerStorage.Name = "gbxDetPersonalComputerStorage";
+            this.gbxDetPersonalComputerStorage.Size = new System.Drawing.Size(407, 75);
+            this.gbxDetPersonalComputerStorage.TabIndex = 94;
+            this.gbxDetPersonalComputerStorage.TabStop = false;
+            this.gbxDetPersonalComputerStorage.Text = "Sistema Almacenamiento:";
             // 
-            // txtDetFileDescription
+            // txtDetPersonalComputerStorage
             // 
-            this.txtDetFileDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetFileDescription.Location = new System.Drawing.Point(3, 16);
-            this.txtDetFileDescription.Multiline = true;
-            this.txtDetFileDescription.Name = "txtDetFileDescription";
-            this.txtDetFileDescription.Size = new System.Drawing.Size(401, 56);
-            this.txtDetFileDescription.TabIndex = 0;
+            this.txtDetPersonalComputerStorage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetPersonalComputerStorage.Location = new System.Drawing.Point(3, 16);
+            this.txtDetPersonalComputerStorage.Multiline = true;
+            this.txtDetPersonalComputerStorage.Name = "txtDetPersonalComputerStorage";
+            this.txtDetPersonalComputerStorage.Size = new System.Drawing.Size(401, 56);
+            this.txtDetPersonalComputerStorage.TabIndex = 0;
             // 
-            // ultraTextEditor4
+            // txtDetPersonalComputerRAM
             // 
-            this.ultraTextEditor4.Location = new System.Drawing.Point(57, 33);
-            this.ultraTextEditor4.Name = "ultraTextEditor4";
-            this.ultraTextEditor4.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor4.TabIndex = 92;
+            this.txtDetPersonalComputerRAM.Location = new System.Drawing.Point(57, 33);
+            this.txtDetPersonalComputerRAM.Name = "txtDetPersonalComputerRAM";
+            this.txtDetPersonalComputerRAM.Size = new System.Drawing.Size(226, 21);
+            this.txtDetPersonalComputerRAM.TabIndex = 92;
             // 
-            // ultraTextEditor3
+            // txtDetPersonalComputerCPU
             // 
-            this.ultraTextEditor3.Location = new System.Drawing.Point(57, 6);
-            this.ultraTextEditor3.Name = "ultraTextEditor3";
-            this.ultraTextEditor3.Size = new System.Drawing.Size(226, 21);
-            this.ultraTextEditor3.TabIndex = 91;
+            this.txtDetPersonalComputerCPU.Location = new System.Drawing.Point(57, 6);
+            this.txtDetPersonalComputerCPU.Name = "txtDetPersonalComputerCPU";
+            this.txtDetPersonalComputerCPU.Size = new System.Drawing.Size(226, 21);
+            this.txtDetPersonalComputerCPU.TabIndex = 91;
             // 
-            // ultraLabel8
+            // lblDetPersonalComputerCPU
             // 
-            this.ultraLabel8.AutoSize = true;
-            this.ultraLabel8.Location = new System.Drawing.Point(6, 10);
-            this.ultraLabel8.Name = "ultraLabel8";
-            this.ultraLabel8.Size = new System.Drawing.Size(31, 14);
-            this.ultraLabel8.TabIndex = 88;
-            this.ultraLabel8.Text = "CPU:";
+            this.lblDetPersonalComputerCPU.AutoSize = true;
+            this.lblDetPersonalComputerCPU.Location = new System.Drawing.Point(6, 10);
+            this.lblDetPersonalComputerCPU.Name = "lblDetPersonalComputerCPU";
+            this.lblDetPersonalComputerCPU.Size = new System.Drawing.Size(31, 14);
+            this.lblDetPersonalComputerCPU.TabIndex = 88;
+            this.lblDetPersonalComputerCPU.Text = "CPU:";
             // 
-            // ultraLabel5
+            // lblDetPersonalComputerRAM
             // 
-            this.ultraLabel5.AutoSize = true;
-            this.ultraLabel5.Location = new System.Drawing.Point(6, 37);
-            this.ultraLabel5.Name = "ultraLabel5";
-            this.ultraLabel5.Size = new System.Drawing.Size(32, 14);
-            this.ultraLabel5.TabIndex = 88;
-            this.ultraLabel5.Text = "RAM:";
+            this.lblDetPersonalComputerRAM.AutoSize = true;
+            this.lblDetPersonalComputerRAM.Location = new System.Drawing.Point(6, 37);
+            this.lblDetPersonalComputerRAM.Name = "lblDetPersonalComputerRAM";
+            this.lblDetPersonalComputerRAM.Size = new System.Drawing.Size(32, 14);
+            this.lblDetPersonalComputerRAM.TabIndex = 88;
+            this.lblDetPersonalComputerRAM.Text = "RAM:";
             // 
-            // tabDetPCSoftware
+            // tabDetPersonalComputerSoftware
             // 
-            this.tabDetPCSoftware.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPCSoftware.Controls.Add(this.ultraComboEditor2);
-            this.tabDetPCSoftware.Controls.Add(this.ultraLabel7);
-            this.tabDetPCSoftware.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPCSoftware.Name = "tabDetPCSoftware";
-            this.tabDetPCSoftware.Size = new System.Drawing.Size(708, 89);
-            this.tabDetPCSoftware.TabIndex = 2;
-            this.tabDetPCSoftware.Text = "Software";
+            this.tabDetPersonalComputerSoftware.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetPersonalComputerSoftware.Controls.Add(this.uceDetPersonalComputerOS);
+            this.tabDetPersonalComputerSoftware.Controls.Add(this.lblDetPersonalComputerOS);
+            this.tabDetPersonalComputerSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabDetPersonalComputerSoftware.Name = "tabDetPersonalComputerSoftware";
+            this.tabDetPersonalComputerSoftware.Size = new System.Drawing.Size(708, 89);
+            this.tabDetPersonalComputerSoftware.TabIndex = 2;
+            this.tabDetPersonalComputerSoftware.Text = "Software";
             // 
-            // ultraComboEditor2
+            // uceDetPersonalComputerOS
             // 
-            this.ultraComboEditor2.Location = new System.Drawing.Point(107, 10);
-            this.ultraComboEditor2.Name = "ultraComboEditor2";
-            this.ultraComboEditor2.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor2.TabIndex = 92;
+            this.uceDetPersonalComputerOS.Location = new System.Drawing.Point(107, 10);
+            this.uceDetPersonalComputerOS.Name = "uceDetPersonalComputerOS";
+            this.uceDetPersonalComputerOS.Size = new System.Drawing.Size(226, 21);
+            this.uceDetPersonalComputerOS.TabIndex = 92;
             // 
-            // ultraLabel7
+            // lblDetPersonalComputerOS
             // 
-            this.ultraLabel7.AutoSize = true;
-            this.ultraLabel7.Location = new System.Drawing.Point(3, 14);
-            this.ultraLabel7.Name = "ultraLabel7";
-            this.ultraLabel7.Size = new System.Drawing.Size(100, 14);
-            this.ultraLabel7.TabIndex = 88;
-            this.ultraLabel7.Text = "Sistema Operativo:";
+            this.lblDetPersonalComputerOS.AutoSize = true;
+            this.lblDetPersonalComputerOS.Location = new System.Drawing.Point(3, 14);
+            this.lblDetPersonalComputerOS.Name = "lblDetPersonalComputerOS";
+            this.lblDetPersonalComputerOS.Size = new System.Drawing.Size(100, 14);
+            this.lblDetPersonalComputerOS.TabIndex = 88;
+            this.lblDetPersonalComputerOS.Text = "Sistema Operativo:";
             // 
-            // ultraPanel1
+            // upnlDetComputersButtons
             // 
             // 
-            // ultraPanel1.ClientArea
+            // upnlDetComputersButtons.ClientArea
             // 
-            this.ultraPanel1.ClientArea.Controls.Add(this.upnlSeparatorSavePreresult);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ubtnDetSavePreresult);
-            this.ultraPanel1.ClientArea.Controls.Add(this.upnlSeparatorCancelPreresult);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ubtnDetCancelPreresult);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraPanel2);
-            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel1.Location = new System.Drawing.Point(3, 131);
-            this.ultraPanel1.Name = "ultraPanel1";
-            this.ultraPanel1.Size = new System.Drawing.Size(716, 25);
-            this.ultraPanel1.TabIndex = 86;
+            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.upnlSeparatorSavePreresult);
+            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.ubtnDetSavePersonalComputer);
+            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelPreresult);
+            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.ubtnDetCancelPersonalComputer);
+            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.upnlSeparatorPersonalComputersButtons);
+            this.upnlDetComputersButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlDetComputersButtons.Location = new System.Drawing.Point(3, 131);
+            this.upnlDetComputersButtons.Name = "upnlDetComputersButtons";
+            this.upnlDetComputersButtons.Size = new System.Drawing.Size(716, 25);
+            this.upnlDetComputersButtons.TabIndex = 86;
             // 
             // upnlSeparatorSavePreresult
             // 
@@ -1726,14 +1726,14 @@
             this.upnlSeparatorSavePreresult.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorSavePreresult.TabIndex = 11;
             // 
-            // ubtnDetSavePreresult
+            // ubtnDetSavePersonalComputer
             // 
-            this.ubtnDetSavePreresult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetSavePreresult.Location = new System.Drawing.Point(530, 0);
-            this.ubtnDetSavePreresult.Name = "ubtnDetSavePreresult";
-            this.ubtnDetSavePreresult.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetSavePreresult.TabIndex = 10;
-            this.ubtnDetSavePreresult.Text = "Guardar";
+            this.ubtnDetSavePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetSavePersonalComputer.Location = new System.Drawing.Point(530, 0);
+            this.ubtnDetSavePersonalComputer.Name = "ubtnDetSavePersonalComputer";
+            this.ubtnDetSavePersonalComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetSavePersonalComputer.TabIndex = 10;
+            this.ubtnDetSavePersonalComputer.Text = "Guardar";
             // 
             // upnlSeparatorCancelPreresult
             // 
@@ -1743,27 +1743,27 @@
             this.upnlSeparatorCancelPreresult.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorCancelPreresult.TabIndex = 13;
             // 
-            // ubtnDetCancelPreresult
+            // ubtnDetCancelPersonalComputer
             // 
-            this.ubtnDetCancelPreresult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCancelPreresult.Location = new System.Drawing.Point(623, 0);
-            this.ubtnDetCancelPreresult.Name = "ubtnDetCancelPreresult";
-            this.ubtnDetCancelPreresult.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetCancelPreresult.TabIndex = 12;
-            this.ubtnDetCancelPreresult.Text = "Cancelar";
+            this.ubtnDetCancelPersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDetCancelPersonalComputer.Location = new System.Drawing.Point(623, 0);
+            this.ubtnDetCancelPersonalComputer.Name = "ubtnDetCancelPersonalComputer";
+            this.ubtnDetCancelPersonalComputer.Size = new System.Drawing.Size(77, 25);
+            this.ubtnDetCancelPersonalComputer.TabIndex = 12;
+            this.ubtnDetCancelPersonalComputer.Text = "Cancelar";
             // 
-            // ultraPanel2
+            // upnlSeparatorPersonalComputersButtons
             // 
-            this.ultraPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel2.Location = new System.Drawing.Point(700, 0);
-            this.ultraPanel2.Name = "ultraPanel2";
-            this.ultraPanel2.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel2.TabIndex = 14;
+            this.upnlSeparatorPersonalComputersButtons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorPersonalComputersButtons.Location = new System.Drawing.Point(700, 0);
+            this.upnlSeparatorPersonalComputersButtons.Name = "upnlSeparatorPersonalComputersButtons";
+            this.upnlSeparatorPersonalComputersButtons.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorPersonalComputersButtons.TabIndex = 14;
             // 
             // tabDetServerComputers
             // 
             this.tabDetServerComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetServerComputers.Controls.Add(this.samsaraUltraGrid2);
+            this.tabDetServerComputers.Controls.Add(this.grdDetServerComputers);
             this.tabDetServerComputers.Controls.Add(this.ultraPanel9);
             this.tabDetServerComputers.Controls.Add(this.ultraGroupBox2);
             this.tabDetServerComputers.Location = new System.Drawing.Point(4, 22);
@@ -1773,67 +1773,67 @@
             this.tabDetServerComputers.TabIndex = 1;
             this.tabDetServerComputers.Text = "Servidores";
             // 
-            // samsaraUltraGrid2
+            // grdDetServerComputers
             // 
             appearance22.BackColor = System.Drawing.SystemColors.Window;
             appearance22.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid2.DisplayLayout.Appearance = appearance22;
-            this.samsaraUltraGrid2.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid2.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetServerComputers.DisplayLayout.Appearance = appearance22;
+            this.grdDetServerComputers.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetServerComputers.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance23.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance23.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance23.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance23.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid2.DisplayLayout.GroupByBox.Appearance = appearance23;
+            this.grdDetServerComputers.DisplayLayout.GroupByBox.Appearance = appearance23;
             appearance24.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid2.DisplayLayout.GroupByBox.BandLabelAppearance = appearance24;
-            this.samsaraUltraGrid2.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetServerComputers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance24;
+            this.grdDetServerComputers.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance25.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance25.BackColor2 = System.Drawing.SystemColors.Control;
             appearance25.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance25.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid2.DisplayLayout.GroupByBox.PromptAppearance = appearance25;
-            this.samsaraUltraGrid2.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid2.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetServerComputers.DisplayLayout.GroupByBox.PromptAppearance = appearance25;
+            this.grdDetServerComputers.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetServerComputers.DisplayLayout.MaxRowScrollRegions = 1;
             appearance26.BackColor = System.Drawing.SystemColors.Window;
             appearance26.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid2.DisplayLayout.Override.ActiveCellAppearance = appearance26;
+            this.grdDetServerComputers.DisplayLayout.Override.ActiveCellAppearance = appearance26;
             appearance27.BackColor = System.Drawing.SystemColors.Highlight;
             appearance27.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid2.DisplayLayout.Override.ActiveRowAppearance = appearance27;
-            this.samsaraUltraGrid2.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid2.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetServerComputers.DisplayLayout.Override.ActiveRowAppearance = appearance27;
+            this.grdDetServerComputers.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetServerComputers.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance28.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid2.DisplayLayout.Override.CardAreaAppearance = appearance28;
+            this.grdDetServerComputers.DisplayLayout.Override.CardAreaAppearance = appearance28;
             appearance29.BorderColor = System.Drawing.Color.Silver;
             appearance29.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid2.DisplayLayout.Override.CellAppearance = appearance29;
-            this.samsaraUltraGrid2.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid2.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetServerComputers.DisplayLayout.Override.CellAppearance = appearance29;
+            this.grdDetServerComputers.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetServerComputers.DisplayLayout.Override.CellPadding = 0;
             appearance30.BackColor = System.Drawing.SystemColors.Control;
             appearance30.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance30.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance30.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance30.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid2.DisplayLayout.Override.GroupByRowAppearance = appearance30;
+            this.grdDetServerComputers.DisplayLayout.Override.GroupByRowAppearance = appearance30;
             appearance31.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid2.DisplayLayout.Override.HeaderAppearance = appearance31;
-            this.samsaraUltraGrid2.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid2.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetServerComputers.DisplayLayout.Override.HeaderAppearance = appearance31;
+            this.grdDetServerComputers.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetServerComputers.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance32.BackColor = System.Drawing.SystemColors.Window;
             appearance32.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid2.DisplayLayout.Override.RowAppearance = appearance32;
-            this.samsaraUltraGrid2.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetServerComputers.DisplayLayout.Override.RowAppearance = appearance32;
+            this.grdDetServerComputers.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance33.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid2.DisplayLayout.Override.TemplateAddRowAppearance = appearance33;
-            this.samsaraUltraGrid2.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid2.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid2.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid2.Name = "samsaraUltraGrid2";
-            this.samsaraUltraGrid2.Size = new System.Drawing.Size(722, 119);
-            this.samsaraUltraGrid2.TabIndex = 95;
-            this.samsaraUltraGrid2.Text = "samsaraUltraGrid2";
+            this.grdDetServerComputers.DisplayLayout.Override.TemplateAddRowAppearance = appearance33;
+            this.grdDetServerComputers.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetServerComputers.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetServerComputers.Location = new System.Drawing.Point(3, 3);
+            this.grdDetServerComputers.Name = "grdDetServerComputers";
+            this.grdDetServerComputers.Size = new System.Drawing.Size(722, 119);
+            this.grdDetServerComputers.TabIndex = 95;
+            this.grdDetServerComputers.Text = "samsaraUltraGrid2";
             // 
             // ultraPanel9
             // 
@@ -2398,7 +2398,7 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage5.Controls.Add(this.samsaraUltraGrid4);
+            this.tabPage5.Controls.Add(this.grdDetSites);
             this.tabPage5.Controls.Add(this.ultraPanel14);
             this.tabPage5.Controls.Add(this.ultraGroupBox4);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -2408,67 +2408,67 @@
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Site";
             // 
-            // samsaraUltraGrid4
+            // grdDetSites
             // 
             appearance10.BackColor = System.Drawing.SystemColors.Window;
             appearance10.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid4.DisplayLayout.Appearance = appearance10;
-            this.samsaraUltraGrid4.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid4.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetSites.DisplayLayout.Appearance = appearance10;
+            this.grdDetSites.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetSites.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance11.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance11.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance11.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance11.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid4.DisplayLayout.GroupByBox.Appearance = appearance11;
+            this.grdDetSites.DisplayLayout.GroupByBox.Appearance = appearance11;
             appearance12.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid4.DisplayLayout.GroupByBox.BandLabelAppearance = appearance12;
-            this.samsaraUltraGrid4.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetSites.DisplayLayout.GroupByBox.BandLabelAppearance = appearance12;
+            this.grdDetSites.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance13.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance13.BackColor2 = System.Drawing.SystemColors.Control;
             appearance13.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid4.DisplayLayout.GroupByBox.PromptAppearance = appearance13;
-            this.samsaraUltraGrid4.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid4.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetSites.DisplayLayout.GroupByBox.PromptAppearance = appearance13;
+            this.grdDetSites.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetSites.DisplayLayout.MaxRowScrollRegions = 1;
             appearance14.BackColor = System.Drawing.SystemColors.Window;
             appearance14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid4.DisplayLayout.Override.ActiveCellAppearance = appearance14;
+            this.grdDetSites.DisplayLayout.Override.ActiveCellAppearance = appearance14;
             appearance15.BackColor = System.Drawing.SystemColors.Highlight;
             appearance15.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid4.DisplayLayout.Override.ActiveRowAppearance = appearance15;
-            this.samsaraUltraGrid4.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid4.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetSites.DisplayLayout.Override.ActiveRowAppearance = appearance15;
+            this.grdDetSites.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetSites.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance16.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid4.DisplayLayout.Override.CardAreaAppearance = appearance16;
+            this.grdDetSites.DisplayLayout.Override.CardAreaAppearance = appearance16;
             appearance17.BorderColor = System.Drawing.Color.Silver;
             appearance17.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid4.DisplayLayout.Override.CellAppearance = appearance17;
-            this.samsaraUltraGrid4.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid4.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetSites.DisplayLayout.Override.CellAppearance = appearance17;
+            this.grdDetSites.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetSites.DisplayLayout.Override.CellPadding = 0;
             appearance18.BackColor = System.Drawing.SystemColors.Control;
             appearance18.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance18.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance18.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance18.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid4.DisplayLayout.Override.GroupByRowAppearance = appearance18;
+            this.grdDetSites.DisplayLayout.Override.GroupByRowAppearance = appearance18;
             appearance19.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid4.DisplayLayout.Override.HeaderAppearance = appearance19;
-            this.samsaraUltraGrid4.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid4.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetSites.DisplayLayout.Override.HeaderAppearance = appearance19;
+            this.grdDetSites.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetSites.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance20.BackColor = System.Drawing.SystemColors.Window;
             appearance20.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid4.DisplayLayout.Override.RowAppearance = appearance20;
-            this.samsaraUltraGrid4.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetSites.DisplayLayout.Override.RowAppearance = appearance20;
+            this.grdDetSites.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance21.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid4.DisplayLayout.Override.TemplateAddRowAppearance = appearance21;
-            this.samsaraUltraGrid4.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid4.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid4.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid4.Name = "samsaraUltraGrid4";
-            this.samsaraUltraGrid4.Size = new System.Drawing.Size(722, 131);
-            this.samsaraUltraGrid4.TabIndex = 98;
-            this.samsaraUltraGrid4.Text = "samsaraUltraGrid4";
+            this.grdDetSites.DisplayLayout.Override.TemplateAddRowAppearance = appearance21;
+            this.grdDetSites.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetSites.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetSites.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetSites.Location = new System.Drawing.Point(3, 3);
+            this.grdDetSites.Name = "grdDetSites";
+            this.grdDetSites.Size = new System.Drawing.Size(722, 131);
+            this.grdDetSites.TabIndex = 98;
+            this.grdDetSites.Text = "samsaraUltraGrid4";
             // 
             // ultraPanel14
             // 
@@ -2832,7 +2832,7 @@
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage6.Controls.Add(this.samsaraUltraGrid6);
+            this.tabPage6.Controls.Add(this.grdDetSwitches);
             this.tabPage6.Controls.Add(this.ultraPanel27);
             this.tabPage6.Controls.Add(this.ultraGroupBox3);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -2842,67 +2842,67 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Switches";
             // 
-            // samsaraUltraGrid6
+            // grdDetSwitches
             // 
             appearance34.BackColor = System.Drawing.SystemColors.Window;
             appearance34.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid6.DisplayLayout.Appearance = appearance34;
-            this.samsaraUltraGrid6.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid6.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetSwitches.DisplayLayout.Appearance = appearance34;
+            this.grdDetSwitches.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetSwitches.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance35.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance35.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance35.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance35.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid6.DisplayLayout.GroupByBox.Appearance = appearance35;
+            this.grdDetSwitches.DisplayLayout.GroupByBox.Appearance = appearance35;
             appearance36.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid6.DisplayLayout.GroupByBox.BandLabelAppearance = appearance36;
-            this.samsaraUltraGrid6.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetSwitches.DisplayLayout.GroupByBox.BandLabelAppearance = appearance36;
+            this.grdDetSwitches.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance46.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance46.BackColor2 = System.Drawing.SystemColors.Control;
             appearance46.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance46.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid6.DisplayLayout.GroupByBox.PromptAppearance = appearance46;
-            this.samsaraUltraGrid6.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid6.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetSwitches.DisplayLayout.GroupByBox.PromptAppearance = appearance46;
+            this.grdDetSwitches.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetSwitches.DisplayLayout.MaxRowScrollRegions = 1;
             appearance47.BackColor = System.Drawing.SystemColors.Window;
             appearance47.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid6.DisplayLayout.Override.ActiveCellAppearance = appearance47;
+            this.grdDetSwitches.DisplayLayout.Override.ActiveCellAppearance = appearance47;
             appearance48.BackColor = System.Drawing.SystemColors.Highlight;
             appearance48.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid6.DisplayLayout.Override.ActiveRowAppearance = appearance48;
-            this.samsaraUltraGrid6.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid6.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetSwitches.DisplayLayout.Override.ActiveRowAppearance = appearance48;
+            this.grdDetSwitches.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetSwitches.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance49.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid6.DisplayLayout.Override.CardAreaAppearance = appearance49;
+            this.grdDetSwitches.DisplayLayout.Override.CardAreaAppearance = appearance49;
             appearance50.BorderColor = System.Drawing.Color.Silver;
             appearance50.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid6.DisplayLayout.Override.CellAppearance = appearance50;
-            this.samsaraUltraGrid6.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid6.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetSwitches.DisplayLayout.Override.CellAppearance = appearance50;
+            this.grdDetSwitches.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetSwitches.DisplayLayout.Override.CellPadding = 0;
             appearance51.BackColor = System.Drawing.SystemColors.Control;
             appearance51.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance51.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance51.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance51.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid6.DisplayLayout.Override.GroupByRowAppearance = appearance51;
+            this.grdDetSwitches.DisplayLayout.Override.GroupByRowAppearance = appearance51;
             appearance52.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid6.DisplayLayout.Override.HeaderAppearance = appearance52;
-            this.samsaraUltraGrid6.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid6.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetSwitches.DisplayLayout.Override.HeaderAppearance = appearance52;
+            this.grdDetSwitches.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetSwitches.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance53.BackColor = System.Drawing.SystemColors.Window;
             appearance53.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid6.DisplayLayout.Override.RowAppearance = appearance53;
-            this.samsaraUltraGrid6.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetSwitches.DisplayLayout.Override.RowAppearance = appearance53;
+            this.grdDetSwitches.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance54.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid6.DisplayLayout.Override.TemplateAddRowAppearance = appearance54;
-            this.samsaraUltraGrid6.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid6.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid6.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid6.Name = "samsaraUltraGrid6";
-            this.samsaraUltraGrid6.Size = new System.Drawing.Size(722, 210);
-            this.samsaraUltraGrid6.TabIndex = 101;
-            this.samsaraUltraGrid6.Text = "samsaraUltraGrid6";
+            this.grdDetSwitches.DisplayLayout.Override.TemplateAddRowAppearance = appearance54;
+            this.grdDetSwitches.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetSwitches.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetSwitches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetSwitches.Location = new System.Drawing.Point(3, 3);
+            this.grdDetSwitches.Name = "grdDetSwitches";
+            this.grdDetSwitches.Size = new System.Drawing.Size(722, 210);
+            this.grdDetSwitches.TabIndex = 101;
+            this.grdDetSwitches.Text = "samsaraUltraGrid6";
             // 
             // ultraPanel27
             // 
@@ -3127,7 +3127,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage7.Controls.Add(this.samsaraUltraGrid7);
+            this.tabPage7.Controls.Add(this.grdDetCommutators);
             this.tabPage7.Controls.Add(this.ultraPanel32);
             this.tabPage7.Controls.Add(this.ultraGroupBox5);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
@@ -3136,67 +3136,67 @@
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Conmutadores";
             // 
-            // samsaraUltraGrid7
+            // grdDetCommutators
             // 
             appearance55.BackColor = System.Drawing.SystemColors.Window;
             appearance55.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid7.DisplayLayout.Appearance = appearance55;
-            this.samsaraUltraGrid7.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid7.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetCommutators.DisplayLayout.Appearance = appearance55;
+            this.grdDetCommutators.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetCommutators.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance56.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance56.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance56.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance56.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid7.DisplayLayout.GroupByBox.Appearance = appearance56;
+            this.grdDetCommutators.DisplayLayout.GroupByBox.Appearance = appearance56;
             appearance57.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid7.DisplayLayout.GroupByBox.BandLabelAppearance = appearance57;
-            this.samsaraUltraGrid7.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetCommutators.DisplayLayout.GroupByBox.BandLabelAppearance = appearance57;
+            this.grdDetCommutators.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance97.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance97.BackColor2 = System.Drawing.SystemColors.Control;
             appearance97.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance97.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid7.DisplayLayout.GroupByBox.PromptAppearance = appearance97;
-            this.samsaraUltraGrid7.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid7.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetCommutators.DisplayLayout.GroupByBox.PromptAppearance = appearance97;
+            this.grdDetCommutators.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetCommutators.DisplayLayout.MaxRowScrollRegions = 1;
             appearance98.BackColor = System.Drawing.SystemColors.Window;
             appearance98.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid7.DisplayLayout.Override.ActiveCellAppearance = appearance98;
+            this.grdDetCommutators.DisplayLayout.Override.ActiveCellAppearance = appearance98;
             appearance99.BackColor = System.Drawing.SystemColors.Highlight;
             appearance99.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid7.DisplayLayout.Override.ActiveRowAppearance = appearance99;
-            this.samsaraUltraGrid7.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid7.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetCommutators.DisplayLayout.Override.ActiveRowAppearance = appearance99;
+            this.grdDetCommutators.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetCommutators.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance100.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid7.DisplayLayout.Override.CardAreaAppearance = appearance100;
+            this.grdDetCommutators.DisplayLayout.Override.CardAreaAppearance = appearance100;
             appearance101.BorderColor = System.Drawing.Color.Silver;
             appearance101.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid7.DisplayLayout.Override.CellAppearance = appearance101;
-            this.samsaraUltraGrid7.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid7.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetCommutators.DisplayLayout.Override.CellAppearance = appearance101;
+            this.grdDetCommutators.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetCommutators.DisplayLayout.Override.CellPadding = 0;
             appearance102.BackColor = System.Drawing.SystemColors.Control;
             appearance102.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance102.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance102.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance102.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid7.DisplayLayout.Override.GroupByRowAppearance = appearance102;
+            this.grdDetCommutators.DisplayLayout.Override.GroupByRowAppearance = appearance102;
             appearance103.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid7.DisplayLayout.Override.HeaderAppearance = appearance103;
-            this.samsaraUltraGrid7.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid7.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetCommutators.DisplayLayout.Override.HeaderAppearance = appearance103;
+            this.grdDetCommutators.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetCommutators.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance104.BackColor = System.Drawing.SystemColors.Window;
             appearance104.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid7.DisplayLayout.Override.RowAppearance = appearance104;
-            this.samsaraUltraGrid7.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetCommutators.DisplayLayout.Override.RowAppearance = appearance104;
+            this.grdDetCommutators.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance105.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid7.DisplayLayout.Override.TemplateAddRowAppearance = appearance105;
-            this.samsaraUltraGrid7.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid7.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid7.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid7.Name = "samsaraUltraGrid7";
-            this.samsaraUltraGrid7.Size = new System.Drawing.Size(728, 237);
-            this.samsaraUltraGrid7.TabIndex = 104;
-            this.samsaraUltraGrid7.Text = "samsaraUltraGrid7";
+            this.grdDetCommutators.DisplayLayout.Override.TemplateAddRowAppearance = appearance105;
+            this.grdDetCommutators.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetCommutators.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetCommutators.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetCommutators.Location = new System.Drawing.Point(0, 0);
+            this.grdDetCommutators.Name = "grdDetCommutators";
+            this.grdDetCommutators.Size = new System.Drawing.Size(728, 237);
+            this.grdDetCommutators.TabIndex = 104;
+            this.grdDetCommutators.Text = "samsaraUltraGrid7";
             // 
             // ultraPanel32
             // 
@@ -3439,7 +3439,7 @@
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage8.Controls.Add(this.samsaraUltraGrid8);
+            this.tabPage8.Controls.Add(this.grdDetCabling);
             this.tabPage8.Controls.Add(this.ultraPanel45);
             this.tabPage8.Controls.Add(this.ultraGroupBox6);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
@@ -3448,67 +3448,67 @@
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Cableado";
             // 
-            // samsaraUltraGrid8
+            // grdDetCabling
             // 
             appearance106.BackColor = System.Drawing.SystemColors.Window;
             appearance106.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid8.DisplayLayout.Appearance = appearance106;
-            this.samsaraUltraGrid8.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid8.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetCabling.DisplayLayout.Appearance = appearance106;
+            this.grdDetCabling.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetCabling.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance107.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance107.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance107.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance107.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid8.DisplayLayout.GroupByBox.Appearance = appearance107;
+            this.grdDetCabling.DisplayLayout.GroupByBox.Appearance = appearance107;
             appearance108.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid8.DisplayLayout.GroupByBox.BandLabelAppearance = appearance108;
-            this.samsaraUltraGrid8.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetCabling.DisplayLayout.GroupByBox.BandLabelAppearance = appearance108;
+            this.grdDetCabling.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance109.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance109.BackColor2 = System.Drawing.SystemColors.Control;
             appearance109.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance109.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid8.DisplayLayout.GroupByBox.PromptAppearance = appearance109;
-            this.samsaraUltraGrid8.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid8.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetCabling.DisplayLayout.GroupByBox.PromptAppearance = appearance109;
+            this.grdDetCabling.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetCabling.DisplayLayout.MaxRowScrollRegions = 1;
             appearance110.BackColor = System.Drawing.SystemColors.Window;
             appearance110.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid8.DisplayLayout.Override.ActiveCellAppearance = appearance110;
+            this.grdDetCabling.DisplayLayout.Override.ActiveCellAppearance = appearance110;
             appearance111.BackColor = System.Drawing.SystemColors.Highlight;
             appearance111.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid8.DisplayLayout.Override.ActiveRowAppearance = appearance111;
-            this.samsaraUltraGrid8.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid8.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetCabling.DisplayLayout.Override.ActiveRowAppearance = appearance111;
+            this.grdDetCabling.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetCabling.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance112.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid8.DisplayLayout.Override.CardAreaAppearance = appearance112;
+            this.grdDetCabling.DisplayLayout.Override.CardAreaAppearance = appearance112;
             appearance113.BorderColor = System.Drawing.Color.Silver;
             appearance113.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid8.DisplayLayout.Override.CellAppearance = appearance113;
-            this.samsaraUltraGrid8.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid8.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetCabling.DisplayLayout.Override.CellAppearance = appearance113;
+            this.grdDetCabling.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetCabling.DisplayLayout.Override.CellPadding = 0;
             appearance114.BackColor = System.Drawing.SystemColors.Control;
             appearance114.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance114.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance114.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance114.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid8.DisplayLayout.Override.GroupByRowAppearance = appearance114;
+            this.grdDetCabling.DisplayLayout.Override.GroupByRowAppearance = appearance114;
             appearance115.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid8.DisplayLayout.Override.HeaderAppearance = appearance115;
-            this.samsaraUltraGrid8.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid8.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetCabling.DisplayLayout.Override.HeaderAppearance = appearance115;
+            this.grdDetCabling.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetCabling.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance116.BackColor = System.Drawing.SystemColors.Window;
             appearance116.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid8.DisplayLayout.Override.RowAppearance = appearance116;
-            this.samsaraUltraGrid8.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetCabling.DisplayLayout.Override.RowAppearance = appearance116;
+            this.grdDetCabling.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance117.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid8.DisplayLayout.Override.TemplateAddRowAppearance = appearance117;
-            this.samsaraUltraGrid8.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid8.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid8.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid8.Name = "samsaraUltraGrid8";
-            this.samsaraUltraGrid8.Size = new System.Drawing.Size(728, 237);
-            this.samsaraUltraGrid8.TabIndex = 107;
-            this.samsaraUltraGrid8.Text = "samsaraUltraGrid8";
+            this.grdDetCabling.DisplayLayout.Override.TemplateAddRowAppearance = appearance117;
+            this.grdDetCabling.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetCabling.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetCabling.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetCabling.Location = new System.Drawing.Point(0, 0);
+            this.grdDetCabling.Name = "grdDetCabling";
+            this.grdDetCabling.Size = new System.Drawing.Size(728, 237);
+            this.grdDetCabling.TabIndex = 107;
+            this.grdDetCabling.Text = "samsaraUltraGrid8";
             // 
             // ultraPanel45
             // 
@@ -3715,7 +3715,7 @@
             // tabPage9
             // 
             this.tabPage9.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage9.Controls.Add(this.samsaraUltraGrid9);
+            this.tabPage9.Controls.Add(this.grdDetRouters);
             this.tabPage9.Controls.Add(this.ultraPanel54);
             this.tabPage9.Controls.Add(this.ultraGroupBox7);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
@@ -3724,67 +3724,67 @@
             this.tabPage9.TabIndex = 4;
             this.tabPage9.Text = "Routers";
             // 
-            // samsaraUltraGrid9
+            // grdDetRouters
             // 
             appearance118.BackColor = System.Drawing.SystemColors.Window;
             appearance118.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid9.DisplayLayout.Appearance = appearance118;
-            this.samsaraUltraGrid9.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid9.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetRouters.DisplayLayout.Appearance = appearance118;
+            this.grdDetRouters.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetRouters.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance119.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance119.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance119.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance119.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid9.DisplayLayout.GroupByBox.Appearance = appearance119;
+            this.grdDetRouters.DisplayLayout.GroupByBox.Appearance = appearance119;
             appearance120.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid9.DisplayLayout.GroupByBox.BandLabelAppearance = appearance120;
-            this.samsaraUltraGrid9.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetRouters.DisplayLayout.GroupByBox.BandLabelAppearance = appearance120;
+            this.grdDetRouters.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance121.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance121.BackColor2 = System.Drawing.SystemColors.Control;
             appearance121.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance121.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid9.DisplayLayout.GroupByBox.PromptAppearance = appearance121;
-            this.samsaraUltraGrid9.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid9.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetRouters.DisplayLayout.GroupByBox.PromptAppearance = appearance121;
+            this.grdDetRouters.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetRouters.DisplayLayout.MaxRowScrollRegions = 1;
             appearance122.BackColor = System.Drawing.SystemColors.Window;
             appearance122.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid9.DisplayLayout.Override.ActiveCellAppearance = appearance122;
+            this.grdDetRouters.DisplayLayout.Override.ActiveCellAppearance = appearance122;
             appearance123.BackColor = System.Drawing.SystemColors.Highlight;
             appearance123.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid9.DisplayLayout.Override.ActiveRowAppearance = appearance123;
-            this.samsaraUltraGrid9.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid9.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetRouters.DisplayLayout.Override.ActiveRowAppearance = appearance123;
+            this.grdDetRouters.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetRouters.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance124.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid9.DisplayLayout.Override.CardAreaAppearance = appearance124;
+            this.grdDetRouters.DisplayLayout.Override.CardAreaAppearance = appearance124;
             appearance125.BorderColor = System.Drawing.Color.Silver;
             appearance125.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid9.DisplayLayout.Override.CellAppearance = appearance125;
-            this.samsaraUltraGrid9.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid9.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetRouters.DisplayLayout.Override.CellAppearance = appearance125;
+            this.grdDetRouters.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetRouters.DisplayLayout.Override.CellPadding = 0;
             appearance126.BackColor = System.Drawing.SystemColors.Control;
             appearance126.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance126.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance126.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance126.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid9.DisplayLayout.Override.GroupByRowAppearance = appearance126;
+            this.grdDetRouters.DisplayLayout.Override.GroupByRowAppearance = appearance126;
             appearance127.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid9.DisplayLayout.Override.HeaderAppearance = appearance127;
-            this.samsaraUltraGrid9.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid9.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetRouters.DisplayLayout.Override.HeaderAppearance = appearance127;
+            this.grdDetRouters.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetRouters.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance128.BackColor = System.Drawing.SystemColors.Window;
             appearance128.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid9.DisplayLayout.Override.RowAppearance = appearance128;
-            this.samsaraUltraGrid9.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetRouters.DisplayLayout.Override.RowAppearance = appearance128;
+            this.grdDetRouters.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance129.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid9.DisplayLayout.Override.TemplateAddRowAppearance = appearance129;
-            this.samsaraUltraGrid9.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid9.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid9.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid9.Name = "samsaraUltraGrid9";
-            this.samsaraUltraGrid9.Size = new System.Drawing.Size(728, 218);
-            this.samsaraUltraGrid9.TabIndex = 107;
-            this.samsaraUltraGrid9.Text = "samsaraUltraGrid9";
+            this.grdDetRouters.DisplayLayout.Override.TemplateAddRowAppearance = appearance129;
+            this.grdDetRouters.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetRouters.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetRouters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetRouters.Location = new System.Drawing.Point(0, 0);
+            this.grdDetRouters.Name = "grdDetRouters";
+            this.grdDetRouters.Size = new System.Drawing.Size(728, 218);
+            this.grdDetRouters.TabIndex = 107;
+            this.grdDetRouters.Text = "samsaraUltraGrid9";
             // 
             // ultraPanel54
             // 
@@ -4011,7 +4011,7 @@
             // tabPage10
             // 
             this.tabPage10.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage10.Controls.Add(this.samsaraUltraGrid10);
+            this.tabPage10.Controls.Add(this.grdDetFirewalls);
             this.tabPage10.Controls.Add(this.ultraPanel63);
             this.tabPage10.Controls.Add(this.ultraGroupBox8);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
@@ -4020,67 +4020,67 @@
             this.tabPage10.TabIndex = 5;
             this.tabPage10.Text = "Firewalls";
             // 
-            // samsaraUltraGrid10
+            // grdDetFirewalls
             // 
             appearance130.BackColor = System.Drawing.SystemColors.Window;
             appearance130.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid10.DisplayLayout.Appearance = appearance130;
-            this.samsaraUltraGrid10.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid10.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetFirewalls.DisplayLayout.Appearance = appearance130;
+            this.grdDetFirewalls.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetFirewalls.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance131.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance131.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance131.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance131.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid10.DisplayLayout.GroupByBox.Appearance = appearance131;
+            this.grdDetFirewalls.DisplayLayout.GroupByBox.Appearance = appearance131;
             appearance132.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid10.DisplayLayout.GroupByBox.BandLabelAppearance = appearance132;
-            this.samsaraUltraGrid10.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetFirewalls.DisplayLayout.GroupByBox.BandLabelAppearance = appearance132;
+            this.grdDetFirewalls.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance133.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance133.BackColor2 = System.Drawing.SystemColors.Control;
             appearance133.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance133.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid10.DisplayLayout.GroupByBox.PromptAppearance = appearance133;
-            this.samsaraUltraGrid10.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid10.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetFirewalls.DisplayLayout.GroupByBox.PromptAppearance = appearance133;
+            this.grdDetFirewalls.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetFirewalls.DisplayLayout.MaxRowScrollRegions = 1;
             appearance134.BackColor = System.Drawing.SystemColors.Window;
             appearance134.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid10.DisplayLayout.Override.ActiveCellAppearance = appearance134;
+            this.grdDetFirewalls.DisplayLayout.Override.ActiveCellAppearance = appearance134;
             appearance135.BackColor = System.Drawing.SystemColors.Highlight;
             appearance135.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid10.DisplayLayout.Override.ActiveRowAppearance = appearance135;
-            this.samsaraUltraGrid10.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid10.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetFirewalls.DisplayLayout.Override.ActiveRowAppearance = appearance135;
+            this.grdDetFirewalls.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetFirewalls.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance136.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid10.DisplayLayout.Override.CardAreaAppearance = appearance136;
+            this.grdDetFirewalls.DisplayLayout.Override.CardAreaAppearance = appearance136;
             appearance137.BorderColor = System.Drawing.Color.Silver;
             appearance137.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid10.DisplayLayout.Override.CellAppearance = appearance137;
-            this.samsaraUltraGrid10.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid10.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetFirewalls.DisplayLayout.Override.CellAppearance = appearance137;
+            this.grdDetFirewalls.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetFirewalls.DisplayLayout.Override.CellPadding = 0;
             appearance138.BackColor = System.Drawing.SystemColors.Control;
             appearance138.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance138.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance138.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance138.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid10.DisplayLayout.Override.GroupByRowAppearance = appearance138;
+            this.grdDetFirewalls.DisplayLayout.Override.GroupByRowAppearance = appearance138;
             appearance139.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid10.DisplayLayout.Override.HeaderAppearance = appearance139;
-            this.samsaraUltraGrid10.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid10.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetFirewalls.DisplayLayout.Override.HeaderAppearance = appearance139;
+            this.grdDetFirewalls.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetFirewalls.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance140.BackColor = System.Drawing.SystemColors.Window;
             appearance140.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid10.DisplayLayout.Override.RowAppearance = appearance140;
-            this.samsaraUltraGrid10.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetFirewalls.DisplayLayout.Override.RowAppearance = appearance140;
+            this.grdDetFirewalls.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance141.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid10.DisplayLayout.Override.TemplateAddRowAppearance = appearance141;
-            this.samsaraUltraGrid10.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid10.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid10.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid10.Name = "samsaraUltraGrid10";
-            this.samsaraUltraGrid10.Size = new System.Drawing.Size(728, 218);
-            this.samsaraUltraGrid10.TabIndex = 110;
-            this.samsaraUltraGrid10.Text = "samsaraUltraGrid10";
+            this.grdDetFirewalls.DisplayLayout.Override.TemplateAddRowAppearance = appearance141;
+            this.grdDetFirewalls.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetFirewalls.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetFirewalls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetFirewalls.Location = new System.Drawing.Point(0, 0);
+            this.grdDetFirewalls.Name = "grdDetFirewalls";
+            this.grdDetFirewalls.Size = new System.Drawing.Size(728, 218);
+            this.grdDetFirewalls.TabIndex = 110;
+            this.grdDetFirewalls.Text = "samsaraUltraGrid10";
             // 
             // ultraPanel63
             // 
@@ -4336,7 +4336,7 @@
             // tabPage20
             // 
             this.tabPage20.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage20.Controls.Add(this.samsaraUltraGrid11);
+            this.tabPage20.Controls.Add(this.grdDetUPSs);
             this.tabPage20.Controls.Add(this.ultraPanel72);
             this.tabPage20.Controls.Add(this.ultraGroupBox9);
             this.tabPage20.Location = new System.Drawing.Point(4, 22);
@@ -4346,67 +4346,67 @@
             this.tabPage20.TabIndex = 0;
             this.tabPage20.Text = "UPSs";
             // 
-            // samsaraUltraGrid11
+            // grdDetUPSs
             // 
             appearance142.BackColor = System.Drawing.SystemColors.Window;
             appearance142.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid11.DisplayLayout.Appearance = appearance142;
-            this.samsaraUltraGrid11.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid11.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetUPSs.DisplayLayout.Appearance = appearance142;
+            this.grdDetUPSs.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetUPSs.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance143.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance143.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance143.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance143.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid11.DisplayLayout.GroupByBox.Appearance = appearance143;
+            this.grdDetUPSs.DisplayLayout.GroupByBox.Appearance = appearance143;
             appearance144.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid11.DisplayLayout.GroupByBox.BandLabelAppearance = appearance144;
-            this.samsaraUltraGrid11.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetUPSs.DisplayLayout.GroupByBox.BandLabelAppearance = appearance144;
+            this.grdDetUPSs.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance145.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance145.BackColor2 = System.Drawing.SystemColors.Control;
             appearance145.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance145.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid11.DisplayLayout.GroupByBox.PromptAppearance = appearance145;
-            this.samsaraUltraGrid11.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid11.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetUPSs.DisplayLayout.GroupByBox.PromptAppearance = appearance145;
+            this.grdDetUPSs.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetUPSs.DisplayLayout.MaxRowScrollRegions = 1;
             appearance146.BackColor = System.Drawing.SystemColors.Window;
             appearance146.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid11.DisplayLayout.Override.ActiveCellAppearance = appearance146;
+            this.grdDetUPSs.DisplayLayout.Override.ActiveCellAppearance = appearance146;
             appearance147.BackColor = System.Drawing.SystemColors.Highlight;
             appearance147.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid11.DisplayLayout.Override.ActiveRowAppearance = appearance147;
-            this.samsaraUltraGrid11.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid11.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetUPSs.DisplayLayout.Override.ActiveRowAppearance = appearance147;
+            this.grdDetUPSs.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetUPSs.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance148.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid11.DisplayLayout.Override.CardAreaAppearance = appearance148;
+            this.grdDetUPSs.DisplayLayout.Override.CardAreaAppearance = appearance148;
             appearance149.BorderColor = System.Drawing.Color.Silver;
             appearance149.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid11.DisplayLayout.Override.CellAppearance = appearance149;
-            this.samsaraUltraGrid11.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid11.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetUPSs.DisplayLayout.Override.CellAppearance = appearance149;
+            this.grdDetUPSs.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetUPSs.DisplayLayout.Override.CellPadding = 0;
             appearance150.BackColor = System.Drawing.SystemColors.Control;
             appearance150.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance150.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance150.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance150.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid11.DisplayLayout.Override.GroupByRowAppearance = appearance150;
+            this.grdDetUPSs.DisplayLayout.Override.GroupByRowAppearance = appearance150;
             appearance151.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid11.DisplayLayout.Override.HeaderAppearance = appearance151;
-            this.samsaraUltraGrid11.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid11.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetUPSs.DisplayLayout.Override.HeaderAppearance = appearance151;
+            this.grdDetUPSs.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetUPSs.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance152.BackColor = System.Drawing.SystemColors.Window;
             appearance152.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid11.DisplayLayout.Override.RowAppearance = appearance152;
-            this.samsaraUltraGrid11.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetUPSs.DisplayLayout.Override.RowAppearance = appearance152;
+            this.grdDetUPSs.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance153.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid11.DisplayLayout.Override.TemplateAddRowAppearance = appearance153;
-            this.samsaraUltraGrid11.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid11.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid11.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid11.Name = "samsaraUltraGrid11";
-            this.samsaraUltraGrid11.Size = new System.Drawing.Size(728, 240);
-            this.samsaraUltraGrid11.TabIndex = 113;
-            this.samsaraUltraGrid11.Text = "samsaraUltraGrid11";
+            this.grdDetUPSs.DisplayLayout.Override.TemplateAddRowAppearance = appearance153;
+            this.grdDetUPSs.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetUPSs.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetUPSs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetUPSs.Location = new System.Drawing.Point(3, 3);
+            this.grdDetUPSs.Name = "grdDetUPSs";
+            this.grdDetUPSs.Size = new System.Drawing.Size(728, 240);
+            this.grdDetUPSs.TabIndex = 113;
+            this.grdDetUPSs.Text = "samsaraUltraGrid11";
             // 
             // ultraPanel72
             // 
@@ -4651,7 +4651,7 @@
             // tabPage22
             // 
             this.tabPage22.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage22.Controls.Add(this.samsaraUltraGrid12);
+            this.tabPage22.Controls.Add(this.grdDetPrinters);
             this.tabPage22.Controls.Add(this.ultraPanel81);
             this.tabPage22.Controls.Add(this.ultraGroupBox10);
             this.tabPage22.Location = new System.Drawing.Point(4, 22);
@@ -4661,67 +4661,67 @@
             this.tabPage22.TabIndex = 0;
             this.tabPage22.Text = "Impresoras";
             // 
-            // samsaraUltraGrid12
+            // grdDetPrinters
             // 
             appearance154.BackColor = System.Drawing.SystemColors.Window;
             appearance154.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid12.DisplayLayout.Appearance = appearance154;
-            this.samsaraUltraGrid12.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid12.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetPrinters.DisplayLayout.Appearance = appearance154;
+            this.grdDetPrinters.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPrinters.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance155.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance155.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance155.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance155.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid12.DisplayLayout.GroupByBox.Appearance = appearance155;
+            this.grdDetPrinters.DisplayLayout.GroupByBox.Appearance = appearance155;
             appearance156.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid12.DisplayLayout.GroupByBox.BandLabelAppearance = appearance156;
-            this.samsaraUltraGrid12.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPrinters.DisplayLayout.GroupByBox.BandLabelAppearance = appearance156;
+            this.grdDetPrinters.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance157.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance157.BackColor2 = System.Drawing.SystemColors.Control;
             appearance157.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance157.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid12.DisplayLayout.GroupByBox.PromptAppearance = appearance157;
-            this.samsaraUltraGrid12.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid12.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetPrinters.DisplayLayout.GroupByBox.PromptAppearance = appearance157;
+            this.grdDetPrinters.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetPrinters.DisplayLayout.MaxRowScrollRegions = 1;
             appearance158.BackColor = System.Drawing.SystemColors.Window;
             appearance158.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid12.DisplayLayout.Override.ActiveCellAppearance = appearance158;
+            this.grdDetPrinters.DisplayLayout.Override.ActiveCellAppearance = appearance158;
             appearance159.BackColor = System.Drawing.SystemColors.Highlight;
             appearance159.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid12.DisplayLayout.Override.ActiveRowAppearance = appearance159;
-            this.samsaraUltraGrid12.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid12.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetPrinters.DisplayLayout.Override.ActiveRowAppearance = appearance159;
+            this.grdDetPrinters.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetPrinters.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance160.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid12.DisplayLayout.Override.CardAreaAppearance = appearance160;
+            this.grdDetPrinters.DisplayLayout.Override.CardAreaAppearance = appearance160;
             appearance161.BorderColor = System.Drawing.Color.Silver;
             appearance161.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid12.DisplayLayout.Override.CellAppearance = appearance161;
-            this.samsaraUltraGrid12.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid12.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetPrinters.DisplayLayout.Override.CellAppearance = appearance161;
+            this.grdDetPrinters.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetPrinters.DisplayLayout.Override.CellPadding = 0;
             appearance162.BackColor = System.Drawing.SystemColors.Control;
             appearance162.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance162.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance162.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance162.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid12.DisplayLayout.Override.GroupByRowAppearance = appearance162;
+            this.grdDetPrinters.DisplayLayout.Override.GroupByRowAppearance = appearance162;
             appearance163.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid12.DisplayLayout.Override.HeaderAppearance = appearance163;
-            this.samsaraUltraGrid12.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid12.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetPrinters.DisplayLayout.Override.HeaderAppearance = appearance163;
+            this.grdDetPrinters.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetPrinters.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance164.BackColor = System.Drawing.SystemColors.Window;
             appearance164.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid12.DisplayLayout.Override.RowAppearance = appearance164;
-            this.samsaraUltraGrid12.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetPrinters.DisplayLayout.Override.RowAppearance = appearance164;
+            this.grdDetPrinters.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance165.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid12.DisplayLayout.Override.TemplateAddRowAppearance = appearance165;
-            this.samsaraUltraGrid12.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid12.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid12.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid12.Name = "samsaraUltraGrid12";
-            this.samsaraUltraGrid12.Size = new System.Drawing.Size(728, 240);
-            this.samsaraUltraGrid12.TabIndex = 113;
-            this.samsaraUltraGrid12.Text = "samsaraUltraGrid12";
+            this.grdDetPrinters.DisplayLayout.Override.TemplateAddRowAppearance = appearance165;
+            this.grdDetPrinters.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetPrinters.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetPrinters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetPrinters.Location = new System.Drawing.Point(3, 3);
+            this.grdDetPrinters.Name = "grdDetPrinters";
+            this.grdDetPrinters.Size = new System.Drawing.Size(728, 240);
+            this.grdDetPrinters.TabIndex = 113;
+            this.grdDetPrinters.Text = "samsaraUltraGrid12";
             // 
             // ultraPanel81
             // 
@@ -4968,7 +4968,7 @@
             // tabPage26
             // 
             this.tabPage26.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage26.Controls.Add(this.samsaraUltraGrid14);
+            this.tabPage26.Controls.Add(this.grdDetAdministrationSoftware);
             this.tabPage26.Controls.Add(this.ultraPanel99);
             this.tabPage26.Controls.Add(this.ultraGroupBox12);
             this.tabPage26.Location = new System.Drawing.Point(4, 22);
@@ -4977,67 +4977,67 @@
             this.tabPage26.TabIndex = 1;
             this.tabPage26.Text = "Software de Administración";
             // 
-            // samsaraUltraGrid14
+            // grdDetAdministrationSoftware
             // 
             appearance166.BackColor = System.Drawing.SystemColors.Window;
             appearance166.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid14.DisplayLayout.Appearance = appearance166;
-            this.samsaraUltraGrid14.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid14.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetAdministrationSoftware.DisplayLayout.Appearance = appearance166;
+            this.grdDetAdministrationSoftware.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetAdministrationSoftware.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance167.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance167.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance167.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance167.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid14.DisplayLayout.GroupByBox.Appearance = appearance167;
+            this.grdDetAdministrationSoftware.DisplayLayout.GroupByBox.Appearance = appearance167;
             appearance168.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid14.DisplayLayout.GroupByBox.BandLabelAppearance = appearance168;
-            this.samsaraUltraGrid14.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetAdministrationSoftware.DisplayLayout.GroupByBox.BandLabelAppearance = appearance168;
+            this.grdDetAdministrationSoftware.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance169.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance169.BackColor2 = System.Drawing.SystemColors.Control;
             appearance169.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance169.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid14.DisplayLayout.GroupByBox.PromptAppearance = appearance169;
-            this.samsaraUltraGrid14.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid14.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetAdministrationSoftware.DisplayLayout.GroupByBox.PromptAppearance = appearance169;
+            this.grdDetAdministrationSoftware.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetAdministrationSoftware.DisplayLayout.MaxRowScrollRegions = 1;
             appearance170.BackColor = System.Drawing.SystemColors.Window;
             appearance170.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid14.DisplayLayout.Override.ActiveCellAppearance = appearance170;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.ActiveCellAppearance = appearance170;
             appearance171.BackColor = System.Drawing.SystemColors.Highlight;
             appearance171.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid14.DisplayLayout.Override.ActiveRowAppearance = appearance171;
-            this.samsaraUltraGrid14.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid14.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.ActiveRowAppearance = appearance171;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance172.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid14.DisplayLayout.Override.CardAreaAppearance = appearance172;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.CardAreaAppearance = appearance172;
             appearance173.BorderColor = System.Drawing.Color.Silver;
             appearance173.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid14.DisplayLayout.Override.CellAppearance = appearance173;
-            this.samsaraUltraGrid14.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid14.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.CellAppearance = appearance173;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.CellPadding = 0;
             appearance174.BackColor = System.Drawing.SystemColors.Control;
             appearance174.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance174.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance174.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance174.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid14.DisplayLayout.Override.GroupByRowAppearance = appearance174;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.GroupByRowAppearance = appearance174;
             appearance175.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid14.DisplayLayout.Override.HeaderAppearance = appearance175;
-            this.samsaraUltraGrid14.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid14.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.HeaderAppearance = appearance175;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance176.BackColor = System.Drawing.SystemColors.Window;
             appearance176.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid14.DisplayLayout.Override.RowAppearance = appearance176;
-            this.samsaraUltraGrid14.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.RowAppearance = appearance176;
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance177.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid14.DisplayLayout.Override.TemplateAddRowAppearance = appearance177;
-            this.samsaraUltraGrid14.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid14.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid14.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid14.Name = "samsaraUltraGrid14";
-            this.samsaraUltraGrid14.Size = new System.Drawing.Size(734, 225);
-            this.samsaraUltraGrid14.TabIndex = 116;
-            this.samsaraUltraGrid14.Text = "samsaraUltraGrid14";
+            this.grdDetAdministrationSoftware.DisplayLayout.Override.TemplateAddRowAppearance = appearance177;
+            this.grdDetAdministrationSoftware.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetAdministrationSoftware.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetAdministrationSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetAdministrationSoftware.Location = new System.Drawing.Point(0, 0);
+            this.grdDetAdministrationSoftware.Name = "grdDetAdministrationSoftware";
+            this.grdDetAdministrationSoftware.Size = new System.Drawing.Size(734, 225);
+            this.grdDetAdministrationSoftware.TabIndex = 116;
+            this.grdDetAdministrationSoftware.Text = "samsaraUltraGrid14";
             // 
             // ultraPanel99
             // 
@@ -5330,7 +5330,7 @@
             // tabPage24
             // 
             this.tabPage24.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage24.Controls.Add(this.samsaraUltraGrid13);
+            this.tabPage24.Controls.Add(this.grdDetSecuritySoftware);
             this.tabPage24.Controls.Add(this.ultraPanel90);
             this.tabPage24.Controls.Add(this.ultraGroupBox11);
             this.tabPage24.Location = new System.Drawing.Point(4, 22);
@@ -5340,67 +5340,67 @@
             this.tabPage24.TabIndex = 0;
             this.tabPage24.Text = "Software de Seguridad";
             // 
-            // samsaraUltraGrid13
+            // grdDetSecuritySoftware
             // 
             appearance178.BackColor = System.Drawing.SystemColors.Window;
             appearance178.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid13.DisplayLayout.Appearance = appearance178;
-            this.samsaraUltraGrid13.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid13.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetSecuritySoftware.DisplayLayout.Appearance = appearance178;
+            this.grdDetSecuritySoftware.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetSecuritySoftware.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance179.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance179.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance179.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance179.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.Appearance = appearance179;
+            this.grdDetSecuritySoftware.DisplayLayout.GroupByBox.Appearance = appearance179;
             appearance180.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.BandLabelAppearance = appearance180;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetSecuritySoftware.DisplayLayout.GroupByBox.BandLabelAppearance = appearance180;
+            this.grdDetSecuritySoftware.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance181.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance181.BackColor2 = System.Drawing.SystemColors.Control;
             appearance181.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance181.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid13.DisplayLayout.GroupByBox.PromptAppearance = appearance181;
-            this.samsaraUltraGrid13.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid13.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetSecuritySoftware.DisplayLayout.GroupByBox.PromptAppearance = appearance181;
+            this.grdDetSecuritySoftware.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetSecuritySoftware.DisplayLayout.MaxRowScrollRegions = 1;
             appearance182.BackColor = System.Drawing.SystemColors.Window;
             appearance182.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid13.DisplayLayout.Override.ActiveCellAppearance = appearance182;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.ActiveCellAppearance = appearance182;
             appearance183.BackColor = System.Drawing.SystemColors.Highlight;
             appearance183.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid13.DisplayLayout.Override.ActiveRowAppearance = appearance183;
-            this.samsaraUltraGrid13.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid13.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.ActiveRowAppearance = appearance183;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance184.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CardAreaAppearance = appearance184;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.CardAreaAppearance = appearance184;
             appearance185.BorderColor = System.Drawing.Color.Silver;
             appearance185.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CellAppearance = appearance185;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid13.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.CellAppearance = appearance185;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.CellPadding = 0;
             appearance186.BackColor = System.Drawing.SystemColors.Control;
             appearance186.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance186.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance186.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance186.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid13.DisplayLayout.Override.GroupByRowAppearance = appearance186;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.GroupByRowAppearance = appearance186;
             appearance187.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderAppearance = appearance187;
-            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid13.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.HeaderAppearance = appearance187;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance188.BackColor = System.Drawing.SystemColors.Window;
             appearance188.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid13.DisplayLayout.Override.RowAppearance = appearance188;
-            this.samsaraUltraGrid13.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.RowAppearance = appearance188;
+            this.grdDetSecuritySoftware.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance189.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid13.DisplayLayout.Override.TemplateAddRowAppearance = appearance189;
-            this.samsaraUltraGrid13.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid13.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid13.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid13.Name = "samsaraUltraGrid13";
-            this.samsaraUltraGrid13.Size = new System.Drawing.Size(728, 240);
-            this.samsaraUltraGrid13.TabIndex = 113;
-            this.samsaraUltraGrid13.Text = "samsaraUltraGrid13";
+            this.grdDetSecuritySoftware.DisplayLayout.Override.TemplateAddRowAppearance = appearance189;
+            this.grdDetSecuritySoftware.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetSecuritySoftware.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetSecuritySoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetSecuritySoftware.Location = new System.Drawing.Point(3, 3);
+            this.grdDetSecuritySoftware.Name = "grdDetSecuritySoftware";
+            this.grdDetSecuritySoftware.Size = new System.Drawing.Size(728, 240);
+            this.grdDetSecuritySoftware.TabIndex = 113;
+            this.grdDetSecuritySoftware.Text = "samsaraUltraGrid13";
             // 
             // ultraPanel90
             // 
@@ -5635,7 +5635,7 @@
             // tabPage27
             // 
             this.tabPage27.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage27.Controls.Add(this.samsaraUltraGrid15);
+            this.tabPage27.Controls.Add(this.grdDetBackupSoftware);
             this.tabPage27.Controls.Add(this.ultraPanel108);
             this.tabPage27.Controls.Add(this.ultraGroupBox13);
             this.tabPage27.Location = new System.Drawing.Point(4, 22);
@@ -5644,67 +5644,67 @@
             this.tabPage27.TabIndex = 2;
             this.tabPage27.Text = "Software de Respaldos";
             // 
-            // samsaraUltraGrid15
+            // grdDetBackupSoftware
             // 
             appearance37.BackColor = System.Drawing.SystemColors.Window;
             appearance37.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid15.DisplayLayout.Appearance = appearance37;
-            this.samsaraUltraGrid15.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid15.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetBackupSoftware.DisplayLayout.Appearance = appearance37;
+            this.grdDetBackupSoftware.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetBackupSoftware.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance38.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance38.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance38.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance38.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid15.DisplayLayout.GroupByBox.Appearance = appearance38;
+            this.grdDetBackupSoftware.DisplayLayout.GroupByBox.Appearance = appearance38;
             appearance39.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid15.DisplayLayout.GroupByBox.BandLabelAppearance = appearance39;
-            this.samsaraUltraGrid15.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetBackupSoftware.DisplayLayout.GroupByBox.BandLabelAppearance = appearance39;
+            this.grdDetBackupSoftware.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance40.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance40.BackColor2 = System.Drawing.SystemColors.Control;
             appearance40.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance40.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid15.DisplayLayout.GroupByBox.PromptAppearance = appearance40;
-            this.samsaraUltraGrid15.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid15.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetBackupSoftware.DisplayLayout.GroupByBox.PromptAppearance = appearance40;
+            this.grdDetBackupSoftware.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetBackupSoftware.DisplayLayout.MaxRowScrollRegions = 1;
             appearance41.BackColor = System.Drawing.SystemColors.Window;
             appearance41.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid15.DisplayLayout.Override.ActiveCellAppearance = appearance41;
+            this.grdDetBackupSoftware.DisplayLayout.Override.ActiveCellAppearance = appearance41;
             appearance42.BackColor = System.Drawing.SystemColors.Highlight;
             appearance42.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid15.DisplayLayout.Override.ActiveRowAppearance = appearance42;
-            this.samsaraUltraGrid15.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid15.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetBackupSoftware.DisplayLayout.Override.ActiveRowAppearance = appearance42;
+            this.grdDetBackupSoftware.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetBackupSoftware.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance43.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid15.DisplayLayout.Override.CardAreaAppearance = appearance43;
+            this.grdDetBackupSoftware.DisplayLayout.Override.CardAreaAppearance = appearance43;
             appearance44.BorderColor = System.Drawing.Color.Silver;
             appearance44.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid15.DisplayLayout.Override.CellAppearance = appearance44;
-            this.samsaraUltraGrid15.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid15.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetBackupSoftware.DisplayLayout.Override.CellAppearance = appearance44;
+            this.grdDetBackupSoftware.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetBackupSoftware.DisplayLayout.Override.CellPadding = 0;
             appearance45.BackColor = System.Drawing.SystemColors.Control;
             appearance45.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance45.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance45.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance45.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid15.DisplayLayout.Override.GroupByRowAppearance = appearance45;
+            this.grdDetBackupSoftware.DisplayLayout.Override.GroupByRowAppearance = appearance45;
             appearance94.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid15.DisplayLayout.Override.HeaderAppearance = appearance94;
-            this.samsaraUltraGrid15.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid15.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetBackupSoftware.DisplayLayout.Override.HeaderAppearance = appearance94;
+            this.grdDetBackupSoftware.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetBackupSoftware.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance95.BackColor = System.Drawing.SystemColors.Window;
             appearance95.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid15.DisplayLayout.Override.RowAppearance = appearance95;
-            this.samsaraUltraGrid15.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetBackupSoftware.DisplayLayout.Override.RowAppearance = appearance95;
+            this.grdDetBackupSoftware.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance96.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid15.DisplayLayout.Override.TemplateAddRowAppearance = appearance96;
-            this.samsaraUltraGrid15.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid15.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid15.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid15.Name = "samsaraUltraGrid15";
-            this.samsaraUltraGrid15.Size = new System.Drawing.Size(734, 227);
-            this.samsaraUltraGrid15.TabIndex = 116;
-            this.samsaraUltraGrid15.Text = "samsaraUltraGrid15";
+            this.grdDetBackupSoftware.DisplayLayout.Override.TemplateAddRowAppearance = appearance96;
+            this.grdDetBackupSoftware.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetBackupSoftware.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetBackupSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetBackupSoftware.Location = new System.Drawing.Point(0, 0);
+            this.grdDetBackupSoftware.Name = "grdDetBackupSoftware";
+            this.grdDetBackupSoftware.Size = new System.Drawing.Size(734, 227);
+            this.grdDetBackupSoftware.TabIndex = 116;
+            this.grdDetBackupSoftware.Text = "samsaraUltraGrid15";
             // 
             // ultraPanel108
             // 
@@ -5952,7 +5952,7 @@
             // tabPage31
             // 
             this.tabPage31.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage31.Controls.Add(this.samsaraUltraGrid16);
+            this.tabPage31.Controls.Add(this.grdDetISPs);
             this.tabPage31.Controls.Add(this.ultraPanel117);
             this.tabPage31.Controls.Add(this.ultraGroupBox14);
             this.tabPage31.Location = new System.Drawing.Point(4, 22);
@@ -5962,67 +5962,67 @@
             this.tabPage31.TabIndex = 0;
             this.tabPage31.Text = "Proveedor de Internet";
             // 
-            // samsaraUltraGrid16
+            // grdDetISPs
             // 
             appearance214.BackColor = System.Drawing.SystemColors.Window;
             appearance214.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid16.DisplayLayout.Appearance = appearance214;
-            this.samsaraUltraGrid16.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid16.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetISPs.DisplayLayout.Appearance = appearance214;
+            this.grdDetISPs.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetISPs.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance215.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance215.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance215.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance215.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.Appearance = appearance215;
+            this.grdDetISPs.DisplayLayout.GroupByBox.Appearance = appearance215;
             appearance216.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.BandLabelAppearance = appearance216;
-            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetISPs.DisplayLayout.GroupByBox.BandLabelAppearance = appearance216;
+            this.grdDetISPs.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance217.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance217.BackColor2 = System.Drawing.SystemColors.Control;
             appearance217.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance217.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid16.DisplayLayout.GroupByBox.PromptAppearance = appearance217;
-            this.samsaraUltraGrid16.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid16.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetISPs.DisplayLayout.GroupByBox.PromptAppearance = appearance217;
+            this.grdDetISPs.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetISPs.DisplayLayout.MaxRowScrollRegions = 1;
             appearance218.BackColor = System.Drawing.SystemColors.Window;
             appearance218.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid16.DisplayLayout.Override.ActiveCellAppearance = appearance218;
+            this.grdDetISPs.DisplayLayout.Override.ActiveCellAppearance = appearance218;
             appearance219.BackColor = System.Drawing.SystemColors.Highlight;
             appearance219.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid16.DisplayLayout.Override.ActiveRowAppearance = appearance219;
-            this.samsaraUltraGrid16.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid16.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetISPs.DisplayLayout.Override.ActiveRowAppearance = appearance219;
+            this.grdDetISPs.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetISPs.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance220.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid16.DisplayLayout.Override.CardAreaAppearance = appearance220;
+            this.grdDetISPs.DisplayLayout.Override.CardAreaAppearance = appearance220;
             appearance221.BorderColor = System.Drawing.Color.Silver;
             appearance221.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid16.DisplayLayout.Override.CellAppearance = appearance221;
-            this.samsaraUltraGrid16.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid16.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetISPs.DisplayLayout.Override.CellAppearance = appearance221;
+            this.grdDetISPs.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetISPs.DisplayLayout.Override.CellPadding = 0;
             appearance222.BackColor = System.Drawing.SystemColors.Control;
             appearance222.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance222.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance222.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance222.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid16.DisplayLayout.Override.GroupByRowAppearance = appearance222;
+            this.grdDetISPs.DisplayLayout.Override.GroupByRowAppearance = appearance222;
             appearance223.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid16.DisplayLayout.Override.HeaderAppearance = appearance223;
-            this.samsaraUltraGrid16.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid16.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetISPs.DisplayLayout.Override.HeaderAppearance = appearance223;
+            this.grdDetISPs.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetISPs.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance224.BackColor = System.Drawing.SystemColors.Window;
             appearance224.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid16.DisplayLayout.Override.RowAppearance = appearance224;
-            this.samsaraUltraGrid16.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetISPs.DisplayLayout.Override.RowAppearance = appearance224;
+            this.grdDetISPs.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance225.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid16.DisplayLayout.Override.TemplateAddRowAppearance = appearance225;
-            this.samsaraUltraGrid16.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid16.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid16.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid16.Name = "samsaraUltraGrid16";
-            this.samsaraUltraGrid16.Size = new System.Drawing.Size(728, 240);
-            this.samsaraUltraGrid16.TabIndex = 113;
-            this.samsaraUltraGrid16.Text = "samsaraUltraGrid16";
+            this.grdDetISPs.DisplayLayout.Override.TemplateAddRowAppearance = appearance225;
+            this.grdDetISPs.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetISPs.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetISPs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetISPs.Location = new System.Drawing.Point(3, 3);
+            this.grdDetISPs.Name = "grdDetISPs";
+            this.grdDetISPs.Size = new System.Drawing.Size(728, 240);
+            this.grdDetISPs.TabIndex = 113;
+            this.grdDetISPs.Text = "samsaraUltraGrid16";
             // 
             // ultraPanel117
             // 
@@ -6229,7 +6229,7 @@
             // tabPage33
             // 
             this.tabPage33.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage33.Controls.Add(this.samsaraUltraGrid17);
+            this.tabPage33.Controls.Add(this.grdDetTelephonies);
             this.tabPage33.Controls.Add(this.ultraPanel126);
             this.tabPage33.Controls.Add(this.ultraGroupBox15);
             this.tabPage33.Location = new System.Drawing.Point(4, 22);
@@ -6238,67 +6238,67 @@
             this.tabPage33.TabIndex = 1;
             this.tabPage33.Text = "Proveedor de Telefonía";
             // 
-            // samsaraUltraGrid17
+            // grdDetTelephonies
             // 
             appearance202.BackColor = System.Drawing.SystemColors.Window;
             appearance202.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid17.DisplayLayout.Appearance = appearance202;
-            this.samsaraUltraGrid17.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid17.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetTelephonies.DisplayLayout.Appearance = appearance202;
+            this.grdDetTelephonies.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTelephonies.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance203.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance203.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance203.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance203.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.Appearance = appearance203;
+            this.grdDetTelephonies.DisplayLayout.GroupByBox.Appearance = appearance203;
             appearance204.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.BandLabelAppearance = appearance204;
-            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTelephonies.DisplayLayout.GroupByBox.BandLabelAppearance = appearance204;
+            this.grdDetTelephonies.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance205.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance205.BackColor2 = System.Drawing.SystemColors.Control;
             appearance205.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance205.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid17.DisplayLayout.GroupByBox.PromptAppearance = appearance205;
-            this.samsaraUltraGrid17.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid17.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetTelephonies.DisplayLayout.GroupByBox.PromptAppearance = appearance205;
+            this.grdDetTelephonies.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetTelephonies.DisplayLayout.MaxRowScrollRegions = 1;
             appearance206.BackColor = System.Drawing.SystemColors.Window;
             appearance206.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid17.DisplayLayout.Override.ActiveCellAppearance = appearance206;
+            this.grdDetTelephonies.DisplayLayout.Override.ActiveCellAppearance = appearance206;
             appearance207.BackColor = System.Drawing.SystemColors.Highlight;
             appearance207.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid17.DisplayLayout.Override.ActiveRowAppearance = appearance207;
-            this.samsaraUltraGrid17.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid17.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetTelephonies.DisplayLayout.Override.ActiveRowAppearance = appearance207;
+            this.grdDetTelephonies.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetTelephonies.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance208.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid17.DisplayLayout.Override.CardAreaAppearance = appearance208;
+            this.grdDetTelephonies.DisplayLayout.Override.CardAreaAppearance = appearance208;
             appearance209.BorderColor = System.Drawing.Color.Silver;
             appearance209.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid17.DisplayLayout.Override.CellAppearance = appearance209;
-            this.samsaraUltraGrid17.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid17.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetTelephonies.DisplayLayout.Override.CellAppearance = appearance209;
+            this.grdDetTelephonies.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetTelephonies.DisplayLayout.Override.CellPadding = 0;
             appearance210.BackColor = System.Drawing.SystemColors.Control;
             appearance210.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance210.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance210.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance210.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid17.DisplayLayout.Override.GroupByRowAppearance = appearance210;
+            this.grdDetTelephonies.DisplayLayout.Override.GroupByRowAppearance = appearance210;
             appearance211.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid17.DisplayLayout.Override.HeaderAppearance = appearance211;
-            this.samsaraUltraGrid17.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid17.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetTelephonies.DisplayLayout.Override.HeaderAppearance = appearance211;
+            this.grdDetTelephonies.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetTelephonies.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance212.BackColor = System.Drawing.SystemColors.Window;
             appearance212.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid17.DisplayLayout.Override.RowAppearance = appearance212;
-            this.samsaraUltraGrid17.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetTelephonies.DisplayLayout.Override.RowAppearance = appearance212;
+            this.grdDetTelephonies.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance213.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid17.DisplayLayout.Override.TemplateAddRowAppearance = appearance213;
-            this.samsaraUltraGrid17.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid17.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid17.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraGrid17.Name = "samsaraUltraGrid17";
-            this.samsaraUltraGrid17.Size = new System.Drawing.Size(734, 246);
-            this.samsaraUltraGrid17.TabIndex = 116;
-            this.samsaraUltraGrid17.Text = "samsaraUltraGrid17";
+            this.grdDetTelephonies.DisplayLayout.Override.TemplateAddRowAppearance = appearance213;
+            this.grdDetTelephonies.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetTelephonies.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetTelephonies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetTelephonies.Location = new System.Drawing.Point(0, 0);
+            this.grdDetTelephonies.Name = "grdDetTelephonies";
+            this.grdDetTelephonies.Size = new System.Drawing.Size(734, 246);
+            this.grdDetTelephonies.TabIndex = 116;
+            this.grdDetTelephonies.Text = "samsaraUltraGrid17";
             // 
             // ultraPanel126
             // 
@@ -6543,7 +6543,7 @@
             // tabPage35
             // 
             this.tabPage35.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage35.Controls.Add(this.samsaraUltraGrid18);
+            this.tabPage35.Controls.Add(this.grdDetCCTVs);
             this.tabPage35.Controls.Add(this.ultraPanel135);
             this.tabPage35.Controls.Add(this.ultraGroupBox16);
             this.tabPage35.Location = new System.Drawing.Point(4, 22);
@@ -6551,69 +6551,69 @@
             this.tabPage35.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage35.Size = new System.Drawing.Size(734, 402);
             this.tabPage35.TabIndex = 0;
-            this.tabPage35.Text = "Impresoras";
+            this.tabPage35.Text = "CCTVs";
             // 
-            // samsaraUltraGrid18
+            // grdDetCCTVs
             // 
             appearance190.BackColor = System.Drawing.SystemColors.Window;
             appearance190.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.samsaraUltraGrid18.DisplayLayout.Appearance = appearance190;
-            this.samsaraUltraGrid18.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.samsaraUltraGrid18.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetCCTVs.DisplayLayout.Appearance = appearance190;
+            this.grdDetCCTVs.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetCCTVs.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance191.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance191.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance191.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance191.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.Appearance = appearance191;
+            this.grdDetCCTVs.DisplayLayout.GroupByBox.Appearance = appearance191;
             appearance192.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.BandLabelAppearance = appearance192;
-            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetCCTVs.DisplayLayout.GroupByBox.BandLabelAppearance = appearance192;
+            this.grdDetCCTVs.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance193.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance193.BackColor2 = System.Drawing.SystemColors.Control;
             appearance193.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance193.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.samsaraUltraGrid18.DisplayLayout.GroupByBox.PromptAppearance = appearance193;
-            this.samsaraUltraGrid18.DisplayLayout.MaxColScrollRegions = 1;
-            this.samsaraUltraGrid18.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdDetCCTVs.DisplayLayout.GroupByBox.PromptAppearance = appearance193;
+            this.grdDetCCTVs.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetCCTVs.DisplayLayout.MaxRowScrollRegions = 1;
             appearance194.BackColor = System.Drawing.SystemColors.Window;
             appearance194.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.samsaraUltraGrid18.DisplayLayout.Override.ActiveCellAppearance = appearance194;
+            this.grdDetCCTVs.DisplayLayout.Override.ActiveCellAppearance = appearance194;
             appearance195.BackColor = System.Drawing.SystemColors.Highlight;
             appearance195.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.samsaraUltraGrid18.DisplayLayout.Override.ActiveRowAppearance = appearance195;
-            this.samsaraUltraGrid18.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.samsaraUltraGrid18.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetCCTVs.DisplayLayout.Override.ActiveRowAppearance = appearance195;
+            this.grdDetCCTVs.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetCCTVs.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance196.BackColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid18.DisplayLayout.Override.CardAreaAppearance = appearance196;
+            this.grdDetCCTVs.DisplayLayout.Override.CardAreaAppearance = appearance196;
             appearance197.BorderColor = System.Drawing.Color.Silver;
             appearance197.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.samsaraUltraGrid18.DisplayLayout.Override.CellAppearance = appearance197;
-            this.samsaraUltraGrid18.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.samsaraUltraGrid18.DisplayLayout.Override.CellPadding = 0;
+            this.grdDetCCTVs.DisplayLayout.Override.CellAppearance = appearance197;
+            this.grdDetCCTVs.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetCCTVs.DisplayLayout.Override.CellPadding = 0;
             appearance198.BackColor = System.Drawing.SystemColors.Control;
             appearance198.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance198.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance198.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance198.BorderColor = System.Drawing.SystemColors.Window;
-            this.samsaraUltraGrid18.DisplayLayout.Override.GroupByRowAppearance = appearance198;
+            this.grdDetCCTVs.DisplayLayout.Override.GroupByRowAppearance = appearance198;
             appearance199.TextHAlignAsString = "Left";
-            this.samsaraUltraGrid18.DisplayLayout.Override.HeaderAppearance = appearance199;
-            this.samsaraUltraGrid18.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.samsaraUltraGrid18.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdDetCCTVs.DisplayLayout.Override.HeaderAppearance = appearance199;
+            this.grdDetCCTVs.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetCCTVs.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance200.BackColor = System.Drawing.SystemColors.Window;
             appearance200.BorderColor = System.Drawing.Color.Silver;
-            this.samsaraUltraGrid18.DisplayLayout.Override.RowAppearance = appearance200;
-            this.samsaraUltraGrid18.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdDetCCTVs.DisplayLayout.Override.RowAppearance = appearance200;
+            this.grdDetCCTVs.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance201.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.samsaraUltraGrid18.DisplayLayout.Override.TemplateAddRowAppearance = appearance201;
-            this.samsaraUltraGrid18.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.samsaraUltraGrid18.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.samsaraUltraGrid18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraGrid18.Location = new System.Drawing.Point(3, 3);
-            this.samsaraUltraGrid18.Name = "samsaraUltraGrid18";
-            this.samsaraUltraGrid18.Size = new System.Drawing.Size(728, 221);
-            this.samsaraUltraGrid18.TabIndex = 113;
-            this.samsaraUltraGrid18.Text = "samsaraUltraGrid18";
+            this.grdDetCCTVs.DisplayLayout.Override.TemplateAddRowAppearance = appearance201;
+            this.grdDetCCTVs.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetCCTVs.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetCCTVs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetCCTVs.Location = new System.Drawing.Point(3, 3);
+            this.grdDetCCTVs.Name = "grdDetCCTVs";
+            this.grdDetCCTVs.Size = new System.Drawing.Size(728, 221);
+            this.grdDetCCTVs.TabIndex = 113;
+            this.grdDetCCTVs.Text = "samsaraUltraGrid18";
             // 
             // ultraPanel135
             // 
@@ -6857,40 +6857,40 @@
             this.tabDetInfraestructure.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabDetComputers.ResumeLayout(false);
-            this.tabControl3.ResumeLayout(false);
+            this.tabDetComputers1.ResumeLayout(false);
             this.tabDetPersonalComputers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid1)).EndInit();
-            this.upnlDetPreresultButtons.ClientArea.ResumeLayout(false);
-            this.upnlDetPreresultButtons.ResumeLayout(false);
-            this.upnlSeparatorDeletePreresult.ResumeLayout(false);
-            this.ultraPanel4.ResumeLayout(false);
-            this.ultraPanel3.ResumeLayout(false);
-            this.upnlSeparatorPreresults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPersonalComputers)).EndInit();
+            this.upnlDetComputersDetailButtons.ClientArea.ResumeLayout(false);
+            this.upnlDetComputersDetailButtons.ResumeLayout(false);
+            this.upnlSeparatorDeletePersonalComputer.ResumeLayout(false);
+            this.upnlSeparatorEditPersonalComputer.ResumeLayout(false);
+            this.upnlSeparatorCreatePersonalComputer.ResumeLayout(false);
+            this.upnlSeparatorPersonalComputersDetailButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
             this.ultraGroupBox1.ResumeLayout(false);
-            this.tabControl4.ResumeLayout(false);
-            this.tabDetPCPrincipal.ResumeLayout(false);
-            this.tabDetPCPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).EndInit();
-            this.tabDetPCSpecs.ResumeLayout(false);
-            this.tabDetPCSpecs.PerformLayout();
-            this.gbxDetFileDescription.ResumeLayout(false);
-            this.gbxDetFileDescription.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFileDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor3)).EndInit();
-            this.tabDetPCSoftware.ResumeLayout(false);
-            this.tabDetPCSoftware.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor2)).EndInit();
-            this.ultraPanel1.ClientArea.ResumeLayout(false);
-            this.ultraPanel1.ResumeLayout(false);
+            this.tabDetPersonalDetail.ResumeLayout(false);
+            this.tabDetPersonalComputerPrincipal.ResumeLayout(false);
+            this.tabDetPersonalComputerPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetManufacturerReferenceNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerSerialNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerType)).EndInit();
+            this.tabDetPersonalComputerSpecs.ResumeLayout(false);
+            this.tabDetPersonalComputerSpecs.PerformLayout();
+            this.gbxDetPersonalComputerStorage.ResumeLayout(false);
+            this.gbxDetPersonalComputerStorage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerStorage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerRAM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerCPU)).EndInit();
+            this.tabDetPersonalComputerSoftware.ResumeLayout(false);
+            this.tabDetPersonalComputerSoftware.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerOS)).EndInit();
+            this.upnlDetComputersButtons.ClientArea.ResumeLayout(false);
+            this.upnlDetComputersButtons.ResumeLayout(false);
             this.upnlSeparatorSavePreresult.ResumeLayout(false);
             this.upnlSeparatorCancelPreresult.ResumeLayout(false);
-            this.ultraPanel2.ResumeLayout(false);
+            this.upnlSeparatorPersonalComputersButtons.ResumeLayout(false);
             this.tabDetServerComputers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetServerComputers)).EndInit();
             this.ultraPanel9.ClientArea.ResumeLayout(false);
             this.ultraPanel9.ResumeLayout(false);
             this.ultraPanel10.ResumeLayout(false);
@@ -6939,7 +6939,7 @@
             this.tabDetNetwork.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSites)).EndInit();
             this.ultraPanel14.ClientArea.ResumeLayout(false);
             this.ultraPanel14.ResumeLayout(false);
             this.ultraPanel15.ResumeLayout(false);
@@ -6972,7 +6972,7 @@
             this.ultraPanel21.ResumeLayout(false);
             this.ultraPanel22.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSwitches)).EndInit();
             this.ultraPanel27.ClientArea.ResumeLayout(false);
             this.ultraPanel27.ResumeLayout(false);
             this.ultraPanel28.ResumeLayout(false);
@@ -6993,7 +6993,7 @@
             this.ultraPanel38.ResumeLayout(false);
             this.ultraPanel39.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetCommutators)).EndInit();
             this.ultraPanel32.ClientArea.ResumeLayout(false);
             this.ultraPanel32.ResumeLayout(false);
             this.ultraPanel33.ResumeLayout(false);
@@ -7015,7 +7015,7 @@
             this.ultraPanel43.ResumeLayout(false);
             this.ultraPanel44.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetCabling)).EndInit();
             this.ultraPanel45.ClientArea.ResumeLayout(false);
             this.ultraPanel45.ResumeLayout(false);
             this.ultraPanel46.ResumeLayout(false);
@@ -7035,7 +7035,7 @@
             this.ultraPanel52.ResumeLayout(false);
             this.ultraPanel53.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetRouters)).EndInit();
             this.ultraPanel54.ClientArea.ResumeLayout(false);
             this.ultraPanel54.ResumeLayout(false);
             this.ultraPanel55.ResumeLayout(false);
@@ -7058,7 +7058,7 @@
             this.ultraPanel61.ResumeLayout(false);
             this.ultraPanel62.ResumeLayout(false);
             this.tabPage10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetFirewalls)).EndInit();
             this.ultraPanel63.ClientArea.ResumeLayout(false);
             this.ultraPanel63.ResumeLayout(false);
             this.ultraPanel64.ResumeLayout(false);
@@ -7083,7 +7083,7 @@
             this.tabDetEnergy.ResumeLayout(false);
             this.tabControl13.ResumeLayout(false);
             this.tabPage20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetUPSs)).EndInit();
             this.ultraPanel72.ClientArea.ResumeLayout(false);
             this.ultraPanel72.ResumeLayout(false);
             this.ultraPanel73.ResumeLayout(false);
@@ -7106,7 +7106,7 @@
             this.tabDetPeripherals.ResumeLayout(false);
             this.tabControl15.ResumeLayout(false);
             this.tabPage22.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetPrinters)).EndInit();
             this.ultraPanel81.ClientArea.ResumeLayout(false);
             this.ultraPanel81.ResumeLayout(false);
             this.ultraPanel82.ResumeLayout(false);
@@ -7129,7 +7129,7 @@
             this.tabDetSoftware.ResumeLayout(false);
             this.tabControl17.ResumeLayout(false);
             this.tabPage26.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetAdministrationSoftware)).EndInit();
             this.ultraPanel99.ClientArea.ResumeLayout(false);
             this.ultraPanel99.ResumeLayout(false);
             this.ultraPanel100.ResumeLayout(false);
@@ -7158,7 +7158,7 @@
             this.ultraPanel106.ResumeLayout(false);
             this.ultraPanel107.ResumeLayout(false);
             this.tabPage24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSecuritySoftware)).EndInit();
             this.ultraPanel90.ClientArea.ResumeLayout(false);
             this.ultraPanel90.ResumeLayout(false);
             this.ultraPanel91.ResumeLayout(false);
@@ -7180,7 +7180,7 @@
             this.ultraPanel97.ResumeLayout(false);
             this.ultraPanel98.ResumeLayout(false);
             this.tabPage27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetBackupSoftware)).EndInit();
             this.ultraPanel108.ClientArea.ResumeLayout(false);
             this.ultraPanel108.ResumeLayout(false);
             this.ultraPanel109.ResumeLayout(false);
@@ -7205,7 +7205,7 @@
             this.tabDetSuppliers.ResumeLayout(false);
             this.tabControl21.ResumeLayout(false);
             this.tabPage31.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetISPs)).EndInit();
             this.ultraPanel117.ClientArea.ResumeLayout(false);
             this.ultraPanel117.ResumeLayout(false);
             this.ultraPanel118.ResumeLayout(false);
@@ -7225,7 +7225,7 @@
             this.ultraPanel124.ResumeLayout(false);
             this.ultraPanel125.ResumeLayout(false);
             this.tabPage33.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetTelephonies)).EndInit();
             this.ultraPanel126.ClientArea.ResumeLayout(false);
             this.ultraPanel126.ResumeLayout(false);
             this.ultraPanel127.ResumeLayout(false);
@@ -7248,7 +7248,7 @@
             this.tabDetVideo.ResumeLayout(false);
             this.tabControl24.ResumeLayout(false);
             this.tabPage35.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraGrid18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetCCTVs)).EndInit();
             this.ultraPanel135.ClientArea.ResumeLayout(false);
             this.ultraPanel135.ResumeLayout(false);
             this.ultraPanel136.ResumeLayout(false);
@@ -7287,16 +7287,16 @@
         private System.Windows.Forms.TabPage tabDetInfraestructure;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabDetComputers;
-        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabControl tabDetComputers1;
         private System.Windows.Forms.TabPage tabDetPersonalComputers;
-        private Infragistics.Win.Misc.UltraPanel upnlDetPreresultButtons;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorDeletePreresult;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetDeletePreresult;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel4;
-        internal Infragistics.Win.Misc.UltraButton ultraButton2;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel3;
-        internal Infragistics.Win.Misc.UltraButton ultraButton1;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorPreresults;
+        private Infragistics.Win.Misc.UltraPanel upnlDetComputersDetailButtons;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorDeletePersonalComputer;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetDeletePersonalComputer;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditPersonalComputer;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetEditPersonalComputer;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorCreatePersonalComputer;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetCreatePersonalComputer;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorPersonalComputersDetailButtons;
         private System.Windows.Forms.TabPage tabDetServerComputers;
         private System.Windows.Forms.TabPage tabDetNetwork;
         private System.Windows.Forms.TabPage tabDetEnergy;
@@ -7339,32 +7339,32 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor11;
         internal System.Windows.Forms.GroupBox groupBox2;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor9;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid1;
+        private Controls.SamsaraUltraGrid grdDetPersonalComputers;
         private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
-        private System.Windows.Forms.TabControl tabControl4;
-        private System.Windows.Forms.TabPage tabDetPCPrincipal;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor2;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFileName;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetBidder;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel1;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel2;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel4;
-        private System.Windows.Forms.TabPage tabDetPCSpecs;
-        internal System.Windows.Forms.GroupBox gbxDetFileDescription;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFileDescription;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor4;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor3;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel8;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel5;
-        private System.Windows.Forms.TabPage tabDetPCSoftware;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor2;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel7;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
+        private System.Windows.Forms.TabControl tabDetPersonalDetail;
+        private System.Windows.Forms.TabPage tabDetPersonalComputerPrincipal;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetManufacturerReferenceNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerSerialNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPersonalComputerType;
+        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerSerie;
+        private Infragistics.Win.Misc.UltraLabel lblDetManufacturerReferenceNumber;
+        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerType;
+        private System.Windows.Forms.TabPage tabDetPersonalComputerSpecs;
+        internal System.Windows.Forms.GroupBox gbxDetPersonalComputerStorage;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerStorage;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerRAM;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerCPU;
+        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerCPU;
+        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerRAM;
+        private System.Windows.Forms.TabPage tabDetPersonalComputerSoftware;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPersonalComputerOS;
+        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerOS;
+        private Infragistics.Win.Misc.UltraPanel upnlDetComputersButtons;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorSavePreresult;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetSavePreresult;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetSavePersonalComputer;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelPreresult;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetCancelPreresult;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel2;
+        internal Infragistics.Win.Misc.UltraButton ubtnDetCancelPersonalComputer;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorPersonalComputersButtons;
         private Infragistics.Win.Misc.UltraPanel ultraPanel9;
         private Infragistics.Win.Misc.UltraPanel ultraPanel10;
         internal Infragistics.Win.Misc.UltraButton ultraButton5;
@@ -7535,7 +7535,7 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel71;
         private System.Windows.Forms.TabControl tabControl13;
         private System.Windows.Forms.TabPage tabPage20;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid11;
+        private Controls.SamsaraUltraGrid grdDetUPSs;
         private Infragistics.Win.Misc.UltraPanel ultraPanel72;
         private Infragistics.Win.Misc.UltraPanel ultraPanel73;
         internal Infragistics.Win.Misc.UltraButton ultraButton40;
@@ -7561,7 +7561,7 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel80;
         private System.Windows.Forms.TabControl tabControl15;
         private System.Windows.Forms.TabPage tabPage22;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid12;
+        private Controls.SamsaraUltraGrid grdDetPrinters;
         private Infragistics.Win.Misc.UltraPanel ultraPanel81;
         private Infragistics.Win.Misc.UltraPanel ultraPanel82;
         internal Infragistics.Win.Misc.UltraButton ultraButton45;
@@ -7587,7 +7587,7 @@
         private Infragistics.Win.Misc.UltraPanel ultraPanel89;
         private System.Windows.Forms.TabControl tabControl17;
         private System.Windows.Forms.TabPage tabPage26;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid14;
+        private Controls.SamsaraUltraGrid grdDetAdministrationSoftware;
         private Infragistics.Win.Misc.UltraPanel ultraPanel99;
         private Infragistics.Win.Misc.UltraPanel ultraPanel100;
         internal Infragistics.Win.Misc.UltraButton ultraButton55;
@@ -7612,7 +7612,7 @@
         internal Infragistics.Win.Misc.UltraButton ultraButton59;
         private Infragistics.Win.Misc.UltraPanel ultraPanel107;
         private System.Windows.Forms.TabPage tabPage24;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid13;
+        private Controls.SamsaraUltraGrid grdDetSecuritySoftware;
         private Infragistics.Win.Misc.UltraPanel ultraPanel90;
         private Infragistics.Win.Misc.UltraPanel ultraPanel91;
         internal Infragistics.Win.Misc.UltraButton ultraButton50;
@@ -7635,7 +7635,7 @@
         internal Infragistics.Win.Misc.UltraButton ultraButton54;
         private Infragistics.Win.Misc.UltraPanel ultraPanel98;
         private System.Windows.Forms.TabPage tabPage27;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid15;
+        private Controls.SamsaraUltraGrid grdDetBackupSoftware;
         private Infragistics.Win.Misc.UltraPanel ultraPanel108;
         private Infragistics.Win.Misc.UltraPanel ultraPanel109;
         internal Infragistics.Win.Misc.UltraButton ultraButton60;
@@ -7670,7 +7670,7 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel41;
         private System.Windows.Forms.TabControl tabControl21;
         private System.Windows.Forms.TabPage tabPage31;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid16;
+        private Controls.SamsaraUltraGrid grdDetISPs;
         private Infragistics.Win.Misc.UltraPanel ultraPanel117;
         private Infragistics.Win.Misc.UltraPanel ultraPanel118;
         internal Infragistics.Win.Misc.UltraButton ultraButton65;
@@ -7693,7 +7693,7 @@
         internal Infragistics.Win.Misc.UltraButton ultraButton69;
         private Infragistics.Win.Misc.UltraPanel ultraPanel125;
         private System.Windows.Forms.TabPage tabPage33;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid17;
+        private Controls.SamsaraUltraGrid grdDetTelephonies;
         private Infragistics.Win.Misc.UltraPanel ultraPanel126;
         private Infragistics.Win.Misc.UltraPanel ultraPanel127;
         internal Infragistics.Win.Misc.UltraButton ultraButton70;
@@ -7719,7 +7719,7 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel47;
         private System.Windows.Forms.TabControl tabControl24;
         private System.Windows.Forms.TabPage tabPage35;
-        private Controls.SamsaraUltraGrid samsaraUltraGrid18;
+        private Controls.SamsaraUltraGrid grdDetCCTVs;
         private Infragistics.Win.Misc.UltraPanel ultraPanel135;
         private Infragistics.Win.Misc.UltraPanel ultraPanel136;
         internal Infragistics.Win.Misc.UltraButton ultraButton75;
@@ -7745,14 +7745,14 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor34;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor ultraCheckEditor1;
         internal System.Windows.Forms.TextBox txtDetName;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid2;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid4;
+        internal Controls.SamsaraUltraGrid grdDetServerComputers;
+        internal Controls.SamsaraUltraGrid grdDetSites;
         internal Controls.SamsaraUltraGrid samsaraUltraGrid3;
         internal Controls.SamsaraUltraGrid samsaraUltraGrid5;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid6;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid7;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid8;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid9;
-        internal Controls.SamsaraUltraGrid samsaraUltraGrid10;
+        internal Controls.SamsaraUltraGrid grdDetSwitches;
+        internal Controls.SamsaraUltraGrid grdDetCommutators;
+        internal Controls.SamsaraUltraGrid grdDetCabling;
+        internal Controls.SamsaraUltraGrid grdDetRouters;
+        internal Controls.SamsaraUltraGrid grdDetFirewalls;
     }
 }
