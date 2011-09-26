@@ -3408,15 +3408,6 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel29;
         private System.Windows.Forms.TabControl tabDetInfraestructurePeripherals;
         private System.Windows.Forms.TabPage tabPage22;
-        private Infragistics.Win.Misc.UltraGroupBox gbxDetPeripheralsPrintersDetail;
-        private System.Windows.Forms.TabControl tabDetPeripheralsPrintersDetail;
-        private System.Windows.Forms.TabPage tabPage23;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor25;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel31;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor14;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel32;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor15;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel33;
         private System.Windows.Forms.TabControl tabDetInfraestructureSoftware;
         private System.Windows.Forms.TabPage tabPage26;
         private Infragistics.Win.Misc.UltraGroupBox gbxDetSoftwareAdministrationDetail;
@@ -3497,5 +3488,14 @@
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor10;
         private Infragistics.Win.Misc.UltraLabel ultraLabel24;
         private Infragistics.Win.Misc.UltraLabel ultraLabel27;
+        private Infragistics.Win.Misc.UltraGroupBox gbxDetPeripheralsPrintersDetail;
+        private System.Windows.Forms.TabControl tabDetPeripheralsPrintersDetail;
+        private System.Windows.Forms.TabPage tabPage23;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor25;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel31;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor14;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel32;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor15;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel33;
     }
 }
