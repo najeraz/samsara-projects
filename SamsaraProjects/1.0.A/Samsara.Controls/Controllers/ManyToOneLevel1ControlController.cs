@@ -89,9 +89,14 @@ namespace Samsara.Controls.Controllers
             this.HideDetail();
         }
 
+        /// <summary>
+        /// Se deben de limpiar los controles que se añadan al heredar la clase
+        /// sobre escribiendo el método.
+        /// </summary>
         public virtual void ClearDetailControls()
         {
-            // Se limpian los controles que se añadan al heredar la clase.
+            this.controlManyToOneLevel1Control.tabDetail.SelectedTab
+                = this.controlManyToOneLevel1Control.tabItmPrincipal;
         }
 
         #endregion Public
