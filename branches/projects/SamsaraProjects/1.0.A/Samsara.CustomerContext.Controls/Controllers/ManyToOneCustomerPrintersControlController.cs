@@ -22,5 +22,43 @@ namespace Samsara.CustomerContext.Controls.Controllers
         }
 
         #endregion Constructor
+
+        #region Methods
+        
+        #region Public
+
+        public override void CancelRelation()
+        {
+            base.CancelRelation();
+        }
+
+        public override void ClearDetailControls()
+        {
+            base.ClearDetailControls();
+        }
+
+        public override void DeleteRelation()
+        {
+            base.DeleteRelation();
+        }
+
+        public override void CreateRelation()
+        {
+            base.CreateRelation();
+        }
+
+        public override void EditRelation()
+        {
+            base.EditRelation();
+        }
+
+        public override void SaveRelation()
+        {
+            base.SaveRelation();
+        }
+
+        #endregion Public
+
+        #endregion Methods
     }
 }
