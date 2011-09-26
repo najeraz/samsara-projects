@@ -184,6 +184,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Base.Service", "Sam
 		{0F57FA43-5325-496C-AAD7-C63AB0DE8456} = {0F57FA43-5325-496C-AAD7-C63AB0DE8456}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.CustomerContext.Controls", "Samsara.CustomerContext.Controls\Samsara.CustomerContext.Controls.csproj", "{C6C8F13D-5756-4904-82D7-B5E698DC4F20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -282,6 +284,10 @@ Global
 		{07C34CCC-C1A5-4D83-998F-010BBD4C7FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C34CCC-C1A5-4D83-998F-010BBD4C7FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C34CCC-C1A5-4D83-998F-010BBD4C7FFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C8F13D-5756-4904-82D7-B5E698DC4F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C8F13D-5756-4904-82D7-B5E698DC4F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C8F13D-5756-4904-82D7-B5E698DC4F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C8F13D-5756-4904-82D7-B5E698DC4F20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,5 +312,6 @@ Global
 		{6BCFBB50-D66D-42C8-9FB7-D417E43A1F12} = {E012FDC1-1906-4FB5-B878-9C1D0040BD4A}
 		{B4EDD472-2E4D-444B-B6D9-3B8FAAFDC0A9} = {E012FDC1-1906-4FB5-B878-9C1D0040BD4A}
 		{8FDE862D-54A8-4B3F-AB40-9DCCF52D8606} = {E012FDC1-1906-4FB5-B878-9C1D0040BD4A}
+		{C6C8F13D-5756-4904-82D7-B5E698DC4F20} = {E012FDC1-1906-4FB5-B878-9C1D0040BD4A}
 	EndGlobalSection
 EndGlobal
