@@ -139,7 +139,12 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, string> oldCategories = ds.Tables["categorias"].AsEnumerable()
                 .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => x["descripcion"].ToString());
 
-            foreach (KeyValuePair<int, string> element in currentCategoriesStock)
+            Dictionary<int, string> categoriesToUpdate = oldCategories.Where(x => x.Value != oldCategories[x.Key])
+                .ToDictionary(x => x.Key, x => x.Value);
+
+            eventLog1.WriteEntry("Categories To Update: " + categoriesToUpdate.Count);
+
+            foreach (KeyValuePair<int, string> element in categoriesToUpdate)
             {
                 if (element.Value.Trim() != oldCategories[element.Key])
                 {
@@ -227,6 +232,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> categoriesToInsert = erpCategoriesCodes.Except(websiteCategoriesCodes).ToList();
 
+            eventLog1.WriteEntry("Categories To Insert: " + categoriesToInsert.Count);
+
             do
             {
                 string insertQuery = string.Empty;
@@ -281,16 +288,18 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, int> oldProductsStock = ds.Tables["productos"].AsEnumerable()
                 .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => Convert.ToInt32(x["stock"]));
 
-            foreach (KeyValuePair<int, int> element in currentProductsStock)
-            {
-                if (element.Value != oldProductsStock[element.Key])
-                {
-                    string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}'",
-                        element.Value, element.Key);
+            Dictionary<int, int> stockToUpdate = oldProductsStock.Where(x => x.Value != oldProductsStock[x.Key])
+                .ToDictionary(x => x.Key, x => x.Value);
 
-                    this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
-                }
+            eventLog1.WriteEntry("Stock To Update: " + stockToUpdate.Count);
+
+            foreach (KeyValuePair<int, int> element in stockToUpdate)
+            {
+                string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}'",
+                    element.Value, element.Key);
+
+                this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
             }
         }
 
@@ -314,6 +323,8 @@ namespace SamsaraWebsiteUpdateDataService
                 .Select(x => Convert.ToInt32(x["codigo"])).ToList();
 
             IList<int> productsToInsert = erpProductCodes.Except(websiteProductCodes).ToList();
+
+            eventLog1.WriteEntry("Products To Insert : " + productsToInsert.Count);
 
             do
             {
@@ -380,7 +391,7 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => Convert.ToInt32(x["clave_articulo"])).ToList();
-
+            
             foreach (int productCode in erpProductCodes)
             {
                 string fileName = productCode + ".jpg";
@@ -411,6 +422,8 @@ namespace SamsaraWebsiteUpdateDataService
                 if (!FTPHelper.ExistsFile(ftpServerIP, ftpUser, ftpPassword, fileName) || 
                     FTPHelper.FileSize(ftpServerIP, ftpUser, ftpPassword, fileName) != file.Length)
                 {
+                    eventLog1.WriteEntry("Updating Image : " + fileName);
+
                     this.Upload(file, fileName);
                 }
             }
