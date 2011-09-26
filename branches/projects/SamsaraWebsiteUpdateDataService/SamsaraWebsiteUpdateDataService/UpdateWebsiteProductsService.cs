@@ -129,9 +129,25 @@ namespace SamsaraWebsiteUpdateDataService
             {
                 eventLog1.WriteEntry("ERROR - UpdateImages : " + ex.Message);
             }
+
+            try
+            {
+                this.sqlServerConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - MSSQL Closing Connection : " + ex.Message);
+            }
+
+            try
+            {
+                this.mySqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - MySQL Closing Connection : " + ex.Message);
+            }
             
-            this.mySqlConnection.Close();
-            this.sqlServerConnection.Close();
             eventLog1.WriteEntry("Update Process - Stoped");
         }
 
@@ -158,7 +174,7 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, string> categoriesToUpdate = oldCategories.Where(x => x.Value != oldCategories[x.Key])
                 .ToDictionary(x => x.Key, x => x.Value);
 
-            eventLog1.WriteEntry("Categories To Update: " + categoriesToUpdate.Count);
+            eventLog1.WriteEntry("Categories To Update : " + categoriesToUpdate.Count);
 
             foreach (KeyValuePair<int, string> element in categoriesToUpdate)
             {
@@ -248,7 +264,7 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> categoriesToInsert = erpCategoriesCodes.Except(websiteCategoriesCodes).ToList();
 
-            eventLog1.WriteEntry("Categories To Insert: " + categoriesToInsert.Count);
+            eventLog1.WriteEntry("Categories To Insert : " + categoriesToInsert.Count);
 
             do
             {
@@ -307,7 +323,7 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, int> stockToUpdate = oldProductsStock.Where(x => x.Value != oldProductsStock[x.Key])
                 .ToDictionary(x => x.Key, x => x.Value);
 
-            eventLog1.WriteEntry("Stock To Update: " + stockToUpdate.Count);
+            eventLog1.WriteEntry("Stock To Update : " + stockToUpdate.Count);
 
             foreach (KeyValuePair<int, int> element in stockToUpdate)
             {
