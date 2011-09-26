@@ -29,8 +29,8 @@ namespace SamsaraWebsiteUpdateDataService
         
         private static string sqlServerConnectionString 
             = "Data Source=192.168.10.4;Initial Catalog=ERP_CIE;User Id=javier;Password=javier;";
-        private static string mySqlConnectionString 
-            = "Data Source=localhost;Database=website;User ID=root;Password=49024030";
+        private static string mySqlConnectionString
+            = "Data Source=external-db.s16121.gridserver.com;Database=db16121_samsara;User ID=db16121_exo;Password=aRT1samsara2011";
 
         private SqlConnection sqlServerConnection;
         private SqlDataAdapter sqlServerDataAdapter;
@@ -78,6 +78,7 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - MSSQL Connection : " + ex.Message);
+                return;
             }
 
             try
@@ -87,6 +88,7 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - MySQL Connection : " + ex.Message);
+                return;
             }
 
             try
