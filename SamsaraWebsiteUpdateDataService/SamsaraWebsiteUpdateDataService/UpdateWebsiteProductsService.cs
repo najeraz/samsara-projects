@@ -74,11 +74,19 @@ namespace SamsaraWebsiteUpdateDataService
             try
             {
                 this.sqlServerConnection.Open();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - MSSQL Connection : " + ex.Message);
+            }
+
+            try
+            {
                 this.mySqlConnection.Open();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - DB Connection : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - MySQL Connection : " + ex.Message);
             }
 
             try
