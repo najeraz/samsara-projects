@@ -105,7 +105,7 @@ namespace Samsara.Controls.Controllers
 
         private void InitializeControlControls()
         {
-            this.HideDetail();
+            //this.HideDetail();
         }
 
         private void HideDetail()

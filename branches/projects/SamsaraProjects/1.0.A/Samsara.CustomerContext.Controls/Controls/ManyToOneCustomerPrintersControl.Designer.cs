@@ -97,84 +97,84 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdRelations.Size = new System.Drawing.Size(506, 151);
+            this.grdRelations.Size = new System.Drawing.Size(797, 283);
             // 
             // upnDetailButtons
             // 
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 151);
-            this.upnDetailButtons.Size = new System.Drawing.Size(506, 25);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 283);
+            this.upnDetailButtons.Size = new System.Drawing.Size(797, 25);
             // 
             // upnlSeparatorDeleteRelation
             // 
-            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(211, 0);
+            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(502, 0);
             // 
             // ubtnDeleteRelation
             // 
-            this.ubtnDeleteRelation.Location = new System.Drawing.Point(227, 0);
+            this.ubtnDeleteRelation.Location = new System.Drawing.Point(518, 0);
             // 
             // upnlSeparatorEditRelation
             // 
-            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(304, 0);
+            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(595, 0);
             // 
             // ubtnEditRelation
             // 
-            this.ubtnEditRelation.Location = new System.Drawing.Point(320, 0);
+            this.ubtnEditRelation.Location = new System.Drawing.Point(611, 0);
             // 
             // upnlSeparatorCreateRelation
             // 
-            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(397, 0);
+            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(688, 0);
             // 
             // ubtnCreateRelation
             // 
-            this.ubtnCreateRelation.Location = new System.Drawing.Point(413, 0);
+            this.ubtnCreateRelation.Location = new System.Drawing.Point(704, 0);
             // 
             // upnlSeparatorDetailButtons
             // 
-            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(490, 0);
+            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(781, 0);
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 176);
-            this.gbxDetDetail.Size = new System.Drawing.Size(506, 159);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 308);
+            this.gbxDetDetail.Size = new System.Drawing.Size(797, 159);
             // 
             // tabDetail
             // 
-            this.tabDetail.Size = new System.Drawing.Size(500, 115);
+            this.tabDetail.Size = new System.Drawing.Size(791, 115);
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Size = new System.Drawing.Size(492, 89);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(783, 89);
             // 
             // upnlButtons
             // 
-            this.upnlButtons.Size = new System.Drawing.Size(500, 25);
+            this.upnlButtons.Size = new System.Drawing.Size(791, 25);
             // 
             // upnlSeparatorSaveRelation
             // 
-            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(298, 0);
+            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(589, 0);
             // 
             // ubtnSaveRelation
             // 
-            this.ubtnSaveRelation.Location = new System.Drawing.Point(314, 0);
+            this.ubtnSaveRelation.Location = new System.Drawing.Point(605, 0);
             // 
             // upnlSeparatorCancelRelation
             // 
-            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(391, 0);
+            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(682, 0);
             // 
             // ubtnCancelRelation
             // 
-            this.ubtnCancelRelation.Location = new System.Drawing.Point(407, 0);
+            this.ubtnCancelRelation.Location = new System.Drawing.Point(698, 0);
             // 
             // upnlSeparatorButtons
             // 
-            this.upnlSeparatorButtons.Location = new System.Drawing.Point(484, 0);
+            this.upnlSeparatorButtons.Location = new System.Drawing.Point(775, 0);
             // 
             // ManyToOneCustomerPrintersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ManyToOneCustomerPrintersControl";
-            this.Size = new System.Drawing.Size(506, 335);
+            this.Size = new System.Drawing.Size(797, 467);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
             this.upnDetailButtons.ResumeLayout(false);
@@ -195,6 +195,7 @@
         }
 
         #endregion
+
 
     }
 }
