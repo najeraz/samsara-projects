@@ -234,11 +234,15 @@
     <Compile Include="Forms\RouterBrandForm.designer.cs">
       <DependentUpon>RouterBrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SecuritySoftwareBrandForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandForm.cs" />
     <Compile Include="Forms\SecuritySoftwareBrandForm.designer.cs">
       <DependentUpon>SecuritySoftwareBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandSearchForm.designer.cs">
+      <DependentUpon>SecuritySoftwareBrandSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SwitchBrandForm.cs">
       <SubType>Form</SubType>
@@ -391,10 +395,12 @@
     <Compile Include="Templates\RouterBrandSearchForm.Designer.cs">
       <DependentUpon>RouterBrandSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\SecuritySoftwareBrandSearchForm.cs">
+    <Compile Include="Templates\SecuritySoftwareTypeSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Templates\SecuritySoftwareBrandSearchForm.Designer.cs" />
+    <Compile Include="Templates\SecuritySoftwareTypeSearchForm.Designer.cs">
+      <DependentUpon>SecuritySoftwareTypeSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\SwitchBrandSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
