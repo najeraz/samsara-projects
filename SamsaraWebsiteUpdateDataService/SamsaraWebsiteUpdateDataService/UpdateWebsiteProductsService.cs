@@ -70,8 +70,16 @@ namespace SamsaraWebsiteUpdateDataService
         private void UpdateProcess(object state)
         {
             eventLog1.WriteEntry("Update Process - Starting");
-            this.sqlServerConnection.Open();
-            this.mySqlConnection.Open();
+
+            try
+            {
+                this.sqlServerConnection.Open();
+                this.mySqlConnection.Open();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - DB Connection : " + ex.Message);
+            }
 
             try
             {
