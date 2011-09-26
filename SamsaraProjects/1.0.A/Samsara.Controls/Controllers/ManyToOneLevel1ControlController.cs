@@ -47,6 +47,20 @@ namespace Samsara.Controls.Controllers
                 this.SaveRelation();
         }
 
+        internal void HideDetail()
+        {
+            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = false;
+            this.controlManyToOneLevel1Control.gbxDetDetail.Visible = false;
+            this.controlManyToOneLevel1Control.upnlButtons.Visible = true;
+        }
+
+        internal void ShowDetail()
+        {
+            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = true;
+            this.controlManyToOneLevel1Control.gbxDetDetail.Visible = true;
+            this.controlManyToOneLevel1Control.upnlButtons.Visible = false;
+        }
+
         #endregion Internal
 
         #region Public
@@ -105,21 +119,7 @@ namespace Samsara.Controls.Controllers
 
         private void InitializeControlControls()
         {
-            //this.HideDetail();
-        }
-
-        private void HideDetail()
-        {
-            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = false;
-            this.controlManyToOneLevel1Control.gbxDetDetail.Visible = false;
-            this.controlManyToOneLevel1Control.upnlButtons.Visible = true;
-        }
-
-        private void ShowDetail()
-        {
-            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = true;
-            this.controlManyToOneLevel1Control.gbxDetDetail.Visible = true;
-            this.controlManyToOneLevel1Control.upnlButtons.Visible = false;
+            this.HideDetail();
         }
 
         #endregion Private

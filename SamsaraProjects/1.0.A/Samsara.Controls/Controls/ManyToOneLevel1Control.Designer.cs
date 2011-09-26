@@ -88,15 +88,15 @@
             this.upnDetailButtons.ClientArea.Controls.Add(this.ubtnCreateRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorDetailButtons);
             this.upnDetailButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 276);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 187);
             this.upnDetailButtons.Name = "upnDetailButtons";
-            this.upnDetailButtons.Size = new System.Drawing.Size(627, 25);
+            this.upnDetailButtons.Size = new System.Drawing.Size(728, 25);
             this.upnDetailButtons.TabIndex = 97;
             // 
             // upnlSeparatorDeleteRelation
             // 
             this.upnlSeparatorDeleteRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(332, 0);
+            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(433, 0);
             this.upnlSeparatorDeleteRelation.Name = "upnlSeparatorDeleteRelation";
             this.upnlSeparatorDeleteRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorDeleteRelation.TabIndex = 5;
@@ -104,7 +104,7 @@
             // ubtnDeleteRelation
             // 
             this.ubtnDeleteRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDeleteRelation.Location = new System.Drawing.Point(348, 0);
+            this.ubtnDeleteRelation.Location = new System.Drawing.Point(449, 0);
             this.ubtnDeleteRelation.Name = "ubtnDeleteRelation";
             this.ubtnDeleteRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnDeleteRelation.TabIndex = 0;
@@ -114,7 +114,7 @@
             // upnlSeparatorEditRelation
             // 
             this.upnlSeparatorEditRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(425, 0);
+            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(526, 0);
             this.upnlSeparatorEditRelation.Name = "upnlSeparatorEditRelation";
             this.upnlSeparatorEditRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorEditRelation.TabIndex = 15;
@@ -122,7 +122,7 @@
             // ubtnEditRelation
             // 
             this.ubtnEditRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnEditRelation.Location = new System.Drawing.Point(441, 0);
+            this.ubtnEditRelation.Location = new System.Drawing.Point(542, 0);
             this.ubtnEditRelation.Name = "ubtnEditRelation";
             this.ubtnEditRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnEditRelation.TabIndex = 14;
@@ -132,7 +132,7 @@
             // upnlSeparatorCreateRelation
             // 
             this.upnlSeparatorCreateRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(518, 0);
+            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(619, 0);
             this.upnlSeparatorCreateRelation.Name = "upnlSeparatorCreateRelation";
             this.upnlSeparatorCreateRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorCreateRelation.TabIndex = 13;
@@ -140,7 +140,7 @@
             // ubtnCreateRelation
             // 
             this.ubtnCreateRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnCreateRelation.Location = new System.Drawing.Point(534, 0);
+            this.ubtnCreateRelation.Location = new System.Drawing.Point(635, 0);
             this.ubtnCreateRelation.Name = "ubtnCreateRelation";
             this.ubtnCreateRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnCreateRelation.TabIndex = 12;
@@ -150,7 +150,7 @@
             // upnlSeparatorDetailButtons
             // 
             this.upnlSeparatorDetailButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(611, 0);
+            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(712, 0);
             this.upnlSeparatorDetailButtons.Name = "upnlSeparatorDetailButtons";
             this.upnlSeparatorDetailButtons.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorDetailButtons.TabIndex = 6;
@@ -158,11 +158,10 @@
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.tabDetail);
-            this.gbxDetDetail.Controls.Add(this.upnlButtons);
             this.gbxDetDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 301);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 212);
             this.gbxDetDetail.Name = "gbxDetDetail";
-            this.gbxDetDetail.Size = new System.Drawing.Size(627, 159);
+            this.gbxDetDetail.Size = new System.Drawing.Size(728, 159);
             this.gbxDetDetail.TabIndex = 96;
             this.gbxDetDetail.Text = "Detalle del registro";
             // 
@@ -173,7 +172,7 @@
             this.tabDetail.Location = new System.Drawing.Point(3, 16);
             this.tabDetail.Name = "tabDetail";
             this.tabDetail.SelectedIndex = 0;
-            this.tabDetail.Size = new System.Drawing.Size(621, 115);
+            this.tabDetail.Size = new System.Drawing.Size(722, 140);
             this.tabDetail.TabIndex = 88;
             // 
             // tabItmPrincipal
@@ -182,7 +181,7 @@
             this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
             this.tabItmPrincipal.Name = "tabItmPrincipal";
             this.tabItmPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(613, 89);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(714, 114);
             this.tabItmPrincipal.TabIndex = 0;
             this.tabItmPrincipal.Text = "Principal";
             // 
@@ -197,15 +196,15 @@
             this.upnlButtons.ClientArea.Controls.Add(this.ubtnCancelRelation);
             this.upnlButtons.ClientArea.Controls.Add(this.upnlSeparatorButtons);
             this.upnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlButtons.Location = new System.Drawing.Point(3, 131);
+            this.upnlButtons.Location = new System.Drawing.Point(0, 371);
             this.upnlButtons.Name = "upnlButtons";
-            this.upnlButtons.Size = new System.Drawing.Size(621, 25);
+            this.upnlButtons.Size = new System.Drawing.Size(728, 25);
             this.upnlButtons.TabIndex = 86;
             // 
             // upnlSeparatorSaveRelation
             // 
             this.upnlSeparatorSaveRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(419, 0);
+            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(526, 0);
             this.upnlSeparatorSaveRelation.Name = "upnlSeparatorSaveRelation";
             this.upnlSeparatorSaveRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorSaveRelation.TabIndex = 11;
@@ -213,7 +212,7 @@
             // ubtnSaveRelation
             // 
             this.ubtnSaveRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnSaveRelation.Location = new System.Drawing.Point(435, 0);
+            this.ubtnSaveRelation.Location = new System.Drawing.Point(542, 0);
             this.ubtnSaveRelation.Name = "ubtnSaveRelation";
             this.ubtnSaveRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnSaveRelation.TabIndex = 10;
@@ -223,7 +222,7 @@
             // upnlSeparatorCancelRelation
             // 
             this.upnlSeparatorCancelRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(512, 0);
+            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(619, 0);
             this.upnlSeparatorCancelRelation.Name = "upnlSeparatorCancelRelation";
             this.upnlSeparatorCancelRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorCancelRelation.TabIndex = 13;
@@ -231,7 +230,7 @@
             // ubtnCancelRelation
             // 
             this.ubtnCancelRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnCancelRelation.Location = new System.Drawing.Point(528, 0);
+            this.ubtnCancelRelation.Location = new System.Drawing.Point(635, 0);
             this.ubtnCancelRelation.Name = "ubtnCancelRelation";
             this.ubtnCancelRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnCancelRelation.TabIndex = 12;
@@ -241,7 +240,7 @@
             // upnlSeparatorButtons
             // 
             this.upnlSeparatorButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorButtons.Location = new System.Drawing.Point(605, 0);
+            this.upnlSeparatorButtons.Location = new System.Drawing.Point(712, 0);
             this.upnlSeparatorButtons.Name = "upnlSeparatorButtons";
             this.upnlSeparatorButtons.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorButtons.TabIndex = 14;
@@ -304,7 +303,7 @@
             this.grdRelations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdRelations.Location = new System.Drawing.Point(0, 0);
             this.grdRelations.Name = "grdRelations";
-            this.grdRelations.Size = new System.Drawing.Size(627, 276);
+            this.grdRelations.Size = new System.Drawing.Size(728, 187);
             this.grdRelations.TabIndex = 98;
             this.grdRelations.Text = "samsaraUltraGrid1";
             // 
@@ -315,8 +314,9 @@
             this.Controls.Add(this.grdRelations);
             this.Controls.Add(this.upnDetailButtons);
             this.Controls.Add(this.gbxDetDetail);
+            this.Controls.Add(this.upnlButtons);
             this.Name = "ManyToOneLevel1Control";
-            this.Size = new System.Drawing.Size(627, 460);
+            this.Size = new System.Drawing.Size(728, 396);
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
             this.upnDetailButtons.ResumeLayout(false);
             this.upnlSeparatorDeleteRelation.ResumeLayout(false);
