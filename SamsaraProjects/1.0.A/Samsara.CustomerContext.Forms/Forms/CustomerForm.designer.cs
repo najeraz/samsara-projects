@@ -299,6 +299,7 @@
             this.ultraLabel49 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraComboEditor26 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.ultraLabel50 = new Infragistics.Win.Misc.UltraLabel();
+            this.manyToOneLevel1Control1 = new Samsara.Controls.Controls.ManyToOneLevel1Control();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -504,6 +505,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -2226,6 +2228,7 @@
             // tabPage22
             // 
             this.tabPage22.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage22.Controls.Add(this.manyToOneLevel1Control1);
             this.tabPage22.Controls.Add(this.gbxDetPeripheralsPrintersDetail);
             this.tabPage22.Location = new System.Drawing.Point(4, 22);
             this.tabPage22.Name = "tabPage22";
@@ -3012,6 +3015,13 @@
             this.ultraLabel50.TabIndex = 94;
             this.ultraLabel50.Text = "Marca:";
             // 
+            // manyToOneLevel1Control1
+            // 
+            this.manyToOneLevel1Control1.Location = new System.Drawing.Point(34, -82);
+            this.manyToOneLevel1Control1.Name = "manyToOneLevel1Control1";
+            this.manyToOneLevel1Control1.Size = new System.Drawing.Size(627, 460);
+            this.manyToOneLevel1Control1.TabIndex = 112;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3497,5 +3507,6 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel32;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor15;
         private Infragistics.Win.Misc.UltraLabel ultraLabel33;
+        private Controls.Controls.ManyToOneLevel1Control manyToOneLevel1Control1;
     }
 }
