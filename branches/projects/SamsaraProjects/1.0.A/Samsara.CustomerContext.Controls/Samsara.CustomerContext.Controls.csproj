@@ -70,8 +70,6 @@
     <Compile Include="Controls\ManyToOneCustomerPrintersControl.Designer.cs">
       <DependentUpon>ManyToOneCustomerPrintersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UltraComboEditor.cs" />
-    <Compile Include="Controls\UltraTextEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
