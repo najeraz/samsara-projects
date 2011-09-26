@@ -422,7 +422,7 @@ namespace SamsaraWebsiteUpdateDataService
                 if (!FTPHelper.ExistsFile(ftpServerIP, ftpUser, ftpPassword, fileName) || 
                     FTPHelper.FileSize(ftpServerIP, ftpUser, ftpPassword, fileName) != file.Length)
                 {
-                    eventLog1.WriteEntry("Updating Image : " + fileName);
+                    eventLog1.WriteEntry("Uploading Image : " + fileName);
 
                     this.Upload(file, fileName);
                 }
