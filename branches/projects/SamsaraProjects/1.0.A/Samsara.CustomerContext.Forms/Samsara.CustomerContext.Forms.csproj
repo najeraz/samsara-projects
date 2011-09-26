@@ -235,7 +235,6 @@
     <Compile Include="Forms\RouterBrandForm.designer.cs">
       <DependentUpon>RouterBrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SamsaraUltraGrid.cs" />
     <Compile Include="Forms\SecuritySoftwareBrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
