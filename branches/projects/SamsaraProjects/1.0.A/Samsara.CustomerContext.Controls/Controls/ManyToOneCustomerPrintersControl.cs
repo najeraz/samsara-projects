@@ -7,7 +7,7 @@ using Samsara.Controls.Controls;
 
 namespace Samsara.CustomerContext.Controls
 {
-    public class ManyToOneCustomerPrinters : ManyToOneLevel1Control
+    public class ManyToOneCustomerPrintersControl : ManyToOneLevel1Control
     {
     }
 }
