@@ -14,10 +14,9 @@ namespace Samsara.CustomerContext.Controls.Controls
 {
     public partial class ManyToOneCustomerPrintersControl : ManyToOneLevel1Control
     {
-
         #region Attributes
 
-        internal ManyToOneCustomerPrintersControlController controller;
+        //internal ManyToOneCustomerPrintersControlController controller;
 
         #endregion Attributes
 
@@ -30,11 +29,11 @@ namespace Samsara.CustomerContext.Controls.Controls
         {
             get
             {
-                return this.controller.CustomerInfrastructureId;
+                return (this.controller as ManyToOneCustomerPrintersControlController).CustomerInfrastructureId;
             }
             set
             {
-                this.controller.CustomerInfrastructureId = value;
+                (this.controller as ManyToOneCustomerPrintersControlController).CustomerInfrastructureId = value;
             }
         }
 
@@ -45,7 +44,7 @@ namespace Samsara.CustomerContext.Controls.Controls
         {
             get
             {
-                return this.controller.CustomerInfrastructurePrinters;
+                return (this.controller as ManyToOneCustomerPrintersControlController).CustomerInfrastructurePrinters;
             }
         }
 
@@ -56,6 +55,7 @@ namespace Samsara.CustomerContext.Controls.Controls
         public ManyToOneCustomerPrintersControl()
         {
             InitializeComponent();
+            this.controller = new ManyToOneCustomerPrintersControlController(this);
         }
 
         #endregion Constructor
@@ -66,7 +66,7 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         public void LoadGrid()
         {
-            this.controller.LoadGrid();
+            (this.controller as ManyToOneCustomerPrintersControlController).LoadGrid();
         }
 
         #endregion Public

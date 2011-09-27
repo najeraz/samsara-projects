@@ -15,7 +15,8 @@ namespace Samsara.Controls.Controllers
     {
         #region Attributes
 
-        private ManyToOneLevel1Control controlManyToOneLevel1Control;
+        private ManyToOneLevel1Control controller;
+        protected int entityCounter;
 
         #endregion Attributes
 
@@ -23,8 +24,9 @@ namespace Samsara.Controls.Controllers
 
         public ManyToOneLevel1ControlController(ManyToOneLevel1Control instance)
         {
-            this.controlManyToOneLevel1Control = instance;
+            this.controller = instance;
             this.InitializeControlControls();
+            this.entityCounter = -1;
         }
 
         #endregion Constructor
@@ -33,46 +35,46 @@ namespace Samsara.Controls.Controllers
 
         #region Internal
 
-        internal void Click(object sender)
+        internal void ButtonClick(object sender)
         {
-            if ((sender as UltraButton) == this.controlManyToOneLevel1Control.ubtnDeleteRelation)
+            if ((sender as UltraButton) == this.controller.ubtnDeleteRelation)
                 this.DeleteRelation();
-            if ((sender as UltraButton) == this.controlManyToOneLevel1Control.ubtnCancelRelation)
+            if ((sender as UltraButton) == this.controller.ubtnCancelRelation)
                 this.CancelRelation();
-            if ((sender as UltraButton) == this.controlManyToOneLevel1Control.ubtnCreateRelation)
+            if ((sender as UltraButton) == this.controller.ubtnCreateRelation)
                 this.CreateRelation();
-            if ((sender as UltraButton) == this.controlManyToOneLevel1Control.ubtnEditRelation)
+            if ((sender as UltraButton) == this.controller.ubtnEditRelation)
                 this.EditRelation();
-            if ((sender as UltraButton) == this.controlManyToOneLevel1Control.ubtnSaveRelation)
+            if ((sender as UltraButton) == this.controller.ubtnSaveRelation)
                 this.SaveRelation();
         }
 
         internal void HideDetail()
         {
-            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = true;
-            this.controlManyToOneLevel1Control.gbxDetDetail.Visible = false;
-            this.controlManyToOneLevel1Control.upnlButtons.Visible = false;
+            this.controller.upnDetailButtons.Visible = true;
+            this.controller.gbxDetDetail.Visible = false;
+            this.controller.upnlButtons.Visible = false;
         }
 
         internal void ShowDetail()
         {
-            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = false;
-            this.controlManyToOneLevel1Control.gbxDetDetail.Visible = true;
-            this.controlManyToOneLevel1Control.upnlButtons.Visible = true;
+            this.controller.upnDetailButtons.Visible = false;
+            this.controller.gbxDetDetail.Visible = true;
+            this.controller.upnlButtons.Visible = true;
         }
 
         #endregion Internal
 
         #region Public
 
-        public virtual void InitializeControlControls()
+        private void InitializeControlControls()
         {
             this.HideDetail();
         }
 
-        public virtual void DeleteRelation()
+        protected virtual void DeleteRelation()
         {
-            UltraGridRow activeRow = this.controlManyToOneLevel1Control.grdRelations.ActiveRow;
+            UltraGridRow activeRow = this.controller.grdRelations.ActiveRow;
 
             if (activeRow != null)
             {
@@ -86,7 +88,7 @@ namespace Samsara.Controls.Controllers
 
                 DataRow row = (activeRow.ListObject as DataRowView).Row;
 
-                DataTable dtGrid = this.controlManyToOneLevel1Control.grdRelations.DataSource as DataTable;
+                DataTable dtGrid = this.controller.grdRelations.DataSource as DataTable;
 
                 dtGrid.Rows.Remove(row);
 
@@ -94,7 +96,7 @@ namespace Samsara.Controls.Controllers
             }
         }
 
-        public virtual void SaveRelation()
+        protected virtual void SaveRelation()
         {
             if (this.ValidateControlsData())
             {
@@ -103,9 +105,9 @@ namespace Samsara.Controls.Controllers
             }
         }
 
-        public virtual void EditRelation()
+        protected virtual void EditRelation()
         {
-            UltraGridRow activeRow = this.controlManyToOneLevel1Control.grdRelations.ActiveRow;
+            UltraGridRow activeRow = this.controller.grdRelations.ActiveRow;
 
             if (activeRow != null)
             {
@@ -118,46 +120,38 @@ namespace Samsara.Controls.Controllers
             }
         }
 
-        public virtual void CreateRelation()
+        protected virtual void CreateRelation()
         {
             this.ClearDetailControls();
-            this.HideDetail();
+            this.ShowDetail();
         }
 
-        public virtual void CancelRelation()
+        protected virtual void CancelRelation()
         {
             this.HideDetail();
         }
 
-        public virtual void ClearDetailControls()
+        protected virtual void ClearDetailControls()
         {
-            this.controlManyToOneLevel1Control.tabDetail.SelectedTab
-                = this.controlManyToOneLevel1Control.tabItmPrincipal;
+            this.controller.tabDetail.SelectedTab
+                = this.controller.tabItmPrincipal;
         }
 
-        public virtual void LoadEntity()
+        protected virtual void LoadEntity()
         {
-            throw new NotImplementedException();
         }
 
-        public virtual void LoadFromEntity(int entityId)
+        protected virtual void LoadFromEntity(int entityId)
         {
-            throw new NotImplementedException();
         }
 
-        public virtual void DeleteEntity(int entityId)
+        protected virtual void DeleteEntity(int entityId)
         {
-            throw new NotImplementedException();
         }
 
-        public virtual void LoadGrid()
+        protected virtual bool ValidateControlsData()
         {
-            throw new NotImplementedException();
-        }
-
-        public virtual bool ValidateControlsData()
-        {
-            throw new NotImplementedException();
+            return true;
         }
 
         #endregion Public

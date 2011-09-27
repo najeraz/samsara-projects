@@ -50,6 +50,7 @@ namespace Samsara.Controls
             if (this.DataSource != null && this.DataSource is DataTable)
             {
                 string parentFormName = this.GetParentFormName(this.Parent);
+                string parentControlName = this.GetParentControlName(this.Parent);
 
                 if (parentFormName != null)
                 {
@@ -67,15 +68,17 @@ namespace Samsara.Controls
                     srvFormConfiguration.SaveOrUpdate(formConfiguration);
                 }
 
+                string gridName = (parentControlName == null ? "" : parentControlName + ".") + this.Name;
+
                 GridConfigurationParameters pmtGridConfiguration = new GridConfigurationParameters();
-                pmtGridConfiguration.GridName = this.Name;
+                pmtGridConfiguration.GridName = gridName;
                 pmtGridConfiguration.FormConfigurationId = formConfiguration.FormConfigurationId;
                 GridConfiguration gridConfiguration = srvGridConfiguration.GetByParameters(pmtGridConfiguration);
                 
                 if (gridConfiguration == null)
                 {
                     gridConfiguration = new GridConfiguration();
-                    gridConfiguration.GridName = this.Name;
+                    gridConfiguration.GridName = gridName;
                     gridConfiguration.IgnoreConfiguration = false;
                     gridConfiguration.FormConfiguration = formConfiguration;
                     srvGridConfiguration.SaveOrUpdate(gridConfiguration);
@@ -132,7 +135,7 @@ namespace Samsara.Controls
             }
         }
 
-        private string GetParentFormName(System.Windows.Forms.Control control)
+        public string GetParentFormName(System.Windows.Forms.Control control)
         {
             if (control == null)
                 return null;
@@ -140,6 +143,16 @@ namespace Samsara.Controls
                 return control.Name;
 
             return GetParentFormName(control.Parent);
+        }
+
+        public string GetParentControlName(System.Windows.Forms.Control control)
+        {
+            if (control == null)
+                return null;
+            if (control.GetType().BaseType == typeof(Samsara.Controls.Controls.ManyToOneLevel1Control))
+                return control.Name;
+
+            return GetParentControlName(control.Parent);
         }
     }
 }
