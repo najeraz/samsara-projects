@@ -47,11 +47,6 @@ namespace Samsara.Controls.Controllers
                 this.SaveRelation();
         }
 
-        public virtual void InitializeControlControls()
-        {
-            this.HideDetail();
-        }
-
         internal void HideDetail()
         {
             this.controlManyToOneLevel1Control.upnDetailButtons.Visible = true;
@@ -69,6 +64,11 @@ namespace Samsara.Controls.Controllers
         #endregion Internal
 
         #region Public
+
+        public virtual void InitializeControlControls()
+        {
+            this.HideDetail();
+        }
 
         public virtual void DeleteRelation()
         {
