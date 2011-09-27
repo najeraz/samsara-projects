@@ -51,12 +51,6 @@
             this.gbxDetDetail = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabDetail = new System.Windows.Forms.TabControl();
             this.tabItmPrincipal = new System.Windows.Forms.TabPage();
-            this.txtlSerialNumber = new System.Windows.Forms.TextBox();
-            this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
-            this.ucePrinterType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblPrinterType = new Infragistics.Win.Misc.UltraLabel();
-            this.ucePrinterBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblPrinterBrand = new Infragistics.Win.Misc.UltraLabel();
             this.upnlButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upnlSeparatorSaveRelation = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnSaveRelation = new Infragistics.Win.Misc.UltraButton();
@@ -73,9 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxDetDetail)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetail.SuspendLayout();
-            this.tabItmPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterBrand)).BeginInit();
             this.upnlButtons.ClientArea.SuspendLayout();
             this.upnlButtons.SuspendLayout();
             this.upnlSeparatorSaveRelation.SuspendLayout();
@@ -187,66 +178,12 @@
             // tabItmPrincipal
             // 
             this.tabItmPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmPrincipal.Controls.Add(this.txtlSerialNumber);
-            this.tabItmPrincipal.Controls.Add(this.lblSerialNumber);
-            this.tabItmPrincipal.Controls.Add(this.ucePrinterType);
-            this.tabItmPrincipal.Controls.Add(this.lblPrinterType);
-            this.tabItmPrincipal.Controls.Add(this.ucePrinterBrand);
-            this.tabItmPrincipal.Controls.Add(this.lblPrinterBrand);
             this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
             this.tabItmPrincipal.Name = "tabItmPrincipal";
             this.tabItmPrincipal.Padding = new System.Windows.Forms.Padding(3);
             this.tabItmPrincipal.Size = new System.Drawing.Size(714, 72);
             this.tabItmPrincipal.TabIndex = 0;
             this.tabItmPrincipal.Text = "Principal";
-            // 
-            // txtlSerialNumber
-            // 
-            this.txtlSerialNumber.Location = new System.Drawing.Point(458, 12);
-            this.txtlSerialNumber.Name = "txtlSerialNumber";
-            this.txtlSerialNumber.Size = new System.Drawing.Size(226, 20);
-            this.txtlSerialNumber.TabIndex = 105;
-            // 
-            // lblSerialNumber
-            // 
-            this.lblSerialNumber.AutoSize = true;
-            this.lblSerialNumber.Location = new System.Drawing.Point(362, 15);
-            this.lblSerialNumber.Name = "lblSerialNumber";
-            this.lblSerialNumber.Size = new System.Drawing.Size(93, 14);
-            this.lblSerialNumber.TabIndex = 104;
-            this.lblSerialNumber.Text = "Número de Serie:";
-            // 
-            // ucePrinterType
-            // 
-            this.ucePrinterType.Location = new System.Drawing.Point(99, 38);
-            this.ucePrinterType.Name = "ucePrinterType";
-            this.ucePrinterType.Size = new System.Drawing.Size(226, 21);
-            this.ucePrinterType.TabIndex = 103;
-            // 
-            // lblPrinterType
-            // 
-            this.lblPrinterType.AutoSize = true;
-            this.lblPrinterType.Location = new System.Drawing.Point(24, 42);
-            this.lblPrinterType.Name = "lblPrinterType";
-            this.lblPrinterType.Size = new System.Drawing.Size(29, 14);
-            this.lblPrinterType.TabIndex = 101;
-            this.lblPrinterType.Text = "Tipo:";
-            // 
-            // ucePrinterBrand
-            // 
-            this.ucePrinterBrand.Location = new System.Drawing.Point(99, 11);
-            this.ucePrinterBrand.Name = "ucePrinterBrand";
-            this.ucePrinterBrand.Size = new System.Drawing.Size(226, 21);
-            this.ucePrinterBrand.TabIndex = 102;
-            // 
-            // lblPrinterBrand
-            // 
-            this.lblPrinterBrand.AutoSize = true;
-            this.lblPrinterBrand.Location = new System.Drawing.Point(24, 15);
-            this.lblPrinterBrand.Name = "lblPrinterBrand";
-            this.lblPrinterBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblPrinterBrand.TabIndex = 100;
-            this.lblPrinterBrand.Text = "Marca:";
             // 
             // upnlButtons
             // 
@@ -389,10 +326,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxDetDetail)).EndInit();
             this.gbxDetDetail.ResumeLayout(false);
             this.tabDetail.ResumeLayout(false);
-            this.tabItmPrincipal.ResumeLayout(false);
-            this.tabItmPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterBrand)).EndInit();
             this.upnlButtons.ClientArea.ResumeLayout(false);
             this.upnlButtons.ResumeLayout(false);
             this.upnlSeparatorSaveRelation.ResumeLayout(false);
@@ -423,11 +356,5 @@
         public Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelRelation;
         public Infragistics.Win.Misc.UltraButton ubtnCancelRelation;
         public Infragistics.Win.Misc.UltraPanel upnlSeparatorButtons;
-        private System.Windows.Forms.TextBox txtlSerialNumber;
-        private Infragistics.Win.Misc.UltraLabel lblSerialNumber;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ucePrinterType;
-        private Infragistics.Win.Misc.UltraLabel lblPrinterType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ucePrinterBrand;
-        private Infragistics.Win.Misc.UltraLabel lblPrinterBrand;
     }
 }

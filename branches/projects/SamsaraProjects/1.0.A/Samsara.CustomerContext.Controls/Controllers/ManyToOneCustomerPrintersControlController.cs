@@ -7,6 +7,10 @@ using Samsara.Base.Core.Context;
 using NUnit.Framework;
 using Samsara.CustomerContext.Core.Entities;
 using Infragistics.Win.UltraWinGrid;
+using System.Data;
+using Samsara.CustomerContext.Core.Parameters;
+using Samsara.Support.Util;
+using System;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
@@ -18,12 +22,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructurePrinterService srvICustomerInfrastructurePrinter;
         private CustomerInfrastructurePrinter entCustomerInfrastructurePrinter;
 
+        private DataTable dtCustomerPrinters;
+
         #endregion Attributes
 
         #region Constructor
 
-        public ManyToOneCustomerPrintersControlController(ManyToOneCustomerPrintersControl instance)
-            : base(instance)  
+        public ManyToOneCustomerPrintersControlController(
+            ManyToOneCustomerPrintersControl instance) : base(instance)  
         {
             this.controlManyToOneCustomerPrinters = instance;
 
@@ -35,12 +41,22 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         #region Methods
 
+        #region Public
+
         public override void InitializeControlControls()
         {
+            CustomerInfrastructurePrinterParameters pmtCustomerInfrastructurePrinter
+                = new CustomerInfrastructurePrinterParameters();
+
             base.InitializeControlControls();
+
+            pmtCustomerInfrastructurePrinter.CustomerInfrastructureId = ParameterConstants.IntNone;
+            this.dtCustomerPrinters = this.srvICustomerInfrastructurePrinter
+                .SearchByParameters(pmtCustomerInfrastructurePrinter);
+
+            this.controlManyToOneCustomerPrinters.grdRelations.DataSource = null;
+            this.controlManyToOneCustomerPrinters.grdRelations.DataSource = this.dtCustomerPrinters;
         }
-        
-        #region Public
 
         public override void CancelRelation()
         {
@@ -69,7 +85,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (activeRow != null)
             {
+                int customerInfrastructureId = Convert.ToInt32((activeRow.ListObject as DataRowView).Row[0]);
+                this.entCustomerInfrastructurePrinter = this.srvICustomerInfrastructurePrinter
+                    .GetById(customerInfrastructureId);
 
+                this.LoadFromEntity();
             }
         }
 
@@ -79,6 +99,16 @@ namespace Samsara.CustomerContext.Controls.Controllers
         }
 
         #endregion Public
+
+        #region Private
+
+        private void LoadFromEntity()
+        {
+            this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value
+                = this.entCustomerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
+        }
+
+        #endregion Private
 
         #endregion Methods
     }
