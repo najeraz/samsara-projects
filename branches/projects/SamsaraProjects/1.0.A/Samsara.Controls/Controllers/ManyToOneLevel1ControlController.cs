@@ -76,6 +76,14 @@ namespace Samsara.Controls.Controllers
 
             if (activeRow != null)
             {
+                if (MessageBox.Show("¿Esta seguro de borrar el registro?", "Advertencia",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                    return;
+
+                int entityId = Convert.ToInt32((activeRow.ListObject as DataRowView).Row[0]);
+
+                this.DeleteEntity(entityId);
+
                 DataRow row = (activeRow.ListObject as DataRowView).Row;
 
                 DataTable dtGrid = this.controlManyToOneLevel1Control.grdRelations.DataSource as DataTable;
@@ -88,7 +96,11 @@ namespace Samsara.Controls.Controllers
 
         public virtual void SaveRelation()
         {
-            this.HideDetail();
+            if (this.ValidateControlsData())
+            {
+                this.LoadEntity();
+                this.HideDetail();
+            }
         }
 
         public virtual void EditRelation()
@@ -99,6 +111,10 @@ namespace Samsara.Controls.Controllers
             {
                 this.ClearDetailControls();
                 this.ShowDetail();
+
+                int entityId = Convert.ToInt32((activeRow.ListObject as DataRowView).Row[0]);
+
+                this.LoadFromEntity(entityId);
             }
         }
 
@@ -113,14 +129,35 @@ namespace Samsara.Controls.Controllers
             this.HideDetail();
         }
 
-        /// <summary>
-        /// Se deben de limpiar los controles que se añadan al heredar la clase
-        /// sobre escribiendo el método.
-        /// </summary>
         public virtual void ClearDetailControls()
         {
             this.controlManyToOneLevel1Control.tabDetail.SelectedTab
                 = this.controlManyToOneLevel1Control.tabItmPrincipal;
+        }
+
+        public virtual void LoadEntity()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void LoadFromEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void DeleteEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void LoadGrid()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual bool ValidateControlsData()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Public
