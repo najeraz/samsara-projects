@@ -47,18 +47,23 @@ namespace Samsara.Controls.Controllers
                 this.SaveRelation();
         }
 
+        public virtual void InitializeControlControls()
+        {
+            this.HideDetail();
+        }
+
         internal void HideDetail()
         {
-            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = false;
+            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = true;
             this.controlManyToOneLevel1Control.gbxDetDetail.Visible = false;
-            this.controlManyToOneLevel1Control.upnlButtons.Visible = true;
+            this.controlManyToOneLevel1Control.upnlButtons.Visible = false;
         }
 
         internal void ShowDetail()
         {
-            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = true;
+            this.controlManyToOneLevel1Control.upnDetailButtons.Visible = false;
             this.controlManyToOneLevel1Control.gbxDetDetail.Visible = true;
-            this.controlManyToOneLevel1Control.upnlButtons.Visible = false;
+            this.controlManyToOneLevel1Control.upnlButtons.Visible = true;
         }
 
         #endregion Internal
@@ -88,8 +93,13 @@ namespace Samsara.Controls.Controllers
 
         public virtual void EditRelation()
         {
-            this.ClearDetailControls();
-            this.ShowDetail();
+            UltraGridRow activeRow = this.controlManyToOneLevel1Control.grdRelations.ActiveRow;
+
+            if (activeRow != null)
+            {
+                this.ClearDetailControls();
+                this.ShowDetail();
+            }
         }
 
         public virtual void CreateRelation()
@@ -114,15 +124,6 @@ namespace Samsara.Controls.Controllers
         }
 
         #endregion Public
-
-        #region Private
-
-        private void InitializeControlControls()
-        {
-            this.HideDetail();
-        }
-
-        #endregion Private
 
         #endregion Methods
     }
