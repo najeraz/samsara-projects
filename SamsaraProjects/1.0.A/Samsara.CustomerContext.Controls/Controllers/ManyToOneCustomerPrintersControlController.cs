@@ -23,6 +23,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private CustomerInfrastructurePrinter customerInfrastructurePrinter;
         private IPrinterBrandService srvPrinterBrand;
         private IPrinterTypeService srvPrinterType;
+        private System.Collections.Generic.ISet<CustomerInfrastructurePrinter> customerInfrastructurePrinters;
 
         private DataTable dtCustomerPrinters;
 
@@ -41,8 +42,27 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public System.Collections.Generic.ISet<CustomerInfrastructurePrinter> CustomerInfrastructurePrinters
         {
-            get;
-            private set;
+            get
+            {
+                System.Collections.Generic.ISet<CustomerInfrastructurePrinter> tmp
+                    = new HashSet<CustomerInfrastructurePrinter>();
+
+                foreach(CustomerInfrastructurePrinter customerInfrastructurePrinter in
+                    this.customerInfrastructurePrinters)
+                {
+                    customerInfrastructurePrinter.CustomerInfrastructurePrinterId 
+                        = customerInfrastructurePrinter.CustomerInfrastructurePrinterId <= 0 ?
+                        -1 : customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
+
+                    tmp.Add(customerInfrastructurePrinter);
+                }
+
+                return tmp;
+            }
+            private set
+            {
+                this.customerInfrastructurePrinters = value;
+            }
         }
         
         #endregion Properties
@@ -53,6 +73,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             ManyToOneCustomerPrintersControl instance) : base(instance)  
         {
             this.controlManyToOneCustomerPrinters = instance;
+            this.controlManyToOneCustomerPrinters.controller = this;
 
             this.srvCustomerInfrastructurePrinter = SamsaraAppContext.Resolve<ICustomerInfrastructurePrinterService>();
             Assert.IsNotNull(this.srvCustomerInfrastructurePrinter);
@@ -89,7 +110,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadGrid();
 
-            if (this.CustomerInfrastructurePrinters == null && this.CustomerInfrastructureId != null)
+            if (this.CustomerInfrastructureId != null)
             {
                 CustomerInfrastructurePrinterParameters pmtCustomerInfrastructurePrinter
                     = new CustomerInfrastructurePrinterParameters();
@@ -102,15 +123,15 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 this.controlManyToOneCustomerPrinters.grdRelations.DataSource = null;
                 this.controlManyToOneCustomerPrinters.grdRelations.DataSource = this.dtCustomerPrinters;
 
-                IList<CustomerInfrastructurePrinter> customerInfrastructurePrinters 
+                IList<CustomerInfrastructurePrinter> lstCustomerInfrastructurePrinters 
                     = this.srvCustomerInfrastructurePrinter.GetListByParameters(pmtCustomerInfrastructurePrinter);
 
-                this.CustomerInfrastructurePrinters = new HashSet<CustomerInfrastructurePrinter>();
+                this.customerInfrastructurePrinters = new HashSet<CustomerInfrastructurePrinter>();
 
                 foreach (CustomerInfrastructurePrinter customerInfrastructurePrinter in
-                    customerInfrastructurePrinters)
+                    lstCustomerInfrastructurePrinters)
                 {
-                    this.CustomerInfrastructurePrinters.Add(customerInfrastructurePrinter);
+                    this.customerInfrastructurePrinters.Add(customerInfrastructurePrinter);
                 }
             }
         }
@@ -126,7 +147,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public override void DeleteEntity(int entityId)
         {
-            this.customerInfrastructurePrinter = this.CustomerInfrastructurePrinters
+            this.customerInfrastructurePrinter = this.customerInfrastructurePrinters
                 .Single(x => x.CustomerInfrastructurePrinterId == entityId);
 
             this.customerInfrastructurePrinter.Activated = false;
@@ -135,7 +156,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public override void LoadFromEntity(int entityId)
         {
-            this.customerInfrastructurePrinter = this.CustomerInfrastructurePrinters
+            this.customerInfrastructurePrinter = this.customerInfrastructurePrinters
                 .Single(x => x.CustomerInfrastructurePrinterId == entityId);
 
             this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value
@@ -159,7 +180,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructurePrinter.SerialNumber = this.controlManyToOneCustomerPrinters.txtlSerialNumber.Text;
         }
 
-        public virtual bool ValidateControlsData()
+        public override bool ValidateControlsData()
         {
             return true;
         }

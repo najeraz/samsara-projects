@@ -46,6 +46,9 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmCustomer.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
+            this.frmCustomer.mtoCustomerPrinters.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerPrinters.LoadGrid();
+
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
         }
@@ -193,6 +196,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (activeRow != null)
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
         }
+
         #endregion Events
     }
 }
