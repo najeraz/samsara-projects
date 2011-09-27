@@ -14,7 +14,7 @@ namespace Samsara.Controls.Controls
     {
         #region Attributes
 
-        internal ManyToOneLevel1ControlController ctrlManyToOneLevel1Control;
+        public ManyToOneLevel1ControlController controller;
 
         #endregion Attributes
 
@@ -23,7 +23,6 @@ namespace Samsara.Controls.Controls
         public ManyToOneLevel1Control()
         {
             InitializeComponent();
-            this.ctrlManyToOneLevel1Control = new ManyToOneLevel1ControlController(this);
         }
 
         #endregion Constructor
@@ -37,7 +36,7 @@ namespace Samsara.Controls.Controls
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                this.ctrlManyToOneLevel1Control.Click(sender);
+                this.controller.ButtonClick(sender);
             }
             finally
             {
