@@ -51,6 +51,12 @@
             this.gbxDetDetail = new Infragistics.Win.Misc.UltraGroupBox();
             this.tabDetail = new System.Windows.Forms.TabControl();
             this.tabItmPrincipal = new System.Windows.Forms.TabPage();
+            this.txtlSerialNumber = new System.Windows.Forms.TextBox();
+            this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
+            this.ucePrinterType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblPrinterType = new Infragistics.Win.Misc.UltraLabel();
+            this.ucePrinterBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblPrinterBrand = new Infragistics.Win.Misc.UltraLabel();
             this.upnlButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upnlSeparatorSaveRelation = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnSaveRelation = new Infragistics.Win.Misc.UltraButton();
@@ -67,6 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxDetDetail)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
             this.tabDetail.SuspendLayout();
+            this.tabItmPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterBrand)).BeginInit();
             this.upnlButtons.ClientArea.SuspendLayout();
             this.upnlButtons.SuspendLayout();
             this.upnlSeparatorSaveRelation.SuspendLayout();
@@ -88,7 +97,7 @@
             this.upnDetailButtons.ClientArea.Controls.Add(this.ubtnCreateRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorDetailButtons);
             this.upnDetailButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 187);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 229);
             this.upnDetailButtons.Name = "upnDetailButtons";
             this.upnDetailButtons.Size = new System.Drawing.Size(728, 25);
             this.upnDetailButtons.TabIndex = 97;
@@ -109,7 +118,7 @@
             this.ubtnDeleteRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnDeleteRelation.TabIndex = 0;
             this.ubtnDeleteRelation.Text = "Borrar";
-            this.ubtnDeleteRelation.Click += new System.EventHandler(this.Click);
+            this.ubtnDeleteRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorEditRelation
             // 
@@ -127,7 +136,7 @@
             this.ubtnEditRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnEditRelation.TabIndex = 14;
             this.ubtnEditRelation.Text = "Modificar";
-            this.ubtnEditRelation.Click += new System.EventHandler(this.Click);
+            this.ubtnEditRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorCreateRelation
             // 
@@ -145,7 +154,7 @@
             this.ubtnCreateRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnCreateRelation.TabIndex = 12;
             this.ubtnCreateRelation.Text = "Nuevo";
-            this.ubtnCreateRelation.Click += new System.EventHandler(this.Click);
+            this.ubtnCreateRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorDetailButtons
             // 
@@ -159,9 +168,9 @@
             // 
             this.gbxDetDetail.Controls.Add(this.tabDetail);
             this.gbxDetDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 212);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 254);
             this.gbxDetDetail.Name = "gbxDetDetail";
-            this.gbxDetDetail.Size = new System.Drawing.Size(728, 159);
+            this.gbxDetDetail.Size = new System.Drawing.Size(728, 117);
             this.gbxDetDetail.TabIndex = 96;
             this.gbxDetDetail.Text = "Detalle del registro";
             // 
@@ -172,18 +181,72 @@
             this.tabDetail.Location = new System.Drawing.Point(3, 16);
             this.tabDetail.Name = "tabDetail";
             this.tabDetail.SelectedIndex = 0;
-            this.tabDetail.Size = new System.Drawing.Size(722, 140);
+            this.tabDetail.Size = new System.Drawing.Size(722, 98);
             this.tabDetail.TabIndex = 88;
             // 
             // tabItmPrincipal
             // 
             this.tabItmPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmPrincipal.Controls.Add(this.txtlSerialNumber);
+            this.tabItmPrincipal.Controls.Add(this.lblSerialNumber);
+            this.tabItmPrincipal.Controls.Add(this.ucePrinterType);
+            this.tabItmPrincipal.Controls.Add(this.lblPrinterType);
+            this.tabItmPrincipal.Controls.Add(this.ucePrinterBrand);
+            this.tabItmPrincipal.Controls.Add(this.lblPrinterBrand);
             this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
             this.tabItmPrincipal.Name = "tabItmPrincipal";
             this.tabItmPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(714, 114);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(714, 72);
             this.tabItmPrincipal.TabIndex = 0;
             this.tabItmPrincipal.Text = "Principal";
+            // 
+            // txtlSerialNumber
+            // 
+            this.txtlSerialNumber.Location = new System.Drawing.Point(458, 12);
+            this.txtlSerialNumber.Name = "txtlSerialNumber";
+            this.txtlSerialNumber.Size = new System.Drawing.Size(226, 20);
+            this.txtlSerialNumber.TabIndex = 105;
+            // 
+            // lblSerialNumber
+            // 
+            this.lblSerialNumber.AutoSize = true;
+            this.lblSerialNumber.Location = new System.Drawing.Point(362, 15);
+            this.lblSerialNumber.Name = "lblSerialNumber";
+            this.lblSerialNumber.Size = new System.Drawing.Size(93, 14);
+            this.lblSerialNumber.TabIndex = 104;
+            this.lblSerialNumber.Text = "Número de Serie:";
+            // 
+            // ucePrinterType
+            // 
+            this.ucePrinterType.Location = new System.Drawing.Point(99, 38);
+            this.ucePrinterType.Name = "ucePrinterType";
+            this.ucePrinterType.Size = new System.Drawing.Size(226, 21);
+            this.ucePrinterType.TabIndex = 103;
+            // 
+            // lblPrinterType
+            // 
+            this.lblPrinterType.AutoSize = true;
+            this.lblPrinterType.Location = new System.Drawing.Point(24, 42);
+            this.lblPrinterType.Name = "lblPrinterType";
+            this.lblPrinterType.Size = new System.Drawing.Size(29, 14);
+            this.lblPrinterType.TabIndex = 101;
+            this.lblPrinterType.Text = "Tipo:";
+            // 
+            // ucePrinterBrand
+            // 
+            this.ucePrinterBrand.Location = new System.Drawing.Point(99, 11);
+            this.ucePrinterBrand.Name = "ucePrinterBrand";
+            this.ucePrinterBrand.Size = new System.Drawing.Size(226, 21);
+            this.ucePrinterBrand.TabIndex = 102;
+            // 
+            // lblPrinterBrand
+            // 
+            this.lblPrinterBrand.AutoSize = true;
+            this.lblPrinterBrand.Location = new System.Drawing.Point(24, 15);
+            this.lblPrinterBrand.Name = "lblPrinterBrand";
+            this.lblPrinterBrand.Size = new System.Drawing.Size(39, 14);
+            this.lblPrinterBrand.TabIndex = 100;
+            this.lblPrinterBrand.Text = "Marca:";
             // 
             // upnlButtons
             // 
@@ -217,7 +280,7 @@
             this.ubtnSaveRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnSaveRelation.TabIndex = 10;
             this.ubtnSaveRelation.Text = "Guardar";
-            this.ubtnSaveRelation.Click += new System.EventHandler(this.Click);
+            this.ubtnSaveRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorCancelRelation
             // 
@@ -235,7 +298,7 @@
             this.ubtnCancelRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnCancelRelation.TabIndex = 12;
             this.ubtnCancelRelation.Text = "Cancelar";
-            this.ubtnCancelRelation.Click += new System.EventHandler(this.Click);
+            this.ubtnCancelRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorButtons
             // 
@@ -303,7 +366,7 @@
             this.grdRelations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdRelations.Location = new System.Drawing.Point(0, 0);
             this.grdRelations.Name = "grdRelations";
-            this.grdRelations.Size = new System.Drawing.Size(728, 187);
+            this.grdRelations.Size = new System.Drawing.Size(728, 229);
             this.grdRelations.TabIndex = 98;
             this.grdRelations.Text = "samsaraUltraGrid1";
             // 
@@ -326,6 +389,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxDetDetail)).EndInit();
             this.gbxDetDetail.ResumeLayout(false);
             this.tabDetail.ResumeLayout(false);
+            this.tabItmPrincipal.ResumeLayout(false);
+            this.tabItmPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ucePrinterBrand)).EndInit();
             this.upnlButtons.ClientArea.ResumeLayout(false);
             this.upnlButtons.ResumeLayout(false);
             this.upnlSeparatorSaveRelation.ResumeLayout(false);
@@ -356,5 +423,11 @@
         public Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelRelation;
         public Infragistics.Win.Misc.UltraButton ubtnCancelRelation;
         public Infragistics.Win.Misc.UltraPanel upnlSeparatorButtons;
+        private System.Windows.Forms.TextBox txtlSerialNumber;
+        private Infragistics.Win.Misc.UltraLabel lblSerialNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ucePrinterType;
+        private Infragistics.Win.Misc.UltraLabel lblPrinterType;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ucePrinterBrand;
+        private Infragistics.Win.Misc.UltraLabel lblPrinterBrand;
     }
 }

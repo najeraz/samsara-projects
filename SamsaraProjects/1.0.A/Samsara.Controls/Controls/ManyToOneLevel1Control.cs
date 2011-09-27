@@ -32,7 +32,7 @@ namespace Samsara.Controls.Controls
 
         #region Private
 
-        private void Click(object sender, EventArgs e)
+        internal void Button_Click(object sender, EventArgs e)
         {
             try
             {

@@ -73,10 +73,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Samsara.Base.Dao\Samsara.Base.Dao.csproj">
+      <Project>{0F57FA43-5325-496C-AAD7-C63AB0DE8456}</Project>
+      <Name>Samsara.Base.Dao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Samsara.Controls\Samsara.Controls.csproj">
       <Project>{C60ECD8E-4E51-43EA-89C4-FD2812EFA364}</Project>
       <Name>Samsara.Controls</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Samsara.CustomerContext.Core\Samsara.CustomerContext.Core.csproj">
+      <Project>{BA08F49D-9BA7-4930-9A17-278DC73B75B0}</Project>
+      <Name>Samsara.CustomerContext.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samsara.CustomerContext.Dao\Samsara.CustomerContext.Dao.csproj">
+      <Project>{6BCFBB50-D66D-42C8-9FB7-D417E43A1F12}</Project>
+      <Name>Samsara.CustomerContext.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samsara.CustomerContext.Service\Samsara.CustomerContext.Service.csproj">
+      <Project>{B4EDD472-2E4D-444B-B6D9-3B8FAAFDC0A9}</Project>
+      <Name>Samsara.CustomerContext.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

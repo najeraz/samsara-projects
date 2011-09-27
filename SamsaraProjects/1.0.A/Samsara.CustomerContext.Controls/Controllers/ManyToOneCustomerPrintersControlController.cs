@@ -2,6 +2,11 @@
 using Samsara.Controls.Controllers;
 using Samsara.CustomerContext.Controls.Controls;
 using Samsara.Controls.Controls;
+using Samsara.CustomerContext.Service.Interfaces;
+using Samsara.Base.Core.Context;
+using NUnit.Framework;
+using Samsara.CustomerContext.Core.Entities;
+using Infragistics.Win.UltraWinGrid;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
@@ -10,6 +15,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Attributes
 
         private ManyToOneCustomerPrintersControl controlManyToOneCustomerPrinters;
+        private ICustomerInfrastructurePrinterService srvICustomerInfrastructurePrinter;
+        private CustomerInfrastructurePrinter entCustomerInfrastructurePrinter;
 
         #endregion Attributes
 
@@ -19,11 +26,19 @@ namespace Samsara.CustomerContext.Controls.Controllers
             : base(instance)  
         {
             this.controlManyToOneCustomerPrinters = instance;
+
+            this.srvICustomerInfrastructurePrinter = SamsaraAppContext.Resolve<ICustomerInfrastructurePrinterService>();
+            Assert.IsNotNull(this.srvICustomerInfrastructurePrinter);
         }
 
         #endregion Constructor
 
         #region Methods
+
+        public override void InitializeControlControls()
+        {
+            base.InitializeControlControls();
+        }
         
         #region Public
 
@@ -49,7 +64,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public override void EditRelation()
         {
+            UltraGridRow activeRow = this.controlManyToOneCustomerPrinters.grdRelations.ActiveRow;
             base.EditRelation();
+
+            if (activeRow != null)
+            {
+
+            }
         }
 
         public override void SaveRelation()
