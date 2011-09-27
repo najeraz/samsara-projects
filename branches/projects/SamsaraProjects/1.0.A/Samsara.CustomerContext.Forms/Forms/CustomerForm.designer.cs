@@ -532,6 +532,8 @@
             this.ultraPanel80 = new Infragistics.Win.Misc.UltraPanel();
             this.tabDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructurePeripherals = new System.Windows.Forms.TabControl();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerPrinters = new Samsara.CustomerContext.Controls.Controls.ManyToOneCustomerPrintersControl();
             this.tabDetSoftware = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSoftware = new System.Windows.Forms.TabControl();
             this.tabPage26 = new System.Windows.Forms.TabPage();
@@ -694,8 +696,6 @@
             this.ultraPanel142 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraButton79 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel143 = new Infragistics.Win.Misc.UltraPanel();
-            this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.manyToOneCustomerPrintersControl1 = new Samsara.CustomerContext.Controls.Controls.ManyToOneCustomerPrintersControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -934,6 +934,7 @@
             this.ultraPanel80.SuspendLayout();
             this.tabDetPeripherals.SuspendLayout();
             this.tabDetInfraestructurePeripherals.SuspendLayout();
+            this.tabPage22.SuspendLayout();
             this.tabDetSoftware.SuspendLayout();
             this.tabDetInfraestructureSoftware.SuspendLayout();
             this.tabPage26.SuspendLayout();
@@ -1068,13 +1069,11 @@
             this.ultraPanel141.SuspendLayout();
             this.ultraPanel142.SuspendLayout();
             this.ultraPanel143.SuspendLayout();
-            this.tabPage22.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -4594,6 +4593,25 @@
             this.tabDetInfraestructurePeripherals.Size = new System.Drawing.Size(742, 428);
             this.tabDetInfraestructurePeripherals.TabIndex = 90;
             // 
+            // tabPage22
+            // 
+            this.tabPage22.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage22.Controls.Add(this.mtoCustomerPrinters);
+            this.tabPage22.Location = new System.Drawing.Point(4, 22);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage22.Size = new System.Drawing.Size(734, 402);
+            this.tabPage22.TabIndex = 0;
+            this.tabPage22.Text = "Impresoras";
+            // 
+            // mtoCustomerPrinters
+            // 
+            this.mtoCustomerPrinters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerPrinters.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerPrinters.Name = "mtoCustomerPrinters";
+            this.mtoCustomerPrinters.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerPrinters.TabIndex = 0;
+            // 
             // tabDetSoftware
             // 
             this.tabDetSoftware.BackColor = System.Drawing.Color.Transparent;
@@ -6488,25 +6506,6 @@
             this.ultraPanel143.Size = new System.Drawing.Size(16, 25);
             this.ultraPanel143.TabIndex = 14;
             // 
-            // tabPage22
-            // 
-            this.tabPage22.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage22.Controls.Add(this.manyToOneCustomerPrintersControl1);
-            this.tabPage22.Location = new System.Drawing.Point(4, 22);
-            this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage22.Size = new System.Drawing.Size(734, 402);
-            this.tabPage22.TabIndex = 0;
-            this.tabPage22.Text = "Impresoras";
-            // 
-            // manyToOneCustomerPrintersControl1
-            // 
-            this.manyToOneCustomerPrintersControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manyToOneCustomerPrintersControl1.Location = new System.Drawing.Point(3, 3);
-            this.manyToOneCustomerPrintersControl1.Name = "manyToOneCustomerPrintersControl1";
-            this.manyToOneCustomerPrintersControl1.Size = new System.Drawing.Size(728, 396);
-            this.manyToOneCustomerPrintersControl1.TabIndex = 0;
-            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6775,6 +6774,7 @@
             this.ultraPanel80.ResumeLayout(false);
             this.tabDetPeripherals.ResumeLayout(false);
             this.tabDetInfraestructurePeripherals.ResumeLayout(false);
+            this.tabPage22.ResumeLayout(false);
             this.tabDetSoftware.ResumeLayout(false);
             this.tabDetInfraestructureSoftware.ResumeLayout(false);
             this.tabPage26.ResumeLayout(false);
@@ -6919,7 +6919,6 @@
             this.ultraPanel141.ResumeLayout(false);
             this.ultraPanel142.ResumeLayout(false);
             this.ultraPanel143.ResumeLayout(false);
-            this.tabPage22.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -7380,6 +7379,6 @@
         internal Samsara.Controls.SamsaraUltraGrid grdDetRouters;
         internal Samsara.Controls.SamsaraUltraGrid grdDetFirewalls;
         private System.Windows.Forms.TabPage tabPage22;
-        private Controls.Controls.ManyToOneCustomerPrintersControl manyToOneCustomerPrintersControl1;
+        internal Controls.Controls.ManyToOneCustomerPrintersControl mtoCustomerPrinters;
     }
 }
