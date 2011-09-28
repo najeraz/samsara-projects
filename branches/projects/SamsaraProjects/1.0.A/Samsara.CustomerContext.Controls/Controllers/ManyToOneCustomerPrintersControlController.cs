@@ -158,10 +158,20 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         protected override void SaveRelation()
         {
-            if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId == 0)
+            if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId == -1)
             {
-                this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId
-                    = this.entityCounter--;
+                this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId = this.entityCounter--;
+                this.customerInfrastructurePrinters.Add(this.customerInfrastructurePrinter);
+
+                DataRow newRow = this.dtCustomerPrinters.NewRow();
+                this.dtCustomerPrinters.Rows.Add(newRow);
+
+                newRow["CustomerInfrastructurePrinterId"] = this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
+                newRow["PrinterBrandId"] = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
+                newRow["PrinterTypeId"] = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
+                newRow["SerialNumber"] = this.customerInfrastructurePrinter.SerialNumber;
+
+                this.dtCustomerPrinters.AcceptChanges();
             }
             base.SaveRelation();
         }

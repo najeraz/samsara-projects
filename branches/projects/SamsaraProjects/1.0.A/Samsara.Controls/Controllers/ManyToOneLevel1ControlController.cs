@@ -8,6 +8,7 @@ using Infragistics.Win.Misc;
 using Infragistics.Win.UltraWinGrid;
 using System.Windows.Forms;
 using System.Data;
+using System.Diagnostics;
 
 namespace Samsara.Controls.Controllers
 {
@@ -26,7 +27,7 @@ namespace Samsara.Controls.Controllers
         {
             this.controller = instance;
             this.InitializeControlControls();
-            this.entityCounter = -1;
+            this.entityCounter = -2;
         }
 
         #endregion Constructor
@@ -35,6 +36,7 @@ namespace Samsara.Controls.Controllers
 
         #region Internal
 
+        [DebuggerStepThrough]
         internal void ButtonClick(object sender)
         {
             if ((sender as UltraButton) == this.controller.ubtnDeleteRelation)
