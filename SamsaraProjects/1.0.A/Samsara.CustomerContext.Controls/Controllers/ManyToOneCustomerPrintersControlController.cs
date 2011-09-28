@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Controls.Controllers;
@@ -103,6 +104,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
             IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
             WindowsFormsUtil.LoadCombo<PrinterType>(this.controlManyToOneCustomerPrinters.ucePrinterType,
                 printerTypes, "PrinterTypeId", "Name", "Seleccione");
+
+            this.controlManyToOneCustomerPrinters.grdRelations.InitializeLayout 
+                += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
         }
 
         #endregion Private
@@ -146,7 +150,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.ClearDetailControls();
 
             this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value = ParameterConstants.IntDefault;
-            this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value = ParameterConstants.IntDefault;
+            this.controlManyToOneCustomerPrinters.ucePrinterType.Value = ParameterConstants.IntDefault;
             this.controlManyToOneCustomerPrinters.txtlSerialNumber.Text = string.Empty;
         }
 
@@ -172,10 +176,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructurePrinter.Activated = false;
             this.customerInfrastructurePrinter.Deleted = true;
 
-            DataRow row = this.dtCustomerPrinters.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
-                == this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId);
-
-            this.dtCustomerPrinters.Rows.Remove(row);
             this.dtCustomerPrinters.AcceptChanges();
         }
 
@@ -189,7 +189,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value
                 = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
 
-            this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value
+            this.controlManyToOneCustomerPrinters.ucePrinterType.Value
                 = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
 
             this.controlManyToOneCustomerPrinters.txtlSerialNumber.Text
@@ -266,5 +266,32 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #endregion Protected
 
         #endregion Methods
+
+        #region Events
+
+        private void grdRelations_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridBand band = e.Layout.Bands[0];
+
+            PrinterBrandParameters pmtPrinterBrand = new PrinterBrandParameters();
+
+            IList<PrinterBrand> printerBrands = this.srvPrinterBrand.GetListByParameters(pmtPrinterBrand);
+            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlManyToOneCustomerPrinters.ucePrinterBrand,
+                printerBrands, "PrinterBrandId", "Name", "Seleccione");
+
+            WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerBrands,
+                band.Columns["PrinterBrandId"], "PrinterBrandId", "Name", "Seleccione");
+
+            PrinterTypeParameters pmtPrinterType = new PrinterTypeParameters();
+
+            IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
+            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlManyToOneCustomerPrinters.ucePrinterType,
+                printerTypes, "PrinterTypeId", "Name", "Seleccione");
+
+            WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerTypes,
+                band.Columns["PrinterTypeId"], "PrinterTypeId", "Name", "Seleccione");
+        }
+
+        #endregion Events
     }
 }
