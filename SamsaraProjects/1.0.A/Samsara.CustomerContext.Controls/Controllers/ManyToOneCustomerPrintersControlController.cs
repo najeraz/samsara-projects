@@ -173,10 +173,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructurePrinter = this.customerInfrastructurePrinters
                 .Single(x => x.CustomerInfrastructurePrinterId == entityId);
 
-            this.customerInfrastructurePrinter.Activated = false;
-            this.customerInfrastructurePrinter.Deleted = true;
-
-            this.dtCustomerPrinters.AcceptChanges();
+            if (entityId <= 0)
+                this.customerInfrastructurePrinters.Remove(this.customerInfrastructurePrinter);
+            else
+            {
+                this.customerInfrastructurePrinter.Activated = false;
+                this.customerInfrastructurePrinter.Deleted = true;
+            }
         }
 
         protected override void LoadFromEntity(int entityId)
@@ -261,6 +264,15 @@ namespace Samsara.CustomerContext.Controls.Controllers
             row["SerialNumber"] = this.customerInfrastructurePrinter.SerialNumber;
 
             this.dtCustomerPrinters.AcceptChanges();
+        }
+
+        protected override void EnabledDetailControls(bool enabled)
+        {
+            base.EnabledDetailControls(enabled);
+
+            this.controlManyToOneCustomerPrinters.ucePrinterType.ReadOnly = !enabled;
+            this.controlManyToOneCustomerPrinters.ucePrinterBrand.ReadOnly = !enabled;
+            this.controlManyToOneCustomerPrinters.txtlSerialNumber.ReadOnly = !enabled;
         }
 
         #endregion Protected
