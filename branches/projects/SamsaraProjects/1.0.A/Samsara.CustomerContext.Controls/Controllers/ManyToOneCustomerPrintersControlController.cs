@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Controls.Controllers;
@@ -11,7 +12,6 @@ using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
-using System.Windows.Forms;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
