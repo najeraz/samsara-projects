@@ -129,10 +129,10 @@
   <ItemGroup>
     <Compile Include="Components\SamsaraComponentResourceManager.cs" />
     <Compile Include="Controllers\ManyToOneLevel1ControlController.cs" />
-    <Compile Include="Controls\ManyToOneLevel1Control.cs">
+    <Compile Include="Templates\ManyToOneLevel1Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOneLevel1Control.designer.cs">
+    <Compile Include="Templates\ManyToOneLevel1Control.designer.cs">
       <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\OpportunitySearchControl.cs">
@@ -168,7 +168,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ManyToOneLevel1Control.resx">
+    <EmbeddedResource Include="Templates\ManyToOneLevel1Control.resx">
       <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OpportunitySearchControl.resx">

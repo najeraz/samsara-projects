@@ -149,7 +149,7 @@ namespace Samsara.Controls
         {
             if (control == null)
                 return null;
-            if (control.GetType().BaseType == typeof(Samsara.Controls.Controls.ManyToOneLevel1Control))
+            if (control.GetType().BaseType == typeof(Samsara.Controls.Templates.ManyToOneLevel1Control))
                 return control.Name;
 
             return GetParentControlName(control.Parent);
