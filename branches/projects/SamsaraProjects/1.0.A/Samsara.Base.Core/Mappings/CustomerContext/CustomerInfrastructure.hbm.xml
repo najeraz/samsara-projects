@@ -14,10 +14,6 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
-    <many-to-one name="CustomerInfrastructureNetwork"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
-                 column="CustomerInfrastructureNetworkId"/>
-
     <set name="CustomerInfrastructurePersonalComputers" table="CustomerContext.CustomerInfrastructurePersonalComputers" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
       <key column="CustomerId"/>
