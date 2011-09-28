@@ -13,7 +13,7 @@ namespace Samsara.Controls.Controllers
     {
         #region Attributes
 
-        private ManyToOneLevel1Control controller;
+        private ManyToOneLevel1Control control;
         protected int entityCounter;
 
         #endregion Attributes
@@ -22,7 +22,7 @@ namespace Samsara.Controls.Controllers
 
         public ManyToOneLevel1ControlController(ManyToOneLevel1Control instance)
         {
-            this.controller = instance;
+            this.control = instance;
             this.InitializeControlControls();
             this.entityCounter = -2;
         }
@@ -36,30 +36,34 @@ namespace Samsara.Controls.Controllers
         [DebuggerStepThrough]
         internal void ButtonClick(object sender)
         {
-            if ((sender as UltraButton) == this.controller.ubtnDeleteRelation)
+            if ((sender as UltraButton) == this.control.ubtnDeleteRelation)
                 this.DeleteRelation();
-            if ((sender as UltraButton) == this.controller.ubtnCancelRelation)
+            if ((sender as UltraButton) == this.control.ubtnCancelRelation)
                 this.CancelRelation();
-            if ((sender as UltraButton) == this.controller.ubtnCreateRelation)
+            if ((sender as UltraButton) == this.control.ubtnCreateRelation)
                 this.CreateRelation();
-            if ((sender as UltraButton) == this.controller.ubtnEditRelation)
+            if ((sender as UltraButton) == this.control.ubtnEditRelation)
                 this.EditRelation();
-            if ((sender as UltraButton) == this.controller.ubtnSaveRelation)
+            if ((sender as UltraButton) == this.control.ubtnSaveRelation)
                 this.SaveRelation();
+            if ((sender as UltraButton) == this.control.ubtnViewRelation)
+                this.ViewRelation();
+            if ((sender as UltraButton) == this.control.ubtnCloseRelation)
+                this.CloseRelation();
         }
 
         internal void HideDetail()
         {
-            this.controller.upnDetailButtons.Visible = true;
-            this.controller.gbxDetDetail.Visible = false;
-            this.controller.upnlButtons.Visible = false;
+            this.control.upnDetailButtons.Visible = true;
+            this.control.gbxDetDetail.Visible = false;
+            this.control.upnlButtons.Visible = false;
         }
 
         internal void ShowDetail()
         {
-            this.controller.upnDetailButtons.Visible = false;
-            this.controller.gbxDetDetail.Visible = true;
-            this.controller.upnlButtons.Visible = true;
+            this.control.upnDetailButtons.Visible = false;
+            this.control.gbxDetDetail.Visible = true;
+            this.control.upnlButtons.Visible = true;
         }
 
         #endregion Internal
@@ -73,7 +77,7 @@ namespace Samsara.Controls.Controllers
 
         protected virtual void DeleteRelation()
         {
-            UltraGridRow activeRow = this.controller.grdRelations.ActiveRow;
+            UltraGridRow activeRow = this.control.grdRelations.ActiveRow;
 
             if (activeRow != null)
             {
@@ -87,7 +91,7 @@ namespace Samsara.Controls.Controllers
 
                 DataRow row = (activeRow.ListObject as DataRowView).Row;
 
-                DataTable dtGrid = this.controller.grdRelations.DataSource as DataTable;
+                DataTable dtGrid = this.control.grdRelations.DataSource as DataTable;
 
                 dtGrid.Rows.Remove(row);
 
@@ -109,14 +113,36 @@ namespace Samsara.Controls.Controllers
         {
         }
 
-        protected virtual void EditRelation()
+        protected virtual void ViewRelation()
         {
-            UltraGridRow activeRow = this.controller.grdRelations.ActiveRow;
+            UltraGridRow activeRow = this.control.grdRelations.ActiveRow;
 
             if (activeRow != null)
             {
                 this.ClearDetailControls();
                 this.ShowDetail();
+                this.EnabledDetailControls(false);
+
+                int entityId = Convert.ToInt32((activeRow.ListObject as DataRowView).Row[0]);
+
+                this.LoadFromEntity(entityId);
+            }
+        }
+
+        protected virtual void CloseRelation()
+        {
+            this.HideDetail();
+        }
+
+        protected virtual void EditRelation()
+        {
+            UltraGridRow activeRow = this.control.grdRelations.ActiveRow;
+
+            if (activeRow != null)
+            {
+                this.ClearDetailControls();
+                this.ShowDetail();
+                this.EnabledDetailControls(true);
 
                 int entityId = Convert.ToInt32((activeRow.ListObject as DataRowView).Row[0]);
 
@@ -128,6 +154,7 @@ namespace Samsara.Controls.Controllers
         {
             this.ClearDetailControls();
             this.ShowDetail();
+            this.EnabledDetailControls(true);
         }
 
         protected virtual void CancelRelation()
@@ -137,8 +164,7 @@ namespace Samsara.Controls.Controllers
 
         protected virtual void ClearDetailControls()
         {
-            this.controller.tabDetail.SelectedTab
-                = this.controller.tabItmPrincipal;
+            this.control.tabDetail.SelectedTab = this.control.tabItmPrincipal;
         }
 
         protected virtual void LoadEntity()
@@ -156,6 +182,16 @@ namespace Samsara.Controls.Controllers
         protected virtual bool ValidateControlsData()
         {
             return true;
+        }
+
+        protected virtual void EnabledDetailControls(bool enabled)
+        {
+            this.control.ubtnCloseRelation.Visible = !enabled;
+            this.control.upnlSeparatorCloseRelation.Visible = !enabled;
+            this.control.ubtnCancelRelation.Visible = enabled;
+            this.control.upnlSeparatorCancelRelation.Visible = enabled;
+            this.control.ubtnSaveRelation.Visible = enabled;
+            this.control.upnlSeparatorSaveRelation.Visible = enabled;
         }
 
         #endregion Public
