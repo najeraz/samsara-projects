@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Samsara.Controls.Controllers;
 
@@ -31,6 +26,7 @@ namespace Samsara.Controls.Controls
 
         #region Private
 
+        [DebuggerStepThrough]
         internal void Button_Click(object sender, EventArgs e)
         {
             try
