@@ -1,5 +1,4 @@
 ﻿
-using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters

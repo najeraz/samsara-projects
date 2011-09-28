@@ -1,14 +1,11 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Samsara.Controls.Controls;
-using Infragistics.Win.Misc;
-using Infragistics.Win.UltraWinGrid;
-using System.Windows.Forms;
 using System.Data;
 using System.Diagnostics;
+using System.Windows.Forms;
+using Infragistics.Win.Misc;
+using Infragistics.Win.UltraWinGrid;
+using Samsara.Controls.Controls;
 
 namespace Samsara.Controls.Controllers
 {
