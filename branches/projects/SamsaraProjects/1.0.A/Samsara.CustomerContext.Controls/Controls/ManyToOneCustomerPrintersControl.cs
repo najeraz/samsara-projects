@@ -1,5 +1,5 @@
 ﻿using System;
-using Samsara.Controls.Controls;
+using Samsara.Controls.Templates;
 using Samsara.CustomerContext.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 
@@ -7,12 +7,6 @@ namespace Samsara.CustomerContext.Controls.Controls
 {
     public partial class ManyToOneCustomerPrintersControl : ManyToOneLevel1Control
     {
-        #region Attributes
-
-        //internal ManyToOneCustomerPrintersControlController controller;
-
-        #endregion Attributes
-
         #region Properties
 
         /// <summary>

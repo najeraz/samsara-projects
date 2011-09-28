@@ -1,9 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Samsara.Controls.Controllers;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Controls.Templates
 {
     public partial class ManyToOneLevel1Control : UserControl
     {

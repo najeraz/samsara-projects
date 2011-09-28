@@ -1,4 +1,5 @@
-﻿namespace Samsara.Controls.Controls
+﻿
+namespace Samsara.Controls.Templates
 {
     partial class ManyToOneLevel1Control
     {
