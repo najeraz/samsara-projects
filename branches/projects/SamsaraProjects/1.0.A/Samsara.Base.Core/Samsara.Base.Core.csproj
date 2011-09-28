@@ -81,7 +81,9 @@
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureServerComputerDBMS.hbm.xml" />
     <EmbeddedResource Include="Mappings\CustomerContext\PersonalComputerType.hbm.xml" />
     <EmbeddedResource Include="Mappings\CustomerContext\Customer.hbm.xml" />
-    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml" />
+    <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructure.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureCCTV.hbm.xml" />
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureISP.hbm.xml" />
     <EmbeddedResource Include="Mappings\CustomerContext\CustomerInfrastructureNetwork.hbm.xml" />
