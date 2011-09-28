@@ -100,8 +100,13 @@ namespace Samsara.Controls.Controllers
             if (this.ValidateControlsData())
             {
                 this.LoadEntity();
+                this.AddEntity();
                 this.HideDetail();
             }
+        }
+
+        protected virtual void AddEntity()
+        {
         }
 
         protected virtual void EditRelation()
