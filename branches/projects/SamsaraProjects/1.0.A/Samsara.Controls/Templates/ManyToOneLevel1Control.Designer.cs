@@ -46,6 +46,8 @@ namespace Samsara.Controls.Templates
             this.ubtnDeleteRelation = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorEditRelation = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnEditRelation = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorViewRelation = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnViewRelation = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCreateRelation = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCreateRelation = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorDetailButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -53,6 +55,8 @@ namespace Samsara.Controls.Templates
             this.tabDetail = new System.Windows.Forms.TabControl();
             this.tabItmPrincipal = new System.Windows.Forms.TabPage();
             this.upnlButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upnlSeparatorCloseRelation = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCloseRelation = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorSaveRelation = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnSaveRelation = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCancelRelation = new Infragistics.Win.Misc.UltraPanel();
@@ -63,6 +67,7 @@ namespace Samsara.Controls.Templates
             this.upnDetailButtons.SuspendLayout();
             this.upnlSeparatorDeleteRelation.SuspendLayout();
             this.upnlSeparatorEditRelation.SuspendLayout();
+            this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCreateRelation.SuspendLayout();
             this.upnlSeparatorDetailButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxDetDetail)).BeginInit();
@@ -70,6 +75,7 @@ namespace Samsara.Controls.Templates
             this.tabDetail.SuspendLayout();
             this.upnlButtons.ClientArea.SuspendLayout();
             this.upnlButtons.SuspendLayout();
+            this.upnlSeparatorCloseRelation.SuspendLayout();
             this.upnlSeparatorSaveRelation.SuspendLayout();
             this.upnlSeparatorCancelRelation.SuspendLayout();
             this.upnlSeparatorButtons.SuspendLayout();
@@ -85,11 +91,13 @@ namespace Samsara.Controls.Templates
             this.upnDetailButtons.ClientArea.Controls.Add(this.ubtnDeleteRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorEditRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.ubtnEditRelation);
+            this.upnDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorViewRelation);
+            this.upnDetailButtons.ClientArea.Controls.Add(this.ubtnViewRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.ubtnCreateRelation);
             this.upnDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorDetailButtons);
             this.upnDetailButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 229);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 235);
             this.upnDetailButtons.Name = "upnDetailButtons";
             this.upnDetailButtons.Size = new System.Drawing.Size(728, 25);
             this.upnDetailButtons.TabIndex = 97;
@@ -97,7 +105,7 @@ namespace Samsara.Controls.Templates
             // upnlSeparatorDeleteRelation
             // 
             this.upnlSeparatorDeleteRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(433, 0);
+            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(340, 0);
             this.upnlSeparatorDeleteRelation.Name = "upnlSeparatorDeleteRelation";
             this.upnlSeparatorDeleteRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorDeleteRelation.TabIndex = 5;
@@ -105,7 +113,7 @@ namespace Samsara.Controls.Templates
             // ubtnDeleteRelation
             // 
             this.ubtnDeleteRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDeleteRelation.Location = new System.Drawing.Point(449, 0);
+            this.ubtnDeleteRelation.Location = new System.Drawing.Point(356, 0);
             this.ubtnDeleteRelation.Name = "ubtnDeleteRelation";
             this.ubtnDeleteRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnDeleteRelation.TabIndex = 0;
@@ -115,7 +123,7 @@ namespace Samsara.Controls.Templates
             // upnlSeparatorEditRelation
             // 
             this.upnlSeparatorEditRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(526, 0);
+            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(433, 0);
             this.upnlSeparatorEditRelation.Name = "upnlSeparatorEditRelation";
             this.upnlSeparatorEditRelation.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorEditRelation.TabIndex = 15;
@@ -123,12 +131,30 @@ namespace Samsara.Controls.Templates
             // ubtnEditRelation
             // 
             this.ubtnEditRelation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnEditRelation.Location = new System.Drawing.Point(542, 0);
+            this.ubtnEditRelation.Location = new System.Drawing.Point(449, 0);
             this.ubtnEditRelation.Name = "ubtnEditRelation";
             this.ubtnEditRelation.Size = new System.Drawing.Size(77, 25);
             this.ubtnEditRelation.TabIndex = 14;
             this.ubtnEditRelation.Text = "Modificar";
             this.ubtnEditRelation.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // upnlSeparatorViewRelation
+            // 
+            this.upnlSeparatorViewRelation.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorViewRelation.Location = new System.Drawing.Point(526, 0);
+            this.upnlSeparatorViewRelation.Name = "upnlSeparatorViewRelation";
+            this.upnlSeparatorViewRelation.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorViewRelation.TabIndex = 16;
+            // 
+            // ubtnViewRelation
+            // 
+            this.ubtnViewRelation.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnViewRelation.Location = new System.Drawing.Point(542, 0);
+            this.ubtnViewRelation.Name = "ubtnViewRelation";
+            this.ubtnViewRelation.Size = new System.Drawing.Size(77, 25);
+            this.ubtnViewRelation.TabIndex = 17;
+            this.ubtnViewRelation.Text = "Ver Detalle";
+            this.ubtnViewRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorCreateRelation
             // 
@@ -160,9 +186,9 @@ namespace Samsara.Controls.Templates
             // 
             this.gbxDetDetail.Controls.Add(this.tabDetail);
             this.gbxDetDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 254);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 260);
             this.gbxDetDetail.Name = "gbxDetDetail";
-            this.gbxDetDetail.Size = new System.Drawing.Size(728, 117);
+            this.gbxDetDetail.Size = new System.Drawing.Size(728, 111);
             this.gbxDetDetail.TabIndex = 96;
             this.gbxDetDetail.Text = "Detalle del registro";
             // 
@@ -173,7 +199,7 @@ namespace Samsara.Controls.Templates
             this.tabDetail.Location = new System.Drawing.Point(3, 16);
             this.tabDetail.Name = "tabDetail";
             this.tabDetail.SelectedIndex = 0;
-            this.tabDetail.Size = new System.Drawing.Size(722, 98);
+            this.tabDetail.Size = new System.Drawing.Size(722, 92);
             this.tabDetail.TabIndex = 88;
             // 
             // tabItmPrincipal
@@ -182,7 +208,7 @@ namespace Samsara.Controls.Templates
             this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
             this.tabItmPrincipal.Name = "tabItmPrincipal";
             this.tabItmPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(714, 72);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(714, 66);
             this.tabItmPrincipal.TabIndex = 0;
             this.tabItmPrincipal.Text = "Principal";
             // 
@@ -191,6 +217,8 @@ namespace Samsara.Controls.Templates
             // 
             // upnlButtons.ClientArea
             // 
+            this.upnlButtons.ClientArea.Controls.Add(this.upnlSeparatorCloseRelation);
+            this.upnlButtons.ClientArea.Controls.Add(this.ubtnCloseRelation);
             this.upnlButtons.ClientArea.Controls.Add(this.upnlSeparatorSaveRelation);
             this.upnlButtons.ClientArea.Controls.Add(this.ubtnSaveRelation);
             this.upnlButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelRelation);
@@ -201,6 +229,24 @@ namespace Samsara.Controls.Templates
             this.upnlButtons.Name = "upnlButtons";
             this.upnlButtons.Size = new System.Drawing.Size(728, 25);
             this.upnlButtons.TabIndex = 86;
+            // 
+            // upnlSeparatorCloseRelation
+            // 
+            this.upnlSeparatorCloseRelation.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCloseRelation.Location = new System.Drawing.Point(433, 0);
+            this.upnlSeparatorCloseRelation.Name = "upnlSeparatorCloseRelation";
+            this.upnlSeparatorCloseRelation.Size = new System.Drawing.Size(16, 25);
+            this.upnlSeparatorCloseRelation.TabIndex = 16;
+            // 
+            // ubtnCloseRelation
+            // 
+            this.ubtnCloseRelation.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCloseRelation.Location = new System.Drawing.Point(449, 0);
+            this.ubtnCloseRelation.Name = "ubtnCloseRelation";
+            this.ubtnCloseRelation.Size = new System.Drawing.Size(77, 25);
+            this.ubtnCloseRelation.TabIndex = 15;
+            this.ubtnCloseRelation.Text = "Cerrar";
+            this.ubtnCloseRelation.Click += new System.EventHandler(this.Button_Click);
             // 
             // upnlSeparatorSaveRelation
             // 
@@ -245,6 +291,7 @@ namespace Samsara.Controls.Templates
             this.upnlSeparatorButtons.Name = "upnlSeparatorButtons";
             this.upnlSeparatorButtons.Size = new System.Drawing.Size(16, 25);
             this.upnlSeparatorButtons.TabIndex = 14;
+            this.upnlSeparatorButtons.Click += new System.EventHandler(this.Button_Click);
             // 
             // grdRelations
             // 
@@ -304,7 +351,7 @@ namespace Samsara.Controls.Templates
             this.grdRelations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdRelations.Location = new System.Drawing.Point(0, 0);
             this.grdRelations.Name = "grdRelations";
-            this.grdRelations.Size = new System.Drawing.Size(728, 229);
+            this.grdRelations.Size = new System.Drawing.Size(728, 235);
             this.grdRelations.TabIndex = 98;
             this.grdRelations.Text = "samsaraUltraGrid1";
             // 
@@ -322,6 +369,7 @@ namespace Samsara.Controls.Templates
             this.upnDetailButtons.ResumeLayout(false);
             this.upnlSeparatorDeleteRelation.ResumeLayout(false);
             this.upnlSeparatorEditRelation.ResumeLayout(false);
+            this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCreateRelation.ResumeLayout(false);
             this.upnlSeparatorDetailButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxDetDetail)).EndInit();
@@ -329,6 +377,7 @@ namespace Samsara.Controls.Templates
             this.tabDetail.ResumeLayout(false);
             this.upnlButtons.ClientArea.ResumeLayout(false);
             this.upnlButtons.ResumeLayout(false);
+            this.upnlSeparatorCloseRelation.ResumeLayout(false);
             this.upnlSeparatorSaveRelation.ResumeLayout(false);
             this.upnlSeparatorCancelRelation.ResumeLayout(false);
             this.upnlSeparatorButtons.ResumeLayout(false);
@@ -357,5 +406,9 @@ namespace Samsara.Controls.Templates
         public Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelRelation;
         public Infragistics.Win.Misc.UltraButton ubtnCancelRelation;
         public Infragistics.Win.Misc.UltraPanel upnlSeparatorButtons;
+        public Infragistics.Win.Misc.UltraPanel upnlSeparatorViewRelation;
+        public Infragistics.Win.Misc.UltraButton ubtnViewRelation;
+        public Infragistics.Win.Misc.UltraPanel upnlSeparatorCloseRelation;
+        public Infragistics.Win.Misc.UltraButton ubtnCloseRelation;
     }
 }

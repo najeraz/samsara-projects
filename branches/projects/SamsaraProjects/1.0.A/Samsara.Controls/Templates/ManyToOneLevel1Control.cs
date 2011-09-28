@@ -6,7 +6,7 @@ using Samsara.Controls.Controllers;
 
 namespace Samsara.Controls.Templates
 {
-    public partial class ManyToOneLevel1Control : UserControl
+    public abstract partial class ManyToOneLevel1Control : UserControl
     {
         #region Attributes
 
