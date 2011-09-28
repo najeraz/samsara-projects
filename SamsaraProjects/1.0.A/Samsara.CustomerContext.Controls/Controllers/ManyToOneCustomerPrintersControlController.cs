@@ -11,6 +11,7 @@ using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
+using System.Windows.Forms;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
@@ -219,10 +220,28 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (base.ValidateControlsData())
-                return true;
+            if (!base.ValidateControlsData())
+                return false;
 
-            return false;
+            if (this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value == null ||
+                    Convert.ToInt32(this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value) <= 0)
+            {
+                MessageBox.Show("Favor de seleccionar la Marca de Impresora.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlManyToOneCustomerPrinters.ucePrinterBrand.Focus();
+                return false;
+            }
+
+            if (this.controlManyToOneCustomerPrinters.ucePrinterType.Value == null ||
+                Convert.ToInt32(this.controlManyToOneCustomerPrinters.ucePrinterType.Value) <= 0)
+            {
+                MessageBox.Show("Favor de seleccionar el Tipo de Impresora.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlManyToOneCustomerPrinters.ucePrinterType.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         #endregion Protected
