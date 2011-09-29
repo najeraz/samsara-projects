@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using Infragistics.Win;
@@ -23,16 +24,15 @@ namespace Samsara.Controls
         public SamsaraUltraGrid()
         {
             InitializeComponent();
-            try
+            
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+                Assert.IsNotNull(this.srvFormConfiguration);
                 srvGridConfiguration = SamsaraAppContext.Resolve<IGridConfigurationService>();
+                Assert.IsNotNull(this.srvGridConfiguration);
                 srvGridColumnConfiguration = SamsaraAppContext.Resolve<IGridColumnConfigurationService>();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-                Console.WriteLine(ex.StackTrace);
+                Assert.IsNotNull(this.srvGridColumnConfiguration);
             }
         }
 
@@ -40,10 +40,6 @@ namespace Samsara.Controls
         {
             base.OnInitializeLayout(e);
             e.Layout.Override.SummaryFooterCaptionVisible = DefaultableBoolean.False;   
-
-            Assert.IsNotNull(this.srvFormConfiguration);
-            Assert.IsNotNull(this.srvGridConfiguration);
-            Assert.IsNotNull(this.srvGridColumnConfiguration);
 
             FormConfiguration formConfiguration = null;
 
