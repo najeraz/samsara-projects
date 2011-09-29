@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls
 {
-    public partial class CustomerPrintersControl : ManyToOneLevel1Control
+    public partial class CustomerInfrastructureISPsControl : ManyToOneLevel1Control
     {
         #region Properties
 
@@ -16,22 +16,22 @@ namespace Samsara.CustomerContext.Controls.Controls
         {
             get
             {
-                return (this.controller as CustomerPrintersControlController).CustomerInfrastructureId;
+                return (this.controller as CustomerInfrastructureISPsControlController).CustomerInfrastructureId;
             }
             set
             {
-                (this.controller as CustomerPrintersControlController).CustomerInfrastructureId = value;
+                (this.controller as CustomerInfrastructureISPsControlController).CustomerInfrastructureId = value;
             }
         }
 
         /// <summary>
         /// Entidades relacionadas
         /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructurePrinter> CustomerInfrastructurePrinters
+        public System.Collections.Generic.ISet<CustomerInfrastructureISP> CustomerInfrastructureISPs
         {
             get
             {
-                return (this.controller as CustomerPrintersControlController).CustomerInfrastructurePrinters;
+                return (this.controller as CustomerInfrastructureISPsControlController).CustomerInfrastructureISPs;
             }
         }
 
@@ -39,10 +39,10 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         #region Constructor
 
-        public CustomerPrintersControl()
+        public CustomerInfrastructureISPsControl()
         {
             InitializeComponent();
-            this.controller = new CustomerPrintersControlController(this);
+            this.controller = new CustomerInfrastructureISPsControlController(this);
         }
 
         #endregion Constructor
@@ -53,7 +53,7 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         public void LoadGrid()
         {
-            (this.controller as CustomerPrintersControlController).LoadGrid();
+            (this.controller as CustomerInfrastructureISPsControlController).LoadGrid();
         }
 
         #endregion Public

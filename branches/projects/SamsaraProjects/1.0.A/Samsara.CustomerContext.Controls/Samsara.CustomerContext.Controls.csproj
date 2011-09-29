@@ -70,12 +70,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CustomerPrintersControlController.cs" />
-    <Compile Include="Controls\CustomerPrintersControl.cs">
+    <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\CustomerInfrastructureISPsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\CustomerPrintersControl.Designer.cs">
-      <DependentUpon>CustomerPrintersControl.cs</DependentUpon>
+    <Compile Include="Controls\CustomerInfrastructureISPsControl.Designer.cs">
+      <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureCCTVsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureCCTVsControl.Designer.cs">
+      <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructurePrintersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructurePrintersControl.Designer.cs">
+      <DependentUpon>CustomerInfrastructurePrintersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,8 +121,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\CustomerPrintersControl.resx">
-      <DependentUpon>CustomerPrintersControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureISPsControl.resx">
+      <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureCCTVsControl.resx">
+      <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructurePrintersControl.resx">
+      <DependentUpon>CustomerInfrastructurePrintersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

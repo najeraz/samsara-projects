@@ -16,19 +16,19 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
-    public class CustomerPrintersControlController : ManyToOneLevel1ControlController
+    public class CustomerInfrastructurePrintersControlController : ManyToOneLevel1ControlController
     {
         #region Attributes
 
         private ICustomerInfrastructurePrinterService srvCustomerInfrastructurePrinter;
-        private CustomerPrintersControl controlManyToOneCustomerPrinters;
+        private CustomerInfrastructurePrintersControl controlCustomerInfrastructurePrinters;
         private CustomerInfrastructurePrinter customerInfrastructurePrinter;
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IPrinterBrandService srvPrinterBrand;
         private IPrinterTypeService srvPrinterType;
         private System.Collections.Generic.ISet<CustomerInfrastructurePrinter> customerInfrastructurePrinters;
 
-        private DataTable dtCustomerPrinters;
+        private DataTable dtCustomerInfrastructurePrinters;
 
         #endregion Attributes
 
@@ -68,10 +68,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         
         #region Constructor
 
-        public CustomerPrintersControlController(
-            CustomerPrintersControl instance) : base(instance)  
+        public CustomerInfrastructurePrintersControlController(
+            CustomerInfrastructurePrintersControl instance) : base(instance)  
         {
-            this.controlManyToOneCustomerPrinters = instance;
+            this.controlCustomerInfrastructurePrinters = instance;
 
             this.srvCustomerInfrastructurePrinter = SamsaraAppContext.Resolve<ICustomerInfrastructurePrinterService>();
             Assert.IsNotNull(this.srvCustomerInfrastructurePrinter);
@@ -96,16 +96,16 @@ namespace Samsara.CustomerContext.Controls.Controllers
             PrinterBrandParameters pmtPrinterBrand = new PrinterBrandParameters();
 
             IList<PrinterBrand> printerBrands = this.srvPrinterBrand.GetListByParameters(pmtPrinterBrand);
-            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlManyToOneCustomerPrinters.ucePrinterBrand,
+            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlCustomerInfrastructurePrinters.ucePrinterBrand,
                 printerBrands, "PrinterBrandId", "Name", "Seleccione");
 
             PrinterTypeParameters pmtPrinterType = new PrinterTypeParameters();
 
             IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
-            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlManyToOneCustomerPrinters.ucePrinterType,
+            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlCustomerInfrastructurePrinters.ucePrinterType,
                 printerTypes, "PrinterTypeId", "Name", "Seleccione");
 
-            this.controlManyToOneCustomerPrinters.grdRelations.InitializeLayout 
+            this.controlCustomerInfrastructurePrinters.grdRelations.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
         }
 
@@ -122,11 +122,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
                 pmtCustomerInfrastructurePrinter.CustomerInfrastructureId = this.CustomerInfrastructureId;
 
-                this.dtCustomerPrinters = this.srvCustomerInfrastructurePrinter
+                this.dtCustomerInfrastructurePrinters = this.srvCustomerInfrastructurePrinter
                     .SearchByParameters(pmtCustomerInfrastructurePrinter);
 
-                this.controlManyToOneCustomerPrinters.grdRelations.DataSource = null;
-                this.controlManyToOneCustomerPrinters.grdRelations.DataSource = this.dtCustomerPrinters;
+                this.controlCustomerInfrastructurePrinters.grdRelations.DataSource = null;
+                this.controlCustomerInfrastructurePrinters.grdRelations.DataSource = this.dtCustomerInfrastructurePrinters;
 
                 IList<CustomerInfrastructurePrinter> lstCustomerInfrastructurePrinters 
                     = this.srvCustomerInfrastructurePrinter.GetListByParameters(pmtCustomerInfrastructurePrinter);
@@ -149,9 +149,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value = ParameterConstants.IntDefault;
-            this.controlManyToOneCustomerPrinters.ucePrinterType.Value = ParameterConstants.IntDefault;
-            this.controlManyToOneCustomerPrinters.txtlSerialNumber.Text = string.Empty;
+            this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructurePrinters.ucePrinterType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text = string.Empty;
         }
 
         protected override void CreateRelation()
@@ -189,13 +189,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructurePrinter = this.customerInfrastructurePrinters
                 .Single(x => x.CustomerInfrastructurePrinterId == entityId);
 
-            this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value
+            this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Value
                 = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
 
-            this.controlManyToOneCustomerPrinters.ucePrinterType.Value
+            this.controlCustomerInfrastructurePrinters.ucePrinterType.Value
                 = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
 
-            this.controlManyToOneCustomerPrinters.txtlSerialNumber.Text
+            this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text
                 = this.customerInfrastructurePrinter.SerialNumber;
         }
 
@@ -204,12 +204,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.LoadEntity();
 
             this.customerInfrastructurePrinter.PrinterBrand = this.srvPrinterBrand
-                .GetById(Convert.ToInt32(this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value));
+                .GetById(Convert.ToInt32(this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Value));
 
             this.customerInfrastructurePrinter.PrinterType = this.srvPrinterType
-                .GetById(Convert.ToInt32(this.controlManyToOneCustomerPrinters.ucePrinterType.Value));
+                .GetById(Convert.ToInt32(this.controlCustomerInfrastructurePrinters.ucePrinterType.Value));
 
-            this.customerInfrastructurePrinter.SerialNumber = this.controlManyToOneCustomerPrinters.txtlSerialNumber.Text;
+            this.customerInfrastructurePrinter.SerialNumber = this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text;
         }
 
         protected override bool ValidateControlsData()
@@ -217,21 +217,21 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value == null ||
-                    Convert.ToInt32(this.controlManyToOneCustomerPrinters.ucePrinterBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Value == null ||
+                    Convert.ToInt32(this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Value) <= 0)
             {
                 MessageBox.Show("Favor de seleccionar la Marca de Impresora.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlManyToOneCustomerPrinters.ucePrinterBrand.Focus();
+                this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Focus();
                 return false;
             }
 
-            if (this.controlManyToOneCustomerPrinters.ucePrinterType.Value == null ||
-                Convert.ToInt32(this.controlManyToOneCustomerPrinters.ucePrinterType.Value) <= 0)
+            if (this.controlCustomerInfrastructurePrinters.ucePrinterType.Value == null ||
+                Convert.ToInt32(this.controlCustomerInfrastructurePrinters.ucePrinterType.Value) <= 0)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo de Impresora.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlManyToOneCustomerPrinters.ucePrinterType.Focus();
+                this.controlCustomerInfrastructurePrinters.ucePrinterType.Focus();
                 return false;
             }
 
@@ -249,12 +249,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId = this.entityCounter--;
                 this.customerInfrastructurePrinters.Add(this.customerInfrastructurePrinter);
 
-                row = this.dtCustomerPrinters.NewRow();
-                this.dtCustomerPrinters.Rows.Add(row);
+                row = this.dtCustomerInfrastructurePrinters.NewRow();
+                this.dtCustomerInfrastructurePrinters.Rows.Add(row);
             }
             else
             {
-                row = this.dtCustomerPrinters.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
+                row = this.dtCustomerInfrastructurePrinters.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
                         == this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId);
             }
 
@@ -263,16 +263,16 @@ namespace Samsara.CustomerContext.Controls.Controllers
             row["PrinterTypeId"] = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
             row["SerialNumber"] = this.customerInfrastructurePrinter.SerialNumber;
 
-            this.dtCustomerPrinters.AcceptChanges();
+            this.dtCustomerInfrastructurePrinters.AcceptChanges();
         }
 
         protected override void EnabledDetailControls(bool enabled)
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlManyToOneCustomerPrinters.ucePrinterType.ReadOnly = !enabled;
-            this.controlManyToOneCustomerPrinters.ucePrinterBrand.ReadOnly = !enabled;
-            this.controlManyToOneCustomerPrinters.txtlSerialNumber.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePrinters.ucePrinterType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePrinters.ucePrinterBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePrinters.txtlSerialNumber.ReadOnly = !enabled;
         }
 
         #endregion Protected
@@ -288,7 +288,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             PrinterBrandParameters pmtPrinterBrand = new PrinterBrandParameters();
 
             IList<PrinterBrand> printerBrands = this.srvPrinterBrand.GetListByParameters(pmtPrinterBrand);
-            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlManyToOneCustomerPrinters.ucePrinterBrand,
+            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlCustomerInfrastructurePrinters.ucePrinterBrand,
                 printerBrands, "PrinterBrandId", "Name", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerBrands,
@@ -297,7 +297,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             PrinterTypeParameters pmtPrinterType = new PrinterTypeParameters();
 
             IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
-            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlManyToOneCustomerPrinters.ucePrinterType,
+            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlCustomerInfrastructurePrinters.ucePrinterType,
                 printerTypes, "PrinterTypeId", "Name", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerTypes,
