@@ -1,6 +1,6 @@
 ﻿namespace Samsara.CustomerContext.Controls.Controls
 {
-    partial class CustomerInfrastructureCCTVsControl
+    partial class CustomerInfrastructureBackupSoftwaresControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,12 +37,12 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceCCTVType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCCTVBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxUtilization = new System.Windows.Forms.GroupBox();
-            this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uceBackupSoftwareBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblBackupSoftwareBrand = new Infragistics.Win.Misc.UltraLabel();
+            this.gbxDescription = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uceCustomerInfraestructureServerComputer = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblCustomerInfraestructureServerComputer = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -61,10 +61,10 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).BeginInit();
-            this.gbxUtilization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceBackupSoftwareBrand)).BeginInit();
+            this.gbxDescription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -156,11 +156,11 @@
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.gbxUtilization);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVBrand);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVBrand);
+            this.tabItmPrincipal.Controls.Add(this.uceCustomerInfraestructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.lblCustomerInfraestructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.gbxDescription);
+            this.tabItmPrincipal.Controls.Add(this.uceBackupSoftwareBrand);
+            this.tabItmPrincipal.Controls.Add(this.lblBackupSoftwareBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
             // upnlButtons
@@ -204,62 +204,62 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceCCTVType
+            // uceBackupSoftwareBrand
             // 
-            this.uceCCTVType.Location = new System.Drawing.Point(88, 45);
-            this.uceCCTVType.Name = "uceCCTVType";
-            this.uceCCTVType.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVType.TabIndex = 109;
+            this.uceBackupSoftwareBrand.Location = new System.Drawing.Point(88, 18);
+            this.uceBackupSoftwareBrand.Name = "uceBackupSoftwareBrand";
+            this.uceBackupSoftwareBrand.Size = new System.Drawing.Size(226, 21);
+            this.uceBackupSoftwareBrand.TabIndex = 108;
             // 
-            // lblCCTVType
+            // lblBackupSoftwareBrand
             // 
-            this.lblCCTVType.AutoSize = true;
-            this.lblCCTVType.Location = new System.Drawing.Point(13, 49);
-            this.lblCCTVType.Name = "lblCCTVType";
-            this.lblCCTVType.Size = new System.Drawing.Size(29, 14);
-            this.lblCCTVType.TabIndex = 107;
-            this.lblCCTVType.Text = "Tipo:";
+            this.lblBackupSoftwareBrand.AutoSize = true;
+            this.lblBackupSoftwareBrand.Location = new System.Drawing.Point(13, 22);
+            this.lblBackupSoftwareBrand.Name = "lblBackupSoftwareBrand";
+            this.lblBackupSoftwareBrand.Size = new System.Drawing.Size(39, 14);
+            this.lblBackupSoftwareBrand.TabIndex = 106;
+            this.lblBackupSoftwareBrand.Text = "Marca:";
             // 
-            // uceCCTVBrand
+            // gbxDescription
             // 
-            this.uceCCTVBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceCCTVBrand.Name = "uceCCTVBrand";
-            this.uceCCTVBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVBrand.TabIndex = 108;
+            this.gbxDescription.Controls.Add(this.txtDescription);
+            this.gbxDescription.Location = new System.Drawing.Point(331, 3);
+            this.gbxDescription.Name = "gbxDescription";
+            this.gbxDescription.Size = new System.Drawing.Size(351, 75);
+            this.gbxDescription.TabIndex = 110;
+            this.gbxDescription.TabStop = false;
+            this.gbxDescription.Text = "Descripción:";
             // 
-            // lblCCTVBrand
+            // txtDescription
             // 
-            this.lblCCTVBrand.AutoSize = true;
-            this.lblCCTVBrand.Location = new System.Drawing.Point(13, 22);
-            this.lblCCTVBrand.Name = "lblCCTVBrand";
-            this.lblCCTVBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblCCTVBrand.TabIndex = 106;
-            this.lblCCTVBrand.Text = "Marca:";
+            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescription.Location = new System.Drawing.Point(3, 16);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(345, 56);
+            this.txtDescription.TabIndex = 0;
             // 
-            // gbxUtilization
+            // uceCustomerInfraestructureServerComputer
             // 
-            this.gbxUtilization.Controls.Add(this.txtUtilization);
-            this.gbxUtilization.Location = new System.Drawing.Point(331, 3);
-            this.gbxUtilization.Name = "gbxUtilization";
-            this.gbxUtilization.Size = new System.Drawing.Size(351, 75);
-            this.gbxUtilization.TabIndex = 110;
-            this.gbxUtilization.TabStop = false;
-            this.gbxUtilization.Text = "Uso:";
+            this.uceCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(88, 45);
+            this.uceCustomerInfraestructureServerComputer.Name = "uceCustomerInfraestructureServerComputer";
+            this.uceCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(226, 21);
+            this.uceCustomerInfraestructureServerComputer.TabIndex = 112;
             // 
-            // txtUtilization
+            // lblCustomerInfraestructureServerComputer
             // 
-            this.txtUtilization.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUtilization.Location = new System.Drawing.Point(3, 16);
-            this.txtUtilization.Multiline = true;
-            this.txtUtilization.Name = "txtUtilization";
-            this.txtUtilization.Size = new System.Drawing.Size(345, 56);
-            this.txtUtilization.TabIndex = 0;
+            this.lblCustomerInfraestructureServerComputer.AutoSize = true;
+            this.lblCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(13, 49);
+            this.lblCustomerInfraestructureServerComputer.Name = "lblCustomerInfraestructureServerComputer";
+            this.lblCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(50, 14);
+            this.lblCustomerInfraestructureServerComputer.TabIndex = 111;
+            this.lblCustomerInfraestructureServerComputer.Text = "Servidor:";
             // 
-            // CustomerInfrastructureCCTVsControl
+            // CustomerInfrastructureBackupSoftwaresControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "CustomerInfrastructureCCTVsControl";
+            this.Name = "CustomerInfrastructureBackupSoftwaresControl";
             this.Size = new System.Drawing.Size(710, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
@@ -280,23 +280,23 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).EndInit();
-            this.gbxUtilization.ResumeLayout(false);
-            this.gbxUtilization.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceBackupSoftwareBrand)).EndInit();
+            this.gbxDescription.ResumeLayout(false);
+            this.gbxDescription.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVType;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVBrand;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVBrand;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        private System.Windows.Forms.GroupBox gbxUtilization;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceBackupSoftwareBrand;
+        private Infragistics.Win.Misc.UltraLabel lblBackupSoftwareBrand;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCustomerInfraestructureServerComputer;
+        private Infragistics.Win.Misc.UltraLabel lblCustomerInfraestructureServerComputer;
+        private System.Windows.Forms.GroupBox gbxDescription;
 
 
     }
