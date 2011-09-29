@@ -13,6 +13,7 @@ using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
+using System.ComponentModel;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
@@ -73,14 +74,17 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             this.controlCustomerInfrastructurePrinters = instance;
 
-            this.srvCustomerInfrastructurePrinter = SamsaraAppContext.Resolve<ICustomerInfrastructurePrinterService>();
-            Assert.IsNotNull(this.srvCustomerInfrastructurePrinter);
-            this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
-            Assert.IsNotNull(this.srvCustomerInfrastructure);
-            this.srvPrinterBrand = SamsaraAppContext.Resolve<IPrinterBrandService>();
-            Assert.IsNotNull(this.srvPrinterBrand);
-            this.srvPrinterType = SamsaraAppContext.Resolve<IPrinterTypeService>();
-            Assert.IsNotNull(this.srvPrinterType);
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.srvCustomerInfrastructurePrinter = SamsaraAppContext.Resolve<ICustomerInfrastructurePrinterService>();
+                Assert.IsNotNull(this.srvCustomerInfrastructurePrinter);
+                this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
+                Assert.IsNotNull(this.srvCustomerInfrastructure);
+                this.srvPrinterBrand = SamsaraAppContext.Resolve<IPrinterBrandService>();
+                Assert.IsNotNull(this.srvPrinterBrand);
+                this.srvPrinterType = SamsaraAppContext.Resolve<IPrinterTypeService>();
+                Assert.IsNotNull(this.srvPrinterType);
+            }
 
             this.InitializeControlControls();
         }
@@ -93,20 +97,23 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         private void InitializeControlControls()
         {
-            PrinterBrandParameters pmtPrinterBrand = new PrinterBrandParameters();
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                PrinterBrandParameters pmtPrinterBrand = new PrinterBrandParameters();
 
-            IList<PrinterBrand> printerBrands = this.srvPrinterBrand.GetListByParameters(pmtPrinterBrand);
-            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlCustomerInfrastructurePrinters.ucePrinterBrand,
-                printerBrands, "PrinterBrandId", "Name", "Seleccione");
+                IList<PrinterBrand> printerBrands = this.srvPrinterBrand.GetListByParameters(pmtPrinterBrand);
+                WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlCustomerInfrastructurePrinters.ucePrinterBrand,
+                    printerBrands, "PrinterBrandId", "Name", "Seleccione");
 
-            PrinterTypeParameters pmtPrinterType = new PrinterTypeParameters();
+                PrinterTypeParameters pmtPrinterType = new PrinterTypeParameters();
 
-            IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
-            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlCustomerInfrastructurePrinters.ucePrinterType,
-                printerTypes, "PrinterTypeId", "Name", "Seleccione");
+                IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
+                WindowsFormsUtil.LoadCombo<PrinterType>(this.controlCustomerInfrastructurePrinters.ucePrinterType,
+                    printerTypes, "PrinterTypeId", "Name", "Seleccione");
 
-            this.controlCustomerInfrastructurePrinters.grdRelations.InitializeLayout 
-                += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
+                this.controlCustomerInfrastructurePrinters.grdRelations.InitializeLayout
+                    += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
+            }
         }
 
         #endregion Private

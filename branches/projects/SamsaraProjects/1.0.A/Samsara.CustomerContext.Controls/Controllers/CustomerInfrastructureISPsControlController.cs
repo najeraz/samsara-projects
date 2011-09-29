@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -68,18 +69,22 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Constructor
 
         public CustomerInfrastructureISPsControlController(
-            CustomerInfrastructureISPsControl instance) : base(instance)  
+            CustomerInfrastructureISPsControl instance)
+            : base(instance)
         {
             this.controlCustomerInfrastructureISPs = instance;
 
-            this.srvCustomerInfrastructureISP = SamsaraAppContext.Resolve<ICustomerInfrastructureISPService>();
-            Assert.IsNotNull(this.srvCustomerInfrastructureISP);
-            this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
-            Assert.IsNotNull(this.srvCustomerInfrastructure);
-            this.srvISP = SamsaraAppContext.Resolve<IISPService>();
-            Assert.IsNotNull(this.srvISP);
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.srvCustomerInfrastructureISP = SamsaraAppContext.Resolve<ICustomerInfrastructureISPService>();
+                Assert.IsNotNull(this.srvCustomerInfrastructureISP);
+                this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
+                Assert.IsNotNull(this.srvCustomerInfrastructure);
+                this.srvISP = SamsaraAppContext.Resolve<IISPService>();
+                Assert.IsNotNull(this.srvISP);
 
-            this.InitializeControlControls();
+                this.InitializeControlControls();
+            }
         }
 
         #endregion Constructor
@@ -90,14 +95,17 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         private void InitializeControlControls()
         {
-            ISPParameters pmtISP = new ISPParameters();
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                ISPParameters pmtISP = new ISPParameters();
 
-            IList<ISP> cctvBrands = this.srvISP.GetListByParameters(pmtISP);
-            WindowsFormsUtil.LoadCombo<ISP>(this.controlCustomerInfrastructureISPs.uceISP,
-                cctvBrands, "ISPId", "Name", "Seleccione");
+                IList<ISP> cctvBrands = this.srvISP.GetListByParameters(pmtISP);
+                WindowsFormsUtil.LoadCombo<ISP>(this.controlCustomerInfrastructureISPs.uceISP,
+                    cctvBrands, "ISPId", "Name", "Seleccione");
 
-            this.controlCustomerInfrastructureISPs.grdRelations.InitializeLayout 
-                += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
+                this.controlCustomerInfrastructureISPs.grdRelations.InitializeLayout
+                    += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
+            }
         }
 
         #endregion Private

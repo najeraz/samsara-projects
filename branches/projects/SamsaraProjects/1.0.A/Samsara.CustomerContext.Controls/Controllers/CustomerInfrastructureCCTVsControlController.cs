@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -73,14 +74,17 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             this.controlCustomerInfrastructureCCTVs = instance;
 
-            this.srvCustomerInfrastructureCCTV = SamsaraAppContext.Resolve<ICustomerInfrastructureCCTVService>();
-            Assert.IsNotNull(this.srvCustomerInfrastructureCCTV);
-            this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
-            Assert.IsNotNull(this.srvCustomerInfrastructure);
-            this.srvCCTVBrand = SamsaraAppContext.Resolve<ICCTVBrandService>();
-            Assert.IsNotNull(this.srvCCTVBrand);
-            this.srvCCTVType = SamsaraAppContext.Resolve<ICCTVTypeService>();
-            Assert.IsNotNull(this.srvCCTVType);
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.srvCustomerInfrastructureCCTV = SamsaraAppContext.Resolve<ICustomerInfrastructureCCTVService>();
+                Assert.IsNotNull(this.srvCustomerInfrastructureCCTV);
+                this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
+                Assert.IsNotNull(this.srvCustomerInfrastructure);
+                this.srvCCTVBrand = SamsaraAppContext.Resolve<ICCTVBrandService>();
+                Assert.IsNotNull(this.srvCCTVBrand);
+                this.srvCCTVType = SamsaraAppContext.Resolve<ICCTVTypeService>();
+                Assert.IsNotNull(this.srvCCTVType);
+            }
 
             this.InitializeControlControls();
         }
@@ -93,20 +97,23 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         private void InitializeControlControls()
         {
-            CCTVBrandParameters pmtCCTVBrand = new CCTVBrandParameters();
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                CCTVBrandParameters pmtCCTVBrand = new CCTVBrandParameters();
 
-            IList<CCTVBrand> cctvBrands = this.srvCCTVBrand.GetListByParameters(pmtCCTVBrand);
-            WindowsFormsUtil.LoadCombo<CCTVBrand>(this.controlCustomerInfrastructureCCTVs.uceCCTVBrand,
-                cctvBrands, "CCTVBrandId", "Name", "Seleccione");
+                IList<CCTVBrand> cctvBrands = this.srvCCTVBrand.GetListByParameters(pmtCCTVBrand);
+                WindowsFormsUtil.LoadCombo<CCTVBrand>(this.controlCustomerInfrastructureCCTVs.uceCCTVBrand,
+                    cctvBrands, "CCTVBrandId", "Name", "Seleccione");
 
-            CCTVTypeParameters pmtCCTVType = new CCTVTypeParameters();
+                CCTVTypeParameters pmtCCTVType = new CCTVTypeParameters();
 
-            IList<CCTVType> cctvTypes = this.srvCCTVType.GetListByParameters(pmtCCTVType);
-            WindowsFormsUtil.LoadCombo<CCTVType>(this.controlCustomerInfrastructureCCTVs.uceCCTVType,
-                cctvTypes, "CCTVTypeId", "Name", "Seleccione");
+                IList<CCTVType> cctvTypes = this.srvCCTVType.GetListByParameters(pmtCCTVType);
+                WindowsFormsUtil.LoadCombo<CCTVType>(this.controlCustomerInfrastructureCCTVs.uceCCTVType,
+                    cctvTypes, "CCTVTypeId", "Name", "Seleccione");
 
-            this.controlCustomerInfrastructureCCTVs.grdRelations.InitializeLayout 
-                += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
+                this.controlCustomerInfrastructureCCTVs.grdRelations.InitializeLayout
+                    += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
+            }
         }
 
         #endregion Private
