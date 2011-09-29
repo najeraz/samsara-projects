@@ -70,6 +70,7 @@
     <Reference Include="Infragistics2.Win.UltraWinGrid.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinMaskedEdit.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -104,6 +105,11 @@
       <HintPath>..\bin\Samsara.ProjectsAndTendering.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Support.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Support.Util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Spring.Core, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Spring.Core.dll</HintPath>
@@ -129,6 +135,15 @@
   <ItemGroup>
     <Compile Include="Components\SamsaraComponentResourceManager.cs" />
     <Compile Include="Controllers\ManyToOneLevel1ControlController.cs" />
+    <Compile Include="Controls\SamsaraTextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraTextEditor.Designer.cs">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraMaskedEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Templates\ManyToOneLevel1Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +183,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\SamsaraTextEditor.resx">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Templates\ManyToOneLevel1Control.resx">
       <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
     </EmbeddedResource>

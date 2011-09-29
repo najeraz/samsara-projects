@@ -13,17 +13,6 @@ namespace Samsara.Support.Util
 {
     public class WindowsFormsUtil
     {
-        public enum GridCellFormat
-        {
-            Currency,
-            Rate,
-            Percentage,
-            NoLimitPercentage,
-            NaturalQuantity,
-            RealQuantity,
-            FileSize
-        }
-        
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
@@ -78,49 +67,49 @@ namespace Samsara.Support.Util
             combo.Value = -1;
         }
 
-        public static void SetUltraColumnFormat(UltraGridColumn column, GridCellFormat gridCellFormat)
+        public static void SetUltraColumnFormat(UltraGridColumn column, TextMaskFormatEnum gridCellFormat)
         {
             switch (gridCellFormat)
             {
-                case GridCellFormat.Currency:
+                case TextMaskFormatEnum.Currency:
                     column.MaskInput = currencyMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case GridCellFormat.NaturalQuantity:
+                case TextMaskFormatEnum.NaturalQuantity:
                     column.MaskInput = naturalQuantityMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case GridCellFormat.RealQuantity:
+                case TextMaskFormatEnum.RealQuantity:
                     column.MaskInput = realQuantityMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case GridCellFormat.Rate:
+                case TextMaskFormatEnum.Rate:
                     column.MaskInput = rateMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case GridCellFormat.Percentage:
+                case TextMaskFormatEnum.Percentage:
                     column.MaskInput = percentageMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case GridCellFormat.NoLimitPercentage:
+                case TextMaskFormatEnum.NoLimitPercentage:
                     column.MaskInput = noLimitPercentageMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case GridCellFormat.FileSize:
+                case TextMaskFormatEnum.FileSize:
                     column.MaskInput = fileSizeMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth; 
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;

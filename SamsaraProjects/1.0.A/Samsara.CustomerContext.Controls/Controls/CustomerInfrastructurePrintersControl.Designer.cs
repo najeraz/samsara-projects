@@ -1,6 +1,6 @@
 ﻿namespace Samsara.CustomerContext.Controls.Controls
 {
-    partial class CustomerPrintersControl
+    partial class CustomerInfrastructurePrintersControl
     {
         /// <summary> 
         /// Required designer variable.
