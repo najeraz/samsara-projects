@@ -489,6 +489,7 @@
             this.tabDetSoftware = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSoftware = new System.Windows.Forms.TabControl();
             this.tabPage26 = new System.Windows.Forms.TabPage();
+            this.customerInfrastructureAdministationSoftwaresControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl();
             this.tabPage24 = new System.Windows.Forms.TabPage();
             this.grdDetSecuritySoftware = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel90 = new Infragistics.Win.Misc.UltraPanel();
@@ -516,6 +517,7 @@
             this.ultraButton54 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel98 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage27 = new System.Windows.Forms.TabPage();
+            this.customerInfrastructureBackupSoftwaresControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureBackupSoftwaresControl();
             this.tabDetSuppliers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSuppliers = new System.Windows.Forms.TabControl();
             this.tabPage31 = new System.Windows.Forms.TabPage();
@@ -549,8 +551,6 @@
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
             this.customerInfrastructureCCTVsControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
-            this.customerInfrastructureAdministationSoftwaresControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl();
-            this.customerInfrastructureBackupSoftwaresControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureBackupSoftwaresControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -4418,6 +4418,15 @@
             this.tabPage26.TabIndex = 1;
             this.tabPage26.Text = "Software de Administración";
             // 
+            // customerInfrastructureAdministationSoftwaresControl1
+            // 
+            this.customerInfrastructureAdministationSoftwaresControl1.CustomerInfrastructureId = null;
+            this.customerInfrastructureAdministationSoftwaresControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerInfrastructureAdministationSoftwaresControl1.Location = new System.Drawing.Point(0, 0);
+            this.customerInfrastructureAdministationSoftwaresControl1.Name = "customerInfrastructureAdministationSoftwaresControl1";
+            this.customerInfrastructureAdministationSoftwaresControl1.Size = new System.Drawing.Size(734, 402);
+            this.customerInfrastructureAdministationSoftwaresControl1.TabIndex = 116;
+            // 
             // tabPage24
             // 
             this.tabPage24.BackColor = System.Drawing.Color.Transparent;
@@ -4732,6 +4741,15 @@
             this.tabPage27.Size = new System.Drawing.Size(734, 402);
             this.tabPage27.TabIndex = 2;
             this.tabPage27.Text = "Software de Respaldos";
+            // 
+            // customerInfrastructureBackupSoftwaresControl1
+            // 
+            this.customerInfrastructureBackupSoftwaresControl1.CustomerInfrastructureId = null;
+            this.customerInfrastructureBackupSoftwaresControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerInfrastructureBackupSoftwaresControl1.Location = new System.Drawing.Point(0, 0);
+            this.customerInfrastructureBackupSoftwaresControl1.Name = "customerInfrastructureBackupSoftwaresControl1";
+            this.customerInfrastructureBackupSoftwaresControl1.Size = new System.Drawing.Size(734, 402);
+            this.customerInfrastructureBackupSoftwaresControl1.TabIndex = 0;
             // 
             // tabDetSuppliers
             // 
@@ -5107,24 +5125,6 @@
             this.customerInfrastructureCCTVsControl1.Name = "customerInfrastructureCCTVsControl1";
             this.customerInfrastructureCCTVsControl1.Size = new System.Drawing.Size(728, 396);
             this.customerInfrastructureCCTVsControl1.TabIndex = 0;
-            // 
-            // customerInfrastructureAdministationSoftwaresControl1
-            // 
-            this.customerInfrastructureAdministationSoftwaresControl1.CustomerInfrastructureId = null;
-            this.customerInfrastructureAdministationSoftwaresControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerInfrastructureAdministationSoftwaresControl1.Location = new System.Drawing.Point(0, 0);
-            this.customerInfrastructureAdministationSoftwaresControl1.Name = "customerInfrastructureAdministationSoftwaresControl1";
-            this.customerInfrastructureAdministationSoftwaresControl1.Size = new System.Drawing.Size(734, 402);
-            this.customerInfrastructureAdministationSoftwaresControl1.TabIndex = 116;
-            // 
-            // customerInfrastructureBackupSoftwaresControl1
-            // 
-            this.customerInfrastructureBackupSoftwaresControl1.CustomerInfrastructureId = null;
-            this.customerInfrastructureBackupSoftwaresControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerInfrastructureBackupSoftwaresControl1.Location = new System.Drawing.Point(0, 0);
-            this.customerInfrastructureBackupSoftwaresControl1.Name = "customerInfrastructureBackupSoftwaresControl1";
-            this.customerInfrastructureBackupSoftwaresControl1.Size = new System.Drawing.Size(734, 402);
-            this.customerInfrastructureBackupSoftwaresControl1.TabIndex = 0;
             // 
             // CustomerForm
             // 
