@@ -4606,6 +4606,7 @@
             // 
             // mtoCustomerPrinters
             // 
+            this.mtoCustomerPrinters.CustomerInfrastructureId = null;
             this.mtoCustomerPrinters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerPrinters.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerPrinters.Name = "mtoCustomerPrinters";
