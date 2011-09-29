@@ -37,12 +37,12 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.txtlUtilization = new System.Windows.Forms.TextBox();
-            this.lblUtilization = new Infragistics.Win.Misc.UltraLabel();
             this.uceCCTVType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblPrinterType = new Infragistics.Win.Misc.UltraLabel();
             this.uceCCTVBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblPrinterBrand = new Infragistics.Win.Misc.UltraLabel();
+            this.gbxUtilization = new System.Windows.Forms.GroupBox();
+            this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -63,6 +63,8 @@
             this.upnlSeparatorCloseRelation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).BeginInit();
+            this.gbxUtilization.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -154,8 +156,7 @@
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.txtlUtilization);
-            this.tabItmPrincipal.Controls.Add(this.lblUtilization);
+            this.tabItmPrincipal.Controls.Add(this.gbxUtilization);
             this.tabItmPrincipal.Controls.Add(this.uceCCTVType);
             this.tabItmPrincipal.Controls.Add(this.lblPrinterType);
             this.tabItmPrincipal.Controls.Add(this.uceCCTVBrand);
@@ -203,22 +204,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // txtlUtilization
-            // 
-            this.txtlUtilization.Location = new System.Drawing.Point(447, 19);
-            this.txtlUtilization.Name = "txtlUtilization";
-            this.txtlUtilization.Size = new System.Drawing.Size(226, 20);
-            this.txtlUtilization.TabIndex = 111;
-            // 
-            // lblUtilization
-            // 
-            this.lblUtilization.AutoSize = true;
-            this.lblUtilization.Location = new System.Drawing.Point(351, 22);
-            this.lblUtilization.Name = "lblUtilization";
-            this.lblUtilization.Size = new System.Drawing.Size(59, 14);
-            this.lblUtilization.TabIndex = 110;
-            this.lblUtilization.Text = "Utilización:";
-            // 
             // uceCCTVType
             // 
             this.uceCCTVType.Location = new System.Drawing.Point(88, 45);
@@ -251,6 +236,25 @@
             this.lblPrinterBrand.TabIndex = 106;
             this.lblPrinterBrand.Text = "Marca:";
             // 
+            // gbxUtilization
+            // 
+            this.gbxUtilization.Controls.Add(this.txtUtilization);
+            this.gbxUtilization.Location = new System.Drawing.Point(331, 3);
+            this.gbxUtilization.Name = "gbxUtilization";
+            this.gbxUtilization.Size = new System.Drawing.Size(351, 75);
+            this.gbxUtilization.TabIndex = 110;
+            this.gbxUtilization.TabStop = false;
+            this.gbxUtilization.Text = "Uso:";
+            // 
+            // txtUtilization
+            // 
+            this.txtUtilization.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUtilization.Location = new System.Drawing.Point(3, 16);
+            this.txtUtilization.Multiline = true;
+            this.txtUtilization.Name = "txtUtilization";
+            this.txtUtilization.Size = new System.Drawing.Size(345, 56);
+            this.txtUtilization.TabIndex = 0;
+            // 
             // CustomerInfrastructureCCTVsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,18 +282,21 @@
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).EndInit();
+            this.gbxUtilization.ResumeLayout(false);
+            this.gbxUtilization.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraLabel lblUtilization;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVType;
         private Infragistics.Win.Misc.UltraLabel lblPrinterType;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVBrand;
         private Infragistics.Win.Misc.UltraLabel lblPrinterBrand;
-        internal System.Windows.Forms.TextBox txtlUtilization;
+        internal System.Windows.Forms.GroupBox gbxUtilization;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
 
 
     }

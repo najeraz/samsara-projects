@@ -1,6 +1,6 @@
 ﻿namespace Samsara.CustomerContext.Controls.Controls
 {
-    partial class CustomerInfrastructureISPsControl
+    partial class CustomerInfrastructureAdministationSoftwaresControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,11 +37,20 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureISPsControl));
-            this.lblBandwidth = new Infragistics.Win.Misc.UltraLabel();
-            this.uceISP = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblISP = new Infragistics.Win.Misc.UltraLabel();
-            this.steBandwidth = new Samsara.Controls.Controls.SamsaraTextEditor();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureAdministationSoftwaresControl));
+            this.lblNumberOfUsers = new Infragistics.Win.Misc.UltraLabel();
+            this.txtName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.lblName = new Infragistics.Win.Misc.UltraLabel();
+            this.uceCustomerInfraestructureServerComputer = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblCustomerInfraestructureServerComputer = new Infragistics.Win.Misc.UltraLabel();
+            this.uceDBMS = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblDBMS = new Infragistics.Win.Misc.UltraLabel();
+            this.tabItmDescription = new System.Windows.Forms.TabPage();
+            this.gbxDescription = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxModules = new System.Windows.Forms.GroupBox();
+            this.txtModules = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.steNumberOfUsers = new Samsara.Controls.Controls.SamsaraTextEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -60,7 +69,14 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceISP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDBMS)).BeginInit();
+            this.tabItmDescription.SuspendLayout();
+            this.gbxDescription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
+            this.gbxModules.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModules)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -106,11 +122,11 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdRelations.Size = new System.Drawing.Size(710, 250);
+            this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
             // 
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 250);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 239);
             this.upnDetailButtons.Size = new System.Drawing.Size(710, 25);
             // 
             // upnlSeparatorDeleteRelation
@@ -143,20 +159,27 @@
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 275);
-            this.gbxDetDetail.Size = new System.Drawing.Size(710, 113);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 264);
+            this.gbxDetDetail.Size = new System.Drawing.Size(710, 124);
             // 
             // tabDetail
             // 
-            this.tabDetail.Size = new System.Drawing.Size(704, 94);
+            this.tabDetail.Controls.Add(this.tabItmDescription);
+            this.tabDetail.Size = new System.Drawing.Size(704, 105);
+            this.tabDetail.Controls.SetChildIndex(this.tabItmDescription, 0);
+            this.tabDetail.Controls.SetChildIndex(this.tabItmPrincipal, 0);
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.steBandwidth);
-            this.tabItmPrincipal.Controls.Add(this.lblBandwidth);
-            this.tabItmPrincipal.Controls.Add(this.uceISP);
-            this.tabItmPrincipal.Controls.Add(this.lblISP);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(696, 68);
+            this.tabItmPrincipal.Controls.Add(this.steNumberOfUsers);
+            this.tabItmPrincipal.Controls.Add(this.lblNumberOfUsers);
+            this.tabItmPrincipal.Controls.Add(this.txtName);
+            this.tabItmPrincipal.Controls.Add(this.lblName);
+            this.tabItmPrincipal.Controls.Add(this.uceCustomerInfraestructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.lblCustomerInfraestructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.uceDBMS);
+            this.tabItmPrincipal.Controls.Add(this.lblDBMS);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
             // upnlButtons
             // 
@@ -199,46 +222,127 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // lblBandwidth
+            // lblNumberOfUsers
             // 
-            this.lblBandwidth.AutoSize = true;
-            this.lblBandwidth.Location = new System.Drawing.Point(10, 39);
-            this.lblBandwidth.Name = "lblBandwidth";
-            this.lblBandwidth.Size = new System.Drawing.Size(91, 14);
-            this.lblBandwidth.TabIndex = 110;
-            this.lblBandwidth.Text = "Ancho de Banda:";
+            this.lblNumberOfUsers.AutoSize = true;
+            this.lblNumberOfUsers.Location = new System.Drawing.Point(8, 46);
+            this.lblNumberOfUsers.Name = "lblNumberOfUsers";
+            this.lblNumberOfUsers.Size = new System.Drawing.Size(95, 14);
+            this.lblNumberOfUsers.TabIndex = 105;
+            this.lblNumberOfUsers.Text = "Num de Usuarios:";
             // 
-            // uceISP
+            // txtName
             // 
-            this.uceISP.Location = new System.Drawing.Point(118, 9);
-            this.uceISP.Name = "uceISP";
-            this.uceISP.Size = new System.Drawing.Size(226, 21);
-            this.uceISP.TabIndex = 108;
+            this.txtName.Location = new System.Drawing.Point(110, 15);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(226, 21);
+            this.txtName.TabIndex = 108;
             // 
-            // lblISP
+            // lblName
             // 
-            this.lblISP.AutoSize = true;
-            this.lblISP.Location = new System.Drawing.Point(13, 13);
-            this.lblISP.Name = "lblISP";
-            this.lblISP.Size = new System.Drawing.Size(39, 14);
-            this.lblISP.TabIndex = 106;
-            this.lblISP.Text = "Marca:";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(8, 19);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(48, 14);
+            this.lblName.TabIndex = 106;
+            this.lblName.Text = "Nombre:";
             // 
-            // steBandwidth
+            // uceCustomerInfraestructureServerComputer
             // 
-            this.steBandwidth.Location = new System.Drawing.Point(118, 36);
-            this.steBandwidth.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
-            this.steBandwidth.Name = "steBandwidth";
-            this.steBandwidth.ReadOnly = false;
-            this.steBandwidth.Size = new System.Drawing.Size(226, 20);
-            this.steBandwidth.TabIndex = 111;
-            this.steBandwidth.Value = ((object)(resources.GetObject("steBandwidth.Value")));
+            this.uceCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(463, 42);
+            this.uceCustomerInfraestructureServerComputer.Name = "uceCustomerInfraestructureServerComputer";
+            this.uceCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(226, 21);
+            this.uceCustomerInfraestructureServerComputer.TabIndex = 103;
             // 
-            // CustomerInfrastructureISPsControl
+            // lblCustomerInfraestructureServerComputer
+            // 
+            this.lblCustomerInfraestructureServerComputer.AutoSize = true;
+            this.lblCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(366, 46);
+            this.lblCustomerInfraestructureServerComputer.Name = "lblCustomerInfraestructureServerComputer";
+            this.lblCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(67, 14);
+            this.lblCustomerInfraestructureServerComputer.TabIndex = 101;
+            this.lblCustomerInfraestructureServerComputer.Text = "Montado en:";
+            // 
+            // uceDBMS
+            // 
+            this.uceDBMS.Location = new System.Drawing.Point(463, 15);
+            this.uceDBMS.Name = "uceDBMS";
+            this.uceDBMS.Size = new System.Drawing.Size(226, 21);
+            this.uceDBMS.TabIndex = 104;
+            // 
+            // lblDBMS
+            // 
+            this.lblDBMS.AutoSize = true;
+            this.lblDBMS.Location = new System.Drawing.Point(366, 19);
+            this.lblDBMS.Name = "lblDBMS";
+            this.lblDBMS.Size = new System.Drawing.Size(39, 14);
+            this.lblDBMS.TabIndex = 102;
+            this.lblDBMS.Text = "SGBD:";
+            // 
+            // tabItmDescription
+            // 
+            this.tabItmDescription.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDescription.Controls.Add(this.gbxDescription);
+            this.tabItmDescription.Controls.Add(this.gbxModules);
+            this.tabItmDescription.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDescription.Name = "tabItmDescription";
+            this.tabItmDescription.Size = new System.Drawing.Size(696, 79);
+            this.tabItmDescription.TabIndex = 1;
+            this.tabItmDescription.Text = "Descripción";
+            // 
+            // gbxDescription
+            // 
+            this.gbxDescription.Controls.Add(this.txtDescription);
+            this.gbxDescription.Location = new System.Drawing.Point(351, 2);
+            this.gbxDescription.Name = "gbxDescription";
+            this.gbxDescription.Size = new System.Drawing.Size(343, 75);
+            this.gbxDescription.TabIndex = 97;
+            this.gbxDescription.TabStop = false;
+            this.gbxDescription.Text = "Descripción General:";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescription.Location = new System.Drawing.Point(3, 16);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(337, 56);
+            this.txtDescription.TabIndex = 0;
+            // 
+            // gbxModules
+            // 
+            this.gbxModules.Controls.Add(this.txtModules);
+            this.gbxModules.Location = new System.Drawing.Point(2, 2);
+            this.gbxModules.Name = "gbxModules";
+            this.gbxModules.Size = new System.Drawing.Size(343, 75);
+            this.gbxModules.TabIndex = 96;
+            this.gbxModules.TabStop = false;
+            this.gbxModules.Text = "Modulos:";
+            // 
+            // txtModules
+            // 
+            this.txtModules.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtModules.Location = new System.Drawing.Point(3, 16);
+            this.txtModules.Multiline = true;
+            this.txtModules.Name = "txtModules";
+            this.txtModules.Size = new System.Drawing.Size(337, 56);
+            this.txtModules.TabIndex = 0;
+            // 
+            // steNumberOfUsers
+            // 
+            this.steNumberOfUsers.Location = new System.Drawing.Point(110, 42);
+            this.steNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.steNumberOfUsers.Name = "steNumberOfUsers";
+            this.steNumberOfUsers.ReadOnly = false;
+            this.steNumberOfUsers.Size = new System.Drawing.Size(226, 20);
+            this.steNumberOfUsers.TabIndex = 109;
+            this.steNumberOfUsers.Value = ((object)(resources.GetObject("steNumberOfUsers.Value")));
+            // 
+            // CustomerInfrastructureAdministationSoftwaresControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "CustomerInfrastructureISPsControl";
+            this.Name = "CustomerInfrastructureAdministationSoftwaresControl";
             this.Size = new System.Drawing.Size(710, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
@@ -259,17 +363,36 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceISP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDBMS)).EndInit();
+            this.tabItmDescription.ResumeLayout(false);
+            this.gbxDescription.ResumeLayout(false);
+            this.gbxDescription.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
+            this.gbxModules.ResumeLayout(false);
+            this.gbxModules.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModules)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraLabel lblBandwidth;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceISP;
-        private Infragistics.Win.Misc.UltraLabel lblISP;
-        public Samsara.Controls.Controls.SamsaraTextEditor steBandwidth;
+        private System.Windows.Forms.TabPage tabItmDescription;
+        private Infragistics.Win.Misc.UltraLabel lblNumberOfUsers;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtName;
+        private Infragistics.Win.Misc.UltraLabel lblName;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCustomerInfraestructureServerComputer;
+        private Infragistics.Win.Misc.UltraLabel lblCustomerInfraestructureServerComputer;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDBMS;
+        private Infragistics.Win.Misc.UltraLabel lblDBMS;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModules;
+        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
+        private System.Windows.Forms.GroupBox gbxDescription;
+        private System.Windows.Forms.GroupBox gbxModules;
+
 
 
     }

@@ -70,9 +70,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureAdministationSoftwaresControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.Designer.cs">
+      <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructureISPsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +128,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.resx">
+      <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureISPsControl.resx">
       <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
     </EmbeddedResource>
