@@ -113,7 +113,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
                 WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
                     this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "Name", "Seleccione");
+                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
                 this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -337,10 +337,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
                 this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
-                customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "Name", "Seleccione");
+                customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
-                band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", "Name", "Seleccione");
+                band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
         }
 
         #endregion Events
