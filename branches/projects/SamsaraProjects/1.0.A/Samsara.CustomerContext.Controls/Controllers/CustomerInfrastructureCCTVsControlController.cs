@@ -158,7 +158,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureCCTVs.txtlUtilization.Text = string.Empty;
+            this.controlCustomerInfrastructureCCTVs.txtUtilization.Text = string.Empty;
         }
 
         protected override void CreateRelation()
@@ -202,7 +202,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value
                 = this.customerInfrastructureCCTV.CCTVType.CCTVTypeId;
 
-            this.controlCustomerInfrastructureCCTVs.txtlUtilization.Text
+            this.controlCustomerInfrastructureCCTVs.txtUtilization.Text
                 = this.customerInfrastructureCCTV.Utilization;
         }
 
@@ -216,7 +216,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructureCCTV.CCTVType = this.srvCCTVType
                 .GetById(Convert.ToInt32(this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value));
 
-            this.customerInfrastructureCCTV.Utilization = this.controlCustomerInfrastructureCCTVs.txtlUtilization.Text;
+            this.customerInfrastructureCCTV.Utilization = this.controlCustomerInfrastructureCCTVs.txtUtilization.Text;
         }
 
         protected override bool ValidateControlsData()
@@ -279,7 +279,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.controlCustomerInfrastructureCCTVs.uceCCTVType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureCCTVs.txtlUtilization.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureCCTVs.txtUtilization.ReadOnly = !enabled;
         }
 
         #endregion Protected
