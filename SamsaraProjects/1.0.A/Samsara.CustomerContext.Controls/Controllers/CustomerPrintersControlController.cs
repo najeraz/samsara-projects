@@ -16,12 +16,12 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controllers
 {
-    public class ManyToOneCustomerPrintersControlController : ManyToOneLevel1ControlController
+    public class CustomerPrintersControlController : ManyToOneLevel1ControlController
     {
         #region Attributes
 
         private ICustomerInfrastructurePrinterService srvCustomerInfrastructurePrinter;
-        private ManyToOneCustomerPrintersControl controlManyToOneCustomerPrinters;
+        private CustomerPrintersControl controlManyToOneCustomerPrinters;
         private CustomerInfrastructurePrinter customerInfrastructurePrinter;
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IPrinterBrandService srvPrinterBrand;
@@ -68,8 +68,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         
         #region Constructor
 
-        public ManyToOneCustomerPrintersControlController(
-            ManyToOneCustomerPrintersControl instance) : base(instance)  
+        public CustomerPrintersControlController(
+            CustomerPrintersControl instance) : base(instance)  
         {
             this.controlManyToOneCustomerPrinters = instance;
 
