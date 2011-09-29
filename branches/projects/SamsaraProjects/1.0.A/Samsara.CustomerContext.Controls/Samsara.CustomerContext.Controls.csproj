@@ -70,12 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ManyToOneCustomerPrintersControlController.cs" />
-    <Compile Include="Controls\ManyToOneCustomerPrintersControl.cs">
+    <Compile Include="Controllers\CustomerPrintersControlController.cs" />
+    <Compile Include="Controls\CustomerPrintersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOneCustomerPrintersControl.Designer.cs">
-      <DependentUpon>ManyToOneCustomerPrintersControl.cs</DependentUpon>
+    <Compile Include="Controls\CustomerPrintersControl.Designer.cs">
+      <DependentUpon>CustomerPrintersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,8 +107,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ManyToOneCustomerPrintersControl.resx">
-      <DependentUpon>ManyToOneCustomerPrintersControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CustomerPrintersControl.resx">
+      <DependentUpon>CustomerPrintersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

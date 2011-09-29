@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls
 {
-    public partial class ManyToOneCustomerPrintersControl : ManyToOneLevel1Control
+    public partial class CustomerPrintersControl : ManyToOneLevel1Control
     {
         #region Properties
 
@@ -16,11 +16,11 @@ namespace Samsara.CustomerContext.Controls.Controls
         {
             get
             {
-                return (this.controller as ManyToOneCustomerPrintersControlController).CustomerInfrastructureId;
+                return (this.controller as CustomerPrintersControlController).CustomerInfrastructureId;
             }
             set
             {
-                (this.controller as ManyToOneCustomerPrintersControlController).CustomerInfrastructureId = value;
+                (this.controller as CustomerPrintersControlController).CustomerInfrastructureId = value;
             }
         }
 
@@ -31,7 +31,7 @@ namespace Samsara.CustomerContext.Controls.Controls
         {
             get
             {
-                return (this.controller as ManyToOneCustomerPrintersControlController).CustomerInfrastructurePrinters;
+                return (this.controller as CustomerPrintersControlController).CustomerInfrastructurePrinters;
             }
         }
 
@@ -39,10 +39,10 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         #region Constructor
 
-        public ManyToOneCustomerPrintersControl()
+        public CustomerPrintersControl()
         {
             InitializeComponent();
-            this.controller = new ManyToOneCustomerPrintersControlController(this);
+            this.controller = new CustomerPrintersControlController(this);
         }
 
         #endregion Constructor
@@ -53,7 +53,7 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         public void LoadGrid()
         {
-            (this.controller as ManyToOneCustomerPrintersControlController).LoadGrid();
+            (this.controller as CustomerPrintersControlController).LoadGrid();
         }
 
         #endregion Public

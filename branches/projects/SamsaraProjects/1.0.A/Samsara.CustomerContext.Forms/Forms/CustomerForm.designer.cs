@@ -533,7 +533,7 @@
             this.tabDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructurePeripherals = new System.Windows.Forms.TabControl();
             this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.mtoCustomerPrinters = new Samsara.CustomerContext.Controls.Controls.ManyToOneCustomerPrintersControl();
+            this.mtoCustomerPrinters = new Samsara.CustomerContext.Controls.Controls.CustomerPrintersControl();
             this.tabDetSoftware = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSoftware = new System.Windows.Forms.TabControl();
             this.tabPage26 = new System.Windows.Forms.TabPage();
@@ -7379,6 +7379,6 @@
         internal Samsara.Controls.SamsaraUltraGrid grdDetRouters;
         internal Samsara.Controls.SamsaraUltraGrid grdDetFirewalls;
         private System.Windows.Forms.TabPage tabPage22;
-        internal Controls.Controls.ManyToOneCustomerPrintersControl mtoCustomerPrinters;
+        internal Controls.Controls.CustomerPrintersControl mtoCustomerPrinters;
     }
 }
