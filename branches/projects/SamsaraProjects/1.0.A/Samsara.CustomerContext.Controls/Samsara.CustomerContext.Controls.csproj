@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureBackupSoftwaresControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureAdministationSoftwaresControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
@@ -80,17 +81,23 @@
     <Compile Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.Designer.cs">
       <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomerInfrastructureCCTVsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureCCTVsControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructureISPsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\CustomerInfrastructureISPsControl.Designer.cs">
       <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CustomerInfrastructureCCTVsControl.cs">
+    <Compile Include="Controls\CustomerInfrastructureBackupSoftwaresControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\CustomerInfrastructureCCTVsControl.Designer.cs">
-      <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
+    <Compile Include="Controls\CustomerInfrastructureBackupSoftwaresControl.Designer.cs">
+      <DependentUpon>CustomerInfrastructureBackupSoftwaresControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomerInfrastructurePrintersControl.cs">
       <SubType>UserControl</SubType>
@@ -131,11 +138,14 @@
     <EmbeddedResource Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.resx">
       <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureCCTVsControl.resx">
+      <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureISPsControl.resx">
       <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CustomerInfrastructureCCTVsControl.resx">
-      <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureBackupSoftwaresControl.resx">
+      <DependentUpon>CustomerInfrastructureBackupSoftwaresControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructurePrintersControl.resx">
       <DependentUpon>CustomerInfrastructurePrintersControl.cs</DependentUpon>
