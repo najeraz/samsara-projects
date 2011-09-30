@@ -294,9 +294,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             BackupSoftwareBrandParameters pmtBackupSoftwareBrand = new BackupSoftwareBrandParameters();
 
             IList<BackupSoftwareBrand> cctvBrands = this.srvBackupSoftwareBrand.GetListByParameters(pmtBackupSoftwareBrand);
-            WindowsFormsUtil.LoadCombo<BackupSoftwareBrand>(this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand,
-                cctvBrands, "BackupSoftwareBrandId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["BackupSoftwareBrandId"], "BackupSoftwareBrandId", "Name", "Seleccione");
 

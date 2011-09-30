@@ -269,9 +269,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             ISPParameters pmtISP = new ISPParameters();
 
             IList<ISP> cctvBrands = this.srvISP.GetListByParameters(pmtISP);
-            WindowsFormsUtil.LoadCombo<ISP>(this.controlCustomerInfrastructureISPs.uceISP,
-                cctvBrands, "ISPId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["ISPId"], "ISPId", "Name", "Seleccione");
         }

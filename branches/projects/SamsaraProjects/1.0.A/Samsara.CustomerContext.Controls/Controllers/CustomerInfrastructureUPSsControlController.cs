@@ -295,18 +295,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
             UPSBrandParameters pmtUPSBrand = new UPSBrandParameters();
 
             IList<UPSBrand> cctvBrands = this.srvUPSBrand.GetListByParameters(pmtUPSBrand);
-            WindowsFormsUtil.LoadCombo<UPSBrand>(this.controlCustomerInfrastructureUPSs.uceUPSBrand,
-                cctvBrands, "UPSBrandId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["UPSBrandId"], "UPSBrandId", "Name", "Seleccione");
 
             UPSTypeParameters pmtUPSType = new UPSTypeParameters();
 
             IList<UPSType> cctvTypes = this.srvUPSType.GetListByParameters(pmtUPSType);
-            WindowsFormsUtil.LoadCombo<UPSType>(this.controlCustomerInfrastructureUPSs.uceUPSType,
-                cctvTypes, "UPSTypeId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["UPSTypeId"], "UPSTypeId", "Name", "Seleccione");
         }
