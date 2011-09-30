@@ -23,11 +23,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         private ICustomerInfrastructureTelephonyService srvCustomerInfrastructureTelephony;
         private CustomerInfrastructureTelephoniesControl controlCustomerInfrastructureTelephonies;
-        private CustomerInfrastructureTelephonie customerInfrastructureTelephonie;
+        private CustomerInfrastructureTelephony customerInfrastructureTelephony;
         private ICustomerInfrastructureService srvCustomerInfrastructure;
-        private ITelephonieBrandService srvTelephonieBrand;
-        private ITelephonieTypeService srvTelephonieType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureTelephonie> customerInfrastructureTelephonies;
+        private ITelephonyProviderService srvTelephonyProvider;
+        private ITelephonyLineTypeService srvTelephonyLineType;
+        private System.Collections.Generic.ISet<CustomerInfrastructureTelephony> customerInfrastructureTelephonys;
 
         private DataTable dtCustomerInfrastructureTelephonies;
 
@@ -44,21 +44,21 @@ namespace Samsara.CustomerContext.Controls.Controllers
             set;
         }
 
-        public System.Collections.Generic.ISet<CustomerInfrastructureTelephonie> CustomerInfrastructureTelephonies
+        public System.Collections.Generic.ISet<CustomerInfrastructureTelephony> CustomerInfrastructureTelephonies
         {
             get
             {
-                System.Collections.Generic.ISet<CustomerInfrastructureTelephonie> tmp
-                    = new HashSet<CustomerInfrastructureTelephonie>();
+                System.Collections.Generic.ISet<CustomerInfrastructureTelephony> tmp
+                    = new HashSet<CustomerInfrastructureTelephony>();
 
-                foreach(CustomerInfrastructureTelephonie customerInfrastructureTelephonie in
-                    this.customerInfrastructureTelephonies)
+                foreach(CustomerInfrastructureTelephony customerInfrastructureTelephony in
+                    this.customerInfrastructureTelephonys)
                 {
-                    customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId 
-                        = customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId <= 0 ?
-                        -1 : customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId;
+                    customerInfrastructureTelephony.CustomerInfrastructureTelephonyId 
+                        = customerInfrastructureTelephony.CustomerInfrastructureTelephonyId <= 0 ?
+                        -1 : customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
 
-                    tmp.Add(customerInfrastructureTelephonie);
+                    tmp.Add(customerInfrastructureTelephony);
                 }
 
                 return tmp;
@@ -80,10 +80,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 Assert.IsNotNull(this.srvCustomerInfrastructureTelephony);
                 this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
                 Assert.IsNotNull(this.srvCustomerInfrastructure);
-                this.srvTelephonieBrand = SamsaraAppContext.Resolve<ITelephonieBrandService>();
-                Assert.IsNotNull(this.srvTelephonieBrand);
-                this.srvTelephonieType = SamsaraAppContext.Resolve<ITelephonieTypeService>();
-                Assert.IsNotNull(this.srvTelephonieType);
+                this.srvTelephonyProvider = SamsaraAppContext.Resolve<ITelephonyProviderService>();
+                Assert.IsNotNull(this.srvTelephonyProvider);
+                this.srvTelephonyLineType = SamsaraAppContext.Resolve<ITelephonyLineTypeService>();
+                Assert.IsNotNull(this.srvTelephonyLineType);
             }
 
             this.InitializeControlControls();
@@ -99,17 +99,17 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                TelephonieBrandParameters pmtTelephonieBrand = new TelephonieBrandParameters();
+                TelephonyProviderParameters pmtTelephonyProvider = new TelephonyProviderParameters();
 
-                IList<TelephonieBrand> cctvBrands = this.srvTelephonieBrand.GetListByParameters(pmtTelephonieBrand);
-                WindowsFormsUtil.LoadCombo<TelephonieBrand>(this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand,
-                    cctvBrands, "TelephonieBrandId", "Name", "Seleccione");
+                IList<TelephonyProvider> cctvBrands = this.srvTelephonyProvider.GetListByParameters(pmtTelephonyProvider);
+                WindowsFormsUtil.LoadCombo<TelephonyProvider>(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider,
+                    cctvBrands, "TelephonyProviderId", "Name", "Seleccione");
 
-                TelephonieTypeParameters pmtTelephonieType = new TelephonieTypeParameters();
+                TelephonyLineTypeParameters pmtTelephonyLineType = new TelephonyLineTypeParameters();
 
-                IList<TelephonieType> cctvTypes = this.srvTelephonieType.GetListByParameters(pmtTelephonieType);
-                WindowsFormsUtil.LoadCombo<TelephonieType>(this.controlCustomerInfrastructureTelephonies.uceTelephonieType,
-                    cctvTypes, "TelephonieTypeId", "Name", "Seleccione");
+                IList<TelephonyLineType> cctvTypes = this.srvTelephonyLineType.GetListByParameters(pmtTelephonyLineType);
+                WindowsFormsUtil.LoadCombo<TelephonyLineType>(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType,
+                    cctvTypes, "TelephonyLineTypeId", "Name", "Seleccione");
 
                 this.controlCustomerInfrastructureTelephonies.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -124,26 +124,26 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             if (this.CustomerInfrastructureId != null)
             {
-                CustomerInfrastructureTelephonieParameters pmtCustomerInfrastructureTelephonie
-                    = new CustomerInfrastructureTelephonieParameters();
+                CustomerInfrastructureTelephonyParameters pmtCustomerInfrastructureTelephony
+                    = new CustomerInfrastructureTelephonyParameters();
 
-                pmtCustomerInfrastructureTelephonie.CustomerInfrastructureId = this.CustomerInfrastructureId;
+                pmtCustomerInfrastructureTelephony.CustomerInfrastructureId = this.CustomerInfrastructureId;
 
                 this.dtCustomerInfrastructureTelephonies = this.srvCustomerInfrastructureTelephony
-                    .SearchByParameters(pmtCustomerInfrastructureTelephonie);
+                    .SearchByParameters(pmtCustomerInfrastructureTelephony);
 
                 this.controlCustomerInfrastructureTelephonies.grdRelations.DataSource = null;
                 this.controlCustomerInfrastructureTelephonies.grdRelations.DataSource = this.dtCustomerInfrastructureTelephonies;
 
-                IList<CustomerInfrastructureTelephonie> lstCustomerInfrastructureTelephonies 
-                    = this.srvCustomerInfrastructureTelephony.GetListByParameters(pmtCustomerInfrastructureTelephonie);
+                IList<CustomerInfrastructureTelephony> lstCustomerInfrastructureTelephonies
+                    = this.srvCustomerInfrastructureTelephony.GetListByParameters(pmtCustomerInfrastructureTelephony);
 
-                this.customerInfrastructureTelephonies = new HashSet<CustomerInfrastructureTelephonie>();
+                this.customerInfrastructureTelephonys = new HashSet<CustomerInfrastructureTelephony>();
 
-                foreach (CustomerInfrastructureTelephonie customerInfrastructureTelephonie in
+                foreach (CustomerInfrastructureTelephony customerInfrastructureTelephony in
                     lstCustomerInfrastructureTelephonies)
                 {
-                    this.customerInfrastructureTelephonies.Add(customerInfrastructureTelephonie);
+                    this.customerInfrastructureTelephonys.Add(customerInfrastructureTelephony);
                 }
             }
         }
@@ -156,20 +156,20 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureTelephonies.uceTelephonieType.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureTelephonies.txtUtilization.Text = string.Empty;
+            this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value = null;
         }
 
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
-            this.customerInfrastructureTelephonie = new CustomerInfrastructureTelephonie();
+            this.customerInfrastructureTelephony = new CustomerInfrastructureTelephony();
 
-            this.customerInfrastructureTelephonie.Activated = true;
-            this.customerInfrastructureTelephonie.Deleted = false;
-            this.customerInfrastructureTelephonie.CustomerInfrastructure 
+            this.customerInfrastructureTelephony.Activated = true;
+            this.customerInfrastructureTelephony.Deleted = false;
+            this.customerInfrastructureTelephony.CustomerInfrastructure 
                 = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
@@ -177,15 +177,15 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureTelephonie = this.customerInfrastructureTelephonies
-                .Single(x => x.CustomerInfrastructureTelephonieId == entityId);
+            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonys
+                .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureTelephonies.Remove(this.customerInfrastructureTelephonie);
+                this.customerInfrastructureTelephonys.Remove(this.customerInfrastructureTelephony);
             else
             {
-                this.customerInfrastructureTelephonie.Activated = false;
-                this.customerInfrastructureTelephonie.Deleted = true;
+                this.customerInfrastructureTelephony.Activated = false;
+                this.customerInfrastructureTelephony.Deleted = true;
             }
         }
 
@@ -193,30 +193,31 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureTelephonie = this.customerInfrastructureTelephonies
-                .Single(x => x.CustomerInfrastructureTelephonieId == entityId);
+            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonys
+                .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.Value
-                = this.customerInfrastructureTelephonie.TelephonieBrand.TelephonieBrandId;
+            this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value
+                = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonieType.Value
-                = this.customerInfrastructureTelephonie.TelephonieType.TelephonieTypeId;
+            this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value
+                = this.customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
 
-            this.controlCustomerInfrastructureTelephonies.txtUtilization.Text
-                = this.customerInfrastructureTelephonie.Utilization;
+            this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value
+                = this.customerInfrastructureTelephony.NumberOfLines;
         }
 
         protected override void LoadEntity()
         {
             base.LoadEntity();
 
-            this.customerInfrastructureTelephonie.TelephonieBrand = this.srvTelephonieBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.Value));
+            this.customerInfrastructureTelephony.TelephonyProvider = this.srvTelephonyProvider
+                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value));
 
-            this.customerInfrastructureTelephonie.TelephonieType = this.srvTelephonieType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonieType.Value));
+            this.customerInfrastructureTelephony.TelephonyLineType = this.srvTelephonyLineType
+                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value));
 
-            this.customerInfrastructureTelephonie.Utilization = this.controlCustomerInfrastructureTelephonies.txtUtilization.Text;
+            this.customerInfrastructureTelephony.NumberOfLines 
+                = Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value);
         }
 
         protected override bool ValidateControlsData()
@@ -224,21 +225,21 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value == null ||
+                    Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar la Marca del Telephonie.",
+                MessageBox.Show("Favor de seleccionar el Proveedor de Internet.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.Focus();
+                this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureTelephonies.uceTelephonieType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonieType.Value) <= 0)
+            if (this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value == null ||
+                Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar el Tipo del Telephonie.",
+                MessageBox.Show("Favor de seleccionar el Tipo de Linea Telefónica.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureTelephonies.uceTelephonieType.Focus();
+                this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Focus();
                 return false;
             }
 
@@ -251,24 +252,24 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             base.AddEntity();
 
-            if (this.customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId == -1)
+            if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId == -1)
             {
-                this.customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId = this.entityCounter--;
-                this.customerInfrastructureTelephonies.Add(this.customerInfrastructureTelephonie);
+                this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId = this.entityCounter--;
+                this.customerInfrastructureTelephonys.Add(this.customerInfrastructureTelephony);
 
                 row = this.dtCustomerInfrastructureTelephonies.NewRow();
                 this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
             }
             else
             {
-                row = this.dtCustomerInfrastructureTelephonies.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonieId"])
-                        == this.customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId);
+                row = this.dtCustomerInfrastructureTelephonies.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
+                        == this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId);
             }
 
-            row["CustomerInfrastructureTelephonieId"] = this.customerInfrastructureTelephonie.CustomerInfrastructureTelephonieId;
-            row["TelephonieBrandId"] = this.customerInfrastructureTelephonie.TelephonieBrand.TelephonieBrandId;
-            row["TelephonieTypeId"] = this.customerInfrastructureTelephonie.TelephonieType.TelephonieTypeId;
-            row["Utilization"] = this.customerInfrastructureTelephonie.Utilization;
+            row["CustomerInfrastructureTelephonyId"] = this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
+            row["TelephonyProviderId"] = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
+            row["TelephonyLineTypeId"] = this.customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
+            row["NumberOfLines"] = this.customerInfrastructureTelephony.NumberOfLines;
 
             this.dtCustomerInfrastructureTelephonies.AcceptChanges();
         }
@@ -277,9 +278,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonieType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureTelephonies.txtUtilization.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureTelephonies.steNumberOfLines.ReadOnly = !enabled;
         }
 
         #endregion Protected
@@ -292,23 +293,23 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             UltraGridBand band = e.Layout.Bands[0];
 
-            TelephonieBrandParameters pmtTelephonieBrand = new TelephonieBrandParameters();
+            TelephonyProviderParameters pmtTelephonyProvider = new TelephonyProviderParameters();
 
-            IList<TelephonieBrand> cctvBrands = this.srvTelephonieBrand.GetListByParameters(pmtTelephonieBrand);
-            WindowsFormsUtil.LoadCombo<TelephonieBrand>(this.controlCustomerInfrastructureTelephonies.uceTelephonieBrand,
-                cctvBrands, "TelephonieBrandId", "Name", "Seleccione");
+            IList<TelephonyProvider> cctvBrands = this.srvTelephonyProvider.GetListByParameters(pmtTelephonyProvider);
+            WindowsFormsUtil.LoadCombo<TelephonyProvider>(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider,
+                cctvBrands, "TelephonyProviderId", "Name", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
-                band.Columns["TelephonieBrandId"], "TelephonieBrandId", "Name", "Seleccione");
+                band.Columns["TelephonyProviderId"], "TelephonyProviderId", "Name", "Seleccione");
 
-            TelephonieTypeParameters pmtTelephonieType = new TelephonieTypeParameters();
+            TelephonyLineTypeParameters pmtTelephonyLineType = new TelephonyLineTypeParameters();
 
-            IList<TelephonieType> cctvTypes = this.srvTelephonieType.GetListByParameters(pmtTelephonieType);
-            WindowsFormsUtil.LoadCombo<TelephonieType>(this.controlCustomerInfrastructureTelephonies.uceTelephonieType,
-                cctvTypes, "TelephonieTypeId", "Name", "Seleccione");
+            IList<TelephonyLineType> cctvTypes = this.srvTelephonyLineType.GetListByParameters(pmtTelephonyLineType);
+            WindowsFormsUtil.LoadCombo<TelephonyLineType>(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType,
+                cctvTypes, "TelephonyLineTypeId", "Name", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
-                band.Columns["TelephonieTypeId"], "TelephonieTypeId", "Name", "Seleccione");
+                band.Columns["TelephonyLineTypeId"], "TelephonyLineTypeId", "Name", "Seleccione");
         }
 
         #endregion Events
