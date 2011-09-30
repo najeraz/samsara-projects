@@ -27,7 +27,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private ITelephonyProviderService srvTelephonyProvider;
         private ITelephonyLineTypeService srvTelephonyLineType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureTelephony> customerInfrastructureTelephonys;
+        private System.Collections.Generic.ISet<CustomerInfrastructureTelephony> customerInfrastructureTelephonies;
 
         private DataTable dtCustomerInfrastructureTelephonies;
 
@@ -52,7 +52,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     = new HashSet<CustomerInfrastructureTelephony>();
 
                 foreach(CustomerInfrastructureTelephony customerInfrastructureTelephony in
-                    this.customerInfrastructureTelephonys)
+                    this.customerInfrastructureTelephonies)
                 {
                     customerInfrastructureTelephony.CustomerInfrastructureTelephonyId 
                         = customerInfrastructureTelephony.CustomerInfrastructureTelephonyId <= 0 ?
@@ -138,12 +138,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 IList<CustomerInfrastructureTelephony> lstCustomerInfrastructureTelephonies
                     = this.srvCustomerInfrastructureTelephony.GetListByParameters(pmtCustomerInfrastructureTelephony);
 
-                this.customerInfrastructureTelephonys = new HashSet<CustomerInfrastructureTelephony>();
+                this.customerInfrastructureTelephonies = new HashSet<CustomerInfrastructureTelephony>();
 
                 foreach (CustomerInfrastructureTelephony customerInfrastructureTelephony in
                     lstCustomerInfrastructureTelephonies)
                 {
-                    this.customerInfrastructureTelephonys.Add(customerInfrastructureTelephony);
+                    this.customerInfrastructureTelephonies.Add(customerInfrastructureTelephony);
                 }
             }
         }
@@ -177,11 +177,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonys
+            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonies
                 .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureTelephonys.Remove(this.customerInfrastructureTelephony);
+                this.customerInfrastructureTelephonies.Remove(this.customerInfrastructureTelephony);
             else
             {
                 this.customerInfrastructureTelephony.Activated = false;
@@ -193,7 +193,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonys
+            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonies
                 .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value
@@ -255,7 +255,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId == -1)
             {
                 this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId = this.entityCounter--;
-                this.customerInfrastructureTelephonys.Add(this.customerInfrastructureTelephony);
+                this.customerInfrastructureTelephonies.Add(this.customerInfrastructureTelephony);
 
                 row = this.dtCustomerInfrastructureTelephonies.NewRow();
                 this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
