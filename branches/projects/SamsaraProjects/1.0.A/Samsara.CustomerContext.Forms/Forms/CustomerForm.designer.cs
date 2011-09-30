@@ -325,6 +325,7 @@
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
+            this.mtoCustomerInfrastructureServerComputers = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputersControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -338,6 +339,7 @@
             this.tabDetComputers.SuspendLayout();
             this.tabDetInfraestructureComputers.SuspendLayout();
             this.tabDetPersonalComputers.SuspendLayout();
+            this.tabDetServerComputers.SuspendLayout();
             this.tabDetNetwork.SuspendLayout();
             this.tabDetInfraestructureNetwork.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -760,6 +762,7 @@
             // tabDetServerComputers
             // 
             this.tabDetServerComputers.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetServerComputers.Controls.Add(this.mtoCustomerInfrastructureServerComputers);
             this.tabDetServerComputers.Location = new System.Drawing.Point(4, 22);
             this.tabDetServerComputers.Name = "tabDetServerComputers";
             this.tabDetServerComputers.Padding = new System.Windows.Forms.Padding(3);
@@ -2972,6 +2975,15 @@
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
+            // mtoCustomerInfrastructureServerComputers
+            // 
+            this.mtoCustomerInfrastructureServerComputers.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureServerComputers.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureServerComputers.Name = "mtoCustomerInfrastructureServerComputers";
+            this.mtoCustomerInfrastructureServerComputers.Size = new System.Drawing.Size(722, 390);
+            this.mtoCustomerInfrastructureServerComputers.TabIndex = 0;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2994,6 +3006,7 @@
             this.tabDetComputers.ResumeLayout(false);
             this.tabDetInfraestructureComputers.ResumeLayout(false);
             this.tabDetPersonalComputers.ResumeLayout(false);
+            this.tabDetServerComputers.ResumeLayout(false);
             this.tabDetNetwork.ResumeLayout(false);
             this.tabDetInfraestructureNetwork.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
@@ -3366,5 +3379,6 @@
         internal Controls.Controls.CustomerInfrastructureUPSsControl mtoCustomerInfrastructureUPSs;
         internal Controls.Controls.CustomerInfrastructureTelephoniesControl mtoCustomerInfrastructureTelephonies;
         internal Controls.Controls.CustomerInfrastructurePersonalComputersControl mtoCustomerInfrastructurePersonalComputers;
+        internal Controls.Controls.CustomerInfrastructureServerComputersControl mtoCustomerInfrastructureServerComputers;
     }
 }
