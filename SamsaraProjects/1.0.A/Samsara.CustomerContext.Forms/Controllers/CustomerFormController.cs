@@ -47,25 +47,25 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructurePrinters.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructurePrinters.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureISPs.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureISPs.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureISPs.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureCCTVs.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureCCTVs.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureCCTVs.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureUPSs.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureUPSs.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureUPSs.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureTelephonies.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureTelephonies.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureTelephonies.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.LoadControls();
             this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureServerComputers.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureServerComputers.LoadControls();
 
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
