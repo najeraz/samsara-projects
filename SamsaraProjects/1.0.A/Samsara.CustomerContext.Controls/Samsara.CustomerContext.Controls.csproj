@@ -51,6 +51,7 @@
     <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.CustomerContext.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Samsara.ProjectsAndTendering.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
@@ -70,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureServerComputersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePersonalComputersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureTelephoniesControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureUPSsControlController.cs" />
@@ -79,6 +81,12 @@
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\CustomerInfrastructureServerComputersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureServerComputersControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureServerComputersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructurePersonalComputersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -163,6 +171,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureServerComputersControl.resx">
+      <DependentUpon>CustomerInfrastructureServerComputersControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructurePersonalComputersControl.resx">
       <DependentUpon>CustomerInfrastructurePersonalComputersControl.cs</DependentUpon>
     </EmbeddedResource>
