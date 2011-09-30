@@ -105,16 +105,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 WindowsFormsUtil.LoadCombo<DBMS>(this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS,
                     dbmss, "DBMSId", "Name", "Seleccione");
 
-                CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer 
-                    = new CustomerInfrastructureServerComputerParameters();
-
-                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
-                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
-                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
-                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                    this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
-
                 this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
@@ -128,6 +118,16 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             if (this.CustomerInfrastructureId != null)
             {
+                CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
+                    = new CustomerInfrastructureServerComputerParameters();
+
+                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
+                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
+                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
+                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
+                    this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
+                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+
                 CustomerInfrastructureAdministationSoftwareParameters pmtCustomerInfrastructureAdministationSoftware
                     = new CustomerInfrastructureAdministationSoftwareParameters();
 
