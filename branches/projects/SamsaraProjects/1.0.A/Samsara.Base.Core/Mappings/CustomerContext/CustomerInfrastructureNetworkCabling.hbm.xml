@@ -25,19 +25,22 @@
 
   <query name="CustomerInfrastructureNetworkCabling.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkCabling where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkCabling
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkCabling.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkCabling where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkCabling
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkCabling.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkCabling where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkCabling
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
