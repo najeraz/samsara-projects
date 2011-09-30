@@ -111,6 +111,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 WindowsFormsUtil.LoadCombo<OperativeSystem>(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem,
                     cctvTypes, "OperativeSystemId", "Name", "Seleccione");
 
+                this.controlCustomerInfrastructureServerComputers
+                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = -1;
+
                 this.controlCustomerInfrastructureServerComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
