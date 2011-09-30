@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureServerComputerDBMSsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureServerComputersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePersonalComputersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureTelephoniesControlController.cs" />
@@ -81,6 +82,12 @@
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\CustomerInfrastructureServerComputerDBMSsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureServerComputerDBMSsControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureServerComputerDBMSsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructureServerComputersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +178,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureServerComputerDBMSsControl.resx">
+      <DependentUpon>CustomerInfrastructureServerComputerDBMSsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureServerComputersControl.resx">
       <DependentUpon>CustomerInfrastructureServerComputersControl.cs</DependentUpon>
     </EmbeddedResource>

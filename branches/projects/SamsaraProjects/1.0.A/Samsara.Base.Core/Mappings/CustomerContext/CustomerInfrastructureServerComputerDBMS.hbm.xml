@@ -8,7 +8,8 @@
     <id name="CustomerInfrastructureServerComputerDBMSId" type="int">
       <generator class="native"/>
     </id>
-    
+
+    <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
@@ -24,19 +25,24 @@
 
   <query name="CustomerInfrastructureServerComputerDBMS.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureServerComputerDBMS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureServerComputerDBMS
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureServerComputerDBMS.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureServerComputerDBMS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureServerComputerDBMS
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureServerComputerId = :CustomerInfrastructureServerComputerId
     ]]>
   </query>
 
   <query name="CustomerInfrastructureServerComputerDBMS.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureServerComputerDBMS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureServerComputerDBMS
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureServerComputerId = :CustomerInfrastructureServerComputerId
     ]]>
   </query>
 
