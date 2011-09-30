@@ -434,6 +434,7 @@
             this.tabDetEnergy = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureEnergy = new System.Windows.Forms.TabControl();
             this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureUPSs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureUPSsControl();
             this.tabDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructurePeripherals = new System.Windows.Forms.TabControl();
             this.tabPage22 = new System.Windows.Forms.TabPage();
@@ -695,6 +696,7 @@
             this.ultraPanel71.SuspendLayout();
             this.tabDetEnergy.SuspendLayout();
             this.tabDetInfraestructureEnergy.SuspendLayout();
+            this.tabPage20.SuspendLayout();
             this.tabDetPeripherals.SuspendLayout();
             this.tabDetInfraestructurePeripherals.SuspendLayout();
             this.tabPage22.SuspendLayout();
@@ -3942,12 +3944,22 @@
             // tabPage20
             // 
             this.tabPage20.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage20.Controls.Add(this.mtoCustomerInfrastructureUPSs);
             this.tabPage20.Location = new System.Drawing.Point(4, 22);
             this.tabPage20.Name = "tabPage20";
             this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage20.Size = new System.Drawing.Size(734, 402);
             this.tabPage20.TabIndex = 0;
             this.tabPage20.Text = "UPSs";
+            // 
+            // mtoCustomerInfrastructureUPSs
+            // 
+            this.mtoCustomerInfrastructureUPSs.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureUPSs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureUPSs.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureUPSs.Name = "mtoCustomerInfrastructureUPSs";
+            this.mtoCustomerInfrastructureUPSs.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureUPSs.TabIndex = 0;
             // 
             // tabDetPeripherals
             // 
@@ -4689,6 +4701,7 @@
             this.ultraPanel71.ResumeLayout(false);
             this.tabDetEnergy.ResumeLayout(false);
             this.tabDetInfraestructureEnergy.ResumeLayout(false);
+            this.tabPage20.ResumeLayout(false);
             this.tabDetPeripherals.ResumeLayout(false);
             this.tabDetInfraestructurePeripherals.ResumeLayout(false);
             this.tabPage22.ResumeLayout(false);
@@ -5040,5 +5053,6 @@
         internal Controls.Controls.CustomerInfrastructureISPsControl mtoCustomerInfrastructureISPs;
         internal Controls.Controls.CustomerInfrastructureCCTVsControl mtoCustomerInfrastructureCCTVs;
         internal Controls.Controls.CustomerInfrastructureSecuritySoftwaresControl mtoCustomerInfrastructureSecuritySoftwares;
+        internal Controls.Controls.CustomerInfrastructureUPSsControl mtoCustomerInfrastructureUPSs;
     }
 }
