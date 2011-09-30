@@ -234,7 +234,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value == null ||
                     Convert.ToInt32(this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar la Marca del BackupSoftware.",
+                MessageBox.Show("Favor de seleccionar la Marca del Software.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Focus();
                 return false;
