@@ -105,16 +105,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 WindowsFormsUtil.LoadCombo<BackupSoftwareBrand>(this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand,
                     cctvBrands, "BackupSoftwareBrandId", "Name", "Seleccione");
 
-                CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
-                    = new CustomerInfrastructureServerComputerParameters();
-
-                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
-                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
-                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
-                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                    this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
-
                 this.controlCustomerInfrastructureBackupSoftwares.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
@@ -128,6 +118,16 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             if (this.CustomerInfrastructureId != null)
             {
+                CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
+                    = new CustomerInfrastructureServerComputerParameters();
+
+                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
+                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
+                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
+                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
+                    this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
+                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+
                 CustomerInfrastructureBackupSoftwareParameters pmtCustomerInfrastructureBackupSoftware
                     = new CustomerInfrastructureBackupSoftwareParameters();
 
