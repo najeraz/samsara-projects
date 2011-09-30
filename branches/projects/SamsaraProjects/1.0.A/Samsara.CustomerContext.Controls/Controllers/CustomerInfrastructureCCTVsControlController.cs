@@ -295,9 +295,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             CCTVBrandParameters pmtCCTVBrand = new CCTVBrandParameters();
 
             IList<CCTVBrand> cctvBrands = this.srvCCTVBrand.GetListByParameters(pmtCCTVBrand);
-            WindowsFormsUtil.LoadCombo<CCTVBrand>(this.controlCustomerInfrastructureCCTVs.uceCCTVBrand,
-                cctvBrands, "CCTVBrandId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["CCTVBrandId"], "CCTVBrandId", "Name", "Seleccione");
 

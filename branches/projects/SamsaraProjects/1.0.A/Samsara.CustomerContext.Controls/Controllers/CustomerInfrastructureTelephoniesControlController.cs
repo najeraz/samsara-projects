@@ -296,18 +296,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
             TelephonyProviderParameters pmtTelephonyProvider = new TelephonyProviderParameters();
 
             IList<TelephonyProvider> cctvBrands = this.srvTelephonyProvider.GetListByParameters(pmtTelephonyProvider);
-            WindowsFormsUtil.LoadCombo<TelephonyProvider>(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider,
-                cctvBrands, "TelephonyProviderId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["TelephonyProviderId"], "TelephonyProviderId", "Name", "Seleccione");
 
             TelephonyLineTypeParameters pmtTelephonyLineType = new TelephonyLineTypeParameters();
 
             IList<TelephonyLineType> cctvTypes = this.srvTelephonyLineType.GetListByParameters(pmtTelephonyLineType);
-            WindowsFormsUtil.LoadCombo<TelephonyLineType>(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType,
-                cctvTypes, "TelephonyLineTypeId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["TelephonyLineTypeId"], "TelephonyLineTypeId", "Name", "Seleccione");
         }

@@ -106,6 +106,7 @@ namespace Samsara.Controls.Controls
                     break;
                 case TextMaskFormatEnum.FileSize:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
+                    this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = fileSizeMask;
                     break;
                 default:
