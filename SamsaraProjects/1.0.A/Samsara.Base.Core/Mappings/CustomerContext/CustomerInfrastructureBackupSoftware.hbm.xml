@@ -29,19 +29,24 @@
 
   <query name="CustomerInfrastructureBackupSoftware.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureBackupSoftware where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureBackupSoftware
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureBackupSoftware.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureBackupSoftware where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureBackupSoftware
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
     ]]>
   </query>
 
   <query name="CustomerInfrastructureBackupSoftware.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureBackupSoftware where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureBackupSoftware
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
         and Name like :Name
     ]]>
   </query>

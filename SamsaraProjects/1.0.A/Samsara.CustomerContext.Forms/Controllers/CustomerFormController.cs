@@ -46,8 +46,14 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmCustomer.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
-            this.frmCustomer.mtoCustomerPrinters.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerPrinters.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructurePrinters.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureISPs.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureISPs.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.LoadGrid();
 
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();

@@ -124,7 +124,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         #region Public
 
-        public void LoadGrid()
+        public void LoadControls()
         {
             if (this.CustomerInfrastructureId != null)
             {

@@ -29,19 +29,24 @@
 
   <query name="CustomerInfrastructureUPS.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureUPS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureUPS
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureUPS.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureUPS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureUPS
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
     ]]>
   </query>
 
   <query name="CustomerInfrastructureUPS.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureUPS where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureUPS
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
     ]]>
   </query>
 
