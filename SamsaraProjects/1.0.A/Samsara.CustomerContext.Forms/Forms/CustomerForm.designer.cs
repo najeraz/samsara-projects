@@ -37,18 +37,6 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance58 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance59 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance60 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance61 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance62 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance63 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance64 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance65 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance66 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance67 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance68 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance69 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
@@ -172,40 +160,6 @@
             this.tabDetComputers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureComputers = new System.Windows.Forms.TabControl();
             this.tabDetPersonalComputers = new System.Windows.Forms.TabPage();
-            this.grdDetPersonalComputers = new Samsara.Controls.SamsaraUltraGrid();
-            this.upnlDetComputersDetailButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.upnlSeparatorDeletePersonalComputer = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeletePersonalComputer = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorEditPersonalComputer = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetEditPersonalComputer = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorCreatePersonalComputer = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetCreatePersonalComputer = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorPersonalComputersDetailButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.gbxDetPersonalComputerDetail = new Infragistics.Win.Misc.UltraGroupBox();
-            this.tabDetPersonalComputerDetail = new System.Windows.Forms.TabControl();
-            this.tabDetPersonalComputerPrincipal = new System.Windows.Forms.TabPage();
-            this.txtDetManufacturerReferenceNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtDetPersonalComputerSerialNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.uceDetPersonalComputerType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblDetPersonalComputerSerie = new Infragistics.Win.Misc.UltraLabel();
-            this.lblDetManufacturerReferenceNumber = new Infragistics.Win.Misc.UltraLabel();
-            this.lblDetPersonalComputerType = new Infragistics.Win.Misc.UltraLabel();
-            this.tabDetPersonalComputerSpecs = new System.Windows.Forms.TabPage();
-            this.gbxDetPersonalComputerStorage = new System.Windows.Forms.GroupBox();
-            this.txtDetPersonalComputerStorage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtDetPersonalComputerRAM = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtDetPersonalComputerCPU = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblDetPersonalComputerCPU = new Infragistics.Win.Misc.UltraLabel();
-            this.lblDetPersonalComputerRAM = new Infragistics.Win.Misc.UltraLabel();
-            this.tabDetPersonalComputerSoftware = new System.Windows.Forms.TabPage();
-            this.uceDetPersonalComputerOS = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblDetPersonalComputerOS = new Infragistics.Win.Misc.UltraLabel();
-            this.upnlDetComputersButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.upnlSeparatorSavePreresult = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetSavePersonalComputer = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorCancelPreresult = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetCancelPersonalComputer = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorPersonalComputersButtons = new Infragistics.Win.Misc.UltraPanel();
             this.tabDetServerComputers = new System.Windows.Forms.TabPage();
             this.grdDetServerComputers = new Samsara.Controls.SamsaraUltraGrid();
             this.upnlDetServerComputersDetailButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -440,11 +394,11 @@
             this.tabPage31 = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureISPs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureISPsControl();
             this.tabPage33 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureTelephonies = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureTelephoniesControl();
             this.tabDetVideo = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
-            this.mtoCustomerInfrastructureTelephonies = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureTelephoniesControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -457,33 +411,6 @@
             this.tabDetInfrastructure.SuspendLayout();
             this.tabDetComputers.SuspendLayout();
             this.tabDetInfraestructureComputers.SuspendLayout();
-            this.tabDetPersonalComputers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetPersonalComputers)).BeginInit();
-            this.upnlDetComputersDetailButtons.ClientArea.SuspendLayout();
-            this.upnlDetComputersDetailButtons.SuspendLayout();
-            this.upnlSeparatorDeletePersonalComputer.SuspendLayout();
-            this.upnlSeparatorEditPersonalComputer.SuspendLayout();
-            this.upnlSeparatorCreatePersonalComputer.SuspendLayout();
-            this.upnlSeparatorPersonalComputersDetailButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gbxDetPersonalComputerDetail)).BeginInit();
-            this.gbxDetPersonalComputerDetail.SuspendLayout();
-            this.tabDetPersonalComputerDetail.SuspendLayout();
-            this.tabDetPersonalComputerPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetManufacturerReferenceNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerSerialNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerType)).BeginInit();
-            this.tabDetPersonalComputerSpecs.SuspendLayout();
-            this.gbxDetPersonalComputerStorage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerStorage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerRAM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerCPU)).BeginInit();
-            this.tabDetPersonalComputerSoftware.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerOS)).BeginInit();
-            this.upnlDetComputersButtons.ClientArea.SuspendLayout();
-            this.upnlDetComputersButtons.SuspendLayout();
-            this.upnlSeparatorSavePreresult.SuspendLayout();
-            this.upnlSeparatorCancelPreresult.SuspendLayout();
-            this.upnlSeparatorPersonalComputersButtons.SuspendLayout();
             this.tabDetServerComputers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetServerComputers)).BeginInit();
             this.upnlDetServerComputersDetailButtons.ClientArea.SuspendLayout();
@@ -682,7 +609,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -927,392 +853,12 @@
             // tabDetPersonalComputers
             // 
             this.tabDetPersonalComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPersonalComputers.Controls.Add(this.grdDetPersonalComputers);
-            this.tabDetPersonalComputers.Controls.Add(this.upnlDetComputersDetailButtons);
-            this.tabDetPersonalComputers.Controls.Add(this.gbxDetPersonalComputerDetail);
             this.tabDetPersonalComputers.Location = new System.Drawing.Point(4, 22);
             this.tabDetPersonalComputers.Name = "tabDetPersonalComputers";
             this.tabDetPersonalComputers.Padding = new System.Windows.Forms.Padding(3);
             this.tabDetPersonalComputers.Size = new System.Drawing.Size(728, 396);
             this.tabDetPersonalComputers.TabIndex = 0;
             this.tabDetPersonalComputers.Text = "Personales";
-            // 
-            // grdDetPersonalComputers
-            // 
-            appearance58.BackColor = System.Drawing.SystemColors.Window;
-            appearance58.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdDetPersonalComputers.DisplayLayout.Appearance = appearance58;
-            this.grdDetPersonalComputers.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdDetPersonalComputers.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance59.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance59.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance59.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance59.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.Appearance = appearance59;
-            appearance60.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance60;
-            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance61.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance61.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance61.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance61.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetPersonalComputers.DisplayLayout.GroupByBox.PromptAppearance = appearance61;
-            this.grdDetPersonalComputers.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdDetPersonalComputers.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance62.BackColor = System.Drawing.SystemColors.Window;
-            appearance62.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetPersonalComputers.DisplayLayout.Override.ActiveCellAppearance = appearance62;
-            appearance63.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance63.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdDetPersonalComputers.DisplayLayout.Override.ActiveRowAppearance = appearance63;
-            this.grdDetPersonalComputers.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdDetPersonalComputers.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance64.BackColor = System.Drawing.SystemColors.Window;
-            this.grdDetPersonalComputers.DisplayLayout.Override.CardAreaAppearance = appearance64;
-            appearance65.BorderColor = System.Drawing.Color.Silver;
-            appearance65.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdDetPersonalComputers.DisplayLayout.Override.CellAppearance = appearance65;
-            this.grdDetPersonalComputers.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdDetPersonalComputers.DisplayLayout.Override.CellPadding = 0;
-            appearance66.BackColor = System.Drawing.SystemColors.Control;
-            appearance66.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance66.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance66.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance66.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetPersonalComputers.DisplayLayout.Override.GroupByRowAppearance = appearance66;
-            appearance67.TextHAlignAsString = "Left";
-            this.grdDetPersonalComputers.DisplayLayout.Override.HeaderAppearance = appearance67;
-            this.grdDetPersonalComputers.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdDetPersonalComputers.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance68.BackColor = System.Drawing.SystemColors.Window;
-            appearance68.BorderColor = System.Drawing.Color.Silver;
-            this.grdDetPersonalComputers.DisplayLayout.Override.RowAppearance = appearance68;
-            this.grdDetPersonalComputers.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance69.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdDetPersonalComputers.DisplayLayout.Override.TemplateAddRowAppearance = appearance69;
-            this.grdDetPersonalComputers.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdDetPersonalComputers.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdDetPersonalComputers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetPersonalComputers.Location = new System.Drawing.Point(3, 3);
-            this.grdDetPersonalComputers.Name = "grdDetPersonalComputers";
-            this.grdDetPersonalComputers.Size = new System.Drawing.Size(722, 206);
-            this.grdDetPersonalComputers.TabIndex = 95;
-            this.grdDetPersonalComputers.Text = "samsaraUltraGrid1";
-            // 
-            // upnlDetComputersDetailButtons
-            // 
-            // 
-            // upnlDetComputersDetailButtons.ClientArea
-            // 
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorDeletePersonalComputer);
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetDeletePersonalComputer);
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorEditPersonalComputer);
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetEditPersonalComputer);
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorCreatePersonalComputer);
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.ubtnDetCreatePersonalComputer);
-            this.upnlDetComputersDetailButtons.ClientArea.Controls.Add(this.upnlSeparatorPersonalComputersDetailButtons);
-            this.upnlDetComputersDetailButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlDetComputersDetailButtons.Location = new System.Drawing.Point(3, 209);
-            this.upnlDetComputersDetailButtons.Name = "upnlDetComputersDetailButtons";
-            this.upnlDetComputersDetailButtons.Size = new System.Drawing.Size(722, 25);
-            this.upnlDetComputersDetailButtons.TabIndex = 85;
-            // 
-            // upnlSeparatorDeletePersonalComputer
-            // 
-            this.upnlSeparatorDeletePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorDeletePersonalComputer.Location = new System.Drawing.Point(427, 0);
-            this.upnlSeparatorDeletePersonalComputer.Name = "upnlSeparatorDeletePersonalComputer";
-            this.upnlSeparatorDeletePersonalComputer.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorDeletePersonalComputer.TabIndex = 5;
-            // 
-            // ubtnDetDeletePersonalComputer
-            // 
-            this.ubtnDetDeletePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeletePersonalComputer.Location = new System.Drawing.Point(443, 0);
-            this.ubtnDetDeletePersonalComputer.Name = "ubtnDetDeletePersonalComputer";
-            this.ubtnDetDeletePersonalComputer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeletePersonalComputer.TabIndex = 0;
-            this.ubtnDetDeletePersonalComputer.Text = "Borrar";
-            // 
-            // upnlSeparatorEditPersonalComputer
-            // 
-            this.upnlSeparatorEditPersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorEditPersonalComputer.Location = new System.Drawing.Point(520, 0);
-            this.upnlSeparatorEditPersonalComputer.Name = "upnlSeparatorEditPersonalComputer";
-            this.upnlSeparatorEditPersonalComputer.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorEditPersonalComputer.TabIndex = 15;
-            // 
-            // ubtnDetEditPersonalComputer
-            // 
-            this.ubtnDetEditPersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetEditPersonalComputer.Location = new System.Drawing.Point(536, 0);
-            this.ubtnDetEditPersonalComputer.Name = "ubtnDetEditPersonalComputer";
-            this.ubtnDetEditPersonalComputer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetEditPersonalComputer.TabIndex = 14;
-            this.ubtnDetEditPersonalComputer.Text = "Modificar";
-            // 
-            // upnlSeparatorCreatePersonalComputer
-            // 
-            this.upnlSeparatorCreatePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorCreatePersonalComputer.Location = new System.Drawing.Point(613, 0);
-            this.upnlSeparatorCreatePersonalComputer.Name = "upnlSeparatorCreatePersonalComputer";
-            this.upnlSeparatorCreatePersonalComputer.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorCreatePersonalComputer.TabIndex = 13;
-            // 
-            // ubtnDetCreatePersonalComputer
-            // 
-            this.ubtnDetCreatePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreatePersonalComputer.Location = new System.Drawing.Point(629, 0);
-            this.ubtnDetCreatePersonalComputer.Name = "ubtnDetCreatePersonalComputer";
-            this.ubtnDetCreatePersonalComputer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetCreatePersonalComputer.TabIndex = 12;
-            this.ubtnDetCreatePersonalComputer.Text = "Nuevo";
-            // 
-            // upnlSeparatorPersonalComputersDetailButtons
-            // 
-            this.upnlSeparatorPersonalComputersDetailButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorPersonalComputersDetailButtons.Location = new System.Drawing.Point(706, 0);
-            this.upnlSeparatorPersonalComputersDetailButtons.Name = "upnlSeparatorPersonalComputersDetailButtons";
-            this.upnlSeparatorPersonalComputersDetailButtons.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorPersonalComputersDetailButtons.TabIndex = 6;
-            // 
-            // gbxDetPersonalComputerDetail
-            // 
-            this.gbxDetPersonalComputerDetail.Controls.Add(this.tabDetPersonalComputerDetail);
-            this.gbxDetPersonalComputerDetail.Controls.Add(this.upnlDetComputersButtons);
-            this.gbxDetPersonalComputerDetail.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxDetPersonalComputerDetail.Location = new System.Drawing.Point(3, 234);
-            this.gbxDetPersonalComputerDetail.Name = "gbxDetPersonalComputerDetail";
-            this.gbxDetPersonalComputerDetail.Size = new System.Drawing.Size(722, 159);
-            this.gbxDetPersonalComputerDetail.TabIndex = 0;
-            this.gbxDetPersonalComputerDetail.Text = "Detalle del registro";
-            // 
-            // tabDetPersonalComputerDetail
-            // 
-            this.tabDetPersonalComputerDetail.Controls.Add(this.tabDetPersonalComputerPrincipal);
-            this.tabDetPersonalComputerDetail.Controls.Add(this.tabDetPersonalComputerSpecs);
-            this.tabDetPersonalComputerDetail.Controls.Add(this.tabDetPersonalComputerSoftware);
-            this.tabDetPersonalComputerDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabDetPersonalComputerDetail.Location = new System.Drawing.Point(3, 16);
-            this.tabDetPersonalComputerDetail.Name = "tabDetPersonalComputerDetail";
-            this.tabDetPersonalComputerDetail.SelectedIndex = 0;
-            this.tabDetPersonalComputerDetail.Size = new System.Drawing.Size(716, 115);
-            this.tabDetPersonalComputerDetail.TabIndex = 88;
-            // 
-            // tabDetPersonalComputerPrincipal
-            // 
-            this.tabDetPersonalComputerPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPersonalComputerPrincipal.Controls.Add(this.txtDetManufacturerReferenceNumber);
-            this.tabDetPersonalComputerPrincipal.Controls.Add(this.txtDetPersonalComputerSerialNumber);
-            this.tabDetPersonalComputerPrincipal.Controls.Add(this.uceDetPersonalComputerType);
-            this.tabDetPersonalComputerPrincipal.Controls.Add(this.lblDetPersonalComputerSerie);
-            this.tabDetPersonalComputerPrincipal.Controls.Add(this.lblDetManufacturerReferenceNumber);
-            this.tabDetPersonalComputerPrincipal.Controls.Add(this.lblDetPersonalComputerType);
-            this.tabDetPersonalComputerPrincipal.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPersonalComputerPrincipal.Name = "tabDetPersonalComputerPrincipal";
-            this.tabDetPersonalComputerPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetPersonalComputerPrincipal.Size = new System.Drawing.Size(708, 89);
-            this.tabDetPersonalComputerPrincipal.TabIndex = 0;
-            this.tabDetPersonalComputerPrincipal.Text = "Principal";
-            // 
-            // txtDetManufacturerReferenceNumber
-            // 
-            this.txtDetManufacturerReferenceNumber.Location = new System.Drawing.Point(116, 33);
-            this.txtDetManufacturerReferenceNumber.Name = "txtDetManufacturerReferenceNumber";
-            this.txtDetManufacturerReferenceNumber.Size = new System.Drawing.Size(226, 21);
-            this.txtDetManufacturerReferenceNumber.TabIndex = 90;
-            // 
-            // txtDetPersonalComputerSerialNumber
-            // 
-            this.txtDetPersonalComputerSerialNumber.Location = new System.Drawing.Point(116, 6);
-            this.txtDetPersonalComputerSerialNumber.Name = "txtDetPersonalComputerSerialNumber";
-            this.txtDetPersonalComputerSerialNumber.Size = new System.Drawing.Size(226, 21);
-            this.txtDetPersonalComputerSerialNumber.TabIndex = 90;
-            // 
-            // uceDetPersonalComputerType
-            // 
-            this.uceDetPersonalComputerType.Location = new System.Drawing.Point(116, 60);
-            this.uceDetPersonalComputerType.Name = "uceDetPersonalComputerType";
-            this.uceDetPersonalComputerType.Size = new System.Drawing.Size(226, 21);
-            this.uceDetPersonalComputerType.TabIndex = 88;
-            // 
-            // lblDetPersonalComputerSerie
-            // 
-            this.lblDetPersonalComputerSerie.AutoSize = true;
-            this.lblDetPersonalComputerSerie.Location = new System.Drawing.Point(6, 10);
-            this.lblDetPersonalComputerSerie.Name = "lblDetPersonalComputerSerie";
-            this.lblDetPersonalComputerSerie.Size = new System.Drawing.Size(34, 14);
-            this.lblDetPersonalComputerSerie.TabIndex = 87;
-            this.lblDetPersonalComputerSerie.Text = "Serie:";
-            // 
-            // lblDetManufacturerReferenceNumber
-            // 
-            this.lblDetManufacturerReferenceNumber.AutoSize = true;
-            this.lblDetManufacturerReferenceNumber.Location = new System.Drawing.Point(6, 37);
-            this.lblDetManufacturerReferenceNumber.Name = "lblDetManufacturerReferenceNumber";
-            this.lblDetManufacturerReferenceNumber.Size = new System.Drawing.Size(104, 14);
-            this.lblDetManufacturerReferenceNumber.TabIndex = 87;
-            this.lblDetManufacturerReferenceNumber.Text = "Numero Fabricante:";
-            // 
-            // lblDetPersonalComputerType
-            // 
-            this.lblDetPersonalComputerType.AutoSize = true;
-            this.lblDetPersonalComputerType.Location = new System.Drawing.Point(6, 64);
-            this.lblDetPersonalComputerType.Name = "lblDetPersonalComputerType";
-            this.lblDetPersonalComputerType.Size = new System.Drawing.Size(29, 14);
-            this.lblDetPersonalComputerType.TabIndex = 87;
-            this.lblDetPersonalComputerType.Text = "Tipo:";
-            // 
-            // tabDetPersonalComputerSpecs
-            // 
-            this.tabDetPersonalComputerSpecs.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPersonalComputerSpecs.Controls.Add(this.gbxDetPersonalComputerStorage);
-            this.tabDetPersonalComputerSpecs.Controls.Add(this.txtDetPersonalComputerRAM);
-            this.tabDetPersonalComputerSpecs.Controls.Add(this.txtDetPersonalComputerCPU);
-            this.tabDetPersonalComputerSpecs.Controls.Add(this.lblDetPersonalComputerCPU);
-            this.tabDetPersonalComputerSpecs.Controls.Add(this.lblDetPersonalComputerRAM);
-            this.tabDetPersonalComputerSpecs.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPersonalComputerSpecs.Name = "tabDetPersonalComputerSpecs";
-            this.tabDetPersonalComputerSpecs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetPersonalComputerSpecs.Size = new System.Drawing.Size(708, 89);
-            this.tabDetPersonalComputerSpecs.TabIndex = 1;
-            this.tabDetPersonalComputerSpecs.Text = "Especificaciones";
-            // 
-            // gbxDetPersonalComputerStorage
-            // 
-            this.gbxDetPersonalComputerStorage.Controls.Add(this.txtDetPersonalComputerStorage);
-            this.gbxDetPersonalComputerStorage.Location = new System.Drawing.Point(289, 10);
-            this.gbxDetPersonalComputerStorage.Name = "gbxDetPersonalComputerStorage";
-            this.gbxDetPersonalComputerStorage.Size = new System.Drawing.Size(407, 75);
-            this.gbxDetPersonalComputerStorage.TabIndex = 94;
-            this.gbxDetPersonalComputerStorage.TabStop = false;
-            this.gbxDetPersonalComputerStorage.Text = "Sistema Almacenamiento:";
-            // 
-            // txtDetPersonalComputerStorage
-            // 
-            this.txtDetPersonalComputerStorage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetPersonalComputerStorage.Location = new System.Drawing.Point(3, 16);
-            this.txtDetPersonalComputerStorage.Multiline = true;
-            this.txtDetPersonalComputerStorage.Name = "txtDetPersonalComputerStorage";
-            this.txtDetPersonalComputerStorage.Size = new System.Drawing.Size(401, 56);
-            this.txtDetPersonalComputerStorage.TabIndex = 0;
-            // 
-            // txtDetPersonalComputerRAM
-            // 
-            this.txtDetPersonalComputerRAM.Location = new System.Drawing.Point(57, 33);
-            this.txtDetPersonalComputerRAM.Name = "txtDetPersonalComputerRAM";
-            this.txtDetPersonalComputerRAM.Size = new System.Drawing.Size(226, 21);
-            this.txtDetPersonalComputerRAM.TabIndex = 92;
-            // 
-            // txtDetPersonalComputerCPU
-            // 
-            this.txtDetPersonalComputerCPU.Location = new System.Drawing.Point(57, 6);
-            this.txtDetPersonalComputerCPU.Name = "txtDetPersonalComputerCPU";
-            this.txtDetPersonalComputerCPU.Size = new System.Drawing.Size(226, 21);
-            this.txtDetPersonalComputerCPU.TabIndex = 91;
-            // 
-            // lblDetPersonalComputerCPU
-            // 
-            this.lblDetPersonalComputerCPU.AutoSize = true;
-            this.lblDetPersonalComputerCPU.Location = new System.Drawing.Point(6, 10);
-            this.lblDetPersonalComputerCPU.Name = "lblDetPersonalComputerCPU";
-            this.lblDetPersonalComputerCPU.Size = new System.Drawing.Size(31, 14);
-            this.lblDetPersonalComputerCPU.TabIndex = 88;
-            this.lblDetPersonalComputerCPU.Text = "CPU:";
-            // 
-            // lblDetPersonalComputerRAM
-            // 
-            this.lblDetPersonalComputerRAM.AutoSize = true;
-            this.lblDetPersonalComputerRAM.Location = new System.Drawing.Point(6, 37);
-            this.lblDetPersonalComputerRAM.Name = "lblDetPersonalComputerRAM";
-            this.lblDetPersonalComputerRAM.Size = new System.Drawing.Size(32, 14);
-            this.lblDetPersonalComputerRAM.TabIndex = 88;
-            this.lblDetPersonalComputerRAM.Text = "RAM:";
-            // 
-            // tabDetPersonalComputerSoftware
-            // 
-            this.tabDetPersonalComputerSoftware.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPersonalComputerSoftware.Controls.Add(this.uceDetPersonalComputerOS);
-            this.tabDetPersonalComputerSoftware.Controls.Add(this.lblDetPersonalComputerOS);
-            this.tabDetPersonalComputerSoftware.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPersonalComputerSoftware.Name = "tabDetPersonalComputerSoftware";
-            this.tabDetPersonalComputerSoftware.Size = new System.Drawing.Size(708, 89);
-            this.tabDetPersonalComputerSoftware.TabIndex = 2;
-            this.tabDetPersonalComputerSoftware.Text = "Software";
-            // 
-            // uceDetPersonalComputerOS
-            // 
-            this.uceDetPersonalComputerOS.Location = new System.Drawing.Point(107, 10);
-            this.uceDetPersonalComputerOS.Name = "uceDetPersonalComputerOS";
-            this.uceDetPersonalComputerOS.Size = new System.Drawing.Size(226, 21);
-            this.uceDetPersonalComputerOS.TabIndex = 92;
-            // 
-            // lblDetPersonalComputerOS
-            // 
-            this.lblDetPersonalComputerOS.AutoSize = true;
-            this.lblDetPersonalComputerOS.Location = new System.Drawing.Point(3, 14);
-            this.lblDetPersonalComputerOS.Name = "lblDetPersonalComputerOS";
-            this.lblDetPersonalComputerOS.Size = new System.Drawing.Size(100, 14);
-            this.lblDetPersonalComputerOS.TabIndex = 88;
-            this.lblDetPersonalComputerOS.Text = "Sistema Operativo:";
-            // 
-            // upnlDetComputersButtons
-            // 
-            // 
-            // upnlDetComputersButtons.ClientArea
-            // 
-            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.upnlSeparatorSavePreresult);
-            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.ubtnDetSavePersonalComputer);
-            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelPreresult);
-            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.ubtnDetCancelPersonalComputer);
-            this.upnlDetComputersButtons.ClientArea.Controls.Add(this.upnlSeparatorPersonalComputersButtons);
-            this.upnlDetComputersButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlDetComputersButtons.Location = new System.Drawing.Point(3, 131);
-            this.upnlDetComputersButtons.Name = "upnlDetComputersButtons";
-            this.upnlDetComputersButtons.Size = new System.Drawing.Size(716, 25);
-            this.upnlDetComputersButtons.TabIndex = 86;
-            // 
-            // upnlSeparatorSavePreresult
-            // 
-            this.upnlSeparatorSavePreresult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorSavePreresult.Location = new System.Drawing.Point(514, 0);
-            this.upnlSeparatorSavePreresult.Name = "upnlSeparatorSavePreresult";
-            this.upnlSeparatorSavePreresult.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorSavePreresult.TabIndex = 11;
-            // 
-            // ubtnDetSavePersonalComputer
-            // 
-            this.ubtnDetSavePersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetSavePersonalComputer.Location = new System.Drawing.Point(530, 0);
-            this.ubtnDetSavePersonalComputer.Name = "ubtnDetSavePersonalComputer";
-            this.ubtnDetSavePersonalComputer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetSavePersonalComputer.TabIndex = 10;
-            this.ubtnDetSavePersonalComputer.Text = "Guardar";
-            // 
-            // upnlSeparatorCancelPreresult
-            // 
-            this.upnlSeparatorCancelPreresult.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorCancelPreresult.Location = new System.Drawing.Point(607, 0);
-            this.upnlSeparatorCancelPreresult.Name = "upnlSeparatorCancelPreresult";
-            this.upnlSeparatorCancelPreresult.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorCancelPreresult.TabIndex = 13;
-            // 
-            // ubtnDetCancelPersonalComputer
-            // 
-            this.ubtnDetCancelPersonalComputer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCancelPersonalComputer.Location = new System.Drawing.Point(623, 0);
-            this.ubtnDetCancelPersonalComputer.Name = "ubtnDetCancelPersonalComputer";
-            this.ubtnDetCancelPersonalComputer.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetCancelPersonalComputer.TabIndex = 12;
-            this.ubtnDetCancelPersonalComputer.Text = "Cancelar";
-            // 
-            // upnlSeparatorPersonalComputersButtons
-            // 
-            this.upnlSeparatorPersonalComputersButtons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorPersonalComputersButtons.Location = new System.Drawing.Point(700, 0);
-            this.upnlSeparatorPersonalComputersButtons.Name = "upnlSeparatorPersonalComputersButtons";
-            this.upnlSeparatorPersonalComputersButtons.Size = new System.Drawing.Size(16, 25);
-            this.upnlSeparatorPersonalComputersButtons.TabIndex = 14;
             // 
             // tabDetServerComputers
             // 
@@ -4078,6 +3624,15 @@
             this.tabPage33.TabIndex = 1;
             this.tabPage33.Text = "Proveedor de Telefonía";
             // 
+            // mtoCustomerInfrastructureTelephonies
+            // 
+            this.mtoCustomerInfrastructureTelephonies.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureTelephonies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureTelephonies.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureTelephonies.Name = "mtoCustomerInfrastructureTelephonies";
+            this.mtoCustomerInfrastructureTelephonies.Size = new System.Drawing.Size(734, 402);
+            this.mtoCustomerInfrastructureTelephonies.TabIndex = 0;
+            // 
             // tabDetVideo
             // 
             this.tabDetVideo.BackColor = System.Drawing.Color.Transparent;
@@ -4118,15 +3673,6 @@
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
-            // mtoCustomerInfrastructureTelephonies
-            // 
-            this.mtoCustomerInfrastructureTelephonies.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureTelephonies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureTelephonies.Location = new System.Drawing.Point(0, 0);
-            this.mtoCustomerInfrastructureTelephonies.Name = "mtoCustomerInfrastructureTelephonies";
-            this.mtoCustomerInfrastructureTelephonies.Size = new System.Drawing.Size(734, 402);
-            this.mtoCustomerInfrastructureTelephonies.TabIndex = 0;
-            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4148,37 +3694,6 @@
             this.tabDetInfrastructure.ResumeLayout(false);
             this.tabDetComputers.ResumeLayout(false);
             this.tabDetInfraestructureComputers.ResumeLayout(false);
-            this.tabDetPersonalComputers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetPersonalComputers)).EndInit();
-            this.upnlDetComputersDetailButtons.ClientArea.ResumeLayout(false);
-            this.upnlDetComputersDetailButtons.ResumeLayout(false);
-            this.upnlSeparatorDeletePersonalComputer.ResumeLayout(false);
-            this.upnlSeparatorEditPersonalComputer.ResumeLayout(false);
-            this.upnlSeparatorCreatePersonalComputer.ResumeLayout(false);
-            this.upnlSeparatorPersonalComputersDetailButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbxDetPersonalComputerDetail)).EndInit();
-            this.gbxDetPersonalComputerDetail.ResumeLayout(false);
-            this.tabDetPersonalComputerDetail.ResumeLayout(false);
-            this.tabDetPersonalComputerPrincipal.ResumeLayout(false);
-            this.tabDetPersonalComputerPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetManufacturerReferenceNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerSerialNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerType)).EndInit();
-            this.tabDetPersonalComputerSpecs.ResumeLayout(false);
-            this.tabDetPersonalComputerSpecs.PerformLayout();
-            this.gbxDetPersonalComputerStorage.ResumeLayout(false);
-            this.gbxDetPersonalComputerStorage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerStorage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerRAM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPersonalComputerCPU)).EndInit();
-            this.tabDetPersonalComputerSoftware.ResumeLayout(false);
-            this.tabDetPersonalComputerSoftware.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetPersonalComputerOS)).EndInit();
-            this.upnlDetComputersButtons.ClientArea.ResumeLayout(false);
-            this.upnlDetComputersButtons.ResumeLayout(false);
-            this.upnlSeparatorSavePreresult.ResumeLayout(false);
-            this.upnlSeparatorCancelPreresult.ResumeLayout(false);
-            this.upnlSeparatorPersonalComputersButtons.ResumeLayout(false);
             this.tabDetServerComputers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetServerComputers)).EndInit();
             this.upnlDetServerComputersDetailButtons.ClientArea.ResumeLayout(false);
@@ -4407,14 +3922,6 @@
         private System.Windows.Forms.TabPage tabDetComputers;
         private System.Windows.Forms.TabControl tabDetInfraestructureComputers;
         private System.Windows.Forms.TabPage tabDetPersonalComputers;
-        private Infragistics.Win.Misc.UltraPanel upnlDetComputersDetailButtons;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorDeletePersonalComputer;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetDeletePersonalComputer;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditPersonalComputer;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetEditPersonalComputer;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorCreatePersonalComputer;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetCreatePersonalComputer;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorPersonalComputersDetailButtons;
         private System.Windows.Forms.TabPage tabDetServerComputers;
         private System.Windows.Forms.TabPage tabDetNetwork;
         private System.Windows.Forms.TabPage tabDetEnergy;
@@ -4457,32 +3964,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor11;
         internal System.Windows.Forms.GroupBox groupBox2;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor9;
-        private Samsara.Controls.SamsaraUltraGrid grdDetPersonalComputers;
-        private Infragistics.Win.Misc.UltraGroupBox gbxDetPersonalComputerDetail;
-        private System.Windows.Forms.TabControl tabDetPersonalComputerDetail;
-        private System.Windows.Forms.TabPage tabDetPersonalComputerPrincipal;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetManufacturerReferenceNumber;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerSerialNumber;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPersonalComputerType;
-        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerSerie;
-        private Infragistics.Win.Misc.UltraLabel lblDetManufacturerReferenceNumber;
-        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerType;
-        private System.Windows.Forms.TabPage tabDetPersonalComputerSpecs;
-        internal System.Windows.Forms.GroupBox gbxDetPersonalComputerStorage;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerStorage;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerRAM;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPersonalComputerCPU;
-        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerCPU;
-        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerRAM;
-        private System.Windows.Forms.TabPage tabDetPersonalComputerSoftware;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetPersonalComputerOS;
-        private Infragistics.Win.Misc.UltraLabel lblDetPersonalComputerOS;
-        private Infragistics.Win.Misc.UltraPanel upnlDetComputersButtons;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorSavePreresult;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetSavePersonalComputer;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelPreresult;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetCancelPersonalComputer;
-        private Infragistics.Win.Misc.UltraPanel upnlSeparatorPersonalComputersButtons;
         private Infragistics.Win.Misc.UltraPanel upnlDetServerComputersDetailButtons;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorDeleteServerComputer;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteServerComputer;

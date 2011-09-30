@@ -295,18 +295,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
             PrinterBrandParameters pmtPrinterBrand = new PrinterBrandParameters();
 
             IList<PrinterBrand> printerBrands = this.srvPrinterBrand.GetListByParameters(pmtPrinterBrand);
-            WindowsFormsUtil.LoadCombo<PrinterBrand>(this.controlCustomerInfrastructurePrinters.ucePrinterBrand,
-                printerBrands, "PrinterBrandId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerBrands,
                 band.Columns["PrinterBrandId"], "PrinterBrandId", "Name", "Seleccione");
 
             PrinterTypeParameters pmtPrinterType = new PrinterTypeParameters();
 
             IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
-            WindowsFormsUtil.LoadCombo<PrinterType>(this.controlCustomerInfrastructurePrinters.ucePrinterType,
-                printerTypes, "PrinterTypeId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerTypes,
                 band.Columns["PrinterTypeId"], "PrinterTypeId", "Name", "Seleccione");
         }

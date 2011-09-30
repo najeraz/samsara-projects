@@ -313,9 +313,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             DBMSParameters pmtDBMS = new DBMSParameters();
 
             IList<DBMS> cctvBrands = this.srvDBMS.GetListByParameters(pmtDBMS);
-            WindowsFormsUtil.LoadCombo<DBMS>(this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS,
-                cctvBrands, "DBMSId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["DBMSId"], "DBMSId", "Name", "Seleccione");
 

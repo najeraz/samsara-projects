@@ -305,18 +305,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
             SecuritySoftwareBrandParameters pmtSecuritySoftwareBrand = new SecuritySoftwareBrandParameters();
 
             IList<SecuritySoftwareBrand> cctvBrands = this.srvSecuritySoftwareBrand.GetListByParameters(pmtSecuritySoftwareBrand);
-            WindowsFormsUtil.LoadCombo<SecuritySoftwareBrand>(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand,
-                cctvBrands, "SecuritySoftwareBrandId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["SecuritySoftwareBrandId"], "SecuritySoftwareBrandId", "Name", "Seleccione");
 
             SecuritySoftwareTypeParameters pmtSecuritySoftwareType = new SecuritySoftwareTypeParameters();
 
             IList<SecuritySoftwareType> cctvTypes = this.srvSecuritySoftwareType.GetListByParameters(pmtSecuritySoftwareType);
-            WindowsFormsUtil.LoadCombo<SecuritySoftwareType>(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType,
-                cctvTypes, "SecuritySoftwareTypeId", "Name", "Seleccione");
-
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["SecuritySoftwareTypeId"], "SecuritySoftwareTypeId", "Name", "Seleccione");
         }
