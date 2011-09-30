@@ -61,6 +61,7 @@
             this.uceOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDBMS = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureServerComputerDBMSs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputerDBMSsControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -95,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
             this.tabItmSoftware.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).BeginInit();
+            this.tabItmDBMS.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -457,11 +459,21 @@
             // tabItmDBMS
             // 
             this.tabItmDBMS.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDBMS.Controls.Add(this.mtoCustomerInfrastructureServerComputerDBMSs);
             this.tabItmDBMS.Location = new System.Drawing.Point(4, 22);
             this.tabItmDBMS.Name = "tabItmDBMS";
             this.tabItmDBMS.Size = new System.Drawing.Size(696, 198);
             this.tabItmDBMS.TabIndex = 4;
             this.tabItmDBMS.Text = "Sistemas Gestores de Bases de Datos";
+            // 
+            // mtoCustomerInfrastructureServerComputerDBMSs
+            // 
+            this.mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = null;
+            this.mtoCustomerInfrastructureServerComputerDBMSs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureServerComputerDBMSs.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureServerComputerDBMSs.Name = "mtoCustomerInfrastructureServerComputerDBMSs";
+            this.mtoCustomerInfrastructureServerComputerDBMSs.Size = new System.Drawing.Size(696, 198);
+            this.mtoCustomerInfrastructureServerComputerDBMSs.TabIndex = 0;
             // 
             // CustomerInfrastructureServerComputersControl
             // 
@@ -509,6 +521,7 @@
             this.tabItmSoftware.ResumeLayout(false);
             this.tabItmSoftware.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).EndInit();
+            this.tabItmDBMS.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -539,6 +552,7 @@
         private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
         private System.Windows.Forms.GroupBox gbxScalability;
         private System.Windows.Forms.GroupBox gbxUtilization;
+        internal CustomerInfrastructureServerComputerDBMSsControl mtoCustomerInfrastructureServerComputerDBMSs;
 
 
     }
