@@ -51,7 +51,7 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         #region Public
 
-        public void LoadGrid()
+        public void LoadControls()
         {
             (this.controller as CustomerInfrastructurePrintersControlController).LoadGrid();
         }
