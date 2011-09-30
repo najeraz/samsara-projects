@@ -399,6 +399,7 @@
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
+            this.mtoCustomerInfrastructurePersonalComputers = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructurePersonalComputersControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -411,6 +412,7 @@
             this.tabDetInfrastructure.SuspendLayout();
             this.tabDetComputers.SuspendLayout();
             this.tabDetInfraestructureComputers.SuspendLayout();
+            this.tabDetPersonalComputers.SuspendLayout();
             this.tabDetServerComputers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetServerComputers)).BeginInit();
             this.upnlDetServerComputersDetailButtons.ClientArea.SuspendLayout();
@@ -609,6 +611,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -853,6 +856,7 @@
             // tabDetPersonalComputers
             // 
             this.tabDetPersonalComputers.BackColor = System.Drawing.Color.Transparent;
+            this.tabDetPersonalComputers.Controls.Add(this.mtoCustomerInfrastructurePersonalComputers);
             this.tabDetPersonalComputers.Location = new System.Drawing.Point(4, 22);
             this.tabDetPersonalComputers.Name = "tabDetPersonalComputers";
             this.tabDetPersonalComputers.Padding = new System.Windows.Forms.Padding(3);
@@ -3673,6 +3677,15 @@
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
+            // mtoCustomerInfrastructurePersonalComputers
+            // 
+            this.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructurePersonalComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructurePersonalComputers.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructurePersonalComputers.Name = "mtoCustomerInfrastructurePersonalComputers";
+            this.mtoCustomerInfrastructurePersonalComputers.Size = new System.Drawing.Size(722, 390);
+            this.mtoCustomerInfrastructurePersonalComputers.TabIndex = 0;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3694,6 +3707,7 @@
             this.tabDetInfrastructure.ResumeLayout(false);
             this.tabDetComputers.ResumeLayout(false);
             this.tabDetInfraestructureComputers.ResumeLayout(false);
+            this.tabDetPersonalComputers.ResumeLayout(false);
             this.tabDetServerComputers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetServerComputers)).EndInit();
             this.upnlDetServerComputersDetailButtons.ClientArea.ResumeLayout(false);
@@ -4163,5 +4177,6 @@
         internal Controls.Controls.CustomerInfrastructureSecuritySoftwaresControl mtoCustomerInfrastructureSecuritySoftwares;
         internal Controls.Controls.CustomerInfrastructureUPSsControl mtoCustomerInfrastructureUPSs;
         internal Controls.Controls.CustomerInfrastructureTelephoniesControl mtoCustomerInfrastructureTelephonies;
+        internal Controls.Controls.CustomerInfrastructurePersonalComputersControl mtoCustomerInfrastructurePersonalComputers;
     }
 }
