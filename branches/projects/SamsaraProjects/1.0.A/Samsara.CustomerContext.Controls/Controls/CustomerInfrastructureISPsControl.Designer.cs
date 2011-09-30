@@ -220,9 +220,9 @@
             this.lblISP.AutoSize = true;
             this.lblISP.Location = new System.Drawing.Point(13, 13);
             this.lblISP.Name = "lblISP";
-            this.lblISP.Size = new System.Drawing.Size(39, 14);
+            this.lblISP.Size = new System.Drawing.Size(26, 14);
             this.lblISP.TabIndex = 106;
-            this.lblISP.Text = "Marca:";
+            this.lblISP.Text = "ISP:";
             // 
             // steBandwidth
             // 

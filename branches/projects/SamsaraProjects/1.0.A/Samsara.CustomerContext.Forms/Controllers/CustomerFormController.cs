@@ -50,6 +50,8 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructurePrinters.LoadGrid();
             this.frmCustomer.mtoCustomerInfrastructureISPs.CustomerInfrastructureId = -1;
             this.frmCustomer.mtoCustomerInfrastructureISPs.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureCCTVs.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureCCTVs.LoadGrid();
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructureId = -1;
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.LoadGrid();
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructureId = -1;
