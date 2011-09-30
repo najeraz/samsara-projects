@@ -251,15 +251,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Value) <= 0)
-            {
-                MessageBox.Show("Favor de seleccionar la Marca del Software.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Focus();
-                return false;
-            }
-
             return true;
         }
 

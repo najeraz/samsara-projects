@@ -550,7 +550,7 @@
             this.tabDetVideo = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
-            this.customerInfrastructureCCTVsControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
+            this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -5109,7 +5109,7 @@
             // tabPage35
             // 
             this.tabPage35.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage35.Controls.Add(this.customerInfrastructureCCTVsControl1);
+            this.tabPage35.Controls.Add(this.mtoCustomerInfrastructureCCTVs);
             this.tabPage35.Location = new System.Drawing.Point(4, 22);
             this.tabPage35.Name = "tabPage35";
             this.tabPage35.Padding = new System.Windows.Forms.Padding(3);
@@ -5117,14 +5117,14 @@
             this.tabPage35.TabIndex = 0;
             this.tabPage35.Text = "CCTVs";
             // 
-            // customerInfrastructureCCTVsControl1
+            // mtoCustomerInfrastructureCCTVs
             // 
-            this.customerInfrastructureCCTVsControl1.CustomerInfrastructureId = null;
-            this.customerInfrastructureCCTVsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerInfrastructureCCTVsControl1.Location = new System.Drawing.Point(3, 3);
-            this.customerInfrastructureCCTVsControl1.Name = "customerInfrastructureCCTVsControl1";
-            this.customerInfrastructureCCTVsControl1.Size = new System.Drawing.Size(728, 396);
-            this.customerInfrastructureCCTVsControl1.TabIndex = 0;
+            this.mtoCustomerInfrastructureCCTVs.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureCCTVs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureCCTVs.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureCCTVs.Name = "mtoCustomerInfrastructureCCTVs";
+            this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
             // CustomerForm
             // 
@@ -5808,9 +5808,9 @@
         internal Samsara.Controls.SamsaraUltraGrid grdDetFirewalls;
         private System.Windows.Forms.TabPage tabPage22;
         internal Controls.Controls.CustomerInfrastructurePrintersControl mtoCustomerInfrastructurePrinters;
-        private Controls.Controls.CustomerInfrastructureCCTVsControl customerInfrastructureCCTVsControl1;
         internal Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl mtoCustomerInfrastructureAdministationSoftwares;
         internal Controls.Controls.CustomerInfrastructureBackupSoftwaresControl mtoCustomerInfrastructureBackupSoftwares;
         internal Controls.Controls.CustomerInfrastructureISPsControl mtoCustomerInfrastructureISPs;
+        internal Controls.Controls.CustomerInfrastructureCCTVsControl mtoCustomerInfrastructureCCTVs;
     }
 }
