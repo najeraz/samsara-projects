@@ -58,6 +58,8 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.LoadGrid();
             this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructureId = -1;
             this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.LoadGrid();
+            this.frmCustomer.mtoCustomerInfrastructureUPSs.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureUPSs.LoadGrid();
 
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
