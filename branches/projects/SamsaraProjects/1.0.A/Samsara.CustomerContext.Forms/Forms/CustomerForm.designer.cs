@@ -485,11 +485,11 @@
             this.tabDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructurePeripherals = new System.Windows.Forms.TabControl();
             this.tabPage22 = new System.Windows.Forms.TabPage();
-            this.mtoCustomerPrinters = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructurePrintersControl();
+            this.mtoCustomerInfrastructurePrinters = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructurePrintersControl();
             this.tabDetSoftware = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSoftware = new System.Windows.Forms.TabControl();
             this.tabPage26 = new System.Windows.Forms.TabPage();
-            this.customerInfrastructureAdministationSoftwaresControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl();
+            this.mtoCustomerInfrastructureAdministationSoftwares = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl();
             this.tabPage24 = new System.Windows.Forms.TabPage();
             this.grdDetSecuritySoftware = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel90 = new Infragistics.Win.Misc.UltraPanel();
@@ -517,11 +517,11 @@
             this.ultraButton54 = new Infragistics.Win.Misc.UltraButton();
             this.ultraPanel98 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPage27 = new System.Windows.Forms.TabPage();
-            this.customerInfrastructureBackupSoftwaresControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureBackupSoftwaresControl();
+            this.mtoCustomerInfrastructureBackupSoftwares = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureBackupSoftwaresControl();
             this.tabDetSuppliers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSuppliers = new System.Windows.Forms.TabControl();
             this.tabPage31 = new System.Windows.Forms.TabPage();
-            this.customerInfrastructureISPsControl1 = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureISPsControl();
+            this.mtoCustomerInfrastructureISPs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureISPsControl();
             this.tabPage33 = new System.Windows.Forms.TabPage();
             this.grdDetTelephonies = new Samsara.Controls.SamsaraUltraGrid();
             this.ultraPanel126 = new Infragistics.Win.Misc.UltraPanel();
@@ -4369,7 +4369,7 @@
             // tabPage22
             // 
             this.tabPage22.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage22.Controls.Add(this.mtoCustomerPrinters);
+            this.tabPage22.Controls.Add(this.mtoCustomerInfrastructurePrinters);
             this.tabPage22.Location = new System.Drawing.Point(4, 22);
             this.tabPage22.Name = "tabPage22";
             this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
@@ -4377,14 +4377,14 @@
             this.tabPage22.TabIndex = 0;
             this.tabPage22.Text = "Impresoras";
             // 
-            // mtoCustomerPrinters
+            // mtoCustomerInfrastructurePrinters
             // 
-            this.mtoCustomerPrinters.CustomerInfrastructureId = null;
-            this.mtoCustomerPrinters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerPrinters.Location = new System.Drawing.Point(3, 3);
-            this.mtoCustomerPrinters.Name = "mtoCustomerPrinters";
-            this.mtoCustomerPrinters.Size = new System.Drawing.Size(728, 396);
-            this.mtoCustomerPrinters.TabIndex = 0;
+            this.mtoCustomerInfrastructurePrinters.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructurePrinters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructurePrinters.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructurePrinters.Name = "mtoCustomerInfrastructurePrinters";
+            this.mtoCustomerInfrastructurePrinters.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructurePrinters.TabIndex = 0;
             // 
             // tabDetSoftware
             // 
@@ -4411,21 +4411,21 @@
             // tabPage26
             // 
             this.tabPage26.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage26.Controls.Add(this.customerInfrastructureAdministationSoftwaresControl1);
+            this.tabPage26.Controls.Add(this.mtoCustomerInfrastructureAdministationSoftwares);
             this.tabPage26.Location = new System.Drawing.Point(4, 22);
             this.tabPage26.Name = "tabPage26";
             this.tabPage26.Size = new System.Drawing.Size(734, 402);
             this.tabPage26.TabIndex = 1;
             this.tabPage26.Text = "Software de Administración";
             // 
-            // customerInfrastructureAdministationSoftwaresControl1
+            // mtoCustomerInfrastructureAdministationSoftwares
             // 
-            this.customerInfrastructureAdministationSoftwaresControl1.CustomerInfrastructureId = null;
-            this.customerInfrastructureAdministationSoftwaresControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerInfrastructureAdministationSoftwaresControl1.Location = new System.Drawing.Point(0, 0);
-            this.customerInfrastructureAdministationSoftwaresControl1.Name = "customerInfrastructureAdministationSoftwaresControl1";
-            this.customerInfrastructureAdministationSoftwaresControl1.Size = new System.Drawing.Size(734, 402);
-            this.customerInfrastructureAdministationSoftwaresControl1.TabIndex = 116;
+            this.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureAdministationSoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureAdministationSoftwares.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureAdministationSoftwares.Name = "mtoCustomerInfrastructureAdministationSoftwares";
+            this.mtoCustomerInfrastructureAdministationSoftwares.Size = new System.Drawing.Size(734, 402);
+            this.mtoCustomerInfrastructureAdministationSoftwares.TabIndex = 116;
             // 
             // tabPage24
             // 
@@ -4735,21 +4735,21 @@
             // tabPage27
             // 
             this.tabPage27.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage27.Controls.Add(this.customerInfrastructureBackupSoftwaresControl1);
+            this.tabPage27.Controls.Add(this.mtoCustomerInfrastructureBackupSoftwares);
             this.tabPage27.Location = new System.Drawing.Point(4, 22);
             this.tabPage27.Name = "tabPage27";
             this.tabPage27.Size = new System.Drawing.Size(734, 402);
             this.tabPage27.TabIndex = 2;
             this.tabPage27.Text = "Software de Respaldos";
             // 
-            // customerInfrastructureBackupSoftwaresControl1
+            // mtoCustomerInfrastructureBackupSoftwares
             // 
-            this.customerInfrastructureBackupSoftwaresControl1.CustomerInfrastructureId = null;
-            this.customerInfrastructureBackupSoftwaresControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerInfrastructureBackupSoftwaresControl1.Location = new System.Drawing.Point(0, 0);
-            this.customerInfrastructureBackupSoftwaresControl1.Name = "customerInfrastructureBackupSoftwaresControl1";
-            this.customerInfrastructureBackupSoftwaresControl1.Size = new System.Drawing.Size(734, 402);
-            this.customerInfrastructureBackupSoftwaresControl1.TabIndex = 0;
+            this.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureBackupSoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureBackupSoftwares.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureBackupSoftwares.Name = "mtoCustomerInfrastructureBackupSoftwares";
+            this.mtoCustomerInfrastructureBackupSoftwares.Size = new System.Drawing.Size(734, 402);
+            this.mtoCustomerInfrastructureBackupSoftwares.TabIndex = 0;
             // 
             // tabDetSuppliers
             // 
@@ -4775,7 +4775,7 @@
             // tabPage31
             // 
             this.tabPage31.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage31.Controls.Add(this.customerInfrastructureISPsControl1);
+            this.tabPage31.Controls.Add(this.mtoCustomerInfrastructureISPs);
             this.tabPage31.Location = new System.Drawing.Point(4, 22);
             this.tabPage31.Name = "tabPage31";
             this.tabPage31.Padding = new System.Windows.Forms.Padding(3);
@@ -4783,14 +4783,14 @@
             this.tabPage31.TabIndex = 0;
             this.tabPage31.Text = "Proveedor de Internet";
             // 
-            // customerInfrastructureISPsControl1
+            // mtoCustomerInfrastructureISPs
             // 
-            this.customerInfrastructureISPsControl1.CustomerInfrastructureId = null;
-            this.customerInfrastructureISPsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerInfrastructureISPsControl1.Location = new System.Drawing.Point(3, 3);
-            this.customerInfrastructureISPsControl1.Name = "customerInfrastructureISPsControl1";
-            this.customerInfrastructureISPsControl1.Size = new System.Drawing.Size(728, 396);
-            this.customerInfrastructureISPsControl1.TabIndex = 0;
+            this.mtoCustomerInfrastructureISPs.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureISPs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureISPs.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureISPs.Name = "mtoCustomerInfrastructureISPs";
+            this.mtoCustomerInfrastructureISPs.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureISPs.TabIndex = 0;
             // 
             // tabPage33
             // 
@@ -5807,10 +5807,10 @@
         internal Samsara.Controls.SamsaraUltraGrid grdDetRouters;
         internal Samsara.Controls.SamsaraUltraGrid grdDetFirewalls;
         private System.Windows.Forms.TabPage tabPage22;
-        internal Controls.Controls.CustomerInfrastructurePrintersControl mtoCustomerPrinters;
-        private Controls.Controls.CustomerInfrastructureISPsControl customerInfrastructureISPsControl1;
+        internal Controls.Controls.CustomerInfrastructurePrintersControl mtoCustomerInfrastructurePrinters;
         private Controls.Controls.CustomerInfrastructureCCTVsControl customerInfrastructureCCTVsControl1;
-        private Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl customerInfrastructureAdministationSoftwaresControl1;
-        private Controls.Controls.CustomerInfrastructureBackupSoftwaresControl customerInfrastructureBackupSoftwaresControl1;
+        internal Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl mtoCustomerInfrastructureAdministationSoftwares;
+        internal Controls.Controls.CustomerInfrastructureBackupSoftwaresControl mtoCustomerInfrastructureBackupSoftwares;
+        internal Controls.Controls.CustomerInfrastructureISPsControl mtoCustomerInfrastructureISPs;
     }
 }

@@ -53,7 +53,7 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         public void LoadGrid()
         {
-            (this.controller as CustomerInfrastructureBackupSoftwaresControlController).LoadGrid();
+            (this.controller as CustomerInfrastructureBackupSoftwaresControlController).LoadControls();
         }
 
         #endregion Public
