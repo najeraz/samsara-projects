@@ -27,7 +27,7 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public bool ConsoleInstalled
+        public bool? ConsoleInstalled
         {
             get;
             set;

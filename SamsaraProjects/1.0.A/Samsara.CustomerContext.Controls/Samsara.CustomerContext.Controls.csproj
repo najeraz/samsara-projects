@@ -70,11 +70,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureUPSsControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructureSecuritySoftwaresControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureBackupSoftwaresControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureAdministationSoftwaresControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\CustomerInfrastructureUPSsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureUPSsControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureUPSsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureSecuritySoftwaresControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureSecuritySoftwaresControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureSecuritySoftwaresControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +149,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureUPSsControl.resx">
+      <DependentUpon>CustomerInfrastructureUPSsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureSecuritySoftwaresControl.resx">
+      <DependentUpon>CustomerInfrastructureSecuritySoftwaresControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureAdministationSoftwaresControl.resx">
       <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
     </EmbeddedResource>
