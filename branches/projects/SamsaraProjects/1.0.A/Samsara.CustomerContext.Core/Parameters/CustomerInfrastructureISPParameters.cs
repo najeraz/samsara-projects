@@ -27,7 +27,7 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public decimal Bandwidth
+        public decimal? Bandwidth
         {
             get;
             set;
