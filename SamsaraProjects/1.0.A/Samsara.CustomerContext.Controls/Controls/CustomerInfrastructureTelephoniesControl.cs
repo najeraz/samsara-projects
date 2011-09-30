@@ -27,7 +27,7 @@ namespace Samsara.CustomerContext.Controls.Controls
         /// <summary>
         /// Entidades relacionadas
         /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureTelephonie> CustomerInfrastructureTelephonies
+        public System.Collections.Generic.ISet<CustomerInfrastructureTelephony> CustomerInfrastructureTelephonies
         {
             get
             {
