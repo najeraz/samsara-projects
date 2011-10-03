@@ -1,12 +1,11 @@
-﻿
-using System;
+﻿using System;
 using Samsara.Controls.Templates;
 using Samsara.CustomerContext.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls
 {
-    public partial class CustomerInfrastructureCCTVsControl : ManyToOneLevel1Control
+    public partial class CustomerInfrastructureNetworkCablingsControl : ManyToOneLevel1Control
     {
         #region Properties
 
@@ -17,22 +16,22 @@ namespace Samsara.CustomerContext.Controls.Controls
         {
             get
             {
-                return (this.controller as CustomerInfrastructureCCTVsControlController).CustomerInfrastructureId;
+                return (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetworkId;
             }
             set
             {
-                (this.controller as CustomerInfrastructureCCTVsControlController).CustomerInfrastructureId = value;
+                (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetworkId = value;
             }
         }
 
         /// <summary>
         /// Entidades relacionadas
         /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureCCTV> CustomerInfrastructureCCTVs
+        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkCabling> CustomerInfrastructureNetworkCablings
         {
             get
             {
-                return (this.controller as CustomerInfrastructureCCTVsControlController).CustomerInfrastructureCCTVs;
+                return (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetworkCablings;
             }
         }
 
@@ -40,10 +39,10 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         #region Constructor
 
-        public CustomerInfrastructureCCTVsControl()
+        public CustomerInfrastructureNetworkCablingsControl()
         {
             InitializeComponent();
-            this.controller = new CustomerInfrastructureCCTVsControlController(this);
+            this.controller = new CustomerInfrastructureNetworkCablingsControlController(this);
         }
 
         #endregion Constructor
@@ -54,7 +53,7 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         public void LoadControls()
         {
-            (this.controller as CustomerInfrastructureCCTVsControlController).LoadControls();
+            (this.controller as CustomerInfrastructureNetworkCablingsControlController).LoadControls();
         }
 
         #endregion Public
