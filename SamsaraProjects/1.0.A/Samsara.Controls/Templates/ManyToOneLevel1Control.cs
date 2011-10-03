@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Samsara.Controls.Controllers;
@@ -13,6 +14,20 @@ namespace Samsara.Controls.Templates
         public ManyToOneLevel1ControlController controller;
 
         #endregion Attributes
+
+        #region Properties
+
+        /// <summary>
+        /// Form o custom control padre
+        /// </summary>
+        [Description("Form o custom control padre")]
+        public Control CustomParent
+        {
+            get;
+            set;
+        }
+
+        #endregion Properties
 
         #region Constructor
 

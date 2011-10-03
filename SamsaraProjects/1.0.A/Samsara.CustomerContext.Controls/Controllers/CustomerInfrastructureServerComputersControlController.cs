@@ -111,11 +111,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 WindowsFormsUtil.LoadCombo<OperativeSystem>(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem,
                     cctvTypes, "OperativeSystemId", "Name", "Seleccione");
 
-                this.controlCustomerInfrastructureServerComputers
-                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = -1;
-                this.controlCustomerInfrastructureServerComputers
-                    .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
-
                 this.controlCustomerInfrastructureServerComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
@@ -129,6 +124,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             if (this.CustomerInfrastructureId != null)
             {
+                this.controlCustomerInfrastructureServerComputers
+                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = -1;
+                this.controlCustomerInfrastructureServerComputers
+                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomParent = this.controlCustomerInfrastructureServerComputers;
+                this.controlCustomerInfrastructureServerComputers
+                    .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
+
                 CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
                     = new CustomerInfrastructureServerComputerParameters();
 
