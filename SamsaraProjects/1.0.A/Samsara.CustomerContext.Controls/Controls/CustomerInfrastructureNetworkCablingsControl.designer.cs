@@ -1,7 +1,6 @@
-﻿
-namespace Samsara.CustomerContext.Controls.Controls
+﻿namespace Samsara.CustomerContext.Controls.Controls
 {
-    partial class CustomerInfrastructureCCTVsControl
+    partial class CustomerInfrastructureNetworkCablingsControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -38,12 +37,10 @@ namespace Samsara.CustomerContext.Controls.Controls
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceCCTVType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCCTVBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxUtilization = new System.Windows.Forms.GroupBox();
-            this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uceNetworkCablingType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblNetworkCablingType = new Infragistics.Win.Misc.UltraLabel();
+            this.txtCategory = new System.Windows.Forms.TextBox();
+            this.lblCategory = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,10 +59,7 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).BeginInit();
-            this.gbxUtilization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceNetworkCablingType)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -111,11 +105,11 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdRelations.Size = new System.Drawing.Size(710, 239);
+            this.grdRelations.Size = new System.Drawing.Size(710, 255);
             // 
             // upnDetailButtons
             // 
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 239);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 255);
             this.upnDetailButtons.Size = new System.Drawing.Size(710, 25);
             // 
             // upnlSeparatorDeleteRelation
@@ -148,21 +142,20 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 264);
-            this.gbxDetDetail.Size = new System.Drawing.Size(710, 124);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 280);
+            this.gbxDetDetail.Size = new System.Drawing.Size(710, 108);
             // 
             // tabDetail
             // 
-            this.tabDetail.Size = new System.Drawing.Size(704, 105);
+            this.tabDetail.Size = new System.Drawing.Size(704, 89);
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.gbxUtilization);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVBrand);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVBrand);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
+            this.tabItmPrincipal.Controls.Add(this.txtCategory);
+            this.tabItmPrincipal.Controls.Add(this.uceNetworkCablingType);
+            this.tabItmPrincipal.Controls.Add(this.lblCategory);
+            this.tabItmPrincipal.Controls.Add(this.lblNetworkCablingType);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(696, 63);
             // 
             // upnlButtons
             // 
@@ -205,62 +198,43 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceCCTVType
+            // uceNetworkCablingType
             // 
-            this.uceCCTVType.Location = new System.Drawing.Point(88, 45);
-            this.uceCCTVType.Name = "uceCCTVType";
-            this.uceCCTVType.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVType.TabIndex = 109;
+            this.uceNetworkCablingType.Location = new System.Drawing.Point(89, 9);
+            this.uceNetworkCablingType.Name = "uceNetworkCablingType";
+            this.uceNetworkCablingType.Size = new System.Drawing.Size(226, 21);
+            this.uceNetworkCablingType.TabIndex = 109;
             // 
-            // lblCCTVType
+            // lblNetworkCablingType
             // 
-            this.lblCCTVType.AutoSize = true;
-            this.lblCCTVType.Location = new System.Drawing.Point(13, 49);
-            this.lblCCTVType.Name = "lblCCTVType";
-            this.lblCCTVType.Size = new System.Drawing.Size(29, 14);
-            this.lblCCTVType.TabIndex = 107;
-            this.lblCCTVType.Text = "Tipo:";
+            this.lblNetworkCablingType.AutoSize = true;
+            this.lblNetworkCablingType.Location = new System.Drawing.Point(14, 13);
+            this.lblNetworkCablingType.Name = "lblNetworkCablingType";
+            this.lblNetworkCablingType.Size = new System.Drawing.Size(29, 14);
+            this.lblNetworkCablingType.TabIndex = 107;
+            this.lblNetworkCablingType.Text = "Tipo:";
             // 
-            // uceCCTVBrand
+            // txtCategory
             // 
-            this.uceCCTVBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceCCTVBrand.Name = "uceCCTVBrand";
-            this.uceCCTVBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVBrand.TabIndex = 108;
+            this.txtCategory.Location = new System.Drawing.Point(89, 36);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(226, 20);
+            this.txtCategory.TabIndex = 110;
             // 
-            // lblCCTVBrand
+            // lblCategory
             // 
-            this.lblCCTVBrand.AutoSize = true;
-            this.lblCCTVBrand.Location = new System.Drawing.Point(13, 22);
-            this.lblCCTVBrand.Name = "lblCCTVBrand";
-            this.lblCCTVBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblCCTVBrand.TabIndex = 106;
-            this.lblCCTVBrand.Text = "Marca:";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(14, 39);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(56, 14);
+            this.lblCategory.TabIndex = 107;
+            this.lblCategory.Text = "Categoría:";
             // 
-            // gbxUtilization
-            // 
-            this.gbxUtilization.Controls.Add(this.txtUtilization);
-            this.gbxUtilization.Location = new System.Drawing.Point(331, 3);
-            this.gbxUtilization.Name = "gbxUtilization";
-            this.gbxUtilization.Size = new System.Drawing.Size(351, 75);
-            this.gbxUtilization.TabIndex = 110;
-            this.gbxUtilization.TabStop = false;
-            this.gbxUtilization.Text = "Uso:";
-            // 
-            // txtUtilization
-            // 
-            this.txtUtilization.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUtilization.Location = new System.Drawing.Point(3, 16);
-            this.txtUtilization.Multiline = true;
-            this.txtUtilization.Name = "txtUtilization";
-            this.txtUtilization.Size = new System.Drawing.Size(345, 56);
-            this.txtUtilization.TabIndex = 0;
-            // 
-            // CustomerInfrastructureCCTVsControl
+            // CustomerInfrastructureNetworkCablingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "CustomerInfrastructureCCTVsControl";
+            this.Name = "CustomerInfrastructureNetworkCablingsControl";
             this.Size = new System.Drawing.Size(710, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
@@ -281,23 +255,17 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).EndInit();
-            this.gbxUtilization.ResumeLayout(false);
-            this.gbxUtilization.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceNetworkCablingType)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVType;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVBrand;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVBrand;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        private System.Windows.Forms.GroupBox gbxUtilization;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceNetworkCablingType;
+        private Infragistics.Win.Misc.UltraLabel lblNetworkCablingType;
+        private Infragistics.Win.Misc.UltraLabel lblCategory;
+        internal System.Windows.Forms.TextBox txtCategory;
 
 
     }

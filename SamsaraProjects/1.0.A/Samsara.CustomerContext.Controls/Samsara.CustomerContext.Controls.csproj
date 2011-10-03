@@ -70,6 +70,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureNetworkRoutersControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructureNetworkFirewallsControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructureNetworkCommutatorsControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructureNetworkCablingsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureServerComputerDBMSsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureServerComputersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePersonalComputersControlController.cs" />
@@ -81,6 +85,30 @@
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkRoutersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkRoutersControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureNetworkRoutersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkFirewallsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkFirewallsControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureNetworkFirewallsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkCommutatorsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkCommutatorsControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureNetworkCommutatorsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkCablingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkCablingsControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureNetworkCablingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructureServerComputerDBMSsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +205,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkRoutersControl.resx">
+      <DependentUpon>CustomerInfrastructureNetworkRoutersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkFirewallsControl.resx">
+      <DependentUpon>CustomerInfrastructureNetworkFirewallsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkCommutatorsControl.resx">
+      <DependentUpon>CustomerInfrastructureNetworkCommutatorsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkCablingsControl.resx">
+      <DependentUpon>CustomerInfrastructureNetworkCablingsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureServerComputerDBMSsControl.resx">
       <DependentUpon>CustomerInfrastructureServerComputerDBMSsControl.cs</DependentUpon>
     </EmbeddedResource>

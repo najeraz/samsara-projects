@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.CustomerContext.Controls.Controls
 {
-    partial class CustomerInfrastructureCCTVsControl
+    partial class CustomerInfrastructureNetworkRoutersControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -38,12 +38,12 @@ namespace Samsara.CustomerContext.Controls.Controls
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceCCTVType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCCTVBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxUtilization = new System.Windows.Forms.GroupBox();
-            this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uceRouterBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblRouterBrand = new Infragistics.Win.Misc.UltraLabel();
+            this.gbxDescription = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtRouterModel = new System.Windows.Forms.TextBox();
+            this.lblRouterModel = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,10 +62,9 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).BeginInit();
-            this.gbxUtilization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceRouterBrand)).BeginInit();
+            this.gbxDescription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -157,11 +156,11 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.gbxUtilization);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVBrand);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVBrand);
+            this.tabItmPrincipal.Controls.Add(this.txtRouterModel);
+            this.tabItmPrincipal.Controls.Add(this.gbxDescription);
+            this.tabItmPrincipal.Controls.Add(this.uceRouterBrand);
+            this.tabItmPrincipal.Controls.Add(this.lblRouterModel);
+            this.tabItmPrincipal.Controls.Add(this.lblRouterBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
             // upnlButtons
@@ -205,62 +204,62 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceCCTVType
+            // uceRouterBrand
             // 
-            this.uceCCTVType.Location = new System.Drawing.Point(88, 45);
-            this.uceCCTVType.Name = "uceCCTVType";
-            this.uceCCTVType.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVType.TabIndex = 109;
+            this.uceRouterBrand.Location = new System.Drawing.Point(88, 18);
+            this.uceRouterBrand.Name = "uceRouterBrand";
+            this.uceRouterBrand.Size = new System.Drawing.Size(226, 21);
+            this.uceRouterBrand.TabIndex = 108;
             // 
-            // lblCCTVType
+            // lblRouterBrand
             // 
-            this.lblCCTVType.AutoSize = true;
-            this.lblCCTVType.Location = new System.Drawing.Point(13, 49);
-            this.lblCCTVType.Name = "lblCCTVType";
-            this.lblCCTVType.Size = new System.Drawing.Size(29, 14);
-            this.lblCCTVType.TabIndex = 107;
-            this.lblCCTVType.Text = "Tipo:";
+            this.lblRouterBrand.AutoSize = true;
+            this.lblRouterBrand.Location = new System.Drawing.Point(13, 22);
+            this.lblRouterBrand.Name = "lblRouterBrand";
+            this.lblRouterBrand.Size = new System.Drawing.Size(39, 14);
+            this.lblRouterBrand.TabIndex = 106;
+            this.lblRouterBrand.Text = "Marca:";
             // 
-            // uceCCTVBrand
+            // gbxDescription
             // 
-            this.uceCCTVBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceCCTVBrand.Name = "uceCCTVBrand";
-            this.uceCCTVBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVBrand.TabIndex = 108;
+            this.gbxDescription.Controls.Add(this.txtDescription);
+            this.gbxDescription.Location = new System.Drawing.Point(331, 3);
+            this.gbxDescription.Name = "gbxDescription";
+            this.gbxDescription.Size = new System.Drawing.Size(351, 75);
+            this.gbxDescription.TabIndex = 110;
+            this.gbxDescription.TabStop = false;
+            this.gbxDescription.Text = "Descripción:";
             // 
-            // lblCCTVBrand
+            // txtDescription
             // 
-            this.lblCCTVBrand.AutoSize = true;
-            this.lblCCTVBrand.Location = new System.Drawing.Point(13, 22);
-            this.lblCCTVBrand.Name = "lblCCTVBrand";
-            this.lblCCTVBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblCCTVBrand.TabIndex = 106;
-            this.lblCCTVBrand.Text = "Marca:";
+            this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescription.Location = new System.Drawing.Point(3, 16);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(345, 56);
+            this.txtDescription.TabIndex = 0;
             // 
-            // gbxUtilization
+            // txtRouterModel
             // 
-            this.gbxUtilization.Controls.Add(this.txtUtilization);
-            this.gbxUtilization.Location = new System.Drawing.Point(331, 3);
-            this.gbxUtilization.Name = "gbxUtilization";
-            this.gbxUtilization.Size = new System.Drawing.Size(351, 75);
-            this.gbxUtilization.TabIndex = 110;
-            this.gbxUtilization.TabStop = false;
-            this.gbxUtilization.Text = "Uso:";
+            this.txtRouterModel.Location = new System.Drawing.Point(88, 45);
+            this.txtRouterModel.Name = "txtRouterModel";
+            this.txtRouterModel.Size = new System.Drawing.Size(226, 20);
+            this.txtRouterModel.TabIndex = 111;
             // 
-            // txtUtilization
+            // lblRouterModel
             // 
-            this.txtUtilization.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUtilization.Location = new System.Drawing.Point(3, 16);
-            this.txtUtilization.Multiline = true;
-            this.txtUtilization.Name = "txtUtilization";
-            this.txtUtilization.Size = new System.Drawing.Size(345, 56);
-            this.txtUtilization.TabIndex = 0;
+            this.lblRouterModel.AutoSize = true;
+            this.lblRouterModel.Location = new System.Drawing.Point(13, 48);
+            this.lblRouterModel.Name = "lblRouterModel";
+            this.lblRouterModel.Size = new System.Drawing.Size(45, 14);
+            this.lblRouterModel.TabIndex = 106;
+            this.lblRouterModel.Text = "Modelo:";
             // 
-            // CustomerInfrastructureCCTVsControl
+            // CustomerInfrastructureNetworkRoutersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "CustomerInfrastructureCCTVsControl";
+            this.Name = "CustomerInfrastructureNetworkRoutersControl";
             this.Size = new System.Drawing.Size(710, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
@@ -281,23 +280,22 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).EndInit();
-            this.gbxUtilization.ResumeLayout(false);
-            this.gbxUtilization.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceRouterBrand)).EndInit();
+            this.gbxDescription.ResumeLayout(false);
+            this.gbxDescription.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVType;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVBrand;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVBrand;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        private System.Windows.Forms.GroupBox gbxUtilization;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceRouterBrand;
+        private Infragistics.Win.Misc.UltraLabel lblRouterBrand;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
+        private System.Windows.Forms.GroupBox gbxDescription;
+        private Infragistics.Win.Misc.UltraLabel lblRouterModel;
+        internal System.Windows.Forms.TextBox txtRouterModel;
 
 
     }

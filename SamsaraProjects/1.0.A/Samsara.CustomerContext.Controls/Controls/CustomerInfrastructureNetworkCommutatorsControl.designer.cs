@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.CustomerContext.Controls.Controls
 {
-    partial class CustomerInfrastructureCCTVsControl
+    partial class CustomerInfrastructureNetworkCommutatorsControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -38,12 +38,15 @@ namespace Samsara.CustomerContext.Controls.Controls
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceCCTVType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCCTVBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxUtilization = new System.Windows.Forms.GroupBox();
-            this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureNetworkCommutatorsControl));
+            this.uceCommutatorType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblCommutatorType = new Infragistics.Win.Misc.UltraLabel();
+            this.uceCommutatorBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.lblCommutatorBrand = new Infragistics.Win.Misc.UltraLabel();
+            this.lblNumberOfLines = new Infragistics.Win.Misc.UltraLabel();
+            this.lblNumberOfTrunks = new Infragistics.Win.Misc.UltraLabel();
+            this.steNumberOfTrunks = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steNumberOfExtensions = new Samsara.Controls.Controls.SamsaraTextEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,10 +65,8 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).BeginInit();
-            this.gbxUtilization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorBrand)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -157,11 +158,14 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.gbxUtilization);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVBrand);
-            this.tabItmPrincipal.Controls.Add(this.lblCCTVBrand);
+            this.tabItmPrincipal.Controls.Add(this.steNumberOfExtensions);
+            this.tabItmPrincipal.Controls.Add(this.steNumberOfTrunks);
+            this.tabItmPrincipal.Controls.Add(this.uceCommutatorType);
+            this.tabItmPrincipal.Controls.Add(this.lblCommutatorType);
+            this.tabItmPrincipal.Controls.Add(this.uceCommutatorBrand);
+            this.tabItmPrincipal.Controls.Add(this.lblNumberOfTrunks);
+            this.tabItmPrincipal.Controls.Add(this.lblNumberOfLines);
+            this.tabItmPrincipal.Controls.Add(this.lblCommutatorBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
             // upnlButtons
@@ -205,62 +209,81 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceCCTVType
+            // uceCommutatorType
             // 
-            this.uceCCTVType.Location = new System.Drawing.Point(88, 45);
-            this.uceCCTVType.Name = "uceCCTVType";
-            this.uceCCTVType.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVType.TabIndex = 109;
+            this.uceCommutatorType.Location = new System.Drawing.Point(88, 45);
+            this.uceCommutatorType.Name = "uceCommutatorType";
+            this.uceCommutatorType.Size = new System.Drawing.Size(226, 21);
+            this.uceCommutatorType.TabIndex = 109;
             // 
-            // lblCCTVType
+            // lblCommutatorType
             // 
-            this.lblCCTVType.AutoSize = true;
-            this.lblCCTVType.Location = new System.Drawing.Point(13, 49);
-            this.lblCCTVType.Name = "lblCCTVType";
-            this.lblCCTVType.Size = new System.Drawing.Size(29, 14);
-            this.lblCCTVType.TabIndex = 107;
-            this.lblCCTVType.Text = "Tipo:";
+            this.lblCommutatorType.AutoSize = true;
+            this.lblCommutatorType.Location = new System.Drawing.Point(13, 49);
+            this.lblCommutatorType.Name = "lblCommutatorType";
+            this.lblCommutatorType.Size = new System.Drawing.Size(29, 14);
+            this.lblCommutatorType.TabIndex = 107;
+            this.lblCommutatorType.Text = "Tipo:";
             // 
-            // uceCCTVBrand
+            // uceCommutatorBrand
             // 
-            this.uceCCTVBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceCCTVBrand.Name = "uceCCTVBrand";
-            this.uceCCTVBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVBrand.TabIndex = 108;
+            this.uceCommutatorBrand.Location = new System.Drawing.Point(88, 18);
+            this.uceCommutatorBrand.Name = "uceCommutatorBrand";
+            this.uceCommutatorBrand.Size = new System.Drawing.Size(226, 21);
+            this.uceCommutatorBrand.TabIndex = 108;
             // 
-            // lblCCTVBrand
+            // lblCommutatorBrand
             // 
-            this.lblCCTVBrand.AutoSize = true;
-            this.lblCCTVBrand.Location = new System.Drawing.Point(13, 22);
-            this.lblCCTVBrand.Name = "lblCCTVBrand";
-            this.lblCCTVBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblCCTVBrand.TabIndex = 106;
-            this.lblCCTVBrand.Text = "Marca:";
+            this.lblCommutatorBrand.AutoSize = true;
+            this.lblCommutatorBrand.Location = new System.Drawing.Point(13, 22);
+            this.lblCommutatorBrand.Name = "lblCommutatorBrand";
+            this.lblCommutatorBrand.Size = new System.Drawing.Size(39, 14);
+            this.lblCommutatorBrand.TabIndex = 106;
+            this.lblCommutatorBrand.Text = "Marca:";
             // 
-            // gbxUtilization
+            // lblNumberOfLines
             // 
-            this.gbxUtilization.Controls.Add(this.txtUtilization);
-            this.gbxUtilization.Location = new System.Drawing.Point(331, 3);
-            this.gbxUtilization.Name = "gbxUtilization";
-            this.gbxUtilization.Size = new System.Drawing.Size(351, 75);
-            this.gbxUtilization.TabIndex = 110;
-            this.gbxUtilization.TabStop = false;
-            this.gbxUtilization.Text = "Uso:";
+            this.lblNumberOfLines.AutoSize = true;
+            this.lblNumberOfLines.Location = new System.Drawing.Point(338, 49);
+            this.lblNumberOfLines.Name = "lblNumberOfLines";
+            this.lblNumberOfLines.Size = new System.Drawing.Size(100, 14);
+            this.lblNumberOfLines.TabIndex = 106;
+            this.lblNumberOfLines.Text = "Número de Lineas:";
             // 
-            // txtUtilization
+            // lblNumberOfTrunks
             // 
-            this.txtUtilization.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUtilization.Location = new System.Drawing.Point(3, 16);
-            this.txtUtilization.Multiline = true;
-            this.txtUtilization.Name = "txtUtilization";
-            this.txtUtilization.Size = new System.Drawing.Size(345, 56);
-            this.txtUtilization.TabIndex = 0;
+            this.lblNumberOfTrunks.AutoSize = true;
+            this.lblNumberOfTrunks.Location = new System.Drawing.Point(338, 22);
+            this.lblNumberOfTrunks.Name = "lblNumberOfTrunks";
+            this.lblNumberOfTrunks.Size = new System.Drawing.Size(110, 14);
+            this.lblNumberOfTrunks.TabIndex = 106;
+            this.lblNumberOfTrunks.Text = "Número de Trucales:";
             // 
-            // CustomerInfrastructureCCTVsControl
+            // steNumberOfTrunks
+            // 
+            this.steNumberOfTrunks.Location = new System.Drawing.Point(448, 18);
+            this.steNumberOfTrunks.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steNumberOfTrunks.Name = "steNumberOfTrunks";
+            this.steNumberOfTrunks.ReadOnly = false;
+            this.steNumberOfTrunks.Size = new System.Drawing.Size(226, 20);
+            this.steNumberOfTrunks.TabIndex = 110;
+            this.steNumberOfTrunks.Value = ((object)(resources.GetObject("steNumberOfTrunks.Value")));
+            // 
+            // steNumberOfExtensions
+            // 
+            this.steNumberOfExtensions.Location = new System.Drawing.Point(448, 48);
+            this.steNumberOfExtensions.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steNumberOfExtensions.Name = "steNumberOfExtensions";
+            this.steNumberOfExtensions.ReadOnly = false;
+            this.steNumberOfExtensions.Size = new System.Drawing.Size(226, 20);
+            this.steNumberOfExtensions.TabIndex = 110;
+            this.steNumberOfExtensions.Value = ((object)(resources.GetObject("steNumberOfExtensions.Value")));
+            // 
+            // CustomerInfrastructureNetworkCommutatorsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "CustomerInfrastructureCCTVsControl";
+            this.Name = "CustomerInfrastructureNetworkCommutatorsControl";
             this.Size = new System.Drawing.Size(710, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
@@ -281,23 +304,22 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).EndInit();
-            this.gbxUtilization.ResumeLayout(false);
-            this.gbxUtilization.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorBrand)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVType;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVBrand;
-        private Infragistics.Win.Misc.UltraLabel lblCCTVBrand;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        private System.Windows.Forms.GroupBox gbxUtilization;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCommutatorType;
+        private Infragistics.Win.Misc.UltraLabel lblCommutatorType;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCommutatorBrand;
+        private Infragistics.Win.Misc.UltraLabel lblCommutatorBrand;
+        private Infragistics.Win.Misc.UltraLabel lblNumberOfTrunks;
+        private Infragistics.Win.Misc.UltraLabel lblNumberOfLines;
+        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfExtensions;
+        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfTrunks;
 
 
     }
