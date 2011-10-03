@@ -113,7 +113,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
                 this.controlCustomerInfrastructureServerComputers
                     .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = -1;
-                this.controlCustomerInfrastructureServerComputers.LoadControls();
+                this.controlCustomerInfrastructureServerComputers
+                    .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
 
                 this.controlCustomerInfrastructureServerComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);

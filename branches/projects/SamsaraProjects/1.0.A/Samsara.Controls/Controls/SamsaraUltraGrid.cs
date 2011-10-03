@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
-
+using Samsara.Controls.Templates;
 
 namespace Samsara.Controls
 {
@@ -44,7 +45,7 @@ namespace Samsara.Controls
 
             if (this.DataSource != null && this.DataSource is DataTable)
             {
-                string parentFormName = this.GetParentFormName(this.Parent);
+                string parentFormName = this.GetParentFormName();
                 string parentControlName = this.GetParentControlName(this.Parent);
 
                 if (parentFormName != null)
@@ -130,21 +131,21 @@ namespace Samsara.Controls
             }
         }
 
-        public string GetParentFormName(System.Windows.Forms.Control control)
+        public string GetParentFormName()
         {
-            if (control == null)
-                return null;
-            if (control is System.Windows.Forms.Form)
-                return control.Name;
+            Form form = this.FindForm();
 
-            return GetParentFormName(control.Parent);
+            if (form == null)
+                return null;
+            else
+                return form.Name;
         }
 
-        public string GetParentControlName(System.Windows.Forms.Control control)
+        public string GetParentControlName(Control control)
         {
             if (control == null)
                 return null;
-            if (control.GetType().BaseType == typeof(Samsara.Controls.Templates.ManyToOneLevel1Control))
+            if (control.GetType().BaseType == typeof(ManyToOneLevel1Control))
                 return control.Name;
 
             return GetParentControlName(control.Parent);
