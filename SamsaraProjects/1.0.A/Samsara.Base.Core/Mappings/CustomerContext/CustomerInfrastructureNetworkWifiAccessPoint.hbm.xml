@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureNetworkWifiAccessPoint" table="CustomerContext.CustomerInfrastructureNetworkWifiAccessPoints">
+    
+    <id name="CustomerInfrastructureNetworkWifiAccessPointId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Model"/>
+    <property name="BandWidth"/>
+    <property name="Distance"/>
+    
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+    <many-to-one name="CustomerInfrastructureNetworkWifi"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkWifi, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureNetworkWifiId"/>
+
+    <many-to-one name="AccessPointType"
+                 class="Samsara.CustomerContext.Core.Entities.AccessPointType, Samsara.CustomerContext.Core"
+                 column="AccessPointTypeId"/>
+
+    <many-to-one name="AccessPointType"
+                 class="Samsara.CustomerContext.Core.Entities.AccessPointType, Samsara.CustomerContext.Core"
+                 column="AccessPointTypeId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureNetworkWifiAccessPoint.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkWifiAccessPoint
+        where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkWifiAccessPoint.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkWifiAccessPoint
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkWifiId = :CustomerInfrastructureNetworkWifiId
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureNetworkWifiAccessPoint.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureNetworkWifiAccessPoint
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkWifiId = :CustomerInfrastructureNetworkWifiId
+    ]]>
+  </query>
+
+</hibernate-mapping>

@@ -12,15 +12,15 @@
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
-
-    <many-to-one name="DBMS"
-                 class="Samsara.CustomerContext.Core.Entities.DBMS, Samsara.ProjectsAndTendering.Core"
-                 column="DBMSId"/>
-
+    
     <many-to-one name="CustomerInfrastructureServerComputer"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureServerComputer, Samsara.ProjectsAndTendering.Core"
                  column="CustomerInfrastructureServerComputerId"/>
 
+    <many-to-one name="DBMS"
+                 class="Samsara.CustomerContext.Core.Entities.DBMS, Samsara.ProjectsAndTendering.Core"
+                 column="DBMSId"/>
+    
   </class>
 
   <query name="CustomerInfrastructureServerComputerDBMS.GetByParameters">
