@@ -46,7 +46,18 @@ namespace Samsara.Controls
             if (this.DataSource != null && this.DataSource is DataTable)
             {
                 string parentFormName = this.GetParentFormName();
-                string parentControlName = this.GetParentControlName(this.Parent);
+                IList<string> lstParentNames = new List<string>();
+                string customControlNames = null;
+
+                this.GetParentControlName(this.Parent, lstParentNames);
+
+                if (parentFormName == null)
+                {
+                    parentFormName = lstParentNames.Last();
+                }
+
+                lstParentNames.Remove(parentFormName);
+                customControlNames = string.Join(".", lstParentNames.Reverse().ToArray());
 
                 if (parentFormName != null)
                 {
@@ -64,7 +75,7 @@ namespace Samsara.Controls
                     srvFormConfiguration.SaveOrUpdate(formConfiguration);
                 }
 
-                string gridName = (parentControlName == null ? "" : parentControlName + ".") + this.Name;
+                string gridName = (string.IsNullOrEmpty(customControlNames) ? "" : customControlNames + ".") + this.Name;
 
                 GridConfigurationParameters pmtGridConfiguration = new GridConfigurationParameters();
                 pmtGridConfiguration.GridName = gridName;
@@ -141,14 +152,17 @@ namespace Samsara.Controls
                 return form.Name;
         }
 
-        public string GetParentControlName(Control control)
+        public void GetParentControlName(Control control, IList<string> controlsNames)
         {
             if (control == null)
-                return null;
-            if (control.GetType().BaseType == typeof(ManyToOneLevel1Control))
-                return control.Name;
+                return;
 
-            return GetParentControlName(control.Parent);
+            controlsNames.Add(control.Name);
+
+            if (control.GetType().BaseType == typeof(ManyToOneLevel1Control))
+                GetParentControlName((control as ManyToOneLevel1Control).CustomParent, controlsNames);
+            else
+                GetParentControlName(control.Parent, controlsNames);
         }
     }
 }
