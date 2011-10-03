@@ -54,6 +54,9 @@
     <Compile Include="Entities\CommutatorBrand.cs" />
     <Compile Include="Entities\BusinessType.cs" />
     <Compile Include="Entities\BackupSoftwareBrand.cs" />
+    <Compile Include="Entities\AccessPointBrand.cs" />
+    <Compile Include="Entities\AccessPointType.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
     <Compile Include="Entities\SecuritySoftwareType.cs" />
     <Compile Include="Entities\CustomerInfrastructureBackupSoftware.cs" />
     <Compile Include="Entities\CustomerInfrastructureAdministationSoftware.cs" />
@@ -85,7 +88,7 @@
     <Compile Include="Entities\CustomerInfrastructureServerComputer.cs" />
     <Compile Include="Entities\OperativeSystem.cs" />
     <Compile Include="Entities\CustomerInfrastructurePersonalComputer.cs" />
-    <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkWifiAccessPoint.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkFirewall.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkRouter.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkCabling.cs" />

@@ -70,6 +70,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerInfrastructureNetworkSitesControlController.cs" />
+    <Compile Include="Controllers\CustomerInfrastructureNetworkSwitchesControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkRoutersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkFirewallsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkCommutatorsControlController.cs" />
@@ -85,6 +87,18 @@
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\ustomerInfrastructureNetworkSitesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ustomerInfrastructureNetworkSitesControl.designer.cs">
+      <DependentUpon>ustomerInfrastructureNetworkSitesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkSwitchesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkSwitchesControl.designer.cs">
+      <DependentUpon>CustomerInfrastructureNetworkSwitchesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomerInfrastructureNetworkRoutersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +219,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ustomerInfrastructureNetworkSitesControl.resx">
+      <DependentUpon>ustomerInfrastructureNetworkSitesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkSwitchesControl.resx">
+      <DependentUpon>CustomerInfrastructureNetworkSwitchesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkRoutersControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkRoutersControl.cs</DependentUpon>
     </EmbeddedResource>
