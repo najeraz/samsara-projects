@@ -78,6 +78,7 @@
     <Compile Include="Impl\CCTVBrandDao.cs" />
     <Compile Include="Impl\CustomerInfrastructureAdministationSoftwareDao.cs" />
     <Compile Include="Impl\CustomerInfrastructureBackupSoftwareDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkWifiAccessPointDao.cs" />
     <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareDao.cs" />
     <Compile Include="Impl\SecuritySoftwareBrandDao.cs" />
     <Compile Include="Impl\SecuritySoftwareTypeDao.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkSiteDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkSiteRackDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkSwitchDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiAccessPointDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePrinterDao.cs" />
