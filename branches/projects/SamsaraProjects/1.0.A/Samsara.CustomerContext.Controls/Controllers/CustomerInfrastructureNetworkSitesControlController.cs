@@ -106,6 +106,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             if (this.CustomerInfrastructureNetworkId != null)
             {
+                this.controlCustomerInfrastructureNetworkSites
+                    .mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSiteId = -1;
+                this.controlCustomerInfrastructureNetworkSites
+                    .mtoCustomerInfrastructureNetworkSiteRacks.CustomParent = this.controlCustomerInfrastructureNetworkSites;
+                this.controlCustomerInfrastructureNetworkSites
+                    .mtoCustomerInfrastructureNetworkSiteRacks.LoadControls();
+
                 CustomerInfrastructureNetworkSiteParameters pmtCustomerInfrastructureNetworkSite
                     = new CustomerInfrastructureNetworkSiteParameters();
 
