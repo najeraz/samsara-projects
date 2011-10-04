@@ -92,6 +92,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccessPointBrandFormController.cs" />
+    <Compile Include="Controllers\AccessPointTypeFormController.cs" />
     <Compile Include="Controllers\BackupSoftwareBrandFormController.cs" />
     <Compile Include="Controllers\BusinessTypeFormController.cs" />
     <Compile Include="Controllers\CCTVBrandFormController.cs" />
@@ -118,6 +120,18 @@
     <Compile Include="Controllers\TelephonyProviderFormController.cs" />
     <Compile Include="Controllers\UPSBrandFormController.cs" />
     <Compile Include="Controllers\UPSTypeFormController.cs" />
+    <Compile Include="Forms\AccessPointBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccessPointBrandForm.designer.cs">
+      <DependentUpon>AccessPointBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccessPointTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccessPointTypeForm.designer.cs">
+      <DependentUpon>AccessPointTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BackupSoftwareBrandForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +295,18 @@
       <DependentUpon>UPSTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\AccessPointBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\AccessPointBrandSearchForm.Designer.cs">
+      <DependentUpon>AccessPointBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\AccessPointTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\AccessPointTypeSearchForm.Designer.cs">
+      <DependentUpon>AccessPointTypeSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\BackupSoftwareBrandSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +465,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AccessPointBrandForm.resx">
+      <DependentUpon>AccessPointBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccessPointTypeForm.resx">
+      <DependentUpon>AccessPointTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BackupSoftwareBrandForm.resx">
       <DependentUpon>BackupSoftwareBrandForm.cs</DependentUpon>
     </EmbeddedResource>
