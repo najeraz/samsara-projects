@@ -367,6 +367,18 @@
           type="Samsara.CustomerContext.Dao.Impl.SecuritySoftwareTypeDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IAccessPointBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.AccessPointBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IAccessPointTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.AccessPointTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkWifiAccessPointDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkWifiAccessPointDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 

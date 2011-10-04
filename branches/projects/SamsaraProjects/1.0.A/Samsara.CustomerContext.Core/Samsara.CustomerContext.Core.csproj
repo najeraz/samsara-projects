@@ -104,6 +104,9 @@
     <Compile Include="Parameters\CommutatorTypeParameters.cs" />
     <Compile Include="Parameters\ComputerBrandParameters.cs" />
     <Compile Include="Parameters\BusinessTypeParameters.cs" />
+    <Compile Include="Parameters\AccessPointBrandParameters.cs" />
+    <Compile Include="Parameters\AccessPointTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkWifiAccessPointParameters.cs" />
     <Compile Include="Parameters\SecuritySoftwareTypeParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureAdministationSoftwareParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureBackupSoftwarParameters.cs" />
