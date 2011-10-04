@@ -18,6 +18,12 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual CustomerInfrastructureNetworkSite CustomerInfrastructureNetworkSite
+        {
+            get;
+            set;
+        }
+
         public virtual RackType RackType
         {
             get;

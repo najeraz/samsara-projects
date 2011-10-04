@@ -15,6 +15,12 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
+        public int? CustomerInfrastructureNetworkSiteId
+        {
+            get;
+            set;
+        }
+
         public int? RackTypeId
         {
             get;
