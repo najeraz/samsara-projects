@@ -26,19 +26,24 @@
 
   <query name="CustomerInfrastructureNetworkFirewall.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkFirewall where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkFirewall 
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkFirewall.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkFirewall where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkFirewall
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkId = :CustomerInfrastructureNetworkId
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkFirewall.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkFirewall where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkFirewall
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkId = :CustomerInfrastructureNetworkId
     ]]>
   </query>
 

@@ -26,19 +26,24 @@
 
   <query name="CustomerInfrastructureNetworkRouter.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkRouter where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkRouter 
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkRouter.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkRouter where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkRouter
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkId = :CustomerInfrastructureNetworkId
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkRouter.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkRouter where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkRouter
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkId = :CustomerInfrastructureNetworkId
     ]]>
   </query>
 
