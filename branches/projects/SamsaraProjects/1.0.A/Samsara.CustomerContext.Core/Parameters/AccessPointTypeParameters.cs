@@ -1,0 +1,30 @@
+﻿
+using Samsara.Base.Core.Parameters;
+
+namespace Samsara.CustomerContext.Core.Parameters
+{
+    public class AccessPointTypeParameters : GenericParameters
+    {
+        public AccessPointTypeParameters()
+        {
+        }
+
+        public int? AccessPointTypeId
+        {
+            get;
+            set;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        public string Description
+        {
+            get;
+            set;
+        }
+    }
+}

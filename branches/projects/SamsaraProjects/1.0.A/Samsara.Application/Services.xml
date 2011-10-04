@@ -320,6 +320,18 @@
           type="Samsara.CustomerContext.Service.Impl.SecuritySoftwareTypeService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ISecuritySoftwareTypeDao"/>
   </object>
+  <object id="IAccessPointBrandService"
+          type="Samsara.CustomerContext.Service.Impl.AccessPointBrandService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IAccessPointBrandDao"/>
+  </object>
+  <object id="IAccessPointTypeService"
+          type="Samsara.CustomerContext.Service.Impl.AccessPointTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IAccessPointTypeDao"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkWifiAccessPointService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkWifiAccessPointService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructureNetworkWifiAccessPointDao"/>
+  </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 

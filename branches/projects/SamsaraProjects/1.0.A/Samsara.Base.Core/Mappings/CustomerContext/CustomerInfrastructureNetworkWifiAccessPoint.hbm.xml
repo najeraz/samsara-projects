@@ -24,9 +24,9 @@
                  class="Samsara.CustomerContext.Core.Entities.AccessPointType, Samsara.CustomerContext.Core"
                  column="AccessPointTypeId"/>
 
-    <many-to-one name="AccessPointType"
-                 class="Samsara.CustomerContext.Core.Entities.AccessPointType, Samsara.CustomerContext.Core"
-                 column="AccessPointTypeId"/>
+    <many-to-one name="AccessPointBrand"
+                 class="Samsara.CustomerContext.Core.Entities.AccessPointBrand, Samsara.CustomerContext.Core"
+                 column="AccessPointBrandId"/>
 
   </class>
 
