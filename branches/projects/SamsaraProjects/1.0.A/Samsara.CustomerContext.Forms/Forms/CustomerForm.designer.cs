@@ -58,11 +58,17 @@
             this.tabDetNetwork = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureNetwork = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkSites = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSitesControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkSwitches = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSwitchesControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkCommutators = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkCommutatorsControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkCablings = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkCablingsControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkRouters = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkRoutersControl();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkFirewalls = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkFirewallsControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabDetEnergy = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureEnergy = new System.Windows.Forms.TabControl();
@@ -90,12 +96,6 @@
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabPage35 = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
-            this.mtoCustomerInfrastructureNetworkFirewalls = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkFirewallsControl();
-            this.mtoCustomerInfrastructureNetworkRouters = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkRoutersControl();
-            this.mtoCustomerInfrastructureNetworkCablings = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkCablingsControl();
-            this.mtoCustomerInfrastructureNetworkCommutators = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkCommutatorsControl();
-            this.mtoCustomerInfrastructureNetworkSwitches = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSwitchesControl();
-            this.mtoCustomerInfrastructureNetworkSites = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSitesControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -141,7 +141,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -461,6 +460,15 @@
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Site";
             // 
+            // mtoCustomerInfrastructureNetworkSites
+            // 
+            this.mtoCustomerInfrastructureNetworkSites.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureNetworkSites.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkSites.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureNetworkSites.Name = "mtoCustomerInfrastructureNetworkSites";
+            this.mtoCustomerInfrastructureNetworkSites.Size = new System.Drawing.Size(722, 390);
+            this.mtoCustomerInfrastructureNetworkSites.TabIndex = 0;
+            // 
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.Transparent;
@@ -472,6 +480,15 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Switches";
             // 
+            // mtoCustomerInfrastructureNetworkSwitches
+            // 
+            this.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureNetworkSwitches.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkSwitches.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureNetworkSwitches.Name = "mtoCustomerInfrastructureNetworkSwitches";
+            this.mtoCustomerInfrastructureNetworkSwitches.Size = new System.Drawing.Size(722, 390);
+            this.mtoCustomerInfrastructureNetworkSwitches.TabIndex = 0;
+            // 
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Transparent;
@@ -481,6 +498,15 @@
             this.tabPage7.Size = new System.Drawing.Size(728, 396);
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Conmutadores";
+            // 
+            // mtoCustomerInfrastructureNetworkCommutators
+            // 
+            this.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureNetworkCommutators.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkCommutators.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureNetworkCommutators.Name = "mtoCustomerInfrastructureNetworkCommutators";
+            this.mtoCustomerInfrastructureNetworkCommutators.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureNetworkCommutators.TabIndex = 0;
             // 
             // tabPage8
             // 
@@ -492,6 +518,15 @@
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Cableado";
             // 
+            // mtoCustomerInfrastructureNetworkCablings
+            // 
+            this.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureNetworkCablings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkCablings.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureNetworkCablings.Name = "mtoCustomerInfrastructureNetworkCablings";
+            this.mtoCustomerInfrastructureNetworkCablings.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureNetworkCablings.TabIndex = 0;
+            // 
             // tabPage9
             // 
             this.tabPage9.BackColor = System.Drawing.Color.Transparent;
@@ -502,6 +537,15 @@
             this.tabPage9.TabIndex = 4;
             this.tabPage9.Text = "Routers";
             // 
+            // mtoCustomerInfrastructureNetworkRouters
+            // 
+            this.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureNetworkRouters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkRouters.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureNetworkRouters.Name = "mtoCustomerInfrastructureNetworkRouters";
+            this.mtoCustomerInfrastructureNetworkRouters.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureNetworkRouters.TabIndex = 0;
+            // 
             // tabPage10
             // 
             this.tabPage10.BackColor = System.Drawing.Color.Transparent;
@@ -511,6 +555,15 @@
             this.tabPage10.Size = new System.Drawing.Size(728, 396);
             this.tabPage10.TabIndex = 5;
             this.tabPage10.Text = "Firewalls";
+            // 
+            // mtoCustomerInfrastructureNetworkFirewalls
+            // 
+            this.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureNetworkFirewalls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkFirewalls.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureNetworkFirewalls.Name = "mtoCustomerInfrastructureNetworkFirewalls";
+            this.mtoCustomerInfrastructureNetworkFirewalls.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureNetworkFirewalls.TabIndex = 0;
             // 
             // tabPage11
             // 
@@ -780,60 +833,6 @@
             this.mtoCustomerInfrastructureCCTVs.Name = "mtoCustomerInfrastructureCCTVs";
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
-            // 
-            // mtoCustomerInfrastructureNetworkFirewalls
-            // 
-            this.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkFirewalls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkFirewalls.Location = new System.Drawing.Point(0, 0);
-            this.mtoCustomerInfrastructureNetworkFirewalls.Name = "mtoCustomerInfrastructureNetworkFirewalls";
-            this.mtoCustomerInfrastructureNetworkFirewalls.Size = new System.Drawing.Size(728, 396);
-            this.mtoCustomerInfrastructureNetworkFirewalls.TabIndex = 0;
-            // 
-            // mtoCustomerInfrastructureNetworkRouters
-            // 
-            this.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkRouters.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkRouters.Location = new System.Drawing.Point(0, 0);
-            this.mtoCustomerInfrastructureNetworkRouters.Name = "mtoCustomerInfrastructureNetworkRouters";
-            this.mtoCustomerInfrastructureNetworkRouters.Size = new System.Drawing.Size(728, 396);
-            this.mtoCustomerInfrastructureNetworkRouters.TabIndex = 0;
-            // 
-            // mtoCustomerInfrastructureNetworkCablings
-            // 
-            this.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkCablings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkCablings.Location = new System.Drawing.Point(0, 0);
-            this.mtoCustomerInfrastructureNetworkCablings.Name = "mtoCustomerInfrastructureNetworkCablings";
-            this.mtoCustomerInfrastructureNetworkCablings.Size = new System.Drawing.Size(728, 396);
-            this.mtoCustomerInfrastructureNetworkCablings.TabIndex = 0;
-            // 
-            // mtoCustomerInfrastructureNetworkCommutators
-            // 
-            this.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkCommutators.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkCommutators.Location = new System.Drawing.Point(0, 0);
-            this.mtoCustomerInfrastructureNetworkCommutators.Name = "mtoCustomerInfrastructureNetworkCommutators";
-            this.mtoCustomerInfrastructureNetworkCommutators.Size = new System.Drawing.Size(728, 396);
-            this.mtoCustomerInfrastructureNetworkCommutators.TabIndex = 0;
-            // 
-            // mtoCustomerInfrastructureNetworkSwitches
-            // 
-            this.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkSwitches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkSwitches.Location = new System.Drawing.Point(3, 3);
-            this.mtoCustomerInfrastructureNetworkSwitches.Name = "mtoCustomerInfrastructureNetworkSwitches";
-            this.mtoCustomerInfrastructureNetworkSwitches.Size = new System.Drawing.Size(722, 390);
-            this.mtoCustomerInfrastructureNetworkSwitches.TabIndex = 0;
-            // 
-            // mtoCustomerInfrastructureNetworkSites
-            // 
-            this.mtoCustomerInfrastructureNetworkSites.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkSites.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkSites.Location = new System.Drawing.Point(3, 3);
-            this.mtoCustomerInfrastructureNetworkSites.Name = "mtoCustomerInfrastructureNetworkSites";
-            this.mtoCustomerInfrastructureNetworkSites.Size = new System.Drawing.Size(722, 390);
-            this.mtoCustomerInfrastructureNetworkSites.TabIndex = 0;
             // 
             // CustomerForm
             // 
