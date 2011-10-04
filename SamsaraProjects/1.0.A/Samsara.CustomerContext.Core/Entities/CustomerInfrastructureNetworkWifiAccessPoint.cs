@@ -24,31 +24,31 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public AccessPointBrand AccessPointBrand
+        public virtual AccessPointBrand AccessPointBrand
         {
             get;
             set;
         }
 
-        public AccessPointType AccessPointType
+        public virtual AccessPointType AccessPointType
         {
             get;
             set;
         }
 
-        public string Model
+        public virtual string Model
         {
             get;
             set;
         }
 
-        public string BandWidth
+        public virtual string BandWidth
         {
             get;
             set;
         }
 
-        public string Distance
+        public virtual string Distance
         {
             get;
             set;
