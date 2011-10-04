@@ -281,7 +281,6 @@
             // mtoCustomerInfrastructureNetworkSiteRacks
             // 
             this.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSiteId = null;
-            this.mtoCustomerInfrastructureNetworkSiteRacks.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkSiteRacks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkSiteRacks.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureNetworkSiteRacks.Name = "mtoCustomerInfrastructureNetworkSiteRacks";

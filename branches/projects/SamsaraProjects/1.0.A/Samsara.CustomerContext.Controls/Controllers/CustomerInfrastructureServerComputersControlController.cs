@@ -127,8 +127,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 this.controlCustomerInfrastructureServerComputers
                     .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = -1;
                 this.controlCustomerInfrastructureServerComputers
-                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomParent = this.controlCustomerInfrastructureServerComputers;
-                this.controlCustomerInfrastructureServerComputers
                     .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
 
                 CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
@@ -140,7 +138,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     .SearchByParameters(pmtCustomerInfrastructureServerComputer);
 
                 this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource = this.dtCustomerInfrastructureServerComputers;
+                this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource 
+                    = this.dtCustomerInfrastructureServerComputers;
 
                 IList<CustomerInfrastructureServerComputer> lstCustomerInfrastructureServerComputers 
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
