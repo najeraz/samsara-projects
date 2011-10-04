@@ -76,6 +76,24 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructureId = -1;
             this.frmCustomer.mtoCustomerInfrastructureServerComputers.LoadControls();
 
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSites.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSites.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.LoadControls();
+
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
         }

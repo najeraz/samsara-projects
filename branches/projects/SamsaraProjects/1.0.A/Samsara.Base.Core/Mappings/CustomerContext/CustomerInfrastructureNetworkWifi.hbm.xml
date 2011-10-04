@@ -20,19 +20,24 @@
 
   <query name="CustomerInfrastructureNetworkWifi.GetByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkWifi where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkWifi
+        where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkWifi.GetListByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkWifi where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkWifi
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkId = :CustomerInfrastructureNetworkId
     ]]>
   </query>
 
   <query name="CustomerInfrastructureNetworkWifi.SearchByParameters">
     <![CDATA[
-        from CustomerInfrastructureNetworkWifi where Deleted = 0 and Activated = 1
+        from CustomerInfrastructureNetworkWifi
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureNetworkId = :CustomerInfrastructureNetworkId
     ]]>
   </query>
 
