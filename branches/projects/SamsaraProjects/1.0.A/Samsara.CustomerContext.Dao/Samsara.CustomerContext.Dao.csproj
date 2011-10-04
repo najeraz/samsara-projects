@@ -71,6 +71,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\AccessPointBrandDao.cs" />
+    <Compile Include="Impl\AccessPointTypeDao.cs" />
     <Compile Include="Impl\BackupSoftwareBrandDao.cs" />
     <Compile Include="Impl\BusinessTypeDao.cs" />
     <Compile Include="Impl\CCTVBrandDao.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareDao.cs" />
     <Compile Include="Impl\SecuritySoftwareBrandDao.cs" />
     <Compile Include="Impl\SecuritySoftwareTypeDao.cs" />
+    <Compile Include="Interfaces\IAccessPointBrandDao.cs" />
+    <Compile Include="Interfaces\IAccessPointTypeDao.cs" />
     <Compile Include="Interfaces\IBackupSoftwareBrandDao.cs" />
     <Compile Include="Interfaces\IBusinessTypeDao.cs" />
     <Compile Include="Interfaces\ICCTVBrandDao.cs">

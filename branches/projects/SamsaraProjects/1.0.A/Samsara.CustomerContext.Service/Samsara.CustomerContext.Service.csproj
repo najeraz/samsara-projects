@@ -65,6 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\AccessPointBrandService.cs" />
+    <Compile Include="Impl\AccessPointTypeService.cs" />
     <Compile Include="Impl\BackupSoftwareBrandService.cs" />
     <Compile Include="Impl\BusinessTypeService.cs" />
     <Compile Include="Impl\CCTVBrandService.cs" />
@@ -112,6 +114,8 @@
     <Compile Include="Impl\TelephonyProviderService.cs" />
     <Compile Include="Impl\UPSBrandService.cs" />
     <Compile Include="Impl\UPSTypeService.cs" />
+    <Compile Include="Interfaces\IAccessPointBrandService.cs" />
+    <Compile Include="Interfaces\IAccessPointTypeService.cs" />
     <Compile Include="Interfaces\IBackupSoftwareBrandService.cs" />
     <Compile Include="Interfaces\IBusinessTypeService.cs" />
     <Compile Include="Interfaces\ICCTVBrandService.cs" />
