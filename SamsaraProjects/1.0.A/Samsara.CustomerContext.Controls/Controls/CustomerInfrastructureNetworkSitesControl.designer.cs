@@ -44,6 +44,7 @@
             this.txtIsolatedRoom = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxSiteCooling = new System.Windows.Forms.GroupBox();
             this.txtSiteCooling = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.mtoCustomerInfrastructureNetworkSiteRacks = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSiteRacksControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,6 +63,7 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
+            this.tabItmRacks.SuspendLayout();
             this.gbxDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             this.gbxIsolatedRoom.SuspendLayout();
@@ -212,9 +214,10 @@
             // tabItmRacks
             // 
             this.tabItmRacks.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmRacks.Controls.Add(this.mtoCustomerInfrastructureNetworkSiteRacks);
             this.tabItmRacks.Location = new System.Drawing.Point(4, 22);
             this.tabItmRacks.Name = "tabItmRacks";
-            this.tabItmRacks.Size = new System.Drawing.Size(696, 104);
+            this.tabItmRacks.Size = new System.Drawing.Size(696, 166);
             this.tabItmRacks.TabIndex = 1;
             this.tabItmRacks.Text = "Racks";
             // 
@@ -275,6 +278,16 @@
             this.txtSiteCooling.Size = new System.Drawing.Size(329, 56);
             this.txtSiteCooling.TabIndex = 0;
             // 
+            // mtoCustomerInfrastructureNetworkSiteRacks
+            // 
+            this.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSiteId = null;
+            this.mtoCustomerInfrastructureNetworkSiteRacks.CustomParent = null;
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Location = new System.Drawing.Point(0, 0);
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Name = "mtoCustomerInfrastructureNetworkSiteRacks";
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Size = new System.Drawing.Size(696, 166);
+            this.mtoCustomerInfrastructureNetworkSiteRacks.TabIndex = 0;
+            // 
             // CustomerInfrastructureNetworkSitesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +312,7 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
+            this.tabItmRacks.ResumeLayout(false);
             this.gbxDescription.ResumeLayout(false);
             this.gbxDescription.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
@@ -321,6 +335,7 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtIsolatedRoom;
         private System.Windows.Forms.GroupBox gbxDescription;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
+        internal CustomerInfrastructureNetworkSiteRacksControl mtoCustomerInfrastructureNetworkSiteRacks;
 
 
 
