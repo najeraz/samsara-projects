@@ -15,20 +15,6 @@ namespace Samsara.Controls.Templates
 
         #endregion Attributes
 
-        #region Properties
-
-        /// <summary>
-        /// Form o custom control padre
-        /// </summary>
-        [Description("Form o custom control padre")]
-        public Control CustomParent
-        {
-            get;
-            set;
-        }
-
-        #endregion Properties
-
         #region Constructor
 
         public ManyToOneLevel1Control()
