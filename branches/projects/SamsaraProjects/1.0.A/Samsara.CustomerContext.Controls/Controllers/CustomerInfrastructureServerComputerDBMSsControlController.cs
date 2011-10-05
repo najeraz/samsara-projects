@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
@@ -37,7 +38,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// Id de la entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureServerComputerId
+        public CustomerInfrastructureServerComputer CustomerInfrastructureServerComputer
         {
             get;
             set;
@@ -113,12 +114,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureServerComputerId != null)
+            if (this.CustomerInfrastructureServerComputer != null)
             {
                 CustomerInfrastructureServerComputerDBMSParameters pmtCustomerInfrastructureServerComputerDBMS
                     = new CustomerInfrastructureServerComputerDBMSParameters();
 
-                pmtCustomerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerId = this.CustomerInfrastructureServerComputerId;
+                pmtCustomerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerId
+                    = this.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
 
                 this.dtCustomerInfrastructureServerComputerDBMSs = this.srvCustomerInfrastructureServerComputerDBMS
                     .SearchByParameters(pmtCustomerInfrastructureServerComputerDBMS);
@@ -159,8 +161,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.customerInfrastructureServerComputerDBMS.Activated = true;
             this.customerInfrastructureServerComputerDBMS.Deleted = false;
-            this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer 
-                = this.srvCustomerInfrastructureServerComputer.GetById(this.CustomerInfrastructureServerComputerId.Value);
+            this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer
+                = this.srvCustomerInfrastructureServerComputer.GetById(this.CustomerInfrastructureServerComputer
+                .CustomerInfrastructureServerComputerId);
         }
 
         protected override void DeleteEntity(int entityId)
@@ -271,6 +274,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private void grdRelations_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridBand band = e.Layout.Bands[0];
+
+            band.Override.AllowUpdate = DefaultableBoolean.False;
 
             DBMSParameters pmtDBMS = new DBMSParameters();
 
