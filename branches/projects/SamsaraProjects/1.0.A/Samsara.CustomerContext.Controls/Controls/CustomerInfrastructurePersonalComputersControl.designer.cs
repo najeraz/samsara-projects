@@ -46,13 +46,13 @@
             this.lblSerie = new Infragistics.Win.Misc.UltraLabel();
             this.lblManufacturerReferenceNumber = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmSpecs = new System.Windows.Forms.TabPage();
-            this.Software = new System.Windows.Forms.TabPage();
             this.gbxStorage = new System.Windows.Forms.GroupBox();
             this.txtStorage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtRAM = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtCPU = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblCPU = new Infragistics.Win.Misc.UltraLabel();
             this.lblRAM = new Infragistics.Win.Misc.UltraLabel();
+            this.Software = new System.Windows.Forms.TabPage();
             this.uceOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.lblModel = new Infragistics.Win.Misc.UltraLabel();
@@ -80,11 +80,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerReferenceNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
             this.tabItmSpecs.SuspendLayout();
-            this.Software.SuspendLayout();
             this.gbxStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).BeginInit();
+            this.Software.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
             this.SuspendLayout();
@@ -310,20 +310,9 @@
             this.tabItmSpecs.Controls.Add(this.lblRAM);
             this.tabItmSpecs.Location = new System.Drawing.Point(4, 22);
             this.tabItmSpecs.Name = "tabItmSpecs";
-            this.tabItmSpecs.Size = new System.Drawing.Size(696, 88);
+            this.tabItmSpecs.Size = new System.Drawing.Size(696, 107);
             this.tabItmSpecs.TabIndex = 1;
             this.tabItmSpecs.Text = "Especificaciones";
-            // 
-            // Software
-            // 
-            this.Software.BackColor = System.Drawing.Color.Transparent;
-            this.Software.Controls.Add(this.uceOperativeSystem);
-            this.Software.Controls.Add(this.lblOperativeSystem);
-            this.Software.Location = new System.Drawing.Point(4, 22);
-            this.Software.Name = "Software";
-            this.Software.Size = new System.Drawing.Size(696, 88);
-            this.Software.TabIndex = 2;
-            this.Software.Text = "Software";
             // 
             // gbxStorage
             // 
@@ -376,6 +365,17 @@
             this.lblRAM.TabIndex = 96;
             this.lblRAM.Text = "RAM:";
             // 
+            // Software
+            // 
+            this.Software.BackColor = System.Drawing.Color.Transparent;
+            this.Software.Controls.Add(this.uceOperativeSystem);
+            this.Software.Controls.Add(this.lblOperativeSystem);
+            this.Software.Location = new System.Drawing.Point(4, 22);
+            this.Software.Name = "Software";
+            this.Software.Size = new System.Drawing.Size(696, 107);
+            this.Software.TabIndex = 2;
+            this.Software.Text = "Software";
+            // 
             // uceOperativeSystem
             // 
             this.uceOperativeSystem.Location = new System.Drawing.Point(130, 13);
@@ -397,9 +397,9 @@
             this.lblModel.AutoSize = true;
             this.lblModel.Location = new System.Drawing.Point(13, 76);
             this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(34, 14);
+            this.lblModel.Size = new System.Drawing.Size(45, 14);
             this.lblModel.TabIndex = 110;
-            this.lblModel.Text = "Serie:";
+            this.lblModel.Text = "Modelo:";
             // 
             // txtModel
             // 
@@ -439,13 +439,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
             this.tabItmSpecs.ResumeLayout(false);
             this.tabItmSpecs.PerformLayout();
-            this.Software.ResumeLayout(false);
-            this.Software.PerformLayout();
             this.gbxStorage.ResumeLayout(false);
             this.gbxStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).EndInit();
+            this.Software.ResumeLayout(false);
+            this.Software.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
             this.ResumeLayout(false);

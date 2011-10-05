@@ -12,15 +12,17 @@ namespace Samsara.CustomerContext.Controls.Controls
         /// <summary>
         /// Id de la entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureServerComputerId
+        public CustomerInfrastructureServerComputer CustomerInfrastructureServerComputer
         {
             get
             {
-                return (this.controller as CustomerInfrastructureServerComputerDBMSsControlController).CustomerInfrastructureServerComputerId;
+                return (this.controller as CustomerInfrastructureServerComputerDBMSsControlController)
+                    .CustomerInfrastructureServerComputer;
             }
             set
             {
-                (this.controller as CustomerInfrastructureServerComputerDBMSsControlController).CustomerInfrastructureServerComputerId = value;
+                (this.controller as CustomerInfrastructureServerComputerDBMSsControlController)
+                    .CustomerInfrastructureServerComputer = value;
             }
         }
 
