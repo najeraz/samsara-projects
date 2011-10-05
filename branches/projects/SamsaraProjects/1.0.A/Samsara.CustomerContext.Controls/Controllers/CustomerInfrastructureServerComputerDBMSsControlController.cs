@@ -236,13 +236,19 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
+                row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
                         == this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId);
             }
 
-            row["CustomerInfrastructureServerComputerDBMSId"] = this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId;
+            row["CustomerInfrastructureServerComputerDBMSId"] = this.customerInfrastructureServerComputerDBMS
+                .CustomerInfrastructureServerComputerDBMSId;
             row["DBMSId"] = this.customerInfrastructureServerComputerDBMS.DBMS.DBMSId;
-            row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+            if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer == null)
+                row["CustomerInfrastructureServerComputerId"] = DBNull.Value;
+            else
+                row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureServerComputerDBMS
+                    .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
             row["Description"] = this.customerInfrastructureServerComputerDBMS.Description;
 
             this.dtCustomerInfrastructureServerComputerDBMSs.AcceptChanges();

@@ -244,7 +244,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
+                row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
                         == this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId);
             }
 
