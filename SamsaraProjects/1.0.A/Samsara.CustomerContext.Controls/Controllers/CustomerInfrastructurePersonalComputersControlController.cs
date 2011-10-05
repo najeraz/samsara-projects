@@ -217,8 +217,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Value
                 = this.customerInfrastructurePersonalComputer.PersonalComputerType.PersonalComputerTypeId;
 
-            this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value
-                = this.customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;
+            if (this.customerInfrastructurePersonalComputer.OperativeSystem == null)
+                this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = null;
+            else
+                this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value
+                    = this.customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;
 
             this.controlCustomerInfrastructurePersonalComputers.txtCPU.Text
                 = this.customerInfrastructurePersonalComputer.CPU;
