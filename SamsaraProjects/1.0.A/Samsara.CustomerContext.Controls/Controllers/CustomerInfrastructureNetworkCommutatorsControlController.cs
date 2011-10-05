@@ -235,7 +235,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value == null ||
                     Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar la Marca del NetworkCommutator.",
+                MessageBox.Show("Favor de seleccionar la Marca del Conmutador.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Focus();
                 return false;
@@ -244,7 +244,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value == null ||
                 Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar el Tipo del NetworkCommutator.",
+                MessageBox.Show("Favor de seleccionar el Tipo del Conmutador.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Focus();
                 return false;
@@ -269,11 +269,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
+                row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
                         == this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId);
             }
 
-            row["CustomerInfrastructureNetworkCommutatorId"] = this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId;
+            row["CustomerInfrastructureNetworkCommutatorId"] = this.customerInfrastructureNetworkCommutator
+                .CustomerInfrastructureNetworkCommutatorId;
             row["CommutatorBrandId"] = this.customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
             row["CommutatorTypeId"] = this.customerInfrastructureNetworkCommutator.CommutatorType.CommutatorTypeId;
             row["NumberOfTrunks"] = this.customerInfrastructureNetworkCommutator.NumberOfTrunks;

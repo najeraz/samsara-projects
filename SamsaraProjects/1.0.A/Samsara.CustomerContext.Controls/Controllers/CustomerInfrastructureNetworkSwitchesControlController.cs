@@ -244,11 +244,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
+                row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
                         == this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId);
             }
 
-            row["CustomerInfrastructureNetworkSwitchId"] = this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId;
+            row["CustomerInfrastructureNetworkSwitchId"] = this.customerInfrastructureNetworkSwitch
+                .CustomerInfrastructureNetworkSwitchId;
             row["SwitchBrandId"] = this.customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
             row["PortQuantity"] = this.customerInfrastructureNetworkSwitch.PortQuantity;
             row["Speed"] = this.customerInfrastructureNetworkSwitch.Speed;

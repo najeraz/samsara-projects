@@ -313,15 +313,20 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
+                row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
                         == this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId);
             }
 
-            row["CustomerInfrastructurePersonalComputerId"] = this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId;
+            row["CustomerInfrastructurePersonalComputerId"] = this.customerInfrastructurePersonalComputer
+                .CustomerInfrastructurePersonalComputerId;
             row["ComputerBrandId"] = this.customerInfrastructurePersonalComputer.ComputerBrand.ComputerBrandId;
             row["PersonalComputerTypeId"] = this.customerInfrastructurePersonalComputer.PersonalComputerType.PersonalComputerTypeId;
             row["Model"] = this.customerInfrastructurePersonalComputer.Model;
-            row["OperativeSystemId"] = this.customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;
+            if (this.customerInfrastructurePersonalComputer.OperativeSystem == null)
+                row["OperativeSystemId"] = DBNull.Value;
+            else
+                row["OperativeSystemId"] = this.customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;
             row["ManufacturerReferenceNumber"] = this.customerInfrastructurePersonalComputer.ManufacturerReferenceNumber;
             row["RAM"] = this.customerInfrastructurePersonalComputer.RAM;
             row["CPU"] = this.customerInfrastructurePersonalComputer.CPU;
