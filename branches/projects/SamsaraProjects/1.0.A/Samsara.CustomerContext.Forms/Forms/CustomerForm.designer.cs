@@ -45,56 +45,56 @@
             this.txtDetDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblDetBusinessType = new System.Windows.Forms.Label();
             this.tabCustomerDetail = new System.Windows.Forms.TabControl();
-            this.tabDetPrincipal = new System.Windows.Forms.TabPage();
-            this.ultraComboEditor1 = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.tabDetInfraestructure = new System.Windows.Forms.TabPage();
+            this.tabItmDetPrincipal = new System.Windows.Forms.TabPage();
+            this.uceDetBusinessType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.tabItmDetInfraestructure = new System.Windows.Forms.TabPage();
             this.tabDetInfrastructure = new System.Windows.Forms.TabControl();
-            this.tabDetComputers = new System.Windows.Forms.TabPage();
+            this.tabItmDetComputers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureComputers = new System.Windows.Forms.TabControl();
-            this.tabDetPersonalComputers = new System.Windows.Forms.TabPage();
+            this.tabItmDetPersonalComputers = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructurePersonalComputers = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructurePersonalComputersControl();
-            this.tabDetServerComputers = new System.Windows.Forms.TabPage();
+            this.tabItmDetServerComputers = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureServerComputers = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputersControl();
-            this.tabDetNetwork = new System.Windows.Forms.TabPage();
+            this.tabItmDetNetwork = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureNetwork = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkSite = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkSites = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSitesControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkSwitches = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkSwitches = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSwitchesControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkCommutators = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkCommutators = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkCommutatorsControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkCabling = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkCablings = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkCablingsControl();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkRouters = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkRouters = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkRoutersControl();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkFirewalls = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkFirewalls = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkFirewallsControl();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabDetEnergy = new System.Windows.Forms.TabPage();
+            this.tabItmNetworkWifi = new System.Windows.Forms.TabPage();
+            this.tabItmDetEnergy = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureEnergy = new System.Windows.Forms.TabControl();
-            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.tabItmEnergy = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureUPSs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureUPSsControl();
-            this.tabDetPeripherals = new System.Windows.Forms.TabPage();
+            this.tabItmDetPeripherals = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructurePeripherals = new System.Windows.Forms.TabControl();
-            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.tabItmPeripherals = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructurePrinters = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructurePrintersControl();
-            this.tabDetSoftware = new System.Windows.Forms.TabPage();
+            this.tabItmDetSoftware = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSoftware = new System.Windows.Forms.TabControl();
-            this.tabPage26 = new System.Windows.Forms.TabPage();
+            this.tabItmDetAdministrationSoftware = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureAdministationSoftwares = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl();
-            this.tabPage24 = new System.Windows.Forms.TabPage();
+            this.tabItmDetSecuritySoftware = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureSecuritySoftwares = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureSecuritySoftwaresControl();
-            this.tabPage27 = new System.Windows.Forms.TabPage();
+            this.tabItmDetBackupSoftware = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureBackupSoftwares = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureBackupSoftwaresControl();
-            this.tabDetSuppliers = new System.Windows.Forms.TabPage();
+            this.tabItmDetSuppliers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureSuppliers = new System.Windows.Forms.TabControl();
-            this.tabPage31 = new System.Windows.Forms.TabPage();
+            this.tabItmDetISP = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureISPs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureISPsControl();
-            this.tabPage33 = new System.Windows.Forms.TabPage();
+            this.tabItmDetTelephony = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureTelephonies = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureTelephoniesControl();
-            this.tabDetVideo = new System.Windows.Forms.TabPage();
+            this.tabItmDetVideo = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
-            this.tabPage35 = new System.Windows.Forms.TabPage();
+            this.tabItmDetCCTV = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
@@ -102,45 +102,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetDescription)).BeginInit();
             this.tabCustomerDetail.SuspendLayout();
-            this.tabDetPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor1)).BeginInit();
-            this.tabDetInfraestructure.SuspendLayout();
+            this.tabItmDetPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetBusinessType)).BeginInit();
+            this.tabItmDetInfraestructure.SuspendLayout();
             this.tabDetInfrastructure.SuspendLayout();
-            this.tabDetComputers.SuspendLayout();
+            this.tabItmDetComputers.SuspendLayout();
             this.tabDetInfraestructureComputers.SuspendLayout();
-            this.tabDetPersonalComputers.SuspendLayout();
-            this.tabDetServerComputers.SuspendLayout();
-            this.tabDetNetwork.SuspendLayout();
+            this.tabItmDetPersonalComputers.SuspendLayout();
+            this.tabItmDetServerComputers.SuspendLayout();
+            this.tabItmDetNetwork.SuspendLayout();
             this.tabDetInfraestructureNetwork.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.tabPage10.SuspendLayout();
-            this.tabDetEnergy.SuspendLayout();
+            this.tabItmNetworkSite.SuspendLayout();
+            this.tabItmNetworkSwitches.SuspendLayout();
+            this.tabItmNetworkCommutators.SuspendLayout();
+            this.tabItmNetworkCabling.SuspendLayout();
+            this.tabItmNetworkRouters.SuspendLayout();
+            this.tabItmNetworkFirewalls.SuspendLayout();
+            this.tabItmDetEnergy.SuspendLayout();
             this.tabDetInfraestructureEnergy.SuspendLayout();
-            this.tabPage20.SuspendLayout();
-            this.tabDetPeripherals.SuspendLayout();
+            this.tabItmEnergy.SuspendLayout();
+            this.tabItmDetPeripherals.SuspendLayout();
             this.tabDetInfraestructurePeripherals.SuspendLayout();
-            this.tabPage22.SuspendLayout();
-            this.tabDetSoftware.SuspendLayout();
+            this.tabItmPeripherals.SuspendLayout();
+            this.tabItmDetSoftware.SuspendLayout();
             this.tabDetInfraestructureSoftware.SuspendLayout();
-            this.tabPage26.SuspendLayout();
-            this.tabPage24.SuspendLayout();
-            this.tabPage27.SuspendLayout();
-            this.tabDetSuppliers.SuspendLayout();
+            this.tabItmDetAdministrationSoftware.SuspendLayout();
+            this.tabItmDetSecuritySoftware.SuspendLayout();
+            this.tabItmDetBackupSoftware.SuspendLayout();
+            this.tabItmDetSuppliers.SuspendLayout();
             this.tabDetInfraestructureSuppliers.SuspendLayout();
-            this.tabPage31.SuspendLayout();
-            this.tabPage33.SuspendLayout();
-            this.tabDetVideo.SuspendLayout();
+            this.tabItmDetISP.SuspendLayout();
+            this.tabItmDetTelephony.SuspendLayout();
+            this.tabItmDetVideo.SuspendLayout();
             this.tabDetInfraestructureVideo.SuspendLayout();
-            this.tabPage35.SuspendLayout();
+            this.tabItmDetCCTV.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -301,8 +302,8 @@
             // 
             // tabCustomerDetail
             // 
-            this.tabCustomerDetail.Controls.Add(this.tabDetPrincipal);
-            this.tabCustomerDetail.Controls.Add(this.tabDetInfraestructure);
+            this.tabCustomerDetail.Controls.Add(this.tabItmDetPrincipal);
+            this.tabCustomerDetail.Controls.Add(this.tabItmDetInfraestructure);
             this.tabCustomerDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCustomerDetail.Location = new System.Drawing.Point(3, 16);
             this.tabCustomerDetail.Name = "tabCustomerDetail";
@@ -310,49 +311,49 @@
             this.tabCustomerDetail.Size = new System.Drawing.Size(764, 486);
             this.tabCustomerDetail.TabIndex = 27;
             // 
-            // tabDetPrincipal
+            // tabItmDetPrincipal
             // 
-            this.tabDetPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPrincipal.Controls.Add(this.ultraComboEditor1);
-            this.tabDetPrincipal.Controls.Add(this.lblDetName);
-            this.tabDetPrincipal.Controls.Add(this.lblDetBusinessType);
-            this.tabDetPrincipal.Controls.Add(this.txtDetName);
-            this.tabDetPrincipal.Controls.Add(this.txtDetDescription);
-            this.tabDetPrincipal.Controls.Add(this.lblDetFullName);
-            this.tabDetPrincipal.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPrincipal.Name = "tabDetPrincipal";
-            this.tabDetPrincipal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetPrincipal.Size = new System.Drawing.Size(756, 460);
-            this.tabDetPrincipal.TabIndex = 0;
-            this.tabDetPrincipal.Text = "Principal";
+            this.tabItmDetPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetPrincipal.Controls.Add(this.uceDetBusinessType);
+            this.tabItmDetPrincipal.Controls.Add(this.lblDetName);
+            this.tabItmDetPrincipal.Controls.Add(this.lblDetBusinessType);
+            this.tabItmDetPrincipal.Controls.Add(this.txtDetName);
+            this.tabItmDetPrincipal.Controls.Add(this.txtDetDescription);
+            this.tabItmDetPrincipal.Controls.Add(this.lblDetFullName);
+            this.tabItmDetPrincipal.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetPrincipal.Name = "tabItmDetPrincipal";
+            this.tabItmDetPrincipal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetPrincipal.Size = new System.Drawing.Size(756, 460);
+            this.tabItmDetPrincipal.TabIndex = 0;
+            this.tabItmDetPrincipal.Text = "Principal";
             // 
-            // ultraComboEditor1
+            // uceDetBusinessType
             // 
-            this.ultraComboEditor1.Location = new System.Drawing.Point(99, 94);
-            this.ultraComboEditor1.Name = "ultraComboEditor1";
-            this.ultraComboEditor1.Size = new System.Drawing.Size(226, 21);
-            this.ultraComboEditor1.TabIndex = 89;
+            this.uceDetBusinessType.Location = new System.Drawing.Point(99, 94);
+            this.uceDetBusinessType.Name = "uceDetBusinessType";
+            this.uceDetBusinessType.Size = new System.Drawing.Size(226, 21);
+            this.uceDetBusinessType.TabIndex = 89;
             // 
-            // tabDetInfraestructure
+            // tabItmDetInfraestructure
             // 
-            this.tabDetInfraestructure.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetInfraestructure.Controls.Add(this.tabDetInfrastructure);
-            this.tabDetInfraestructure.Location = new System.Drawing.Point(4, 22);
-            this.tabDetInfraestructure.Name = "tabDetInfraestructure";
-            this.tabDetInfraestructure.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetInfraestructure.Size = new System.Drawing.Size(756, 460);
-            this.tabDetInfraestructure.TabIndex = 1;
-            this.tabDetInfraestructure.Text = "Infraestructura";
+            this.tabItmDetInfraestructure.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetInfraestructure.Controls.Add(this.tabDetInfrastructure);
+            this.tabItmDetInfraestructure.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetInfraestructure.Name = "tabItmDetInfraestructure";
+            this.tabItmDetInfraestructure.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetInfraestructure.Size = new System.Drawing.Size(756, 460);
+            this.tabItmDetInfraestructure.TabIndex = 1;
+            this.tabItmDetInfraestructure.Text = "Infraestructura";
             // 
             // tabDetInfrastructure
             // 
-            this.tabDetInfrastructure.Controls.Add(this.tabDetComputers);
-            this.tabDetInfrastructure.Controls.Add(this.tabDetNetwork);
-            this.tabDetInfrastructure.Controls.Add(this.tabDetEnergy);
-            this.tabDetInfrastructure.Controls.Add(this.tabDetPeripherals);
-            this.tabDetInfrastructure.Controls.Add(this.tabDetSoftware);
-            this.tabDetInfrastructure.Controls.Add(this.tabDetSuppliers);
-            this.tabDetInfrastructure.Controls.Add(this.tabDetVideo);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetComputers);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetNetwork);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetEnergy);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetPeripherals);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetSoftware);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetSuppliers);
+            this.tabDetInfrastructure.Controls.Add(this.tabItmDetVideo);
             this.tabDetInfrastructure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfrastructure.Location = new System.Drawing.Point(3, 3);
             this.tabDetInfrastructure.Name = "tabDetInfrastructure";
@@ -360,21 +361,21 @@
             this.tabDetInfrastructure.Size = new System.Drawing.Size(750, 454);
             this.tabDetInfrastructure.TabIndex = 1;
             // 
-            // tabDetComputers
+            // tabItmDetComputers
             // 
-            this.tabDetComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetComputers.Controls.Add(this.tabDetInfraestructureComputers);
-            this.tabDetComputers.Location = new System.Drawing.Point(4, 22);
-            this.tabDetComputers.Name = "tabDetComputers";
-            this.tabDetComputers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetComputers.Size = new System.Drawing.Size(742, 428);
-            this.tabDetComputers.TabIndex = 0;
-            this.tabDetComputers.Text = "Computadoras";
+            this.tabItmDetComputers.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetComputers.Controls.Add(this.tabDetInfraestructureComputers);
+            this.tabItmDetComputers.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetComputers.Name = "tabItmDetComputers";
+            this.tabItmDetComputers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetComputers.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetComputers.TabIndex = 0;
+            this.tabItmDetComputers.Text = "Computadoras";
             // 
             // tabDetInfraestructureComputers
             // 
-            this.tabDetInfraestructureComputers.Controls.Add(this.tabDetPersonalComputers);
-            this.tabDetInfraestructureComputers.Controls.Add(this.tabDetServerComputers);
+            this.tabDetInfraestructureComputers.Controls.Add(this.tabItmDetPersonalComputers);
+            this.tabDetInfraestructureComputers.Controls.Add(this.tabItmDetServerComputers);
             this.tabDetInfraestructureComputers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructureComputers.Location = new System.Drawing.Point(3, 3);
             this.tabDetInfraestructureComputers.Name = "tabDetInfraestructureComputers";
@@ -382,16 +383,16 @@
             this.tabDetInfraestructureComputers.Size = new System.Drawing.Size(736, 422);
             this.tabDetInfraestructureComputers.TabIndex = 1;
             // 
-            // tabDetPersonalComputers
+            // tabItmDetPersonalComputers
             // 
-            this.tabDetPersonalComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPersonalComputers.Controls.Add(this.mtoCustomerInfrastructurePersonalComputers);
-            this.tabDetPersonalComputers.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPersonalComputers.Name = "tabDetPersonalComputers";
-            this.tabDetPersonalComputers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetPersonalComputers.Size = new System.Drawing.Size(728, 396);
-            this.tabDetPersonalComputers.TabIndex = 0;
-            this.tabDetPersonalComputers.Text = "Personales";
+            this.tabItmDetPersonalComputers.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetPersonalComputers.Controls.Add(this.mtoCustomerInfrastructurePersonalComputers);
+            this.tabItmDetPersonalComputers.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetPersonalComputers.Name = "tabItmDetPersonalComputers";
+            this.tabItmDetPersonalComputers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetPersonalComputers.Size = new System.Drawing.Size(728, 396);
+            this.tabItmDetPersonalComputers.TabIndex = 0;
+            this.tabItmDetPersonalComputers.Text = "Personales";
             // 
             // mtoCustomerInfrastructurePersonalComputers
             // 
@@ -402,16 +403,16 @@
             this.mtoCustomerInfrastructurePersonalComputers.Size = new System.Drawing.Size(722, 390);
             this.mtoCustomerInfrastructurePersonalComputers.TabIndex = 0;
             // 
-            // tabDetServerComputers
+            // tabItmDetServerComputers
             // 
-            this.tabDetServerComputers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetServerComputers.Controls.Add(this.mtoCustomerInfrastructureServerComputers);
-            this.tabDetServerComputers.Location = new System.Drawing.Point(4, 22);
-            this.tabDetServerComputers.Name = "tabDetServerComputers";
-            this.tabDetServerComputers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetServerComputers.Size = new System.Drawing.Size(728, 396);
-            this.tabDetServerComputers.TabIndex = 1;
-            this.tabDetServerComputers.Text = "Servidores";
+            this.tabItmDetServerComputers.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetServerComputers.Controls.Add(this.mtoCustomerInfrastructureServerComputers);
+            this.tabItmDetServerComputers.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetServerComputers.Name = "tabItmDetServerComputers";
+            this.tabItmDetServerComputers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetServerComputers.Size = new System.Drawing.Size(728, 396);
+            this.tabItmDetServerComputers.TabIndex = 1;
+            this.tabItmDetServerComputers.Text = "Servidores";
             // 
             // mtoCustomerInfrastructureServerComputers
             // 
@@ -422,26 +423,26 @@
             this.mtoCustomerInfrastructureServerComputers.Size = new System.Drawing.Size(722, 390);
             this.mtoCustomerInfrastructureServerComputers.TabIndex = 0;
             // 
-            // tabDetNetwork
+            // tabItmDetNetwork
             // 
-            this.tabDetNetwork.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetNetwork.Controls.Add(this.tabDetInfraestructureNetwork);
-            this.tabDetNetwork.Location = new System.Drawing.Point(4, 22);
-            this.tabDetNetwork.Name = "tabDetNetwork";
-            this.tabDetNetwork.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDetNetwork.Size = new System.Drawing.Size(742, 428);
-            this.tabDetNetwork.TabIndex = 1;
-            this.tabDetNetwork.Text = "Redes";
+            this.tabItmDetNetwork.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetNetwork.Controls.Add(this.tabDetInfraestructureNetwork);
+            this.tabItmDetNetwork.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetNetwork.Name = "tabItmDetNetwork";
+            this.tabItmDetNetwork.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetNetwork.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetNetwork.TabIndex = 1;
+            this.tabItmDetNetwork.Text = "Redes";
             // 
             // tabDetInfraestructureNetwork
             // 
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage5);
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage6);
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage7);
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage8);
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage9);
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage10);
-            this.tabDetInfraestructureNetwork.Controls.Add(this.tabPage11);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkSite);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkSwitches);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkCommutators);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkCabling);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkRouters);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkFirewalls);
+            this.tabDetInfraestructureNetwork.Controls.Add(this.tabItmNetworkWifi);
             this.tabDetInfraestructureNetwork.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructureNetwork.Location = new System.Drawing.Point(3, 3);
             this.tabDetInfraestructureNetwork.Name = "tabDetInfraestructureNetwork";
@@ -449,16 +450,16 @@
             this.tabDetInfraestructureNetwork.Size = new System.Drawing.Size(736, 422);
             this.tabDetInfraestructureNetwork.TabIndex = 89;
             // 
-            // tabPage5
+            // tabItmNetworkSite
             // 
-            this.tabPage5.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage5.Controls.Add(this.mtoCustomerInfrastructureNetworkSites);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(728, 396);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "Site";
+            this.tabItmNetworkSite.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkSite.Controls.Add(this.mtoCustomerInfrastructureNetworkSites);
+            this.tabItmNetworkSite.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkSite.Name = "tabItmNetworkSite";
+            this.tabItmNetworkSite.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmNetworkSite.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkSite.TabIndex = 0;
+            this.tabItmNetworkSite.Text = "Site";
             // 
             // mtoCustomerInfrastructureNetworkSites
             // 
@@ -469,16 +470,16 @@
             this.mtoCustomerInfrastructureNetworkSites.Size = new System.Drawing.Size(722, 390);
             this.mtoCustomerInfrastructureNetworkSites.TabIndex = 0;
             // 
-            // tabPage6
+            // tabItmNetworkSwitches
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage6.Controls.Add(this.mtoCustomerInfrastructureNetworkSwitches);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(728, 396);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Switches";
+            this.tabItmNetworkSwitches.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkSwitches.Controls.Add(this.mtoCustomerInfrastructureNetworkSwitches);
+            this.tabItmNetworkSwitches.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkSwitches.Name = "tabItmNetworkSwitches";
+            this.tabItmNetworkSwitches.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmNetworkSwitches.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkSwitches.TabIndex = 1;
+            this.tabItmNetworkSwitches.Text = "Switches";
             // 
             // mtoCustomerInfrastructureNetworkSwitches
             // 
@@ -489,15 +490,15 @@
             this.mtoCustomerInfrastructureNetworkSwitches.Size = new System.Drawing.Size(722, 390);
             this.mtoCustomerInfrastructureNetworkSwitches.TabIndex = 0;
             // 
-            // tabPage7
+            // tabItmNetworkCommutators
             // 
-            this.tabPage7.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage7.Controls.Add(this.mtoCustomerInfrastructureNetworkCommutators);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(728, 396);
-            this.tabPage7.TabIndex = 3;
-            this.tabPage7.Text = "Conmutadores";
+            this.tabItmNetworkCommutators.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkCommutators.Controls.Add(this.mtoCustomerInfrastructureNetworkCommutators);
+            this.tabItmNetworkCommutators.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkCommutators.Name = "tabItmNetworkCommutators";
+            this.tabItmNetworkCommutators.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkCommutators.TabIndex = 3;
+            this.tabItmNetworkCommutators.Text = "Conmutadores";
             // 
             // mtoCustomerInfrastructureNetworkCommutators
             // 
@@ -508,15 +509,15 @@
             this.mtoCustomerInfrastructureNetworkCommutators.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureNetworkCommutators.TabIndex = 0;
             // 
-            // tabPage8
+            // tabItmNetworkCabling
             // 
-            this.tabPage8.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage8.Controls.Add(this.mtoCustomerInfrastructureNetworkCablings);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(728, 396);
-            this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "Cableado";
+            this.tabItmNetworkCabling.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkCabling.Controls.Add(this.mtoCustomerInfrastructureNetworkCablings);
+            this.tabItmNetworkCabling.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkCabling.Name = "tabItmNetworkCabling";
+            this.tabItmNetworkCabling.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkCabling.TabIndex = 2;
+            this.tabItmNetworkCabling.Text = "Cableado";
             // 
             // mtoCustomerInfrastructureNetworkCablings
             // 
@@ -527,15 +528,15 @@
             this.mtoCustomerInfrastructureNetworkCablings.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureNetworkCablings.TabIndex = 0;
             // 
-            // tabPage9
+            // tabItmNetworkRouters
             // 
-            this.tabPage9.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage9.Controls.Add(this.mtoCustomerInfrastructureNetworkRouters);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(728, 396);
-            this.tabPage9.TabIndex = 4;
-            this.tabPage9.Text = "Routers";
+            this.tabItmNetworkRouters.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkRouters.Controls.Add(this.mtoCustomerInfrastructureNetworkRouters);
+            this.tabItmNetworkRouters.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkRouters.Name = "tabItmNetworkRouters";
+            this.tabItmNetworkRouters.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkRouters.TabIndex = 4;
+            this.tabItmNetworkRouters.Text = "Routers";
             // 
             // mtoCustomerInfrastructureNetworkRouters
             // 
@@ -546,15 +547,15 @@
             this.mtoCustomerInfrastructureNetworkRouters.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureNetworkRouters.TabIndex = 0;
             // 
-            // tabPage10
+            // tabItmNetworkFirewalls
             // 
-            this.tabPage10.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage10.Controls.Add(this.mtoCustomerInfrastructureNetworkFirewalls);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(728, 396);
-            this.tabPage10.TabIndex = 5;
-            this.tabPage10.Text = "Firewalls";
+            this.tabItmNetworkFirewalls.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkFirewalls.Controls.Add(this.mtoCustomerInfrastructureNetworkFirewalls);
+            this.tabItmNetworkFirewalls.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkFirewalls.Name = "tabItmNetworkFirewalls";
+            this.tabItmNetworkFirewalls.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkFirewalls.TabIndex = 5;
+            this.tabItmNetworkFirewalls.Text = "Firewalls";
             // 
             // mtoCustomerInfrastructureNetworkFirewalls
             // 
@@ -565,28 +566,28 @@
             this.mtoCustomerInfrastructureNetworkFirewalls.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureNetworkFirewalls.TabIndex = 0;
             // 
-            // tabPage11
+            // tabItmNetworkWifi
             // 
-            this.tabPage11.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(728, 396);
-            this.tabPage11.TabIndex = 6;
-            this.tabPage11.Text = "Redes inalámbricas";
+            this.tabItmNetworkWifi.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkWifi.Location = new System.Drawing.Point(4, 22);
+            this.tabItmNetworkWifi.Name = "tabItmNetworkWifi";
+            this.tabItmNetworkWifi.Size = new System.Drawing.Size(728, 396);
+            this.tabItmNetworkWifi.TabIndex = 6;
+            this.tabItmNetworkWifi.Text = "Redes inalámbricas";
             // 
-            // tabDetEnergy
+            // tabItmDetEnergy
             // 
-            this.tabDetEnergy.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetEnergy.Controls.Add(this.tabDetInfraestructureEnergy);
-            this.tabDetEnergy.Location = new System.Drawing.Point(4, 22);
-            this.tabDetEnergy.Name = "tabDetEnergy";
-            this.tabDetEnergy.Size = new System.Drawing.Size(742, 428);
-            this.tabDetEnergy.TabIndex = 2;
-            this.tabDetEnergy.Text = "Energía";
+            this.tabItmDetEnergy.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetEnergy.Controls.Add(this.tabDetInfraestructureEnergy);
+            this.tabItmDetEnergy.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetEnergy.Name = "tabItmDetEnergy";
+            this.tabItmDetEnergy.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetEnergy.TabIndex = 2;
+            this.tabItmDetEnergy.Text = "Energía";
             // 
             // tabDetInfraestructureEnergy
             // 
-            this.tabDetInfraestructureEnergy.Controls.Add(this.tabPage20);
+            this.tabDetInfraestructureEnergy.Controls.Add(this.tabItmEnergy);
             this.tabDetInfraestructureEnergy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructureEnergy.Location = new System.Drawing.Point(0, 0);
             this.tabDetInfraestructureEnergy.Name = "tabDetInfraestructureEnergy";
@@ -594,16 +595,16 @@
             this.tabDetInfraestructureEnergy.Size = new System.Drawing.Size(742, 428);
             this.tabDetInfraestructureEnergy.TabIndex = 89;
             // 
-            // tabPage20
+            // tabItmEnergy
             // 
-            this.tabPage20.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage20.Controls.Add(this.mtoCustomerInfrastructureUPSs);
-            this.tabPage20.Location = new System.Drawing.Point(4, 22);
-            this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage20.Size = new System.Drawing.Size(734, 402);
-            this.tabPage20.TabIndex = 0;
-            this.tabPage20.Text = "UPSs";
+            this.tabItmEnergy.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmEnergy.Controls.Add(this.mtoCustomerInfrastructureUPSs);
+            this.tabItmEnergy.Location = new System.Drawing.Point(4, 22);
+            this.tabItmEnergy.Name = "tabItmEnergy";
+            this.tabItmEnergy.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmEnergy.Size = new System.Drawing.Size(734, 402);
+            this.tabItmEnergy.TabIndex = 0;
+            this.tabItmEnergy.Text = "UPSs";
             // 
             // mtoCustomerInfrastructureUPSs
             // 
@@ -614,19 +615,19 @@
             this.mtoCustomerInfrastructureUPSs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureUPSs.TabIndex = 0;
             // 
-            // tabDetPeripherals
+            // tabItmDetPeripherals
             // 
-            this.tabDetPeripherals.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetPeripherals.Controls.Add(this.tabDetInfraestructurePeripherals);
-            this.tabDetPeripherals.Location = new System.Drawing.Point(4, 22);
-            this.tabDetPeripherals.Name = "tabDetPeripherals";
-            this.tabDetPeripherals.Size = new System.Drawing.Size(742, 428);
-            this.tabDetPeripherals.TabIndex = 3;
-            this.tabDetPeripherals.Text = "Periféricos";
+            this.tabItmDetPeripherals.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetPeripherals.Controls.Add(this.tabDetInfraestructurePeripherals);
+            this.tabItmDetPeripherals.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetPeripherals.Name = "tabItmDetPeripherals";
+            this.tabItmDetPeripherals.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetPeripherals.TabIndex = 3;
+            this.tabItmDetPeripherals.Text = "Periféricos";
             // 
             // tabDetInfraestructurePeripherals
             // 
-            this.tabDetInfraestructurePeripherals.Controls.Add(this.tabPage22);
+            this.tabDetInfraestructurePeripherals.Controls.Add(this.tabItmPeripherals);
             this.tabDetInfraestructurePeripherals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructurePeripherals.Location = new System.Drawing.Point(0, 0);
             this.tabDetInfraestructurePeripherals.Name = "tabDetInfraestructurePeripherals";
@@ -634,16 +635,16 @@
             this.tabDetInfraestructurePeripherals.Size = new System.Drawing.Size(742, 428);
             this.tabDetInfraestructurePeripherals.TabIndex = 90;
             // 
-            // tabPage22
+            // tabItmPeripherals
             // 
-            this.tabPage22.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage22.Controls.Add(this.mtoCustomerInfrastructurePrinters);
-            this.tabPage22.Location = new System.Drawing.Point(4, 22);
-            this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage22.Size = new System.Drawing.Size(734, 402);
-            this.tabPage22.TabIndex = 0;
-            this.tabPage22.Text = "Impresoras";
+            this.tabItmPeripherals.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmPeripherals.Controls.Add(this.mtoCustomerInfrastructurePrinters);
+            this.tabItmPeripherals.Location = new System.Drawing.Point(4, 22);
+            this.tabItmPeripherals.Name = "tabItmPeripherals";
+            this.tabItmPeripherals.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmPeripherals.Size = new System.Drawing.Size(734, 402);
+            this.tabItmPeripherals.TabIndex = 0;
+            this.tabItmPeripherals.Text = "Impresoras";
             // 
             // mtoCustomerInfrastructurePrinters
             // 
@@ -654,21 +655,21 @@
             this.mtoCustomerInfrastructurePrinters.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructurePrinters.TabIndex = 0;
             // 
-            // tabDetSoftware
+            // tabItmDetSoftware
             // 
-            this.tabDetSoftware.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetSoftware.Controls.Add(this.tabDetInfraestructureSoftware);
-            this.tabDetSoftware.Location = new System.Drawing.Point(4, 22);
-            this.tabDetSoftware.Name = "tabDetSoftware";
-            this.tabDetSoftware.Size = new System.Drawing.Size(742, 428);
-            this.tabDetSoftware.TabIndex = 4;
-            this.tabDetSoftware.Text = "Software";
+            this.tabItmDetSoftware.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetSoftware.Controls.Add(this.tabDetInfraestructureSoftware);
+            this.tabItmDetSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetSoftware.Name = "tabItmDetSoftware";
+            this.tabItmDetSoftware.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetSoftware.TabIndex = 4;
+            this.tabItmDetSoftware.Text = "Software";
             // 
             // tabDetInfraestructureSoftware
             // 
-            this.tabDetInfraestructureSoftware.Controls.Add(this.tabPage26);
-            this.tabDetInfraestructureSoftware.Controls.Add(this.tabPage24);
-            this.tabDetInfraestructureSoftware.Controls.Add(this.tabPage27);
+            this.tabDetInfraestructureSoftware.Controls.Add(this.tabItmDetAdministrationSoftware);
+            this.tabDetInfraestructureSoftware.Controls.Add(this.tabItmDetSecuritySoftware);
+            this.tabDetInfraestructureSoftware.Controls.Add(this.tabItmDetBackupSoftware);
             this.tabDetInfraestructureSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructureSoftware.Location = new System.Drawing.Point(0, 0);
             this.tabDetInfraestructureSoftware.Name = "tabDetInfraestructureSoftware";
@@ -676,15 +677,15 @@
             this.tabDetInfraestructureSoftware.Size = new System.Drawing.Size(742, 428);
             this.tabDetInfraestructureSoftware.TabIndex = 91;
             // 
-            // tabPage26
+            // tabItmDetAdministrationSoftware
             // 
-            this.tabPage26.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage26.Controls.Add(this.mtoCustomerInfrastructureAdministationSoftwares);
-            this.tabPage26.Location = new System.Drawing.Point(4, 22);
-            this.tabPage26.Name = "tabPage26";
-            this.tabPage26.Size = new System.Drawing.Size(734, 402);
-            this.tabPage26.TabIndex = 1;
-            this.tabPage26.Text = "Software de Administración";
+            this.tabItmDetAdministrationSoftware.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetAdministrationSoftware.Controls.Add(this.mtoCustomerInfrastructureAdministationSoftwares);
+            this.tabItmDetAdministrationSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetAdministrationSoftware.Name = "tabItmDetAdministrationSoftware";
+            this.tabItmDetAdministrationSoftware.Size = new System.Drawing.Size(734, 402);
+            this.tabItmDetAdministrationSoftware.TabIndex = 1;
+            this.tabItmDetAdministrationSoftware.Text = "Software de Administración";
             // 
             // mtoCustomerInfrastructureAdministationSoftwares
             // 
@@ -695,16 +696,16 @@
             this.mtoCustomerInfrastructureAdministationSoftwares.Size = new System.Drawing.Size(734, 402);
             this.mtoCustomerInfrastructureAdministationSoftwares.TabIndex = 116;
             // 
-            // tabPage24
+            // tabItmDetSecuritySoftware
             // 
-            this.tabPage24.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage24.Controls.Add(this.mtoCustomerInfrastructureSecuritySoftwares);
-            this.tabPage24.Location = new System.Drawing.Point(4, 22);
-            this.tabPage24.Name = "tabPage24";
-            this.tabPage24.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage24.Size = new System.Drawing.Size(734, 402);
-            this.tabPage24.TabIndex = 0;
-            this.tabPage24.Text = "Software de Seguridad";
+            this.tabItmDetSecuritySoftware.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetSecuritySoftware.Controls.Add(this.mtoCustomerInfrastructureSecuritySoftwares);
+            this.tabItmDetSecuritySoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetSecuritySoftware.Name = "tabItmDetSecuritySoftware";
+            this.tabItmDetSecuritySoftware.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetSecuritySoftware.Size = new System.Drawing.Size(734, 402);
+            this.tabItmDetSecuritySoftware.TabIndex = 0;
+            this.tabItmDetSecuritySoftware.Text = "Software de Seguridad";
             // 
             // mtoCustomerInfrastructureSecuritySoftwares
             // 
@@ -715,15 +716,15 @@
             this.mtoCustomerInfrastructureSecuritySoftwares.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureSecuritySoftwares.TabIndex = 0;
             // 
-            // tabPage27
+            // tabItmDetBackupSoftware
             // 
-            this.tabPage27.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage27.Controls.Add(this.mtoCustomerInfrastructureBackupSoftwares);
-            this.tabPage27.Location = new System.Drawing.Point(4, 22);
-            this.tabPage27.Name = "tabPage27";
-            this.tabPage27.Size = new System.Drawing.Size(734, 402);
-            this.tabPage27.TabIndex = 2;
-            this.tabPage27.Text = "Software de Respaldos";
+            this.tabItmDetBackupSoftware.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetBackupSoftware.Controls.Add(this.mtoCustomerInfrastructureBackupSoftwares);
+            this.tabItmDetBackupSoftware.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetBackupSoftware.Name = "tabItmDetBackupSoftware";
+            this.tabItmDetBackupSoftware.Size = new System.Drawing.Size(734, 402);
+            this.tabItmDetBackupSoftware.TabIndex = 2;
+            this.tabItmDetBackupSoftware.Text = "Software de Respaldos";
             // 
             // mtoCustomerInfrastructureBackupSoftwares
             // 
@@ -734,20 +735,20 @@
             this.mtoCustomerInfrastructureBackupSoftwares.Size = new System.Drawing.Size(734, 402);
             this.mtoCustomerInfrastructureBackupSoftwares.TabIndex = 0;
             // 
-            // tabDetSuppliers
+            // tabItmDetSuppliers
             // 
-            this.tabDetSuppliers.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetSuppliers.Controls.Add(this.tabDetInfraestructureSuppliers);
-            this.tabDetSuppliers.Location = new System.Drawing.Point(4, 22);
-            this.tabDetSuppliers.Name = "tabDetSuppliers";
-            this.tabDetSuppliers.Size = new System.Drawing.Size(742, 428);
-            this.tabDetSuppliers.TabIndex = 5;
-            this.tabDetSuppliers.Text = "Proveedores y Servicios";
+            this.tabItmDetSuppliers.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetSuppliers.Controls.Add(this.tabDetInfraestructureSuppliers);
+            this.tabItmDetSuppliers.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetSuppliers.Name = "tabItmDetSuppliers";
+            this.tabItmDetSuppliers.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetSuppliers.TabIndex = 5;
+            this.tabItmDetSuppliers.Text = "Proveedores y Servicios";
             // 
             // tabDetInfraestructureSuppliers
             // 
-            this.tabDetInfraestructureSuppliers.Controls.Add(this.tabPage31);
-            this.tabDetInfraestructureSuppliers.Controls.Add(this.tabPage33);
+            this.tabDetInfraestructureSuppliers.Controls.Add(this.tabItmDetISP);
+            this.tabDetInfraestructureSuppliers.Controls.Add(this.tabItmDetTelephony);
             this.tabDetInfraestructureSuppliers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructureSuppliers.Location = new System.Drawing.Point(0, 0);
             this.tabDetInfraestructureSuppliers.Name = "tabDetInfraestructureSuppliers";
@@ -755,16 +756,16 @@
             this.tabDetInfraestructureSuppliers.Size = new System.Drawing.Size(742, 428);
             this.tabDetInfraestructureSuppliers.TabIndex = 91;
             // 
-            // tabPage31
+            // tabItmDetISP
             // 
-            this.tabPage31.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage31.Controls.Add(this.mtoCustomerInfrastructureISPs);
-            this.tabPage31.Location = new System.Drawing.Point(4, 22);
-            this.tabPage31.Name = "tabPage31";
-            this.tabPage31.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage31.Size = new System.Drawing.Size(734, 402);
-            this.tabPage31.TabIndex = 0;
-            this.tabPage31.Text = "Proveedor de Internet";
+            this.tabItmDetISP.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetISP.Controls.Add(this.mtoCustomerInfrastructureISPs);
+            this.tabItmDetISP.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetISP.Name = "tabItmDetISP";
+            this.tabItmDetISP.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetISP.Size = new System.Drawing.Size(734, 402);
+            this.tabItmDetISP.TabIndex = 0;
+            this.tabItmDetISP.Text = "Proveedor de Internet";
             // 
             // mtoCustomerInfrastructureISPs
             // 
@@ -775,15 +776,15 @@
             this.mtoCustomerInfrastructureISPs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureISPs.TabIndex = 0;
             // 
-            // tabPage33
+            // tabItmDetTelephony
             // 
-            this.tabPage33.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage33.Controls.Add(this.mtoCustomerInfrastructureTelephonies);
-            this.tabPage33.Location = new System.Drawing.Point(4, 22);
-            this.tabPage33.Name = "tabPage33";
-            this.tabPage33.Size = new System.Drawing.Size(734, 402);
-            this.tabPage33.TabIndex = 1;
-            this.tabPage33.Text = "Proveedor de Telefonía";
+            this.tabItmDetTelephony.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetTelephony.Controls.Add(this.mtoCustomerInfrastructureTelephonies);
+            this.tabItmDetTelephony.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetTelephony.Name = "tabItmDetTelephony";
+            this.tabItmDetTelephony.Size = new System.Drawing.Size(734, 402);
+            this.tabItmDetTelephony.TabIndex = 1;
+            this.tabItmDetTelephony.Text = "Proveedor de Telefonía";
             // 
             // mtoCustomerInfrastructureTelephonies
             // 
@@ -794,19 +795,19 @@
             this.mtoCustomerInfrastructureTelephonies.Size = new System.Drawing.Size(734, 402);
             this.mtoCustomerInfrastructureTelephonies.TabIndex = 0;
             // 
-            // tabDetVideo
+            // tabItmDetVideo
             // 
-            this.tabDetVideo.BackColor = System.Drawing.Color.Transparent;
-            this.tabDetVideo.Controls.Add(this.tabDetInfraestructureVideo);
-            this.tabDetVideo.Location = new System.Drawing.Point(4, 22);
-            this.tabDetVideo.Name = "tabDetVideo";
-            this.tabDetVideo.Size = new System.Drawing.Size(742, 428);
-            this.tabDetVideo.TabIndex = 6;
-            this.tabDetVideo.Text = "Video y Monitoreo";
+            this.tabItmDetVideo.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetVideo.Controls.Add(this.tabDetInfraestructureVideo);
+            this.tabItmDetVideo.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetVideo.Name = "tabItmDetVideo";
+            this.tabItmDetVideo.Size = new System.Drawing.Size(742, 428);
+            this.tabItmDetVideo.TabIndex = 6;
+            this.tabItmDetVideo.Text = "Video y Monitoreo";
             // 
             // tabDetInfraestructureVideo
             // 
-            this.tabDetInfraestructureVideo.Controls.Add(this.tabPage35);
+            this.tabDetInfraestructureVideo.Controls.Add(this.tabItmDetCCTV);
             this.tabDetInfraestructureVideo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetInfraestructureVideo.Location = new System.Drawing.Point(0, 0);
             this.tabDetInfraestructureVideo.Name = "tabDetInfraestructureVideo";
@@ -814,16 +815,16 @@
             this.tabDetInfraestructureVideo.Size = new System.Drawing.Size(742, 428);
             this.tabDetInfraestructureVideo.TabIndex = 91;
             // 
-            // tabPage35
+            // tabItmDetCCTV
             // 
-            this.tabPage35.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage35.Controls.Add(this.mtoCustomerInfrastructureCCTVs);
-            this.tabPage35.Location = new System.Drawing.Point(4, 22);
-            this.tabPage35.Name = "tabPage35";
-            this.tabPage35.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage35.Size = new System.Drawing.Size(734, 402);
-            this.tabPage35.TabIndex = 0;
-            this.tabPage35.Text = "CCTVs";
+            this.tabItmDetCCTV.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmDetCCTV.Controls.Add(this.mtoCustomerInfrastructureCCTVs);
+            this.tabItmDetCCTV.Location = new System.Drawing.Point(4, 22);
+            this.tabItmDetCCTV.Name = "tabItmDetCCTV";
+            this.tabItmDetCCTV.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmDetCCTV.Size = new System.Drawing.Size(734, 402);
+            this.tabItmDetCCTV.TabIndex = 0;
+            this.tabItmDetCCTV.Text = "CCTVs";
             // 
             // mtoCustomerInfrastructureCCTVs
             // 
@@ -848,41 +849,41 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetDescription)).EndInit();
             this.tabCustomerDetail.ResumeLayout(false);
-            this.tabDetPrincipal.ResumeLayout(false);
-            this.tabDetPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraComboEditor1)).EndInit();
-            this.tabDetInfraestructure.ResumeLayout(false);
+            this.tabItmDetPrincipal.ResumeLayout(false);
+            this.tabItmDetPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uceDetBusinessType)).EndInit();
+            this.tabItmDetInfraestructure.ResumeLayout(false);
             this.tabDetInfrastructure.ResumeLayout(false);
-            this.tabDetComputers.ResumeLayout(false);
+            this.tabItmDetComputers.ResumeLayout(false);
             this.tabDetInfraestructureComputers.ResumeLayout(false);
-            this.tabDetPersonalComputers.ResumeLayout(false);
-            this.tabDetServerComputers.ResumeLayout(false);
-            this.tabDetNetwork.ResumeLayout(false);
+            this.tabItmDetPersonalComputers.ResumeLayout(false);
+            this.tabItmDetServerComputers.ResumeLayout(false);
+            this.tabItmDetNetwork.ResumeLayout(false);
             this.tabDetInfraestructureNetwork.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
-            this.tabDetEnergy.ResumeLayout(false);
+            this.tabItmNetworkSite.ResumeLayout(false);
+            this.tabItmNetworkSwitches.ResumeLayout(false);
+            this.tabItmNetworkCommutators.ResumeLayout(false);
+            this.tabItmNetworkCabling.ResumeLayout(false);
+            this.tabItmNetworkRouters.ResumeLayout(false);
+            this.tabItmNetworkFirewalls.ResumeLayout(false);
+            this.tabItmDetEnergy.ResumeLayout(false);
             this.tabDetInfraestructureEnergy.ResumeLayout(false);
-            this.tabPage20.ResumeLayout(false);
-            this.tabDetPeripherals.ResumeLayout(false);
+            this.tabItmEnergy.ResumeLayout(false);
+            this.tabItmDetPeripherals.ResumeLayout(false);
             this.tabDetInfraestructurePeripherals.ResumeLayout(false);
-            this.tabPage22.ResumeLayout(false);
-            this.tabDetSoftware.ResumeLayout(false);
+            this.tabItmPeripherals.ResumeLayout(false);
+            this.tabItmDetSoftware.ResumeLayout(false);
             this.tabDetInfraestructureSoftware.ResumeLayout(false);
-            this.tabPage26.ResumeLayout(false);
-            this.tabPage24.ResumeLayout(false);
-            this.tabPage27.ResumeLayout(false);
-            this.tabDetSuppliers.ResumeLayout(false);
+            this.tabItmDetAdministrationSoftware.ResumeLayout(false);
+            this.tabItmDetSecuritySoftware.ResumeLayout(false);
+            this.tabItmDetBackupSoftware.ResumeLayout(false);
+            this.tabItmDetSuppliers.ResumeLayout(false);
             this.tabDetInfraestructureSuppliers.ResumeLayout(false);
-            this.tabPage31.ResumeLayout(false);
-            this.tabPage33.ResumeLayout(false);
-            this.tabDetVideo.ResumeLayout(false);
+            this.tabItmDetISP.ResumeLayout(false);
+            this.tabItmDetTelephony.ResumeLayout(false);
+            this.tabItmDetVideo.ResumeLayout(false);
             this.tabDetInfraestructureVideo.ResumeLayout(false);
-            this.tabPage35.ResumeLayout(false);
+            this.tabItmDetCCTV.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -896,42 +897,42 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetDescription;
         private System.Windows.Forms.Label lblDetBusinessType;
         private System.Windows.Forms.TabControl tabCustomerDetail;
-        private System.Windows.Forms.TabPage tabDetPrincipal;
-        private System.Windows.Forms.TabPage tabDetInfraestructure;
+        private System.Windows.Forms.TabPage tabItmDetPrincipal;
+        private System.Windows.Forms.TabPage tabItmDetInfraestructure;
         private System.Windows.Forms.TabControl tabDetInfrastructure;
-        private System.Windows.Forms.TabPage tabDetComputers;
+        private System.Windows.Forms.TabPage tabItmDetComputers;
         private System.Windows.Forms.TabControl tabDetInfraestructureComputers;
-        private System.Windows.Forms.TabPage tabDetPersonalComputers;
-        private System.Windows.Forms.TabPage tabDetServerComputers;
-        private System.Windows.Forms.TabPage tabDetNetwork;
-        private System.Windows.Forms.TabPage tabDetEnergy;
-        private System.Windows.Forms.TabPage tabDetPeripherals;
-        private System.Windows.Forms.TabPage tabDetSoftware;
-        private System.Windows.Forms.TabPage tabDetSuppliers;
-        private System.Windows.Forms.TabPage tabDetVideo;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ultraComboEditor1;
+        private System.Windows.Forms.TabPage tabItmDetPersonalComputers;
+        private System.Windows.Forms.TabPage tabItmDetServerComputers;
+        private System.Windows.Forms.TabPage tabItmDetNetwork;
+        private System.Windows.Forms.TabPage tabItmDetEnergy;
+        private System.Windows.Forms.TabPage tabItmDetPeripherals;
+        private System.Windows.Forms.TabPage tabItmDetSoftware;
+        private System.Windows.Forms.TabPage tabItmDetSuppliers;
+        private System.Windows.Forms.TabPage tabItmDetVideo;
+        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetBusinessType;
         private System.Windows.Forms.TabControl tabDetInfraestructureNetwork;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.TabPage tabItmNetworkSite;
+        private System.Windows.Forms.TabPage tabItmNetworkSwitches;
+        private System.Windows.Forms.TabPage tabItmNetworkCommutators;
+        private System.Windows.Forms.TabPage tabItmNetworkCabling;
+        private System.Windows.Forms.TabPage tabItmNetworkRouters;
+        private System.Windows.Forms.TabPage tabItmNetworkFirewalls;
+        private System.Windows.Forms.TabPage tabItmNetworkWifi;
         private System.Windows.Forms.TabControl tabDetInfraestructureEnergy;
-        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.TabPage tabItmEnergy;
         private System.Windows.Forms.TabControl tabDetInfraestructurePeripherals;
         private System.Windows.Forms.TabControl tabDetInfraestructureSoftware;
-        private System.Windows.Forms.TabPage tabPage26;
-        private System.Windows.Forms.TabPage tabPage24;
-        private System.Windows.Forms.TabPage tabPage27;
+        private System.Windows.Forms.TabPage tabItmDetAdministrationSoftware;
+        private System.Windows.Forms.TabPage tabItmDetSecuritySoftware;
+        private System.Windows.Forms.TabPage tabItmDetBackupSoftware;
         private System.Windows.Forms.TabControl tabDetInfraestructureSuppliers;
-        private System.Windows.Forms.TabPage tabPage31;
-        private System.Windows.Forms.TabPage tabPage33;
+        private System.Windows.Forms.TabPage tabItmDetISP;
+        private System.Windows.Forms.TabPage tabItmDetTelephony;
         private System.Windows.Forms.TabControl tabDetInfraestructureVideo;
-        private System.Windows.Forms.TabPage tabPage35;
+        private System.Windows.Forms.TabPage tabItmDetCCTV;
         internal System.Windows.Forms.TextBox txtDetName;
-        private System.Windows.Forms.TabPage tabPage22;
+        private System.Windows.Forms.TabPage tabItmPeripherals;
         internal Controls.Controls.CustomerInfrastructurePrintersControl mtoCustomerInfrastructurePrinters;
         internal Controls.Controls.CustomerInfrastructureAdministationSoftwaresControl mtoCustomerInfrastructureAdministationSoftwares;
         internal Controls.Controls.CustomerInfrastructureBackupSoftwaresControl mtoCustomerInfrastructureBackupSoftwares;
