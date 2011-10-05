@@ -16,10 +16,6 @@
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureId"/>
 
-    <many-to-one name="CustomerInfrastructureNetworkSite"
-                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkSite, Samsara.CustomerContext.Core"
-                 column="CustomerInfrastructureNetworkSiteId"/>
-
 
     <set name="CustomerInfrastructureNetworkSwitches" table="CustomerContext.CustomerInfrastructureNetworkSwitches"
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
