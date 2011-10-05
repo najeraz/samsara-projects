@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
@@ -125,7 +126,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.CustomerInfrastructureId != null)
             {
                 this.controlCustomerInfrastructureServerComputers
-                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputerId = -1;
+                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputer
+                    .CustomerInfrastructureServerComputerId = -1;
                 this.controlCustomerInfrastructureServerComputers
                     .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
 
@@ -165,6 +167,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructureServerComputers.txtUtilization.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtCPU.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtManufacturerNumber.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtModel.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtRAM.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtScalability.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtSerialNumber.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.txtStorage.Text = string.Empty;
         }
 
         protected override void CreateRelation()
@@ -205,11 +214,34 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value
                 = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
 
-            this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value
-                = this.customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
+            if (this.customerInfrastructureServerComputer.OperativeSystem == null)
+                this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
+            else
+                this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value
+                    = this.customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
 
             this.controlCustomerInfrastructureServerComputers.txtUtilization.Text
                 = this.customerInfrastructureServerComputer.Utilization;
+            this.controlCustomerInfrastructureServerComputers.txtCPU.Text
+                = this.customerInfrastructureServerComputer.CPU;
+            this.controlCustomerInfrastructureServerComputers.txtManufacturerNumber.Text
+                = this.customerInfrastructureServerComputer.ManufacturerReferenceNumber;
+            this.controlCustomerInfrastructureServerComputers.txtModel.Text
+                = this.customerInfrastructureServerComputer.ServerModel;
+            this.controlCustomerInfrastructureServerComputers.txtRAM.Text
+                = this.customerInfrastructureServerComputer.RAM;
+            this.controlCustomerInfrastructureServerComputers.txtScalability.Text
+                = this.customerInfrastructureServerComputer.Scalability;
+            this.controlCustomerInfrastructureServerComputers.txtSerialNumber.Text
+                = this.customerInfrastructureServerComputer.SerialNumber;
+            this.controlCustomerInfrastructureServerComputers.txtStorage.Text
+                = this.customerInfrastructureServerComputer.StorageSystem;
+
+            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs
+                .CustomerInfrastructureServerComputer = this.customerInfrastructureServerComputer;
+
+            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs
+                .LoadControls();
         }
 
         protected override void LoadEntity()
@@ -222,7 +254,22 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructureServerComputer.OperativeSystem = this.srvOperativeSystem
                 .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value));
 
-            this.customerInfrastructureServerComputer.Utilization = this.controlCustomerInfrastructureServerComputers.txtUtilization.Text;
+            this.customerInfrastructureServerComputer.Utilization
+                = this.controlCustomerInfrastructureServerComputers.txtUtilization.Text;
+            this.customerInfrastructureServerComputer.CPU
+                = this.controlCustomerInfrastructureServerComputers.txtCPU.Text;
+            this.customerInfrastructureServerComputer.ManufacturerReferenceNumber
+                = this.controlCustomerInfrastructureServerComputers.txtManufacturerNumber.Text;
+            this.customerInfrastructureServerComputer.ServerModel
+                = this.controlCustomerInfrastructureServerComputers.txtModel.Text;
+            this.customerInfrastructureServerComputer.RAM
+                = this.controlCustomerInfrastructureServerComputers.txtRAM.Text;
+            this.customerInfrastructureServerComputer.Scalability
+                = this.controlCustomerInfrastructureServerComputers.txtScalability.Text;
+            this.customerInfrastructureServerComputer.SerialNumber
+                = this.controlCustomerInfrastructureServerComputers.txtSerialNumber.Text;
+            this.customerInfrastructureServerComputer.StorageSystem
+                = this.controlCustomerInfrastructureServerComputers.txtStorage.Text;
         }
 
         protected override bool ValidateControlsData()
@@ -233,18 +280,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value == null ||
                     Convert.ToInt32(this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value) <= 0)
             {
-                MessageBox.Show("Favor de seleccionar la Marca del ServerComputer.",
+                MessageBox.Show("Favor de seleccionar la Marca del Servidor.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Focus();
-                return false;
-            }
-
-            if (this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value) <= 0)
-            {
-                MessageBox.Show("Favor de seleccionar el Tipo del ServerComputer.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Focus();
                 return false;
             }
 
@@ -275,8 +313,18 @@ namespace Samsara.CustomerContext.Controls.Controllers
             row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureServerComputer
                 .CustomerInfrastructureServerComputerId;
             row["ComputerBrandId"] = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
-            row["OperativeSystemId"] = this.customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
+            if (this.customerInfrastructureServerComputer.OperativeSystem == null)
+                row["OperativeSystemId"] = DBNull.Value;
+            else
+                row["OperativeSystemId"] = this.customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
             row["Utilization"] = this.customerInfrastructureServerComputer.Utilization;
+            row["CPU"] = this.customerInfrastructureServerComputer.CPU;
+            row["ManufacturerReferenceNumber"] = this.customerInfrastructureServerComputer.ManufacturerReferenceNumber;
+            row["ServerModel"] = this.customerInfrastructureServerComputer.ServerModel;
+            row["RAM"] = this.customerInfrastructureServerComputer.RAM;
+            row["Scalability"] = this.customerInfrastructureServerComputer.Scalability;
+            row["SerialNumber"] = this.customerInfrastructureServerComputer.SerialNumber;
+            row["StorageSystem"] = this.customerInfrastructureServerComputer.StorageSystem;
 
             this.dtCustomerInfrastructureServerComputers.AcceptChanges();
         }
@@ -288,6 +336,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.uceComputerBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.txtUtilization.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtCPU.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtManufacturerNumber.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtModel.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtRAM.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtScalability.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtSerialNumber.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.txtStorage.ReadOnly = !enabled;
         }
 
         #endregion Protected
@@ -299,6 +354,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private void grdRelations_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridBand band = e.Layout.Bands[0];
+
+            band.Override.AllowUpdate = DefaultableBoolean.False;
 
             ComputerBrandParameters pmtComputerBrand = new ComputerBrandParameters();
 
