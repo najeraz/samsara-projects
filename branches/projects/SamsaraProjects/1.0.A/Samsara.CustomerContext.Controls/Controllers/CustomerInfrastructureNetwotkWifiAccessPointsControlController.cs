@@ -274,11 +274,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
+                row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
                         == this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId);
             }
 
-            row["CustomerInfrastructureNetworkWifiAccessPointId"] = this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId;
+            row["CustomerInfrastructureNetworkWifiAccessPointId"] = this.customerInfrastructureNetworkWifiAccessPoint
+                .CustomerInfrastructureNetworkWifiAccessPointId;
             row["AccessPointBrandId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
             row["AccessPointTypeId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType.AccessPointTypeId;
             row["Model"] = this.customerInfrastructureNetworkWifiAccessPoint.Model;

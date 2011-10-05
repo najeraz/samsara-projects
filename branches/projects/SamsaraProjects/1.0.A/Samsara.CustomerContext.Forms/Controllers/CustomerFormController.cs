@@ -94,6 +94,9 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureId = -1;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.LoadControls();
 
+            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifiId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.LoadControls();
+
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
         }

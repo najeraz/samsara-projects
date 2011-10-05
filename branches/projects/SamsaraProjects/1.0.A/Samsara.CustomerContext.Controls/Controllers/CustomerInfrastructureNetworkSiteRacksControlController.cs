@@ -245,8 +245,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
             row["CustomerInfrastructureNetworkSiteRackId"] = this.customerInfrastructureNetworkSiteRack
                 .CustomerInfrastructureNetworkSiteRackId;
             row["RackTypeId"] = this.customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
-            row["CustomerInfrastructureNetworkSiteId"] = this.customerInfrastructureNetworkSiteRack
-                .CustomerInfrastructureNetworkSite.CustomerInfrastructureNetworkSiteId;
             row["Quantity"] = this.customerInfrastructureNetworkSiteRack.Quantity;
 
             this.dtCustomerInfrastructureNetworkSiteRacks.AcceptChanges();

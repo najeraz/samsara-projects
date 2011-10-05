@@ -269,11 +269,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
+                row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
                         == this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId);
             }
 
-            row["CustomerInfrastructureSecuritySoftwareId"] = this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId;
+            row["CustomerInfrastructureSecuritySoftwareId"] = this.customerInfrastructureSecuritySoftware
+                .CustomerInfrastructureSecuritySoftwareId;
             row["SecuritySoftwareBrandId"] = this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand.SecuritySoftwareBrandId;
             row["SecuritySoftwareTypeId"] = this.customerInfrastructureSecuritySoftware.SecuritySoftwareType.SecuritySoftwareTypeId;
             row["NumberOfClients"] = this.customerInfrastructureSecuritySoftware.NumberOfClients;

@@ -244,11 +244,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
+                row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
                         == this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId);
             }
 
-            row["CustomerInfrastructureNetworkFirewallId"] = this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId;
+            row["CustomerInfrastructureNetworkFirewallId"] = this.customerInfrastructureNetworkFirewall
+                .CustomerInfrastructureNetworkFirewallId;
             row["FirewallBrandId"] = this.customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
             row["FirewallModel"] = this.customerInfrastructureNetworkFirewall.FirewallModel;
             row["Description"] = this.customerInfrastructureNetworkFirewall.Description;

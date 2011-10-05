@@ -96,6 +96,9 @@
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabItmDetCCTV = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabItmAccessPoints = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -118,6 +121,7 @@
             this.tabItmNetworkCabling.SuspendLayout();
             this.tabItmNetworkRouters.SuspendLayout();
             this.tabItmNetworkFirewalls.SuspendLayout();
+            this.tabItmNetworkWifi.SuspendLayout();
             this.tabItmDetEnergy.SuspendLayout();
             this.tabDetInfraestructureEnergy.SuspendLayout();
             this.tabItmEnergy.SuspendLayout();
@@ -136,6 +140,8 @@
             this.tabItmDetVideo.SuspendLayout();
             this.tabDetInfraestructureVideo.SuspendLayout();
             this.tabItmDetCCTV.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabItmAccessPoints.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -569,6 +575,7 @@
             // tabItmNetworkWifi
             // 
             this.tabItmNetworkWifi.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmNetworkWifi.Controls.Add(this.tabControl1);
             this.tabItmNetworkWifi.Location = new System.Drawing.Point(4, 22);
             this.tabItmNetworkWifi.Name = "tabItmNetworkWifi";
             this.tabItmNetworkWifi.Size = new System.Drawing.Size(728, 396);
@@ -835,6 +842,36 @@
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabItmAccessPoints);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(728, 396);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabItmAccessPoints
+            // 
+            this.tabItmAccessPoints.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmAccessPoints.Controls.Add(this.mtoCustomerInfrastructureNetworkWifiAccessPoints);
+            this.tabItmAccessPoints.Location = new System.Drawing.Point(4, 22);
+            this.tabItmAccessPoints.Name = "tabItmAccessPoints";
+            this.tabItmAccessPoints.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmAccessPoints.Size = new System.Drawing.Size(720, 370);
+            this.tabItmAccessPoints.TabIndex = 0;
+            this.tabItmAccessPoints.Text = "Puntos de Acceso";
+            // 
+            // mtoCustomerInfrastructureNetworkWifiAccessPoints
+            // 
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifiId = null;
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Name = "mtoCustomerInfrastructureNetworkWifiAccessPoints";
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Size = new System.Drawing.Size(714, 364);
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.TabIndex = 0;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,6 +903,7 @@
             this.tabItmNetworkCabling.ResumeLayout(false);
             this.tabItmNetworkRouters.ResumeLayout(false);
             this.tabItmNetworkFirewalls.ResumeLayout(false);
+            this.tabItmNetworkWifi.ResumeLayout(false);
             this.tabItmDetEnergy.ResumeLayout(false);
             this.tabDetInfraestructureEnergy.ResumeLayout(false);
             this.tabItmEnergy.ResumeLayout(false);
@@ -884,6 +922,8 @@
             this.tabItmDetVideo.ResumeLayout(false);
             this.tabDetInfraestructureVideo.ResumeLayout(false);
             this.tabItmDetCCTV.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabItmAccessPoints.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -949,5 +989,8 @@
         internal Controls.Controls.CustomerInfrastructureNetworkCablingsControl mtoCustomerInfrastructureNetworkCablings;
         internal Controls.Controls.CustomerInfrastructureNetworkRoutersControl mtoCustomerInfrastructureNetworkRouters;
         internal Controls.Controls.CustomerInfrastructureNetworkFirewallsControl mtoCustomerInfrastructureNetworkFirewalls;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabItmAccessPoints;
+        internal Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl mtoCustomerInfrastructureNetworkWifiAccessPoints;
     }
 }
