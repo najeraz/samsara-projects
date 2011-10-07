@@ -144,6 +144,12 @@
     <Compile Include="Controls\SamsaraUltraMaskedEdit.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\SamsaraUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUserControl.Designer.cs">
+      <DependentUpon>SamsaraUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\ManyToOneLevel1Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,12 +161,6 @@
     </Compile>
     <Compile Include="Controls\OpportunitySearchControl.designer.cs">
       <DependentUpon>OpportunitySearchControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TenderSearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\TenderSearchControl.designer.cs">
-      <DependentUpon>TenderSearchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\SamsaraUltraGrid.cs">
       <SubType>Component</SubType>
@@ -191,10 +191,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OpportunitySearchControl.resx">
       <DependentUpon>OpportunitySearchControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TenderSearchControl.resx">
-      <DependentUpon>TenderSearchControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SamsaraUltraGrid.resx">
