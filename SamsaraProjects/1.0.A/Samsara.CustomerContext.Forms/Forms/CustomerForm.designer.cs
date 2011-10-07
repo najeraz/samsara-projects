@@ -49,6 +49,11 @@
             this.uceDetBusinessType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.tabItmDetInfraestructure = new System.Windows.Forms.TabPage();
             this.tabDetInfrastructure = new System.Windows.Forms.TabControl();
+            this.tabItmPrincipal = new System.Windows.Forms.TabPage();
+            this.gbxGroundedOutlet = new System.Windows.Forms.GroupBox();
+            this.txtGroundedOutlet = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxTrainingAndCourses = new System.Windows.Forms.GroupBox();
+            this.txtTrainingAndCourses = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.tabItmDetComputers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureComputers = new System.Windows.Forms.TabControl();
             this.tabItmDetPersonalComputers = new System.Windows.Forms.TabPage();
@@ -70,6 +75,9 @@
             this.tabItmNetworkFirewalls = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkFirewalls = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkFirewallsControl();
             this.tabItmNetworkWifi = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabItmAccessPoints = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl();
             this.tabItmDetEnergy = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureEnergy = new System.Windows.Forms.TabControl();
             this.tabItmEnergy = new System.Windows.Forms.TabPage();
@@ -96,9 +104,6 @@
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabItmDetCCTV = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureCCTVsControl();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabItmAccessPoints = new System.Windows.Forms.TabPage();
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -109,6 +114,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceDetBusinessType)).BeginInit();
             this.tabItmDetInfraestructure.SuspendLayout();
             this.tabDetInfrastructure.SuspendLayout();
+            this.tabItmPrincipal.SuspendLayout();
+            this.gbxGroundedOutlet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGroundedOutlet)).BeginInit();
+            this.gbxTrainingAndCourses.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrainingAndCourses)).BeginInit();
             this.tabItmDetComputers.SuspendLayout();
             this.tabDetInfraestructureComputers.SuspendLayout();
             this.tabItmDetPersonalComputers.SuspendLayout();
@@ -122,6 +132,8 @@
             this.tabItmNetworkRouters.SuspendLayout();
             this.tabItmNetworkFirewalls.SuspendLayout();
             this.tabItmNetworkWifi.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabItmAccessPoints.SuspendLayout();
             this.tabItmDetEnergy.SuspendLayout();
             this.tabDetInfraestructureEnergy.SuspendLayout();
             this.tabItmEnergy.SuspendLayout();
@@ -140,14 +152,11 @@
             this.tabItmDetVideo.SuspendLayout();
             this.tabDetInfraestructureVideo.SuspendLayout();
             this.tabItmDetCCTV.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabItmAccessPoints.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -353,6 +362,7 @@
             // 
             // tabDetInfrastructure
             // 
+            this.tabDetInfrastructure.Controls.Add(this.tabItmPrincipal);
             this.tabDetInfrastructure.Controls.Add(this.tabItmDetComputers);
             this.tabDetInfrastructure.Controls.Add(this.tabItmDetNetwork);
             this.tabDetInfrastructure.Controls.Add(this.tabItmDetEnergy);
@@ -366,6 +376,57 @@
             this.tabDetInfrastructure.SelectedIndex = 0;
             this.tabDetInfrastructure.Size = new System.Drawing.Size(750, 454);
             this.tabDetInfrastructure.TabIndex = 1;
+            // 
+            // tabItmPrincipal
+            // 
+            this.tabItmPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmPrincipal.Controls.Add(this.gbxGroundedOutlet);
+            this.tabItmPrincipal.Controls.Add(this.gbxTrainingAndCourses);
+            this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
+            this.tabItmPrincipal.Name = "tabItmPrincipal";
+            this.tabItmPrincipal.Size = new System.Drawing.Size(742, 428);
+            this.tabItmPrincipal.TabIndex = 7;
+            this.tabItmPrincipal.Text = "Principal";
+            // 
+            // gbxGroundedOutlet
+            // 
+            this.gbxGroundedOutlet.Controls.Add(this.txtGroundedOutlet);
+            this.gbxGroundedOutlet.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxGroundedOutlet.Location = new System.Drawing.Point(0, 84);
+            this.gbxGroundedOutlet.Name = "gbxGroundedOutlet";
+            this.gbxGroundedOutlet.Size = new System.Drawing.Size(742, 84);
+            this.gbxGroundedOutlet.TabIndex = 31;
+            this.gbxGroundedOutlet.TabStop = false;
+            this.gbxGroundedOutlet.Text = "Tierra Física:";
+            // 
+            // txtGroundedOutlet
+            // 
+            this.txtGroundedOutlet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtGroundedOutlet.Location = new System.Drawing.Point(3, 16);
+            this.txtGroundedOutlet.Multiline = true;
+            this.txtGroundedOutlet.Name = "txtGroundedOutlet";
+            this.txtGroundedOutlet.Size = new System.Drawing.Size(736, 65);
+            this.txtGroundedOutlet.TabIndex = 28;
+            // 
+            // gbxTrainingAndCourses
+            // 
+            this.gbxTrainingAndCourses.Controls.Add(this.txtTrainingAndCourses);
+            this.gbxTrainingAndCourses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxTrainingAndCourses.Location = new System.Drawing.Point(0, 0);
+            this.gbxTrainingAndCourses.Name = "gbxTrainingAndCourses";
+            this.gbxTrainingAndCourses.Size = new System.Drawing.Size(742, 84);
+            this.gbxTrainingAndCourses.TabIndex = 31;
+            this.gbxTrainingAndCourses.TabStop = false;
+            this.gbxTrainingAndCourses.Text = "Cursos y Entrenamiento:";
+            // 
+            // txtTrainingAndCourses
+            // 
+            this.txtTrainingAndCourses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTrainingAndCourses.Location = new System.Drawing.Point(3, 16);
+            this.txtTrainingAndCourses.Multiline = true;
+            this.txtTrainingAndCourses.Name = "txtTrainingAndCourses";
+            this.txtTrainingAndCourses.Size = new System.Drawing.Size(736, 65);
+            this.txtTrainingAndCourses.TabIndex = 30;
             // 
             // tabItmDetComputers
             // 
@@ -422,7 +483,7 @@
             // 
             // mtoCustomerInfrastructureServerComputers
             // 
-            this.mtoCustomerInfrastructureServerComputers.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureServerComputers.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureServerComputers.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureServerComputers.Name = "mtoCustomerInfrastructureServerComputers";
@@ -581,6 +642,36 @@
             this.tabItmNetworkWifi.Size = new System.Drawing.Size(728, 396);
             this.tabItmNetworkWifi.TabIndex = 6;
             this.tabItmNetworkWifi.Text = "Redes inalámbricas";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabItmAccessPoints);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(728, 396);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabItmAccessPoints
+            // 
+            this.tabItmAccessPoints.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmAccessPoints.Controls.Add(this.mtoCustomerInfrastructureNetworkWifiAccessPoints);
+            this.tabItmAccessPoints.Location = new System.Drawing.Point(4, 22);
+            this.tabItmAccessPoints.Name = "tabItmAccessPoints";
+            this.tabItmAccessPoints.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmAccessPoints.Size = new System.Drawing.Size(720, 370);
+            this.tabItmAccessPoints.TabIndex = 0;
+            this.tabItmAccessPoints.Text = "Puntos de Acceso";
+            // 
+            // mtoCustomerInfrastructureNetworkWifiAccessPoints
+            // 
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifiId = null;
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Name = "mtoCustomerInfrastructureNetworkWifiAccessPoints";
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Size = new System.Drawing.Size(714, 364);
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.TabIndex = 0;
             // 
             // tabItmDetEnergy
             // 
@@ -842,36 +933,6 @@
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(728, 396);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabItmAccessPoints);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(728, 396);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabItmAccessPoints
-            // 
-            this.tabItmAccessPoints.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmAccessPoints.Controls.Add(this.mtoCustomerInfrastructureNetworkWifiAccessPoints);
-            this.tabItmAccessPoints.Location = new System.Drawing.Point(4, 22);
-            this.tabItmAccessPoints.Name = "tabItmAccessPoints";
-            this.tabItmAccessPoints.Padding = new System.Windows.Forms.Padding(3);
-            this.tabItmAccessPoints.Size = new System.Drawing.Size(720, 370);
-            this.tabItmAccessPoints.TabIndex = 0;
-            this.tabItmAccessPoints.Text = "Puntos de Acceso";
-            // 
-            // mtoCustomerInfrastructureNetworkWifiAccessPoints
-            // 
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifiId = null;
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Location = new System.Drawing.Point(3, 3);
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Name = "mtoCustomerInfrastructureNetworkWifiAccessPoints";
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Size = new System.Drawing.Size(714, 364);
-            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.TabIndex = 0;
-            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -891,6 +952,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.uceDetBusinessType)).EndInit();
             this.tabItmDetInfraestructure.ResumeLayout(false);
             this.tabDetInfrastructure.ResumeLayout(false);
+            this.tabItmPrincipal.ResumeLayout(false);
+            this.gbxGroundedOutlet.ResumeLayout(false);
+            this.gbxGroundedOutlet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGroundedOutlet)).EndInit();
+            this.gbxTrainingAndCourses.ResumeLayout(false);
+            this.gbxTrainingAndCourses.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrainingAndCourses)).EndInit();
             this.tabItmDetComputers.ResumeLayout(false);
             this.tabDetInfraestructureComputers.ResumeLayout(false);
             this.tabItmDetPersonalComputers.ResumeLayout(false);
@@ -904,6 +972,8 @@
             this.tabItmNetworkRouters.ResumeLayout(false);
             this.tabItmNetworkFirewalls.ResumeLayout(false);
             this.tabItmNetworkWifi.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabItmAccessPoints.ResumeLayout(false);
             this.tabItmDetEnergy.ResumeLayout(false);
             this.tabDetInfraestructureEnergy.ResumeLayout(false);
             this.tabItmEnergy.ResumeLayout(false);
@@ -922,8 +992,6 @@
             this.tabItmDetVideo.ResumeLayout(false);
             this.tabDetInfraestructureVideo.ResumeLayout(false);
             this.tabItmDetCCTV.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabItmAccessPoints.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -992,5 +1060,10 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabItmAccessPoints;
         internal Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl mtoCustomerInfrastructureNetworkWifiAccessPoints;
+        private System.Windows.Forms.TabPage tabItmPrincipal;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtGroundedOutlet;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtTrainingAndCourses;
+        private System.Windows.Forms.GroupBox gbxGroundedOutlet;
+        private System.Windows.Forms.GroupBox gbxTrainingAndCourses;
     }
 }

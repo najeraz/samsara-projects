@@ -64,6 +64,10 @@
   <object id="TenderLineTransactionManager" parent="BaseTransactionManager">
     <property name="Target" ref="ITenderLineService"/>
   </object>
+
+  <object id="CustomerTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="ICustomerService"/>
+  </object>
   
 </objects>
 

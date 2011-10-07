@@ -12,26 +12,15 @@ namespace Samsara.CustomerContext.Controls.Controls
         /// <summary>
         /// Id de la entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get
             {
-                return (this.controller as CustomerInfrastructureServerComputersControlController).CustomerInfrastructureId;
+                return (this.controller as CustomerInfrastructureServerComputersControlController).CustomerInfrastructure;
             }
             set
             {
-                (this.controller as CustomerInfrastructureServerComputersControlController).CustomerInfrastructureId = value;
-            }
-        }
-
-        /// <summary>
-        /// Entidades relacionadas
-        /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureServerComputer> CustomerInfrastructureServerComputers
-        {
-            get
-            {
-                return (this.controller as CustomerInfrastructureServerComputersControlController).CustomerInfrastructureServerComputers;
+                (this.controller as CustomerInfrastructureServerComputersControlController).CustomerInfrastructure = value;
             }
         }
 
@@ -54,6 +43,11 @@ namespace Samsara.CustomerContext.Controls.Controls
         public void LoadControls()
         {
             (this.controller as CustomerInfrastructureServerComputersControlController).LoadControls();
+        }
+
+        public void ClearDetailControls()
+        {
+            (this.controller as CustomerInfrastructureServerComputersControlController).ClearDetailControls();
         }
 
         #endregion Public

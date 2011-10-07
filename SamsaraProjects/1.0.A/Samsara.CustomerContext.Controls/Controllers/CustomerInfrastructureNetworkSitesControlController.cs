@@ -139,7 +139,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         #region Protected
 
-        protected override void ClearDetailControls()
+        public override void ClearDetailControls()
         {
             base.ClearDetailControls();
 
