@@ -191,7 +191,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructureServerComputerDBMS.DBMS = this.srvDBMS
                 .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value));
 
-            this.customerInfrastructureServerComputerDBMS.Description = this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text;
+            this.customerInfrastructureServerComputerDBMS.Description 
+                = this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text;
         }
 
         protected override bool ValidateControlsData()
