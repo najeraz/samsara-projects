@@ -70,6 +70,11 @@ namespace Samsara.Controls.Controllers
 
         #region Public
 
+        public virtual void ClearDetailControls()
+        {
+            this.control.tabDetail.SelectedTab = this.control.tabItmPrincipal;
+        }
+
         private void InitializeControlControls()
         {
             this.HideDetail();
@@ -160,11 +165,6 @@ namespace Samsara.Controls.Controllers
         protected virtual void CancelRelation()
         {
             this.HideDetail();
-        }
-
-        protected virtual void ClearDetailControls()
-        {
-            this.control.tabDetail.SelectedTab = this.control.tabItmPrincipal;
         }
 
         protected virtual void LoadEntity()

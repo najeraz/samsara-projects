@@ -26,17 +26,6 @@ namespace Samsara.CustomerContext.Controls.Controls
             }
         }
 
-        /// <summary>
-        /// Entidades relacionadas
-        /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureServerComputerDBMS> CustomerInfrastructureServerComputerDBMSs
-        {
-            get
-            {
-                return (this.controller as CustomerInfrastructureServerComputerDBMSsControlController).CustomerInfrastructureServerComputerDBMSs;
-            }
-        }
-
         #endregion Properties
 
         #region Constructor
@@ -56,6 +45,11 @@ namespace Samsara.CustomerContext.Controls.Controls
         public void LoadControls()
         {
             (this.controller as CustomerInfrastructureServerComputerDBMSsControlController).LoadControls();
+        }
+
+        public void ClearDetailControls()
+        {
+            (this.controller as CustomerInfrastructureServerComputerDBMSsControlController).ClearDetailControls();
         }
 
         #endregion Public

@@ -48,9 +48,28 @@ namespace Samsara.Support.Util
             {
                 DataRow row = table.NewRow();
 
-                foreach (PropertyDescriptor prop in properties)
+                foreach (PropertyDescriptor propertyDescriptor in properties)
                 {
-                    row[prop.Name] = prop.GetValue(item);
+                    PropertyInfo primaryKeyPropertyInfo
+                        = EntitiesUtil.GetPrimaryKeyPropertyInfo(propertyDescriptor.PropertyType);
+                    object value = item.GetType().GetProperty(propertyDescriptor.Name).GetValue(item, null);
+
+                    if (primaryKeyPropertyInfo != null)
+                    {
+                        if (value != null)
+                        {
+                            object primaryKeyValue = value.GetType().GetProperty(propertyDescriptor.Name).GetValue(value, null);
+
+                            if (absoluteColumnNames)
+                                row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                            else
+                                row[primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                        }
+                    }
+                    else
+                    {
+                        row[propertyDescriptor.Name] = propertyDescriptor.GetValue(item);
+                    }
                 }
 
                 table.Rows.Add(row);

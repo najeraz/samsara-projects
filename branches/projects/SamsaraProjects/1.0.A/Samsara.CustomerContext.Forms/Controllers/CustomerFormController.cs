@@ -73,7 +73,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructureId = -1;
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureServerComputers.LoadControls();
 
             this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureId = -1;
@@ -96,7 +96,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifiId = -1;
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.LoadControls();
-
+            
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
         }
@@ -129,14 +129,23 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.Customer.Name = this.frmCustomer.txtDetName.Text;
             this.Customer.Description = this.frmCustomer.txtDetDescription.Text;
 
+            this.Customer.CustomerInfrastructure.GroundedOutlet = this.frmCustomer.txtGroundedOutlet.Text;
+            this.Customer.CustomerInfrastructure.TrainingAndCourses = this.frmCustomer.txtTrainingAndCourses.Text;
+
             this.Customer.Activated = true;
             this.Customer.Deleted = false;
+            this.Customer.CustomerInfrastructure.Activated = true;
+            this.Customer.CustomerInfrastructure.Deleted = false;
         }
 
         private void ClearDetailControls()
         {
             this.frmCustomer.txtDetName.Text = string.Empty;
             this.frmCustomer.txtDetDescription.Text = string.Empty;
+            this.frmCustomer.txtGroundedOutlet.Text = string.Empty;
+            this.frmCustomer.txtTrainingAndCourses.Text = string.Empty;
+
+            this.frmCustomer.mtoCustomerInfrastructureServerComputers.ClearDetailControls();
         }
 
         private void ClearSearchControls()
@@ -210,6 +219,10 @@ namespace Samsara.CustomerContext.Forms.Controller
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
             this.Customer = new Customer();
+            this.Customer.CustomerInfrastructure = new CustomerInfrastructure();
+            this.Customer.CustomerInfrastructure.Customer = this.Customer;
+            this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructure 
+                = this.Customer.CustomerInfrastructure;
             this.ClearDetailControls();
             this.ShowDetail(true);
         }
