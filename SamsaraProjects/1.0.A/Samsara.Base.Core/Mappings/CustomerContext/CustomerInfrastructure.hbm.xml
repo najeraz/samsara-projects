@@ -21,42 +21,42 @@
 
     <set name="CustomerInfrastructurePersonalComputers" table="CustomerContext.CustomerInfrastructurePersonalComputers" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerId"/>
+      <key column="CustomerInfrastructureId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputer, Samsara.CustomerContext.Core"/>
     </set>
 
     <set name="CustomerInfrastructureServerComputers" table="CustomerContext.CustomerInfrastructureServerComputers" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerId"/>
+      <key column="CustomerInfrastructureId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureServerComputer, Samsara.CustomerContext.Core"/>
     </set>
 
     <set name="CustomerInfrastructureUPSs" table="CustomerContext.CustomerInfrastructureUPSs" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerId"/>
+      <key column="CustomerInfrastructureId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureUPS, Samsara.CustomerContext.Core"/>
     </set>
 
     <set name="CustomerInfrastructurePrinters" table="CustomerContext.CustomerInfrastructurePrinters" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerId"/>
+      <key column="CustomerInfrastructureId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePrinter, Samsara.CustomerContext.Core"/>
     </set>
 
     <set name="CustomerTelephonies" table="CustomerContext.CustomerTelephonies" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerId"/>
+      <key column="CustomerInfrastructureId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureTelephony, Samsara.CustomerContext.Core"/>
     </set>
 
     <set name="CustomerInfrastructureCCTVs" table="CustomerContext.CustomerInfrastructureCCTVs" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
-      <key column="CustomerId"/>
+      <key column="CustomerInfrastructureId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureCCTV, Samsara.CustomerContext.Core"/>
     </set>
