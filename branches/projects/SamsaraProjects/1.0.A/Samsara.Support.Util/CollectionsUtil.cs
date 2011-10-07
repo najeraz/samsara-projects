@@ -58,7 +58,7 @@ namespace Samsara.Support.Util
                     {
                         if (value != null)
                         {
-                            object primaryKeyValue = value.GetType().GetProperty(propertyDescriptor.Name).GetValue(value, null);
+                            object primaryKeyValue = value.GetType().GetProperty(primaryKeyPropertyInfo.Name).GetValue(value, null);
 
                             if (absoluteColumnNames)
                                 row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
