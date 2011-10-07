@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IOperativeSystemService srvOperativeSystem;
         private IComputerBrandService srvComputerBrand;
-        private System.Collections.Generic.ISet<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers;
 
         private DataTable dtCustomerInfrastructureServerComputers;
 
@@ -39,33 +38,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// Id de la entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
         }
 
-        public System.Collections.Generic.ISet<CustomerInfrastructureServerComputer> CustomerInfrastructureServerComputers
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureServerComputer> tmp
-                    = new HashSet<CustomerInfrastructureServerComputer>();
-
-                foreach(CustomerInfrastructureServerComputer customerInfrastructureServerComputer in
-                    this.customerInfrastructureServerComputers)
-                {
-                    customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId 
-                        = customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId <= 0 ?
-                        -1 : customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
-
-                    tmp.Add(customerInfrastructureServerComputer);
-                }
-
-                return tmp;
-            }
-        }
-        
         #endregion Properties
         
         #region Constructor
@@ -123,44 +101,31 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
-            {
-                this.controlCustomerInfrastructureServerComputers
-                    .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputer
-                    .CustomerInfrastructureServerComputerId = -1;
-                this.controlCustomerInfrastructureServerComputers
-                    .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
+            this.controlCustomerInfrastructureServerComputers
+                .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputer
+                = this.customerInfrastructureServerComputer;
+            this.controlCustomerInfrastructureServerComputers
+                .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
 
-                CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
-                    = new CustomerInfrastructureServerComputerParameters();
+            CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
+                = new CustomerInfrastructureServerComputerParameters();
 
-                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
+            pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId
+                = ParameterConstants.IntNone;
 
-                this.dtCustomerInfrastructureServerComputers = this.srvCustomerInfrastructureServerComputer
-                    .SearchByParameters(pmtCustomerInfrastructureServerComputer);
+            this.dtCustomerInfrastructureServerComputers = this.srvCustomerInfrastructureServerComputer
+                .SearchByParameters(pmtCustomerInfrastructureServerComputer);
 
-                this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource 
-                    = this.dtCustomerInfrastructureServerComputers;
-
-                IList<CustomerInfrastructureServerComputer> lstCustomerInfrastructureServerComputers 
-                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
-
-                this.customerInfrastructureServerComputers = new HashSet<CustomerInfrastructureServerComputer>();
-
-                foreach (CustomerInfrastructureServerComputer customerInfrastructureServerComputer in
-                    lstCustomerInfrastructureServerComputers)
-                {
-                    this.customerInfrastructureServerComputers.Add(customerInfrastructureServerComputer);
-                }
-            }
+            this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource
+                = this.dtCustomerInfrastructureServerComputers;
         }
 
         #endregion Public
 
         #region Protected
 
-        protected override void ClearDetailControls()
+        public override void ClearDetailControls()
         {
             base.ClearDetailControls();
 
@@ -174,6 +139,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.txtScalability.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtSerialNumber.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtStorage.Text = string.Empty;
+
+            this.dtCustomerInfrastructureServerComputers.Rows.Clear();
+            this.dtCustomerInfrastructureServerComputers.AcceptChanges();
+            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
         }
 
         protected override void CreateRelation()
@@ -181,22 +150,24 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.CreateRelation();
 
             this.customerInfrastructureServerComputer = new CustomerInfrastructureServerComputer();
-
+            this.customerInfrastructureServerComputer.CustomerInfrastructure = this.CustomerInfrastructure;
+            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs
+                .CustomerInfrastructureServerComputer = this.customerInfrastructureServerComputer;
             this.customerInfrastructureServerComputer.Activated = true;
             this.customerInfrastructureServerComputer.Deleted = false;
-            this.customerInfrastructureServerComputer.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureServerComputer = this.customerInfrastructureServerComputers
+            this.customerInfrastructureServerComputer = this.CustomerInfrastructure
+                .CustomerInfrastructureServerComputers
                 .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureServerComputers.Remove(this.customerInfrastructureServerComputer);
+                this.CustomerInfrastructure.CustomerInfrastructureServerComputers
+                    .Remove(this.customerInfrastructureServerComputer);
             else
             {
                 this.customerInfrastructureServerComputer.Activated = false;
@@ -208,7 +179,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureServerComputer = this.customerInfrastructureServerComputers
+            this.customerInfrastructureServerComputer = this.CustomerInfrastructure
+                .CustomerInfrastructureServerComputers
                 .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
 
             this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value
@@ -298,7 +270,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId == -1)
             {
                 this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId = this.entityCounter--;
-                this.customerInfrastructureServerComputers.Add(this.customerInfrastructureServerComputer);
+                this.CustomerInfrastructure.CustomerInfrastructureServerComputers
+                    .Add(this.customerInfrastructureServerComputer);
 
                 row = this.dtCustomerInfrastructureServerComputers.NewRow();
                 this.dtCustomerInfrastructureServerComputers.Rows.Add(row);

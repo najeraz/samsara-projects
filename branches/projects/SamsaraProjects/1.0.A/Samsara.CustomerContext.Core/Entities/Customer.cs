@@ -30,7 +30,7 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
-        public virtual string BusinessType
+        public virtual BusinessType BusinessType
         {
             get;
             set;
