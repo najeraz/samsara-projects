@@ -13,9 +13,10 @@
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
-
-    <one-to-one name="CustomerInfrastructure" cascade="all"
-      class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"/>
+    
+    <many-to-one name="CustomerInfrastructure" 
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure" 
+                 column="CustomerInfrastructureId" not-null="true" cascade="all" unique="true" lazy="false" />
 
     <many-to-one name="BusinessType"
                  class="Samsara.CustomerContext.Core.Entities.BusinessType, Samsara.CustomerContext.Core"

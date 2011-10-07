@@ -181,6 +181,12 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.frmCustomer.txtDetName.Text = this.Customer.Name;
             this.frmCustomer.txtDetDescription.Text = this.Customer.Description;
+
+            if (this.Customer.CustomerInfrastructure != null)
+            {
+                this.frmCustomer.txtGroundedOutlet.Text = this.Customer.CustomerInfrastructure.GroundedOutlet;
+                this.frmCustomer.txtTrainingAndCourses.Text = this.Customer.CustomerInfrastructure.TrainingAndCourses;
+            }
         }
 
         private void DeleteEntity(int CustomerId)
