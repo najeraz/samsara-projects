@@ -63,7 +63,16 @@
             this.tabItmDetNetwork = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureNetwork = new System.Windows.Forms.TabControl();
             this.tabItmNetworkSite = new System.Windows.Forms.TabPage();
-            this.mtoCustomerInfrastructureNetworkSites = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSitesControl();
+            this.tabDetSite = new System.Windows.Forms.TabControl();
+            this.tabItmSitePrincipal = new System.Windows.Forms.TabPage();
+            this.gbxDetSiteDescription = new System.Windows.Forms.GroupBox();
+            this.txtDetSiteDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxDetSiteCooling = new System.Windows.Forms.GroupBox();
+            this.txtDetSiteCooling = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxDetSiteIsolatedRoom = new System.Windows.Forms.GroupBox();
+            this.txtDetSiteIsolatedRoom = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.tabItmRacks = new System.Windows.Forms.TabPage();
+            this.mtoCustomerInfrastructureNetworkSiteRacks = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSiteRacksControl();
             this.tabItmNetworkSwitches = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkSwitches = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkSwitchesControl();
             this.tabItmNetworkCommutators = new System.Windows.Forms.TabPage();
@@ -126,6 +135,15 @@
             this.tabItmDetNetwork.SuspendLayout();
             this.tabDetInfraestructureNetwork.SuspendLayout();
             this.tabItmNetworkSite.SuspendLayout();
+            this.tabDetSite.SuspendLayout();
+            this.tabItmSitePrincipal.SuspendLayout();
+            this.gbxDetSiteDescription.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetSiteDescription)).BeginInit();
+            this.gbxDetSiteCooling.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetSiteCooling)).BeginInit();
+            this.gbxDetSiteIsolatedRoom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetSiteIsolatedRoom)).BeginInit();
+            this.tabItmRacks.SuspendLayout();
             this.tabItmNetworkSwitches.SuspendLayout();
             this.tabItmNetworkCommutators.SuspendLayout();
             this.tabItmNetworkCabling.SuspendLayout();
@@ -157,6 +175,7 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 508);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(770, 25);
             // 
             // gbxSearchParameters
             // 
@@ -464,6 +483,7 @@
             // mtoCustomerInfrastructurePersonalComputers
             // 
             this.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructurePersonalComputers.CustomParent = null;
             this.mtoCustomerInfrastructurePersonalComputers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructurePersonalComputers.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructurePersonalComputers.Name = "mtoCustomerInfrastructurePersonalComputers";
@@ -484,6 +504,7 @@
             // mtoCustomerInfrastructureServerComputers
             // 
             this.mtoCustomerInfrastructureServerComputers.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureServerComputers.CustomParent = null;
             this.mtoCustomerInfrastructureServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureServerComputers.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureServerComputers.Name = "mtoCustomerInfrastructureServerComputers";
@@ -520,7 +541,7 @@
             // tabItmNetworkSite
             // 
             this.tabItmNetworkSite.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmNetworkSite.Controls.Add(this.mtoCustomerInfrastructureNetworkSites);
+            this.tabItmNetworkSite.Controls.Add(this.tabDetSite);
             this.tabItmNetworkSite.Location = new System.Drawing.Point(4, 22);
             this.tabItmNetworkSite.Name = "tabItmNetworkSite";
             this.tabItmNetworkSite.Padding = new System.Windows.Forms.Padding(3);
@@ -528,14 +549,110 @@
             this.tabItmNetworkSite.TabIndex = 0;
             this.tabItmNetworkSite.Text = "Site";
             // 
-            // mtoCustomerInfrastructureNetworkSites
+            // tabDetSite
             // 
-            this.mtoCustomerInfrastructureNetworkSites.CustomerInfrastructureId = null;
-            this.mtoCustomerInfrastructureNetworkSites.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mtoCustomerInfrastructureNetworkSites.Location = new System.Drawing.Point(3, 3);
-            this.mtoCustomerInfrastructureNetworkSites.Name = "mtoCustomerInfrastructureNetworkSites";
-            this.mtoCustomerInfrastructureNetworkSites.Size = new System.Drawing.Size(722, 390);
-            this.mtoCustomerInfrastructureNetworkSites.TabIndex = 0;
+            this.tabDetSite.Controls.Add(this.tabItmSitePrincipal);
+            this.tabDetSite.Controls.Add(this.tabItmRacks);
+            this.tabDetSite.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDetSite.Location = new System.Drawing.Point(3, 3);
+            this.tabDetSite.Name = "tabDetSite";
+            this.tabDetSite.SelectedIndex = 0;
+            this.tabDetSite.Size = new System.Drawing.Size(722, 390);
+            this.tabDetSite.TabIndex = 0;
+            // 
+            // tabItmSitePrincipal
+            // 
+            this.tabItmSitePrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmSitePrincipal.Controls.Add(this.gbxDetSiteDescription);
+            this.tabItmSitePrincipal.Controls.Add(this.gbxDetSiteCooling);
+            this.tabItmSitePrincipal.Controls.Add(this.gbxDetSiteIsolatedRoom);
+            this.tabItmSitePrincipal.Location = new System.Drawing.Point(4, 22);
+            this.tabItmSitePrincipal.Name = "tabItmSitePrincipal";
+            this.tabItmSitePrincipal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmSitePrincipal.Size = new System.Drawing.Size(714, 364);
+            this.tabItmSitePrincipal.TabIndex = 0;
+            this.tabItmSitePrincipal.Text = "Principal";
+            // 
+            // gbxDetSiteDescription
+            // 
+            this.gbxDetSiteDescription.Controls.Add(this.txtDetSiteDescription);
+            this.gbxDetSiteDescription.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxDetSiteDescription.Location = new System.Drawing.Point(3, 153);
+            this.gbxDetSiteDescription.Name = "gbxDetSiteDescription";
+            this.gbxDetSiteDescription.Size = new System.Drawing.Size(708, 75);
+            this.gbxDetSiteDescription.TabIndex = 114;
+            this.gbxDetSiteDescription.TabStop = false;
+            this.gbxDetSiteDescription.Text = "Descripción General:";
+            // 
+            // txtDetSiteDescription
+            // 
+            this.txtDetSiteDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetSiteDescription.Location = new System.Drawing.Point(3, 16);
+            this.txtDetSiteDescription.Multiline = true;
+            this.txtDetSiteDescription.Name = "txtDetSiteDescription";
+            this.txtDetSiteDescription.Size = new System.Drawing.Size(702, 56);
+            this.txtDetSiteDescription.TabIndex = 0;
+            // 
+            // gbxDetSiteCooling
+            // 
+            this.gbxDetSiteCooling.Controls.Add(this.txtDetSiteCooling);
+            this.gbxDetSiteCooling.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxDetSiteCooling.Location = new System.Drawing.Point(3, 78);
+            this.gbxDetSiteCooling.Name = "gbxDetSiteCooling";
+            this.gbxDetSiteCooling.Size = new System.Drawing.Size(708, 75);
+            this.gbxDetSiteCooling.TabIndex = 116;
+            this.gbxDetSiteCooling.TabStop = false;
+            this.gbxDetSiteCooling.Text = "Refrigeración:";
+            // 
+            // txtDetSiteCooling
+            // 
+            this.txtDetSiteCooling.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetSiteCooling.Location = new System.Drawing.Point(3, 16);
+            this.txtDetSiteCooling.Multiline = true;
+            this.txtDetSiteCooling.Name = "txtDetSiteCooling";
+            this.txtDetSiteCooling.Size = new System.Drawing.Size(702, 56);
+            this.txtDetSiteCooling.TabIndex = 0;
+            // 
+            // gbxDetSiteIsolatedRoom
+            // 
+            this.gbxDetSiteIsolatedRoom.Controls.Add(this.txtDetSiteIsolatedRoom);
+            this.gbxDetSiteIsolatedRoom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxDetSiteIsolatedRoom.Location = new System.Drawing.Point(3, 3);
+            this.gbxDetSiteIsolatedRoom.Name = "gbxDetSiteIsolatedRoom";
+            this.gbxDetSiteIsolatedRoom.Size = new System.Drawing.Size(708, 75);
+            this.gbxDetSiteIsolatedRoom.TabIndex = 115;
+            this.gbxDetSiteIsolatedRoom.TabStop = false;
+            this.gbxDetSiteIsolatedRoom.Text = "Cuarto Aislado:";
+            // 
+            // txtDetSiteIsolatedRoom
+            // 
+            this.txtDetSiteIsolatedRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetSiteIsolatedRoom.Location = new System.Drawing.Point(3, 16);
+            this.txtDetSiteIsolatedRoom.Multiline = true;
+            this.txtDetSiteIsolatedRoom.Name = "txtDetSiteIsolatedRoom";
+            this.txtDetSiteIsolatedRoom.Size = new System.Drawing.Size(702, 56);
+            this.txtDetSiteIsolatedRoom.TabIndex = 0;
+            // 
+            // tabItmRacks
+            // 
+            this.tabItmRacks.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmRacks.Controls.Add(this.mtoCustomerInfrastructureNetworkSiteRacks);
+            this.tabItmRacks.Location = new System.Drawing.Point(4, 22);
+            this.tabItmRacks.Name = "tabItmRacks";
+            this.tabItmRacks.Padding = new System.Windows.Forms.Padding(3);
+            this.tabItmRacks.Size = new System.Drawing.Size(714, 364);
+            this.tabItmRacks.TabIndex = 1;
+            this.tabItmRacks.Text = "Racks";
+            // 
+            // mtoCustomerInfrastructureNetworkSiteRacks
+            // 
+            this.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSiteId = null;
+            this.mtoCustomerInfrastructureNetworkSiteRacks.CustomParent = null;
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Location = new System.Drawing.Point(3, 3);
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Name = "mtoCustomerInfrastructureNetworkSiteRacks";
+            this.mtoCustomerInfrastructureNetworkSiteRacks.Size = new System.Drawing.Size(708, 358);
+            this.mtoCustomerInfrastructureNetworkSiteRacks.TabIndex = 0;
             // 
             // tabItmNetworkSwitches
             // 
@@ -551,6 +668,7 @@
             // mtoCustomerInfrastructureNetworkSwitches
             // 
             this.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork = null;
+            this.mtoCustomerInfrastructureNetworkSwitches.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkSwitches.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkSwitches.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureNetworkSwitches.Name = "mtoCustomerInfrastructureNetworkSwitches";
@@ -570,6 +688,7 @@
             // mtoCustomerInfrastructureNetworkCommutators
             // 
             this.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureNetwork = null;
+            this.mtoCustomerInfrastructureNetworkCommutators.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkCommutators.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkCommutators.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureNetworkCommutators.Name = "mtoCustomerInfrastructureNetworkCommutators";
@@ -589,6 +708,7 @@
             // mtoCustomerInfrastructureNetworkCablings
             // 
             this.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureNetwork = null;
+            this.mtoCustomerInfrastructureNetworkCablings.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkCablings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkCablings.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureNetworkCablings.Name = "mtoCustomerInfrastructureNetworkCablings";
@@ -608,6 +728,7 @@
             // mtoCustomerInfrastructureNetworkRouters
             // 
             this.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureNetwork = null;
+            this.mtoCustomerInfrastructureNetworkRouters.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkRouters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkRouters.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureNetworkRouters.Name = "mtoCustomerInfrastructureNetworkRouters";
@@ -627,6 +748,7 @@
             // mtoCustomerInfrastructureNetworkFirewalls
             // 
             this.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureNetwork = null;
+            this.mtoCustomerInfrastructureNetworkFirewalls.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkFirewalls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkFirewalls.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureNetworkFirewalls.Name = "mtoCustomerInfrastructureNetworkFirewalls";
@@ -667,6 +789,7 @@
             // mtoCustomerInfrastructureNetworkWifiAccessPoints
             // 
             this.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi = null;
+            this.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomParent = null;
             this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureNetworkWifiAccessPoints.Name = "mtoCustomerInfrastructureNetworkWifiAccessPoints";
@@ -707,6 +830,7 @@
             // mtoCustomerInfrastructureUPSs
             // 
             this.mtoCustomerInfrastructureUPSs.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureUPSs.CustomParent = null;
             this.mtoCustomerInfrastructureUPSs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureUPSs.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureUPSs.Name = "mtoCustomerInfrastructureUPSs";
@@ -747,6 +871,7 @@
             // mtoCustomerInfrastructurePrinters
             // 
             this.mtoCustomerInfrastructurePrinters.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructurePrinters.CustomParent = null;
             this.mtoCustomerInfrastructurePrinters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructurePrinters.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructurePrinters.Name = "mtoCustomerInfrastructurePrinters";
@@ -788,6 +913,7 @@
             // mtoCustomerInfrastructureAdministationSoftwares
             // 
             this.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureAdministationSoftwares.CustomParent = null;
             this.mtoCustomerInfrastructureAdministationSoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureAdministationSoftwares.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureAdministationSoftwares.Name = "mtoCustomerInfrastructureAdministationSoftwares";
@@ -808,6 +934,7 @@
             // mtoCustomerInfrastructureSecuritySoftwares
             // 
             this.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureSecuritySoftwares.CustomParent = null;
             this.mtoCustomerInfrastructureSecuritySoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureSecuritySoftwares.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureSecuritySoftwares.Name = "mtoCustomerInfrastructureSecuritySoftwares";
@@ -827,6 +954,7 @@
             // mtoCustomerInfrastructureBackupSoftwares
             // 
             this.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureBackupSoftwares.CustomParent = null;
             this.mtoCustomerInfrastructureBackupSoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureBackupSoftwares.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureBackupSoftwares.Name = "mtoCustomerInfrastructureBackupSoftwares";
@@ -868,6 +996,7 @@
             // mtoCustomerInfrastructureISPs
             // 
             this.mtoCustomerInfrastructureISPs.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureISPs.CustomParent = null;
             this.mtoCustomerInfrastructureISPs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureISPs.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureISPs.Name = "mtoCustomerInfrastructureISPs";
@@ -887,6 +1016,7 @@
             // mtoCustomerInfrastructureTelephonies
             // 
             this.mtoCustomerInfrastructureTelephonies.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureTelephonies.CustomParent = null;
             this.mtoCustomerInfrastructureTelephonies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureTelephonies.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureTelephonies.Name = "mtoCustomerInfrastructureTelephonies";
@@ -927,6 +1057,7 @@
             // mtoCustomerInfrastructureCCTVs
             // 
             this.mtoCustomerInfrastructureCCTVs.CustomerInfrastructure = null;
+            this.mtoCustomerInfrastructureCCTVs.CustomParent = null;
             this.mtoCustomerInfrastructureCCTVs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureCCTVs.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureCCTVs.Name = "mtoCustomerInfrastructureCCTVs";
@@ -966,6 +1097,18 @@
             this.tabItmDetNetwork.ResumeLayout(false);
             this.tabDetInfraestructureNetwork.ResumeLayout(false);
             this.tabItmNetworkSite.ResumeLayout(false);
+            this.tabDetSite.ResumeLayout(false);
+            this.tabItmSitePrincipal.ResumeLayout(false);
+            this.gbxDetSiteDescription.ResumeLayout(false);
+            this.gbxDetSiteDescription.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetSiteDescription)).EndInit();
+            this.gbxDetSiteCooling.ResumeLayout(false);
+            this.gbxDetSiteCooling.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetSiteCooling)).EndInit();
+            this.gbxDetSiteIsolatedRoom.ResumeLayout(false);
+            this.gbxDetSiteIsolatedRoom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetSiteIsolatedRoom)).EndInit();
+            this.tabItmRacks.ResumeLayout(false);
             this.tabItmNetworkSwitches.ResumeLayout(false);
             this.tabItmNetworkCommutators.ResumeLayout(false);
             this.tabItmNetworkCabling.ResumeLayout(false);
@@ -1051,7 +1194,6 @@
         internal Controls.Controls.CustomerInfrastructureTelephoniesControl mtoCustomerInfrastructureTelephonies;
         internal Controls.Controls.CustomerInfrastructurePersonalComputersControl mtoCustomerInfrastructurePersonalComputers;
         internal Controls.Controls.CustomerInfrastructureServerComputersControl mtoCustomerInfrastructureServerComputers;
-        internal Controls.Controls.CustomerInfrastructureNetworkSitesControl mtoCustomerInfrastructureNetworkSites;
         internal Controls.Controls.CustomerInfrastructureNetworkSwitchesControl mtoCustomerInfrastructureNetworkSwitches;
         internal Controls.Controls.CustomerInfrastructureNetworkCommutatorsControl mtoCustomerInfrastructureNetworkCommutators;
         internal Controls.Controls.CustomerInfrastructureNetworkCablingsControl mtoCustomerInfrastructureNetworkCablings;
@@ -1065,5 +1207,15 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtTrainingAndCourses;
         private System.Windows.Forms.GroupBox gbxGroundedOutlet;
         private System.Windows.Forms.GroupBox gbxTrainingAndCourses;
+        private System.Windows.Forms.TabControl tabDetSite;
+        private System.Windows.Forms.TabPage tabItmSitePrincipal;
+        private System.Windows.Forms.TabPage tabItmRacks;
+        internal Controls.Controls.CustomerInfrastructureNetworkSiteRacksControl mtoCustomerInfrastructureNetworkSiteRacks;
+        private System.Windows.Forms.GroupBox gbxDetSiteDescription;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetSiteDescription;
+        private System.Windows.Forms.GroupBox gbxDetSiteCooling;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetSiteCooling;
+        private System.Windows.Forms.GroupBox gbxDetSiteIsolatedRoom;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetSiteIsolatedRoom;
     }
 }
