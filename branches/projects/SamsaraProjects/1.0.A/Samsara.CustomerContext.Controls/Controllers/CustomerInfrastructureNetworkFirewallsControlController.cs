@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private CustomerInfrastructureNetworkFirewall customerInfrastructureNetworkFirewall;
         private ICustomerInfrastructureNetworkService srvCustomerInfrastructureNetwork;
         private IFirewallBrandService srvFirewallBrand;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkFirewall> customerInfrastructureNetworkFirewalls;
 
         private DataTable dtCustomerInfrastructureNetworkFirewalls;
 
@@ -38,31 +37,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkId
+        public CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkFirewall> CustomerInfrastructureNetworkFirewalls
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkFirewall> tmp
-                    = new HashSet<CustomerInfrastructureNetworkFirewall>();
-
-                foreach(CustomerInfrastructureNetworkFirewall customerInfrastructureNetworkFirewall in
-                    this.customerInfrastructureNetworkFirewalls)
-                {
-                    customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId 
-                        = customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId <= 0 ?
-                        -1 : customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId;
-
-                    tmp.Add(customerInfrastructureNetworkFirewall);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -114,28 +92,31 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkId != null)
+            CustomerInfrastructureNetworkFirewallParameters pmtCustomerInfrastructureNetworkFirewall
+                = new CustomerInfrastructureNetworkFirewallParameters();
+
+            pmtCustomerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkFirewalls = this.srvCustomerInfrastructureNetworkFirewall
+                .SearchByParameters(pmtCustomerInfrastructureNetworkFirewall);
+
+            this.controlCustomerInfrastructureNetworkFirewalls.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkFirewalls.grdRelations.DataSource
+                = this.dtCustomerInfrastructureNetworkFirewalls;
+
+            if (this.CustomerInfrastructureNetwork != null)
             {
-                CustomerInfrastructureNetworkFirewallParameters pmtCustomerInfrastructureNetworkFirewall
-                    = new CustomerInfrastructureNetworkFirewallParameters();
-
-                pmtCustomerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkId = this.CustomerInfrastructureNetworkId;
-
-                this.dtCustomerInfrastructureNetworkFirewalls = this.srvCustomerInfrastructureNetworkFirewall
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkFirewall);
-
-                this.controlCustomerInfrastructureNetworkFirewalls.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkFirewalls.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkFirewalls;
-
-                IList<CustomerInfrastructureNetworkFirewall> lstCustomerInfrastructureNetworkFirewalls 
-                    = this.srvCustomerInfrastructureNetworkFirewall.GetListByParameters(pmtCustomerInfrastructureNetworkFirewall);
-
-                this.customerInfrastructureNetworkFirewalls = new HashSet<CustomerInfrastructureNetworkFirewall>();
-
-                foreach (CustomerInfrastructureNetworkFirewall customerInfrastructureNetworkFirewall in
-                    lstCustomerInfrastructureNetworkFirewalls)
+                foreach (CustomerInfrastructureNetworkFirewall customerInfrastructureNetworkFirewall
+                    in this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkFirewalls)
                 {
-                    this.customerInfrastructureNetworkFirewalls.Add(customerInfrastructureNetworkFirewall);
+                    DataRow row = this.dtCustomerInfrastructureNetworkFirewalls.NewRow();
+                    this.dtCustomerInfrastructureNetworkFirewalls.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkFirewallId"] = this.customerInfrastructureNetworkFirewall
+                        .CustomerInfrastructureNetworkFirewallId;
+                    row["FirewallBrandId"] = this.customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
+                    row["FirewallModel"] = this.customerInfrastructureNetworkFirewall.FirewallModel;
+                    row["Description"] = this.customerInfrastructureNetworkFirewall.Description;
                 }
             }
         }
@@ -153,27 +134,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkFirewalls.txtDescription.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkFirewalls.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkFirewalls.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkFirewall = new CustomerInfrastructureNetworkFirewall();
 
+            this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetwork = this.CustomerInfrastructureNetwork;
             this.customerInfrastructureNetworkFirewall.Activated = true;
             this.customerInfrastructureNetworkFirewall.Deleted = false;
-            this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetwork 
-                = this.srvCustomerInfrastructureNetwork.GetById(this.CustomerInfrastructureNetworkId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkFirewall = this.customerInfrastructureNetworkFirewalls
-                .Single(x => x.CustomerInfrastructureNetworkFirewallId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkFirewall = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkFirewalls
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkFirewall = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkFirewalls
+                    .Single(x => x.CustomerInfrastructureNetworkFirewallId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkFirewalls.Remove(this.customerInfrastructureNetworkFirewall);
+                this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkFirewalls.Remove(this.customerInfrastructureNetworkFirewall);
             else
             {
                 this.customerInfrastructureNetworkFirewall.Activated = false;
@@ -185,8 +180,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkFirewall = this.customerInfrastructureNetworkFirewalls
-                .Single(x => x.CustomerInfrastructureNetworkFirewallId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkFirewall = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkFirewalls
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkFirewall = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkFirewalls
+                    .Single(x => x.CustomerInfrastructureNetworkFirewallId == entityId);
 
             this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Value
                 = this.customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
@@ -236,22 +237,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId == -1)
+                row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
+                        == -(this.customerInfrastructureNetworkFirewall as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
+                        == this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId);
+
+            if (row == null)
             {
-                this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId = this.entityCounter--;
-                this.customerInfrastructureNetworkFirewalls.Add(this.customerInfrastructureNetworkFirewall);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkFirewalls
+                    .Add(this.customerInfrastructureNetworkFirewall);
 
                 row = this.dtCustomerInfrastructureNetworkFirewalls.NewRow();
                 this.dtCustomerInfrastructureNetworkFirewalls.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
-                        == this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId);
-            }
 
-            row["CustomerInfrastructureNetworkFirewallId"] = this.customerInfrastructureNetworkFirewall
+            if (this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId == -1)
+                row["CustomerInfrastructureNetworkFirewallId"]
+                    = -(this.customerInfrastructureNetworkFirewall as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkFirewallId"] = this.customerInfrastructureNetworkFirewall
                 .CustomerInfrastructureNetworkFirewallId;
+
             row["FirewallBrandId"] = this.customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
             row["FirewallModel"] = this.customerInfrastructureNetworkFirewall.FirewallModel;
             row["Description"] = this.customerInfrastructureNetworkFirewall.Description;

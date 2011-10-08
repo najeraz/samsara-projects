@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private CustomerInfrastructureNetworkCabling customerInfrastructureNetworkCabling;
         private ICustomerInfrastructureNetworkService srvCustomerInfrastructureNetwork;
         private INetworkCablingTypeService srvNetworkCablingType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkCabling> customerInfrastructureNetworkCablings;
 
         private DataTable dtCustomerInfrastructureNetworkCablings;
 
@@ -38,31 +37,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkId
+        public CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkCabling> CustomerInfrastructureNetworkCablings
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkCabling> tmp
-                    = new HashSet<CustomerInfrastructureNetworkCabling>();
-
-                foreach(CustomerInfrastructureNetworkCabling customerInfrastructureNetworkCabling in
-                    this.customerInfrastructureNetworkCablings)
-                {
-                    customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId 
-                        = customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId <= 0 ?
-                        -1 : customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
-
-                    tmp.Add(customerInfrastructureNetworkCabling);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -114,29 +92,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkId != null)
+            CustomerInfrastructureNetworkCablingParameters pmtCustomerInfrastructureNetworkCabling
+                = new CustomerInfrastructureNetworkCablingParameters();
+
+            pmtCustomerInfrastructureNetworkCabling.CustomerInfrastructureNetworkId
+                = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkCablings = this.srvCustomerInfrastructureNetworkCabling
+                .SearchByParameters(pmtCustomerInfrastructureNetworkCabling);
+
+            this.controlCustomerInfrastructureNetworkCablings.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkCablings.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkCablings;
+            if (this.CustomerInfrastructureNetwork != null)
             {
-                CustomerInfrastructureNetworkCablingParameters pmtCustomerInfrastructureNetworkCabling
-                    = new CustomerInfrastructureNetworkCablingParameters();
-
-                pmtCustomerInfrastructureNetworkCabling.CustomerInfrastructureNetworkId 
-                    = this.CustomerInfrastructureNetworkId;
-
-                this.dtCustomerInfrastructureNetworkCablings = this.srvCustomerInfrastructureNetworkCabling
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkCabling);
-
-                this.controlCustomerInfrastructureNetworkCablings.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkCablings.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkCablings;
-
-                IList<CustomerInfrastructureNetworkCabling> lstCustomerInfrastructureNetworkCablings 
-                    = this.srvCustomerInfrastructureNetworkCabling.GetListByParameters(pmtCustomerInfrastructureNetworkCabling);
-
-                this.customerInfrastructureNetworkCablings = new HashSet<CustomerInfrastructureNetworkCabling>();
-
-                foreach (CustomerInfrastructureNetworkCabling customerInfrastructureNetworkCabling in
-                    lstCustomerInfrastructureNetworkCablings)
+                foreach (CustomerInfrastructureNetworkCabling customerInfrastructureNetworkCabling
+                    in this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCablings)
                 {
-                    this.customerInfrastructureNetworkCablings.Add(customerInfrastructureNetworkCabling);
+                    DataRow row = this.dtCustomerInfrastructureNetworkCablings.NewRow();
+                    this.dtCustomerInfrastructureNetworkCablings.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkCablingId"] 
+                        = this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
+                    row["NetworkCablingTypeId"] = this.customerInfrastructureNetworkCabling.NetworkCablingType.NetworkCablingTypeId;
+                    row["Category"] = this.customerInfrastructureNetworkCabling.Category;
                 }
             }
         }
@@ -153,27 +131,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkCablings.txtCategory.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkCablings.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkCablings.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkCabling = new CustomerInfrastructureNetworkCabling();
 
+            this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetwork = this.CustomerInfrastructureNetwork;
             this.customerInfrastructureNetworkCabling.Activated = true;
             this.customerInfrastructureNetworkCabling.Deleted = false;
-            this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetwork 
-                = this.srvCustomerInfrastructureNetwork.GetById(this.CustomerInfrastructureNetworkId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkCabling = this.customerInfrastructureNetworkCablings
-                .Single(x => x.CustomerInfrastructureNetworkCablingId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkCabling = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCablings
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkCabling = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCablings
+                    .Single(x => x.CustomerInfrastructureNetworkCablingId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkCablings.Remove(this.customerInfrastructureNetworkCabling);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCablings
+                    .Remove(this.customerInfrastructureNetworkCabling);
             else
             {
                 this.customerInfrastructureNetworkCabling.Activated = false;
@@ -185,8 +177,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkCabling = this.customerInfrastructureNetworkCablings
-                .Single(x => x.CustomerInfrastructureNetworkCablingId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkCabling = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCablings
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkCabling = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCablings
+                    .Single(x => x.CustomerInfrastructureNetworkCablingId == entityId);
 
             this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Value
                 = this.customerInfrastructureNetworkCabling.NetworkCablingType.NetworkCablingTypeId;
@@ -229,20 +227,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId == -1)
+                row = this.dtCustomerInfrastructureNetworkCablings.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
+                        == - (this.customerInfrastructureNetworkCabling as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkCablings.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
+                        == this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId);
+
+            if (row == null)
             {
-                this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId = this.entityCounter--;
-                this.customerInfrastructureNetworkCablings.Add(this.customerInfrastructureNetworkCabling);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCablings
+                    .Add(this.customerInfrastructureNetworkCabling);
 
                 row = this.dtCustomerInfrastructureNetworkCablings.NewRow();
                 this.dtCustomerInfrastructureNetworkCablings.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkCablings.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
-                        == this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId);
-            }
 
-            row["CustomerInfrastructureNetworkCablingId"] = this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
+            if (this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId == -1)
+                row["CustomerInfrastructureNetworkCablingId"]
+                    = -(this.customerInfrastructureNetworkCabling as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkCablingId"]
+                    = this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
+
             row["NetworkCablingTypeId"] = this.customerInfrastructureNetworkCabling.NetworkCablingType.NetworkCablingTypeId;
             row["Category"] = this.customerInfrastructureNetworkCabling.Category;
 

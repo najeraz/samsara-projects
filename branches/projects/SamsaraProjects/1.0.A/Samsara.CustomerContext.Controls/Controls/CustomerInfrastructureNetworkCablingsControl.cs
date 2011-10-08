@@ -12,26 +12,15 @@ namespace Samsara.CustomerContext.Controls.Controls
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get
             {
-                return (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetworkId;
+                return (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetwork;
             }
             set
             {
-                (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetworkId = value;
-            }
-        }
-
-        /// <summary>
-        /// Entidades relacionadas
-        /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkCabling> CustomerInfrastructureNetworkCablings
-        {
-            get
-            {
-                return (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetworkCablings;
+                (this.controller as CustomerInfrastructureNetworkCablingsControlController).CustomerInfrastructureNetwork = value;
             }
         }
 
