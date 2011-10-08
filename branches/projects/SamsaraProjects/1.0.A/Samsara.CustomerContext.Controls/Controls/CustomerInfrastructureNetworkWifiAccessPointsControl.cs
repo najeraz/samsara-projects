@@ -48,6 +48,11 @@ namespace Samsara.CustomerContext.Controls.Controls
             (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController).LoadControls();
         }
 
+        public void ClearControls()
+        {
+            (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController).ClearControls();
+        }
+
         #endregion Public
 
         #endregion Methods

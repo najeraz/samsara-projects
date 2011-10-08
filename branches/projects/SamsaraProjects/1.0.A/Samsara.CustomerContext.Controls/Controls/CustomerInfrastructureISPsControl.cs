@@ -45,6 +45,11 @@ namespace Samsara.CustomerContext.Controls.Controls
             (this.controller as CustomerInfrastructureISPsControlController).LoadControls();
         }
 
+        public void ClearControls()
+        {
+            (this.controller as CustomerInfrastructureISPsControlController).ClearControls();
+        }
+
         #endregion Public
 
         #endregion Methods
