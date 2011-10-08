@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureNetworkService srvCustomerInfrastructureNetwork;
         private ICommutatorBrandService srvCommutatorBrand;
         private ICommutatorTypeService srvCommutatorType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkCommutator> customerInfrastructureNetworkCommutators;
 
         private DataTable dtCustomerInfrastructureNetworkCommutators;
 
@@ -39,31 +38,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkId
+        public CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkCommutator> CustomerInfrastructureNetworkCommutators
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkCommutator> tmp
-                    = new HashSet<CustomerInfrastructureNetworkCommutator>();
-
-                foreach(CustomerInfrastructureNetworkCommutator customerInfrastructureNetworkCommutator in
-                    this.customerInfrastructureNetworkCommutators)
-                {
-                    customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId 
-                        = customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId <= 0 ?
-                        -1 : customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId;
-
-                    tmp.Add(customerInfrastructureNetworkCommutator);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -123,28 +101,32 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkId != null)
+            CustomerInfrastructureNetworkCommutatorParameters pmtCustomerInfrastructureNetworkCommutator
+                = new CustomerInfrastructureNetworkCommutatorParameters();
+
+            pmtCustomerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkCommutators = this.srvCustomerInfrastructureNetworkCommutator
+                .SearchByParameters(pmtCustomerInfrastructureNetworkCommutator);
+
+            this.controlCustomerInfrastructureNetworkCommutators.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkCommutators.grdRelations.DataSource
+                = this.dtCustomerInfrastructureNetworkCommutators;
+
+            if (this.CustomerInfrastructureNetwork != null)
             {
-                CustomerInfrastructureNetworkCommutatorParameters pmtCustomerInfrastructureNetworkCommutator
-                    = new CustomerInfrastructureNetworkCommutatorParameters();
-
-                pmtCustomerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkId = this.CustomerInfrastructureNetworkId;
-
-                this.dtCustomerInfrastructureNetworkCommutators = this.srvCustomerInfrastructureNetworkCommutator
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkCommutator);
-
-                this.controlCustomerInfrastructureNetworkCommutators.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkCommutators.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkCommutators;
-
-                IList<CustomerInfrastructureNetworkCommutator> lstCustomerInfrastructureNetworkCommutators 
-                    = this.srvCustomerInfrastructureNetworkCommutator.GetListByParameters(pmtCustomerInfrastructureNetworkCommutator);
-
-                this.customerInfrastructureNetworkCommutators = new HashSet<CustomerInfrastructureNetworkCommutator>();
-
-                foreach (CustomerInfrastructureNetworkCommutator customerInfrastructureNetworkCommutator in
-                    lstCustomerInfrastructureNetworkCommutators)
+                foreach (CustomerInfrastructureNetworkCommutator customerInfrastructureNetworkCommutator
+                    in this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCommutators)
                 {
-                    this.customerInfrastructureNetworkCommutators.Add(customerInfrastructureNetworkCommutator);
+                    DataRow row = this.dtCustomerInfrastructureNetworkCommutators.NewRow();
+                    this.dtCustomerInfrastructureNetworkCommutators.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkCommutatorId"] = this.customerInfrastructureNetworkCommutator
+                        .CustomerInfrastructureNetworkCommutatorId;
+                    row["CommutatorBrandId"] = this.customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
+                    row["CommutatorTypeId"] = this.customerInfrastructureNetworkCommutator.CommutatorType.CommutatorTypeId;
+                    row["NumberOfTrunks"] = this.customerInfrastructureNetworkCommutator.NumberOfTrunks;
+                    row["NumberOfExtensions"] = this.customerInfrastructureNetworkCommutator.NumberOfExtensions;
                 }
             }
         }
@@ -163,27 +145,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfExtensions.Value = null;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkCommutators.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkCommutators.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkCommutator = new CustomerInfrastructureNetworkCommutator();
 
+            this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetwork = this.CustomerInfrastructureNetwork;
             this.customerInfrastructureNetworkCommutator.Activated = true;
             this.customerInfrastructureNetworkCommutator.Deleted = false;
-            this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetwork 
-                = this.srvCustomerInfrastructureNetwork.GetById(this.CustomerInfrastructureNetworkId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkCommutator = this.customerInfrastructureNetworkCommutators
-                .Single(x => x.CustomerInfrastructureNetworkCommutatorId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkCommutator = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCommutators
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkCommutator = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCommutators
+                    .Single(x => x.CustomerInfrastructureNetworkCommutatorId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkCommutators.Remove(this.customerInfrastructureNetworkCommutator);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCommutators
+                    .Remove(this.customerInfrastructureNetworkCommutator);
             else
             {
                 this.customerInfrastructureNetworkCommutator.Activated = false;
@@ -195,8 +191,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkCommutator = this.customerInfrastructureNetworkCommutators
-                .Single(x => x.CustomerInfrastructureNetworkCommutatorId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkCommutator = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCommutators
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkCommutator = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkCommutators
+                    .Single(x => x.CustomerInfrastructureNetworkCommutatorId == entityId);
 
             this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value
                 = this.customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
@@ -261,22 +263,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId == -1)
+                row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
+                        == -(this.customerInfrastructureNetworkCommutator as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
+                        == this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId);
+
+            if (row == null)
             {
-                this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId = this.entityCounter--;
-                this.customerInfrastructureNetworkCommutators.Add(this.customerInfrastructureNetworkCommutator);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCommutators
+                    .Add(this.customerInfrastructureNetworkCommutator);
 
                 row = this.dtCustomerInfrastructureNetworkCommutators.NewRow();
                 this.dtCustomerInfrastructureNetworkCommutators.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
-                        == this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId);
-            }
 
-            row["CustomerInfrastructureNetworkCommutatorId"] = this.customerInfrastructureNetworkCommutator
-                .CustomerInfrastructureNetworkCommutatorId;
+            if (this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId == -1)
+                row["CustomerInfrastructureNetworkCommutatorId"]
+                    = -(this.customerInfrastructureNetworkCommutator as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkCommutatorId"] = this.customerInfrastructureNetworkCommutator
+                    .CustomerInfrastructureNetworkCommutatorId;
+
             row["CommutatorBrandId"] = this.customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
             row["CommutatorTypeId"] = this.customerInfrastructureNetworkCommutator.CommutatorType.CommutatorTypeId;
             row["NumberOfTrunks"] = this.customerInfrastructureNetworkCommutator.NumberOfTrunks;

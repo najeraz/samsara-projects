@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private CustomerInfrastructureNetworkRouter customerInfrastructureNetworkRouter;
         private ICustomerInfrastructureNetworkService srvCustomerInfrastructureNetwork;
         private IRouterBrandService srvRouterBrand;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkRouter> customerInfrastructureNetworkRouters;
 
         private DataTable dtCustomerInfrastructureNetworkRouters;
 
@@ -38,31 +37,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkId
+        public CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkRouter> CustomerInfrastructureNetworkRouters
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkRouter> tmp
-                    = new HashSet<CustomerInfrastructureNetworkRouter>();
-
-                foreach(CustomerInfrastructureNetworkRouter customerInfrastructureNetworkRouter in
-                    this.customerInfrastructureNetworkRouters)
-                {
-                    customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId 
-                        = customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId <= 0 ?
-                        -1 : customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId;
-
-                    tmp.Add(customerInfrastructureNetworkRouter);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -114,28 +92,31 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkId != null)
+            CustomerInfrastructureNetworkRouterParameters pmtCustomerInfrastructureNetworkRouter
+                = new CustomerInfrastructureNetworkRouterParameters();
+
+            pmtCustomerInfrastructureNetworkRouter.CustomerInfrastructureNetworkId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkRouters = this.srvCustomerInfrastructureNetworkRouter
+                .SearchByParameters(pmtCustomerInfrastructureNetworkRouter);
+
+            this.controlCustomerInfrastructureNetworkRouters.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkRouters.grdRelations.DataSource
+                = this.dtCustomerInfrastructureNetworkRouters;
+
+            if (this.CustomerInfrastructureNetwork != null)
             {
-                CustomerInfrastructureNetworkRouterParameters pmtCustomerInfrastructureNetworkRouter
-                    = new CustomerInfrastructureNetworkRouterParameters();
-
-                pmtCustomerInfrastructureNetworkRouter.CustomerInfrastructureNetworkId = this.CustomerInfrastructureNetworkId;
-
-                this.dtCustomerInfrastructureNetworkRouters = this.srvCustomerInfrastructureNetworkRouter
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkRouter);
-
-                this.controlCustomerInfrastructureNetworkRouters.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkRouters.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkRouters;
-
-                IList<CustomerInfrastructureNetworkRouter> lstCustomerInfrastructureNetworkRouters 
-                    = this.srvCustomerInfrastructureNetworkRouter.GetListByParameters(pmtCustomerInfrastructureNetworkRouter);
-
-                this.customerInfrastructureNetworkRouters = new HashSet<CustomerInfrastructureNetworkRouter>();
-
-                foreach (CustomerInfrastructureNetworkRouter customerInfrastructureNetworkRouter in
-                    lstCustomerInfrastructureNetworkRouters)
+                foreach (CustomerInfrastructureNetworkRouter customerInfrastructureNetworkRouter
+                    in this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkRouters)
                 {
-                    this.customerInfrastructureNetworkRouters.Add(customerInfrastructureNetworkRouter);
+                    DataRow row = this.dtCustomerInfrastructureNetworkRouters.NewRow();
+                    this.dtCustomerInfrastructureNetworkRouters.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkRouterId"] = this.customerInfrastructureNetworkRouter
+                        .CustomerInfrastructureNetworkRouterId;
+                    row["RouterBrandId"] = this.customerInfrastructureNetworkRouter.RouterBrand.RouterBrandId;
+                    row["RouterModel"] = this.customerInfrastructureNetworkRouter.RouterModel;
+                    row["Description"] = this.customerInfrastructureNetworkRouter.Description;
                 }
             }
         }
@@ -153,27 +134,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkRouters.txtDescription.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkRouters.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkRouters.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkRouter = new CustomerInfrastructureNetworkRouter();
 
+            this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetwork 
+                = this.CustomerInfrastructureNetwork;
             this.customerInfrastructureNetworkRouter.Activated = true;
             this.customerInfrastructureNetworkRouter.Deleted = false;
-            this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetwork 
-                = this.srvCustomerInfrastructureNetwork.GetById(this.CustomerInfrastructureNetworkId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkRouter = this.customerInfrastructureNetworkRouters
-                .Single(x => x.CustomerInfrastructureNetworkRouterId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkRouter = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkRouters.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkRouter = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkRouters
+                    .Single(x => x.CustomerInfrastructureNetworkRouterId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkRouters.Remove(this.customerInfrastructureNetworkRouter);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkRouters
+                    .Remove(this.customerInfrastructureNetworkRouter);
             else
             {
                 this.customerInfrastructureNetworkRouter.Activated = false;
@@ -185,8 +180,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkRouter = this.customerInfrastructureNetworkRouters
-                .Single(x => x.CustomerInfrastructureNetworkRouterId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkRouter = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkRouters.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkRouter = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkRouters
+                    .Single(x => x.CustomerInfrastructureNetworkRouterId == entityId);
 
             this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Value
                 = this.customerInfrastructureNetworkRouter.RouterBrand.RouterBrandId;
@@ -236,21 +236,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId == -1)
+                row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
+                        == -(this.customerInfrastructureNetworkRouter as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
+                        == this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId);
+
+            if(row == null)
             {
-                this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId = this.entityCounter--;
-                this.customerInfrastructureNetworkRouters.Add(this.customerInfrastructureNetworkRouter);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkRouters
+                    .Add(this.customerInfrastructureNetworkRouter);
 
                 row = this.dtCustomerInfrastructureNetworkRouters.NewRow();
                 this.dtCustomerInfrastructureNetworkRouters.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
-                        == this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId);
-            }
 
-            row["CustomerInfrastructureNetworkRouterId"] = this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId;
+            if (this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId == -1)
+                row["CustomerInfrastructureNetworkRouterId"]
+                = -(this.customerInfrastructureNetworkRouter as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkRouterId"]
+                    = this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId;
+
             row["RouterBrandId"] = this.customerInfrastructureNetworkRouter.RouterBrand.RouterBrandId;
             row["RouterModel"] = this.customerInfrastructureNetworkRouter.RouterModel;
             row["Description"] = this.customerInfrastructureNetworkRouter.Description;

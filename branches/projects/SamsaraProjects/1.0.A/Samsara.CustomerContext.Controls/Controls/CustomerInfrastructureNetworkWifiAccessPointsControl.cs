@@ -13,26 +13,17 @@ namespace Samsara.CustomerContext.Controls.Controls
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkWifiId
+        public CustomerInfrastructureNetworkWifi CustomerInfrastructureNetworkWifi
         {
             get
             {
-                return (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController).CustomerInfrastructureNetworkWifiId;
+                return (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController)
+                    .CustomerInfrastructureNetworkWifi;
             }
             set
             {
-                (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController).CustomerInfrastructureNetworkWifiId = value;
-            }
-        }
-
-        /// <summary>
-        /// Entidades relacionadas
-        /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkWifiAccessPoint> CustomerInfrastructureNetworkWifiAccessPoints
-        {
-            get
-            {
-                return (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController).CustomerInfrastructureNetworkWifiAccessPoints;
+                (this.controller as CustomerInfrastructureNetworkWifiAccessPointsControlController)
+                    .CustomerInfrastructureNetworkWifi = value;
             }
         }
 
