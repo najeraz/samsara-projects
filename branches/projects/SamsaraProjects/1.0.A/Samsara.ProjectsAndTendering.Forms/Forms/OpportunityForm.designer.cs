@@ -940,7 +940,7 @@
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchBidder;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchDependency;
         private System.Windows.Forms.TabPage Log;
-        internal Controls.SamsaraUltraGrid grdDetLog;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;

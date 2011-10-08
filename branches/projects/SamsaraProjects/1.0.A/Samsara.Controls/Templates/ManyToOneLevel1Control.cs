@@ -1,13 +1,13 @@
 ﻿
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Samsara.Controls.Controllers;
+using Samsara.Controls.Controls;
 
 namespace Samsara.Controls.Templates
 {
-    public partial class ManyToOneLevel1Control : UserControl
+    public partial class ManyToOneLevel1Control : SamsaraUserControl
     {
         #region Attributes
 

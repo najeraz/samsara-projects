@@ -1684,7 +1684,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
             {
-                row["Warranties"] = (Convert.ToDecimal(row["TotalPriceAfterTax"]) / totalTenderAfterTax)
+                row["Warranties"] = totalWarranties == 0 ? 0M : 
+                    (Convert.ToDecimal(row["TotalPriceAfterTax"]) / totalTenderAfterTax)
                     * totalWarranties;
             }
         }

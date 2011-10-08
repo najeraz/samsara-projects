@@ -260,7 +260,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             }
             else
             {
-                row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
+                row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
                         == this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId);
             }
 

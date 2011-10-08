@@ -348,12 +348,13 @@ namespace Samsara.Controls.Templates
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance69;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdRelations.Location = new System.Drawing.Point(0, 0);
+            this.grdRelations.lstCustomControlNames = null;
             this.grdRelations.Name = "grdRelations";
             this.grdRelations.Size = new System.Drawing.Size(728, 235);
             this.grdRelations.TabIndex = 98;
-            this.grdRelations.Text = "samsaraUltraGrid1";
             // 
             // ManyToOneLevel1Control
             // 
