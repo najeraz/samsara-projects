@@ -33,7 +33,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
         public Nullable<int> CustomerInfrastructureNetworkId
         {

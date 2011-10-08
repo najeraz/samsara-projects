@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private ICCTVBrandService srvCCTVBrand;
         private ICCTVTypeService srvCCTVType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureCCTV> customerInfrastructureCCTVs;
 
         private DataTable dtCustomerInfrastructureCCTVs;
 
@@ -37,33 +36,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureCCTV> CustomerInfrastructureCCTVs
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureCCTV> tmp
-                    = new HashSet<CustomerInfrastructureCCTV>();
-
-                foreach(CustomerInfrastructureCCTV customerInfrastructureCCTV in
-                    this.customerInfrastructureCCTVs)
-                {
-                    customerInfrastructureCCTV.CustomerInfrastructureCCTVId 
-                        = customerInfrastructureCCTV.CustomerInfrastructureCCTVId <= 0 ?
-                        -1 : customerInfrastructureCCTV.CustomerInfrastructureCCTVId;
-
-                    tmp.Add(customerInfrastructureCCTV);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -123,28 +101,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureCCTVParameters pmtCustomerInfrastructureCCTV
+                = new CustomerInfrastructureCCTVParameters();
+
+            pmtCustomerInfrastructureCCTV.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureCCTVs = this.srvCustomerInfrastructureCCTV
+                .SearchByParameters(pmtCustomerInfrastructureCCTV);
+
+            this.controlCustomerInfrastructureCCTVs.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureCCTVs.grdRelations.DataSource = this.dtCustomerInfrastructureCCTVs;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructureCCTVParameters pmtCustomerInfrastructureCCTV
-                    = new CustomerInfrastructureCCTVParameters();
-
-                pmtCustomerInfrastructureCCTV.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureCCTVs = this.srvCustomerInfrastructureCCTV
-                    .SearchByParameters(pmtCustomerInfrastructureCCTV);
-
-                this.controlCustomerInfrastructureCCTVs.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureCCTVs.grdRelations.DataSource = this.dtCustomerInfrastructureCCTVs;
-
-                IList<CustomerInfrastructureCCTV> lstCustomerInfrastructureCCTVs 
-                    = this.srvCustomerInfrastructureCCTV.GetListByParameters(pmtCustomerInfrastructureCCTV);
-
-                this.customerInfrastructureCCTVs = new HashSet<CustomerInfrastructureCCTV>();
-
-                foreach (CustomerInfrastructureCCTV customerInfrastructureCCTV in
-                    lstCustomerInfrastructureCCTVs)
+                foreach (CustomerInfrastructureCCTV customerInfrastructureCCTV
+                    in this.CustomerInfrastructure.CustomerInfrastructureCCTVs)
                 {
-                    this.customerInfrastructureCCTVs.Add(customerInfrastructureCCTV);
+                    DataRow row = this.dtCustomerInfrastructureCCTVs.NewRow();
+                    this.dtCustomerInfrastructureCCTVs.Rows.Add(row);
+
+                    row["CustomerInfrastructureCCTVId"] = customerInfrastructureCCTV.CustomerInfrastructureCCTVId;
+                    row["CCTVBrandId"] = customerInfrastructureCCTV.CCTVBrand.CCTVBrandId;
+                    row["CCTVTypeId"] = customerInfrastructureCCTV.CCTVType.CCTVTypeId;
+                    row["Utilization"] = customerInfrastructureCCTV.Utilization;
                 }
             }
         }
@@ -162,27 +141,38 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureCCTVs.txtUtilization.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureCCTVs.Rows.Clear();
+            this.dtCustomerInfrastructureCCTVs.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureCCTV = new CustomerInfrastructureCCTV();
 
+            this.customerInfrastructureCCTV.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureCCTV.Activated = true;
             this.customerInfrastructureCCTV.Deleted = false;
-            this.customerInfrastructureCCTV.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureCCTV = this.customerInfrastructureCCTVs
-                .Single(x => x.CustomerInfrastructureCCTVId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
+                    .Single(x => x.CustomerInfrastructureCCTVId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureCCTVs.Remove(this.customerInfrastructureCCTV);
+                this.CustomerInfrastructure.CustomerInfrastructureCCTVs.Remove(this.customerInfrastructureCCTV);
             else
             {
                 this.customerInfrastructureCCTV.Activated = false;
@@ -194,8 +184,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureCCTV = this.customerInfrastructureCCTVs
-                .Single(x => x.CustomerInfrastructureCCTVId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
+                    .Single(x => x.CustomerInfrastructureCCTVId == entityId);
 
             this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value
                 = this.customerInfrastructureCCTV.CCTVBrand.CCTVBrandId;
@@ -253,20 +247,27 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId == -1)
+                row = this.dtCustomerInfrastructureCCTVs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
+                       == -(this.customerInfrastructureCCTV as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureCCTVs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
+                        == this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId);
+
+            if (row == null)
             {
-                this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId = this.entityCounter--;
-                this.customerInfrastructureCCTVs.Add(this.customerInfrastructureCCTV);
+                this.CustomerInfrastructure.CustomerInfrastructureCCTVs.Add(this.customerInfrastructureCCTV);
 
                 row = this.dtCustomerInfrastructureCCTVs.NewRow();
                 this.dtCustomerInfrastructureCCTVs.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureCCTVs.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
-                        == this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId);
-            }
 
-            row["CustomerInfrastructureCCTVId"] = this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId;
+            if (this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId == -1)
+                row["CustomerInfrastructureCCTVId"] = -(this.customerInfrastructureCCTV as object).GetHashCode();
+            else
+                row["CustomerInfrastructureCCTVId"] = this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId;
+
             row["CCTVBrandId"] = this.customerInfrastructureCCTV.CCTVBrand.CCTVBrandId;
             row["CCTVTypeId"] = this.customerInfrastructureCCTV.CCTVType.CCTVTypeId;
             row["Utilization"] = this.customerInfrastructureCCTV.Utilization;

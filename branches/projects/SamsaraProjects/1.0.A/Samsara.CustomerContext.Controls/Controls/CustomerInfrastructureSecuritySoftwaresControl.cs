@@ -10,28 +10,17 @@ namespace Samsara.CustomerContext.Controls.Controls
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get
             {
-                return (this.controller as CustomerInfrastructureSecuritySoftwaresControlController).CustomerInfrastructureId;
+                return (this.controller as CustomerInfrastructureSecuritySoftwaresControlController).CustomerInfrastructure;
             }
             set
             {
-                (this.controller as CustomerInfrastructureSecuritySoftwaresControlController).CustomerInfrastructureId = value;
-            }
-        }
-
-        /// <summary>
-        /// Entidades relacionadas
-        /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureSecuritySoftware> CustomerInfrastructureSecuritySoftwares
-        {
-            get
-            {
-                return (this.controller as CustomerInfrastructureSecuritySoftwaresControlController).CustomerInfrastructureSecuritySoftwares;
+                (this.controller as CustomerInfrastructureSecuritySoftwaresControlController).CustomerInfrastructure = value;
             }
         }
 

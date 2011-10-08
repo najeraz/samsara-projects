@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IUPSBrandService srvUPSBrand;
         private IUPSTypeService srvUPSType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureUPS> customerInfrastructureUPSs;
 
         private DataTable dtCustomerInfrastructureUPSs;
 
@@ -37,33 +36,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureUPS> CustomerInfrastructureUPSs
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureUPS> tmp
-                    = new HashSet<CustomerInfrastructureUPS>();
-
-                foreach(CustomerInfrastructureUPS customerInfrastructureUPS in
-                    this.customerInfrastructureUPSs)
-                {
-                    customerInfrastructureUPS.CustomerInfrastructureUPSId 
-                        = customerInfrastructureUPS.CustomerInfrastructureUPSId <= 0 ?
-                        -1 : customerInfrastructureUPS.CustomerInfrastructureUPSId;
-
-                    tmp.Add(customerInfrastructureUPS);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -123,28 +101,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureUPSParameters pmtCustomerInfrastructureUPS
+                = new CustomerInfrastructureUPSParameters();
+
+            pmtCustomerInfrastructureUPS.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureUPSs = this.srvCustomerInfrastructureUPS
+                .SearchByParameters(pmtCustomerInfrastructureUPS);
+
+            this.controlCustomerInfrastructureUPSs.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureUPSs.grdRelations.DataSource = this.dtCustomerInfrastructureUPSs;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructureUPSParameters pmtCustomerInfrastructureUPS
-                    = new CustomerInfrastructureUPSParameters();
-
-                pmtCustomerInfrastructureUPS.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureUPSs = this.srvCustomerInfrastructureUPS
-                    .SearchByParameters(pmtCustomerInfrastructureUPS);
-
-                this.controlCustomerInfrastructureUPSs.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureUPSs.grdRelations.DataSource = this.dtCustomerInfrastructureUPSs;
-
-                IList<CustomerInfrastructureUPS> lstCustomerInfrastructureUPSs 
-                    = this.srvCustomerInfrastructureUPS.GetListByParameters(pmtCustomerInfrastructureUPS);
-
-                this.customerInfrastructureUPSs = new HashSet<CustomerInfrastructureUPS>();
-
-                foreach (CustomerInfrastructureUPS customerInfrastructureUPS in
-                    lstCustomerInfrastructureUPSs)
+                foreach (CustomerInfrastructureUPS customerInfrastructureUPS
+                    in this.CustomerInfrastructure.CustomerInfrastructureUPSs)
                 {
-                    this.customerInfrastructureUPSs.Add(customerInfrastructureUPS);
+                    DataRow row = this.dtCustomerInfrastructureUPSs.NewRow();
+                    this.dtCustomerInfrastructureUPSs.Rows.Add(row);
+
+                    row["CustomerInfrastructureUPSId"] = this.customerInfrastructureUPS.CustomerInfrastructureUPSId;
+                    row["UPSBrandId"] = this.customerInfrastructureUPS.UPSBrand.UPSBrandId;
+                    row["UPSTypeId"] = this.customerInfrastructureUPS.UPSType.UPSTypeId;
+                    row["Capacity"] = this.customerInfrastructureUPS.Capacity;
                 }
             }
         }
@@ -162,27 +141,38 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureUPSs.txtCapacity.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureUPSs.Rows.Clear();
+            this.dtCustomerInfrastructureUPSs.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureUPS = new CustomerInfrastructureUPS();
 
+            this.customerInfrastructureUPS.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureUPS.Activated = true;
             this.customerInfrastructureUPS.Deleted = false;
-            this.customerInfrastructureUPS.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureUPS = this.customerInfrastructureUPSs
-                .Single(x => x.CustomerInfrastructureUPSId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureUPS = this.CustomerInfrastructure.CustomerInfrastructureUPSs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureUPS = this.CustomerInfrastructure.CustomerInfrastructureUPSs
+                    .Single(x => x.CustomerInfrastructureUPSId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureUPSs.Remove(this.customerInfrastructureUPS);
+                this.CustomerInfrastructure.CustomerInfrastructureUPSs.Remove(this.customerInfrastructureUPS);
             else
             {
                 this.customerInfrastructureUPS.Activated = false;
@@ -194,8 +184,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureUPS = this.customerInfrastructureUPSs
-                .Single(x => x.CustomerInfrastructureUPSId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureUPS = this.CustomerInfrastructure.CustomerInfrastructureUPSs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureUPS = this.CustomerInfrastructure.CustomerInfrastructureUPSs
+                    .Single(x => x.CustomerInfrastructureUPSId == entityId);
 
             this.controlCustomerInfrastructureUPSs.uceUPSBrand.Value
                 = this.customerInfrastructureUPS.UPSBrand.UPSBrandId;
@@ -253,21 +247,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureUPS.CustomerInfrastructureUPSId == -1)
+                row = this.dtCustomerInfrastructureUPSs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
+                        == -(this.customerInfrastructureUPS as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureUPSs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
+                        == this.customerInfrastructureUPS.CustomerInfrastructureUPSId);
+
+            if (row == null)
             {
-                this.customerInfrastructureUPS.CustomerInfrastructureUPSId = this.entityCounter--;
-                this.customerInfrastructureUPSs.Add(this.customerInfrastructureUPS);
+                this.CustomerInfrastructure.CustomerInfrastructureUPSs.Add(this.customerInfrastructureUPS);
 
                 row = this.dtCustomerInfrastructureUPSs.NewRow();
                 this.dtCustomerInfrastructureUPSs.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureUPSs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
-                        == this.customerInfrastructureUPS.CustomerInfrastructureUPSId);
-            }
 
-            row["CustomerInfrastructureUPSId"] = this.customerInfrastructureUPS.CustomerInfrastructureUPSId;
+            if (this.customerInfrastructureUPS.CustomerInfrastructureUPSId == -1)
+                row["CustomerInfrastructureUPSId"]
+                    = -(this.customerInfrastructureUPS as object).GetHashCode();
+            else
+                row["CustomerInfrastructureUPSId"] 
+                    = this.customerInfrastructureUPS.CustomerInfrastructureUPSId;
+
             row["UPSBrandId"] = this.customerInfrastructureUPS.UPSBrand.UPSBrandId;
             row["UPSTypeId"] = this.customerInfrastructureUPS.UPSType.UPSTypeId;
             row["Capacity"] = this.customerInfrastructureUPS.Capacity;
