@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureServerComputerService srvCustomerInfrastructureServerComputer;
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IDBMSService srvDBMS;
-        private System.Collections.Generic.ISet<CustomerInfrastructureAdministationSoftware> customerInfrastructureAdministationSoftwares;
 
         private DataTable dtCustomerInfrastructureAdministationSoftwares;
 
@@ -36,33 +35,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureAdministationSoftware> CustomerInfrastructureAdministationSoftwares
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureAdministationSoftware> tmp
-                    = new HashSet<CustomerInfrastructureAdministationSoftware>();
-
-                foreach(CustomerInfrastructureAdministationSoftware customerInfrastructureAdministationSoftware in
-                    this.customerInfrastructureAdministationSoftwares)
-                {
-                    customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId 
-                        = customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId <= 0 ?
-                        -1 : customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId;
-
-                    tmp.Add(customerInfrastructureAdministationSoftware);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -116,39 +94,48 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureAdministationSoftwareParameters pmtCustomerInfrastructureAdministationSoftware
+                = new CustomerInfrastructureAdministationSoftwareParameters();
+
+            pmtCustomerInfrastructureAdministationSoftware.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureAdministationSoftwares = this.srvCustomerInfrastructureAdministationSoftware
+                .SearchByParameters(pmtCustomerInfrastructureAdministationSoftware);
+
+            this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.DataSource 
+                = this.dtCustomerInfrastructureAdministationSoftwares;
+
+            if (this.CustomerInfrastructure != null)
             {
                 CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
                     = new CustomerInfrastructureServerComputerParameters();
 
-                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
+                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
                 WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
                     this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
                     customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
-                CustomerInfrastructureAdministationSoftwareParameters pmtCustomerInfrastructureAdministationSoftware
-                    = new CustomerInfrastructureAdministationSoftwareParameters();
-
-                pmtCustomerInfrastructureAdministationSoftware.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureAdministationSoftwares = this.srvCustomerInfrastructureAdministationSoftware
-                    .SearchByParameters(pmtCustomerInfrastructureAdministationSoftware);
-
-                this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.DataSource = this.dtCustomerInfrastructureAdministationSoftwares;
-
-                IList<CustomerInfrastructureAdministationSoftware> lstCustomerInfrastructureAdministationSoftwares 
-                    = this.srvCustomerInfrastructureAdministationSoftware.GetListByParameters(pmtCustomerInfrastructureAdministationSoftware);
-
-                this.customerInfrastructureAdministationSoftwares = new HashSet<CustomerInfrastructureAdministationSoftware>();
-
-                foreach (CustomerInfrastructureAdministationSoftware customerInfrastructureAdministationSoftware in
-                    lstCustomerInfrastructureAdministationSoftwares)
+                foreach (CustomerInfrastructureAdministationSoftware customerInfrastructureAdministationSoftware
+                    in this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares)
                 {
-                    this.customerInfrastructureAdministationSoftwares.Add(customerInfrastructureAdministationSoftware);
+                    DataRow row = this.dtCustomerInfrastructureAdministationSoftwares.NewRow();
+                    this.dtCustomerInfrastructureAdministationSoftwares.Rows.Add(row);
+                    
+                    row["CustomerInfrastructureAdministationSoftwareId"]
+                        = customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId;
+                    row["DBMSId"] = customerInfrastructureAdministationSoftware.DBMS.DBMSId;
+                    row["CustomerInfrastructureServerComputerId"] = customerInfrastructureAdministationSoftware
+                        .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+                    row["Description"] = customerInfrastructureAdministationSoftware.Description;
+                    row["Modules"] = customerInfrastructureAdministationSoftware.Modules;
+                    row["Name"] = customerInfrastructureAdministationSoftware.Name;
+                    row["NumberOfUsers"] = customerInfrastructureAdministationSoftware.NumberOfUsers;
                 }
+
+                this.dtCustomerInfrastructureAdministationSoftwares.AcceptChanges();
             }
         }
 
@@ -173,22 +160,35 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.CreateRelation();
 
             this.customerInfrastructureAdministationSoftware = new CustomerInfrastructureAdministationSoftware();
-
+            this.customerInfrastructureAdministationSoftware.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureAdministationSoftware.Activated = true;
             this.customerInfrastructureAdministationSoftware.Deleted = false;
-            this.customerInfrastructureAdministationSoftware.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
+        }
+
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureAdministationSoftwares.Rows.Clear();
+            this.dtCustomerInfrastructureAdministationSoftwares.AcceptChanges();
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureAdministationSoftware = this.customerInfrastructureAdministationSoftwares
-                .Single(x => x.CustomerInfrastructureAdministationSoftwareId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureAdministationSoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureAdministationSoftwares
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureAdministationSoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureAdministationSoftwares
+                    .Single(x => x.CustomerInfrastructureAdministationSoftwareId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureAdministationSoftwares.Remove(this.customerInfrastructureAdministationSoftware);
+                this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares
+                    .Remove(this.customerInfrastructureAdministationSoftware);
             else
             {
                 this.customerInfrastructureAdministationSoftware.Activated = false;
@@ -199,9 +199,15 @@ namespace Samsara.CustomerContext.Controls.Controllers
         protected override void LoadFromEntity(int entityId)
         {
             base.LoadFromEntity(entityId);
-
-            this.customerInfrastructureAdministationSoftware = this.customerInfrastructureAdministationSoftwares
-                .Single(x => x.CustomerInfrastructureAdministationSoftwareId == entityId);
+            
+            if (entityId <= 0)
+                this.customerInfrastructureAdministationSoftware 
+                    = this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureAdministationSoftware 
+                    = this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares
+                    .Single(x => x.CustomerInfrastructureAdministationSoftwareId == entityId);
 
             this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Value
                 = this.customerInfrastructureAdministationSoftware.DBMS.DBMSId;
@@ -261,22 +267,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId == -1)
+                row = this.dtCustomerInfrastructureAdministationSoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureAdministationSoftwareId"])
+                       == -(this.customerInfrastructureAdministationSoftware as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureAdministationSoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureAdministationSoftwareId"])
+                        == this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId);
+
+            if (row == null)
             {
-                this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId = this.entityCounter--;
-                this.customerInfrastructureAdministationSoftwares.Add(this.customerInfrastructureAdministationSoftware);
+                this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares
+                    .Add(this.customerInfrastructureAdministationSoftware);
 
                 row = this.dtCustomerInfrastructureAdministationSoftwares.NewRow();
                 this.dtCustomerInfrastructureAdministationSoftwares.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureAdministationSoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureAdministationSoftwareId"])
-                        == this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId);
-            }
 
-            row["CustomerInfrastructureAdministationSoftwareId"] 
-                = this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId;
+            if (this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId == -1)
+                row["CustomerInfrastructureAdministationSoftwareId"]
+                    = -(this.customerInfrastructureAdministationSoftware as object).GetHashCode();
+            else
+                row["CustomerInfrastructureAdministationSoftwareId"]
+                    = this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId;
+
             row["DBMSId"] = this.customerInfrastructureAdministationSoftware.DBMS.DBMSId;
             row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureAdministationSoftware
                 .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
@@ -321,16 +335,20 @@ namespace Samsara.CustomerContext.Controls.Controllers
             CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
                 = new CustomerInfrastructureServerComputerParameters();
 
-            pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
-            IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
-                = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
+            if (this.CustomerInfrastructure != null)
+            {
+                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId
+                    = this.CustomerInfrastructure.CustomerInfrastructureId;
+                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
+                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
 
-            WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
-                customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
+                    this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
+                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
-            WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
-                band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+                WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
+                    band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+            }
         }
 
         #endregion Events

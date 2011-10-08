@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IPrinterBrandService srvPrinterBrand;
         private IPrinterTypeService srvPrinterType;
-        private System.Collections.Generic.ISet<CustomerInfrastructurePrinter> customerInfrastructurePrinters;
 
         private DataTable dtCustomerInfrastructurePrinters;
 
@@ -37,35 +36,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
         }
 
-        public System.Collections.Generic.ISet<CustomerInfrastructurePrinter> CustomerInfrastructurePrinters
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructurePrinter> tmp
-                    = new HashSet<CustomerInfrastructurePrinter>();
-
-                foreach(CustomerInfrastructurePrinter customerInfrastructurePrinter in
-                    this.customerInfrastructurePrinters)
-                {
-                    customerInfrastructurePrinter.CustomerInfrastructurePrinterId 
-                        = customerInfrastructurePrinter.CustomerInfrastructurePrinterId <= 0 ?
-                        -1 : customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
-
-                    tmp.Add(customerInfrastructurePrinter);
-                }
-
-                return tmp;
-            }
-        }
-        
         #endregion Properties
         
         #region Constructor
@@ -123,28 +101,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructurePrinterParameters pmtCustomerInfrastructurePrinter
+                = new CustomerInfrastructurePrinterParameters();
+
+            pmtCustomerInfrastructurePrinter.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructurePrinters = this.srvCustomerInfrastructurePrinter
+                .SearchByParameters(pmtCustomerInfrastructurePrinter);
+
+            this.controlCustomerInfrastructurePrinters.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructurePrinters.grdRelations.DataSource = this.dtCustomerInfrastructurePrinters;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructurePrinterParameters pmtCustomerInfrastructurePrinter
-                    = new CustomerInfrastructurePrinterParameters();
-
-                pmtCustomerInfrastructurePrinter.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructurePrinters = this.srvCustomerInfrastructurePrinter
-                    .SearchByParameters(pmtCustomerInfrastructurePrinter);
-
-                this.controlCustomerInfrastructurePrinters.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructurePrinters.grdRelations.DataSource = this.dtCustomerInfrastructurePrinters;
-
-                IList<CustomerInfrastructurePrinter> lstCustomerInfrastructurePrinters 
-                    = this.srvCustomerInfrastructurePrinter.GetListByParameters(pmtCustomerInfrastructurePrinter);
-
-                this.customerInfrastructurePrinters = new HashSet<CustomerInfrastructurePrinter>();
-
-                foreach (CustomerInfrastructurePrinter customerInfrastructurePrinter in
-                    lstCustomerInfrastructurePrinters)
+                foreach (CustomerInfrastructurePrinter customerInfrastructurePrinter
+                    in this.CustomerInfrastructure.CustomerInfrastructurePrinters)
                 {
-                    this.customerInfrastructurePrinters.Add(customerInfrastructurePrinter);
+                    DataRow row = this.dtCustomerInfrastructurePrinters.NewRow();
+                    this.dtCustomerInfrastructurePrinters.Rows.Add(row);
+
+                    row["CustomerInfrastructurePrinterId"] = this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
+                    row["PrinterBrandId"] = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
+                    row["PrinterTypeId"] = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
+                    row["SerialNumber"] = this.customerInfrastructurePrinter.SerialNumber;
                 }
             }
         }
@@ -162,27 +141,38 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructurePrinters.Rows.Clear();
+            this.dtCustomerInfrastructurePrinters.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructurePrinter = new CustomerInfrastructurePrinter();
 
+            this.customerInfrastructurePrinter.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructurePrinter.Activated = true;
             this.customerInfrastructurePrinter.Deleted = false;
-            this.customerInfrastructurePrinter.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructurePrinter = this.customerInfrastructurePrinters
-                .Single(x => x.CustomerInfrastructurePrinterId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructurePrinter = this.CustomerInfrastructure.CustomerInfrastructurePrinters
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructurePrinter = this.CustomerInfrastructure.CustomerInfrastructurePrinters
+                    .Single(x => x.CustomerInfrastructurePrinterId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructurePrinters.Remove(this.customerInfrastructurePrinter);
+                this.CustomerInfrastructure.CustomerInfrastructurePrinters.Remove(this.customerInfrastructurePrinter);
             else
             {
                 this.customerInfrastructurePrinter.Activated = false;
@@ -194,8 +184,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructurePrinter = this.customerInfrastructurePrinters
-                .Single(x => x.CustomerInfrastructurePrinterId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructurePrinter = this.CustomerInfrastructure.CustomerInfrastructurePrinters
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructurePrinter = this.CustomerInfrastructure.CustomerInfrastructurePrinters
+                    .Single(x => x.CustomerInfrastructurePrinterId == entityId);
 
             this.controlCustomerInfrastructurePrinters.ucePrinterBrand.Value
                 = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
@@ -253,21 +247,27 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId == -1)
+                row = this.dtCustomerInfrastructurePrinters.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
+                        == -(this.customerInfrastructurePrinter as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructurePrinters.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
+                        == this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId);
+
+            if (row == null)
             {
-                this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId = this.entityCounter--;
-                this.customerInfrastructurePrinters.Add(this.customerInfrastructurePrinter);
+                this.CustomerInfrastructure.CustomerInfrastructurePrinters.Add(this.customerInfrastructurePrinter);
 
                 row = this.dtCustomerInfrastructurePrinters.NewRow();
                 this.dtCustomerInfrastructurePrinters.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructurePrinters.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
-                        == this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId);
-            }
 
-            row["CustomerInfrastructurePrinterId"] = this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
+            if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId == -1)
+                row["CustomerInfrastructurePrinterId"] = -(this.customerInfrastructurePrinter as object).GetHashCode();
+            else
+                row["CustomerInfrastructurePrinterId"] = this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
+
             row["PrinterBrandId"] = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
             row["PrinterTypeId"] = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
             row["SerialNumber"] = this.customerInfrastructurePrinter.SerialNumber;

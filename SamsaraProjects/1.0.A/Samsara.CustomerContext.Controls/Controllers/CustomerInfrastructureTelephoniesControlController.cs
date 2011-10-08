@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private ITelephonyProviderService srvTelephonyProvider;
         private ITelephonyLineTypeService srvTelephonyLineType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureTelephony> customerInfrastructureTelephonies;
 
         private DataTable dtCustomerInfrastructureTelephonies;
 
@@ -37,33 +36,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureTelephony> CustomerInfrastructureTelephonies
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureTelephony> tmp
-                    = new HashSet<CustomerInfrastructureTelephony>();
-
-                foreach(CustomerInfrastructureTelephony customerInfrastructureTelephony in
-                    this.customerInfrastructureTelephonies)
-                {
-                    customerInfrastructureTelephony.CustomerInfrastructureTelephonyId 
-                        = customerInfrastructureTelephony.CustomerInfrastructureTelephonyId <= 0 ?
-                        -1 : customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
-
-                    tmp.Add(customerInfrastructureTelephony);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -123,28 +101,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureTelephonyParameters pmtCustomerInfrastructureTelephony
+                = new CustomerInfrastructureTelephonyParameters();
+
+            pmtCustomerInfrastructureTelephony.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureTelephonies = this.srvCustomerInfrastructureTelephony
+                .SearchByParameters(pmtCustomerInfrastructureTelephony);
+
+            this.controlCustomerInfrastructureTelephonies.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureTelephonies.grdRelations.DataSource = this.dtCustomerInfrastructureTelephonies;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructureTelephonyParameters pmtCustomerInfrastructureTelephony
-                    = new CustomerInfrastructureTelephonyParameters();
-
-                pmtCustomerInfrastructureTelephony.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureTelephonies = this.srvCustomerInfrastructureTelephony
-                    .SearchByParameters(pmtCustomerInfrastructureTelephony);
-
-                this.controlCustomerInfrastructureTelephonies.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureTelephonies.grdRelations.DataSource = this.dtCustomerInfrastructureTelephonies;
-
-                IList<CustomerInfrastructureTelephony> lstCustomerInfrastructureTelephonies
-                    = this.srvCustomerInfrastructureTelephony.GetListByParameters(pmtCustomerInfrastructureTelephony);
-
-                this.customerInfrastructureTelephonies = new HashSet<CustomerInfrastructureTelephony>();
-
-                foreach (CustomerInfrastructureTelephony customerInfrastructureTelephony in
-                    lstCustomerInfrastructureTelephonies)
+                foreach (CustomerInfrastructureTelephony customerInfrastructureTelephony
+                    in this.CustomerInfrastructure.CustomerTelephonies)
                 {
-                    this.customerInfrastructureTelephonies.Add(customerInfrastructureTelephony);
+                    DataRow row = this.dtCustomerInfrastructureTelephonies.NewRow();
+                    this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
+
+                    row["CustomerInfrastructureTelephonyId"] 
+                        = this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
+                    row["TelephonyProviderId"] = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
+                    row["TelephonyLineTypeId"] = this.customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
+                    row["NumberOfLines"] = this.customerInfrastructureTelephony.NumberOfLines;
                 }
             }
         }
@@ -162,27 +142,38 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value = null;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureTelephonies.Rows.Clear();
+            this.dtCustomerInfrastructureTelephonies.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureTelephony = new CustomerInfrastructureTelephony();
 
+            this.customerInfrastructureTelephony.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureTelephony.Activated = true;
             this.customerInfrastructureTelephony.Deleted = false;
-            this.customerInfrastructureTelephony.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonies
-                .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                    .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureTelephonies.Remove(this.customerInfrastructureTelephony);
+                this.CustomerInfrastructure.CustomerTelephonies.Remove(this.customerInfrastructureTelephony);
             else
             {
                 this.customerInfrastructureTelephony.Activated = false;
@@ -194,8 +185,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureTelephony = this.customerInfrastructureTelephonies
-                .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                    .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value
                 = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
@@ -254,21 +249,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId == -1)
+                row = this.dtCustomerInfrastructureTelephonies.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
+                        == -(this.customerInfrastructureTelephony as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureTelephonies.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
+                        == this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId);
+
+            if (row == null)
             {
-                this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId = this.entityCounter--;
-                this.customerInfrastructureTelephonies.Add(this.customerInfrastructureTelephony);
+                this.CustomerInfrastructure.CustomerTelephonies.Add(this.customerInfrastructureTelephony);
 
                 row = this.dtCustomerInfrastructureTelephonies.NewRow();
                 this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureTelephonies.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
-                        == this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId);
-            }
 
-            row["CustomerInfrastructureTelephonyId"] = this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
+            if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId == -1)
+                row["CustomerInfrastructureTelephonyId"]
+                    = -(this.customerInfrastructureTelephony as object).GetHashCode();
+            else
+                row["CustomerInfrastructureTelephonyId"] 
+                    = this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
+
             row["TelephonyProviderId"] = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
             row["TelephonyLineTypeId"] = this.customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
             row["NumberOfLines"] = this.customerInfrastructureTelephony.NumberOfLines;

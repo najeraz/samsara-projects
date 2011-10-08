@@ -13,6 +13,10 @@ namespace Samsara.CustomerContext.Core.Entities
         private ISet<CustomerInfrastructurePrinter> customerInfrastructurePrinters;
         private ISet<CustomerInfrastructureTelephony> customerTelephonies;
         private ISet<CustomerInfrastructureCCTV> customerInfrastructureCCTVs;
+        private ISet<CustomerInfrastructureAdministationSoftware> customerInfrastructureAdministationSoftwares;
+        private ISet<CustomerInfrastructureBackupSoftware> customerInfrastructureBackupSoftwares;
+        private ISet<CustomerInfrastructureSecuritySoftware> customerInfrastructureSecuritySoftwares;
+        private ISet<CustomerInfrastructureISP> customerInfrastructureISPs;
 
         public CustomerInfrastructure()
         {
@@ -137,6 +141,66 @@ namespace Samsara.CustomerContext.Core.Entities
             set
             {
                 this.customerInfrastructureCCTVs = value;
+            }
+        }
+
+        public virtual ISet<CustomerInfrastructureAdministationSoftware> CustomerInfrastructureAdministationSoftwares
+        {
+            get
+            {
+                if (this.customerInfrastructureAdministationSoftwares == null)
+                    this.customerInfrastructureAdministationSoftwares = new HashedSet<CustomerInfrastructureAdministationSoftware>();
+
+                return this.customerInfrastructureAdministationSoftwares;
+            }
+            set
+            {
+                this.customerInfrastructureAdministationSoftwares = value;
+            }
+        }
+
+        public virtual ISet<CustomerInfrastructureBackupSoftware> CustomerInfrastructureBackupSoftwares
+        {
+            get
+            {
+                if (this.customerInfrastructureBackupSoftwares == null)
+                    this.customerInfrastructureBackupSoftwares = new HashedSet<CustomerInfrastructureBackupSoftware>();
+
+                return this.customerInfrastructureBackupSoftwares;
+            }
+            set
+            {
+                this.customerInfrastructureBackupSoftwares = value;
+            }
+        }
+
+        public virtual ISet<CustomerInfrastructureSecuritySoftware> CustomerInfrastructureSecuritySoftwares
+        {
+            get
+            {
+                if (this.customerInfrastructureSecuritySoftwares == null)
+                    this.customerInfrastructureSecuritySoftwares = new HashedSet<CustomerInfrastructureSecuritySoftware>();
+
+                return this.customerInfrastructureSecuritySoftwares;
+            }
+            set
+            {
+                this.customerInfrastructureSecuritySoftwares = value;
+            }
+        }
+
+        public virtual ISet<CustomerInfrastructureISP> CustomerInfrastructureISPs
+        {
+            get
+            {
+                if (this.customerInfrastructureISPs == null)
+                    this.customerInfrastructureISPs = new HashedSet<CustomerInfrastructureISP>();
+
+                return this.customerInfrastructureISPs;
+            }
+            set
+            {
+                this.customerInfrastructureISPs = value;
             }
         }
     }

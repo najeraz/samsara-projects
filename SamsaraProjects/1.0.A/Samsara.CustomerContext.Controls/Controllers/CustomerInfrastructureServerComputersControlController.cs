@@ -36,7 +36,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
         public CustomerInfrastructure CustomerInfrastructure
         {
@@ -196,7 +196,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.DeleteEntity(entityId);
 
-            if (this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId == -1)
+            if (entityId <= 0)
                 this.customerInfrastructureServerComputer = this.CustomerInfrastructure
                     .CustomerInfrastructureServerComputers
                     .Single(x => -x.GetHashCode() == entityId);
