@@ -102,10 +102,6 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkSites.CustomerInfrastructureId = -1;
-            this.frmCustomer.mtoCustomerInfrastructureNetworkSites.CustomParent = this.frmCustomer;
-            this.frmCustomer.mtoCustomerInfrastructureNetworkSites.LoadControls();
-
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.LoadControls();
