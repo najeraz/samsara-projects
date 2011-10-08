@@ -223,11 +223,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureISP.CustomerInfrastructureISPId == -1)
                 row = this.dtCustomerInfrastructureISPs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
                         == -(this.customerInfrastructureISP as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureISPs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
                         == this.customerInfrastructureISP.CustomerInfrastructureISPId);
 
             if (row == null)

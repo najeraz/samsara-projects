@@ -228,11 +228,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId == -1)
                 row = this.dtCustomerInfrastructureNetworkCablings.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
                         == - (this.customerInfrastructureNetworkCabling as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkCablings.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCablingId"])
                         == this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId);
 
             if (row == null)

@@ -266,11 +266,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId == -1)
                 row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
                         == -(this.customerInfrastructureSecuritySoftware as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
                         == this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId);
 
             if (row == null)
