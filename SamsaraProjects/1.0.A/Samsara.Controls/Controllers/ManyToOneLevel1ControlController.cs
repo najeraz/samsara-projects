@@ -75,6 +75,10 @@ namespace Samsara.Controls.Controllers
             this.control.tabDetail.SelectedTab = this.control.tabItmPrincipal;
         }
 
+        public virtual void ClearControls()
+        {
+        }
+
         private void InitializeControlControls()
         {
             this.HideDetail();

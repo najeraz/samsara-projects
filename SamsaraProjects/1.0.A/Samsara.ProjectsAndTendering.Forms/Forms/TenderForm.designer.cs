@@ -1,4 +1,5 @@
-﻿namespace Samsara.ProjectsAndTendering.Forms.Forms
+﻿
+namespace Samsara.ProjectsAndTendering.Forms.Forms
 {
     partial class TenderForm
     {
@@ -193,7 +194,7 @@
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
             this.oscDetRelatedOpportunity = new Samsara.Controls.OpportunitySearchControl();
-            this.tscPreviousTender = new Samsara.Controls.TenderSearchControl();
+            this.tscPreviousTender = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSearchControl();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbDetAddress = new System.Windows.Forms.GroupBox();
@@ -3271,7 +3272,7 @@
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateManufacturer;
         private System.Windows.Forms.Label lblPreviousTender;
         internal System.Windows.Forms.TabControl tcDetTextControls;
-        internal Samsara.Controls.TenderSearchControl tscPreviousTender;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.TenderSearchControl tscPreviousTender;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
         internal System.Windows.Forms.GroupBox gbxDetAcquisitionReason;
         internal System.Windows.Forms.Label lblDetVeredictDate;
@@ -3280,9 +3281,9 @@
         internal System.Windows.Forms.GroupBox gbDetAddress;
         internal System.Windows.Forms.Label lblDetTenderName;
         internal System.Windows.Forms.Label lblDetRelatedOpportunity;
-        internal Controls.OpportunitySearchControl oscDetRelatedOpportunity;
+        internal Samsara.Controls.OpportunitySearchControl oscDetRelatedOpportunity;
         private System.Windows.Forms.TabPage Competitors;
-        internal Controls.SamsaraUltraGrid grdDetTenderCompetitors;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderCompetitors;
         private Infragistics.Win.Misc.UltraPanel upDetCompetitorsButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator334;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteCompetitor;
@@ -3290,25 +3291,25 @@
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateCompetitor;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator44322;
         private System.Windows.Forms.TabPage Wholesalers;
-        internal Controls.SamsaraUltraGrid grdDetTenderWholesalers;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderWholesalers;
         private System.Windows.Forms.Panel upDetWholesalersButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator45342;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteWholesaler;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator452354;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateWholesaler;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator63421;
-        internal Controls.SamsaraUltraGrid grdDetPricingStrategy;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetPricingStrategy;
         private System.Windows.Forms.GroupBox gbxDetPricingStrategy;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPricingStrategy;
         private System.Windows.Forms.TabPage ComparativoDePrecios;
-        internal Controls.SamsaraUltraGrid grdDetPriceComparison;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetPriceComparison;
         private System.Windows.Forms.TabPage Resultados;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetResults;
         private System.Windows.Forms.TabPage AnalysisAndResults;
         private System.Windows.Forms.TabPage Files;
         private System.Windows.Forms.TabControl tcDetAnalysisAndResults;
         private System.Windows.Forms.TabPage Preresultados;
-        internal Controls.SamsaraUltraGrid grdDetTenderFiles;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderFiles;
         private Infragistics.Win.Misc.UltraPanel upSeparatorDeleteTenderFile;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteTenderFile;
         private Infragistics.Win.Misc.UltraPanel upSeparatorCreateTenderFile;
@@ -3322,19 +3323,19 @@
         private Infragistics.Win.Misc.UltraPanel upnlDetPriceComparison;
         private System.Windows.Forms.GroupBox gbxDetPriceComparison;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPriceComparison;
-        internal Controls.SamsaraUltraGrid grdDetPreresults;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetPreresults;
         private System.Windows.Forms.TabPage Log;
-        internal Controls.SamsaraUltraGrid grdDetLog;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetLog;
         private System.Windows.Forms.TabPage Warranties;
         private System.Windows.Forms.GroupBox gbxDetExchangeRates;
-        internal Controls.SamsaraUltraGrid grdDetExchangeRates;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetExchangeRates;
         private System.Windows.Forms.GroupBox gbxDetLog;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1241;
-        internal Controls.SamsaraUltraGrid grdDetTenderWarranties;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderWarranties;
         private System.Windows.Forms.Panel upDetWarrantiesButtons;
         private Infragistics.Win.Misc.UltraPanel dpDetSeparatorDeleteWarranty;
         internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteWarranty;
@@ -3371,9 +3372,9 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator4327;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLine;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator532;
-        internal Controls.SamsaraUltraGrid grdDetTenderLines;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderLines;
         private System.Windows.Forms.TabPage TenderLineDetail;
-        internal Controls.SamsaraUltraGrid grdDetTenderLinesExtraCosts;
+        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderLinesExtraCosts;
         private System.Windows.Forms.Panel pnlDetTenderLineExtraCostHeader;
         private System.Windows.Forms.Panel pnlDetTenderLineExtraCostsButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator582;

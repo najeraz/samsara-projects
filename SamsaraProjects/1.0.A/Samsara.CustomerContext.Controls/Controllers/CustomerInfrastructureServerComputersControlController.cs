@@ -105,6 +105,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 .mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputer
                 = this.customerInfrastructureServerComputer;
             this.controlCustomerInfrastructureServerComputers
+                .mtoCustomerInfrastructureServerComputerDBMSs.CustomParent
+                = this.controlCustomerInfrastructureServerComputers;
+            this.controlCustomerInfrastructureServerComputers
                 .mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
 
             CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
@@ -119,6 +122,33 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource = null;
             this.controlCustomerInfrastructureServerComputers.grdRelations.DataSource
                 = this.dtCustomerInfrastructureServerComputers;
+
+            if (this.CustomerInfrastructure != null)
+            {
+                foreach (CustomerInfrastructureServerComputer customerInfrastructureServerComputer
+                    in this.CustomerInfrastructure.CustomerInfrastructureServerComputers)
+                {
+                    DataRow row = this.dtCustomerInfrastructureServerComputers.NewRow();
+                    this.dtCustomerInfrastructureServerComputers.Rows.Add(row);
+
+                    row["CustomerInfrastructureServerComputerId"] = customerInfrastructureServerComputer
+                        .CustomerInfrastructureServerComputerId;
+
+                    row["ComputerBrandId"] = customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
+                    if (customerInfrastructureServerComputer.OperativeSystem == null)
+                        row["OperativeSystemId"] = DBNull.Value;
+                    else
+                        row["OperativeSystemId"] = customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
+                    row["Utilization"] = customerInfrastructureServerComputer.Utilization;
+                    row["CPU"] = customerInfrastructureServerComputer.CPU;
+                    row["ManufacturerReferenceNumber"] = customerInfrastructureServerComputer.ManufacturerReferenceNumber;
+                    row["ServerModel"] = customerInfrastructureServerComputer.ServerModel;
+                    row["RAM"] = customerInfrastructureServerComputer.RAM;
+                    row["Scalability"] = customerInfrastructureServerComputer.Scalability;
+                    row["SerialNumber"] = customerInfrastructureServerComputer.SerialNumber;
+                    row["StorageSystem"] = customerInfrastructureServerComputer.StorageSystem;
+                }
+            }
         }
 
         #endregion Public
@@ -139,6 +169,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.txtScalability.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtSerialNumber.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtStorage.Text = string.Empty;
+        }
+
+        public override void ClearControls()
+        {
+            base.ClearControls();
 
             this.dtCustomerInfrastructureServerComputers.Rows.Clear();
             this.dtCustomerInfrastructureServerComputers.AcceptChanges();
@@ -161,9 +196,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureServerComputer = this.CustomerInfrastructure
-                .CustomerInfrastructureServerComputers
-                .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
+            if (this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId == -1)
+                this.customerInfrastructureServerComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructureServerComputers
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureServerComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructureServerComputers
+                    .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
 
             if (entityId <= 0)
                 this.CustomerInfrastructure.CustomerInfrastructureServerComputers
@@ -179,9 +219,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureServerComputer = this.CustomerInfrastructure
-                .CustomerInfrastructureServerComputers
-                .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureServerComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructureServerComputers
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureServerComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructureServerComputers
+                    .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
 
             this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value
                 = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
@@ -268,23 +313,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId == -1)
+                row = this.dtCustomerInfrastructureServerComputers.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerId"])
+                        == -(this.customerInfrastructureServerComputer as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureServerComputers.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerId"])
+                        == this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId);
+
+            if (row == null)
             {
-                this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId = this.entityCounter--;
                 this.CustomerInfrastructure.CustomerInfrastructureServerComputers
                     .Add(this.customerInfrastructureServerComputer);
 
                 row = this.dtCustomerInfrastructureServerComputers.NewRow();
                 this.dtCustomerInfrastructureServerComputers.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureServerComputers.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerId"])
-                        == this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId);
-            }
 
-            row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureServerComputer
-                .CustomerInfrastructureServerComputerId;
+            if (this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId == -1)
+                row["CustomerInfrastructureServerComputerId"] = -(this.customerInfrastructureServerComputer as object).GetHashCode();
+            else
+                row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureServerComputer
+                    .CustomerInfrastructureServerComputerId;
+
             row["ComputerBrandId"] = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
             if (this.customerInfrastructureServerComputer.OperativeSystem == null)
                 row["OperativeSystemId"] = DBNull.Value;

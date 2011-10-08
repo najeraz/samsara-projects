@@ -11,6 +11,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
+using Samsara.Controls.Controls;
 using Samsara.Controls.Templates;
 
 namespace Samsara.Controls
@@ -46,8 +47,9 @@ namespace Samsara.Controls
             if (this.DataSource != null && this.DataSource is DataTable)
             {
                 IList<string> lstCustomControlNames = new List<string>();
-                string parentFormName = this.GetParentFormName();
                 this.GetCustomControlsNames(this.Parent, lstCustomControlNames);
+                string parentFormName = lstCustomControlNames.Last();
+                lstCustomControlNames.Remove(parentFormName);
 
                 if (parentFormName != null)
                 {
@@ -133,26 +135,19 @@ namespace Samsara.Controls
             }
         }
 
-        public string GetParentFormName()
-        {
-            Form form = this.FindForm();
-
-            if (form == null)
-                return null;
-            else
-                return form.Name;
-        }
-
-        // TODO: Javier Nájera - Modificar para verificar si es derivado UserControl en lugar del ManyToOneLevel1Control
+        // TODO: Javier Nájera - Modificar para verificar si es derivado SamsaraUserControl en lugar del ManyToOneLevel1Control
         public void GetCustomControlsNames(Control control, IList<string> controlsNames)
         {
             if (control == null)
                 return;
 
-            if (control.GetType().BaseType == typeof(ManyToOneLevel1Control))
+            if (control is Form || control.GetType().BaseType == typeof(ManyToOneLevel1Control))
                 controlsNames.Add(control.Name);
 
-            this.GetCustomControlsNames(control.Parent, controlsNames);
+            if (control.GetType().BaseType == typeof(ManyToOneLevel1Control))
+                this.GetCustomControlsNames((control as SamsaraUserControl).CustomParent, controlsNames);
+            else
+                this.GetCustomControlsNames(control.Parent, controlsNames);
         }
 
         public IList<string> lstCustomControlNames { get; set; }

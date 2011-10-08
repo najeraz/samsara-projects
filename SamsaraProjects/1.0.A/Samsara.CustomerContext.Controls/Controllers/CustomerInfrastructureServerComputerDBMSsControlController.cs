@@ -136,6 +136,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text = string.Empty;
+        }
+
+        public override void ClearControls()
+        {
+            base.ClearControls();
 
             this.dtCustomerInfrastructureServerComputerDBMSs.Rows.Clear();
             this.dtCustomerInfrastructureServerComputerDBMSs.AcceptChanges();
