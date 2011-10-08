@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureNetworkWifiService srvCustomerInfrastructureNetworkWifi;
         private IAccessPointBrandService srvAccessPointBrand;
         private IAccessPointTypeService srvAccessPointType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkWifiAccessPoint> customerInfrastructureNetworkWifiAccessPoints;
 
         private DataTable dtCustomerInfrastructureNetworkWifiAccessPoints;
 
@@ -39,31 +38,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkWifiId
+        public CustomerInfrastructureNetworkWifi CustomerInfrastructureNetworkWifi
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkWifiAccessPoint> CustomerInfrastructureNetworkWifiAccessPoints
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkWifiAccessPoint> tmp
-                    = new HashSet<CustomerInfrastructureNetworkWifiAccessPoint>();
-
-                foreach(CustomerInfrastructureNetworkWifiAccessPoint customerInfrastructureNetworkWifiAccessPoint in
-                    this.customerInfrastructureNetworkWifiAccessPoints)
-                {
-                    customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId 
-                        = customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId <= 0 ?
-                        -1 : customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId;
-
-                    tmp.Add(customerInfrastructureNetworkWifiAccessPoint);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -123,28 +101,33 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkWifiId != null)
+            CustomerInfrastructureNetworkWifiAccessPointParameters pmtCustomerInfrastructureNetworkWifiAccessPoint
+                = new CustomerInfrastructureNetworkWifiAccessPointParameters();
+
+            pmtCustomerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkWifiAccessPoints = this.srvCustomerInfrastructureNetworkWifiAccessPoint
+                .SearchByParameters(pmtCustomerInfrastructureNetworkWifiAccessPoint);
+
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.grdRelations.DataSource
+                = this.dtCustomerInfrastructureNetworkWifiAccessPoints;
+
+            if (this.CustomerInfrastructureNetworkWifi != null)
             {
-                CustomerInfrastructureNetworkWifiAccessPointParameters pmtCustomerInfrastructureNetworkWifiAccessPoint
-                    = new CustomerInfrastructureNetworkWifiAccessPointParameters();
-
-                pmtCustomerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiId = this.CustomerInfrastructureNetworkWifiId;
-
-                this.dtCustomerInfrastructureNetworkWifiAccessPoints = this.srvCustomerInfrastructureNetworkWifiAccessPoint
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkWifiAccessPoint);
-
-                this.controlCustomerInfrastructureNetworkWifiAccessPoints.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkWifiAccessPoints.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkWifiAccessPoints;
-
-                IList<CustomerInfrastructureNetworkWifiAccessPoint> lstCustomerInfrastructureNetworkWifiAccessPoints 
-                    = this.srvCustomerInfrastructureNetworkWifiAccessPoint.GetListByParameters(pmtCustomerInfrastructureNetworkWifiAccessPoint);
-
-                this.customerInfrastructureNetworkWifiAccessPoints = new HashSet<CustomerInfrastructureNetworkWifiAccessPoint>();
-
-                foreach (CustomerInfrastructureNetworkWifiAccessPoint customerInfrastructureNetworkWifiAccessPoint in
-                    lstCustomerInfrastructureNetworkWifiAccessPoints)
+                foreach (CustomerInfrastructureNetworkWifiAccessPoint customerInfrastructureNetworkWifiAccessPoint
+                    in this.CustomerInfrastructureNetworkWifi.CustomerInfrastructureNetworkWifiAccessPoints)
                 {
-                    this.customerInfrastructureNetworkWifiAccessPoints.Add(customerInfrastructureNetworkWifiAccessPoint);
+                    DataRow row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.NewRow();
+                    this.dtCustomerInfrastructureNetworkWifiAccessPoints.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkWifiAccessPointId"] = this.customerInfrastructureNetworkWifiAccessPoint
+                        .CustomerInfrastructureNetworkWifiAccessPointId;
+                    row["AccessPointBrandId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
+                    row["AccessPointTypeId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType.AccessPointTypeId;
+                    row["Model"] = this.customerInfrastructureNetworkWifiAccessPoint.Model;
+                    row["Distance"] = this.customerInfrastructureNetworkWifiAccessPoint.Distance;
+                    row["BandWidth"] = this.customerInfrastructureNetworkWifiAccessPoint.BandWidth;
                 }
             }
         }
@@ -162,27 +145,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkWifiAccessPoints.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkWifiAccessPoints.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkWifiAccessPoint = new CustomerInfrastructureNetworkWifiAccessPoint();
 
+            this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifi
+                = this.CustomerInfrastructureNetworkWifi;
             this.customerInfrastructureNetworkWifiAccessPoint.Activated = true;
             this.customerInfrastructureNetworkWifiAccessPoint.Deleted = false;
-            this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifi 
-                = this.srvCustomerInfrastructureNetworkWifi.GetById(this.CustomerInfrastructureNetworkWifiId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkWifiAccessPoint = this.customerInfrastructureNetworkWifiAccessPoints
-                .Single(x => x.CustomerInfrastructureNetworkWifiAccessPointId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkWifiAccessPoint = this.CustomerInfrastructureNetworkWifi
+                    .CustomerInfrastructureNetworkWifiAccessPoints.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkWifiAccessPoint = this.CustomerInfrastructureNetworkWifi
+                    .CustomerInfrastructureNetworkWifiAccessPoints
+                    .Single(x => x.CustomerInfrastructureNetworkWifiAccessPointId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkWifiAccessPoints.Remove(this.customerInfrastructureNetworkWifiAccessPoint);
+                this.CustomerInfrastructureNetworkWifi.CustomerInfrastructureNetworkWifiAccessPoints
+                    .Remove(this.customerInfrastructureNetworkWifiAccessPoint);
             else
             {
                 this.customerInfrastructureNetworkWifiAccessPoint.Activated = false;
@@ -194,8 +191,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkWifiAccessPoint = this.customerInfrastructureNetworkWifiAccessPoints
-                .Single(x => x.CustomerInfrastructureNetworkWifiAccessPointId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkWifiAccessPoint = this.CustomerInfrastructureNetworkWifi
+                    .CustomerInfrastructureNetworkWifiAccessPoints.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkWifiAccessPoint = this.CustomerInfrastructureNetworkWifi
+                    .CustomerInfrastructureNetworkWifiAccessPoints
+                    .Single(x => x.CustomerInfrastructureNetworkWifiAccessPointId == entityId);
 
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value
                 = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
@@ -266,22 +268,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId == -1)
+                row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
+                        == -(this.customerInfrastructureNetworkWifiAccessPoint as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
+                        == this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId);
+
+            if (row == null)
             {
-                this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId = this.entityCounter--;
-                this.customerInfrastructureNetworkWifiAccessPoints.Add(this.customerInfrastructureNetworkWifiAccessPoint);
+                this.CustomerInfrastructureNetworkWifi.CustomerInfrastructureNetworkWifiAccessPoints
+                    .Add(this.customerInfrastructureNetworkWifiAccessPoint);
 
                 row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.NewRow();
                 this.dtCustomerInfrastructureNetworkWifiAccessPoints.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
-                        == this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId);
-            }
 
-            row["CustomerInfrastructureNetworkWifiAccessPointId"] = this.customerInfrastructureNetworkWifiAccessPoint
-                .CustomerInfrastructureNetworkWifiAccessPointId;
+            if (this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId == -1)
+                row["CustomerInfrastructureNetworkWifiAccessPointId"]
+                    = -(this.customerInfrastructureNetworkWifiAccessPoint as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkWifiAccessPointId"] = this.customerInfrastructureNetworkWifiAccessPoint
+                    .CustomerInfrastructureNetworkWifiAccessPointId;
+
             row["AccessPointBrandId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
             row["AccessPointTypeId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType.AccessPointTypeId;
             row["Model"] = this.customerInfrastructureNetworkWifiAccessPoint.Model;

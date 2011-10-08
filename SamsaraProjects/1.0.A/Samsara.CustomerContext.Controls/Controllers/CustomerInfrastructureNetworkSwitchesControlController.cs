@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private CustomerInfrastructureNetworkSwitch customerInfrastructureNetworkSwitch;
         private ICustomerInfrastructureNetworkService srvCustomerInfrastructureNetwork;
         private ISwitchBrandService srvSwitchBrand;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkSwitch> customerInfrastructureNetworkSwitches;
 
         private DataTable dtCustomerInfrastructureNetworkSwitches;
 
@@ -38,31 +37,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkId
+        public CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkSwitch> CustomerInfrastructureNetworkSwitches
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkSwitch> tmp
-                    = new HashSet<CustomerInfrastructureNetworkSwitch>();
-
-                foreach(CustomerInfrastructureNetworkSwitch customerInfrastructureNetworkSwitch in
-                    this.customerInfrastructureNetworkSwitches)
-                {
-                    customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId 
-                        = customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId <= 0 ?
-                        -1 : customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId;
-
-                    tmp.Add(customerInfrastructureNetworkSwitch);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -114,28 +92,31 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkId != null)
+            CustomerInfrastructureNetworkSwitchParameters pmtCustomerInfrastructureNetworkSwitch
+                = new CustomerInfrastructureNetworkSwitchParameters();
+
+            pmtCustomerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkSwitches = this.srvCustomerInfrastructureNetworkSwitch
+                .SearchByParameters(pmtCustomerInfrastructureNetworkSwitch);
+
+            this.controlCustomerInfrastructureNetworkSwitches.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkSwitches.grdRelations.DataSource
+                = this.dtCustomerInfrastructureNetworkSwitches;
+
+            if (this.CustomerInfrastructureNetwork != null)
             {
-                CustomerInfrastructureNetworkSwitchParameters pmtCustomerInfrastructureNetworkSwitch
-                    = new CustomerInfrastructureNetworkSwitchParameters();
-
-                pmtCustomerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkId = this.CustomerInfrastructureNetworkId;
-
-                this.dtCustomerInfrastructureNetworkSwitches = this.srvCustomerInfrastructureNetworkSwitch
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkSwitch);
-
-                this.controlCustomerInfrastructureNetworkSwitches.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkSwitches.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkSwitches;
-
-                IList<CustomerInfrastructureNetworkSwitch> lstCustomerInfrastructureNetworkSwitches 
-                    = this.srvCustomerInfrastructureNetworkSwitch.GetListByParameters(pmtCustomerInfrastructureNetworkSwitch);
-
-                this.customerInfrastructureNetworkSwitches = new HashSet<CustomerInfrastructureNetworkSwitch>();
-
-                foreach (CustomerInfrastructureNetworkSwitch customerInfrastructureNetworkSwitch in
-                    lstCustomerInfrastructureNetworkSwitches)
+                foreach (CustomerInfrastructureNetworkSwitch customerInfrastructureNetworkSwitch
+                    in this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSwitches)
                 {
-                    this.customerInfrastructureNetworkSwitches.Add(customerInfrastructureNetworkSwitch);
+                    DataRow row = this.dtCustomerInfrastructureNetworkSwitches.NewRow();
+                    this.dtCustomerInfrastructureNetworkSwitches.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkSwitchId"] = this.customerInfrastructureNetworkSwitch
+                        .CustomerInfrastructureNetworkSwitchId;
+                    row["SwitchBrandId"] = this.customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
+                    row["PortQuantity"] = this.customerInfrastructureNetworkSwitch.PortQuantity;
+                    row["Speed"] = this.customerInfrastructureNetworkSwitch.Speed;
                 }
             }
         }
@@ -153,27 +134,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkSwitches.txtSpeed.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkSwitches.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkSwitches.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkSwitch = new CustomerInfrastructureNetworkSwitch();
 
+            this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetwork 
+                = this.CustomerInfrastructureNetwork;
             this.customerInfrastructureNetworkSwitch.Activated = true;
             this.customerInfrastructureNetworkSwitch.Deleted = false;
-            this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetwork 
-                = this.srvCustomerInfrastructureNetwork.GetById(this.CustomerInfrastructureNetworkId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkSwitch = this.customerInfrastructureNetworkSwitches
-                .Single(x => x.CustomerInfrastructureNetworkSwitchId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkSwitch = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkSwitches.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkSwitch = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkSwitches
+                    .Single(x => x.CustomerInfrastructureNetworkSwitchId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkSwitches.Remove(this.customerInfrastructureNetworkSwitch);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSwitches
+                    .Remove(this.customerInfrastructureNetworkSwitch);
             else
             {
                 this.customerInfrastructureNetworkSwitch.Activated = false;
@@ -185,8 +180,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkSwitch = this.customerInfrastructureNetworkSwitches
-                .Single(x => x.CustomerInfrastructureNetworkSwitchId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkSwitch = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkSwitches.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkSwitch = this.CustomerInfrastructureNetwork
+                    .CustomerInfrastructureNetworkSwitches
+                    .Single(x => x.CustomerInfrastructureNetworkSwitchId == entityId);
 
             this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value
                 = this.customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
@@ -236,22 +236,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId == -1)
+                row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
+                        == -(this.customerInfrastructureNetworkSwitch as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
+                        == this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId);
+
+            if (row == null)
             {
-                this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId = this.entityCounter--;
-                this.customerInfrastructureNetworkSwitches.Add(this.customerInfrastructureNetworkSwitch);
+                this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSwitches
+                    .Add(this.customerInfrastructureNetworkSwitch);
 
                 row = this.dtCustomerInfrastructureNetworkSwitches.NewRow();
                 this.dtCustomerInfrastructureNetworkSwitches.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
-                        == this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId);
-            }
 
-            row["CustomerInfrastructureNetworkSwitchId"] = this.customerInfrastructureNetworkSwitch
-                .CustomerInfrastructureNetworkSwitchId;
+            if (this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId == -1)
+                row["CustomerInfrastructureNetworkSwitchId"] =
+                    -(this.customerInfrastructureNetworkSwitch as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkSwitchId"] = this.customerInfrastructureNetworkSwitch
+                    .CustomerInfrastructureNetworkSwitchId;
+
             row["SwitchBrandId"] = this.customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
             row["PortQuantity"] = this.customerInfrastructureNetworkSwitch.PortQuantity;
             row["Speed"] = this.customerInfrastructureNetworkSwitch.Speed;
