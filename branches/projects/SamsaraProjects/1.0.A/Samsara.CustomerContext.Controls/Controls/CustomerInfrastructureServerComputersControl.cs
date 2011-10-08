@@ -45,9 +45,9 @@ namespace Samsara.CustomerContext.Controls.Controls
             (this.controller as CustomerInfrastructureServerComputersControlController).LoadControls();
         }
 
-        public void ClearDetailControls()
+        public void ClearControls()
         {
-            (this.controller as CustomerInfrastructureServerComputersControlController).ClearDetailControls();
+            (this.controller as CustomerInfrastructureServerComputersControlController).ClearControls();
         }
 
         #endregion Public

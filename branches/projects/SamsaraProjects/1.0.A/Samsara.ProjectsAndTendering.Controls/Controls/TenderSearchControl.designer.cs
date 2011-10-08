@@ -1,6 +1,8 @@
-﻿using Samsara.ProjectsAndTendering.Core.Entities;
+﻿
+using Samsara.Controls;
+using Samsara.ProjectsAndTendering.Core.Entities;
 
-namespace Samsara.ProjectsAndTendering.Controls
+namespace Samsara.ProjectsAndTendering.Controls.Controls
 {
     partial class TenderSearchControl
     {
