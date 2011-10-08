@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IBackupSoftwareBrandService srvBackupSoftwareBrand;
         private ICustomerInfrastructureServerComputerService srvCustomerInfrastructureServerComputer;
-        private System.Collections.Generic.ISet<CustomerInfrastructureBackupSoftware> customerInfrastructureBackupSoftwares;
 
         private DataTable dtCustomerInfrastructureBackupSoftwares;
 
@@ -37,35 +36,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
         }
 
-        public System.Collections.Generic.ISet<CustomerInfrastructureBackupSoftware> CustomerInfrastructureBackupSoftwares
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureBackupSoftware> tmp
-                    = new HashSet<CustomerInfrastructureBackupSoftware>();
-
-                foreach(CustomerInfrastructureBackupSoftware customerInfrastructureBackupSoftware in
-                    this.customerInfrastructureBackupSoftwares)
-                {
-                    customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId 
-                        = customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId <= 0 ?
-                        -1 : customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId;
-
-                    tmp.Add(customerInfrastructureBackupSoftware);
-                }
-
-                return tmp;
-            }
-        }
-        
         #endregion Properties
         
         #region Constructor
@@ -117,38 +95,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureBackupSoftwareParameters pmtCustomerInfrastructureBackupSoftware
+                = new CustomerInfrastructureBackupSoftwareParameters();
+
+            pmtCustomerInfrastructureBackupSoftware.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureBackupSoftwares = this.srvCustomerInfrastructureBackupSoftware
+                .SearchByParameters(pmtCustomerInfrastructureBackupSoftware);
+
+            this.controlCustomerInfrastructureBackupSoftwares.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureBackupSoftwares.grdRelations.DataSource = this.dtCustomerInfrastructureBackupSoftwares;
+
+            if (this.CustomerInfrastructure != null)
             {
                 CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
                     = new CustomerInfrastructureServerComputerParameters();
 
-                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
+                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
                 WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
                     this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
                     customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
-                CustomerInfrastructureBackupSoftwareParameters pmtCustomerInfrastructureBackupSoftware
-                    = new CustomerInfrastructureBackupSoftwareParameters();
-
-                pmtCustomerInfrastructureBackupSoftware.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureBackupSoftwares = this.srvCustomerInfrastructureBackupSoftware
-                    .SearchByParameters(pmtCustomerInfrastructureBackupSoftware);
-
-                this.controlCustomerInfrastructureBackupSoftwares.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureBackupSoftwares.grdRelations.DataSource = this.dtCustomerInfrastructureBackupSoftwares;
-
-                IList<CustomerInfrastructureBackupSoftware> lstCustomerInfrastructureBackupSoftwares 
-                    = this.srvCustomerInfrastructureBackupSoftware.GetListByParameters(pmtCustomerInfrastructureBackupSoftware);
-
-                this.customerInfrastructureBackupSoftwares = new HashSet<CustomerInfrastructureBackupSoftware>();
-
-                foreach (CustomerInfrastructureBackupSoftware customerInfrastructureBackupSoftware in
-                    lstCustomerInfrastructureBackupSoftwares)
+                foreach (CustomerInfrastructureBackupSoftware customerInfrastructureBackupSoftware
+                    in this.CustomerInfrastructure.CustomerInfrastructureBackupSoftwares)
                 {
-                    this.customerInfrastructureBackupSoftwares.Add(customerInfrastructureBackupSoftware);
+                    DataRow row = this.dtCustomerInfrastructureBackupSoftwares.NewRow();
+                    this.dtCustomerInfrastructureBackupSoftwares.Rows.Add(row);
+
+                    row["CustomerInfrastructureBackupSoftwareId"] 
+                        = customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId;
+                    row["BackupSoftwareBrandId"] = customerInfrastructureBackupSoftware.BackupSoftwareBrand.BackupSoftwareBrandId;
+                    row["CustomerInfrastructureServerComputerId"] = customerInfrastructureBackupSoftware
+                        .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+                    row["Description"] = customerInfrastructureBackupSoftware.Description;
                 }
             }
         }
@@ -166,27 +147,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureBackupSoftwares.txtDescription.Text = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureBackupSoftwares.Rows.Clear();
+            this.dtCustomerInfrastructureBackupSoftwares.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureBackupSoftware = new CustomerInfrastructureBackupSoftware();
 
+            this.customerInfrastructureBackupSoftware.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureBackupSoftware.Activated = true;
             this.customerInfrastructureBackupSoftware.Deleted = false;
-            this.customerInfrastructureBackupSoftware.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureBackupSoftware = this.customerInfrastructureBackupSoftwares
-                .Single(x => x.CustomerInfrastructureBackupSoftwareId == entityId);
+            if (entityId <= 0)
+            this.customerInfrastructureBackupSoftware = this.CustomerInfrastructure
+                .CustomerInfrastructureBackupSoftwares
+                .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureBackupSoftware = this.CustomerInfrastructure
+                .CustomerInfrastructureBackupSoftwares
+                    .Single(x => x.CustomerInfrastructureBackupSoftwareId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureBackupSoftwares.Remove(this.customerInfrastructureBackupSoftware);
+                this.CustomerInfrastructure.CustomerInfrastructureBackupSoftwares
+                    .Remove(this.customerInfrastructureBackupSoftware);
             else
             {
                 this.customerInfrastructureBackupSoftware.Activated = false;
@@ -198,8 +193,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureBackupSoftware = this.customerInfrastructureBackupSoftwares
-                .Single(x => x.CustomerInfrastructureBackupSoftwareId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureBackupSoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureBackupSoftwares
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureBackupSoftware = this.CustomerInfrastructure
+                .CustomerInfrastructureBackupSoftwares
+                    .Single(x => x.CustomerInfrastructureBackupSoftwareId == entityId);
 
             this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value
                 = this.customerInfrastructureBackupSoftware.BackupSoftwareBrand.BackupSoftwareBrandId;
@@ -251,21 +252,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId == -1)
+                row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
+                       == -(this.customerInfrastructureBackupSoftware as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
+                        == this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId);
+
+            if (row == null)
             {
-                this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId = this.entityCounter--;
-                this.customerInfrastructureBackupSoftwares.Add(this.customerInfrastructureBackupSoftware);
+                this.CustomerInfrastructure.CustomerInfrastructureBackupSoftwares
+                    .Add(this.customerInfrastructureBackupSoftware);
 
                 row = this.dtCustomerInfrastructureBackupSoftwares.NewRow();
                 this.dtCustomerInfrastructureBackupSoftwares.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
-                        == this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId);
-            }
 
-            row["CustomerInfrastructureBackupSoftwareId"] = this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId;
+            if (this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId == -1)
+                row["CustomerInfrastructureBackupSoftwareId"] = -(this.customerInfrastructureBackupSoftware as object).GetHashCode();
+            else
+                row["CustomerInfrastructureBackupSoftwareId"] = this.customerInfrastructureBackupSoftware
+                    .CustomerInfrastructureBackupSoftwareId;
+
             row["BackupSoftwareBrandId"] = this.customerInfrastructureBackupSoftware.BackupSoftwareBrand.BackupSoftwareBrandId;
             row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureBackupSoftware
                 .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
@@ -301,19 +310,23 @@ namespace Samsara.CustomerContext.Controls.Controllers
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["BackupSoftwareBrandId"], "BackupSoftwareBrandId", "Name", "Seleccione");
 
-            CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
-                = new CustomerInfrastructureServerComputerParameters();
+            if (this.CustomerInfrastructure != null)
+            {
+                CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
+                    = new CustomerInfrastructureServerComputerParameters();
 
-            pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
-            IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
-                = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
+                pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
+                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
+                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
 
-            WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
-                customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
+                    this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
+                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
-            WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
-                band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+                WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
+                    band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", 
+                    "ServerModel", "Seleccione");
+            }
         }
 
         #endregion Events

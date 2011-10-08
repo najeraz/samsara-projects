@@ -28,7 +28,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private ISecuritySoftwareBrandService srvSecuritySoftwareBrand;
         private ISecuritySoftwareTypeService srvSecuritySoftwareType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureSecuritySoftware> customerInfrastructureSecuritySoftwares;
 
         private DataTable dtCustomerInfrastructureSecuritySoftwares;
 
@@ -37,33 +36,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureSecuritySoftware> CustomerInfrastructureSecuritySoftwares
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureSecuritySoftware> tmp
-                    = new HashSet<CustomerInfrastructureSecuritySoftware>();
-
-                foreach(CustomerInfrastructureSecuritySoftware customerInfrastructureSecuritySoftware in
-                    this.customerInfrastructureSecuritySoftwares)
-                {
-                    customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId 
-                        = customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId <= 0 ?
-                        -1 : customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId;
-
-                    tmp.Add(customerInfrastructureSecuritySoftware);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -123,28 +101,34 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureSecuritySoftwareParameters pmtCustomerInfrastructureSecuritySoftware
+                = new CustomerInfrastructureSecuritySoftwareParameters();
+
+            pmtCustomerInfrastructureSecuritySoftware.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureSecuritySoftwares = this.srvCustomerInfrastructureSecuritySoftware
+                .SearchByParameters(pmtCustomerInfrastructureSecuritySoftware);
+
+            this.controlCustomerInfrastructureSecuritySoftwares.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureSecuritySoftwares.grdRelations.DataSource
+                = this.dtCustomerInfrastructureSecuritySoftwares;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructureSecuritySoftwareParameters pmtCustomerInfrastructureSecuritySoftware
-                    = new CustomerInfrastructureSecuritySoftwareParameters();
-
-                pmtCustomerInfrastructureSecuritySoftware.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureSecuritySoftwares = this.srvCustomerInfrastructureSecuritySoftware
-                    .SearchByParameters(pmtCustomerInfrastructureSecuritySoftware);
-
-                this.controlCustomerInfrastructureSecuritySoftwares.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureSecuritySoftwares.grdRelations.DataSource = this.dtCustomerInfrastructureSecuritySoftwares;
-
-                IList<CustomerInfrastructureSecuritySoftware> lstCustomerInfrastructureSecuritySoftwares 
-                    = this.srvCustomerInfrastructureSecuritySoftware.GetListByParameters(pmtCustomerInfrastructureSecuritySoftware);
-
-                this.customerInfrastructureSecuritySoftwares = new HashSet<CustomerInfrastructureSecuritySoftware>();
-
-                foreach (CustomerInfrastructureSecuritySoftware customerInfrastructureSecuritySoftware in
-                    lstCustomerInfrastructureSecuritySoftwares)
+                foreach (CustomerInfrastructureSecuritySoftware customerInfrastructureSecuritySoftware
+                    in this.CustomerInfrastructure.CustomerInfrastructureSecuritySoftwares)
                 {
-                    this.customerInfrastructureSecuritySoftwares.Add(customerInfrastructureSecuritySoftware);
+                    DataRow row = this.dtCustomerInfrastructureSecuritySoftwares.NewRow();
+                    this.dtCustomerInfrastructureSecuritySoftwares.Rows.Add(row);
+
+                    row["CustomerInfrastructureSecuritySoftwareId"] = this.customerInfrastructureSecuritySoftware
+                        .CustomerInfrastructureSecuritySoftwareId;
+                    row["SecuritySoftwareBrandId"] = this.customerInfrastructureSecuritySoftware
+                        .SecuritySoftwareBrand.SecuritySoftwareBrandId;
+                    row["SecuritySoftwareTypeId"] = this.customerInfrastructureSecuritySoftware
+                        .SecuritySoftwareType.SecuritySoftwareTypeId;
+                    row["NumberOfClients"] = this.customerInfrastructureSecuritySoftware.NumberOfClients;
+                    row["ConsoleInstalled"] = this.customerInfrastructureSecuritySoftware.ConsoleInstalled;
                 }
             }
         }
@@ -163,27 +147,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureSecuritySoftwares.steNumberOfClients.Value = null;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureSecuritySoftwares.Rows.Clear();
+            this.dtCustomerInfrastructureSecuritySoftwares.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureSecuritySoftware = new CustomerInfrastructureSecuritySoftware();
 
+            this.customerInfrastructureSecuritySoftware.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureSecuritySoftware.Activated = true;
             this.customerInfrastructureSecuritySoftware.Deleted = false;
-            this.customerInfrastructureSecuritySoftware.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureSecuritySoftware = this.customerInfrastructureSecuritySoftwares
-                .Single(x => x.CustomerInfrastructureSecuritySoftwareId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureSecuritySoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureSecuritySoftwares
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureSecuritySoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureSecuritySoftwares
+                    .Single(x => x.CustomerInfrastructureSecuritySoftwareId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureSecuritySoftwares.Remove(this.customerInfrastructureSecuritySoftware);
+                this.CustomerInfrastructure.CustomerInfrastructureSecuritySoftwares
+                    .Remove(this.customerInfrastructureSecuritySoftware);
             else
             {
                 this.customerInfrastructureSecuritySoftware.Activated = false;
@@ -195,8 +193,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureSecuritySoftware = this.customerInfrastructureSecuritySoftwares
-                .Single(x => x.CustomerInfrastructureSecuritySoftwareId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureSecuritySoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureSecuritySoftwares
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureSecuritySoftware = this.CustomerInfrastructure
+                    .CustomerInfrastructureSecuritySoftwares
+                    .Single(x => x.CustomerInfrastructureSecuritySoftwareId == entityId);
 
             this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Value
                 = this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand.SecuritySoftwareBrandId;
@@ -261,22 +265,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId == -1)
+                row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
+                        == -(this.customerInfrastructureSecuritySoftware as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
+                        == this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId);
+
+            if (row == null)
             {
-                this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId = this.entityCounter--;
-                this.customerInfrastructureSecuritySoftwares.Add(this.customerInfrastructureSecuritySoftware);
+                this.CustomerInfrastructure.CustomerInfrastructureSecuritySoftwares
+                    .Add(this.customerInfrastructureSecuritySoftware);
 
                 row = this.dtCustomerInfrastructureSecuritySoftwares.NewRow();
                 this.dtCustomerInfrastructureSecuritySoftwares.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureSecuritySoftwareId"])
-                        == this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId);
-            }
 
-            row["CustomerInfrastructureSecuritySoftwareId"] = this.customerInfrastructureSecuritySoftware
+            if (this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId == -1)
+                row["CustomerInfrastructureSecuritySoftwareId"] 
+                    = -(this.customerInfrastructureSecuritySoftware as object).GetHashCode();
+            else
+                row["CustomerInfrastructureSecuritySoftwareId"] = this.customerInfrastructureSecuritySoftware
                 .CustomerInfrastructureSecuritySoftwareId;
+
             row["SecuritySoftwareBrandId"] = this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand.SecuritySoftwareBrandId;
             row["SecuritySoftwareTypeId"] = this.customerInfrastructureSecuritySoftware.SecuritySoftwareType.SecuritySoftwareTypeId;
             row["NumberOfClients"] = this.customerInfrastructureSecuritySoftware.NumberOfClients;

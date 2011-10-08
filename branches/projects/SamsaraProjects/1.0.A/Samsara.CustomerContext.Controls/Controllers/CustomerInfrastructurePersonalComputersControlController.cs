@@ -29,7 +29,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private IPersonalComputerTypeService srvPersonalComputerType;
         private IOperativeSystemService srvOperativeSystem;
         private IComputerBrandService srvComputerBrand;
-        private System.Collections.Generic.ISet<CustomerInfrastructurePersonalComputer> customerInfrastructurePersonalComputers;
 
         private DataTable dtCustomerInfrastructurePersonalComputers;
 
@@ -38,33 +37,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructurePersonalComputer> CustomerInfrastructurePersonalComputers
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructurePersonalComputer> tmp
-                    = new HashSet<CustomerInfrastructurePersonalComputer>();
-
-                foreach(CustomerInfrastructurePersonalComputer customerInfrastructurePersonalComputer in
-                    this.customerInfrastructurePersonalComputers)
-                {
-                    customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId 
-                        = customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId <= 0 ?
-                        -1 : customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId;
-
-                    tmp.Add(customerInfrastructurePersonalComputer);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -132,28 +110,40 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructurePersonalComputerParameters pmtCustomerInfrastructurePersonalComputer
+                = new CustomerInfrastructurePersonalComputerParameters();
+
+            pmtCustomerInfrastructurePersonalComputer.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructurePersonalComputers = this.srvCustomerInfrastructurePersonalComputer
+                .SearchByParameters(pmtCustomerInfrastructurePersonalComputer);
+
+            this.controlCustomerInfrastructurePersonalComputers.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructurePersonalComputers.grdRelations.DataSource
+                = this.dtCustomerInfrastructurePersonalComputers;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructurePersonalComputerParameters pmtCustomerInfrastructurePersonalComputer
-                    = new CustomerInfrastructurePersonalComputerParameters();
-
-                pmtCustomerInfrastructurePersonalComputer.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructurePersonalComputers = this.srvCustomerInfrastructurePersonalComputer
-                    .SearchByParameters(pmtCustomerInfrastructurePersonalComputer);
-
-                this.controlCustomerInfrastructurePersonalComputers.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructurePersonalComputers.grdRelations.DataSource = this.dtCustomerInfrastructurePersonalComputers;
-
-                IList<CustomerInfrastructurePersonalComputer> lstCustomerInfrastructurePersonalComputers 
-                    = this.srvCustomerInfrastructurePersonalComputer.GetListByParameters(pmtCustomerInfrastructurePersonalComputer);
-
-                this.customerInfrastructurePersonalComputers = new HashSet<CustomerInfrastructurePersonalComputer>();
-
-                foreach (CustomerInfrastructurePersonalComputer customerInfrastructurePersonalComputer in
-                    lstCustomerInfrastructurePersonalComputers)
+                foreach (CustomerInfrastructurePersonalComputer customerInfrastructurePersonalComputer
+                    in this.CustomerInfrastructure.CustomerInfrastructurePersonalComputers)
                 {
-                    this.customerInfrastructurePersonalComputers.Add(customerInfrastructurePersonalComputer);
+                    DataRow row = this.dtCustomerInfrastructurePersonalComputers.NewRow();
+                    this.dtCustomerInfrastructurePersonalComputers.Rows.Add(row);
+
+                    row["CustomerInfrastructurePersonalComputerId"] = customerInfrastructurePersonalComputer
+                        .CustomerInfrastructurePersonalComputerId;
+                    row["ComputerBrandId"] = customerInfrastructurePersonalComputer.ComputerBrand.ComputerBrandId;
+                    row["PersonalComputerTypeId"] = customerInfrastructurePersonalComputer.PersonalComputerType.PersonalComputerTypeId;
+                    row["Model"] = customerInfrastructurePersonalComputer.Model;
+                    if (customerInfrastructurePersonalComputer.OperativeSystem == null)
+                        row["OperativeSystemId"] = DBNull.Value;
+                    else
+                        row["OperativeSystemId"] = customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;
+                    row["ManufacturerReferenceNumber"] = customerInfrastructurePersonalComputer.ManufacturerReferenceNumber;
+                    row["RAM"] = customerInfrastructurePersonalComputer.RAM;
+                    row["CPU"] = customerInfrastructurePersonalComputer.CPU;
+                    row["SerialNumber"] = customerInfrastructurePersonalComputer.SerialNumber;
+                    row["StorageSystem"] = customerInfrastructurePersonalComputer.StorageSystem;
                 }
             }
         }
@@ -177,27 +167,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructurePersonalComputers.txtModel.Value = null;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructurePersonalComputers.Rows.Clear();
+            this.dtCustomerInfrastructurePersonalComputers.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructurePersonalComputer = new CustomerInfrastructurePersonalComputer();
 
+            this.customerInfrastructurePersonalComputer.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructurePersonalComputer.Activated = true;
             this.customerInfrastructurePersonalComputer.Deleted = false;
-            this.customerInfrastructurePersonalComputer.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructurePersonalComputer = this.customerInfrastructurePersonalComputers
-                .Single(x => x.CustomerInfrastructurePersonalComputerId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructurePersonalComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructurePersonalComputers
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructurePersonalComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructurePersonalComputers
+                    .Single(x => x.CustomerInfrastructurePersonalComputerId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructurePersonalComputers.Remove(this.customerInfrastructurePersonalComputer);
+                this.CustomerInfrastructure.CustomerInfrastructurePersonalComputers
+                    .Remove(this.customerInfrastructurePersonalComputer);
             else
             {
                 this.customerInfrastructurePersonalComputer.Activated = false;
@@ -209,8 +213,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructurePersonalComputer = this.customerInfrastructurePersonalComputers
-                .Single(x => x.CustomerInfrastructurePersonalComputerId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructurePersonalComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructurePersonalComputers
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructurePersonalComputer = this.CustomerInfrastructure
+                    .CustomerInfrastructurePersonalComputers
+                    .Single(x => x.CustomerInfrastructurePersonalComputerId == entityId);
 
             this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Value
                 = this.customerInfrastructurePersonalComputer.ComputerBrand.ComputerBrandId;
@@ -308,22 +318,29 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId == -1)
+                row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
+                        == -(this.customerInfrastructurePersonalComputer as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
+                        == this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId);
+
+            if (row == null)
             {
-                this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId = this.entityCounter--;
-                this.customerInfrastructurePersonalComputers.Add(this.customerInfrastructurePersonalComputer);
+                this.CustomerInfrastructure.CustomerInfrastructurePersonalComputers
+                    .Add(this.customerInfrastructurePersonalComputer);
 
                 row = this.dtCustomerInfrastructurePersonalComputers.NewRow();
                 this.dtCustomerInfrastructurePersonalComputers.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
-                        == this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId);
-            }
 
-            row["CustomerInfrastructurePersonalComputerId"] = this.customerInfrastructurePersonalComputer
-                .CustomerInfrastructurePersonalComputerId;
+            if (this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId == -1)
+                row["CustomerInfrastructurePersonalComputerId"] = -(this.customerInfrastructurePersonalComputer as object).GetHashCode();
+            else
+                row["CustomerInfrastructurePersonalComputerId"] = this.customerInfrastructurePersonalComputer
+                    .CustomerInfrastructurePersonalComputerId;
+
             row["ComputerBrandId"] = this.customerInfrastructurePersonalComputer.ComputerBrand.ComputerBrandId;
             row["PersonalComputerTypeId"] = this.customerInfrastructurePersonalComputer.PersonalComputerType.PersonalComputerTypeId;
             row["Model"] = this.customerInfrastructurePersonalComputer.Model;

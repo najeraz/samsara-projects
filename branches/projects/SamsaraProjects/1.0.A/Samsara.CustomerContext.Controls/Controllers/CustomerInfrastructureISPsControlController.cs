@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private CustomerInfrastructureISP customerInfrastructureISP;
         private ICustomerInfrastructureService srvCustomerInfrastructure;
         private IISPService srvISP;
-        private System.Collections.Generic.ISet<CustomerInfrastructureISP> customerInfrastructureISPs;
 
         private DataTable dtCustomerInfrastructureISPs;
 
@@ -36,35 +35,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get;
             set;
         }
 
-        public System.Collections.Generic.ISet<CustomerInfrastructureISP> CustomerInfrastructureISPs
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureISP> tmp
-                    = new HashSet<CustomerInfrastructureISP>();
-
-                foreach(CustomerInfrastructureISP customerInfrastructureISP in
-                    this.customerInfrastructureISPs)
-                {
-                    customerInfrastructureISP.CustomerInfrastructureISPId 
-                        = customerInfrastructureISP.CustomerInfrastructureISPId <= 0 ?
-                        -1 : customerInfrastructureISP.CustomerInfrastructureISPId;
-
-                    tmp.Add(customerInfrastructureISP);
-                }
-
-                return tmp;
-            }
-        }
-        
         #endregion Properties
         
         #region Constructor
@@ -115,28 +93,28 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureId != null)
+            CustomerInfrastructureISPParameters pmtCustomerInfrastructureISP
+                = new CustomerInfrastructureISPParameters();
+
+            pmtCustomerInfrastructureISP.CustomerInfrastructureId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureISPs = this.srvCustomerInfrastructureISP
+                .SearchByParameters(pmtCustomerInfrastructureISP);
+
+            this.controlCustomerInfrastructureISPs.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureISPs.grdRelations.DataSource = this.dtCustomerInfrastructureISPs;
+
+            if (this.CustomerInfrastructure != null)
             {
-                CustomerInfrastructureISPParameters pmtCustomerInfrastructureISP
-                    = new CustomerInfrastructureISPParameters();
-
-                pmtCustomerInfrastructureISP.CustomerInfrastructureId = this.CustomerInfrastructureId;
-
-                this.dtCustomerInfrastructureISPs = this.srvCustomerInfrastructureISP
-                    .SearchByParameters(pmtCustomerInfrastructureISP);
-
-                this.controlCustomerInfrastructureISPs.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureISPs.grdRelations.DataSource = this.dtCustomerInfrastructureISPs;
-
-                IList<CustomerInfrastructureISP> lstCustomerInfrastructureISPs 
-                    = this.srvCustomerInfrastructureISP.GetListByParameters(pmtCustomerInfrastructureISP);
-
-                this.customerInfrastructureISPs = new HashSet<CustomerInfrastructureISP>();
-
-                foreach (CustomerInfrastructureISP customerInfrastructureISP in
-                    lstCustomerInfrastructureISPs)
+                foreach (CustomerInfrastructureISP customerInfrastructureISP
+                    in this.CustomerInfrastructure.CustomerInfrastructureISPs)
                 {
-                    this.customerInfrastructureISPs.Add(customerInfrastructureISP);
+                    DataRow row = this.dtCustomerInfrastructureISPs.NewRow();
+                    this.dtCustomerInfrastructureISPs.Rows.Add(row);
+
+                    row["CustomerInfrastructureISPId"] = customerInfrastructureISP.CustomerInfrastructureISPId;
+                    row["ISPId"] = customerInfrastructureISP.ISP.ISPId;
+                    row["Bandwidth"] = customerInfrastructureISP.Bandwidth;
                 }
             }
         }
@@ -153,27 +131,38 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureISPs.steBandwidth.Value = null;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureISPs.Rows.Clear();
+            this.dtCustomerInfrastructureISPs.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureISP = new CustomerInfrastructureISP();
 
+            this.customerInfrastructureISP.CustomerInfrastructure = this.CustomerInfrastructure;
             this.customerInfrastructureISP.Activated = true;
             this.customerInfrastructureISP.Deleted = false;
-            this.customerInfrastructureISP.CustomerInfrastructure 
-                = this.srvCustomerInfrastructure.GetById(this.CustomerInfrastructureId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureISP = this.customerInfrastructureISPs
-                .Single(x => x.CustomerInfrastructureISPId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
+                    .Single(x => x.CustomerInfrastructureISPId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureISPs.Remove(this.customerInfrastructureISP);
+                this.CustomerInfrastructure.CustomerInfrastructureISPs.Remove(this.customerInfrastructureISP);
             else
             {
                 this.customerInfrastructureISP.Activated = false;
@@ -185,8 +174,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureISP = this.customerInfrastructureISPs
-                .Single(x => x.CustomerInfrastructureISPId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
+                    .Single(x => x.CustomerInfrastructureISPId == entityId);
 
             this.controlCustomerInfrastructureISPs.uceISP.Value
                 = this.customerInfrastructureISP.ISP.ISPId;
@@ -229,20 +222,27 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureISP.CustomerInfrastructureISPId == -1)
+                row = this.dtCustomerInfrastructureISPs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
+                        == -(this.customerInfrastructureISP as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureISPs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
+                        == this.customerInfrastructureISP.CustomerInfrastructureISPId);
+
+            if (row == null)
             {
-                this.customerInfrastructureISP.CustomerInfrastructureISPId = this.entityCounter--;
-                this.customerInfrastructureISPs.Add(this.customerInfrastructureISP);
+                this.CustomerInfrastructure.CustomerInfrastructureISPs.Add(this.customerInfrastructureISP);
 
                 row = this.dtCustomerInfrastructureISPs.NewRow();
                 this.dtCustomerInfrastructureISPs.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureISPs.AsEnumerable().Single(x => Convert.ToInt32(x["CustomerInfrastructureISPId"])
-                        == this.customerInfrastructureISP.CustomerInfrastructureISPId);
-            }
 
-            row["CustomerInfrastructureISPId"] = this.customerInfrastructureISP.CustomerInfrastructureISPId;
+            if (this.customerInfrastructureISP.CustomerInfrastructureISPId == -1)
+                row["CustomerInfrastructureISPId"] = -(this.customerInfrastructureISP as object).GetHashCode();
+            else
+                row["CustomerInfrastructureISPId"] = this.customerInfrastructureISP.CustomerInfrastructureISPId;
+
             row["ISPId"] = this.customerInfrastructureISP.ISP.ISPId;
             row["Bandwidth"] = this.customerInfrastructureISP.Bandwidth;
 

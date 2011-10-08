@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using Samsara.Controls.Templates;
 using Samsara.CustomerContext.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
@@ -10,28 +10,17 @@ namespace Samsara.CustomerContext.Controls.Controls
         #region Properties
 
         /// <summary>
-        /// Id de la entidad padre
+        /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureId
+        public CustomerInfrastructure CustomerInfrastructure
         {
             get
             {
-                return (this.controller as CustomerInfrastructureAdministationSoftwaresControlController).CustomerInfrastructureId;
+                return (this.controller as CustomerInfrastructureAdministationSoftwaresControlController).CustomerInfrastructure;
             }
             set
             {
-                (this.controller as CustomerInfrastructureAdministationSoftwaresControlController).CustomerInfrastructureId = value;
-            }
-        }
-
-        /// <summary>
-        /// Entidades relacionadas
-        /// </summary>
-        public System.Collections.Generic.ISet<CustomerInfrastructureAdministationSoftware> CustomerInfrastructureAdministationSoftwares
-        {
-            get
-            {
-                return (this.controller as CustomerInfrastructureAdministationSoftwaresControlController).CustomerInfrastructureAdministationSoftwares;
+                (this.controller as CustomerInfrastructureAdministationSoftwaresControlController).CustomerInfrastructure = value;
             }
         }
 
