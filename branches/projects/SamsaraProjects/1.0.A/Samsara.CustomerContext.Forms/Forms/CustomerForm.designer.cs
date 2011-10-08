@@ -463,7 +463,7 @@
             // 
             // mtoCustomerInfrastructurePersonalComputers
             // 
-            this.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructurePersonalComputers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructurePersonalComputers.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructurePersonalComputers.Name = "mtoCustomerInfrastructurePersonalComputers";
@@ -706,7 +706,7 @@
             // 
             // mtoCustomerInfrastructureUPSs
             // 
-            this.mtoCustomerInfrastructureUPSs.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureUPSs.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureUPSs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureUPSs.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureUPSs.Name = "mtoCustomerInfrastructureUPSs";
@@ -746,7 +746,7 @@
             // 
             // mtoCustomerInfrastructurePrinters
             // 
-            this.mtoCustomerInfrastructurePrinters.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructurePrinters.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructurePrinters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructurePrinters.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructurePrinters.Name = "mtoCustomerInfrastructurePrinters";
@@ -787,7 +787,7 @@
             // 
             // mtoCustomerInfrastructureAdministationSoftwares
             // 
-            this.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureAdministationSoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureAdministationSoftwares.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureAdministationSoftwares.Name = "mtoCustomerInfrastructureAdministationSoftwares";
@@ -807,7 +807,7 @@
             // 
             // mtoCustomerInfrastructureSecuritySoftwares
             // 
-            this.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureSecuritySoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureSecuritySoftwares.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureSecuritySoftwares.Name = "mtoCustomerInfrastructureSecuritySoftwares";
@@ -826,7 +826,7 @@
             // 
             // mtoCustomerInfrastructureBackupSoftwares
             // 
-            this.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureBackupSoftwares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureBackupSoftwares.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureBackupSoftwares.Name = "mtoCustomerInfrastructureBackupSoftwares";
@@ -867,7 +867,7 @@
             // 
             // mtoCustomerInfrastructureISPs
             // 
-            this.mtoCustomerInfrastructureISPs.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureISPs.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureISPs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureISPs.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureISPs.Name = "mtoCustomerInfrastructureISPs";
@@ -886,7 +886,7 @@
             // 
             // mtoCustomerInfrastructureTelephonies
             // 
-            this.mtoCustomerInfrastructureTelephonies.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureTelephonies.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureTelephonies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureTelephonies.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureTelephonies.Name = "mtoCustomerInfrastructureTelephonies";
@@ -926,7 +926,7 @@
             // 
             // mtoCustomerInfrastructureCCTVs
             // 
-            this.mtoCustomerInfrastructureCCTVs.CustomerInfrastructureId = null;
+            this.mtoCustomerInfrastructureCCTVs.CustomerInfrastructure = null;
             this.mtoCustomerInfrastructureCCTVs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureCCTVs.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureCCTVs.Name = "mtoCustomerInfrastructureCCTVs";
