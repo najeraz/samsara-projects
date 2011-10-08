@@ -269,11 +269,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId == -1)
                 row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
                         == -(this.customerInfrastructureNetworkWifiAccessPoint as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkWifiAccessPointId"])
                         == this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId);
 
             if (row == null)

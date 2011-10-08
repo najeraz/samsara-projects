@@ -264,11 +264,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId == -1)
                 row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
                         == -(this.customerInfrastructureNetworkCommutator as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkCommutatorId"])
                         == this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId);
 
             if (row == null)

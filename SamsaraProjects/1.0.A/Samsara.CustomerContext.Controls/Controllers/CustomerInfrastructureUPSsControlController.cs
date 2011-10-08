@@ -248,11 +248,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureUPS.CustomerInfrastructureUPSId == -1)
                 row = this.dtCustomerInfrastructureUPSs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
                         == -(this.customerInfrastructureUPS as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureUPSs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureUPSId"])
                         == this.customerInfrastructureUPS.CustomerInfrastructureUPSId);
 
             if (row == null)

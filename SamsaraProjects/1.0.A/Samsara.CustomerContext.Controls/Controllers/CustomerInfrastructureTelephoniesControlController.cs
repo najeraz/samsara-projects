@@ -250,11 +250,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId == -1)
                 row = this.dtCustomerInfrastructureTelephonies.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
                         == -(this.customerInfrastructureTelephony as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureTelephonies.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureTelephonyId"])
                         == this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId);
 
             if (row == null)

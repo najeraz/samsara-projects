@@ -248,11 +248,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId == -1)
                 row = this.dtCustomerInfrastructureCCTVs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
                        == -(this.customerInfrastructureCCTV as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureCCTVs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureCCTVId"])
                         == this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId);
 
             if (row == null)

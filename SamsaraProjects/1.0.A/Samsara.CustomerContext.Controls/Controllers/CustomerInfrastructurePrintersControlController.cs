@@ -248,11 +248,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId == -1)
                 row = this.dtCustomerInfrastructurePrinters.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
                         == -(this.customerInfrastructurePrinter as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructurePrinters.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
                         == this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId);
 
             if (row == null)

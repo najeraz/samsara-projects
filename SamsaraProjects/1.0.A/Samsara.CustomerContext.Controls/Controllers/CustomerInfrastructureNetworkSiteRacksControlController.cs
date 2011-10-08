@@ -229,11 +229,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId == -1)
                 row = this.dtCustomerInfrastructureNetworkSiteRacks.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
                         == - (this.customerInfrastructureNetworkSiteRack as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkSiteRacks.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
                         == this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId);
 
             if (row == null)

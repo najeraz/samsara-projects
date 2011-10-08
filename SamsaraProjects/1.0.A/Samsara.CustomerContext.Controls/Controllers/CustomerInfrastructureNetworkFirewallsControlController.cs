@@ -238,11 +238,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId == -1)
                 row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
                         == -(this.customerInfrastructureNetworkFirewall as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkFirewallId"])
                         == this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId);
 
             if (row == null)
