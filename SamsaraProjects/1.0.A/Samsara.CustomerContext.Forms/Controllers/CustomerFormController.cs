@@ -46,39 +46,39 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmCustomer.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
-            this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructurePrinters.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureISPs.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureISPs.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureISPs.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureISPs.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureCCTVs.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureCCTVs.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureCCTVs.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureCCTVs.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureUPSs.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureUPSs.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureUPSs.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureUPSs.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureTelephonies.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureTelephonies.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructureTelephonies.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureTelephonies.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.LoadControls();
 
