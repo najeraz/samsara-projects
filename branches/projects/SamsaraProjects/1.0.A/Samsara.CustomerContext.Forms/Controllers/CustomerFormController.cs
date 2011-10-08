@@ -86,19 +86,19 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureServerComputers.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureNetwork = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureNetwork = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureNetwork = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureNetwork = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.LoadControls();
 
@@ -106,11 +106,11 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkSites.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSites.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.LoadControls();
 
-            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifiId = -1;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.LoadControls();
             
