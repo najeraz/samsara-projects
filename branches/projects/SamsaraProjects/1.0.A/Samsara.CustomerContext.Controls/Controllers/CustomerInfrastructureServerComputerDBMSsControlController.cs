@@ -235,11 +235,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId == -1)
                 row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
                         == -(this.customerInfrastructureServerComputerDBMS as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
                         == this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId);
 
             if (row == null)

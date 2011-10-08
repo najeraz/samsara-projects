@@ -237,11 +237,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId == -1)
                 row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
                         == -(this.customerInfrastructureNetworkRouter as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkRouterId"])
                         == this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId);
 
             if(row == null)

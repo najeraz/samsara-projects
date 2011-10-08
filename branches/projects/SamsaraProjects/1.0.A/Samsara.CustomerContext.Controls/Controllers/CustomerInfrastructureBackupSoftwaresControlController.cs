@@ -253,11 +253,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId == -1)
                 row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
                        == -(this.customerInfrastructureBackupSoftware as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureBackupSoftwares.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureBackupSoftwareId"])
                         == this.customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId);
 
             if (row == null)

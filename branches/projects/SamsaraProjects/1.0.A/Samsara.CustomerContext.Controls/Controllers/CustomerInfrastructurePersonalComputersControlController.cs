@@ -319,11 +319,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId == -1)
                 row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
                         == -(this.customerInfrastructurePersonalComputer as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructurePersonalComputerId"])
                         == this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId);
 
             if (row == null)

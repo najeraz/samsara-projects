@@ -237,11 +237,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             if (this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId == -1)
                 row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
                         == -(this.customerInfrastructureNetworkSwitch as object).GetHashCode());
             else
                 row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
+                    .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSwitchId"])
                         == this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId);
 
             if (row == null)
