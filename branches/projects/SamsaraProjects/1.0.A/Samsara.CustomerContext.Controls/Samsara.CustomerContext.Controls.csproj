@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="Controllers\CustomerInfrastructureNetwotkWifiAccessPointsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkSiteRacksControlController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureNetworkSitesControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkSwitchesControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkRoutersControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureNetworkFirewallsControlController.cs" />
@@ -100,12 +99,6 @@
     </Compile>
     <Compile Include="Controls\CustomerInfrastructureNetworkSiteRacksControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkSiteRacksControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\CustomerInfrastructureNetworkSitesControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\CustomerInfrastructureNetworkSitesControl.designer.cs">
-      <DependentUpon>CustomerInfrastructureNetworkSitesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomerInfrastructureNetworkSwitchesControl.cs">
       <SubType>UserControl</SubType>
@@ -238,9 +231,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkSiteRacksControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkSiteRacksControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkSitesControl.resx">
-      <DependentUpon>CustomerInfrastructureNetworkSitesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CustomerInfrastructureNetworkSwitchesControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkSwitchesControl.cs</DependentUpon>
