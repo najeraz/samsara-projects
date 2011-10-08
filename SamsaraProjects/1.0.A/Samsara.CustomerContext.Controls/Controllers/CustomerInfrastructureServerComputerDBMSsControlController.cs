@@ -152,6 +152,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.customerInfrastructureServerComputerDBMS = new CustomerInfrastructureServerComputerDBMS();
 
+            this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer
+                = this.CustomerInfrastructureServerComputer;
             this.customerInfrastructureServerComputerDBMS.Activated = true;
             this.customerInfrastructureServerComputerDBMS.Deleted = false;
         }
@@ -160,9 +162,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureServerComputerDBMS = this.CustomerInfrastructureServerComputer
-                .CustomerInfrastructureServerComputerDBMSs
-                .Single(x => x.CustomerInfrastructureServerComputerDBMSId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureServerComputerDBMS = this.CustomerInfrastructureServerComputer
+                    .CustomerInfrastructureServerComputerDBMSs.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureServerComputerDBMS = this.CustomerInfrastructureServerComputer
+                    .CustomerInfrastructureServerComputerDBMSs
+                    .Single(x => x.CustomerInfrastructureServerComputerDBMSId == entityId);
 
             if (entityId <= 0)
                 this.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerDBMSs
@@ -178,9 +184,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureServerComputerDBMS = this.CustomerInfrastructureServerComputer
-                .CustomerInfrastructureServerComputerDBMSs
-                .Single(x => x.CustomerInfrastructureServerComputerDBMSId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureServerComputerDBMS = this.CustomerInfrastructureServerComputer
+                    .CustomerInfrastructureServerComputerDBMSs.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureServerComputerDBMS = this.CustomerInfrastructureServerComputer
+                    .CustomerInfrastructureServerComputerDBMSs
+                    .Single(x => x.CustomerInfrastructureServerComputerDBMSId == entityId);
 
             this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value
                 = this.customerInfrastructureServerComputerDBMS.DBMS.DBMSId;
@@ -224,23 +234,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId == -1)
+                row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
+                        == -(this.customerInfrastructureServerComputerDBMS as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
+                        == this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId);
+
+            if (row == null)
             {
-                this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId = this.entityCounter--;
                 this.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerDBMSs
                     .Add(this.customerInfrastructureServerComputerDBMS);
 
                 row = this.dtCustomerInfrastructureServerComputerDBMSs.NewRow();
                 this.dtCustomerInfrastructureServerComputerDBMSs.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureServerComputerDBMSs.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureServerComputerDBMSId"])
-                        == this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId);
-            }
 
-            row["CustomerInfrastructureServerComputerDBMSId"] = this.customerInfrastructureServerComputerDBMS
-                .CustomerInfrastructureServerComputerDBMSId;
+            if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId == -1)
+                row["CustomerInfrastructureServerComputerDBMSId"]
+                    = -(this.customerInfrastructureServerComputerDBMS as object).GetHashCode();
+            else
+                row["CustomerInfrastructureServerComputerDBMSId"] = this.customerInfrastructureServerComputerDBMS
+                    .CustomerInfrastructureServerComputerDBMSId;
+
             row["DBMSId"] = this.customerInfrastructureServerComputerDBMS.DBMS.DBMSId;
             if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer == null)
                 row["CustomerInfrastructureServerComputerId"] = DBNull.Value;

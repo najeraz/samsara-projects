@@ -27,7 +27,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
         private ICustomerInfrastructureNetworkSiteService srvCustomerInfrastructureNetworkSite;
         private CustomerInfrastructureNetworkSiteRack customerInfrastructureNetworkSiteRack;
         private IRackTypeService srvRackType;
-        private System.Collections.Generic.ISet<CustomerInfrastructureNetworkSiteRack> customerInfrastructureNetworkSiteRacks;
 
         private DataTable dtCustomerInfrastructureNetworkSiteRacks;
 
@@ -38,31 +37,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         /// <summary>
         /// La entidad padre
         /// </summary>
-        public Nullable<int> CustomerInfrastructureNetworkSiteId
+        public CustomerInfrastructureNetworkSite CustomerInfrastructureNetworkSite
         {
             get;
             set;
-        }
-
-        public System.Collections.Generic.ISet<CustomerInfrastructureNetworkSiteRack> CustomerInfrastructureNetworkSiteRacks
-        {
-            get
-            {
-                System.Collections.Generic.ISet<CustomerInfrastructureNetworkSiteRack> tmp
-                    = new HashSet<CustomerInfrastructureNetworkSiteRack>();
-
-                foreach(CustomerInfrastructureNetworkSiteRack customerInfrastructureNetworkSiteRack in
-                    this.customerInfrastructureNetworkSiteRacks)
-                {
-                    customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId 
-                        = customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId <= 0 ?
-                        -1 : customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId;
-
-                    tmp.Add(customerInfrastructureNetworkSiteRack);
-                }
-
-                return tmp;
-            }
         }
         
         #endregion Properties
@@ -114,28 +92,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
         public void LoadControls()
         {
-            if (this.CustomerInfrastructureNetworkSiteId != null)
+            CustomerInfrastructureNetworkSiteRackParameters pmtCustomerInfrastructureNetworkSiteRack
+                = new CustomerInfrastructureNetworkSiteRackParameters();
+
+            pmtCustomerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteId = ParameterConstants.IntNone;
+
+            this.dtCustomerInfrastructureNetworkSiteRacks = this.srvCustomerInfrastructureNetworkSiteRack
+                .SearchByParameters(pmtCustomerInfrastructureNetworkSiteRack);
+
+            this.controlCustomerInfrastructureNetworkSiteRacks.grdRelations.DataSource = null;
+            this.controlCustomerInfrastructureNetworkSiteRacks.grdRelations.DataSource
+                = this.dtCustomerInfrastructureNetworkSiteRacks;
+
+            if (this.CustomerInfrastructureNetworkSite != null)
             {
-                CustomerInfrastructureNetworkSiteRackParameters pmtCustomerInfrastructureNetworkSiteRack
-                    = new CustomerInfrastructureNetworkSiteRackParameters();
-
-                pmtCustomerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteId = this.CustomerInfrastructureNetworkSiteId;
-
-                this.dtCustomerInfrastructureNetworkSiteRacks = this.srvCustomerInfrastructureNetworkSiteRack
-                    .SearchByParameters(pmtCustomerInfrastructureNetworkSiteRack);
-
-                this.controlCustomerInfrastructureNetworkSiteRacks.grdRelations.DataSource = null;
-                this.controlCustomerInfrastructureNetworkSiteRacks.grdRelations.DataSource = this.dtCustomerInfrastructureNetworkSiteRacks;
-
-                IList<CustomerInfrastructureNetworkSiteRack> lstCustomerInfrastructureNetworkSiteRacks 
-                    = this.srvCustomerInfrastructureNetworkSiteRack.GetListByParameters(pmtCustomerInfrastructureNetworkSiteRack);
-
-                this.customerInfrastructureNetworkSiteRacks = new HashSet<CustomerInfrastructureNetworkSiteRack>();
-
-                foreach (CustomerInfrastructureNetworkSiteRack customerInfrastructureNetworkSiteRack in
-                    lstCustomerInfrastructureNetworkSiteRacks)
+                foreach (CustomerInfrastructureNetworkSiteRack customerInfrastructureNetworkSiteRack
+                    in this.CustomerInfrastructureNetworkSite.CustomerInfrastructureNetworkSiteRacks)
                 {
-                    this.customerInfrastructureNetworkSiteRacks.Add(customerInfrastructureNetworkSiteRack);
+                    DataRow row = this.dtCustomerInfrastructureNetworkSiteRacks.NewRow();
+                    this.dtCustomerInfrastructureNetworkSiteRacks.Rows.Add(row);
+
+                    row["CustomerInfrastructureNetworkSiteRackId"] = this.customerInfrastructureNetworkSiteRack
+                        .CustomerInfrastructureNetworkSiteRackId;
+                    row["RackTypeId"] = this.customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
+                    row["Quantity"] = this.customerInfrastructureNetworkSiteRack.Quantity;
                 }
             }
         }
@@ -152,27 +132,41 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkSiteRacks.steQuantity.Value = string.Empty;
         }
 
+        public override void ClearControls()
+        {
+            base.ClearControls();
+
+            this.dtCustomerInfrastructureNetworkSiteRacks.Rows.Clear();
+            this.dtCustomerInfrastructureNetworkSiteRacks.AcceptChanges();
+        }
+
         protected override void CreateRelation()
         {
             base.CreateRelation();
 
             this.customerInfrastructureNetworkSiteRack = new CustomerInfrastructureNetworkSiteRack();
 
+            this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSite 
+                = this.CustomerInfrastructureNetworkSite;
             this.customerInfrastructureNetworkSiteRack.Activated = true;
             this.customerInfrastructureNetworkSiteRack.Deleted = false;
-            this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSite 
-                = this.srvCustomerInfrastructureNetworkSite.GetById(this.CustomerInfrastructureNetworkSiteId.Value);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            this.customerInfrastructureNetworkSiteRack = this.customerInfrastructureNetworkSiteRacks
-                .Single(x => x.CustomerInfrastructureNetworkSiteRackId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkSiteRack = this.CustomerInfrastructureNetworkSite
+                    .CustomerInfrastructureNetworkSiteRacks.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkSiteRack = this.CustomerInfrastructureNetworkSite
+                    .CustomerInfrastructureNetworkSiteRacks
+                    .Single(x => x.CustomerInfrastructureNetworkSiteRackId == entityId);
 
             if (entityId <= 0)
-                this.customerInfrastructureNetworkSiteRacks.Remove(this.customerInfrastructureNetworkSiteRack);
+                this.CustomerInfrastructureNetworkSite.CustomerInfrastructureNetworkSiteRacks
+                    .Remove(this.customerInfrastructureNetworkSiteRack);
             else
             {
                 this.customerInfrastructureNetworkSiteRack.Activated = false;
@@ -184,8 +178,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadFromEntity(entityId);
 
-            this.customerInfrastructureNetworkSiteRack = this.customerInfrastructureNetworkSiteRacks
-                .Single(x => x.CustomerInfrastructureNetworkSiteRackId == entityId);
+            if (entityId <= 0)
+                this.customerInfrastructureNetworkSiteRack = this.CustomerInfrastructureNetworkSite
+                    .CustomerInfrastructureNetworkSiteRacks.Single(x => -x.GetHashCode() == entityId);
+            else
+                this.customerInfrastructureNetworkSiteRack = this.CustomerInfrastructureNetworkSite
+                    .CustomerInfrastructureNetworkSiteRacks
+                    .Single(x => x.CustomerInfrastructureNetworkSiteRackId == entityId);
 
             this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Value
                 = this.customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
@@ -229,22 +228,30 @@ namespace Samsara.CustomerContext.Controls.Controllers
             base.AddEntity();
 
             if (this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId == -1)
+                row = this.dtCustomerInfrastructureNetworkSiteRacks.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
+                        == - (this.customerInfrastructureNetworkSiteRack as object).GetHashCode());
+            else
+                row = this.dtCustomerInfrastructureNetworkSiteRacks.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
+                        == this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId);
+
+            if (row == null)
             {
-                this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId = this.entityCounter--;
-                this.customerInfrastructureNetworkSiteRacks.Add(this.customerInfrastructureNetworkSiteRack);
+                this.CustomerInfrastructureNetworkSite.CustomerInfrastructureNetworkSiteRacks
+                    .Add(this.customerInfrastructureNetworkSiteRack);
 
                 row = this.dtCustomerInfrastructureNetworkSiteRacks.NewRow();
                 this.dtCustomerInfrastructureNetworkSiteRacks.Rows.Add(row);
             }
-            else
-            {
-                row = this.dtCustomerInfrastructureNetworkSiteRacks.AsEnumerable()
-                    .Single(x => Convert.ToInt32(x["CustomerInfrastructureNetworkSiteRackId"])
-                        == this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId);
-            }
 
-            row["CustomerInfrastructureNetworkSiteRackId"] = this.customerInfrastructureNetworkSiteRack
-                .CustomerInfrastructureNetworkSiteRackId;
+            if (this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId == -1)
+                row["CustomerInfrastructureNetworkSiteRackId"]
+                    = -(this.customerInfrastructureNetworkSiteRack as object).GetHashCode();
+            else
+                row["CustomerInfrastructureNetworkSiteRackId"] = this.customerInfrastructureNetworkSiteRack
+                    .CustomerInfrastructureNetworkSiteRackId;
+
             row["RackTypeId"] = this.customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
             row["Quantity"] = this.customerInfrastructureNetworkSiteRack.Quantity;
 
