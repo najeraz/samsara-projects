@@ -112,10 +112,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureNetworkSiteRacks.NewRow();
                     this.dtCustomerInfrastructureNetworkSiteRacks.Rows.Add(row);
 
-                    row["CustomerInfrastructureNetworkSiteRackId"] = this.customerInfrastructureNetworkSiteRack
+                    row["CustomerInfrastructureNetworkSiteRackId"] = customerInfrastructureNetworkSiteRack
                         .CustomerInfrastructureNetworkSiteRackId;
-                    row["RackTypeId"] = this.customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
-                    row["Quantity"] = this.customerInfrastructureNetworkSiteRack.Quantity;
+                    row["RackTypeId"] = customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
+                    row["Quantity"] = customerInfrastructureNetworkSiteRack.Quantity;
                 }
             }
         }

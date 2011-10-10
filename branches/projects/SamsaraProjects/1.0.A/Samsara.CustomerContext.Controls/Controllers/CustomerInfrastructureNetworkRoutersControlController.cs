@@ -112,11 +112,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureNetworkRouters.NewRow();
                     this.dtCustomerInfrastructureNetworkRouters.Rows.Add(row);
 
-                    row["CustomerInfrastructureNetworkRouterId"] = this.customerInfrastructureNetworkRouter
+                    row["CustomerInfrastructureNetworkRouterId"] = customerInfrastructureNetworkRouter
                         .CustomerInfrastructureNetworkRouterId;
-                    row["RouterBrandId"] = this.customerInfrastructureNetworkRouter.RouterBrand.RouterBrandId;
-                    row["RouterModel"] = this.customerInfrastructureNetworkRouter.RouterModel;
-                    row["Description"] = this.customerInfrastructureNetworkRouter.Description;
+                    row["RouterBrandId"] = customerInfrastructureNetworkRouter.RouterBrand.RouterBrandId;
+                    row["RouterModel"] = customerInfrastructureNetworkRouter.RouterModel;
+                    row["Description"] = customerInfrastructureNetworkRouter.Description;
                 }
             }
         }

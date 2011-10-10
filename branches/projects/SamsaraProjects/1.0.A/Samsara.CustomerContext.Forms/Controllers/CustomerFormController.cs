@@ -166,7 +166,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.ClearControls();
-            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.ClearControls();
+            //this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.ClearControls();

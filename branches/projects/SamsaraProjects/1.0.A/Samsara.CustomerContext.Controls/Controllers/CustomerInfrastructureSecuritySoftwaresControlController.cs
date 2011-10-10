@@ -121,14 +121,14 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureSecuritySoftwares.NewRow();
                     this.dtCustomerInfrastructureSecuritySoftwares.Rows.Add(row);
 
-                    row["CustomerInfrastructureSecuritySoftwareId"] = this.customerInfrastructureSecuritySoftware
+                    row["CustomerInfrastructureSecuritySoftwareId"] = customerInfrastructureSecuritySoftware
                         .CustomerInfrastructureSecuritySoftwareId;
-                    row["SecuritySoftwareBrandId"] = this.customerInfrastructureSecuritySoftware
+                    row["SecuritySoftwareBrandId"] = customerInfrastructureSecuritySoftware
                         .SecuritySoftwareBrand.SecuritySoftwareBrandId;
-                    row["SecuritySoftwareTypeId"] = this.customerInfrastructureSecuritySoftware
+                    row["SecuritySoftwareTypeId"] = customerInfrastructureSecuritySoftware
                         .SecuritySoftwareType.SecuritySoftwareTypeId;
-                    row["NumberOfClients"] = this.customerInfrastructureSecuritySoftware.NumberOfClients;
-                    row["ConsoleInstalled"] = this.customerInfrastructureSecuritySoftware.ConsoleInstalled;
+                    row["NumberOfClients"] = customerInfrastructureSecuritySoftware.NumberOfClients;
+                    row["ConsoleInstalled"] = customerInfrastructureSecuritySoftware.ConsoleInstalled;
                 }
             }
         }

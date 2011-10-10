@@ -121,12 +121,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureNetworkCommutators.NewRow();
                     this.dtCustomerInfrastructureNetworkCommutators.Rows.Add(row);
 
-                    row["CustomerInfrastructureNetworkCommutatorId"] = this.customerInfrastructureNetworkCommutator
+                    row["CustomerInfrastructureNetworkCommutatorId"] = customerInfrastructureNetworkCommutator
                         .CustomerInfrastructureNetworkCommutatorId;
-                    row["CommutatorBrandId"] = this.customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
-                    row["CommutatorTypeId"] = this.customerInfrastructureNetworkCommutator.CommutatorType.CommutatorTypeId;
-                    row["NumberOfTrunks"] = this.customerInfrastructureNetworkCommutator.NumberOfTrunks;
-                    row["NumberOfExtensions"] = this.customerInfrastructureNetworkCommutator.NumberOfExtensions;
+                    row["CommutatorBrandId"] = customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
+                    row["CommutatorTypeId"] = customerInfrastructureNetworkCommutator.CommutatorType.CommutatorTypeId;
+                    row["NumberOfTrunks"] = customerInfrastructureNetworkCommutator.NumberOfTrunks;
+                    row["NumberOfExtensions"] = customerInfrastructureNetworkCommutator.NumberOfExtensions;
                 }
             }
         }

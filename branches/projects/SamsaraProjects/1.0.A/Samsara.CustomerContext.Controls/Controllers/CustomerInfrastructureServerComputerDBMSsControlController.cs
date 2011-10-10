@@ -116,7 +116,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     row["CustomerInfrastructureServerComputerDBMSId"] = customerInfrastructureServerComputerDBMS
                         .CustomerInfrastructureServerComputerDBMSId;
                     row["DBMSId"] = customerInfrastructureServerComputerDBMS.DBMS.DBMSId;
-                    if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer == null)
+                    if (customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputer == null)
                         row["CustomerInfrastructureServerComputerId"] = DBNull.Value;
                     else
                         row["CustomerInfrastructureServerComputerId"] = customerInfrastructureServerComputerDBMS
