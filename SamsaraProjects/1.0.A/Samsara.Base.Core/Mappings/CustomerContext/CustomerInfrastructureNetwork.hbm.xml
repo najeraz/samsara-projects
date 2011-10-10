@@ -14,8 +14,12 @@
 
     <many-to-one name="CustomerInfrastructure"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
-                 column="CustomerInfrastructureId"/>
+                 column="CustomerInfrastructureId" not-null="true" cascade="all" unique="true"/>
 
+    <many-to-one name="CustomerInfrastructureNetworkWifi"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkWifi, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructIdureNetworkWifi" not-null="true" cascade="all" unique="true"/>
+    
 
     <set name="CustomerInfrastructureNetworkSwitches" table="CustomerContext.CustomerInfrastructureNetworkSwitches"
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">

@@ -14,8 +14,8 @@
 
     <many-to-one name="CustomerInfrastructureNetwork"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork, Samsara.CustomerContext.Core"
-                 column="CustomerInfrastructureNetworkId"/>
-
+                 column="CustomerInfrastructureNetworkId" not-null="true" cascade="all" unique="true"/>
+    
 
     <set name="CustomerInfrastructureNetworkWifiAccessPoints" table="CustomerContext.CustomerInfrastructureNetworkWifiAccessPoints"
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
