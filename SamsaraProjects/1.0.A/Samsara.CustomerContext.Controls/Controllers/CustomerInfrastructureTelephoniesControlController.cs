@@ -121,10 +121,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
 
                     row["CustomerInfrastructureTelephonyId"] 
-                        = this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
-                    row["TelephonyProviderId"] = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
-                    row["TelephonyLineTypeId"] = this.customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
-                    row["NumberOfLines"] = this.customerInfrastructureTelephony.NumberOfLines;
+                        = customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
+                    row["TelephonyProviderId"] = customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
+                    row["TelephonyLineTypeId"] = customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
+                    row["NumberOfLines"] = customerInfrastructureTelephony.NumberOfLines;
                 }
             }
         }

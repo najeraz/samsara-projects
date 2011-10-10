@@ -112,11 +112,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureNetworkFirewalls.NewRow();
                     this.dtCustomerInfrastructureNetworkFirewalls.Rows.Add(row);
 
-                    row["CustomerInfrastructureNetworkFirewallId"] = this.customerInfrastructureNetworkFirewall
+                    row["CustomerInfrastructureNetworkFirewallId"] = customerInfrastructureNetworkFirewall
                         .CustomerInfrastructureNetworkFirewallId;
-                    row["FirewallBrandId"] = this.customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
-                    row["FirewallModel"] = this.customerInfrastructureNetworkFirewall.FirewallModel;
-                    row["Description"] = this.customerInfrastructureNetworkFirewall.Description;
+                    row["FirewallBrandId"] = customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
+                    row["FirewallModel"] = customerInfrastructureNetworkFirewall.FirewallModel;
+                    row["Description"] = customerInfrastructureNetworkFirewall.Description;
                 }
             }
         }

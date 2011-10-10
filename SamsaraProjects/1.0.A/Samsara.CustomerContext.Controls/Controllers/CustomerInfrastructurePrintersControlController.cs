@@ -120,10 +120,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructurePrinters.NewRow();
                     this.dtCustomerInfrastructurePrinters.Rows.Add(row);
 
-                    row["CustomerInfrastructurePrinterId"] = this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
-                    row["PrinterBrandId"] = this.customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
-                    row["PrinterTypeId"] = this.customerInfrastructurePrinter.PrinterType.PrinterTypeId;
-                    row["SerialNumber"] = this.customerInfrastructurePrinter.SerialNumber;
+                    row["CustomerInfrastructurePrinterId"] = customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
+                    row["PrinterBrandId"] = customerInfrastructurePrinter.PrinterBrand.PrinterBrandId;
+                    row["PrinterTypeId"] = customerInfrastructurePrinter.PrinterType.PrinterTypeId;
+                    row["SerialNumber"] = customerInfrastructurePrinter.SerialNumber;
                 }
             }
         }
