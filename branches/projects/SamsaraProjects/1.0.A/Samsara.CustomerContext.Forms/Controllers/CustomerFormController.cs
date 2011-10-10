@@ -145,6 +145,13 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.Customer.CustomerInfrastructure.GroundedOutlet = this.frmCustomer.txtGroundedOutlet.Text;
             this.Customer.CustomerInfrastructure.TrainingAndCourses = this.frmCustomer.txtTrainingAndCourses.Text;
 
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.IsolatedRoom
+                = this.frmCustomer.txtDetSiteIsolatedRoom.Text;
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Description
+                = this.frmCustomer.txtDetSiteDescription.Text;
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.SiteCooling
+                = this.frmCustomer.txtDetSiteCooling.Text;
+
             this.Customer.Activated = true;
             this.Customer.Deleted = false;
             this.Customer.CustomerInfrastructure.Activated = true;
@@ -157,6 +164,9 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.txtDetDescription.Text = string.Empty;
             this.frmCustomer.txtGroundedOutlet.Text = string.Empty;
             this.frmCustomer.txtTrainingAndCourses.Text = string.Empty;
+            this.frmCustomer.txtDetSiteCooling.Text = string.Empty;
+            this.frmCustomer.txtDetSiteIsolatedRoom.Text = string.Empty;
+            this.frmCustomer.txtDetSiteDescription.Text = string.Empty;
 
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.ClearControls();
@@ -250,6 +260,17 @@ namespace Samsara.CustomerContext.Forms.Controller
             {
                 this.frmCustomer.txtGroundedOutlet.Text = this.Customer.CustomerInfrastructure.GroundedOutlet;
                 this.frmCustomer.txtTrainingAndCourses.Text = this.Customer.CustomerInfrastructure.TrainingAndCourses;
+
+                if (this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork != null
+                    && this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite != null)
+                {
+                    this.frmCustomer.txtDetSiteCooling.Text = this.Customer.CustomerInfrastructure
+                        .CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.SiteCooling;
+                    this.frmCustomer.txtDetSiteIsolatedRoom.Text = this.Customer.CustomerInfrastructure
+                        .CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.IsolatedRoom;
+                    this.frmCustomer.txtDetSiteDescription.Text = this.Customer.CustomerInfrastructure
+                        .CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Description;
+                }
 
                 this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure
                     = this.Customer.CustomerInfrastructure;
@@ -359,8 +380,66 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.Customer = new Customer();
             this.Customer.CustomerInfrastructure = new CustomerInfrastructure();
             this.Customer.CustomerInfrastructure.Customer = this.Customer;
-            this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructure 
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork = new CustomerInfrastructureNetwork();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
+                = new CustomerInfrastructureNetworkSite();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
+                .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureCCTVs.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureISPs.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite;
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            //this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
+            //    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureServerComputers.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureTelephonies.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.frmCustomer.mtoCustomerInfrastructureUPSs.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
             this.ClearDetailControls();
             this.ShowDetail(true);
         }
