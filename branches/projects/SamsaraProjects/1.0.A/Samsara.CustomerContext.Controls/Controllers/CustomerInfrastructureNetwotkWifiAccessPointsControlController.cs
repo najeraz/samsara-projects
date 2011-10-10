@@ -121,13 +121,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.NewRow();
                     this.dtCustomerInfrastructureNetworkWifiAccessPoints.Rows.Add(row);
 
-                    row["CustomerInfrastructureNetworkWifiAccessPointId"] = this.customerInfrastructureNetworkWifiAccessPoint
+                    row["CustomerInfrastructureNetworkWifiAccessPointId"] = customerInfrastructureNetworkWifiAccessPoint
                         .CustomerInfrastructureNetworkWifiAccessPointId;
-                    row["AccessPointBrandId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
-                    row["AccessPointTypeId"] = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType.AccessPointTypeId;
-                    row["Model"] = this.customerInfrastructureNetworkWifiAccessPoint.Model;
-                    row["Distance"] = this.customerInfrastructureNetworkWifiAccessPoint.Distance;
-                    row["BandWidth"] = this.customerInfrastructureNetworkWifiAccessPoint.BandWidth;
+                    row["AccessPointBrandId"] = customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
+                    row["AccessPointTypeId"] = customerInfrastructureNetworkWifiAccessPoint.AccessPointType.AccessPointTypeId;
+                    row["Model"] = customerInfrastructureNetworkWifiAccessPoint.Model;
+                    row["Distance"] = customerInfrastructureNetworkWifiAccessPoint.Distance;
+                    row["BandWidth"] = customerInfrastructureNetworkWifiAccessPoint.BandWidth;
                 }
             }
         }

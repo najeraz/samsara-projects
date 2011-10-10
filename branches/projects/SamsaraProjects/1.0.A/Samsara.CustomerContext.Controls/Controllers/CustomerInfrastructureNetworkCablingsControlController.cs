@@ -112,9 +112,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     this.dtCustomerInfrastructureNetworkCablings.Rows.Add(row);
 
                     row["CustomerInfrastructureNetworkCablingId"] 
-                        = this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
-                    row["NetworkCablingTypeId"] = this.customerInfrastructureNetworkCabling.NetworkCablingType.NetworkCablingTypeId;
-                    row["Category"] = this.customerInfrastructureNetworkCabling.Category;
+                        = customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
+                    row["NetworkCablingTypeId"] = customerInfrastructureNetworkCabling.NetworkCablingType.NetworkCablingTypeId;
+                    row["Category"] = customerInfrastructureNetworkCabling.Category;
                 }
             }
         }

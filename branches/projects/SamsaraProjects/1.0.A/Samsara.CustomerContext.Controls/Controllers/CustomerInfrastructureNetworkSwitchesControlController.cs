@@ -112,11 +112,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureNetworkSwitches.NewRow();
                     this.dtCustomerInfrastructureNetworkSwitches.Rows.Add(row);
 
-                    row["CustomerInfrastructureNetworkSwitchId"] = this.customerInfrastructureNetworkSwitch
+                    row["CustomerInfrastructureNetworkSwitchId"] = customerInfrastructureNetworkSwitch
                         .CustomerInfrastructureNetworkSwitchId;
-                    row["SwitchBrandId"] = this.customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
-                    row["PortQuantity"] = this.customerInfrastructureNetworkSwitch.PortQuantity;
-                    row["Speed"] = this.customerInfrastructureNetworkSwitch.Speed;
+                    row["SwitchBrandId"] = customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
+                    row["PortQuantity"] = customerInfrastructureNetworkSwitch.PortQuantity;
+                    row["Speed"] = customerInfrastructureNetworkSwitch.Speed;
                 }
             }
         }

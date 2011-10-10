@@ -229,7 +229,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 = this.customerInfrastructurePersonalComputer.PersonalComputerType.PersonalComputerTypeId;
 
             if (this.customerInfrastructurePersonalComputer.OperativeSystem == null)
-                this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = null;
+                this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
             else
                 this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value
                     = this.customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;

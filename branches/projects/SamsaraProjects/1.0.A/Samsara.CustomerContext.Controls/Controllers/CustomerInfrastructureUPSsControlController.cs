@@ -120,10 +120,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     DataRow row = this.dtCustomerInfrastructureUPSs.NewRow();
                     this.dtCustomerInfrastructureUPSs.Rows.Add(row);
 
-                    row["CustomerInfrastructureUPSId"] = this.customerInfrastructureUPS.CustomerInfrastructureUPSId;
-                    row["UPSBrandId"] = this.customerInfrastructureUPS.UPSBrand.UPSBrandId;
-                    row["UPSTypeId"] = this.customerInfrastructureUPS.UPSType.UPSTypeId;
-                    row["Capacity"] = this.customerInfrastructureUPS.Capacity;
+                    row["CustomerInfrastructureUPSId"] = customerInfrastructureUPS.CustomerInfrastructureUPSId;
+                    row["UPSBrandId"] = customerInfrastructureUPS.UPSBrand.UPSBrandId;
+                    row["UPSTypeId"] = customerInfrastructureUPS.UPSType.UPSTypeId;
+                    row["Capacity"] = customerInfrastructureUPS.Capacity;
                 }
             }
         }
