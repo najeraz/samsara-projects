@@ -38,6 +38,12 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual CustomerInfrastructureNetworkWifi CustomerInfrastructureNetworkWifi
+        {
+            get;
+            set;
+        }
+
         public virtual ISet<CustomerInfrastructureNetworkSwitch> CustomerInfrastructureNetworkSwitches
         {
             get

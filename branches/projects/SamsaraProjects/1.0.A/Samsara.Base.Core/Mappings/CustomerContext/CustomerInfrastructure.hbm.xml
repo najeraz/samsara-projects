@@ -16,7 +16,7 @@
 
     <many-to-one name="Customer"
                  class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
-                 column="CustomerId"/>
+                 column="CustomerId" not-null="true" cascade="all" unique="true"/>
 
 
     <set name="CustomerInfrastructurePersonalComputers" table="CustomerContext.CustomerInfrastructurePersonalComputers" 
