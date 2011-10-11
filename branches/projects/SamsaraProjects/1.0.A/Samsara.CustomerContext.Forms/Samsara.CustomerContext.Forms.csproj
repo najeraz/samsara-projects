@@ -103,7 +103,6 @@
     <Compile Include="Controllers\CommutatorTypeFormController.cs" />
     <Compile Include="Controllers\ComputerBrandFormController.cs" />
     <Compile Include="Controllers\CustomerFormController.cs" />
-    <Compile Include="Controllers\CustomerInfrastructureFormController.cs" />
     <Compile Include="Controllers\DBMSFormController.cs" />
     <Compile Include="Controllers\FirewallBrandFormController.cs" />
     <Compile Include="Controllers\ISPFormController.cs" />
@@ -180,12 +179,6 @@
     </Compile>
     <Compile Include="Forms\CustomerForm.designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerInfrastructureForm.designer.cs">
-      <DependentUpon>CustomerInfrastructureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DBMSForm.cs">
       <SubType>Form</SubType>
@@ -350,12 +343,6 @@
     <Compile Include="Templates\ComputerBrandSearchForm.Designer.cs">
       <DependentUpon>ComputerBrandSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\CustomerInfrastructureSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\CustomerInfrastructureSearchForm.Designer.cs">
-      <DependentUpon>CustomerInfrastructureSearchForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Templates\CustomerSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,9 +483,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerInfrastructureForm.resx">
-      <DependentUpon>CustomerInfrastructureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DBMSForm.resx">
       <DependentUpon>DBMSForm.cs</DependentUpon>

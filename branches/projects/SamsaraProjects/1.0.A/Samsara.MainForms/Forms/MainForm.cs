@@ -532,20 +532,6 @@ namespace Samsara.MainForms.Forms
             }
         }
 
-        private void infraestructuraDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                CustomerInfrastructureForm frmCustomerInfrastructure = new CustomerInfrastructureForm();
-                frmCustomerInfrastructure.Show();
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
         private void girosDeNegocioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -581,6 +567,34 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.WaitCursor;
                 BackupSoftwareBrandForm frmBackupSoftwareBrand = new BackupSoftwareBrandForm();
                 frmBackupSoftwareBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void marcaDePuntoDeAccesoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                AccessPointBrandForm frmAccessPointBrand = new AccessPointBrandForm();
+                frmAccessPointBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void tipoDePuntoDeAccesoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                AccessPointTypeForm frmAccessPointType = new AccessPointTypeForm();
+                frmAccessPointType.Show();
             }
             finally
             {

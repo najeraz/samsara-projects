@@ -64,7 +64,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             if (this.frmAccessPointType.txtDetName.Text == null || 
                 this.frmAccessPointType.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Tipo de Punto de Acceso.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmAccessPointType.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el AccessPointType?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Tipo de Punto de Acceso?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void DeleteEntity(int AccessPointTypeId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Tipo de Punto de Acceso?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.AccessPointType = this.srvAccessPointType.GetById(AccessPointTypeId);

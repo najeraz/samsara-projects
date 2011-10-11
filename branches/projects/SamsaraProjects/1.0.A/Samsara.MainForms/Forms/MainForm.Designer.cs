@@ -79,6 +79,8 @@
             this.tiposDeSistemasOperativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firewallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dBMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iSPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorDeTelefoníaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,8 +88,8 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.marcasDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcasDeSoftwareDeRespaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaDePuntoDeAccesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDePuntoDeAccesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -261,7 +263,6 @@
             this.infraestructuraDeClientesToolStripMenuItem.Name = "infraestructuraDeClientesToolStripMenuItem";
             this.infraestructuraDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.infraestructuraDeClientesToolStripMenuItem.Text = "Infraestructura de Clientes";
-            this.infraestructuraDeClientesToolStripMenuItem.Click += new System.EventHandler(this.infraestructuraDeClientesToolStripMenuItem_Click);
             // 
             // girosDeNegocioToolStripMenuItem
             // 
@@ -322,7 +323,9 @@
             this.tipoDeCableadoToolStripMenuItem,
             this.tiposDeRacksToolStripMenuItem,
             this.marcasDeRoutersToolStripMenuItem,
-            this.marcasDeSwitchesToolStripMenuItem});
+            this.marcasDeSwitchesToolStripMenuItem,
+            this.marcaDePuntoDeAccesoToolStripMenuItem,
+            this.tipoDePuntoDeAccesoToolStripMenuItem});
             this.redesToolStripMenuItem.Name = "redesToolStripMenuItem";
             this.redesToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.redesToolStripMenuItem.Text = "Site y Redes";
@@ -496,6 +499,20 @@
             this.dBMSToolStripMenuItem.Text = "DBMS";
             this.dBMSToolStripMenuItem.Click += new System.EventHandler(this.dBMSToolStripMenuItem_Click);
             // 
+            // marcasDeSoftwareDeSeguridadToolStripMenuItem
+            // 
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Name = "marcasDeSoftwareDeSeguridadToolStripMenuItem";
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Text = "Marcas de Software de Seguridad";
+            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeSeguridadToolStripMenuItem_Click);
+            // 
+            // marcasDeSoftwareDeRespaldoToolStripMenuItem
+            // 
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Name = "marcasDeSoftwareDeRespaldoToolStripMenuItem";
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Text = "Marcas de Software de Respaldo";
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeRespaldoToolStripMenuItem_Click);
+            // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -553,19 +570,19 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // marcasDeSoftwareDeSeguridadToolStripMenuItem
+            // marcaDePuntoDeAccesoToolStripMenuItem
             // 
-            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Name = "marcasDeSoftwareDeSeguridadToolStripMenuItem";
-            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Text = "Marcas de Software de Seguridad";
-            this.marcasDeSoftwareDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeSeguridadToolStripMenuItem_Click);
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Name = "marcaDePuntoDeAccesoToolStripMenuItem";
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Text = "Marca de Punto de Acceso";
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Click += new System.EventHandler(this.marcaDePuntoDeAccesoToolStripMenuItem_Click);
             // 
-            // marcasDeSoftwareDeRespaldoToolStripMenuItem
+            // tipoDePuntoDeAccesoToolStripMenuItem
             // 
-            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Name = "marcasDeSoftwareDeRespaldoToolStripMenuItem";
-            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Text = "Marcas de Software de Respaldo";
-            this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeRespaldoToolStripMenuItem_Click);
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Name = "tipoDePuntoDeAccesoToolStripMenuItem";
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Text = "Tipo de Punto de Acceso";
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Click += new System.EventHandler(this.tipoDePuntoDeAccesoToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -646,6 +663,8 @@
         private System.Windows.Forms.ToolStripMenuItem girosDeNegocioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcasDeSoftwareDeSeguridadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcasDeSoftwareDeRespaldoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaDePuntoDeAccesoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDePuntoDeAccesoToolStripMenuItem;
     }
 }
 
