@@ -84,7 +84,7 @@
             this.tabItmNetworkFirewalls = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkFirewalls = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkFirewallsControl();
             this.tabItmNetworkWifi = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabDetAccessPoints = new System.Windows.Forms.TabControl();
             this.tabItmAccessPoints = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureNetworkWifiAccessPoints = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl();
             this.tabItmDetEnergy = new System.Windows.Forms.TabPage();
@@ -150,7 +150,7 @@
             this.tabItmNetworkRouters.SuspendLayout();
             this.tabItmNetworkFirewalls.SuspendLayout();
             this.tabItmNetworkWifi.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabDetAccessPoints.SuspendLayout();
             this.tabItmAccessPoints.SuspendLayout();
             this.tabItmDetEnergy.SuspendLayout();
             this.tabDetInfraestructureEnergy.SuspendLayout();
@@ -758,22 +758,22 @@
             // tabItmNetworkWifi
             // 
             this.tabItmNetworkWifi.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmNetworkWifi.Controls.Add(this.tabControl1);
+            this.tabItmNetworkWifi.Controls.Add(this.tabDetAccessPoints);
             this.tabItmNetworkWifi.Location = new System.Drawing.Point(4, 22);
             this.tabItmNetworkWifi.Name = "tabItmNetworkWifi";
             this.tabItmNetworkWifi.Size = new System.Drawing.Size(728, 396);
             this.tabItmNetworkWifi.TabIndex = 6;
             this.tabItmNetworkWifi.Text = "Redes inalámbricas";
             // 
-            // tabControl1
+            // tabDetAccessPoints
             // 
-            this.tabControl1.Controls.Add(this.tabItmAccessPoints);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(728, 396);
-            this.tabControl1.TabIndex = 0;
+            this.tabDetAccessPoints.Controls.Add(this.tabItmAccessPoints);
+            this.tabDetAccessPoints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDetAccessPoints.Location = new System.Drawing.Point(0, 0);
+            this.tabDetAccessPoints.Name = "tabDetAccessPoints";
+            this.tabDetAccessPoints.SelectedIndex = 0;
+            this.tabDetAccessPoints.Size = new System.Drawing.Size(728, 396);
+            this.tabDetAccessPoints.TabIndex = 0;
             // 
             // tabItmAccessPoints
             // 
@@ -1115,7 +1115,7 @@
             this.tabItmNetworkRouters.ResumeLayout(false);
             this.tabItmNetworkFirewalls.ResumeLayout(false);
             this.tabItmNetworkWifi.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabDetAccessPoints.ResumeLayout(false);
             this.tabItmAccessPoints.ResumeLayout(false);
             this.tabItmDetEnergy.ResumeLayout(false);
             this.tabDetInfraestructureEnergy.ResumeLayout(false);
@@ -1147,12 +1147,9 @@
         internal System.Windows.Forms.TextBox txtSchName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetDescription;
         private System.Windows.Forms.Label lblDetBusinessType;
-        private System.Windows.Forms.TabControl tabCustomerDetail;
         private System.Windows.Forms.TabPage tabItmDetPrincipal;
         private System.Windows.Forms.TabPage tabItmDetInfraestructure;
-        private System.Windows.Forms.TabControl tabDetInfrastructure;
         private System.Windows.Forms.TabPage tabItmDetComputers;
-        private System.Windows.Forms.TabControl tabDetInfraestructureComputers;
         private System.Windows.Forms.TabPage tabItmDetPersonalComputers;
         private System.Windows.Forms.TabPage tabItmDetServerComputers;
         private System.Windows.Forms.TabPage tabItmDetNetwork;
@@ -1162,7 +1159,6 @@
         private System.Windows.Forms.TabPage tabItmDetSuppliers;
         private System.Windows.Forms.TabPage tabItmDetVideo;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetBusinessType;
-        private System.Windows.Forms.TabControl tabDetInfraestructureNetwork;
         private System.Windows.Forms.TabPage tabItmNetworkSite;
         private System.Windows.Forms.TabPage tabItmNetworkSwitches;
         private System.Windows.Forms.TabPage tabItmNetworkCommutators;
@@ -1170,17 +1166,12 @@
         private System.Windows.Forms.TabPage tabItmNetworkRouters;
         private System.Windows.Forms.TabPage tabItmNetworkFirewalls;
         private System.Windows.Forms.TabPage tabItmNetworkWifi;
-        private System.Windows.Forms.TabControl tabDetInfraestructureEnergy;
         private System.Windows.Forms.TabPage tabItmEnergy;
-        private System.Windows.Forms.TabControl tabDetInfraestructurePeripherals;
-        private System.Windows.Forms.TabControl tabDetInfraestructureSoftware;
         private System.Windows.Forms.TabPage tabItmDetAdministrationSoftware;
         private System.Windows.Forms.TabPage tabItmDetSecuritySoftware;
         private System.Windows.Forms.TabPage tabItmDetBackupSoftware;
-        private System.Windows.Forms.TabControl tabDetInfraestructureSuppliers;
         private System.Windows.Forms.TabPage tabItmDetISP;
         private System.Windows.Forms.TabPage tabItmDetTelephony;
-        private System.Windows.Forms.TabControl tabDetInfraestructureVideo;
         private System.Windows.Forms.TabPage tabItmDetCCTV;
         internal System.Windows.Forms.TextBox txtDetName;
         private System.Windows.Forms.TabPage tabItmPeripherals;
@@ -1199,7 +1190,6 @@
         internal Controls.Controls.CustomerInfrastructureNetworkCablingsControl mtoCustomerInfrastructureNetworkCablings;
         internal Controls.Controls.CustomerInfrastructureNetworkRoutersControl mtoCustomerInfrastructureNetworkRouters;
         internal Controls.Controls.CustomerInfrastructureNetworkFirewallsControl mtoCustomerInfrastructureNetworkFirewalls;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabItmAccessPoints;
         internal Controls.Controls.CustomerInfrastructureNetworkWifiAccessPointsControl mtoCustomerInfrastructureNetworkWifiAccessPoints;
         private System.Windows.Forms.TabPage tabItmPrincipal;
@@ -1207,7 +1197,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtTrainingAndCourses;
         private System.Windows.Forms.GroupBox gbxGroundedOutlet;
         private System.Windows.Forms.GroupBox gbxTrainingAndCourses;
-        private System.Windows.Forms.TabControl tabDetSite;
         private System.Windows.Forms.TabPage tabItmSitePrincipal;
         private System.Windows.Forms.TabPage tabItmRacks;
         internal Controls.Controls.CustomerInfrastructureNetworkSiteRacksControl mtoCustomerInfrastructureNetworkSiteRacks;
@@ -1217,5 +1206,16 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetSiteCooling;
         private System.Windows.Forms.GroupBox gbxDetSiteIsolatedRoom;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetSiteIsolatedRoom;
+        internal System.Windows.Forms.TabControl tabCustomerDetail;
+        internal System.Windows.Forms.TabControl tabDetInfrastructure;
+        internal System.Windows.Forms.TabControl tabDetInfraestructureComputers;
+        internal System.Windows.Forms.TabControl tabDetInfraestructureNetwork;
+        internal System.Windows.Forms.TabControl tabDetInfraestructureEnergy;
+        internal System.Windows.Forms.TabControl tabDetInfraestructurePeripherals;
+        internal System.Windows.Forms.TabControl tabDetInfraestructureSoftware;
+        internal System.Windows.Forms.TabControl tabDetInfraestructureSuppliers;
+        internal System.Windows.Forms.TabControl tabDetInfraestructureVideo;
+        internal System.Windows.Forms.TabControl tabDetAccessPoints;
+        internal System.Windows.Forms.TabControl tabDetSite;
     }
 }

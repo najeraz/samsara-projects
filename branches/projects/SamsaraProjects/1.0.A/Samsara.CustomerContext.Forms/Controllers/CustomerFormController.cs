@@ -185,6 +185,18 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.txtDetSiteIsolatedRoom.Text = string.Empty;
             this.frmCustomer.txtDetSiteDescription.Text = string.Empty;
 
+            this.frmCustomer.tabCustomerDetail.SelectedTab = this.frmCustomer.tabCustomerDetail.TabPages[0];
+            this.frmCustomer.tabDetInfrastructure.SelectedTab = this.frmCustomer.tabDetInfrastructure.TabPages[0];
+            this.frmCustomer.tabDetInfraestructureComputers.SelectedTab = this.frmCustomer.tabDetInfraestructureComputers.TabPages[0];
+            this.frmCustomer.tabDetInfraestructureNetwork.SelectedTab = this.frmCustomer.tabDetInfraestructureNetwork.TabPages[0];
+            this.frmCustomer.tabDetInfraestructureEnergy.SelectedTab = this.frmCustomer.tabDetInfraestructureEnergy.TabPages[0];
+            this.frmCustomer.tabDetInfraestructurePeripherals.SelectedTab = this.frmCustomer.tabDetInfraestructurePeripherals.TabPages[0];
+            this.frmCustomer.tabDetInfraestructureSoftware.SelectedTab = this.frmCustomer.tabDetInfraestructureSoftware.TabPages[0];
+            this.frmCustomer.tabDetInfraestructureSuppliers.SelectedTab = this.frmCustomer.tabDetInfraestructureSuppliers.TabPages[0];
+            this.frmCustomer.tabDetInfraestructureVideo.SelectedTab = this.frmCustomer.tabDetInfraestructureVideo.TabPages[0];
+            this.frmCustomer.tabDetAccessPoints.SelectedTab = this.frmCustomer.tabDetAccessPoints.TabPages[0];
+            this.frmCustomer.tabDetSite.SelectedTab = this.frmCustomer.tabDetSite.TabPages[0];
+
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureCCTVs.ClearControls();
