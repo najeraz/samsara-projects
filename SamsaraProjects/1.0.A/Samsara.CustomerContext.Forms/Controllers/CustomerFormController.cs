@@ -156,6 +156,8 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.Customer.Deleted = false;
             this.Customer.CustomerInfrastructure.Activated = true;
             this.Customer.CustomerInfrastructure.Deleted = false;
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Activated = true;
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Deleted = false;
         }
 
         private void ClearDetailControls()
@@ -206,19 +208,34 @@ namespace Samsara.CustomerContext.Forms.Controller
             }
         }
 
+        private void CreateNullInstances()
+        {
+            this.Customer.CustomerInfrastructure = this.Customer.CustomerInfrastructure ?? new CustomerInfrastructure();
+            this.Customer.CustomerInfrastructure.Customer = this.Customer;
+
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork ?? new CustomerInfrastructureNetwork();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructure
+                = this.Customer.CustomerInfrastructure;
+
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite ??
+                new CustomerInfrastructureNetworkSite();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
+                .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi ??
+                new CustomerInfrastructureNetworkWifi();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
+                .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+        }
+
         private void EditCustomer(int CustomerId)
         {
             this.Customer = this.srvCustomer.GetById(CustomerId);
 
-            this.Customer.CustomerInfrastructure = this.Customer.CustomerInfrastructure ?? new CustomerInfrastructure();
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork
-                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork ?? new CustomerInfrastructureNetwork();
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
-                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite ??
-                new CustomerInfrastructureNetworkSite();
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
-                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi ??
-                new CustomerInfrastructureNetworkWifi();
+            this.CreateNullInstances();
 
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
@@ -388,23 +405,8 @@ namespace Samsara.CustomerContext.Forms.Controller
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
             this.Customer = new Customer();
-            this.Customer.CustomerInfrastructure = new CustomerInfrastructure();
-            this.Customer.CustomerInfrastructure.Customer = this.Customer;
 
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork = new CustomerInfrastructureNetwork();
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructure
-                = this.Customer.CustomerInfrastructure;
-
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
-                = new CustomerInfrastructureNetworkSite();
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
-                .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
-
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
-                = new CustomerInfrastructureNetworkWifi();
-            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
-                .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
-
+            this.CreateNullInstances();
 
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;

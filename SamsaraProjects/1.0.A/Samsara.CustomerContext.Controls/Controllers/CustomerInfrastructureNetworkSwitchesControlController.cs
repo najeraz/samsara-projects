@@ -206,7 +206,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value));
 
             this.customerInfrastructureNetworkSwitch.PortQuantity
-                = Convert.ToInt32(this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.Value);
+                = Convert.ToInt32(this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.Value.ToString().Replace(",", ""));
 
             this.customerInfrastructureNetworkSwitch.Speed 
                 = this.controlCustomerInfrastructureNetworkSwitches.txtSpeed.Text;
