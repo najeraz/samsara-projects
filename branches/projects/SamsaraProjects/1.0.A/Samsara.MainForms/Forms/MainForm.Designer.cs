@@ -49,7 +49,6 @@
             this.contextoDelClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catálogoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infraestructuraDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.girosDeNegocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infraestructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +60,8 @@
             this.tiposDeRacksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasDeRoutersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasDeSwitchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaDePuntoDeAccesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDePuntoDeAccesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.videoYMonitoreoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaDeCCTVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeCCTVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,8 +89,6 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.marcaDePuntoDeAccesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDePuntoDeAccesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,7 +244,6 @@
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catálogoDeClientesToolStripMenuItem,
-            this.infraestructuraDeClientesToolStripMenuItem,
             this.girosDeNegocioToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
@@ -254,20 +252,14 @@
             // catálogoDeClientesToolStripMenuItem
             // 
             this.catálogoDeClientesToolStripMenuItem.Name = "catálogoDeClientesToolStripMenuItem";
-            this.catálogoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.catálogoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.catálogoDeClientesToolStripMenuItem.Text = "Catálogo de Clientes";
             this.catálogoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.catálogoDeClientesToolStripMenuItem_Click);
-            // 
-            // infraestructuraDeClientesToolStripMenuItem
-            // 
-            this.infraestructuraDeClientesToolStripMenuItem.Name = "infraestructuraDeClientesToolStripMenuItem";
-            this.infraestructuraDeClientesToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.infraestructuraDeClientesToolStripMenuItem.Text = "Infraestructura de Clientes";
             // 
             // girosDeNegocioToolStripMenuItem
             // 
             this.girosDeNegocioToolStripMenuItem.Name = "girosDeNegocioToolStripMenuItem";
-            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.girosDeNegocioToolStripMenuItem.Text = "Giros de Negocio";
             this.girosDeNegocioToolStripMenuItem.Click += new System.EventHandler(this.girosDeNegocioToolStripMenuItem_Click);
             // 
@@ -333,30 +325,44 @@
             // tipoDeCableadoToolStripMenuItem
             // 
             this.tipoDeCableadoToolStripMenuItem.Name = "tipoDeCableadoToolStripMenuItem";
-            this.tipoDeCableadoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tipoDeCableadoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.tipoDeCableadoToolStripMenuItem.Text = "Tipos de Cableado";
             this.tipoDeCableadoToolStripMenuItem.Click += new System.EventHandler(this.tipoDeCableadoToolStripMenuItem_Click);
             // 
             // tiposDeRacksToolStripMenuItem
             // 
             this.tiposDeRacksToolStripMenuItem.Name = "tiposDeRacksToolStripMenuItem";
-            this.tiposDeRacksToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.tiposDeRacksToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.tiposDeRacksToolStripMenuItem.Text = "Tipos de Racks";
             this.tiposDeRacksToolStripMenuItem.Click += new System.EventHandler(this.tiposDeRacksToolStripMenuItem_Click);
             // 
             // marcasDeRoutersToolStripMenuItem
             // 
             this.marcasDeRoutersToolStripMenuItem.Name = "marcasDeRoutersToolStripMenuItem";
-            this.marcasDeRoutersToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.marcasDeRoutersToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.marcasDeRoutersToolStripMenuItem.Text = "Marcas de Routers";
             this.marcasDeRoutersToolStripMenuItem.Click += new System.EventHandler(this.marcasDeRoutersToolStripMenuItem_Click);
             // 
             // marcasDeSwitchesToolStripMenuItem
             // 
             this.marcasDeSwitchesToolStripMenuItem.Name = "marcasDeSwitchesToolStripMenuItem";
-            this.marcasDeSwitchesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.marcasDeSwitchesToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.marcasDeSwitchesToolStripMenuItem.Text = "Marcas de Switches";
             this.marcasDeSwitchesToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSwitchesToolStripMenuItem_Click);
+            // 
+            // marcaDePuntoDeAccesoToolStripMenuItem
+            // 
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Name = "marcaDePuntoDeAccesoToolStripMenuItem";
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Text = "Marca de Punto de Acceso";
+            this.marcaDePuntoDeAccesoToolStripMenuItem.Click += new System.EventHandler(this.marcaDePuntoDeAccesoToolStripMenuItem_Click);
+            // 
+            // tipoDePuntoDeAccesoToolStripMenuItem
+            // 
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Name = "tipoDePuntoDeAccesoToolStripMenuItem";
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Text = "Tipo de Punto de Acceso";
+            this.tipoDePuntoDeAccesoToolStripMenuItem.Click += new System.EventHandler(this.tipoDePuntoDeAccesoToolStripMenuItem_Click);
             // 
             // videoYMonitoreoToolStripMenuItem
             // 
@@ -570,20 +576,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // marcaDePuntoDeAccesoToolStripMenuItem
-            // 
-            this.marcaDePuntoDeAccesoToolStripMenuItem.Name = "marcaDePuntoDeAccesoToolStripMenuItem";
-            this.marcaDePuntoDeAccesoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.marcaDePuntoDeAccesoToolStripMenuItem.Text = "Marca de Punto de Acceso";
-            this.marcaDePuntoDeAccesoToolStripMenuItem.Click += new System.EventHandler(this.marcaDePuntoDeAccesoToolStripMenuItem_Click);
-            // 
-            // tipoDePuntoDeAccesoToolStripMenuItem
-            // 
-            this.tipoDePuntoDeAccesoToolStripMenuItem.Name = "tipoDePuntoDeAccesoToolStripMenuItem";
-            this.tipoDePuntoDeAccesoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.tipoDePuntoDeAccesoToolStripMenuItem.Text = "Tipo de Punto de Acceso";
-            this.tipoDePuntoDeAccesoToolStripMenuItem.Click += new System.EventHandler(this.tipoDePuntoDeAccesoToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,7 +620,6 @@
         private System.Windows.Forms.ToolStripMenuItem contextoDelClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem catálogoDeClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem infraestructuraDeClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infraestructuraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hardwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem computadorasToolStripMenuItem;

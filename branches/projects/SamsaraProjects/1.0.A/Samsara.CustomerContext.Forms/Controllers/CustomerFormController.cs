@@ -9,6 +9,8 @@ using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.CustomerContext.Service.Interfaces;
+using Samsara.Support.Util;
+using System.Collections.Generic;
 
 namespace Samsara.CustomerContext.Forms.Controller
 {
@@ -19,6 +21,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         private CustomerForm frmCustomer;
         private Customer Customer;
         private ICustomerService srvCustomer;
+        private IBusinessTypeService srvBusinessType;
 
         #endregion Attributes
 
@@ -29,6 +32,8 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer = instance;
             this.srvCustomer = SamsaraAppContext.Resolve<ICustomerService>();
             Assert.IsNotNull(this.srvCustomer);
+            this.srvBusinessType = SamsaraAppContext.Resolve<IBusinessTypeService>();
+            Assert.IsNotNull(this.srvBusinessType);
             this.InitializeFormControls();
         }
 
@@ -45,6 +50,12 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
             this.frmCustomer.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmCustomer.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
+
+            BusinessTypeParameters pmtBusinessType = new BusinessTypeParameters();
+
+            IList<BusinessType> lstBusinessTypes = this.srvBusinessType.GetListByParameters(pmtBusinessType);
+            WindowsFormsUtil.LoadCombo<BusinessType>(this.frmCustomer.uceDetBusinessType, lstBusinessTypes,
+                "BusinessTypeId", "Name", "Seleccione");
 
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomParent = this.frmCustomer;
@@ -109,6 +120,10 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.LoadControls();
+
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite = null;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomParent = this.frmCustomer;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.LoadControls();
             
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
@@ -178,7 +193,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.ClearControls();
-            //this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.ClearControls();
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.ClearControls();
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.ClearControls();
@@ -439,8 +454,8 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork
                 = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
 
-            //this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
-            //    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi;
 
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
