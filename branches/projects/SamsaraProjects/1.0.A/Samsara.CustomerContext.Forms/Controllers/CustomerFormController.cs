@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
@@ -10,7 +11,6 @@ using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
-using System.Collections.Generic;
 
 namespace Samsara.CustomerContext.Forms.Controller
 {

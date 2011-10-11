@@ -1,5 +1,4 @@
 ﻿
-using System;
 using Samsara.Controls.Templates;
 using Samsara.CustomerContext.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
