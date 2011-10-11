@@ -276,8 +276,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     .CustomerInfrastructureBackupSoftwareId;
 
             row["BackupSoftwareBrandId"] = this.customerInfrastructureBackupSoftware.BackupSoftwareBrand.BackupSoftwareBrandId;
-            row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureBackupSoftware
-                .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+
+            if (this.customerInfrastructureBackupSoftware.CustomerInfrastructureServerComputer == null)
+                row["CustomerInfrastructureServerComputerId"] = DBNull.Value;
+            else
+                row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureBackupSoftware
+                    .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
             row["Description"] = this.customerInfrastructureBackupSoftware.Description;
 
             this.dtCustomerInfrastructureBackupSoftwares.AcceptChanges();

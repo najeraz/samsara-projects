@@ -12,7 +12,6 @@ namespace Samsara.CustomerContext.Core.Entities
         private ISet<CustomerInfrastructureNetworkCabling> customerInfrastructureNetworkCablings;
         private ISet<CustomerInfrastructureNetworkRouter> customerInfrastructureNetworkRouters;
         private ISet<CustomerInfrastructureNetworkFirewall> customerInfrastructureNetworkFirewalls;
-        private ISet<CustomerInfrastructureNetworkWifi> customerInfrastructureNetworkWifis;
 
         public CustomerInfrastructureNetwork()
         {
@@ -116,21 +115,6 @@ namespace Samsara.CustomerContext.Core.Entities
             set
             {
                 this.customerInfrastructureNetworkFirewalls = value;
-            }
-        }
-
-        public virtual ISet<CustomerInfrastructureNetworkWifi> CustomerInfrastructureNetworkWifis
-        {
-            get
-            {
-                if (this.customerInfrastructureNetworkWifis == null)
-                    this.customerInfrastructureNetworkWifis = new HashedSet<CustomerInfrastructureNetworkWifi>();
-
-                return this.customerInfrastructureNetworkWifis;
-            }
-            set
-            {
-                this.customerInfrastructureNetworkWifis = value;
             }
         }
     }

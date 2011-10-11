@@ -14,7 +14,6 @@ namespace Samsara.Controls.Controllers
         #region Attributes
 
         private ManyToOneLevel1Control control;
-        protected int entityCounter;
 
         #endregion Attributes
 
@@ -24,7 +23,6 @@ namespace Samsara.Controls.Controllers
         {
             this.control = instance;
             this.InitializeControlControls();
-            this.entityCounter = -2;
         }
 
         #endregion Constructor

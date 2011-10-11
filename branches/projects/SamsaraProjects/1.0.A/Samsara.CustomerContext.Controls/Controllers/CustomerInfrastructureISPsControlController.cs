@@ -195,7 +195,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.customerInfrastructureISP.ISP = this.srvISP
                 .GetById(Convert.ToInt32(this.controlCustomerInfrastructureISPs.uceISP.Value));
 
-            this.customerInfrastructureISP.Bandwidth = Convert.ToDecimal(this.controlCustomerInfrastructureISPs.steBandwidth.Value);
+            //TODO - Corregir value debe ser decimal y no string con la mascara...
+            this.customerInfrastructureISP.Bandwidth = Convert.ToDecimal(this.controlCustomerInfrastructureISPs.steBandwidth.Value
+                .ToString().Replace("MB", ""));
         }
 
         protected override bool ValidateControlsData()

@@ -122,6 +122,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -330,11 +331,11 @@
             // 
             // steNumberOfUsers
             // 
-            this.steNumberOfUsers.Location = new System.Drawing.Point(110, 42);
-            this.steNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.steNumberOfUsers.Location = new System.Drawing.Point(109, 42);
+            this.steNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfUsers.Name = "steNumberOfUsers";
             this.steNumberOfUsers.ReadOnly = false;
-            this.steNumberOfUsers.Size = new System.Drawing.Size(226, 20);
+            this.steNumberOfUsers.Size = new System.Drawing.Size(227, 20);
             this.steNumberOfUsers.TabIndex = 109;
             this.steNumberOfUsers.Value = ((object)(resources.GetObject("steNumberOfUsers.Value")));
             // 
@@ -389,9 +390,9 @@
         private Infragistics.Win.Misc.UltraLabel lblDBMS;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModules;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
         private System.Windows.Forms.GroupBox gbxDescription;
         private System.Windows.Forms.GroupBox gbxModules;
+        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
 
 
 
