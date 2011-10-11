@@ -11,6 +11,7 @@ using System.Net;
 using System.ServiceProcess;
 using System.Threading;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace SamsaraWebsiteUpdateDataService
 {
@@ -56,7 +57,7 @@ namespace SamsaraWebsiteUpdateDataService
 
         protected override void OnStart(string[] args)
         {
-            eventLog1.WriteEntry("SERVICE - Started");
+            eventLog1.WriteEntry("SERVICE - Started", EventLogEntryType.Information);
 
             TimerCallback timerCallback = new TimerCallback(UpdateProcess);
             System.Threading.Timer serviceTimer = new System.Threading.Timer(timerCallback, null, 0, criticalInterval);
@@ -64,12 +65,12 @@ namespace SamsaraWebsiteUpdateDataService
 
         protected override void OnStop()
         {
-            eventLog1.WriteEntry("SERVICE - Stopped");
+            eventLog1.WriteEntry("SERVICE - Stopped", EventLogEntryType.Information);
         }
 
         private void UpdateProcess(object state)
         {
-            eventLog1.WriteEntry("Update Process - Starting");
+            eventLog1.WriteEntry("Update Process - Starting", EventLogEntryType.Information);
 
             try
             {
@@ -77,7 +78,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - MSSQL Connection : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - MSSQL Connection : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
 
@@ -87,7 +88,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - MySQL Connection : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - MySQL Connection : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
 
@@ -97,7 +98,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message, EventLogEntryType.Error);
             }
             try
             {
@@ -105,7 +106,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - UpdateStock : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - UpdateStock : " + ex.Message, EventLogEntryType.Error);
             }
             try
             {
@@ -113,7 +114,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - InsertNewCategories : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - InsertNewCategories : " + ex.Message, EventLogEntryType.Error);
             }
             try
             {
@@ -121,7 +122,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - UpdateCategories : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - UpdateCategories : " + ex.Message, EventLogEntryType.Error);
             }
             try
             {
@@ -129,7 +130,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - UpdateImages : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - UpdateImages : " + ex.Message, EventLogEntryType.Error);
             }
 
             try
@@ -138,7 +139,7 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - MSSQL Closing Connection : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - MSSQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
             }
 
             try
@@ -147,10 +148,10 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - MySQL Closing Connection : " + ex.Message);
+                eventLog1.WriteEntry("ERROR - MySQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
             }
-            
-            eventLog1.WriteEntry("Update Process - Stoped");
+
+            eventLog1.WriteEntry("Update Process - Stoped", EventLogEntryType.Information);
         }
 
         private void UpdateCategories()
@@ -176,7 +177,7 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, string> categoriesToUpdate = oldCategories.Where(x => x.Value != oldCategories[x.Key])
                 .ToDictionary(x => x.Key, x => x.Value);
 
-            eventLog1.WriteEntry("Categories To Update : " + categoriesToUpdate.Count);
+            eventLog1.WriteEntry("Categories To Update : " + categoriesToUpdate.Count, EventLogEntryType.Information);
 
             foreach (KeyValuePair<int, string> element in categoriesToUpdate)
             {
@@ -266,7 +267,7 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> categoriesToInsert = erpCategoriesCodes.Except(websiteCategoriesCodes).ToList();
 
-            eventLog1.WriteEntry("Categories To Insert : " + categoriesToInsert.Count);
+            eventLog1.WriteEntry("Categories To Insert : " + categoriesToInsert.Count, EventLogEntryType.Information);
 
             do
             {
@@ -325,7 +326,7 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, int> stockToUpdate = oldProductsStock.Where(x => x.Value != oldProductsStock[x.Key])
                 .ToDictionary(x => x.Key, x => x.Value);
 
-            eventLog1.WriteEntry("Stock To Update : " + stockToUpdate.Count);
+            eventLog1.WriteEntry("Stock To Update : " + stockToUpdate.Count, EventLogEntryType.Information);
 
             foreach (KeyValuePair<int, int> element in stockToUpdate)
             {
@@ -358,7 +359,7 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> productsToInsert = erpProductCodes.Except(websiteProductCodes).ToList();
 
-            eventLog1.WriteEntry("Products To Insert : " + productsToInsert.Count);
+            eventLog1.WriteEntry("Products To Insert : " + productsToInsert.Count, EventLogEntryType.Information);
 
             do
             {
@@ -416,23 +417,30 @@ namespace SamsaraWebsiteUpdateDataService
         private void UpdateImages()
         {
             sqlServerDataAdapter = new SqlDataAdapter(
-                "SELECT clave_integer clave_articulo FROM Imagenes.dbo.Fotos "
+                "SELECT foto, clave_integer clave_articulo, es_principal FROM Imagenes.dbo.Fotos "
                 + "WHERE tabla = 'Articulos' and clave_integer != 0",
                 this.sqlServerConnection);
 
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            IList<int> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
-                .Select(x => Convert.ToInt32(x["clave_articulo"])).ToList();
-            
-            foreach (int productCode in erpProductCodes)
+            IEnumerable<IGrouping<int, DataRow>> productGroups = ds.Tables["Articulos"].AsEnumerable()
+                .GroupBy(x => Convert.ToInt32(x["clave_articulo"]));
+
+            foreach (IGrouping<int, DataRow> productGroup in productGroups)
             {
-                string fileName = productCode + ".jpg";
+                string fileName = productGroup.Key + ".jpg";
+
+                Nullable<int> fotoId = productGroup.Select(x => Convert.ToInt32(x["es_principal"]) as Nullable<int>)
+                    .SingleOrDefault(x => x.Value == 1);
+
+                if (!fotoId.HasValue)
+                    fotoId = productGroup.OrderBy(x => x["foto"])
+                        .Select(x => Convert.ToInt32(x["clave_articulo"])).First();
 
                 this.sqlServerCommand = new SqlCommand
-                    ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE clave_integer = "
-                    + productCode, this.sqlServerConnection);
+                    ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE foto = "
+                    + fotoId.Value, this.sqlServerConnection);
 
                 byte[] imagedata = (byte[])this.sqlServerCommand.ExecuteScalar();
 
@@ -456,7 +464,7 @@ namespace SamsaraWebsiteUpdateDataService
                 if (!FTPHelper.ExistsFile(ftpServerIP, ftpUser, ftpPassword, fileName) || 
                     FTPHelper.FileSize(ftpServerIP, ftpUser, ftpPassword, fileName) != file.Length)
                 {
-                    eventLog1.WriteEntry("Uploading Image : " + fileName);
+                    eventLog1.WriteEntry("Uploading Image : " + fileName, EventLogEntryType.Information);
 
                     this.Upload(file, fileName);
                 }
