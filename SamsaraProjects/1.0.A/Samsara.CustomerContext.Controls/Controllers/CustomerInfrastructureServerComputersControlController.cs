@@ -169,6 +169,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureServerComputers.txtScalability.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtSerialNumber.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtStorage.Text = string.Empty;
+            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
+            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs.ClearControls();
         }
 
         public override void ClearControls()
@@ -177,7 +179,6 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.dtCustomerInfrastructureServerComputers.Rows.Clear();
             this.dtCustomerInfrastructureServerComputers.AcceptChanges();
-            this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs.LoadControls();
         }
 
         protected override void CreateRelation()
