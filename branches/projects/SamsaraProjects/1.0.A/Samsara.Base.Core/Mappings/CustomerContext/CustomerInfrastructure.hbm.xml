@@ -18,6 +18,10 @@
                  class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
                  column="CustomerId" />
 
+    <many-to-one name="CustomerInfrastructureNetwork"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetwork"
+                 column="CustomerInfrastructureNetworkId" not-null="true" cascade="all" unique="true" lazy="false" />
+
 
     <set name="CustomerInfrastructurePersonalComputers" table="CustomerContext.CustomerInfrastructurePersonalComputers" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">

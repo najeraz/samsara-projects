@@ -51,7 +51,7 @@ namespace Samsara.Controls
                 string parentFormName = lstCustomControlNames.Last();
                 lstCustomControlNames.Remove(parentFormName);
 
-                if (parentFormName != null)
+                if (parentFormName != null && parentFormName.Contains("Form"))
                 {
                     FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
                     pmtFormConfiguration.FormName = parentFormName;

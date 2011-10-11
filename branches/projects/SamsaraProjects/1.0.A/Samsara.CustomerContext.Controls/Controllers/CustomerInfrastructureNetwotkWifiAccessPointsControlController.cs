@@ -143,6 +143,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.Text = string.Empty;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtBandWidth.Text = string.Empty;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtDistance.Text = string.Empty;
         }
 
         public override void ClearControls()
