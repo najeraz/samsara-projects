@@ -292,8 +292,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     = this.customerInfrastructureAdministationSoftware.CustomerInfrastructureAdministationSoftwareId;
 
             row["DBMSId"] = this.customerInfrastructureAdministationSoftware.DBMS.DBMSId;
-            row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureAdministationSoftware
-                .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+
+            if (this.customerInfrastructureAdministationSoftware.CustomerInfrastructureServerComputer == null)
+                row["CustomerInfrastructureServerComputerId"] = DBNull.Value;
+            else
+                row["CustomerInfrastructureServerComputerId"] = this.customerInfrastructureAdministationSoftware
+                    .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
             row["Description"] = this.customerInfrastructureAdministationSoftware.Description;
             row["Modules"] = this.customerInfrastructureAdministationSoftware.Modules;
             row["Name"] = this.customerInfrastructureAdministationSoftware.Name;

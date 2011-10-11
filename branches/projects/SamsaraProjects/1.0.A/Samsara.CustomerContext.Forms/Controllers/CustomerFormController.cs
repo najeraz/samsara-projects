@@ -210,6 +210,16 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.Customer = this.srvCustomer.GetById(CustomerId);
 
+            this.Customer.CustomerInfrastructure = this.Customer.CustomerInfrastructure ?? new CustomerInfrastructure();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork ?? new CustomerInfrastructureNetwork();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite ??
+                new CustomerInfrastructureNetworkSite();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi ??
+                new CustomerInfrastructureNetworkWifi();
+
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
             this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.CustomerInfrastructure
@@ -226,12 +236,12 @@ namespace Samsara.CustomerContext.Forms.Controller
                 = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
             this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.CustomerInfrastructureNetwork
                 = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
-            //this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite
-            //    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork
                 = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
-            //this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
-            //    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
+                = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi;
             this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructure
@@ -304,17 +314,17 @@ namespace Samsara.CustomerContext.Forms.Controller
                     = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
                 this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.LoadControls();
 
-                //this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite
-                //    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite;
-                //this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.LoadControls();
+                this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite
+                    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite;
+                this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.LoadControls();
 
                 this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.CustomerInfrastructureNetwork
                     = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
                 this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.LoadControls();
 
-                //this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
-                //    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
-                //this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.LoadControls();
+                this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.CustomerInfrastructureNetworkWifi
+                    = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi;
+                this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.LoadControls();
 
                 this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.CustomerInfrastructure
                     = this.Customer.CustomerInfrastructure;
@@ -380,13 +390,21 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.Customer = new Customer();
             this.Customer.CustomerInfrastructure = new CustomerInfrastructure();
             this.Customer.CustomerInfrastructure.Customer = this.Customer;
+
             this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork = new CustomerInfrastructureNetwork();
             this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
+
             this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
                 = new CustomerInfrastructureNetworkSite();
             this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite
                 .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
+                = new CustomerInfrastructureNetworkWifi();
+            this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkWifi
+                .CustomerInfrastructureNetwork = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork;
+
 
             this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.CustomerInfrastructure
                 = this.Customer.CustomerInfrastructure;
