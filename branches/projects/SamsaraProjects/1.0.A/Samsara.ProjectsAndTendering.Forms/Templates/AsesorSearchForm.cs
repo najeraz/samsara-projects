@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public override Asesor GetSerchResult()
+        public override Asesor GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override UPSType GetSerchResult()
+        public override UPSType GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override RackType GetSerchResult()
+        public override RackType GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

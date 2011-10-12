@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override PrinterType GetSerchResult()
+        public override PrinterType GetSearchResult()
         {
             PrinterType PrinterType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

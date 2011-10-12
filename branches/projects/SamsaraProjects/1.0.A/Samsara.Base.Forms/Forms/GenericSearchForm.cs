@@ -46,11 +46,11 @@ namespace Samsara.Base.Forms.Forms
 
         private void btnSchAccept_Click(object sender, System.EventArgs e)
         {
-            this.SearchResult = this.GetSerchResult();
+            this.SearchResult = this.GetSearchResult();
             this.Close();
         }
 
-        abstract public T GetSerchResult();
+        abstract public T GetSearchResult();
 
         #endregion Events
     }

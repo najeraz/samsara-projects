@@ -29,7 +29,7 @@ namespace Samsara.Operation.Forms.Forms
 
         #region Methods
 
-        public override Currency GetSerchResult()
+        public override Currency GetSearchResult()
         {
             Currency Currency = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

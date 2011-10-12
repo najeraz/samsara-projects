@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override CommutatorType GetSerchResult()
+        public override CommutatorType GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

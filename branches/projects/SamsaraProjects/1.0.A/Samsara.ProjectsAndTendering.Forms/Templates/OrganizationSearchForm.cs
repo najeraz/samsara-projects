@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public override Organization GetSerchResult()
+        public override Organization GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

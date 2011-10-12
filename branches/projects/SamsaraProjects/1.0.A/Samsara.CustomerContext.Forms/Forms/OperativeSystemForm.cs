@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override OperativeSystem GetSerchResult()
+        public override OperativeSystem GetSearchResult()
         {
             OperativeSystem OperativeSystem = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

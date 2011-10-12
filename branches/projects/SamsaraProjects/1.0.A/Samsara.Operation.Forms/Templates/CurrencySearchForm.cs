@@ -11,7 +11,7 @@ namespace Samsara.Operation.Forms.Templates
             InitializeComponent();
         }
 
-        public override Currency GetSerchResult()
+        public override Currency GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override TelephonyLineType GetSerchResult()
+        public override TelephonyLineType GetSearchResult()
         {
             TelephonyLineType TelephonyLineType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

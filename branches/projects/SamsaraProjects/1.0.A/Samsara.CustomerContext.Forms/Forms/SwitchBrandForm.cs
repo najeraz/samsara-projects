@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override SwitchBrand GetSerchResult()
+        public override SwitchBrand GetSearchResult()
         {
             SwitchBrand SwitchBrand = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

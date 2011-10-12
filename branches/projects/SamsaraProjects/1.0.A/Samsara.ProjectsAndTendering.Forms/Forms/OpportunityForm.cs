@@ -46,7 +46,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             }
         }
 
-        public override Opportunity GetSerchResult()
+        public override Opportunity GetSearchResult()
         {
             Opportunity Opportunity = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
