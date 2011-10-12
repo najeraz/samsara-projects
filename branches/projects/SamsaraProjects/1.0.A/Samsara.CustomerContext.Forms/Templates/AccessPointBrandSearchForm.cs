@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override AccessPointBrand GetSerchResult()
+        public override AccessPointBrand GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

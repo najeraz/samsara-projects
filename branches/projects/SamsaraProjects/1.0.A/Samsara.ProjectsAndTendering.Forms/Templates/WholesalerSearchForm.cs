@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public override Wholesaler GetSerchResult()
+        public override Wholesaler GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

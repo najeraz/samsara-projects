@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override BackupSoftwareBrand GetSerchResult()
+        public override BackupSoftwareBrand GetSearchResult()
         {
             BackupSoftwareBrand BackupSoftwareBrand = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

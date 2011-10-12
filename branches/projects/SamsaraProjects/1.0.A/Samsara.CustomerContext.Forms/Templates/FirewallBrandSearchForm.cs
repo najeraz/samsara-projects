@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override FirewallBrand GetSerchResult()
+        public override FirewallBrand GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

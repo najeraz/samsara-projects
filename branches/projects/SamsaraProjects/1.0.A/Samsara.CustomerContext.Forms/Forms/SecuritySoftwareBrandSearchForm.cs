@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override SecuritySoftwareBrand GetSerchResult()
+        public override SecuritySoftwareBrand GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

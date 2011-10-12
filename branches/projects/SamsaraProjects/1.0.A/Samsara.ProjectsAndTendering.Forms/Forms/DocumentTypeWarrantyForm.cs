@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        public override DocumentTypeWarranty GetSerchResult()
+        public override DocumentTypeWarranty GetSearchResult()
         {
             DocumentTypeWarranty DocumentTypeWarranty = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

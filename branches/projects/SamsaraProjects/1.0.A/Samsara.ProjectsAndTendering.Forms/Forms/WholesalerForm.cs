@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        public override Wholesaler GetSerchResult()
+        public override Wholesaler GetSearchResult()
         {
             Wholesaler Wholesaler = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

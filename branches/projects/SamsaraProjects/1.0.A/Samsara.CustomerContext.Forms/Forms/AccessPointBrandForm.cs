@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override AccessPointBrand GetSerchResult()
+        public override AccessPointBrand GetSearchResult()
         {
             AccessPointBrand AccessPointBrand = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

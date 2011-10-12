@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override CommutatorType GetSerchResult()
+        public override CommutatorType GetSearchResult()
         {
             CommutatorType CommutatorType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override CCTVType GetSerchResult()
+        public override CCTVType GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

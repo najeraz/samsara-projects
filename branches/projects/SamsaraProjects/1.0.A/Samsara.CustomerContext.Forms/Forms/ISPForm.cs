@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override ISP GetSerchResult()
+        public override ISP GetSearchResult()
         {
             ISP ISP = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

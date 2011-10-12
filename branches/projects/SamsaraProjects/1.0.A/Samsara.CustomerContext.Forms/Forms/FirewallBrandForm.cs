@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override FirewallBrand GetSerchResult()
+        public override FirewallBrand GetSearchResult()
         {
             FirewallBrand FirewallBrand = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
