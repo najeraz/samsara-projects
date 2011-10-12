@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override RackType GetSerchResult()
+        public override RackType GetSearchResult()
         {
             RackType RackType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

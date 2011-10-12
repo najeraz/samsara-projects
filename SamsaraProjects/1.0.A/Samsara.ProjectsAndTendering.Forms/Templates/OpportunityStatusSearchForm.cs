@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public override OpportunityStatus GetSerchResult()
+        public override OpportunityStatus GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

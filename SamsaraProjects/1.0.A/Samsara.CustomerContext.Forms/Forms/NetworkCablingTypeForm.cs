@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override NetworkCablingType GetSerchResult()
+        public override NetworkCablingType GetSearchResult()
         {
             NetworkCablingType NetworkCablingType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

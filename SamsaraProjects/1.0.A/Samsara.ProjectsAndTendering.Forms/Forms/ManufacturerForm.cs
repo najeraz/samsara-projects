@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        public override Manufacturer GetSerchResult()
+        public override Manufacturer GetSearchResult()
         {
             Manufacturer asesor = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        public override Dependency GetSerchResult()
+        public override Dependency GetSearchResult()
         {
             Dependency dependency = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

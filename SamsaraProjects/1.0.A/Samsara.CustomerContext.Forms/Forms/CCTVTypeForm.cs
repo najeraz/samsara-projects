@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override CCTVType GetSerchResult()
+        public override CCTVType GetSearchResult()
         {
             CCTVType CCTVType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

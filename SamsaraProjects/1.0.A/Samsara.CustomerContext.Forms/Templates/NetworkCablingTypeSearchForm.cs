@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override NetworkCablingType GetSerchResult()
+        public override NetworkCablingType GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

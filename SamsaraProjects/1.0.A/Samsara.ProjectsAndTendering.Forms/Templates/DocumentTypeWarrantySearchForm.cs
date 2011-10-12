@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public override DocumentTypeWarranty GetSerchResult()
+        public override DocumentTypeWarranty GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

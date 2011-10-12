@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override PersonalComputerType GetSerchResult()
+        public override PersonalComputerType GetSearchResult()
         {
             PersonalComputerType PersonalComputerType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

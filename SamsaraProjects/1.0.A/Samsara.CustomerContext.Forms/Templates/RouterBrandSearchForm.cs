@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override RouterBrand GetSerchResult()
+        public override RouterBrand GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

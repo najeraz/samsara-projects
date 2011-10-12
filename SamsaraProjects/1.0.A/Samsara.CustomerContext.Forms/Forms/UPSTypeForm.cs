@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override UPSType GetSerchResult()
+        public override UPSType GetSearchResult()
         {
             UPSType UPSType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

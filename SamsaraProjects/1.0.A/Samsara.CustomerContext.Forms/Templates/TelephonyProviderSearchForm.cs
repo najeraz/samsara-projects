@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override TelephonyProvider GetSerchResult()
+        public override TelephonyProvider GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

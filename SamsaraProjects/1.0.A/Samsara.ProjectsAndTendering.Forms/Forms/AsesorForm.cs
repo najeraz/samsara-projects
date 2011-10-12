@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        public override Asesor GetSerchResult()
+        public override Asesor GetSearchResult()
         {
             Asesor asesor = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;

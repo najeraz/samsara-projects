@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Forms.Templates
             InitializeComponent();
         }
 
-        public override OperativeSystem GetSerchResult()
+        public override OperativeSystem GetSearchResult()
         {
             throw new System.NotImplementedException();
         }
