@@ -1,13 +1,12 @@
 ﻿
 using System.ComponentModel;
-using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
 using Samsara.Support.Util;
 
 namespace Samsara.Controls.Controls
 {
-    public partial class SamsaraTextEditor : UserControl
+    public partial class SamsaraTextEditor : SamsaraUserControl
     {
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
