@@ -1,6 +1,6 @@
 ﻿namespace Samsara.Controls.Controls
 {
-    partial class SamsaraUserControl
+    partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : SamsaraUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             Infragistics.Win.UltraWinEditors.EditorButton editorButton1 = new Infragistics.Win.UltraWinEditors.EditorButton();
-            this.samsaraUltraComboEditor1 = new Samsara.Controls.Controls.SamsaraUltraComboEditor();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraComboEditor1)).BeginInit();
+            this.suceEntities = new Samsara.Controls.Controls.SamsaraUltraComboEditor();
+            ((System.ComponentModel.ISupportInitialize)(this.suceEntities)).BeginInit();
             this.SuspendLayout();
             // 
-            // samsaraUltraComboEditor1
+            // suceEntities
             // 
             editorButton1.Text = "+";
-            this.samsaraUltraComboEditor1.ButtonsLeft.Add(editorButton1);
-            this.samsaraUltraComboEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.samsaraUltraComboEditor1.Location = new System.Drawing.Point(0, 0);
-            this.samsaraUltraComboEditor1.Name = "samsaraUltraComboEditor1";
-            this.samsaraUltraComboEditor1.Size = new System.Drawing.Size(227, 21);
-            this.samsaraUltraComboEditor1.TabIndex = 0;
-            this.samsaraUltraComboEditor1.Text = "samsaraUltraComboEditor1";
+            this.suceEntities.ButtonsLeft.Add(editorButton1);
+            this.suceEntities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.suceEntities.Location = new System.Drawing.Point(0, 0);
+            this.suceEntities.Name = "suceEntities";
+            this.suceEntities.Size = new System.Drawing.Size(313, 21);
+            this.suceEntities.TabIndex = 0;
+            this.suceEntities.Text = "samsaraUltraComboEditor1";
             // 
-            // SamsaraUserControl
+            // SamsaraEntityChooserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.samsaraUltraComboEditor1);
-            this.Name = "SamsaraUserControl";
-            this.Size = new System.Drawing.Size(227, 22);
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraComboEditor1)).EndInit();
+            this.Controls.Add(this.suceEntities);
+            this.Name = "SamsaraEntityChooserControl";
+            this.Size = new System.Drawing.Size(313, 57);
+            ((System.ComponentModel.ISupportInitialize)(this.suceEntities)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -59,6 +59,6 @@
 
         #endregion
 
-        private SamsaraUltraComboEditor samsaraUltraComboEditor1;
+        private SamsaraUltraComboEditor suceEntities;
     }
 }
