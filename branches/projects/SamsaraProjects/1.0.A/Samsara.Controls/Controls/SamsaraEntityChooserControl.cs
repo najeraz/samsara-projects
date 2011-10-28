@@ -22,6 +22,12 @@ namespace Samsara.Controls.Controls
 
         #region Properties
 
+        public Form form
+        {
+            get;
+            set;
+        }
+
         public TPmt Parameters
         {
             get;
@@ -111,10 +117,7 @@ namespace Samsara.Controls.Controls
 
         private void editorButtonAdd_Click(object sender, EditorButtonEventArgs e)
         {
-            //Form form = new TForm() as Form;
-
-            //form.ShowDialog(this);
-
+            form.ShowDialog(this);
             this.RefreshCombo();
         }
 
