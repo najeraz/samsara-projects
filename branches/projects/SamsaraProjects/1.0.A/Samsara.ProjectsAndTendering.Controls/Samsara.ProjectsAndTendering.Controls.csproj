@@ -36,6 +36,16 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Controls.dll</HintPath>
@@ -44,6 +54,16 @@
     <Reference Include="Samsara.ProjectsAndTendering.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.ProjectsAndTendering.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.ProjectsAndTendering.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.ProjectsAndTendering.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.ProjectsAndTendering.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.ProjectsAndTendering.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -57,6 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\BidderChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BidderChooserControl.Designer.cs">
+      <DependentUpon>BidderChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TenderSearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

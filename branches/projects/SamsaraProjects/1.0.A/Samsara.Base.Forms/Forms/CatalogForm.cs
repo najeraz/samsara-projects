@@ -1,9 +1,11 @@
-﻿using System.Windows.Forms;
+﻿
+using System.Windows.Forms;
 using Infragistics.Win;
+using Samsara.Controls.Interfaces;
 
 namespace Samsara.Base.Forms.Forms
 {
-    public partial class CatalogForm : Form
+    public partial class CatalogForm : Form, IDialogForm
     {
         #region Attributes
         
@@ -34,6 +36,11 @@ namespace Samsara.Base.Forms.Forms
                 this.tabPrincipal.TabPages.Remove(hiddenTabPage);
             else if (!this.tabPrincipal.TabPages.ContainsKey("New"))
                 this.tabPrincipal.TabPages.Add(hiddenTabPage);
+        }
+
+        public void ShowFormAsDialog(IWin32Window owner)
+        {
+            this.ShowDialog(owner);
         }
 
         #endregion Methods
