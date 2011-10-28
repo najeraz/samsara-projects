@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.UltraWinEditors.EditorButton editorButton1 = new Infragistics.Win.UltraWinEditors.EditorButton();
+            Infragistics.Win.UltraWinEditors.EditorButton editorButton1 = new Infragistics.Win.UltraWinEditors.EditorButton("Refresh");
+            Infragistics.Win.UltraWinEditors.EditorButton editorButton2 = new Infragistics.Win.UltraWinEditors.EditorButton("Add");
             this.suceEntities = new Samsara.Controls.Controls.SamsaraUltraComboEditor();
             ((System.ComponentModel.ISupportInitialize)(this.suceEntities)).BeginInit();
             this.SuspendLayout();
             // 
             // suceEntities
             // 
-            editorButton1.Text = "+";
+            editorButton1.Key = "Refresh";
+            editorButton1.Text = "r";
+            editorButton2.Key = "Add";
+            editorButton2.Text = "+";
             this.suceEntities.ButtonsLeft.Add(editorButton1);
+            this.suceEntities.ButtonsLeft.Add(editorButton2);
             this.suceEntities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.suceEntities.Location = new System.Drawing.Point(0, 0);
             this.suceEntities.Name = "suceEntities";
             this.suceEntities.Size = new System.Drawing.Size(313, 21);
             this.suceEntities.TabIndex = 0;
-            this.suceEntities.Text = "samsaraUltraComboEditor1";
             // 
             // SamsaraEntityChooserControl
             // 
@@ -50,7 +54,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.suceEntities);
             this.Name = "SamsaraEntityChooserControl";
-            this.Size = new System.Drawing.Size(313, 57);
+            this.Size = new System.Drawing.Size(313, 22);
+            this.Controls.SetChildIndex(this.suceEntities, 0);
             ((System.ComponentModel.ISupportInitialize)(this.suceEntities)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

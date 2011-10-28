@@ -1,10 +1,13 @@
 ﻿
 using System.Collections.Generic;
+using Infragistics.Win.UltraWinEditors;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Base.Service.Impl;
+using Samsara.Controls.Interfaces;
 using Samsara.Support.Util;
+using System.Windows.Forms;
 
 namespace Samsara.Controls.Controls
 {
@@ -66,12 +69,17 @@ namespace Samsara.Controls.Controls
         {
             this.PrepareComponents();
 
-            IList<T> entityList = (this.service as GenericService<T, TId, TDao, TPmt>)
-                .GetListByParameters(this.Parameters);
+            this.RefreshCombo();
 
-            this.suceEntities.DataSource = null;
-            WindowsFormsUtil.LoadCombo<T>(this.suceEntities, entityList, this.ValueMember,
-                this.DisplayMember, "Seleccione");
+            EditorButton editorButtonAdd = this.suceEntities.ButtonsLeft["Add"] as EditorButton;
+
+            editorButtonAdd.Click -= new EditorButtonEventHandler(editorButtonAdd_Click);
+            editorButtonAdd.Click += new EditorButtonEventHandler(editorButtonAdd_Click);
+
+            EditorButton editorButtonRefresh = this.suceEntities.ButtonsLeft["Refresh"] as EditorButton;
+
+            editorButtonRefresh.Click -= new EditorButtonEventHandler(editorButtonRefresh_Click);
+            editorButtonRefresh.Click += new EditorButtonEventHandler(editorButtonRefresh_Click);
         }
 
         #endregion Public
@@ -87,7 +95,35 @@ namespace Samsara.Controls.Controls
             }
         }
 
+        private void RefreshCombo()
+        {
+            IList<T> entityList = (this.service as GenericService<T, TId, TDao, TPmt>)
+                .GetListByParameters(this.Parameters);
+
+            this.suceEntities.DataSource = null;
+            WindowsFormsUtil.LoadCombo<T>(this.suceEntities, entityList, this.ValueMember,
+                this.DisplayMember, "Seleccione");
+        }
+
         #endregion Private
+
+        #region Events
+
+        private void editorButtonAdd_Click(object sender, EditorButtonEventArgs e)
+        {
+            //Form form = new TForm() as Form;
+
+            //form.ShowDialog(this);
+
+            this.RefreshCombo();
+        }
+
+        private void editorButtonRefresh_Click(object sender, EditorButtonEventArgs e)
+        {
+            this.RefreshCombo();
+        }
+
+        #endregion Events
 
         #endregion Methods
 
