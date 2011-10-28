@@ -167,7 +167,6 @@
     <Compile Include="Controls\SamsaraEntityChooserControl.Designer.cs">
       <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IDialogForm.cs" />
     <Compile Include="Templates\ManyToOneLevel1Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
