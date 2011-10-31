@@ -69,8 +69,9 @@ namespace Samsara.Base.Controls.Controls
 
         #region Public
 
-        public virtual void RefreshEntities()
+        public override void Refresh()
         {
+            base.Refresh();
             this.PrepareComponents();
 
             this.RefreshCombo();
@@ -118,7 +119,7 @@ namespace Samsara.Base.Controls.Controls
             Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + AssemblyName);
             Type formType = assembly.GetType(AssemblyFormClassName);
             Form form = Activator.CreateInstance(formType) as Form;
-            form.Show();
+            form.ShowDialog(this);
             this.RefreshCombo();
         }
 
@@ -130,6 +131,5 @@ namespace Samsara.Base.Controls.Controls
         #endregion Events
 
         #endregion Methods
-
     }
 }
