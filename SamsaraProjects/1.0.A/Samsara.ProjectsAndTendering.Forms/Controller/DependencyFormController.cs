@@ -11,6 +11,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 using Samsara.Support.Util;
+using Samsara.ProjectsAndTendering.Controls.Controls;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
@@ -51,6 +52,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 lstBidders, "BidderId", "Name", "Seleccione");
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceDetBidder,
                 lstBidders, "BidderId", "Name", "Seleccione");
+
+            this.frmDependency.secBidder.Parameters = pmtBidder;
+            this.frmDependency.secBidder.ValueMember = "BidderId";
+            this.frmDependency.secBidder.DisplayMember = "Name";
+            this.frmDependency.secBidder.Refresh();
 
             this.frmDependency.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmDependency.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);

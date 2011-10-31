@@ -40,7 +40,7 @@ namespace Samsara.Base.Controls.Controls
             // suceEntities
             // 
             editorButton1.Key = "Refresh";
-            editorButton1.Text = "r";
+            editorButton1.Text = "A";
             editorButton2.Key = "Add";
             editorButton2.Text = "+";
             this.suceEntities.ButtonsLeft.Add(editorButton1);
@@ -48,7 +48,7 @@ namespace Samsara.Base.Controls.Controls
             this.suceEntities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.suceEntities.Location = new System.Drawing.Point(0, 0);
             this.suceEntities.Name = "suceEntities";
-            this.suceEntities.Size = new System.Drawing.Size(313, 21);
+            this.suceEntities.Size = new System.Drawing.Size(263, 21);
             this.suceEntities.TabIndex = 0;
             // 
             // SamsaraEntityChooserControl
@@ -57,7 +57,7 @@ namespace Samsara.Base.Controls.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.suceEntities);
             this.Name = "SamsaraEntityChooserControl";
-            this.Size = new System.Drawing.Size(313, 22);
+            this.Size = new System.Drawing.Size(263, 22);
             this.Controls.SetChildIndex(this.suceEntities, 0);
             ((System.ComponentModel.ISupportInitialize)(this.suceEntities)).EndInit();
             this.ResumeLayout(false);
