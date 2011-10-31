@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,6 +31,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infragistics2.Shared.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Core">
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao">
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Service">
+      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Controls">
+      <HintPath>..\bin\Samsara.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Support.Util">
+      <HintPath>..\bin\Samsara.Support.Util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -42,10 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\SamsaraEntityChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraEntityChooserControl.designer.cs">
+      <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Controls\" />
+    <EmbeddedResource Include="Controls\SamsaraEntityChooserControl.resx">
+      <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

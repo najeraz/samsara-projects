@@ -1,5 +1,5 @@
 ﻿
-using Samsara.Controls.Controls;
+using Samsara.Base.Controls.Controls;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;
@@ -11,6 +11,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls
     {
         public BidderChooserControl()
         {
+            AssemblyName = "Samsara.ProjectsAndTendering.Forms.dll";
+            AssemblyFormClassName = "Samsara.ProjectsAndTendering.Forms.Forms.BidderForm";
             InitializeComponent();
         }
     }
