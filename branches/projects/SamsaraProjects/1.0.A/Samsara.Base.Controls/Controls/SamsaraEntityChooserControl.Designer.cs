@@ -1,4 +1,7 @@
-﻿namespace Samsara.Controls.Controls
+﻿
+using Samsara.Controls.Controls;
+
+namespace Samsara.Base.Controls.Controls
 {
     partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : SamsaraUserControl
     {

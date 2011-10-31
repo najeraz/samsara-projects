@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Windows.Forms;
 using Samsara.Controls.Interfaces;
 
@@ -52,10 +53,10 @@ namespace Samsara.Controls
         {
             if (this.SearchForm != null && !string.IsNullOrEmpty(this.DisplayMember))
             {
-                ISearchForm<T> form = (ISearchForm<T>)Activator.CreateInstance(this.SearchForm.GetType());
+                ISearchForm<T> form = Activator.CreateInstance(this.SearchForm.GetType()) as ISearchForm<T>;
                 form.ParentSearchForm = this.ParentForm;
                 form.PrepareSearchControls();
-                ((Form)form).ShowDialog(this);
+                (form as Form).ShowDialog(this);
                 this.Value = form.SearchResult;
                 if (this.Value != null)
                 {

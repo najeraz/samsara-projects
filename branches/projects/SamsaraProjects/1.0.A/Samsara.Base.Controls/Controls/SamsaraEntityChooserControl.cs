@@ -1,15 +1,17 @@
 ﻿
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Infragistics.Win.UltraWinEditors;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Base.Service.Impl;
-using Samsara.Controls.Interfaces;
+using Samsara.Controls.Controls;
 using Samsara.Support.Util;
-using System.Windows.Forms;
+using System;
+using System.Reflection;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : 
         SamsaraUserControl where TDao : IGenericDao<T, TId, TPmt> where TPmt : new()
@@ -17,24 +19,20 @@ namespace Samsara.Controls.Controls
         #region Attributes
 
         private TService service;
+        protected static string AssemblyName = null;
+        protected static string AssemblyFormClassName = null;
 
         #endregion Attributes
 
         #region Properties
-
-        public Form form
-        {
-            get;
-            set;
-        }
-
+        
         public TPmt Parameters
         {
             get;
             set;
         }
 
-        public T SelectedEntity
+        public T Value
         {
             get;
             set;
@@ -117,7 +115,10 @@ namespace Samsara.Controls.Controls
 
         private void editorButtonAdd_Click(object sender, EditorButtonEventArgs e)
         {
-            form.ShowDialog(this);
+            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + AssemblyName);
+            Type formType = assembly.GetType(AssemblyFormClassName);
+            Form form = Activator.CreateInstance(formType) as Form;
+            form.Show();
             this.RefreshCombo();
         }
 
