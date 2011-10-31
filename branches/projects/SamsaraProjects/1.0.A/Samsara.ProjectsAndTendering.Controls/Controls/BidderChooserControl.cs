@@ -12,8 +12,11 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls
     {
         public BidderChooserControl()
         {
-            string schemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(
-                Assembly.GetExecutingAssembly().FullName.IndexOf(".", 1));
+            string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
+                Assembly.GetExecutingAssembly().FullName.IndexOf(","));
+
+            string schemaNamespace = controlsSchemaNamespace
+                .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
 
             AssemblyName = schemaNamespace + ".Forms.dll";
             AssemblyFormClassName = schemaNamespace + ".Forms.Forms.BidderForm";

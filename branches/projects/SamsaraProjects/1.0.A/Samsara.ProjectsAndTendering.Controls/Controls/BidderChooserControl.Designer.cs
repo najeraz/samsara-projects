@@ -1,4 +1,5 @@
-﻿namespace Samsara.ProjectsAndTendering.Controls.Controls
+﻿
+namespace Samsara.ProjectsAndTendering.Controls.Controls
 {
     partial class BidderChooserControl
     {
