@@ -25,7 +25,7 @@ namespace Samsara.Base.Forms.Forms
 
         public virtual void PrepareSearchControls()
         {
-            if (((ISearchForm<T>)this).ParentSearchForm != null)
+            if ((this as ISearchForm<T>).ParentSearchForm != null)
             {
                 this.btnSchCreate.Visible = false;
                 this.upSchSeparatorCreate.Visible = false;

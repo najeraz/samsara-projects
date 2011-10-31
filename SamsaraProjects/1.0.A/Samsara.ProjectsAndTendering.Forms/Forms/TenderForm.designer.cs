@@ -193,7 +193,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
-            this.oscDetRelatedOpportunity = new Samsara.Controls.OpportunitySearchControl();
+            this.oscDetRelatedOpportunity = new Samsara.ProjectsAndTendering.Controls.Controls.OpportunitySearchControl();
             this.tscPreviousTender = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSearchControl();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -3281,7 +3281,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal System.Windows.Forms.GroupBox gbDetAddress;
         internal System.Windows.Forms.Label lblDetTenderName;
         internal System.Windows.Forms.Label lblDetRelatedOpportunity;
-        internal Samsara.Controls.OpportunitySearchControl oscDetRelatedOpportunity;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.OpportunitySearchControl oscDetRelatedOpportunity;
         private System.Windows.Forms.TabPage Competitors;
         internal Samsara.Controls.SamsaraUltraGrid grdDetTenderCompetitors;
         private Infragistics.Win.Misc.UltraPanel upDetCompetitorsButtons;

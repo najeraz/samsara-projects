@@ -1,7 +1,6 @@
 ﻿
 using System.Windows.Forms;
 using Infragistics.Win;
-using Samsara.Controls.Interfaces;
 
 namespace Samsara.Base.Forms.Forms
 {

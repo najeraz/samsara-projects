@@ -161,23 +161,11 @@
     <Compile Include="Controls\SamsaraUserControl.Designer.cs">
       <DependentUpon>SamsaraUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SamsaraEntityChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\SamsaraEntityChooserControl.Designer.cs">
-      <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Templates\ManyToOneLevel1Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Templates\ManyToOneLevel1Control.designer.cs">
       <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\OpportunitySearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\OpportunitySearchControl.designer.cs">
-      <DependentUpon>OpportunitySearchControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\SamsaraUltraGrid.cs">
       <SubType>Component</SubType>
@@ -200,9 +188,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\SamsaraEntityChooserControl.resx">
-      <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\SamsaraTextEditor.resx">
       <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,10 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Templates\ManyToOneLevel1Control.resx">
       <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OpportunitySearchControl.resx">
-      <DependentUpon>OpportunitySearchControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SamsaraUltraGrid.resx">
       <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
