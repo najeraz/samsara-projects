@@ -1,5 +1,5 @@
 
   <object id="I#EntityName#Service"
-          type="Samsara.#Scheme#.Service.Impl.#EntityName#Service, Samsara.#Scheme#.Service">
+          type="Samsara.#Schema#.Service.Impl.#EntityName#Service, Samsara.#Schema#.Service">
     <property name="Dao" ref="I#EntityName#Dao"/>
   </object>

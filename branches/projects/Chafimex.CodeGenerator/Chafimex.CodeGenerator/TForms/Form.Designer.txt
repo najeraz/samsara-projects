@@ -1,4 +1,4 @@
-﻿namespace Samsara.#Scheme#.Forms.Forms
+﻿namespace Samsara.#Schema#.Forms.Forms
 {
     partial class #EntityName#Form
     {

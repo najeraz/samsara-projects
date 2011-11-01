@@ -3,12 +3,12 @@ using System;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.#Scheme#.Core.Entities;
-using Samsara.#Scheme#.Forms.Controller;
-using Samsara.#Scheme#.Forms.Templates;
-using Samsara.#Scheme#.Service.Interfaces;
+using Samsara.#Schema#.Core.Entities;
+using Samsara.#Schema#.Forms.Controller;
+using Samsara.#Schema#.Forms.Templates;
+using Samsara.#Schema#.Service.Interfaces;
 
-namespace Samsara.#Scheme#.Forms.Forms
+namespace Samsara.#Schema#.Forms.Forms
 {
     public partial class #EntityName#Form : #EntityName#SearchForm
     {

@@ -1,8 +1,8 @@
 ﻿
 using Samsara.Base.Forms.Forms;
-using Samsara.#Scheme#.Core.Entities;
+using Samsara.#Schema#.Core.Entities;
 
-namespace Samsara.#Scheme#.Forms.Templates
+namespace Samsara.#Schema#.Forms.Templates
 {
     public partial class #EntityName#SearchForm : GenericSearchForm<#EntityName#>
     {

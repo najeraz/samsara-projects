@@ -85,6 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TForms\Controller.txt" />
+    <Content Include="TControls\ChooserControl.designer.txt" />
+    <Content Include="TControls\ChooserControl.txt" />
     <Content Include="TForms\Form.resx.txt" />
     <Content Include="TForms\Form.Designer.txt" />
     <Content Include="TForms\SearchForm.Designer.txt" />

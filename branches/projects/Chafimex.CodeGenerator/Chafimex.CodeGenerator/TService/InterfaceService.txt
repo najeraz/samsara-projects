@@ -1,9 +1,9 @@
 ﻿
 using Samsara.Base.Service.Interfaces;
-using Samsara.#Scheme#.Core.Entities;
-using Samsara.#Scheme#.Core.Parameters;
+using Samsara.#Schema#.Core.Entities;
+using Samsara.#Schema#.Core.Parameters;
 
-namespace Samsara.#Scheme#.Service.Interfaces
+namespace Samsara.#Schema#.Service.Interfaces
 {
     public interface I#EntityName#Service : IGenericService<#EntityName#, int, #EntityName#Parameters>
     {

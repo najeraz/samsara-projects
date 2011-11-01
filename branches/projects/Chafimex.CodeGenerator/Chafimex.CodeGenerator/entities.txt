@@ -45,3 +45,6 @@ CustomerInfrastructureAdministationSoftware
 CustomerInfrastructureBackupSoftware
 CustomerInfrastructureSecuritySoftware
 SecuritySoftwareBrand
+AccessPointBrand
+AccessPointType
+CustomerInfrastructureNetworkWifiAccessPoint
