@@ -1,5 +1,5 @@
   
   <object id="I#EntityName#Dao"
-          type="Samsara.#Scheme#.Dao.Impl.#EntityName#Dao, Samsara.#Scheme#.Dao">
+          type="Samsara.#Schema#.Dao.Impl.#EntityName#Dao, Samsara.#Schema#.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>

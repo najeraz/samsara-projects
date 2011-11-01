@@ -5,12 +5,12 @@ using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.#Scheme#.Core.Entities;
-using Samsara.#Scheme#.Core.Parameters;
-using Samsara.#Scheme#.Forms.Forms;
-using Samsara.#Scheme#.Service.Interfaces;
+using Samsara.#Schema#.Core.Entities;
+using Samsara.#Schema#.Core.Parameters;
+using Samsara.#Schema#.Forms.Forms;
+using Samsara.#Schema#.Service.Interfaces;
 
-namespace Samsara.#Scheme#.Forms.Controller
+namespace Samsara.#Schema#.Forms.Controller
 {
     public class #EntityName#FormController
     {

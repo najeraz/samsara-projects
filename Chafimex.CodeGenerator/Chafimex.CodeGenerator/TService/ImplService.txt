@@ -1,11 +1,11 @@
 ﻿
 using Samsara.Base.Service.Impl;
-using Samsara.#Scheme#.Core.Entities;
-using Samsara.#Scheme#.Core.Parameters;
-using Samsara.#Scheme#.Dao.Interfaces;
-using Samsara.#Scheme#.Service.Interfaces;
+using Samsara.#Schema#.Core.Entities;
+using Samsara.#Schema#.Core.Parameters;
+using Samsara.#Schema#.Dao.Interfaces;
+using Samsara.#Schema#.Service.Interfaces;
 
-namespace Samsara.#Scheme#.Service.Impl
+namespace Samsara.#Schema#.Service.Impl
 {
     public class #EntityName#Service : GenericService<#EntityName#, int, I#EntityName#Dao, #EntityName#Parameters>, I#EntityName#Service
     {
