@@ -39,7 +39,7 @@ TelephonyLineType
 TelephonyProvider
 UPSBrand
 UPSType
-BussinessType
+BusinessType
 BackupSoftwareBrand
 CustomerInfrastructureAdministationSoftware
 CustomerInfrastructureBackupSoftware
