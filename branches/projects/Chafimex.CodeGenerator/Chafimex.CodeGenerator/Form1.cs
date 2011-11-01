@@ -23,28 +23,32 @@ namespace Chafimex.CodeGenerator
         private string formController;
         private string formSearchForm;
         private string formSearchFormDes;
+        private string chooserControl;
+        private string chooserControlDes;
         private string daoXMLTemplate;
         private string serviceXMLTemplate;
 
-        private static string schemeName = "#Scheme#";
+        private static string schemeName = "#Schema#";
         private static string entityName = "#EntityName#";
 
         private static string tDaoPath = ".." + Path.DirectorySeparatorChar + "TDao" + Path.DirectorySeparatorChar;
         private static string tServicePath = ".." + Path.DirectorySeparatorChar + "TService" + Path.DirectorySeparatorChar;
         private static string tFormsPath = ".." + Path.DirectorySeparatorChar + "TForms" + Path.DirectorySeparatorChar;
         private static string tXMLPath = ".." + Path.DirectorySeparatorChar + "TXML" + Path.DirectorySeparatorChar;
+        private static string tControlsPath = ".." + Path.DirectorySeparatorChar + "TControls" + Path.DirectorySeparatorChar;
 
         private static string daoFolderPath = ".." + Path.DirectorySeparatorChar + "GenDao" + Path.DirectorySeparatorChar;
         private static string serviceFolderPath = ".." + Path.DirectorySeparatorChar + "GenService" + Path.DirectorySeparatorChar;
         private static string formFolderPath = ".." + Path.DirectorySeparatorChar + "GenForms" + Path.DirectorySeparatorChar;
         private static string xmlFolderPath = ".." + Path.DirectorySeparatorChar + "GenXML" + Path.DirectorySeparatorChar;
+        private static string controlsFolderPath = ".." + Path.DirectorySeparatorChar + "GenControls" + Path.DirectorySeparatorChar;
 
         private static string implDaoFolderPath = daoFolderPath + "Impl" + Path.DirectorySeparatorChar;
-        private static string interfaceDaoFolderPath = daoFolderPath + "Interface" + Path.DirectorySeparatorChar;
+        private static string interfaceDaoFolderPath = daoFolderPath + "Interfaces" + Path.DirectorySeparatorChar;
         private static string implServiceFolderPath = serviceFolderPath + "Impl" + Path.DirectorySeparatorChar;
         private static string interfaceServiceFolderPath = serviceFolderPath + "Interfaces" + Path.DirectorySeparatorChar;
 
-        private static string controllerFormFolderPath = formFolderPath + "Controller" + Path.DirectorySeparatorChar;
+        private static string controllerFormFolderPath = formFolderPath + "Controllers" + Path.DirectorySeparatorChar;
         private static string formsFormFolderPath = formFolderPath + "Forms" + Path.DirectorySeparatorChar;
         private static string templatesFormFolderPath = formFolderPath + "Templates" + Path.DirectorySeparatorChar;
 
@@ -64,6 +68,8 @@ namespace Chafimex.CodeGenerator
             formController = File.ReadAllText(tFormsPath + "Controller.txt");
             formSearchForm = File.ReadAllText(tFormsPath + "SearchForm.txt");
             formSearchFormDes = File.ReadAllText(tFormsPath + "SearchForm.Designer.txt");
+            chooserControl = File.ReadAllText(tFormsPath + "ChooserControl.txt");
+            chooserControlDes = File.ReadAllText(tFormsPath + "ChooserControl.designer.txt");
             daoXMLTemplate = File.ReadAllText(tXMLPath + "Dao.txt");
             serviceXMLTemplate = File.ReadAllText(tXMLPath + "Service.txt");
         }
@@ -86,6 +92,7 @@ namespace Chafimex.CodeGenerator
                 Directory.CreateDirectory(serviceFolderPath);
                 Directory.CreateDirectory(formFolderPath);
                 Directory.CreateDirectory(xmlFolderPath);
+                Directory.CreateDirectory(controlsFolderPath);
 
                 Directory.CreateDirectory(implDaoFolderPath);
                 Directory.CreateDirectory(interfaceDaoFolderPath);
@@ -115,6 +122,8 @@ namespace Chafimex.CodeGenerator
                     string fc = formController.Replace(entityName, line);
                     string fsf = formSearchForm.Replace(entityName, line);
                     string fsfd = formSearchFormDes.Replace(entityName, line);
+                    string cc = chooserControl.Replace(entityName, line);
+                    string ccd = chooserControlDes.Replace(entityName, line);
                     string subDaoXML = daoXMLTemplate.Replace(entityName, line);
                     string subServiceXML = serviceXMLTemplate.Replace(entityName, line);
 
@@ -128,6 +137,8 @@ namespace Chafimex.CodeGenerator
                     fc = fc.Replace(schemeName, schema);
                     fsf = fsf.Replace(schemeName, schema);
                     fsfd = fsfd.Replace(schemeName, schema);
+                    cc = cc.Replace(schemeName, schema);
+                    ccd = ccd.Replace(schemeName, schema);
                     daoXML += subDaoXML.Replace(schemeName, schema);
                     serviceXML += subServiceXML.Replace(schemeName, schema);
 
@@ -143,6 +154,8 @@ namespace Chafimex.CodeGenerator
                     File.WriteAllText(controllerFormFolderPath + line + "FormController.cs", fc, Encoding.UTF8);
                     File.WriteAllText(templatesFormFolderPath + line + "SearchForm.cs", fsf, Encoding.UTF8);
                     File.WriteAllText(templatesFormFolderPath + line + "SearchForm.Designer.cs", fsfd, Encoding.UTF8);
+                    File.WriteAllText(controlsFolderPath + line + "ChooserControl.cs", fsf, Encoding.UTF8);
+                    File.WriteAllText(controlsFolderPath + line + "ChooserControl.designer.cs", fsfd, Encoding.UTF8);
                 }
 
                 File.WriteAllText(xmlFolderPath + "Dao.xml", daoXML, Encoding.UTF8);

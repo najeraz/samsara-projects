@@ -1,9 +1,9 @@
 ﻿
 using Samsara.Base.Dao.Interfaces;
-using Samsara.#Scheme#.Core.Entities;
-using Samsara.#Scheme#.Core.Parameters;
+using Samsara.#Schema#.Core.Entities;
+using Samsara.#Schema#.Core.Parameters;
 
-namespace Samsara.#Scheme#.Dao.Interfaces
+namespace Samsara.#Schema#.Dao.Interfaces
 {
     public interface I#EntityName#Dao : IGenericDao<#EntityName#, int, #EntityName#Parameters>
     {
