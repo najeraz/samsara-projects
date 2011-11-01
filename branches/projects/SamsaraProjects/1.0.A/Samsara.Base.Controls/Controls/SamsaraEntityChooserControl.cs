@@ -1,15 +1,17 @@
 ﻿
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinEditors;
 using NUnit.Framework;
+using Samsara.Base.Controls.EventsArgs;
+using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Base.Service.Impl;
 using Samsara.Controls.Controls;
 using Samsara.Support.Util;
-using System;
-using System.Reflection;
 
 namespace Samsara.Base.Controls.Controls
 {
@@ -18,9 +20,11 @@ namespace Samsara.Base.Controls.Controls
     {
         #region Attributes
 
+        private T value;
         private TService service;
         protected static string AssemblyName = null;
         protected static string AssemblyFormClassName = null;
+        public event SamsaraEntityChooserValueChangedEventHandler<T> ValueChanged;
 
         #endregion Attributes
 
@@ -34,8 +38,14 @@ namespace Samsara.Base.Controls.Controls
 
         public T Value
         {
-            get;
-            set;
+            get
+            {
+                return value;
+            }
+            set
+            {
+                this.value = value;
+            }
         }
 
         public string ValueMember
@@ -89,6 +99,16 @@ namespace Samsara.Base.Controls.Controls
 
         #endregion Public
 
+        #region Protected
+
+        protected virtual void OnValueChanged(SamsaraEntityChooserValueChangedEventArgs<T> e)
+        {
+            if (ValueChanged != null)
+                ValueChanged(this, e);
+        }
+
+        #endregion Protected
+
         #region Private
 
         private void PrepareComponents()
@@ -126,6 +146,16 @@ namespace Samsara.Base.Controls.Controls
         private void editorButtonRefresh_Click(object sender, EditorButtonEventArgs e)
         {
             this.RefreshCombo();
+        }
+
+        private void suceEntities_ValueChanged(object sender, EventArgs e)
+        {
+            SamsaraUltraComboEditor suceValue = sender as SamsaraUltraComboEditor;
+
+            this.value = (this.service as GenericService<T, TId, TDao, TPmt>)
+                .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
+
+            OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value)); 
         }
 
         #endregion Events

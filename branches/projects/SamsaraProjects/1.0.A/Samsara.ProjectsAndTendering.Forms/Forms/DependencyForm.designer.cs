@@ -56,7 +56,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 263);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(478, 25);
             // 
             // gbxSearchParameters
             // 
