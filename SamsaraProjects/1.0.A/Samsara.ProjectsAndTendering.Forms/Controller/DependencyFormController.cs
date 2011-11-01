@@ -88,12 +88,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return false;
             }
 
-            if (this.frmDependency.uceDetBidder.Value == null ||
-                Convert.ToInt32(this.frmDependency.uceDetBidder.Value) <= 0)
+            if (this.frmDependency.secBidder.Value == null ||
+                Convert.ToInt32(this.frmDependency.secBidder.Value) <= 0)
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmDependency.uceDetBidder.Focus();
+                this.frmDependency.secBidder.Focus();
                 return false;
             }
 
@@ -102,7 +102,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            this.dependency.Bidder = this.srvBidder.GetById(Convert.ToInt32(this.frmDependency.uceDetBidder.Value));
+            this.dependency.Bidder = this.srvBidder.GetById(Convert.ToInt32(this.frmDependency.secBidder.Value));
             this.dependency.Name = this.frmDependency.txtDetName.Text;
 
             this.dependency.Activated = true;
@@ -112,7 +112,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearDetailControls()
         {
             this.frmDependency.txtDetName.Text = string.Empty;
-            this.frmDependency.uceDetBidder.Value = -1;
+            this.frmDependency.secBidder.Value = null;
         }
 
         private void ClearSearchControls()
@@ -147,7 +147,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadFormFromEntity()
         {
-            this.frmDependency.uceDetBidder.Value = this.dependency.Bidder.BidderId;
+            this.frmDependency.secBidder.Value = this.dependency.Bidder;
             this.frmDependency.txtDetName.Text = this.dependency.Name;
         }
 
