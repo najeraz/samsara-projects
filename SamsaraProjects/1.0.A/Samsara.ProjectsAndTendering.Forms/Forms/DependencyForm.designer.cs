@@ -44,7 +44,6 @@
             this.lbDetName = new System.Windows.Forms.Label();
             this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchBidder = new System.Windows.Forms.Label();
-            this.uceDetBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblDetBidder = new System.Windows.Forms.Label();
             this.secBidder = new Samsara.ProjectsAndTendering.Controls.Controls.BidderChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
@@ -52,7 +51,6 @@
             this.gbxDetDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -71,7 +69,6 @@
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.secBidder);
-            this.gbxDetDetail.Controls.Add(this.uceDetBidder);
             this.gbxDetDetail.Controls.Add(this.lblDetBidder);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
             this.gbxDetDetail.Controls.Add(this.lbDetName);
@@ -213,13 +210,6 @@
             this.lblSchBidder.TabIndex = 24;
             this.lblSchBidder.Text = "Licitante:";
             // 
-            // uceDetBidder
-            // 
-            this.uceDetBidder.Location = new System.Drawing.Point(60, 45);
-            this.uceDetBidder.Name = "uceDetBidder";
-            this.uceDetBidder.Size = new System.Drawing.Size(226, 21);
-            this.uceDetBidder.TabIndex = 25;
-            // 
             // lblDetBidder
             // 
             this.lblDetBidder.AutoSize = true;
@@ -233,12 +223,12 @@
             // 
             this.secBidder.CustomParent = null;
             this.secBidder.DisplayMember = "Name";
-            this.secBidder.Location = new System.Drawing.Point(58, 72);
+            this.secBidder.Location = new System.Drawing.Point(60, 45);
             this.secBidder.Name = "secBidder";
             bidderParameters1.BidderTypeId = null;
             bidderParameters1.Name = null;
             this.secBidder.Parameters = bidderParameters1;
-            this.secBidder.Size = new System.Drawing.Size(228, 22);
+            this.secBidder.Size = new System.Drawing.Size(226, 22);
             this.secBidder.TabIndex = 26;
             this.secBidder.Value = null;
             this.secBidder.ValueMember = "BidderId";
@@ -257,7 +247,6 @@
             this.gbxDetDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBidder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,7 +259,6 @@
         internal System.Windows.Forms.TextBox txtDetName;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchBidder;
         private System.Windows.Forms.Label lblSchBidder;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetBidder;
         private System.Windows.Forms.Label lblDetBidder;
         internal Controls.Controls.BidderChooserControl secBidder;
     }

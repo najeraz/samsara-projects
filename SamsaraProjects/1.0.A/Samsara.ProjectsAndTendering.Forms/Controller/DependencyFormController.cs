@@ -50,8 +50,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceSchBidder,
                 lstBidders, "BidderId", "Name", "Seleccione");
-            WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceDetBidder,
-                lstBidders, "BidderId", "Name", "Seleccione");
 
             this.frmDependency.secBidder.Parameters = pmtBidder;
             this.frmDependency.secBidder.ValueMember = "BidderId";
