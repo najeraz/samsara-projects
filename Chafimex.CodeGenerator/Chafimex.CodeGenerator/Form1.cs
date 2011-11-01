@@ -68,8 +68,8 @@ namespace Chafimex.CodeGenerator
             formController = File.ReadAllText(tFormsPath + "Controller.txt");
             formSearchForm = File.ReadAllText(tFormsPath + "SearchForm.txt");
             formSearchFormDes = File.ReadAllText(tFormsPath + "SearchForm.Designer.txt");
-            chooserControl = File.ReadAllText(tFormsPath + "ChooserControl.txt");
-            chooserControlDes = File.ReadAllText(tFormsPath + "ChooserControl.designer.txt");
+            chooserControl = File.ReadAllText(tControlsPath + "ChooserControl.txt");
+            chooserControlDes = File.ReadAllText(tControlsPath + "ChooserControl.designer.txt");
             daoXMLTemplate = File.ReadAllText(tXMLPath + "Dao.txt");
             serviceXMLTemplate = File.ReadAllText(tXMLPath + "Service.txt");
         }
@@ -154,8 +154,8 @@ namespace Chafimex.CodeGenerator
                     File.WriteAllText(controllerFormFolderPath + line + "FormController.cs", fc, Encoding.UTF8);
                     File.WriteAllText(templatesFormFolderPath + line + "SearchForm.cs", fsf, Encoding.UTF8);
                     File.WriteAllText(templatesFormFolderPath + line + "SearchForm.Designer.cs", fsfd, Encoding.UTF8);
-                    File.WriteAllText(controlsFolderPath + line + "ChooserControl.cs", fsf, Encoding.UTF8);
-                    File.WriteAllText(controlsFolderPath + line + "ChooserControl.designer.cs", fsfd, Encoding.UTF8);
+                    File.WriteAllText(controlsFolderPath + line + "ChooserControl.cs", cc, Encoding.UTF8);
+                    File.WriteAllText(controlsFolderPath + line + "ChooserControl.designer.cs", ccd, Encoding.UTF8);
                 }
 
                 File.WriteAllText(xmlFolderPath + "Dao.xml", daoXML, Encoding.UTF8);
