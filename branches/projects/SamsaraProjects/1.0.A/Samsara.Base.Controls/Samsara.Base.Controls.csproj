@@ -75,6 +75,8 @@
     <Compile Include="Controls\SamsaraEntityChooserControl.designer.cs">
       <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventsArgs\SamsaraEntityChooserValueChangedEventArgs.cs" />
+    <Compile Include="EventsHandlers\SamsaraEntityChooserValueChangedEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
