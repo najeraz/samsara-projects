@@ -39,6 +39,10 @@
     <Reference Include="Infragistics2.Win.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
@@ -88,6 +92,122 @@
     <Compile Include="Controllers\CustomerInfrastructureISPsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructureCCTVsControlController.cs" />
     <Compile Include="Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Controls\AccessPointBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AccessPointBrandChooserControl.designer.cs">
+      <DependentUpon>AccessPointBrandChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AccessPointTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AccessPointTypeChooserControl.designer.cs">
+      <DependentUpon>AccessPointTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BackupSoftwareBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BackupSoftwareBrandChooserControl.designer.cs">
+      <DependentUpon>BackupSoftwareBrandChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BussinessTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BussinessTypeChooserControl.designer.cs">
+      <DependentUpon>BussinessTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CCTVBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CCTVBrandChooserControl.designer.cs">
+      <DependentUpon>CCTVBrandChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CCTVTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CCTVTypeChooserControl.designer.cs">
+      <DependentUpon>CCTVTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommutatorBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommutatorBrandChooserControl.designer.cs">
+      <DependentUpon>CommutatorBrandChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommutatorTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CommutatorTypeChooserControl.designer.cs">
+      <DependentUpon>CommutatorTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ComputerBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ComputerBrandChooserControl.designer.cs">
+      <DependentUpon>ComputerBrandChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerChooserControl.designer.cs">
+      <DependentUpon>CustomerChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureAdministationSoftwareChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureAdministationSoftwareChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureBackupSoftwareChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureBackupSoftwareChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureCCTVChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureCCTVChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureISPChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureISPChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkCablingChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkCablingChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkCommutatorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkCommutatorChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkFirewallChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkFirewallChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkRouterChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkRouterChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkSiteChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkSiteChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkSiteRackChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkSiteRackChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkSwitchChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkSwitchChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureNetworkWifiAccessPointChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkWifiAccessPointChooserControl.designer.cs" />
     <Compile Include="Controls\CustomerInfrastructureNetworkWifiAccessPointsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +250,30 @@
     <Compile Include="Controls\CustomerInfrastructureNetworkCablingsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkCablingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkWifiChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureNetworkWifiChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructurePersonalComputerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructurePersonalComputerChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructurePrinterChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructurePrinterChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureSecuritySoftwareChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureSecuritySoftwareChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureServerComputerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureServerComputerChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureServerComputerDBMSChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureServerComputerDBMSChooserControl.designer.cs" />
     <Compile Include="Controls\CustomerInfrastructureServerComputerDBMSsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +298,14 @@
     <Compile Include="Controls\CustomerInfrastructureTelephoniesControl.designer.cs">
       <DependentUpon>CustomerInfrastructureTelephoniesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomerInfrastructureTelephonyChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureTelephonyChooserControl.designer.cs" />
+    <Compile Include="Controls\CustomerInfrastructureUPSChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerInfrastructureUPSChooserControl.designer.cs" />
     <Compile Include="Controls\CustomerInfrastructureUPSsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -196,6 +348,74 @@
     <Compile Include="Controls\CustomerInfrastructurePrintersControl.Designer.cs">
       <DependentUpon>CustomerInfrastructurePrintersControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DBMSChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DBMSChooserControl.designer.cs" />
+    <Compile Include="Controls\FirewallBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FirewallBrandChooserControl.designer.cs" />
+    <Compile Include="Controls\ISPChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ISPChooserControl.designer.cs" />
+    <Compile Include="Controls\NetworkCablingTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NetworkCablingTypeChooserControl.designer.cs" />
+    <Compile Include="Controls\OperativeSystemChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OperativeSystemChooserControl.designer.cs" />
+    <Compile Include="Controls\OperativeSystemTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OperativeSystemTypeChooserControl.designer.cs" />
+    <Compile Include="Controls\PersonalComputerTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PersonalComputerTypeChooserControl.designer.cs" />
+    <Compile Include="Controls\PrinterBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PrinterBrandChooserControl.designer.cs" />
+    <Compile Include="Controls\PrinterTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PrinterTypeChooserControl.designer.cs" />
+    <Compile Include="Controls\RackTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RackTypeChooserControl.designer.cs" />
+    <Compile Include="Controls\RouterBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RouterBrandChooserControl.designer.cs" />
+    <Compile Include="Controls\SecuritySoftwareBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SecuritySoftwareBrandChooserControl.designer.cs" />
+    <Compile Include="Controls\SwitchBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchBrandChooserControl.designer.cs" />
+    <Compile Include="Controls\TelephonyLineTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TelephonyLineTypeChooserControl.designer.cs" />
+    <Compile Include="Controls\TelephonyProviderChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TelephonyProviderChooserControl.designer.cs" />
+    <Compile Include="Controls\UPSBrandChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPSBrandChooserControl.designer.cs" />
+    <Compile Include="Controls\UPSTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UPSTypeChooserControl.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
