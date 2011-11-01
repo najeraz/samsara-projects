@@ -82,11 +82,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AsesorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AsesorChooserControl.designer.cs">
+      <DependentUpon>AsesorChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BidderChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\BidderChooserControl.designer.cs">
       <DependentUpon>BidderChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BidderTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BidderTypeChooserControl.designer.cs">
+      <DependentUpon>BidderTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CompetitorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CompetitorChooserControl.designer.cs">
+      <DependentUpon>CompetitorChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DependencyChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DependencyChooserControl.designer.cs">
+      <DependentUpon>DependencyChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DocumentTypeWarrantyChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DocumentTypeWarrantyChooserControl.designer.cs">
+      <DependentUpon>DocumentTypeWarrantyChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EndUserChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EndUserChooserControl.designer.cs">
+      <DependentUpon>EndUserChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ManufacturerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ManufacturerChooserControl.designer.cs">
+      <DependentUpon>ManufacturerChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpportunityChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OpportunityChooserControl.designer.cs">
+      <DependentUpon>OpportunityChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpportunityLogChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OpportunityLogChooserControl.designer.cs">
+      <DependentUpon>OpportunityLogChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\OpportunitySearchControl.cs">
       <SubType>UserControl</SubType>
@@ -94,11 +148,113 @@
     <Compile Include="Controls\OpportunitySearchControl.designer.cs">
       <DependentUpon>OpportunitySearchControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\OpportunityStatusChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OpportunityStatusChooserControl.designer.cs">
+      <DependentUpon>OpportunityStatusChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpportunityTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OpportunityTypeChooserControl.designer.cs">
+      <DependentUpon>OpportunityTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OrganizationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OrganizationChooserControl.designer.cs">
+      <DependentUpon>OrganizationChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PricingStrategyChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PricingStrategyChooserControl.designer.cs">
+      <DependentUpon>PricingStrategyChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderChooserControl.designer.cs">
+      <DependentUpon>TenderChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderCompetitorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderCompetitorChooserControl.designer.cs">
+      <DependentUpon>TenderCompetitorChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderExchangeRateChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderExchangeRateChooserControl.designer.cs">
+      <DependentUpon>TenderExchangeRateChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderFileChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderFileChooserControl.designer.cs">
+      <DependentUpon>TenderFileChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderLineChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderLineChooserControl.designer.cs">
+      <DependentUpon>TenderLineChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderLineExtraCostChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderLineExtraCostChooserControl.designer.cs">
+      <DependentUpon>TenderLineExtraCostChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderLogChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderLogChooserControl.designer.cs">
+      <DependentUpon>TenderLogChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderManufacturerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderManufacturerChooserControl.designer.cs">
+      <DependentUpon>TenderManufacturerChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TenderSearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\TenderSearchControl.designer.cs">
       <DependentUpon>TenderSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderStatusChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderStatusChooserControl.designer.cs">
+      <DependentUpon>TenderStatusChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderWarrantyChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderWarrantyChooserControl.designer.cs">
+      <DependentUpon>TenderWarrantyChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TenderWholesalerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TenderWholesalerChooserControl.designer.cs">
+      <DependentUpon>TenderWholesalerChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WarrantyTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WarrantyTypeChooserControl.designer.cs">
+      <DependentUpon>WarrantyTypeChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WholesalerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WholesalerChooserControl.designer.cs">
+      <DependentUpon>WholesalerChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
