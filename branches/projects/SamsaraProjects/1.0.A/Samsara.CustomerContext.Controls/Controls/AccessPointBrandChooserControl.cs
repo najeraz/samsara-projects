@@ -8,7 +8,8 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Controls.Controls
 {
-    public partial class AccessPointBrandChooserControl : SamsaraEntityChooserControl<AccessPointBrand, int, IAccessPointBrandService, IAccessPointBrandDao, AccessPointBrandParameters>
+    public partial class AccessPointBrandChooserControl 
+        : SamsaraEntityChooserControl<AccessPointBrand, int, IAccessPointBrandService, IAccessPointBrandDao, AccessPointBrandParameters>
     {
         public AccessPointBrandChooserControl()
         {
