@@ -18,8 +18,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls
             string schemaNamespace = controlsSchemaNamespace
                 .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
 
-            AssemblyName = schemaNamespace + ".Forms.dll";
-            AssemblyFormClassName = schemaNamespace + ".Forms.Forms.DocumentTypeWarrantyForm";
+            assemblyName = schemaNamespace + ".Forms.dll";
+            assemblyFormClassName = schemaNamespace + ".Forms.Forms.DocumentTypeWarrantyForm";
             InitializeComponent();
         }
     }
