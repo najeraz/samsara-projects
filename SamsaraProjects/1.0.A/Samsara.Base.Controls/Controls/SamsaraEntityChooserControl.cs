@@ -45,6 +45,10 @@ namespace Samsara.Base.Controls.Controls
             }
             set
             {
+                if (!EqualityComparer<T>.Default.Equals(this.value, value))
+                {
+                    OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value)); 
+                }
                 this.value = value;
             }
         }
@@ -104,6 +108,11 @@ namespace Samsara.Base.Controls.Controls
 
         protected virtual void OnValueChanged(SamsaraEntityChooserValueChangedEventArgs<T> e)
         {
+            if (e.NewValue != null)
+                this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValue(typeof(T), e.NewValue);
+            else
+                this.suceEntities.Value = -1;
+
             if (ValueChanged != null)
                 ValueChanged(this, e);
         }
@@ -156,7 +165,7 @@ namespace Samsara.Base.Controls.Controls
             this.value = (this.service as GenericService<T, TId, TDao, TPmt>)
                 .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
 
-            OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value)); 
+            OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(this.value)); 
         }
 
         #endregion Events
