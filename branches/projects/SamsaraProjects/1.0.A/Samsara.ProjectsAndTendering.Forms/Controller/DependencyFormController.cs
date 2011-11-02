@@ -88,8 +88,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return false;
             }
 
-            if (this.frmDependency.secBidder.Value == null ||
-                Convert.ToInt32(this.frmDependency.secBidder.Value) <= 0)
+            if (this.frmDependency.secBidder.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -102,7 +101,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            this.dependency.Bidder = this.srvBidder.GetById(Convert.ToInt32(this.frmDependency.secBidder.Value));
+            this.dependency.Bidder = this.frmDependency.secBidder.Value;
             this.dependency.Name = this.frmDependency.txtDetName.Text;
 
             this.dependency.Activated = true;
