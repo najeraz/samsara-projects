@@ -22,13 +22,14 @@ namespace Samsara.Base.Controls.Controls
 
         private T value;
         private TService service;
-        protected static string AssemblyName = null;
-        protected static string AssemblyFormClassName = null;
-        public event SamsaraEntityChooserValueChangedEventHandler<T> ValueChanged;
+        protected static string assemblyName = null;
+        protected static string assemblyFormClassName = null;
 
         #endregion Attributes
 
         #region Properties
+
+        public event SamsaraEntityChooserValueChangedEventHandler<T> ValueChanged;
         
         public TPmt Parameters
         {
@@ -136,8 +137,8 @@ namespace Samsara.Base.Controls.Controls
 
         private void editorButtonAdd_Click(object sender, EditorButtonEventArgs e)
         {
-            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + AssemblyName);
-            Type formType = assembly.GetType(AssemblyFormClassName);
+            Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + assemblyName);
+            Type formType = assembly.GetType(assemblyFormClassName);
             Form form = Activator.CreateInstance(formType) as Form;
             form.ShowDialog(this);
             this.RefreshCombo();
