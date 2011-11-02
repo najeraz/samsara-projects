@@ -69,5 +69,15 @@ namespace Samsara.Support.Util
 
             return null;
         }
+
+        public static object GetPrimaryKeyPropertyValue(Type entityType, object entity)
+        {
+            if (entity == null)
+                return null;
+
+            PropertyInfo primaryKeyPropertyInfo = GetPrimaryKeyPropertyInfo(entityType);
+
+            return entityType.GetProperty(primaryKeyPropertyInfo.Name).GetValue(entity, null);
+        }
     }
 }

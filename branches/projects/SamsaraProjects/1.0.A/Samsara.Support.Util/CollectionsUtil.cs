@@ -44,31 +44,25 @@ namespace Samsara.Support.Util
             Type entityType = typeof(T);
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(entityType);
 
-            foreach (T item in list)
+            foreach (T entity in list)
             {
                 DataRow row = table.NewRow();
 
                 foreach (PropertyDescriptor propertyDescriptor in properties)
                 {
-                    PropertyInfo primaryKeyPropertyInfo
-                        = EntitiesUtil.GetPrimaryKeyPropertyInfo(propertyDescriptor.PropertyType);
-                    object value = item.GetType().GetProperty(propertyDescriptor.Name).GetValue(item, null);
+                    PropertyInfo primaryKeyPropertyInfo = EntitiesUtil.GetPrimaryKeyPropertyInfo(entityType);
+                    object primaryKeyValue = EntitiesUtil.GetPrimaryKeyPropertyValue(typeof(T), entity);
 
-                    if (primaryKeyPropertyInfo != null)
+                    if (primaryKeyPropertyInfo != null && primaryKeyValue != null)
                     {
-                        if (value != null)
-                        {
-                            object primaryKeyValue = value.GetType().GetProperty(primaryKeyPropertyInfo.Name).GetValue(value, null);
-
-                            if (absoluteColumnNames)
-                                row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
-                            else
-                                row[primaryKeyPropertyInfo.Name] = primaryKeyValue;
-                        }
+                        if (absoluteColumnNames)
+                            row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                        else
+                            row[primaryKeyPropertyInfo.Name] = primaryKeyValue;
                     }
                     else
                     {
-                        row[propertyDescriptor.Name] = propertyDescriptor.GetValue(item);
+                        row[propertyDescriptor.Name] = propertyDescriptor.GetValue(entity);
                     }
                 }
 
