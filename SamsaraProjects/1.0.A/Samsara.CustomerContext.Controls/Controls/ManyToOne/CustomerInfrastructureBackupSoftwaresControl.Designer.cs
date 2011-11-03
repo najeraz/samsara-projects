@@ -43,8 +43,8 @@
             this.gbxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblCustomerInfraestructureServerComputer = new Infragistics.Win.Misc.UltraLabel();
-            this.bsbcBackupSoftwareBrand = new Samsara.CustomerContext.Controls.Controls.ManyToOne.BackupSoftwareBrandChooserControl();
-            this.cisccCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerChooserControl();
+            this.bsbcBackupSoftwareBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.BackupSoftwareBrandChooserControl();
+            this.cisccCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -321,8 +321,8 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
         private Infragistics.Win.Misc.UltraLabel lblCustomerInfraestructureServerComputer;
         private System.Windows.Forms.GroupBox gbxDescription;
-        internal CustomerInfrastructureServerComputerChooserControl cisccCustomerInfrastructureServerComputer;
-        internal BackupSoftwareBrandChooserControl bsbcBackupSoftwareBrand;
+        internal Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl cisccCustomerInfrastructureServerComputer;
+        internal Samsara.CustomerContext.Controls.Controls.Choosers.BackupSoftwareBrandChooserControl bsbcBackupSoftwareBrand;
 
 
     }

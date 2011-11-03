@@ -51,8 +51,8 @@
             this.gbxModules = new System.Windows.Forms.GroupBox();
             this.txtModules = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.steNumberOfUsers = new Samsara.Controls.Controls.SamsaraTextEditor();
-            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.ManyToOne.DBMSChooserControl();
-            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerChooserControl();
+            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl();
+            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -417,8 +417,8 @@
         private System.Windows.Forms.GroupBox gbxDescription;
         private System.Windows.Forms.GroupBox gbxModules;
         internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
-        internal CustomerInfrastructureServerComputerChooserControl cisccDetCustomerInfrastructureServerComputer;
-        internal DBMSChooserControl dcDetDBMS;
+        internal Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl cisccDetCustomerInfrastructureServerComputer;
+        internal Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl dcDetDBMS;
 
 
 

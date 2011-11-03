@@ -46,6 +46,7 @@
     <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -55,6 +56,7 @@
     <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -82,6 +84,7 @@
     <Reference Include="Samsara.CustomerContext.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.CustomerContext.Dao.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.CustomerContext.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
