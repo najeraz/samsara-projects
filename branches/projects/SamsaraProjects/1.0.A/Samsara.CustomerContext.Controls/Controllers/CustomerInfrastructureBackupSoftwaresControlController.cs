@@ -81,8 +81,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 BackupSoftwareBrandParameters pmtBackupSoftwareBrand = new BackupSoftwareBrandParameters();
 
                 IList<BackupSoftwareBrand> cctvBrands = this.srvBackupSoftwareBrand.GetListByParameters(pmtBackupSoftwareBrand);
-                WindowsFormsUtil.LoadCombo<BackupSoftwareBrand>(this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand,
-                    cctvBrands, "BackupSoftwareBrandId", "Name", "Seleccione");
+
+                this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Parameters = pmtBackupSoftwareBrand;
+                this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Refresh();
 
                 this.controlCustomerInfrastructureBackupSoftwares.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -114,10 +115,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
-                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                    this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
 
+                this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Parameters
+                    = pmtCustomerInfrastructureServerComputer;
+                this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.DisplayMember
+                    = "ServerModel";
+                this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Refresh();
+                
                 foreach (CustomerInfrastructureBackupSoftware customerInfrastructureBackupSoftware
                     in this.CustomerInfrastructure.CustomerInfrastructureBackupSoftwares)
                 {
@@ -142,8 +146,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Value = null;
+            this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Value = null;
             this.controlCustomerInfrastructureBackupSoftwares.txtDescription.Text = string.Empty;
         }
 
@@ -202,11 +206,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 .CustomerInfrastructureBackupSoftwares
                     .Single(x => x.CustomerInfrastructureBackupSoftwareId == entityId);
 
-            this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value
-                = this.customerInfrastructureBackupSoftware.BackupSoftwareBrand.BackupSoftwareBrandId;
+            this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Value
+                = this.customerInfrastructureBackupSoftware.BackupSoftwareBrand;
 
-            this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer.Value
-                = this.customerInfrastructureBackupSoftware.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+            this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Value
+                = this.customerInfrastructureBackupSoftware.CustomerInfrastructureServerComputer;
 
             this.controlCustomerInfrastructureBackupSoftwares.txtDescription.Value
                 = this.customerInfrastructureBackupSoftware.Description;
@@ -216,13 +220,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureBackupSoftware.BackupSoftwareBrand = this.srvBackupSoftwareBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value));
+            this.customerInfrastructureBackupSoftware.BackupSoftwareBrand 
+                = this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Value;
 
             this.customerInfrastructureBackupSoftware.CustomerInfrastructureServerComputer
-                = this.srvCustomerInfrastructureServerComputer
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer.Value));
-
+                = this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Value;
 
             this.customerInfrastructureBackupSoftware.Description
                 = this.controlCustomerInfrastructureBackupSoftwares.txtDescription.Text;
@@ -233,12 +235,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Software.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.Focus();
+                this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Focus();
                 return false;
             }
 
@@ -291,8 +292,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureBackupSoftwares.uceBackupSoftwareBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureBackupSoftwares.txtDescription.ReadOnly = !enabled;
         }
 
@@ -323,9 +324,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
 
-                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                    this.controlCustomerInfrastructureBackupSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+                this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Parameters
+                    = pmtCustomerInfrastructureServerComputer;
+                this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.DisplayMember
+                    = "ServerModel";
+                this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Refresh();
 
                 WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
                     band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", 
