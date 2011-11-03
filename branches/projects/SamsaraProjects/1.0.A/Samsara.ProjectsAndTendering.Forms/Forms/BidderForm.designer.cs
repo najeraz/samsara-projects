@@ -37,20 +37,20 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Samsara.ProjectsAndTendering.Core.Parameters.BidderTypeParameters bidderTypeParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderTypeParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.BidderTypeParameters bidderTypeParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderTypeParameters();
             this.txtSchName = new System.Windows.Forms.TextBox();
             this.lblSchType = new System.Windows.Forms.Label();
             this.lblSchName = new System.Windows.Forms.Label();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetType = new System.Windows.Forms.Label();
             this.lblDetName = new System.Windows.Forms.Label();
-            this.uceDetType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSchType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.btccDetBidderType = new Samsara.ProjectsAndTendering.Controls.Controls.BidderTypeChooserControl();
+            this.btccSchBidderType = new Samsara.ProjectsAndTendering.Controls.Controls.BidderTypeChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchType)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -60,7 +60,7 @@
             // 
             // gbxSearchParameters
             // 
-            this.gbxSearchParameters.Controls.Add(this.uceSchType);
+            this.gbxSearchParameters.Controls.Add(this.btccSchBidderType);
             this.gbxSearchParameters.Controls.Add(this.txtSchName);
             this.gbxSearchParameters.Controls.Add(this.lblSchType);
             this.gbxSearchParameters.Controls.Add(this.lblSchName);
@@ -68,7 +68,7 @@
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Controls.Add(this.uceDetType);
+            this.gbxDetDetail.Controls.Add(this.btccDetBidderType);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
             this.gbxDetDetail.Controls.Add(this.lblDetType);
             this.gbxDetDetail.Controls.Add(this.lblDetName);
@@ -212,19 +212,31 @@
             this.lblDetName.TabIndex = 19;
             this.lblDetName.Text = "Nombre:";
             // 
-            // uceDetType
+            // btccDetBidderType
             // 
-            this.uceDetType.Location = new System.Drawing.Point(57, 45);
-            this.uceDetType.Name = "uceDetType";
-            this.uceDetType.Size = new System.Drawing.Size(226, 21);
-            this.uceDetType.TabIndex = 22;
+            this.btccDetBidderType.CustomParent = null;
+            this.btccDetBidderType.DisplayMember = "Name";
+            this.btccDetBidderType.Location = new System.Drawing.Point(57, 45);
+            this.btccDetBidderType.Name = "btccDetBidderType";
+            bidderTypeParameters2.Name = null;
+            this.btccDetBidderType.Parameters = bidderTypeParameters2;
+            this.btccDetBidderType.Size = new System.Drawing.Size(226, 22);
+            this.btccDetBidderType.TabIndex = 23;
+            this.btccDetBidderType.Value = null;
+            this.btccDetBidderType.ValueMember = "BidderTypeId";
             // 
-            // uceSchType
+            // btccSchBidderType
             // 
-            this.uceSchType.Location = new System.Drawing.Point(60, 45);
-            this.uceSchType.Name = "uceSchType";
-            this.uceSchType.Size = new System.Drawing.Size(226, 21);
-            this.uceSchType.TabIndex = 23;
+            this.btccSchBidderType.CustomParent = null;
+            this.btccSchBidderType.DisplayMember = "Name";
+            this.btccSchBidderType.Location = new System.Drawing.Point(60, 45);
+            this.btccSchBidderType.Name = "btccSchBidderType";
+            bidderTypeParameters1.Name = null;
+            this.btccSchBidderType.Parameters = bidderTypeParameters1;
+            this.btccSchBidderType.Size = new System.Drawing.Size(226, 22);
+            this.btccSchBidderType.TabIndex = 24;
+            this.btccSchBidderType.Value = null;
+            this.btccSchBidderType.ValueMember = "BidderTypeId";
             // 
             // BidderForm
             // 
@@ -239,8 +251,6 @@
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +263,7 @@
         private System.Windows.Forms.Label lblDetName;
         internal System.Windows.Forms.TextBox txtSchName;
         internal System.Windows.Forms.TextBox txtDetName;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetType;
+        internal Controls.Controls.BidderTypeChooserControl btccDetBidderType;
+        internal Controls.Controls.BidderTypeChooserControl btccSchBidderType;
     }
 }

@@ -37,20 +37,20 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
             this.txtSchName = new System.Windows.Forms.TextBox();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchName = new System.Windows.Forms.Label();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetDependency = new System.Windows.Forms.Label();
             this.lblDetName = new System.Windows.Forms.Label();
-            this.uceDetDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSchDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.dccDetDependency = new Samsara.ProjectsAndTendering.Controls.Controls.DependencyChooserControl();
+            this.dccSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.DependencyChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -60,7 +60,7 @@
             // 
             // gbxSearchParameters
             // 
-            this.gbxSearchParameters.Controls.Add(this.uceSchDependency);
+            this.gbxSearchParameters.Controls.Add(this.dccSchDependency);
             this.gbxSearchParameters.Controls.Add(this.txtSchName);
             this.gbxSearchParameters.Controls.Add(this.lblSchDependency);
             this.gbxSearchParameters.Controls.Add(this.lblSchName);
@@ -68,7 +68,7 @@
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Controls.Add(this.uceDetDependency);
+            this.gbxDetDetail.Controls.Add(this.dccDetDependency);
             this.gbxDetDetail.Controls.Add(this.txtDetName);
             this.gbxDetDetail.Controls.Add(this.lblDetDependency);
             this.gbxDetDetail.Controls.Add(this.lblDetName);
@@ -172,7 +172,7 @@
             // lblSchDependency
             // 
             this.lblSchDependency.AutoSize = true;
-            this.lblSchDependency.Location = new System.Drawing.Point(7, 49);
+            this.lblSchDependency.Location = new System.Drawing.Point(7, 52);
             this.lblSchDependency.Name = "lblSchDependency";
             this.lblSchDependency.Size = new System.Drawing.Size(74, 13);
             this.lblSchDependency.TabIndex = 18;
@@ -181,7 +181,7 @@
             // lblSchName
             // 
             this.lblSchName.AutoSize = true;
-            this.lblSchName.Location = new System.Drawing.Point(7, 22);
+            this.lblSchName.Location = new System.Drawing.Point(7, 26);
             this.lblSchName.Name = "lblSchName";
             this.lblSchName.Size = new System.Drawing.Size(47, 13);
             this.lblSchName.TabIndex = 19;
@@ -212,19 +212,33 @@
             this.lblDetName.TabIndex = 19;
             this.lblDetName.Text = "Nombre:";
             // 
-            // uceDetDependency
+            // dccDetDependency
             // 
-            this.uceDetDependency.Location = new System.Drawing.Point(86, 45);
-            this.uceDetDependency.Name = "uceDetDependency";
-            this.uceDetDependency.Size = new System.Drawing.Size(226, 21);
-            this.uceDetDependency.TabIndex = 22;
+            this.dccDetDependency.CustomParent = null;
+            this.dccDetDependency.DisplayMember = "Name";
+            this.dccDetDependency.Location = new System.Drawing.Point(86, 45);
+            this.dccDetDependency.Name = "dccDetDependency";
+            dependencyParameters2.BidderId = null;
+            dependencyParameters2.Name = null;
+            this.dccDetDependency.Parameters = dependencyParameters2;
+            this.dccDetDependency.Size = new System.Drawing.Size(226, 22);
+            this.dccDetDependency.TabIndex = 23;
+            this.dccDetDependency.Value = null;
+            this.dccDetDependency.ValueMember = "DependencyId";
             // 
-            // uceSchDependency
+            // dccSchDependency
             // 
-            this.uceSchDependency.Location = new System.Drawing.Point(87, 49);
-            this.uceSchDependency.Name = "uceSchDependency";
-            this.uceSchDependency.Size = new System.Drawing.Size(226, 21);
-            this.uceSchDependency.TabIndex = 23;
+            this.dccSchDependency.CustomParent = null;
+            this.dccSchDependency.DisplayMember = "Name";
+            this.dccSchDependency.Location = new System.Drawing.Point(87, 49);
+            this.dccSchDependency.Name = "dccSchDependency";
+            dependencyParameters1.BidderId = null;
+            dependencyParameters1.Name = null;
+            this.dccSchDependency.Parameters = dependencyParameters1;
+            this.dccSchDependency.Size = new System.Drawing.Size(226, 22);
+            this.dccSchDependency.TabIndex = 24;
+            this.dccSchDependency.Value = null;
+            this.dccSchDependency.ValueMember = "DependencyId";
             // 
             // EndUserForm
             // 
@@ -239,8 +253,6 @@
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetDependency)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +265,7 @@
         private System.Windows.Forms.Label lblDetName;
         internal System.Windows.Forms.TextBox txtSchName;
         internal System.Windows.Forms.TextBox txtDetName;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchDependency;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetDependency;
+        internal Controls.Controls.DependencyChooserControl dccSchDependency;
+        internal Controls.Controls.DependencyChooserControl dccDetDependency;
     }
 }

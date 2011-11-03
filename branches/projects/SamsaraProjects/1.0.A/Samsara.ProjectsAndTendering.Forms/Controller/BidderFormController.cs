@@ -47,10 +47,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             BidderTypeParameters pmtBidderType = new BidderTypeParameters();
             IList<BidderType> lstBidderTypes = srvBidderType.GetListByParameters(pmtBidderType);
 
-            WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceSchType,
-                lstBidderTypes, "BidderTypeId", "Name", "Seleccione");
-            WindowsFormsUtil.LoadCombo<BidderType>(this.frmBidder.uceDetType,
-                lstBidderTypes, "BidderTypeId", "Name", "Seleccione");
+            this.frmBidder.btccDetBidderType.Parameters = pmtBidderType;
+            this.frmBidder.btccDetBidderType.ValueMember = "BidderTypeId";
+            this.frmBidder.btccDetBidderType.DisplayMember = "Name";
+            this.frmBidder.btccDetBidderType.Refresh();
+
+            this.frmBidder.btccSchBidderType.Parameters = pmtBidderType;
+            this.frmBidder.btccSchBidderType.ValueMember = "BidderTypeId";
+            this.frmBidder.btccSchBidderType.DisplayMember = "Name";
+            this.frmBidder.btccSchBidderType.Refresh();
 
             this.frmBidder.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmBidder.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -84,12 +89,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return false;
             }
 
-            if (this.frmBidder.uceDetType.Value == null ||
-                Convert.ToInt32(this.frmBidder.uceDetType.Value) <= 0)
+            if (this.frmBidder.btccDetBidderType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo de Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmBidder.uceDetType.Focus();
+                this.frmBidder.btccDetBidderType.Focus();
                 return false;
             }
 
@@ -98,7 +102,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            this.bidder.BidderType = srvBidderType.GetById(Convert.ToInt32(this.frmBidder.uceDetType.Value));
+            this.bidder.BidderType = this.frmBidder.btccDetBidderType.Value;
             this.bidder.Name = this.frmBidder.txtDetName.Text;
 
             this.bidder.Activated = true;
@@ -108,13 +112,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearDetailControls()
         {
             this.frmBidder.txtDetName.Text = string.Empty;
-            this.frmBidder.uceDetType.Value = -1;
+            this.frmBidder.btccDetBidderType.Value = null;
         }
 
         private void ClearSearchControls()
         {
             this.frmBidder.txtSchName.Text = string.Empty;
-            this.frmBidder.uceSchType.Value = -1;
+            this.frmBidder.btccSchBidderType.Value = null;
         }
 
         private void SaveBidder()
@@ -144,7 +148,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void LoadFormFromEntity()
         {
             this.frmBidder.txtDetName.Text = this.bidder.Name;
-            this.frmBidder.uceDetType.Value = this.bidder.BidderType.BidderTypeId;
+            this.frmBidder.btccDetBidderType.Value = this.bidder.BidderType;
         }
 
         private void DeleteEntity(int bidderId)
@@ -164,7 +168,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             BidderParameters pmtBidder = new BidderParameters();
 
             pmtBidder.Name = "%" + this.frmBidder.txtSchName.Text + "%";
-            pmtBidder.BidderTypeId = (int)this.frmBidder.uceSchType.Value;
+            pmtBidder.BidderTypeId = this.frmBidder.btccSchBidderType.Value == null ?
+                -1 : this.frmBidder.btccSchBidderType.Value.BidderTypeId;
 
             DataTable dtBidders = srvBidder.SearchByParameters(pmtBidder);
 
