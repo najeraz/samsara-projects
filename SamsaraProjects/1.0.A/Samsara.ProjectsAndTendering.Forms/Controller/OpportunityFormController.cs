@@ -300,7 +300,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmOpportunity.ocSchOrganization.Value = null;
             this.frmOpportunity.acSchAsesor.Value = null;
             this.frmOpportunity.oscSchOpportunityStatus.Value = null;
-            this.frmOpportunity.uosSchDates.Value = null;
+            this.frmOpportunity.uosSchDates.Value = -1;
             this.frmOpportunity.dteSchMaxDate.DateTime = DateTime.Now;
             this.frmOpportunity.dteSchMinDate.DateTime = DateTime.Now;
         }
@@ -312,10 +312,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (MessageBox.Show("¿Esta seguro de guardar la Oportunidad?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
-                this.LoadEntity();
-                this.srvOpportunity.SaveOrUpdate(this.opportunity);
-                this.frmOpportunity.HiddenDetail(true);
-                this.Search();
+                try
+                {
+                    this.frmOpportunity.Cursor = Cursors.WaitCursor;
+                    this.LoadEntity();
+                    this.srvOpportunity.SaveOrUpdate(this.opportunity);
+                    this.EditOpportunity(this.opportunity.OpportunityId);
+                }
+                finally
+                {
+                    this.frmOpportunity.Cursor = Cursors.Default;
+                }
             }
         }
 
@@ -370,7 +377,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (tender == null)
             {
                 this.frmOpportunity.ubtnDetGenerateTender.Visible =
-                   this.frmOpportunity.otcDetOpportunityType.Value.OpportunityTypeId
+                    this.frmOpportunity.otcDetOpportunityType.Value != null &&
+                    this.frmOpportunity.otcDetOpportunityType.Value.OpportunityTypeId
                     == (int)OpportunityTypeEnum.PublicSector
                     && this.frmOpportunity.uchkDetIsLOR.Checked == false;
                 this.frmOpportunity.gbxDetRelatedTender.Visible = false;
