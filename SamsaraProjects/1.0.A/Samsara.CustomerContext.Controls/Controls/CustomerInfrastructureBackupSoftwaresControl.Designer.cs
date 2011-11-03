@@ -37,12 +37,14 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceBackupSoftwareBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.BackupSoftwareBrandParameters backupSoftwareBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.BackupSoftwareBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.CustomerInfrastructureServerComputerParameters customerInfrastructureServerComputerParameters1 = new Samsara.CustomerContext.Core.Parameters.CustomerInfrastructureServerComputerParameters();
             this.lblBackupSoftwareBrand = new Infragistics.Win.Misc.UltraLabel();
             this.gbxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.uceCustomerInfraestructureServerComputer = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblCustomerInfraestructureServerComputer = new Infragistics.Win.Misc.UltraLabel();
+            this.bsbcBackupSoftwareBrand = new Samsara.CustomerContext.Controls.Controls.BackupSoftwareBrandChooserControl();
+            this.cisccCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -61,10 +63,8 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceBackupSoftwareBrand)).BeginInit();
             this.gbxDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -110,6 +110,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -156,10 +157,10 @@
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.uceCustomerInfraestructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.cisccCustomerInfrastructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.bsbcBackupSoftwareBrand);
             this.tabItmPrincipal.Controls.Add(this.lblCustomerInfraestructureServerComputer);
             this.tabItmPrincipal.Controls.Add(this.gbxDescription);
-            this.tabItmPrincipal.Controls.Add(this.uceBackupSoftwareBrand);
             this.tabItmPrincipal.Controls.Add(this.lblBackupSoftwareBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
@@ -204,13 +205,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceBackupSoftwareBrand
-            // 
-            this.uceBackupSoftwareBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceBackupSoftwareBrand.Name = "uceBackupSoftwareBrand";
-            this.uceBackupSoftwareBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceBackupSoftwareBrand.TabIndex = 108;
-            // 
             // lblBackupSoftwareBrand
             // 
             this.lblBackupSoftwareBrand.AutoSize = true;
@@ -239,13 +233,6 @@
             this.txtDescription.Size = new System.Drawing.Size(345, 56);
             this.txtDescription.TabIndex = 0;
             // 
-            // uceCustomerInfraestructureServerComputer
-            // 
-            this.uceCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(88, 45);
-            this.uceCustomerInfraestructureServerComputer.Name = "uceCustomerInfraestructureServerComputer";
-            this.uceCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(226, 21);
-            this.uceCustomerInfraestructureServerComputer.TabIndex = 112;
-            // 
             // lblCustomerInfraestructureServerComputer
             // 
             this.lblCustomerInfraestructureServerComputer.AutoSize = true;
@@ -254,6 +241,47 @@
             this.lblCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(50, 14);
             this.lblCustomerInfraestructureServerComputer.TabIndex = 111;
             this.lblCustomerInfraestructureServerComputer.Text = "Servidor:";
+            // 
+            // bsbcBackupSoftwareBrand
+            // 
+            this.bsbcBackupSoftwareBrand.CustomParent = null;
+            this.bsbcBackupSoftwareBrand.DisplayMember = "Name";
+            this.bsbcBackupSoftwareBrand.Location = new System.Drawing.Point(88, 17);
+            this.bsbcBackupSoftwareBrand.Name = "bsbcBackupSoftwareBrand";
+            backupSoftwareBrandParameters1.BackupSoftwareBrandId = null;
+            backupSoftwareBrandParameters1.Description = null;
+            backupSoftwareBrandParameters1.Name = null;
+            this.bsbcBackupSoftwareBrand.Parameters = backupSoftwareBrandParameters1;
+            this.bsbcBackupSoftwareBrand.ReadOnly = false;
+            this.bsbcBackupSoftwareBrand.Size = new System.Drawing.Size(226, 22);
+            this.bsbcBackupSoftwareBrand.TabIndex = 113;
+            this.bsbcBackupSoftwareBrand.Value = null;
+            this.bsbcBackupSoftwareBrand.ValueMember = "BackupSoftwareBrandId";
+            // 
+            // cisccCustomerInfrastructureServerComputer
+            // 
+            this.cisccCustomerInfrastructureServerComputer.CustomParent = null;
+            this.cisccCustomerInfrastructureServerComputer.DisplayMember = "Name";
+            this.cisccCustomerInfrastructureServerComputer.Location = new System.Drawing.Point(88, 45);
+            this.cisccCustomerInfrastructureServerComputer.Name = "cisccCustomerInfrastructureServerComputer";
+            customerInfrastructureServerComputerParameters1.ComputerBrandId = null;
+            customerInfrastructureServerComputerParameters1.CPU = null;
+            customerInfrastructureServerComputerParameters1.CustomerInfrastructureId = null;
+            customerInfrastructureServerComputerParameters1.CustomerInfrastructureServerComputerId = null;
+            customerInfrastructureServerComputerParameters1.ManufacturerReferenceNumber = null;
+            customerInfrastructureServerComputerParameters1.OperativeSystemId = null;
+            customerInfrastructureServerComputerParameters1.RAM = null;
+            customerInfrastructureServerComputerParameters1.Scalability = null;
+            customerInfrastructureServerComputerParameters1.SerialNumber = null;
+            customerInfrastructureServerComputerParameters1.ServerModel = null;
+            customerInfrastructureServerComputerParameters1.StorageSystem = null;
+            customerInfrastructureServerComputerParameters1.Utilization = null;
+            this.cisccCustomerInfrastructureServerComputer.Parameters = customerInfrastructureServerComputerParameters1;
+            this.cisccCustomerInfrastructureServerComputer.ReadOnly = false;
+            this.cisccCustomerInfrastructureServerComputer.Size = new System.Drawing.Size(226, 22);
+            this.cisccCustomerInfrastructureServerComputer.TabIndex = 114;
+            this.cisccCustomerInfrastructureServerComputer.Value = null;
+            this.cisccCustomerInfrastructureServerComputer.ValueMember = "CustomerInfrastructureServerComputerId";
             // 
             // CustomerInfrastructureBackupSoftwaresControl
             // 
@@ -280,23 +308,21 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceBackupSoftwareBrand)).EndInit();
             this.gbxDescription.ResumeLayout(false);
             this.gbxDescription.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceBackupSoftwareBrand;
         private Infragistics.Win.Misc.UltraLabel lblBackupSoftwareBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCustomerInfraestructureServerComputer;
         private Infragistics.Win.Misc.UltraLabel lblCustomerInfraestructureServerComputer;
         private System.Windows.Forms.GroupBox gbxDescription;
+        internal CustomerInfrastructureServerComputerChooserControl cisccCustomerInfrastructureServerComputer;
+        internal BackupSoftwareBrandChooserControl bsbcBackupSoftwareBrand;
 
 
     }

@@ -38,12 +38,14 @@ namespace Samsara.CustomerContext.Controls.Controls
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceCCTVType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.CCTVBrandParameters cctvBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.CCTVBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.CCTVTypeParameters cctvTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.CCTVTypeParameters();
             this.lblCCTVType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCCTVBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
             this.gbxUtilization = new System.Windows.Forms.GroupBox();
             this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.cbcCCTVBrand = new Samsara.CustomerContext.Controls.Controls.CCTVBrandChooserControl();
+            this.ctcCCTVType = new Samsara.CustomerContext.Controls.Controls.CCTVTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,8 +64,6 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).BeginInit();
             this.gbxUtilization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +111,7 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -157,10 +158,10 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.ctcCCTVType);
+            this.tabItmPrincipal.Controls.Add(this.cbcCCTVBrand);
             this.tabItmPrincipal.Controls.Add(this.gbxUtilization);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVType);
             this.tabItmPrincipal.Controls.Add(this.lblCCTVType);
-            this.tabItmPrincipal.Controls.Add(this.uceCCTVBrand);
             this.tabItmPrincipal.Controls.Add(this.lblCCTVBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
@@ -205,13 +206,6 @@ namespace Samsara.CustomerContext.Controls.Controls
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceCCTVType
-            // 
-            this.uceCCTVType.Location = new System.Drawing.Point(88, 45);
-            this.uceCCTVType.Name = "uceCCTVType";
-            this.uceCCTVType.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVType.TabIndex = 109;
-            // 
             // lblCCTVType
             // 
             this.lblCCTVType.AutoSize = true;
@@ -220,13 +214,6 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.lblCCTVType.Size = new System.Drawing.Size(29, 14);
             this.lblCCTVType.TabIndex = 107;
             this.lblCCTVType.Text = "Tipo:";
-            // 
-            // uceCCTVBrand
-            // 
-            this.uceCCTVBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceCCTVBrand.Name = "uceCCTVBrand";
-            this.uceCCTVBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceCCTVBrand.TabIndex = 108;
             // 
             // lblCCTVBrand
             // 
@@ -256,6 +243,38 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.txtUtilization.Size = new System.Drawing.Size(345, 56);
             this.txtUtilization.TabIndex = 0;
             // 
+            // cbcCCTVBrand
+            // 
+            this.cbcCCTVBrand.CustomParent = null;
+            this.cbcCCTVBrand.DisplayMember = "Name";
+            this.cbcCCTVBrand.Location = new System.Drawing.Point(88, 17);
+            this.cbcCCTVBrand.Name = "cbcCCTVBrand";
+            cctvBrandParameters1.CCTVBrandId = null;
+            cctvBrandParameters1.Description = null;
+            cctvBrandParameters1.Name = null;
+            this.cbcCCTVBrand.Parameters = cctvBrandParameters1;
+            this.cbcCCTVBrand.ReadOnly = false;
+            this.cbcCCTVBrand.Size = new System.Drawing.Size(226, 22);
+            this.cbcCCTVBrand.TabIndex = 111;
+            this.cbcCCTVBrand.Value = null;
+            this.cbcCCTVBrand.ValueMember = "CCTVBrandId";
+            // 
+            // ctcCCTVType
+            // 
+            this.ctcCCTVType.CustomParent = null;
+            this.ctcCCTVType.DisplayMember = "Name";
+            this.ctcCCTVType.Location = new System.Drawing.Point(88, 45);
+            this.ctcCCTVType.Name = "ctcCCTVType";
+            cctvTypeParameters1.CCTVTypeId = null;
+            cctvTypeParameters1.Description = null;
+            cctvTypeParameters1.Name = null;
+            this.ctcCCTVType.Parameters = cctvTypeParameters1;
+            this.ctcCCTVType.ReadOnly = false;
+            this.ctcCCTVType.Size = new System.Drawing.Size(226, 22);
+            this.ctcCCTVType.TabIndex = 112;
+            this.ctcCCTVType.Value = null;
+            this.ctcCCTVType.ValueMember = "CCTVTypeId";
+            // 
             // CustomerInfrastructureCCTVsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,8 +300,6 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCCTVBrand)).EndInit();
             this.gbxUtilization.ResumeLayout(false);
             this.gbxUtilization.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
@@ -292,12 +309,12 @@ namespace Samsara.CustomerContext.Controls.Controls
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVType;
         private Infragistics.Win.Misc.UltraLabel lblCCTVType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCCTVBrand;
         private Infragistics.Win.Misc.UltraLabel lblCCTVBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
         private System.Windows.Forms.GroupBox gbxUtilization;
+        internal CCTVTypeChooserControl ctcCCTVType;
+        internal CCTVBrandChooserControl cbcCCTVBrand;
 
 
     }

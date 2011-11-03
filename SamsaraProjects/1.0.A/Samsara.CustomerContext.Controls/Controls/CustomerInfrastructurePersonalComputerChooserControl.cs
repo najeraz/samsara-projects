@@ -18,6 +18,7 @@ namespace Samsara.CustomerContext.Controls.Controls
             string schemaNamespace = controlsSchemaNamespace
                 .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
 
+            this.DisplayMember = "ServerModel";
             assemblyName = schemaNamespace + ".Forms.dll";
             assemblyFormClassName = schemaNamespace + ".Forms.Forms.CustomerInfrastructurePersonalComputerForm";
             InitializeComponent();

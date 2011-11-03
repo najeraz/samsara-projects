@@ -79,16 +79,12 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 CCTVBrandParameters pmtCCTVBrand = new CCTVBrandParameters();
-
-                IList<CCTVBrand> cctvBrands = this.srvCCTVBrand.GetListByParameters(pmtCCTVBrand);
-                WindowsFormsUtil.LoadCombo<CCTVBrand>(this.controlCustomerInfrastructureCCTVs.uceCCTVBrand,
-                    cctvBrands, "CCTVBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Parameters = pmtCCTVBrand;
+                this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Refresh();
 
                 CCTVTypeParameters pmtCCTVType = new CCTVTypeParameters();
-
-                IList<CCTVType> cctvTypes = this.srvCCTVType.GetListByParameters(pmtCCTVType);
-                WindowsFormsUtil.LoadCombo<CCTVType>(this.controlCustomerInfrastructureCCTVs.uceCCTVType,
-                    cctvTypes, "CCTVTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Parameters = pmtCCTVType;
+                this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Refresh();
 
                 this.controlCustomerInfrastructureCCTVs.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -136,8 +132,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Value = null;
+            this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Value = null;
             this.controlCustomerInfrastructureCCTVs.txtUtilization.Text = string.Empty;
         }
 
@@ -191,11 +187,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
                     .Single(x => x.CustomerInfrastructureCCTVId == entityId);
 
-            this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value
-                = this.customerInfrastructureCCTV.CCTVBrand.CCTVBrandId;
+            this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Value
+                = this.customerInfrastructureCCTV.CCTVBrand;
 
-            this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value
-                = this.customerInfrastructureCCTV.CCTVType.CCTVTypeId;
+            this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Value
+                = this.customerInfrastructureCCTV.CCTVType;
 
             this.controlCustomerInfrastructureCCTVs.txtUtilization.Text
                 = this.customerInfrastructureCCTV.Utilization;
@@ -205,12 +201,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureCCTV.CCTVBrand = this.srvCCTVBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value));
-
-            this.customerInfrastructureCCTV.CCTVType = this.srvCCTVType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value));
-
+            this.customerInfrastructureCCTV.CCTVBrand = this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Value;
+            this.customerInfrastructureCCTV.CCTVType = this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Value;
             this.customerInfrastructureCCTV.Utilization = this.controlCustomerInfrastructureCCTVs.txtUtilization.Text;
         }
 
@@ -219,21 +211,19 @@ namespace Samsara.CustomerContext.Controls.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del CCTV.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.Focus();
+                this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureCCTVs.uceCCTVType.Value) <= 0)
+            if (this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del CCTV.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureCCTVs.uceCCTVType.Focus();
+                this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Focus();
                 return false;
             }
 
@@ -279,8 +269,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureCCTVs.uceCCTVType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureCCTVs.uceCCTVBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureCCTVs.ctcCCTVType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureCCTVs.txtUtilization.ReadOnly = !enabled;
         }
 
@@ -304,9 +294,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             CCTVTypeParameters pmtCCTVType = new CCTVTypeParameters();
 
+            this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Parameters = pmtCCTVType;
+            this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Refresh();
+
             IList<CCTVType> cctvTypes = this.srvCCTVType.GetListByParameters(pmtCCTVType);
-            WindowsFormsUtil.LoadCombo<CCTVType>(this.controlCustomerInfrastructureCCTVs.uceCCTVType,
-                cctvTypes, "CCTVTypeId", "Name", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["CCTVTypeId"], "CCTVTypeId", "Name", "Seleccione");
