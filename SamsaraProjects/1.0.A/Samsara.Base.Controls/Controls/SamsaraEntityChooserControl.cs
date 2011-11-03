@@ -30,6 +30,18 @@ namespace Samsara.Base.Controls.Controls
         #region Properties
 
         public event SamsaraEntityChooserValueChangedEventHandler<T> ValueChanged;
+
+        public bool ReadOnly
+        {
+            get
+            {
+                return this.suceEntities.ReadOnly;
+            }
+            set
+            {
+                this.suceEntities.ReadOnly = value;
+            }
+        }
         
         public TPmt Parameters
         {
@@ -148,8 +160,13 @@ namespace Samsara.Base.Controls.Controls
         {
             Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + assemblyName);
             Type formType = assembly.GetType(assemblyFormClassName);
-            Form form = Activator.CreateInstance(formType) as Form;
-            form.ShowDialog(this);
+
+            if (formType != null)
+            {
+                Form form = Activator.CreateInstance(formType) as Form;
+                form.ShowDialog(this);
+            }
+
             this.RefreshCombo();
         }
 
