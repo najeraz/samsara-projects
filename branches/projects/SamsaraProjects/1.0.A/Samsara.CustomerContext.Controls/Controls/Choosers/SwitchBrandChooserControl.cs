@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Dao.Interfaces;
 using Samsara.CustomerContext.Service.Interfaces;
 
-namespace Samsara.CustomerContext.Controls.Controls
+namespace Samsara.CustomerContext.Controls.Controls.Choosers
 {
     public partial class SwitchBrandChooserControl : SamsaraEntityChooserControl<SwitchBrand, int, ISwitchBrandService, ISwitchBrandDao, SwitchBrandParameters>
     {
