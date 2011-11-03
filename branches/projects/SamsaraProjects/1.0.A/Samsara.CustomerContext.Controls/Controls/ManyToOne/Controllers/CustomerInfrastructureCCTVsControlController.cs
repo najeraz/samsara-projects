@@ -16,7 +16,7 @@ using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
 
-namespace Samsara.CustomerContext.Controls.Controllers
+namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
     public class CustomerInfrastructureCCTVsControlController : ManyToOneLevel1ControlController
     {

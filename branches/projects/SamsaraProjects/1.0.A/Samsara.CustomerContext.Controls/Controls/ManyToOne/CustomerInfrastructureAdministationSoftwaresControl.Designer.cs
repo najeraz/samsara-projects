@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls
+﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
     partial class CustomerInfrastructureAdministationSoftwaresControl
     {
@@ -51,8 +51,8 @@
             this.gbxModules = new System.Windows.Forms.GroupBox();
             this.txtModules = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.steNumberOfUsers = new Samsara.Controls.Controls.SamsaraTextEditor();
-            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.DBMSChooserControl();
-            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputerChooserControl();
+            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.ManyToOne.DBMSChooserControl();
+            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

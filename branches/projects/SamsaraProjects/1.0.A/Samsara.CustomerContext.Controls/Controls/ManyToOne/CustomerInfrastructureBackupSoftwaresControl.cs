@@ -2,7 +2,7 @@
 using Samsara.CustomerContext.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 
-namespace Samsara.CustomerContext.Controls.Controls
+namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
     public partial class CustomerInfrastructureBackupSoftwaresControl : ManyToOneLevel1Control
     {
