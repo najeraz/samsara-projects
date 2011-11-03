@@ -410,8 +410,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmTender.bcDetBidder.Value == null ||
-                Convert.ToInt32(this.frmTender.bcDetBidder.Value) <= 0)
+            if (this.frmTender.bcDetBidder.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1889,7 +1888,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void bcSchBidder_ValueChanged(object sender, EventArgs e)
         {
             DependencyParameters pmtDependency = new DependencyParameters();
-            pmtDependency.BidderId = Convert.ToInt32(this.frmTender.bcSchBidder.Value);
+            pmtDependency.BidderId = this.frmTender.bcSchBidder.Value == null ?
+                -1 : this.frmTender.bcSchBidder.Value.BidderId;
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmTender.dcSchDependency.Parameters = pmtDependency;
@@ -1899,7 +1899,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void bcDetBidder_ValueChanged(object sender, EventArgs e)
         {
             DependencyParameters pmtDependency = new DependencyParameters();
-            pmtDependency.BidderId = Convert.ToInt32(this.frmTender.bcDetBidder.Value);
+            pmtDependency.BidderId = this.frmTender.bcDetBidder.Value == null ?
+                -1 : this.frmTender.bcDetBidder.Value.BidderId;
             IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmTender.dcDetDependency.Parameters = pmtDependency;
@@ -1909,7 +1910,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void dcSchDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
-            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTender.dcSchDependency.Value);
+            pmtEndUser.DependencyId = this.frmTender.dcSchDependency.Value == null ?
+                -1 : this.frmTender.dcSchDependency.Value.DependencyId;
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmTender.eucSchEndUser.Parameters = pmtEndUser;
@@ -1919,7 +1921,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void dcDetDependency_ValueChanged(object sender, EventArgs e)
         {
             EndUserParameters pmtEndUser = new EndUserParameters();
-            pmtEndUser.DependencyId = Convert.ToInt32(this.frmTender.dcDetDependency.Value);
+            pmtEndUser.DependencyId = this.frmTender.dcDetDependency.Value == null ?
+                -1 : this.frmTender.dcDetDependency.Value.DependencyId;
             IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmTender.eucDetEndUser.Parameters = pmtEndUser;
