@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls
+﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
     partial class CustomerInfrastructureBackupSoftwaresControl
     {
@@ -43,8 +43,8 @@
             this.gbxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblCustomerInfraestructureServerComputer = new Infragistics.Win.Misc.UltraLabel();
-            this.bsbcBackupSoftwareBrand = new Samsara.CustomerContext.Controls.Controls.BackupSoftwareBrandChooserControl();
-            this.cisccCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputerChooserControl();
+            this.bsbcBackupSoftwareBrand = new Samsara.CustomerContext.Controls.Controls.ManyToOne.BackupSoftwareBrandChooserControl();
+            this.cisccCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

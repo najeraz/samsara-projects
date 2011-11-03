@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls
+namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkRoutersControl
     {

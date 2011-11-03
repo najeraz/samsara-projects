@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls
+namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
     partial class CustomerInfrastructureCCTVsControl
     {
@@ -44,8 +44,8 @@ namespace Samsara.CustomerContext.Controls.Controls
             this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
             this.gbxUtilization = new System.Windows.Forms.GroupBox();
             this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.cbcCCTVBrand = new Samsara.CustomerContext.Controls.Controls.CCTVBrandChooserControl();
-            this.ctcCCTVType = new Samsara.CustomerContext.Controls.Controls.CCTVTypeChooserControl();
+            this.cbcCCTVBrand = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CCTVBrandChooserControl();
+            this.ctcCCTVType = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CCTVTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
