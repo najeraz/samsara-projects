@@ -56,7 +56,6 @@
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 254);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(502, 25);
             // 
             // gbxSearchParameters
             // 
@@ -221,6 +220,7 @@
             dependencyParameters2.BidderId = null;
             dependencyParameters2.Name = null;
             this.dccDetDependency.Parameters = dependencyParameters2;
+            this.dccDetDependency.ReadOnly = false;
             this.dccDetDependency.Size = new System.Drawing.Size(226, 22);
             this.dccDetDependency.TabIndex = 23;
             this.dccDetDependency.Value = null;
@@ -235,6 +235,7 @@
             dependencyParameters1.BidderId = null;
             dependencyParameters1.Name = null;
             this.dccSchDependency.Parameters = dependencyParameters1;
+            this.dccSchDependency.ReadOnly = false;
             this.dccSchDependency.Size = new System.Drawing.Size(226, 22);
             this.dccSchDependency.TabIndex = 24;
             this.dccSchDependency.Value = null;

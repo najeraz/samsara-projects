@@ -28,12 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             this.txtSchName = new System.Windows.Forms.TextBox();
             this.lblSchName = new System.Windows.Forms.Label();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetName = new System.Windows.Forms.Label();
+            this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -81,6 +92,66 @@
             // 
             this.btnSchDelete.Location = new System.Drawing.Point(205, 0);
             // 
+            // grdSchSearch
+            // 
+            appearance1.BackColor = System.Drawing.SystemColors.Window;
+            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdSchSearch.DisplayLayout.Appearance = appearance1;
+            this.grdSchSearch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdSchSearch.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance2.BackColor = System.Drawing.SystemColors.Window;
+            appearance2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdSchSearch.DisplayLayout.Override.ActiveCellAppearance = appearance2;
+            appearance3.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance3.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdSchSearch.DisplayLayout.Override.ActiveRowAppearance = appearance3;
+            this.grdSchSearch.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdSchSearch.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance4.BackColor = System.Drawing.SystemColors.Window;
+            this.grdSchSearch.DisplayLayout.Override.CardAreaAppearance = appearance4;
+            appearance5.BorderColor = System.Drawing.Color.Silver;
+            appearance5.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdSchSearch.DisplayLayout.Override.CellAppearance = appearance5;
+            this.grdSchSearch.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdSchSearch.DisplayLayout.Override.CellPadding = 0;
+            appearance6.BackColor = System.Drawing.SystemColors.Control;
+            appearance6.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance6.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance6.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance6.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdSchSearch.DisplayLayout.Override.GroupByRowAppearance = appearance6;
+            appearance7.TextHAlignAsString = "Left";
+            this.grdSchSearch.DisplayLayout.Override.HeaderAppearance = appearance7;
+            this.grdSchSearch.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdSchSearch.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance8.BackColor = System.Drawing.SystemColors.Window;
+            appearance8.BorderColor = System.Drawing.Color.Silver;
+            this.grdSchSearch.DisplayLayout.Override.RowAppearance = appearance8;
+            this.grdSchSearch.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance9.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdSchSearch.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
+            this.grdSchSearch.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdSchSearch.Location = new System.Drawing.Point(3, 79);
+            this.grdSchSearch.Size = new System.Drawing.Size(478, 133);
+            // 
+            // btnDetCancel
+            // 
+            this.btnDetCancel.Location = new System.Drawing.Point(387, 0);
+            // 
+            // btnDetSave
+            // 
+            this.btnDetSave.Location = new System.Drawing.Point(296, 0);
+            // 
+            // tabPrincipal
+            // 
+            this.tabPrincipal.Size = new System.Drawing.Size(492, 266);
+            // 
             // txtSchName
             // 
             this.txtSchName.Location = new System.Drawing.Point(58, 19);
@@ -120,10 +191,12 @@
             this.ClientSize = new System.Drawing.Size(492, 266);
             this.Name = "OpportunityStatusForm";
             this.Text = "Catálogo de los Estatus de las Oportunidades";
+            this.pnlDetCtgButtons.ResumeLayout(false);
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
