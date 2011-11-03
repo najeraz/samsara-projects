@@ -54,8 +54,9 @@ namespace Samsara.CustomerContext.Forms.Controller
             BusinessTypeParameters pmtBusinessType = new BusinessTypeParameters();
 
             IList<BusinessType> lstBusinessTypes = this.srvBusinessType.GetListByParameters(pmtBusinessType);
-            WindowsFormsUtil.LoadCombo<BusinessType>(this.frmCustomer.uceDetBusinessType, lstBusinessTypes,
-                "BusinessTypeId", "Name", "Seleccione");
+
+            this.frmCustomer.btcDetBusinessType.Parameters = pmtBusinessType;
+            this.frmCustomer.btcDetBusinessType.Refresh();
 
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomerInfrastructure = null;
             this.frmCustomer.mtoCustomerInfrastructurePrinters.CustomParent = this.frmCustomer;

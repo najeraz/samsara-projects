@@ -43,10 +43,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
     </Reference>
     <Reference Include="Samsara.Base.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -70,6 +78,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.CustomerContext.Core.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.CustomerContext.Dao.dll</HintPath>
     </Reference>
     <Reference Include="Samsara.CustomerContext.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -536,6 +548,9 @@
       <DependentUpon>UPSTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
