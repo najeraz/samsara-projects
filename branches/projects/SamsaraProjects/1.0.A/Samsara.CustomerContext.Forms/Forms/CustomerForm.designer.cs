@@ -37,6 +37,7 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Samsara.CustomerContext.Core.Parameters.BusinessTypeParameters businessTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.BusinessTypeParameters();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetName = new System.Windows.Forms.Label();
             this.txtSchName = new System.Windows.Forms.TextBox();
@@ -46,7 +47,7 @@
             this.lblDetBusinessType = new System.Windows.Forms.Label();
             this.tabCustomerDetail = new System.Windows.Forms.TabControl();
             this.tabItmDetPrincipal = new System.Windows.Forms.TabPage();
-            this.uceDetBusinessType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.btcDetBusinessType = new Samsara.CustomerContext.Controls.Controls.BusinessTypeChooserControl();
             this.tabItmDetInfraestructure = new System.Windows.Forms.TabPage();
             this.tabDetInfrastructure = new System.Windows.Forms.TabControl();
             this.tabItmPrincipal = new System.Windows.Forms.TabPage();
@@ -120,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDetDescription)).BeginInit();
             this.tabCustomerDetail.SuspendLayout();
             this.tabItmDetPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBusinessType)).BeginInit();
             this.tabItmDetInfraestructure.SuspendLayout();
             this.tabDetInfrastructure.SuspendLayout();
             this.tabItmPrincipal.SuspendLayout();
@@ -348,7 +348,7 @@
             // tabItmDetPrincipal
             // 
             this.tabItmDetPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmDetPrincipal.Controls.Add(this.uceDetBusinessType);
+            this.tabItmDetPrincipal.Controls.Add(this.btcDetBusinessType);
             this.tabItmDetPrincipal.Controls.Add(this.lblDetName);
             this.tabItmDetPrincipal.Controls.Add(this.lblDetBusinessType);
             this.tabItmDetPrincipal.Controls.Add(this.txtDetName);
@@ -361,12 +361,21 @@
             this.tabItmDetPrincipal.TabIndex = 0;
             this.tabItmDetPrincipal.Text = "Principal";
             // 
-            // uceDetBusinessType
+            // btcDetBusinessType
             // 
-            this.uceDetBusinessType.Location = new System.Drawing.Point(99, 94);
-            this.uceDetBusinessType.Name = "uceDetBusinessType";
-            this.uceDetBusinessType.Size = new System.Drawing.Size(226, 21);
-            this.uceDetBusinessType.TabIndex = 89;
+            this.btcDetBusinessType.CustomParent = null;
+            this.btcDetBusinessType.DisplayMember = "Name";
+            this.btcDetBusinessType.Location = new System.Drawing.Point(99, 94);
+            this.btcDetBusinessType.Name = "btcDetBusinessType";
+            businessTypeParameters1.BusinessTypeId = null;
+            businessTypeParameters1.Description = null;
+            businessTypeParameters1.Name = null;
+            this.btcDetBusinessType.Parameters = businessTypeParameters1;
+            this.btcDetBusinessType.ReadOnly = false;
+            this.btcDetBusinessType.Size = new System.Drawing.Size(226, 22);
+            this.btcDetBusinessType.TabIndex = 27;
+            this.btcDetBusinessType.Value = null;
+            this.btcDetBusinessType.ValueMember = "BusinessTypeId";
             // 
             // tabItmDetInfraestructure
             // 
@@ -1080,7 +1089,6 @@
             this.tabCustomerDetail.ResumeLayout(false);
             this.tabItmDetPrincipal.ResumeLayout(false);
             this.tabItmDetPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDetBusinessType)).EndInit();
             this.tabItmDetInfraestructure.ResumeLayout(false);
             this.tabDetInfrastructure.ResumeLayout(false);
             this.tabItmPrincipal.ResumeLayout(false);
@@ -1158,7 +1166,6 @@
         private System.Windows.Forms.TabPage tabItmDetSoftware;
         private System.Windows.Forms.TabPage tabItmDetSuppliers;
         private System.Windows.Forms.TabPage tabItmDetVideo;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetBusinessType;
         private System.Windows.Forms.TabPage tabItmNetworkSite;
         private System.Windows.Forms.TabPage tabItmNetworkSwitches;
         private System.Windows.Forms.TabPage tabItmNetworkCommutators;
@@ -1217,5 +1224,6 @@
         internal System.Windows.Forms.TabControl tabDetInfraestructureVideo;
         internal System.Windows.Forms.TabControl tabDetAccessPoints;
         internal System.Windows.Forms.TabControl tabDetSite;
+        internal Controls.Controls.BusinessTypeChooserControl btcDetBusinessType;
     }
 }
