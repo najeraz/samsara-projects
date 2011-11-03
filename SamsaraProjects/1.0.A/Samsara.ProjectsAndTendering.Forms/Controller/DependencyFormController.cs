@@ -46,7 +46,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
-            IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             this.frmDependency.bccDetBidder.Parameters = pmtBidder;
             this.frmDependency.bccDetBidder.ValueMember = "BidderId";

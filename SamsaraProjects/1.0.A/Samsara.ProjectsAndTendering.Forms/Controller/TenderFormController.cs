@@ -146,7 +146,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
-            IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtAsesor);
 
             this.frmTender.acSchAsesor.Parameters = pmtAsesor;
             this.frmTender.acSchAsesor.Refresh();
@@ -154,12 +153,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.acDetAsesor.Parameters = pmtAsesor;
             this.frmTender.acDetAsesor.Refresh();
 
-            this.frmTender.acDetVoBo.Parameters = pmtAsesor;
-            this.frmTender.acDetVoBo.Refresh();
+            this.frmTender.acDetApprovedBy.Parameters = pmtAsesor;
+            this.frmTender.acDetApprovedBy.Refresh();
 
             // TenderStatus
             TenderStatusParameters pmtTenderStatus = new TenderStatusParameters();
-            IList<TenderStatus> lstTenderStatuses = srvTenderStatus.GetListByParameters(pmtTenderStatus);
 
             this.frmTender.tscDetTenderStatus.Parameters = pmtTenderStatus;
             this.frmTender.tscDetTenderStatus.Refresh();
@@ -169,7 +167,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
-            IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             this.frmTender.bcDetBidder.Parameters = pmtBidder;
             this.frmTender.bcDetBidder.Refresh();
@@ -185,7 +182,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntNone;
-            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmTender.dcDetDependency.Parameters = pmtDependency;
             this.frmTender.dcDetDependency.Refresh();
@@ -201,7 +197,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // EndUser
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = ParameterConstants.IntNone;
-            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmTender.eucDetEndUser.Parameters = pmtEndUser;
             this.frmTender.eucDetEndUser.Refresh();
@@ -549,7 +544,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.Dependency = this.frmTender.dcDetDependency.Value;
             this.tender.EndUser = this.frmTender.eucDetEndUser.Value;
             this.tender.Asesor = this.frmTender.acDetAsesor.Value;
-            this.tender.ApprovedBy = this.frmTender.acDetVoBo.Value;
+            this.tender.ApprovedBy = this.frmTender.acDetApprovedBy.Value;
             this.tender.TenderStatus = this.frmTender.tscDetTenderStatus.Value;
 
             this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTender.dteDetClarificationDate.Value;
@@ -845,7 +840,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ClearDetailControls()
         {
-            this.frmTender.acDetVoBo.Value = null;
+            this.frmTender.acDetApprovedBy.Value = null;
             this.frmTender.acDetAsesor.Value = null;
             this.frmTender.bcDetBidder.Value = null;
             this.frmTender.dcDetDependency.Value = null;
@@ -945,7 +940,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadFormFromEntity()
         {
-            this.frmTender.acDetVoBo.Value = this.tender.ApprovedBy;
+            this.frmTender.acDetApprovedBy.Value = this.tender.ApprovedBy;
             this.frmTender.acDetAsesor.Value = this.tender.Asesor;
             this.frmTender.bcDetBidder.Value = this.tender.Bidder;
             this.frmTender.dcDetDependency.Value = this.tender.Dependency;
@@ -1890,7 +1885,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = this.frmTender.bcSchBidder.Value == null ?
                 -1 : this.frmTender.bcSchBidder.Value.BidderId;
-            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmTender.dcSchDependency.Parameters = pmtDependency;
             this.frmTender.dcSchDependency.Refresh();
@@ -1901,7 +1895,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = this.frmTender.bcDetBidder.Value == null ?
                 -1 : this.frmTender.bcDetBidder.Value.BidderId;
-            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmTender.dcDetDependency.Parameters = pmtDependency;
             this.frmTender.dcDetDependency.Refresh();
@@ -1912,7 +1905,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = this.frmTender.dcSchDependency.Value == null ?
                 -1 : this.frmTender.dcSchDependency.Value.DependencyId;
-            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmTender.eucSchEndUser.Parameters = pmtEndUser;
             this.frmTender.eucSchEndUser.Refresh();
@@ -1923,7 +1915,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = this.frmTender.dcDetDependency.Value == null ?
                 -1 : this.frmTender.dcDetDependency.Value.DependencyId;
-            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmTender.eucDetEndUser.Parameters = pmtEndUser;
             this.frmTender.eucDetEndUser.Refresh();

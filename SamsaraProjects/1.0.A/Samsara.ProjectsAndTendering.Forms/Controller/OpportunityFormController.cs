@@ -80,8 +80,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             // OpportunityType
             OpportunityTypeParameters pmtOpportunityType = new OpportunityTypeParameters();
-            IList<OpportunityType> lstOpportunityType =
-                this.srvOpportunityType.GetListByParameters(pmtOpportunityType);
 
             this.frmOpportunity.otcSchOpportunityType.Parameters = pmtOpportunityType;
             this.frmOpportunity.otcSchOpportunityType.Refresh();
@@ -99,7 +97,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
-            IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
             this.frmOpportunity.bcDetBidder.Parameters = pmtBidder;
             this.frmOpportunity.bcDetBidder.Refresh();
@@ -115,7 +112,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntNone;
-            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmOpportunity.dcSchDependency.Parameters = pmtDependency;
             this.frmOpportunity.dcSchDependency.Refresh();
@@ -131,7 +127,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // EndUser
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = ParameterConstants.IntNone;
-            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmOpportunity.eucSchEndUser.Parameters = pmtEndUser;
             this.frmOpportunity.eucSchEndUser.Refresh();
@@ -141,7 +136,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
-            IList<Asesor> lstAsesors = srvAsesor.GetListByParameters(pmtAsesor);
 
             this.frmOpportunity.acDetAsesor.Parameters = pmtAsesor;
             this.frmOpportunity.acDetAsesor.Refresh();
@@ -151,8 +145,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // OpportunityStatus
             OpportunityStatusParameters pmtOpportunityStatus = new OpportunityStatusParameters();
-            IList<OpportunityStatus> lstOpportunityStatuses =
-                srvOpportunityStatus.GetListByParameters(pmtOpportunityStatus);
 
             this.frmOpportunity.osDetOpportunityStatus.Parameters = pmtOpportunityStatus;
             this.frmOpportunity.osDetOpportunityStatus.Refresh();
@@ -162,7 +154,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             // Organization
             OrganizationParameters pmtOrganization = new OrganizationParameters();
-            IList<Organization> lstOrganizations = srvOrganization.GetListByParameters(pmtOrganization);
 
             this.frmOpportunity.ocDetOrganization.Parameters = pmtOrganization;
             this.frmOpportunity.ocDetOrganization.Refresh();
@@ -530,7 +521,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = this.frmOpportunity.bcSchBidder.Value == null ?
                 -1 : this.frmOpportunity.bcSchBidder.Value.BidderId;
-            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmOpportunity.dcSchDependency.Parameters = pmtDependency;
             this.frmOpportunity.dcSchDependency.Refresh();
@@ -541,7 +531,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = this.frmOpportunity.bcDetBidder.Value == null ?
                 -1 : this.frmOpportunity.bcDetBidder.Value.BidderId;
-            IList<Dependency> lstDependencies = srvDependency.GetListByParameters(pmtDependency);
 
             this.frmOpportunity.dcDetDependency.Parameters = pmtDependency;
             this.frmOpportunity.dcDetDependency.Refresh();
@@ -552,7 +541,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = this.frmOpportunity.dcSchDependency.Value == null ?
                 -1 : this.frmOpportunity.dcSchDependency.Value.DependencyId;
-            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmOpportunity.eucSchEndUser.Parameters = pmtEndUser;
             this.frmOpportunity.eucSchEndUser.Refresh();
@@ -563,7 +551,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = this.frmOpportunity.dcDetDependency.Value == null ?
                 -1 : this.frmOpportunity.dcDetDependency.Value.DependencyId;
-            IList<EndUser> lstEndUsers = srvEndUser.GetListByParameters(pmtEndUser);
 
             this.frmOpportunity.eucDetEndUser.Parameters = pmtEndUser;
             this.frmOpportunity.eucDetEndUser.Refresh();
