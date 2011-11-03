@@ -48,13 +48,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             BidderParameters pmtBidder = new BidderParameters();
             IList<Bidder> lstBidders = srvBidder.GetListByParameters(pmtBidder);
 
-            WindowsFormsUtil.LoadCombo<Bidder>(this.frmDependency.uceSchBidder,
-                lstBidders, "BidderId", "Name", "Seleccione");
+            this.frmDependency.bccDetBidder.Parameters = pmtBidder;
+            this.frmDependency.bccDetBidder.ValueMember = "BidderId";
+            this.frmDependency.bccDetBidder.DisplayMember = "Name";
+            this.frmDependency.bccDetBidder.Refresh();
 
-            this.frmDependency.secBidder.Parameters = pmtBidder;
-            this.frmDependency.secBidder.ValueMember = "BidderId";
-            this.frmDependency.secBidder.DisplayMember = "Name";
-            this.frmDependency.secBidder.Refresh();
+            this.frmDependency.bccSchBidder.Parameters = pmtBidder;
+            this.frmDependency.bccSchBidder.ValueMember = "BidderId";
+            this.frmDependency.bccSchBidder.DisplayMember = "Name";
+            this.frmDependency.bccSchBidder.Refresh();
 
             this.frmDependency.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmDependency.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -88,11 +90,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return false;
             }
 
-            if (this.frmDependency.secBidder.Value == null)
+            if (this.frmDependency.bccDetBidder.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Licitante.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmDependency.secBidder.Focus();
+                this.frmDependency.bccDetBidder.Focus();
                 return false;
             }
 
@@ -101,7 +103,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            this.dependency.Bidder = this.frmDependency.secBidder.Value;
+            this.dependency.Bidder = this.frmDependency.bccDetBidder.Value;
             this.dependency.Name = this.frmDependency.txtDetName.Text;
 
             this.dependency.Activated = true;
@@ -111,13 +113,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearDetailControls()
         {
             this.frmDependency.txtDetName.Text = string.Empty;
-            this.frmDependency.secBidder.Value = null;
+            this.frmDependency.bccDetBidder.Value = null;
         }
 
         private void ClearSearchControls()
         {
             this.frmDependency.txtSchName.Text = string.Empty;
-            this.frmDependency.uceSchBidder.Value = -1;
+            this.frmDependency.bccSchBidder.Value = null;
         }
 
         private void SaveDependency()
@@ -146,7 +148,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadFormFromEntity()
         {
-            this.frmDependency.secBidder.Value = this.dependency.Bidder;
+            this.frmDependency.bccDetBidder.Value = this.dependency.Bidder;
             this.frmDependency.txtDetName.Text = this.dependency.Name;
         }
 
@@ -167,7 +169,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             DependencyParameters pmtDependency = new DependencyParameters();
 
             pmtDependency.Name = "%" + this.frmDependency.txtSchName.Text + "%";
-            pmtDependency.BidderId = (int)this.frmDependency.uceSchBidder.Value;
+            pmtDependency.BidderId = this.frmDependency.bccSchBidder.Value == null ? 
+                -1 : this.frmDependency.bccSchBidder.Value.BidderId;
 
             DataTable dtDependencies = srvDependency.SearchByParameters(pmtDependency);
 

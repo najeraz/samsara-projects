@@ -17,6 +17,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         #region Attributes
 
         private OpportunityFormController ctrlOpportunityForm;
+        private IOpportunityTypeService srvOpportunityType;
         private IOpportunityService srvOpportunity;
 
         #endregion Attributes
@@ -29,6 +30,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ctrlOpportunityForm = new OpportunityFormController(this);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
             Assert.IsNotNull(this.srvOpportunity);
+            this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityTypeService>();
+            Assert.IsNotNull(this.srvOpportunityType);
         }
 
         #endregion Constructor
@@ -41,8 +44,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
             if (((GenericSearchForm<Opportunity>)this).ParentSearchForm != null)
             {
-                this.uceSchOpportunityType.ReadOnly = true;
-                this.uceSchOpportunityType.Value = (int)OpportunityTypeEnum.PublicSector;
+                this.otcSchOpportunityType.ReadOnly = true;
+                this.otcSchOpportunityType.Value = this.srvOpportunityType.GetById((int)OpportunityTypeEnum.PublicSector);
             }
         }
 

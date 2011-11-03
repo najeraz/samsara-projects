@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance19 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance21 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
@@ -44,6 +53,13 @@
             Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
+            Samsara.ProjectsAndTendering.Core.Parameters.OpportunityTypeParameters opportunityTypeParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.OpportunityTypeParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.OrganizationParameters organizationParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.OrganizationParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.EndUserParameters endUserParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.EndUserParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.OpportunityStatusParameters opportunityStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.OpportunityStatusParameters();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -94,19 +110,21 @@
             this.lblSchEndDate = new System.Windows.Forms.Label();
             this.ubgxSchFechas = new Infragistics.Win.Misc.UltraGroupBox();
             this.uosSchDates = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
-            this.uceSchAsesor = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSchOpportunityStatus = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSchOrganization = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSchOpportunityType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchOpportunityType = new System.Windows.Forms.Label();
-            this.uceSchEndUser = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.uceSchBidder = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSchDependency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblSchDependency = new System.Windows.Forms.Label();
             this.lblSchBidder = new System.Windows.Forms.Label();
+            this.otcSchOpportunityType = new Samsara.ProjectsAndTendering.Controls.Controls.OpportunityTypeChooserControl();
+            this.ocSchOrganization = new Samsara.ProjectsAndTendering.Controls.Controls.OrganizationChooserControl();
+            this.bcSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.BidderChooserControl();
+            this.bcSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.DependencyChooserControl();
+            this.eucSchEndUser = new Samsara.ProjectsAndTendering.Controls.Controls.EndUserChooserControl();
+            this.acSchAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.AsesorChooserControl();
+            this.oscSchOpportunityStatus = new Samsara.ProjectsAndTendering.Controls.Controls.OpportunityStatusChooserControl();
+            this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
             this.tabDetDetail.SuspendLayout();
             this.Principal.SuspendLayout();
             this.upDetControls.ClientArea.SuspendLayout();
@@ -140,13 +158,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).BeginInit();
             this.ubgxSchFechas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchAsesor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchOpportunityStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchOrganization)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchOpportunityType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -156,24 +167,24 @@
             // 
             // gbxSearchParameters
             // 
-            this.gbxSearchParameters.Controls.Add(this.uceSchEndUser);
+            this.gbxSearchParameters.Controls.Add(this.oscSchOpportunityStatus);
+            this.gbxSearchParameters.Controls.Add(this.acSchAsesor);
+            this.gbxSearchParameters.Controls.Add(this.eucSchEndUser);
+            this.gbxSearchParameters.Controls.Add(this.bcSchDependency);
+            this.gbxSearchParameters.Controls.Add(this.bcSchBidder);
+            this.gbxSearchParameters.Controls.Add(this.ocSchOrganization);
+            this.gbxSearchParameters.Controls.Add(this.otcSchOpportunityType);
             this.gbxSearchParameters.Controls.Add(this.lblSchEndUser);
-            this.gbxSearchParameters.Controls.Add(this.uceSchBidder);
-            this.gbxSearchParameters.Controls.Add(this.uceSchDependency);
             this.gbxSearchParameters.Controls.Add(this.lblSchDependency);
             this.gbxSearchParameters.Controls.Add(this.lblSchBidder);
-            this.gbxSearchParameters.Controls.Add(this.uceSchOpportunityType);
             this.gbxSearchParameters.Controls.Add(this.lblSchOpportunityType);
-            this.gbxSearchParameters.Controls.Add(this.uceSchOrganization);
-            this.gbxSearchParameters.Controls.Add(this.uceSchOpportunityStatus);
-            this.gbxSearchParameters.Controls.Add(this.uceSchAsesor);
             this.gbxSearchParameters.Controls.Add(this.txtSchOpportunityName);
             this.gbxSearchParameters.Controls.Add(this.lblSchOpportunityStatus);
             this.gbxSearchParameters.Controls.Add(this.lblSchOpportunityName);
             this.gbxSearchParameters.Controls.Add(this.lblSchOrganization);
             this.gbxSearchParameters.Controls.Add(this.lblSchAsesor);
             this.gbxSearchParameters.Controls.Add(this.ubgxSchFechas);
-            this.gbxSearchParameters.Size = new System.Drawing.Size(750, 185);
+            this.gbxSearchParameters.Size = new System.Drawing.Size(750, 190);
             // 
             // gbxDetDetail
             // 
@@ -208,6 +219,66 @@
             // btnSchDelete
             // 
             this.btnSchDelete.Location = new System.Drawing.Point(477, 0);
+            // 
+            // grdSchSearch
+            // 
+            appearance13.BackColor = System.Drawing.SystemColors.Window;
+            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdSchSearch.DisplayLayout.Appearance = appearance13;
+            this.grdSchSearch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdSchSearch.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance14.BackColor = System.Drawing.SystemColors.Window;
+            appearance14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdSchSearch.DisplayLayout.Override.ActiveCellAppearance = appearance14;
+            appearance15.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance15.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdSchSearch.DisplayLayout.Override.ActiveRowAppearance = appearance15;
+            this.grdSchSearch.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.False;
+            this.grdSchSearch.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdSchSearch.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance16.BackColor = System.Drawing.SystemColors.Window;
+            this.grdSchSearch.DisplayLayout.Override.CardAreaAppearance = appearance16;
+            appearance17.BorderColor = System.Drawing.Color.Silver;
+            appearance17.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdSchSearch.DisplayLayout.Override.CellAppearance = appearance17;
+            this.grdSchSearch.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdSchSearch.DisplayLayout.Override.CellPadding = 0;
+            appearance18.BackColor = System.Drawing.SystemColors.Control;
+            appearance18.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance18.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance18.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance18.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdSchSearch.DisplayLayout.Override.GroupByRowAppearance = appearance18;
+            appearance19.TextHAlignAsString = "Left";
+            this.grdSchSearch.DisplayLayout.Override.HeaderAppearance = appearance19;
+            this.grdSchSearch.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdSchSearch.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance20.BackColor = System.Drawing.SystemColors.Window;
+            appearance20.BorderColor = System.Drawing.Color.Silver;
+            this.grdSchSearch.DisplayLayout.Override.RowAppearance = appearance20;
+            this.grdSchSearch.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance21.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdSchSearch.DisplayLayout.Override.TemplateAddRowAppearance = appearance21;
+            this.grdSchSearch.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdSchSearch.Location = new System.Drawing.Point(3, 218);
+            this.grdSchSearch.Size = new System.Drawing.Size(750, 190);
+            // 
+            // btnDetCancel
+            // 
+            this.btnDetCancel.Location = new System.Drawing.Point(659, 0);
+            // 
+            // btnDetSave
+            // 
+            this.btnDetSave.Location = new System.Drawing.Point(568, 0);
+            // 
+            // tabPrincipal
+            // 
+            this.tabPrincipal.Size = new System.Drawing.Size(764, 462);
             // 
             // tabDetDetail
             // 
@@ -574,6 +645,7 @@
             this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
+            this.grdDetLog.lstCustomControlNames = null;
             this.grdDetLog.Name = "grdDetLog";
             this.grdDetLog.Size = new System.Drawing.Size(736, 242);
             this.grdDetLog.TabIndex = 1;
@@ -749,77 +821,28 @@
             this.uosSchDates.Size = new System.Drawing.Size(145, 65);
             this.uosSchDates.TabIndex = 0;
             // 
-            // uceSchAsesor
-            // 
-            this.uceSchAsesor.Location = new System.Drawing.Point(518, 23);
-            this.uceSchAsesor.Name = "uceSchAsesor";
-            this.uceSchAsesor.Size = new System.Drawing.Size(226, 21);
-            this.uceSchAsesor.TabIndex = 10;
-            // 
-            // uceSchOpportunityStatus
-            // 
-            this.uceSchOpportunityStatus.Location = new System.Drawing.Point(518, 50);
-            this.uceSchOpportunityStatus.Name = "uceSchOpportunityStatus";
-            this.uceSchOpportunityStatus.Size = new System.Drawing.Size(226, 21);
-            this.uceSchOpportunityStatus.TabIndex = 11;
-            // 
-            // uceSchOrganization
-            // 
-            this.uceSchOrganization.Location = new System.Drawing.Point(149, 77);
-            this.uceSchOrganization.Name = "uceSchOrganization";
-            this.uceSchOrganization.Size = new System.Drawing.Size(226, 21);
-            this.uceSchOrganization.TabIndex = 7;
-            // 
-            // uceSchOpportunityType
-            // 
-            this.uceSchOpportunityType.Location = new System.Drawing.Point(149, 50);
-            this.uceSchOpportunityType.Name = "uceSchOpportunityType";
-            this.uceSchOpportunityType.Size = new System.Drawing.Size(226, 21);
-            this.uceSchOpportunityType.TabIndex = 72;
-            // 
             // lblSchOpportunityType
             // 
             this.lblSchOpportunityType.AutoSize = true;
-            this.lblSchOpportunityType.Location = new System.Drawing.Point(11, 54);
+            this.lblSchOpportunityType.Location = new System.Drawing.Point(11, 53);
             this.lblSchOpportunityType.Name = "lblSchOpportunityType";
             this.lblSchOpportunityType.Size = new System.Drawing.Size(107, 13);
             this.lblSchOpportunityType.TabIndex = 73;
             this.lblSchOpportunityType.Text = "Tipo de Oportunidad:";
             // 
-            // uceSchEndUser
-            // 
-            this.uceSchEndUser.Location = new System.Drawing.Point(149, 158);
-            this.uceSchEndUser.Name = "uceSchEndUser";
-            this.uceSchEndUser.Size = new System.Drawing.Size(226, 21);
-            this.uceSchEndUser.TabIndex = 77;
-            // 
             // lblSchEndUser
             // 
             this.lblSchEndUser.AutoSize = true;
-            this.lblSchEndUser.Location = new System.Drawing.Point(11, 162);
+            this.lblSchEndUser.Location = new System.Drawing.Point(11, 166);
             this.lblSchEndUser.Name = "lblSchEndUser";
             this.lblSchEndUser.Size = new System.Drawing.Size(71, 13);
             this.lblSchEndUser.TabIndex = 80;
             this.lblSchEndUser.Text = "Usuario Final:";
             // 
-            // uceSchBidder
-            // 
-            this.uceSchBidder.Location = new System.Drawing.Point(149, 104);
-            this.uceSchBidder.Name = "uceSchBidder";
-            this.uceSchBidder.Size = new System.Drawing.Size(226, 21);
-            this.uceSchBidder.TabIndex = 75;
-            // 
-            // uceSchDependency
-            // 
-            this.uceSchDependency.Location = new System.Drawing.Point(149, 131);
-            this.uceSchDependency.Name = "uceSchDependency";
-            this.uceSchDependency.Size = new System.Drawing.Size(226, 21);
-            this.uceSchDependency.TabIndex = 76;
-            // 
             // lblSchDependency
             // 
             this.lblSchDependency.AutoSize = true;
-            this.lblSchDependency.Location = new System.Drawing.Point(11, 135);
+            this.lblSchDependency.Location = new System.Drawing.Point(11, 137);
             this.lblSchDependency.Name = "lblSchDependency";
             this.lblSchDependency.Size = new System.Drawing.Size(74, 13);
             this.lblSchDependency.TabIndex = 78;
@@ -828,11 +851,108 @@
             // lblSchBidder
             // 
             this.lblSchBidder.AutoSize = true;
-            this.lblSchBidder.Location = new System.Drawing.Point(11, 108);
+            this.lblSchBidder.Location = new System.Drawing.Point(11, 110);
             this.lblSchBidder.Name = "lblSchBidder";
             this.lblSchBidder.Size = new System.Drawing.Size(50, 13);
             this.lblSchBidder.TabIndex = 79;
             this.lblSchBidder.Text = "Licitante:";
+            // 
+            // otcSchOpportunityType
+            // 
+            this.otcSchOpportunityType.CustomParent = null;
+            this.otcSchOpportunityType.DisplayMember = "Name";
+            this.otcSchOpportunityType.Location = new System.Drawing.Point(149, 49);
+            this.otcSchOpportunityType.Name = "otcSchOpportunityType";
+            this.otcSchOpportunityType.Parameters = opportunityTypeParameters1;
+            this.otcSchOpportunityType.Size = new System.Drawing.Size(226, 22);
+            this.otcSchOpportunityType.TabIndex = 81;
+            this.otcSchOpportunityType.Value = null;
+            this.otcSchOpportunityType.ValueMember = "OpportunityTypeId";
+            // 
+            // ocSchOrganization
+            // 
+            this.ocSchOrganization.CustomParent = null;
+            this.ocSchOrganization.DisplayMember = "Name";
+            this.ocSchOrganization.Location = new System.Drawing.Point(149, 77);
+            this.ocSchOrganization.Name = "ocSchOrganization";
+            organizationParameters1.Description = null;
+            organizationParameters1.Name = null;
+            this.ocSchOrganization.Parameters = organizationParameters1;
+            this.ocSchOrganization.Size = new System.Drawing.Size(226, 22);
+            this.ocSchOrganization.TabIndex = 82;
+            this.ocSchOrganization.Value = null;
+            this.ocSchOrganization.ValueMember = "OrganizationId";
+            // 
+            // bcSchBidder
+            // 
+            this.bcSchBidder.CustomParent = null;
+            this.bcSchBidder.DisplayMember = "Name";
+            this.bcSchBidder.Location = new System.Drawing.Point(149, 105);
+            this.bcSchBidder.Name = "bcSchBidder";
+            bidderParameters1.BidderTypeId = null;
+            bidderParameters1.Name = null;
+            this.bcSchBidder.Parameters = bidderParameters1;
+            this.bcSchBidder.Size = new System.Drawing.Size(226, 22);
+            this.bcSchBidder.TabIndex = 83;
+            this.bcSchBidder.Value = null;
+            this.bcSchBidder.ValueMember = "BidderId";
+            // 
+            // bcSchDependency
+            // 
+            this.bcSchDependency.CustomParent = null;
+            this.bcSchDependency.DisplayMember = "Name";
+            this.bcSchDependency.Location = new System.Drawing.Point(149, 133);
+            this.bcSchDependency.Name = "bcSchDependency";
+            dependencyParameters1.BidderId = null;
+            dependencyParameters1.Name = null;
+            this.bcSchDependency.Parameters = dependencyParameters1;
+            this.bcSchDependency.Size = new System.Drawing.Size(226, 22);
+            this.bcSchDependency.TabIndex = 84;
+            this.bcSchDependency.Value = null;
+            this.bcSchDependency.ValueMember = "DependencyId";
+            // 
+            // eucSchEndUser
+            // 
+            this.eucSchEndUser.CustomParent = null;
+            this.eucSchEndUser.DisplayMember = "Name";
+            this.eucSchEndUser.Location = new System.Drawing.Point(149, 161);
+            this.eucSchEndUser.Name = "eucSchEndUser";
+            endUserParameters1.DependencyId = null;
+            endUserParameters1.Name = null;
+            this.eucSchEndUser.Parameters = endUserParameters1;
+            this.eucSchEndUser.Size = new System.Drawing.Size(226, 22);
+            this.eucSchEndUser.TabIndex = 85;
+            this.eucSchEndUser.Value = null;
+            this.eucSchEndUser.ValueMember = "EndUserId";
+            // 
+            // acSchAsesor
+            // 
+            this.acSchAsesor.CustomParent = null;
+            this.acSchAsesor.DisplayMember = "Name";
+            this.acSchAsesor.Location = new System.Drawing.Point(518, 22);
+            this.acSchAsesor.Name = "acSchAsesor";
+            asesorParameters1.FullName = null;
+            asesorParameters1.Name = null;
+            asesorParameters1.ShowAll = null;
+            asesorParameters1.ShowApprovers = null;
+            this.acSchAsesor.Parameters = asesorParameters1;
+            this.acSchAsesor.Size = new System.Drawing.Size(226, 22);
+            this.acSchAsesor.TabIndex = 86;
+            this.acSchAsesor.Value = null;
+            this.acSchAsesor.ValueMember = "AsesorId";
+            // 
+            // oscSchOpportunityStatus
+            // 
+            this.oscSchOpportunityStatus.CustomParent = null;
+            this.oscSchOpportunityStatus.DisplayMember = "Name";
+            this.oscSchOpportunityStatus.Location = new System.Drawing.Point(518, 50);
+            this.oscSchOpportunityStatus.Name = "oscSchOpportunityStatus";
+            opportunityStatusParameters1.Name = null;
+            this.oscSchOpportunityStatus.Parameters = opportunityStatusParameters1;
+            this.oscSchOpportunityStatus.Size = new System.Drawing.Size(226, 22);
+            this.oscSchOpportunityStatus.TabIndex = 87;
+            this.oscSchOpportunityStatus.Value = null;
+            this.oscSchOpportunityStatus.ValueMember = "OpportunityStatusId";
             // 
             // OpportunityForm
             // 
@@ -841,9 +961,11 @@
             this.ClientSize = new System.Drawing.Size(764, 462);
             this.Name = "OpportunityForm";
             this.Text = "Oportunidades";
+            this.pnlDetCtgButtons.ResumeLayout(false);
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
             this.tabDetDetail.ResumeLayout(false);
             this.Principal.ResumeLayout(false);
             this.upDetControls.ClientArea.ResumeLayout(false);
@@ -882,13 +1004,6 @@
             this.ubgxSchFechas.ResumeLayout(false);
             this.ubgxSchFechas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchAsesor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchOpportunityStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchOrganization)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchOpportunityType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchEndUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchBidder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSchDependency)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -916,9 +1031,6 @@
         internal Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dteDetDeadline;
         internal Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dteDetPrerevisionDate;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetOpportunityName;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchAsesor;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchOrganization;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchOpportunityStatus;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetOrganization;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetOpportunityStatus;
         internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDetAsesor;
@@ -934,11 +1046,7 @@
         private System.Windows.Forms.Label lblDetOpportunityType;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetRelatedTender;
         internal Infragistics.Win.Misc.UltraButton ubtnDetGenerateTender;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchOpportunityType;
         private System.Windows.Forms.Label lblSchOpportunityType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchEndUser;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchBidder;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSchDependency;
         private System.Windows.Forms.TabPage Log;
         internal Samsara.Controls.SamsaraUltraGrid grdDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
@@ -956,6 +1064,13 @@
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetIsLOR;
         private System.Windows.Forms.GroupBox gbxDetLog;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetLog;
+        internal Controls.Controls.OpportunityStatusChooserControl oscSchOpportunityStatus;
+        internal Controls.Controls.AsesorChooserControl acSchAsesor;
+        internal Controls.Controls.EndUserChooserControl eucSchEndUser;
+        internal Controls.Controls.DependencyChooserControl bcSchDependency;
+        internal Controls.Controls.BidderChooserControl bcSchBidder;
+        internal Controls.Controls.OrganizationChooserControl ocSchOrganization;
+        internal Controls.Controls.OpportunityTypeChooserControl otcSchOpportunityType;
     }
 }
 

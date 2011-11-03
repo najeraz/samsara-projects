@@ -46,13 +46,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntDefault;
-            IList<Dependency> lstDependencies = 
+            IList<Dependency> lstDependencies =
                 srvDependency.GetListByParameters(pmtDependency);
 
-            WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceSchDependency,
-                lstDependencies, "DependencyId", "Name", "Seleccione");
-            WindowsFormsUtil.LoadCombo<Dependency>(this.frmEndUser.uceDetDependency,
-                lstDependencies, "DependencyId", "Name", "Seleccione");
+            this.frmEndUser.dccDetDependency.Parameters = pmtDependency;
+            this.frmEndUser.dccDetDependency.Refresh();
+
+            this.frmEndUser.dccSchDependency.Parameters = pmtDependency;
+            this.frmEndUser.dccSchDependency.Refresh();
 
             this.frmEndUser.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmEndUser.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
@@ -86,12 +87,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return false;
             }
 
-            if (this.frmEndUser.uceDetDependency.Value == null ||
-                Convert.ToInt32(this.frmEndUser.uceDetDependency.Value) <= 0)
+            if (this.frmEndUser.dccDetDependency.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Dependencia.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmEndUser.uceDetDependency.Focus();
+                this.frmEndUser.dccDetDependency.Focus();
                 return false;
             }
 
@@ -100,7 +100,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadEntity()
         {
-            this.endUser.Dependency = srvDependency.GetById(Convert.ToInt32(this.frmEndUser.uceDetDependency.Value));
+            this.endUser.Dependency = this.frmEndUser.dccDetDependency.Value;
             this.endUser.Name = this.frmEndUser.txtDetName.Text;
 
             this.endUser.Activated = true;
@@ -110,13 +110,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearDetailControls()
         {
             this.frmEndUser.txtDetName.Text = string.Empty;
-            this.frmEndUser.uceDetDependency.Value = -1;
+            this.frmEndUser.dccDetDependency.Value = null;
         }
 
         private void ClearSearchControls()
         {
             this.frmEndUser.txtSchName.Text = string.Empty;
-            this.frmEndUser.uceSchDependency.Value = -1;
+            this.frmEndUser.dccSchDependency.Value = null;
         }
 
         private void SaveEndUser()
@@ -146,7 +146,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void LoadFormFromEntity()
         {
             this.frmEndUser.txtDetName.Text = this.endUser.Name;
-            this.frmEndUser.uceDetDependency.Value = this.endUser.Dependency.DependencyId;
+            this.frmEndUser.dccDetDependency.Value = this.endUser.Dependency;
         }
 
         private void DeleteEntity(int endUserId)
@@ -166,7 +166,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
 
             pmtEndUser.Name = "%" + this.frmEndUser.txtSchName.Text + "%";
-            pmtEndUser.DependencyId = (int)this.frmEndUser.uceSchDependency.Value;
+            pmtEndUser.DependencyId = this.frmEndUser.dccSchDependency.Value == null ?
+                -1 : this.frmEndUser.dccSchDependency.Value.DependencyId;
 
             DataTable dtEndUsers = srvEndUser.SearchByParameters(pmtEndUser);
 
