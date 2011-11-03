@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls
+﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
     partial class CustomerInfrastructureServerComputersControl
     {
@@ -61,7 +61,7 @@
             this.uceOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDBMS = new System.Windows.Forms.TabPage();
-            this.mtoCustomerInfrastructureServerComputerDBMSs = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputerDBMSsControl();
+            this.mtoCustomerInfrastructureServerComputerDBMSs = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerDBMSsControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
