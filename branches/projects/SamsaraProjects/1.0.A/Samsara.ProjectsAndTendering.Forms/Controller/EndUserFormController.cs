@@ -46,8 +46,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
             pmtDependency.BidderId = ParameterConstants.IntDefault;
-            IList<Dependency> lstDependencies =
-                srvDependency.GetListByParameters(pmtDependency);
 
             this.frmEndUser.dccDetDependency.Parameters = pmtDependency;
             this.frmEndUser.dccDetDependency.Refresh();
