@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls
+namespace Samsara.CustomerContext.Controls.Controls.Choosers
 {
     partial class CustomerInfrastructurePrinterChooserControl
     {
