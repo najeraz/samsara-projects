@@ -38,12 +38,12 @@
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureAdministationSoftwaresControl));
+            Samsara.CustomerContext.Core.Parameters.DBMSParameters dbmsParameters1 = new Samsara.CustomerContext.Core.Parameters.DBMSParameters();
+            Samsara.CustomerContext.Core.Parameters.CustomerInfrastructureServerComputerParameters customerInfrastructureServerComputerParameters1 = new Samsara.CustomerContext.Core.Parameters.CustomerInfrastructureServerComputerParameters();
             this.lblNumberOfUsers = new Infragistics.Win.Misc.UltraLabel();
             this.txtName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblName = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCustomerInfraestructureServerComputer = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblCustomerInfraestructureServerComputer = new Infragistics.Win.Misc.UltraLabel();
-            this.uceDBMS = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblDBMS = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDescription = new System.Windows.Forms.TabPage();
             this.gbxDescription = new System.Windows.Forms.GroupBox();
@@ -51,6 +51,8 @@
             this.gbxModules = new System.Windows.Forms.GroupBox();
             this.txtModules = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.steNumberOfUsers = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.DBMSChooserControl();
+            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -70,8 +72,6 @@
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDBMS)).BeginInit();
             this.tabItmDescription.SuspendLayout();
             this.gbxDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
@@ -172,13 +172,13 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.cisccDetCustomerInfrastructureServerComputer);
+            this.tabItmPrincipal.Controls.Add(this.dcDetDBMS);
             this.tabItmPrincipal.Controls.Add(this.steNumberOfUsers);
             this.tabItmPrincipal.Controls.Add(this.lblNumberOfUsers);
             this.tabItmPrincipal.Controls.Add(this.txtName);
             this.tabItmPrincipal.Controls.Add(this.lblName);
-            this.tabItmPrincipal.Controls.Add(this.uceCustomerInfraestructureServerComputer);
             this.tabItmPrincipal.Controls.Add(this.lblCustomerInfraestructureServerComputer);
-            this.tabItmPrincipal.Controls.Add(this.uceDBMS);
             this.tabItmPrincipal.Controls.Add(this.lblDBMS);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
@@ -248,13 +248,6 @@
             this.lblName.TabIndex = 106;
             this.lblName.Text = "Nombre:";
             // 
-            // uceCustomerInfraestructureServerComputer
-            // 
-            this.uceCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(463, 42);
-            this.uceCustomerInfraestructureServerComputer.Name = "uceCustomerInfraestructureServerComputer";
-            this.uceCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(226, 21);
-            this.uceCustomerInfraestructureServerComputer.TabIndex = 103;
-            // 
             // lblCustomerInfraestructureServerComputer
             // 
             this.lblCustomerInfraestructureServerComputer.AutoSize = true;
@@ -263,13 +256,6 @@
             this.lblCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(67, 14);
             this.lblCustomerInfraestructureServerComputer.TabIndex = 101;
             this.lblCustomerInfraestructureServerComputer.Text = "Montado en:";
-            // 
-            // uceDBMS
-            // 
-            this.uceDBMS.Location = new System.Drawing.Point(463, 15);
-            this.uceDBMS.Name = "uceDBMS";
-            this.uceDBMS.Size = new System.Drawing.Size(226, 21);
-            this.uceDBMS.TabIndex = 104;
             // 
             // lblDBMS
             // 
@@ -331,6 +317,7 @@
             // 
             // steNumberOfUsers
             // 
+            this.steNumberOfUsers.CustomParent = null;
             this.steNumberOfUsers.Location = new System.Drawing.Point(109, 42);
             this.steNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfUsers.Name = "steNumberOfUsers";
@@ -338,6 +325,47 @@
             this.steNumberOfUsers.Size = new System.Drawing.Size(227, 20);
             this.steNumberOfUsers.TabIndex = 109;
             this.steNumberOfUsers.Value = ((object)(resources.GetObject("steNumberOfUsers.Value")));
+            // 
+            // dcDetDBMS
+            // 
+            this.dcDetDBMS.CustomParent = null;
+            this.dcDetDBMS.DisplayMember = "Name";
+            this.dcDetDBMS.Location = new System.Drawing.Point(463, 14);
+            this.dcDetDBMS.Name = "dcDetDBMS";
+            dbmsParameters1.DBMSId = null;
+            dbmsParameters1.Description = null;
+            dbmsParameters1.Name = null;
+            this.dcDetDBMS.Parameters = dbmsParameters1;
+            this.dcDetDBMS.ReadOnly = false;
+            this.dcDetDBMS.Size = new System.Drawing.Size(226, 22);
+            this.dcDetDBMS.TabIndex = 110;
+            this.dcDetDBMS.Value = null;
+            this.dcDetDBMS.ValueMember = "DBMSId";
+            // 
+            // cisccDetCustomerInfrastructureServerComputer
+            // 
+            this.cisccDetCustomerInfrastructureServerComputer.CustomParent = null;
+            this.cisccDetCustomerInfrastructureServerComputer.DisplayMember = "Name";
+            this.cisccDetCustomerInfrastructureServerComputer.Location = new System.Drawing.Point(463, 42);
+            this.cisccDetCustomerInfrastructureServerComputer.Name = "cisccDetCustomerInfrastructureServerComputer";
+            customerInfrastructureServerComputerParameters1.ComputerBrandId = null;
+            customerInfrastructureServerComputerParameters1.CPU = null;
+            customerInfrastructureServerComputerParameters1.CustomerInfrastructureId = null;
+            customerInfrastructureServerComputerParameters1.CustomerInfrastructureServerComputerId = null;
+            customerInfrastructureServerComputerParameters1.ManufacturerReferenceNumber = null;
+            customerInfrastructureServerComputerParameters1.OperativeSystemId = null;
+            customerInfrastructureServerComputerParameters1.RAM = null;
+            customerInfrastructureServerComputerParameters1.Scalability = null;
+            customerInfrastructureServerComputerParameters1.SerialNumber = null;
+            customerInfrastructureServerComputerParameters1.ServerModel = null;
+            customerInfrastructureServerComputerParameters1.StorageSystem = null;
+            customerInfrastructureServerComputerParameters1.Utilization = null;
+            this.cisccDetCustomerInfrastructureServerComputer.Parameters = customerInfrastructureServerComputerParameters1;
+            this.cisccDetCustomerInfrastructureServerComputer.ReadOnly = false;
+            this.cisccDetCustomerInfrastructureServerComputer.Size = new System.Drawing.Size(227, 22);
+            this.cisccDetCustomerInfrastructureServerComputer.TabIndex = 111;
+            this.cisccDetCustomerInfrastructureServerComputer.Value = null;
+            this.cisccDetCustomerInfrastructureServerComputer.ValueMember = "CustomerInfrastructureServerComputerId";
             // 
             // CustomerInfrastructureAdministationSoftwaresControl
             // 
@@ -365,8 +393,6 @@
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCustomerInfraestructureServerComputer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceDBMS)).EndInit();
             this.tabItmDescription.ResumeLayout(false);
             this.gbxDescription.ResumeLayout(false);
             this.gbxDescription.PerformLayout();
@@ -384,15 +410,15 @@
         private Infragistics.Win.Misc.UltraLabel lblNumberOfUsers;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtName;
         private Infragistics.Win.Misc.UltraLabel lblName;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCustomerInfraestructureServerComputer;
         private Infragistics.Win.Misc.UltraLabel lblCustomerInfraestructureServerComputer;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceDBMS;
         private Infragistics.Win.Misc.UltraLabel lblDBMS;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModules;
         private System.Windows.Forms.GroupBox gbxDescription;
         private System.Windows.Forms.GroupBox gbxModules;
         internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
+        internal CustomerInfrastructureServerComputerChooserControl cisccDetCustomerInfrastructureServerComputer;
+        internal DBMSChooserControl dcDetDBMS;
 
 
 

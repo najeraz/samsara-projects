@@ -79,9 +79,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
             {
                 DBMSParameters pmtDBMS = new DBMSParameters();
 
-                IList<DBMS> dbmss = this.srvDBMS.GetListByParameters(pmtDBMS);
-                WindowsFormsUtil.LoadCombo<DBMS>(this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS,
-                    dbmss, "DBMSId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureAdministationSoftwares.dcDetDBMS.Parameters = pmtDBMS;
+                this.controlCustomerInfrastructureAdministationSoftwares.dcDetDBMS.Refresh();
 
                 this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -114,9 +113,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
-                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                    this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+
+                this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Parameters
+                    = pmtCustomerInfrastructureServerComputer;
+                this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Refresh();
 
                 foreach (CustomerInfrastructureAdministationSoftware customerInfrastructureAdministationSoftware
                     in this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares)
@@ -147,12 +147,13 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureAdministationSoftwares.dcDetDBMS.Value = null;
             this.controlCustomerInfrastructureAdministationSoftwares.txtDescription.Value = null;
             this.controlCustomerInfrastructureAdministationSoftwares.txtModules.Value = null;
             this.controlCustomerInfrastructureAdministationSoftwares.txtName.Value = null;
             this.controlCustomerInfrastructureAdministationSoftwares.steNumberOfUsers.Value = null;
-            this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Value 
+                = null;
         }
 
         protected override void CreateRelation()
@@ -209,11 +210,11 @@ namespace Samsara.CustomerContext.Controls.Controllers
                     = this.CustomerInfrastructure.CustomerInfrastructureAdministationSoftwares
                     .Single(x => x.CustomerInfrastructureAdministationSoftwareId == entityId);
 
-            this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Value
-                = this.customerInfrastructureAdministationSoftware.DBMS.DBMSId;
+            this.controlCustomerInfrastructureAdministationSoftwares.dcDetDBMS.Value
+                = this.customerInfrastructureAdministationSoftware.DBMS;
 
-            this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer.Value
-                = this.customerInfrastructureAdministationSoftware.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+            this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Value
+                = this.customerInfrastructureAdministationSoftware.CustomerInfrastructureServerComputer;
 
             this.controlCustomerInfrastructureAdministationSoftwares.txtDescription.Value
                 = this.customerInfrastructureAdministationSoftware.Description;
@@ -232,12 +233,10 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureAdministationSoftware.DBMS = this.srvDBMS
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.Value));
+            this.customerInfrastructureAdministationSoftware.DBMS = this.controlCustomerInfrastructureAdministationSoftwares.dcDetDBMS.Value;
 
-            this.customerInfrastructureAdministationSoftware.CustomerInfrastructureServerComputer 
-                = this.srvCustomerInfrastructureServerComputer
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer.Value));
+            this.customerInfrastructureAdministationSoftware.CustomerInfrastructureServerComputer
+                = this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Value;
 
             this.customerInfrastructureAdministationSoftware.Description
                 = this.controlCustomerInfrastructureAdministationSoftwares.txtDescription.Text;
@@ -310,8 +309,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureAdministationSoftwares.uceDBMS.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureAdministationSoftwares.dcDetDBMS.ReadOnly = !enabled;
             this.controlCustomerInfrastructureAdministationSoftwares.txtDescription.ReadOnly = !enabled;
             this.controlCustomerInfrastructureAdministationSoftwares.txtModules.ReadOnly = !enabled;
             this.controlCustomerInfrastructureAdministationSoftwares.txtName.ReadOnly = !enabled;
@@ -346,9 +345,9 @@ namespace Samsara.CustomerContext.Controls.Controllers
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
 
-                WindowsFormsUtil.LoadCombo<CustomerInfrastructureServerComputer>(
-                    this.controlCustomerInfrastructureAdministationSoftwares.uceCustomerInfraestructureServerComputer,
-                    customerInfrastructureServerComputers, "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
+                this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Parameters
+                    = pmtCustomerInfrastructureServerComputer;
+                this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Refresh();
 
                 WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
                     band.Columns["CustomerInfrastructureServerComputerId"], "CustomerInfrastructureServerComputerId", "ServerModel", "Seleccione");
