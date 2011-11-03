@@ -1,5 +1,5 @@
 ﻿using Samsara.Controls.Templates;
-using Samsara.CustomerContext.Controls.Controllers;
+using Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
