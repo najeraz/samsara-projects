@@ -50,11 +50,13 @@ namespace Samsara.Support.Util
 
                 foreach (PropertyDescriptor propertyDescriptor in properties)
                 {
-                    PropertyInfo primaryKeyPropertyInfo = EntitiesUtil.GetPrimaryKeyPropertyInfo(entityType);
-                    object primaryKeyValue = EntitiesUtil.GetPrimaryKeyPropertyValue(typeof(T), entity);
+                    PropertyInfo primaryKeyPropertyInfo = EntitiesUtil.GetPrimaryKeyPropertyInfo(propertyDescriptor.PropertyType);
+                    object value = entity.GetType().GetProperty(propertyDescriptor.Name).GetValue(entity, null);
 
-                    if (primaryKeyPropertyInfo != null && primaryKeyValue != null)
+                    if (primaryKeyPropertyInfo != null && value != null)
                     {
+                        object primaryKeyValue = value.GetType().GetProperty(primaryKeyPropertyInfo.Name).GetValue(value, null);
+
                         if (absoluteColumnNames)
                             row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
                         else

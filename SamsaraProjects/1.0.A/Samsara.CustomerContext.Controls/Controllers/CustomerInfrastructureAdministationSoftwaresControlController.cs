@@ -100,7 +100,7 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
             this.dtCustomerInfrastructureAdministationSoftwares = this.srvCustomerInfrastructureAdministationSoftware
                 .SearchByParameters(pmtCustomerInfrastructureAdministationSoftware);
-
+            
             this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.DataSource = null;
             this.controlCustomerInfrastructureAdministationSoftwares.grdRelations.DataSource 
                 = this.dtCustomerInfrastructureAdministationSoftwares;
@@ -109,13 +109,15 @@ namespace Samsara.CustomerContext.Controls.Controllers
             {
                 CustomerInfrastructureServerComputerParameters pmtCustomerInfrastructureServerComputer
                     = new CustomerInfrastructureServerComputerParameters();
-
+                
                 pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
                 IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
                     = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
-
+                
                 this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Parameters
                     = pmtCustomerInfrastructureServerComputer;
+                this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.DisplayMember
+                    = "ServerModel";
                 this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Refresh();
 
                 foreach (CustomerInfrastructureAdministationSoftware customerInfrastructureAdministationSoftware
@@ -347,6 +349,8 @@ namespace Samsara.CustomerContext.Controls.Controllers
 
                 this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Parameters
                     = pmtCustomerInfrastructureServerComputer;
+                this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.DisplayMember
+                    = "ServerModel";
                 this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Refresh();
 
                 WindowsFormsUtil.SetUltraGridValueList(e.Layout, customerInfrastructureServerComputers,
