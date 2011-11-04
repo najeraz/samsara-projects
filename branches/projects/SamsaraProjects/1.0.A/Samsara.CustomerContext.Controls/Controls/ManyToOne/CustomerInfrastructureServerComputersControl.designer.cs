@@ -37,7 +37,8 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceComputerBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtManufacturerNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -58,10 +59,11 @@
             this.gbxUtilization = new System.Windows.Forms.GroupBox();
             this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.tabItmSoftware = new System.Windows.Forms.TabPage();
-            this.uceOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDBMS = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureServerComputerDBMSs = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerDBMSsControl();
+            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -80,7 +82,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceComputerBrand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
@@ -95,7 +96,6 @@
             this.gbxUtilization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
             this.tabItmSoftware.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).BeginInit();
             this.tabItmDBMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,6 +142,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 120);
             // 
             // upnDetailButtons
@@ -197,13 +198,13 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.cbcComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.txtManufacturerNumber);
             this.tabItmPrincipal.Controls.Add(this.txtModel);
             this.tabItmPrincipal.Controls.Add(this.txtSerialNumber);
             this.tabItmPrincipal.Controls.Add(this.lblModel);
             this.tabItmPrincipal.Controls.Add(this.lblSerialNumber);
             this.tabItmPrincipal.Controls.Add(this.lblManufacturerNumber);
-            this.tabItmPrincipal.Controls.Add(this.uceComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.lblComputerBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 198);
             // 
@@ -247,13 +248,6 @@
             // ubtnCloseRelation
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
-            // 
-            // uceComputerBrand
-            // 
-            this.uceComputerBrand.Location = new System.Drawing.Point(124, 18);
-            this.uceComputerBrand.Name = "uceComputerBrand";
-            this.uceComputerBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceComputerBrand.TabIndex = 108;
             // 
             // lblComputerBrand
             // 
@@ -432,20 +426,13 @@
             // tabItmSoftware
             // 
             this.tabItmSoftware.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmSoftware.Controls.Add(this.uceOperativeSystem);
+            this.tabItmSoftware.Controls.Add(this.oscOperativeSystem);
             this.tabItmSoftware.Controls.Add(this.lblOperativeSystem);
             this.tabItmSoftware.Location = new System.Drawing.Point(4, 22);
             this.tabItmSoftware.Name = "tabItmSoftware";
             this.tabItmSoftware.Size = new System.Drawing.Size(696, 198);
             this.tabItmSoftware.TabIndex = 3;
             this.tabItmSoftware.Text = "Software General";
-            // 
-            // uceOperativeSystem
-            // 
-            this.uceOperativeSystem.Location = new System.Drawing.Point(134, 14);
-            this.uceOperativeSystem.Name = "uceOperativeSystem";
-            this.uceOperativeSystem.Size = new System.Drawing.Size(226, 21);
-            this.uceOperativeSystem.TabIndex = 94;
             // 
             // lblOperativeSystem
             // 
@@ -469,11 +456,44 @@
             // mtoCustomerInfrastructureServerComputerDBMSs
             // 
             this.mtoCustomerInfrastructureServerComputerDBMSs.CustomerInfrastructureServerComputer = null;
+            this.mtoCustomerInfrastructureServerComputerDBMSs.CustomParent = null;
             this.mtoCustomerInfrastructureServerComputerDBMSs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoCustomerInfrastructureServerComputerDBMSs.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureServerComputerDBMSs.Name = "mtoCustomerInfrastructureServerComputerDBMSs";
             this.mtoCustomerInfrastructureServerComputerDBMSs.Size = new System.Drawing.Size(696, 198);
             this.mtoCustomerInfrastructureServerComputerDBMSs.TabIndex = 0;
+            // 
+            // cbcComputerBrand
+            // 
+            this.cbcComputerBrand.CustomParent = null;
+            this.cbcComputerBrand.DisplayMember = "Name";
+            this.cbcComputerBrand.Location = new System.Drawing.Point(124, 17);
+            this.cbcComputerBrand.Name = "cbcComputerBrand";
+            computerBrandParameters1.ComputerBrandId = null;
+            computerBrandParameters1.Description = null;
+            computerBrandParameters1.Name = null;
+            this.cbcComputerBrand.Parameters = computerBrandParameters1;
+            this.cbcComputerBrand.ReadOnly = false;
+            this.cbcComputerBrand.Size = new System.Drawing.Size(226, 22);
+            this.cbcComputerBrand.TabIndex = 117;
+            this.cbcComputerBrand.Value = null;
+            this.cbcComputerBrand.ValueMember = "ComputerBrandId";
+            // 
+            // dcDBMS
+            // 
+            this.oscOperativeSystem.CustomParent = null;
+            this.oscOperativeSystem.DisplayMember = "Name";
+            this.oscOperativeSystem.Location = new System.Drawing.Point(118, 14);
+            this.oscOperativeSystem.Name = "oscOperativeSystem";
+            operativeSystemParameters1.OperativeSystemId = null;
+            operativeSystemParameters1.Description = null;
+            operativeSystemParameters1.Name = null;
+            this.oscOperativeSystem.Parameters = operativeSystemParameters1;
+            this.oscOperativeSystem.ReadOnly = false;
+            this.oscOperativeSystem.Size = new System.Drawing.Size(226, 22);
+            this.oscOperativeSystem.TabIndex = 95;
+            this.oscOperativeSystem.Value = null;
+            this.oscOperativeSystem.ValueMember = "OperativeSystemId";
             // 
             // CustomerInfrastructureServerComputersControl
             // 
@@ -500,7 +520,6 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceComputerBrand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
@@ -520,7 +539,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
             this.tabItmSoftware.ResumeLayout(false);
             this.tabItmSoftware.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).EndInit();
             this.tabItmDBMS.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -528,7 +546,6 @@
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceComputerBrand;
         private Infragistics.Win.Misc.UltraLabel lblComputerBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtManufacturerNumber;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
@@ -548,11 +565,12 @@
         private Infragistics.Win.Misc.UltraLabel lblRAM;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtScalability;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceOperativeSystem;
         private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
         private System.Windows.Forms.GroupBox gbxScalability;
         private System.Windows.Forms.GroupBox gbxUtilization;
         internal CustomerInfrastructureServerComputerDBMSsControl mtoCustomerInfrastructureServerComputerDBMSs;
+        internal Choosers.OperativeSystemChooserControl oscOperativeSystem;
+        internal Choosers.ComputerBrandChooserControl cbcComputerBrand;
 
 
     }

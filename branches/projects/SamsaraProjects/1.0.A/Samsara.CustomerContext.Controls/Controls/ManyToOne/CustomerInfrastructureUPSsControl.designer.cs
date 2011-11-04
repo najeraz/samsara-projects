@@ -37,12 +37,14 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceUPSType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.UPSBrandParameters upsBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.UPSBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.UPSTypeParameters upsTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.UPSTypeParameters();
             this.lblUPSType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceUPSBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblUPSBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtCapacity = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblCapacity = new Infragistics.Win.Misc.UltraLabel();
+            this.ubcUPSBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.UPSBrandChooserControl();
+            this.utcUPSType = new Samsara.CustomerContext.Controls.Controls.Choosers.UPSTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -61,8 +63,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceUPSType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceUPSBrand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCapacity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,6 +109,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -155,11 +156,11 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.utcUPSType);
+            this.tabItmPrincipal.Controls.Add(this.ubcUPSBrand);
             this.tabItmPrincipal.Controls.Add(this.txtCapacity);
             this.tabItmPrincipal.Controls.Add(this.lblCapacity);
-            this.tabItmPrincipal.Controls.Add(this.uceUPSType);
             this.tabItmPrincipal.Controls.Add(this.lblUPSType);
-            this.tabItmPrincipal.Controls.Add(this.uceUPSBrand);
             this.tabItmPrincipal.Controls.Add(this.lblUPSBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
@@ -204,13 +205,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceUPSType
-            // 
-            this.uceUPSType.Location = new System.Drawing.Point(88, 45);
-            this.uceUPSType.Name = "uceUPSType";
-            this.uceUPSType.Size = new System.Drawing.Size(226, 21);
-            this.uceUPSType.TabIndex = 109;
-            // 
             // lblUPSType
             // 
             this.lblUPSType.AutoSize = true;
@@ -219,13 +213,6 @@
             this.lblUPSType.Size = new System.Drawing.Size(29, 14);
             this.lblUPSType.TabIndex = 107;
             this.lblUPSType.Text = "Tipo:";
-            // 
-            // uceUPSBrand
-            // 
-            this.uceUPSBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceUPSBrand.Name = "uceUPSBrand";
-            this.uceUPSBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceUPSBrand.TabIndex = 108;
             // 
             // lblUPSBrand
             // 
@@ -252,6 +239,38 @@
             this.lblCapacity.TabIndex = 110;
             this.lblCapacity.Text = "Capacidad:";
             // 
+            // ucUPSBrand
+            // 
+            this.ubcUPSBrand.CustomParent = null;
+            this.ubcUPSBrand.DisplayMember = "Name";
+            this.ubcUPSBrand.Location = new System.Drawing.Point(88, 17);
+            this.ubcUPSBrand.Name = "ucUPSBrand";
+            upsBrandParameters1.Description = null;
+            upsBrandParameters1.Name = null;
+            upsBrandParameters1.UPSBrandId = null;
+            this.ubcUPSBrand.Parameters = upsBrandParameters1;
+            this.ubcUPSBrand.ReadOnly = false;
+            this.ubcUPSBrand.Size = new System.Drawing.Size(226, 22);
+            this.ubcUPSBrand.TabIndex = 112;
+            this.ubcUPSBrand.Value = null;
+            this.ubcUPSBrand.ValueMember = "UPSBrandId";
+            // 
+            // ucUPSType
+            // 
+            this.utcUPSType.CustomParent = null;
+            this.utcUPSType.DisplayMember = "Name";
+            this.utcUPSType.Location = new System.Drawing.Point(88, 45);
+            this.utcUPSType.Name = "ucUPSType";
+            upsTypeParameters1.Description = null;
+            upsTypeParameters1.Name = null;
+            upsTypeParameters1.UPSTypeId = null;
+            this.utcUPSType.Parameters = upsTypeParameters1;
+            this.utcUPSType.ReadOnly = false;
+            this.utcUPSType.Size = new System.Drawing.Size(226, 22);
+            this.utcUPSType.TabIndex = 113;
+            this.utcUPSType.Value = null;
+            this.utcUPSType.ValueMember = "UPSTypeId";
+            // 
             // CustomerInfrastructureUPSsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,8 +296,6 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceUPSType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceUPSBrand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCapacity)).EndInit();
             this.ResumeLayout(false);
 
@@ -286,12 +303,12 @@
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceUPSType;
         private Infragistics.Win.Misc.UltraLabel lblUPSType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceUPSBrand;
         private Infragistics.Win.Misc.UltraLabel lblUPSBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtCapacity;
         private Infragistics.Win.Misc.UltraLabel lblCapacity;
+        internal Choosers.UPSTypeChooserControl utcUPSType;
+        internal Choosers.UPSBrandChooserControl ubcUPSBrand;
 
 
     }

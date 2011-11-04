@@ -80,15 +80,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 SecuritySoftwareBrandParameters pmtSecuritySoftwareBrand = new SecuritySoftwareBrandParameters();
 
-                IList<SecuritySoftwareBrand> cctvBrands = this.srvSecuritySoftwareBrand.GetListByParameters(pmtSecuritySoftwareBrand);
-                WindowsFormsUtil.LoadCombo<SecuritySoftwareBrand>(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand,
-                    cctvBrands, "SecuritySoftwareBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Parameters = pmtSecuritySoftwareBrand;
+                this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Refresh();
 
                 SecuritySoftwareTypeParameters pmtSecuritySoftwareType = new SecuritySoftwareTypeParameters();
 
-                IList<SecuritySoftwareType> cctvTypes = this.srvSecuritySoftwareType.GetListByParameters(pmtSecuritySoftwareType);
-                WindowsFormsUtil.LoadCombo<SecuritySoftwareType>(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType,
-                    cctvTypes, "SecuritySoftwareTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Parameters = pmtSecuritySoftwareType;
+                this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Refresh();
 
                 this.controlCustomerInfrastructureSecuritySoftwares.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -141,8 +139,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Value = null;
+            this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Value = null;
             this.controlCustomerInfrastructureSecuritySoftwares.uchkConsoleInstalled.Checked = false;
             this.controlCustomerInfrastructureSecuritySoftwares.steNumberOfClients.Value = null;
         }
@@ -202,11 +200,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureSecuritySoftwares
                     .Single(x => x.CustomerInfrastructureSecuritySoftwareId == entityId);
 
-            this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Value
-                = this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand.SecuritySoftwareBrandId;
+            this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Value
+                = this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand;
 
-            this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.Value
-                = this.customerInfrastructureSecuritySoftware.SecuritySoftwareType.SecuritySoftwareTypeId;
+            this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Value
+                = this.customerInfrastructureSecuritySoftware.SecuritySoftwareType;
 
             this.controlCustomerInfrastructureSecuritySoftwares.steNumberOfClients.Value
                 = this.customerInfrastructureSecuritySoftware.NumberOfClients;
@@ -219,11 +217,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand = this.srvSecuritySoftwareBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Value));
+            this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand
+                = this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Value;
 
-            this.customerInfrastructureSecuritySoftware.SecuritySoftwareType = this.srvSecuritySoftwareType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.Value));
+            this.customerInfrastructureSecuritySoftware.SecuritySoftwareType
+                = this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Value;
 
             this.customerInfrastructureSecuritySoftware.NumberOfClients
                 = Convert.ToInt32(this.controlCustomerInfrastructureSecuritySoftwares.steNumberOfClients.Value);
@@ -237,21 +235,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Software.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.Focus();
+                this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.Value) <= 0)
+            if (this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del Software.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.Focus();
+                this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.Focus();
                 return false;
             }
 
@@ -301,8 +297,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureSecuritySoftwares.uceSecuritySoftwareBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureSecuritySoftwares.sstcSecuritySoftwareType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureSecuritySoftwares.steNumberOfClients.ReadOnly = !enabled;
             this.controlCustomerInfrastructureSecuritySoftwares.uchkConsoleInstalled.Enabled = enabled;
         }

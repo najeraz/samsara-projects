@@ -77,9 +77,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 DBMSParameters pmtDBMS = new DBMSParameters();
 
-                IList<DBMS> cctvBrands = this.srvDBMS.GetListByParameters(pmtDBMS);
-                WindowsFormsUtil.LoadCombo<DBMS>(this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS,
-                    cctvBrands, "DBMSId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Parameters = pmtDBMS;
+                this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Refresh();
 
                 this.controlCustomerInfrastructureServerComputerDBMSs.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -134,7 +133,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Value = null;
             this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text = string.Empty;
         }
 
@@ -192,8 +191,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureServerComputerDBMSs
                     .Single(x => x.CustomerInfrastructureServerComputerDBMSId == entityId);
 
-            this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value
-                = this.customerInfrastructureServerComputerDBMS.DBMS.DBMSId;
+            this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Value
+                = this.customerInfrastructureServerComputerDBMS.DBMS;
 
             this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text
                 = this.customerInfrastructureServerComputerDBMS.Description;
@@ -204,7 +203,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             base.LoadEntity();
 
             this.customerInfrastructureServerComputerDBMS.DBMS = this.srvDBMS
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value));
+                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Value));
 
             this.customerInfrastructureServerComputerDBMS.Description 
                 = this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text;
@@ -215,12 +214,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Value) <= 0)
+            if (this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Sistema Gestor de Base de Datos.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.Focus();
+                this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Focus();
                 return false;
             }
 
@@ -273,7 +271,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureServerComputerDBMSs.uceDBMS.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.ReadOnly = !enabled;
         }
 
