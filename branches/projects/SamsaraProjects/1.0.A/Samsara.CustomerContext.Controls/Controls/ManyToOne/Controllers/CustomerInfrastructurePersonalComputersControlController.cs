@@ -83,15 +83,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 ComputerBrandParameters pmtComputerBrand = new ComputerBrandParameters();
 
-                IList<ComputerBrand> cctvBrands = this.srvComputerBrand.GetListByParameters(pmtComputerBrand);
-                WindowsFormsUtil.LoadCombo<ComputerBrand>(this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand,
-                    cctvBrands, "ComputerBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Parameters = pmtComputerBrand;
+                this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Refresh();
 
                 PersonalComputerTypeParameters pmtPersonalComputerType = new PersonalComputerTypeParameters();
 
-                IList<PersonalComputerType> cctvTypes = this.srvPersonalComputerType.GetListByParameters(pmtPersonalComputerType);
-                WindowsFormsUtil.LoadCombo<PersonalComputerType>(this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType,
-                    cctvTypes, "PersonalComputerTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Parameters = pmtPersonalComputerType;
+                this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Refresh();
 
                 OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
 
@@ -156,8 +154,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value = null;
+            this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
             this.controlCustomerInfrastructurePersonalComputers.txtCPU.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Value = null;
@@ -222,11 +220,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructurePersonalComputers
                     .Single(x => x.CustomerInfrastructurePersonalComputerId == entityId);
 
-            this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Value
-                = this.customerInfrastructurePersonalComputer.ComputerBrand.ComputerBrandId;
+            this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value
+                = this.customerInfrastructurePersonalComputer.ComputerBrand;
 
-            this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Value
-                = this.customerInfrastructurePersonalComputer.PersonalComputerType.PersonalComputerTypeId;
+            this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value
+                = this.customerInfrastructurePersonalComputer.PersonalComputerType;
 
             if (this.customerInfrastructurePersonalComputer.OperativeSystem == null)
                 this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
@@ -257,11 +255,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructurePersonalComputer.ComputerBrand = this.srvComputerBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Value));
+            this.customerInfrastructurePersonalComputer.ComputerBrand
+                = this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value;
 
-            this.customerInfrastructurePersonalComputer.PersonalComputerType = this.srvPersonalComputerType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Value));
+            this.customerInfrastructurePersonalComputer.PersonalComputerType
+                = this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value;
 
             this.customerInfrastructurePersonalComputer.OperativeSystem = this.srvOperativeSystem
                 .GetById(Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value));
@@ -290,21 +288,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca de la Computadora.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.Focus();
+                this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Value) <= 0)
+            if (this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo de la Computadora.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.Focus();
+                this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Focus();
                 return false;
             }
 
@@ -361,8 +357,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructurePersonalComputers.ucePersonalComputerType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructurePersonalComputers.uceComputerBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtModel.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtCPU.ReadOnly = !enabled;
