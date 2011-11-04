@@ -75,11 +75,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                RackTypeParameters pmtRack = new RackTypeParameters();
+                RackTypeParameters pmtRackType = new RackTypeParameters();
 
-                IList<RackType> cctvBrands = this.srvRackType.GetListByParameters(pmtRack);
-                WindowsFormsUtil.LoadCombo<RackType>(this.controlCustomerInfrastructureNetworkSiteRacks.uceRack,
-                    cctvBrands, "RackTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Parameters = pmtRackType;
+                this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Refresh();
 
                 this.controlCustomerInfrastructureNetworkSiteRacks.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -128,7 +127,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Value = null;
             this.controlCustomerInfrastructureNetworkSiteRacks.steQuantity.Value = string.Empty;
         }
 
@@ -186,8 +185,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkSiteRacks
                     .Single(x => x.CustomerInfrastructureNetworkSiteRackId == entityId);
 
-            this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Value
-                = this.customerInfrastructureNetworkSiteRack.RackType.RackTypeId;
+            this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Value
+                = this.customerInfrastructureNetworkSiteRack.RackType;
 
             this.controlCustomerInfrastructureNetworkSiteRacks.steQuantity.Value
                 = this.customerInfrastructureNetworkSiteRack.Quantity;
@@ -197,8 +196,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkSiteRack.RackType = this.srvRackType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Value));
+            this.customerInfrastructureNetworkSiteRack.RackType
+                = this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Value;
 
             this.customerInfrastructureNetworkSiteRack.Quantity 
                 = Convert.ToInt32(this.controlCustomerInfrastructureNetworkSiteRacks.steQuantity.Value);
@@ -209,12 +208,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo de Rack.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.Focus();
+                this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Focus();
                 return false;
             }
 
@@ -262,7 +260,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureNetworkSiteRacks.uceRack.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkSiteRacks.steQuantity.ReadOnly = !enabled;
         }
 

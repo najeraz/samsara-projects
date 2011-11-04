@@ -38,10 +38,11 @@
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureISPsControl));
+            Samsara.CustomerContext.Core.Parameters.ISPParameters ispParameters1 = new Samsara.CustomerContext.Core.Parameters.ISPParameters();
             this.lblBandwidth = new Infragistics.Win.Misc.UltraLabel();
-            this.uceISP = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblISP = new Infragistics.Win.Misc.UltraLabel();
             this.steBandwidth = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.icISP = new Samsara.CustomerContext.Controls.Controls.Choosers.ISPChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -60,7 +61,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceISP)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -106,6 +106,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 250);
             // 
             // upnDetailButtons
@@ -152,9 +153,9 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.icISP);
             this.tabItmPrincipal.Controls.Add(this.steBandwidth);
             this.tabItmPrincipal.Controls.Add(this.lblBandwidth);
-            this.tabItmPrincipal.Controls.Add(this.uceISP);
             this.tabItmPrincipal.Controls.Add(this.lblISP);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 68);
             // 
@@ -208,13 +209,6 @@
             this.lblBandwidth.TabIndex = 110;
             this.lblBandwidth.Text = "Ancho de Banda:";
             // 
-            // uceISP
-            // 
-            this.uceISP.Location = new System.Drawing.Point(118, 9);
-            this.uceISP.Name = "uceISP";
-            this.uceISP.Size = new System.Drawing.Size(226, 21);
-            this.uceISP.TabIndex = 108;
-            // 
             // lblISP
             // 
             this.lblISP.AutoSize = true;
@@ -226,6 +220,7 @@
             // 
             // steBandwidth
             // 
+            this.steBandwidth.CustomParent = null;
             this.steBandwidth.Location = new System.Drawing.Point(118, 36);
             this.steBandwidth.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
             this.steBandwidth.Name = "steBandwidth";
@@ -233,6 +228,22 @@
             this.steBandwidth.Size = new System.Drawing.Size(226, 20);
             this.steBandwidth.TabIndex = 111;
             this.steBandwidth.Value = ((object)(resources.GetObject("steBandwidth.Value")));
+            // 
+            // icISP
+            // 
+            this.icISP.CustomParent = null;
+            this.icISP.DisplayMember = "Name";
+            this.icISP.Location = new System.Drawing.Point(118, 8);
+            this.icISP.Name = "icISP";
+            ispParameters1.Description = null;
+            ispParameters1.ISPId = null;
+            ispParameters1.Name = null;
+            this.icISP.Parameters = ispParameters1;
+            this.icISP.ReadOnly = false;
+            this.icISP.Size = new System.Drawing.Size(226, 22);
+            this.icISP.TabIndex = 112;
+            this.icISP.Value = null;
+            this.icISP.ValueMember = "ISPId";
             // 
             // CustomerInfrastructureISPsControl
             // 
@@ -259,7 +270,6 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceISP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,9 +277,9 @@
         #endregion
 
         private Infragistics.Win.Misc.UltraLabel lblBandwidth;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceISP;
         private Infragistics.Win.Misc.UltraLabel lblISP;
         public Samsara.Controls.Controls.SamsaraTextEditor steBandwidth;
+        internal Choosers.ISPChooserControl icISP;
 
 
     }

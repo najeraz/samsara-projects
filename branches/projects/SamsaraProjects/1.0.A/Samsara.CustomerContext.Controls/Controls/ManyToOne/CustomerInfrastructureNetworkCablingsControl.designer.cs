@@ -37,10 +37,11 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceNetworkCablingType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.NetworkCablingTypeParameters networkCablingTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.NetworkCablingTypeParameters();
             this.lblNetworkCablingType = new Infragistics.Win.Misc.UltraLabel();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.lblCategory = new Infragistics.Win.Misc.UltraLabel();
+            this.nctcNetworkCablingType = new Samsara.CustomerContext.Controls.Controls.Choosers.NetworkCablingTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -59,7 +60,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceNetworkCablingType)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -105,6 +105,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 255);
             // 
             // upnDetailButtons
@@ -151,8 +152,8 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.nctcNetworkCablingType);
             this.tabItmPrincipal.Controls.Add(this.txtCategory);
-            this.tabItmPrincipal.Controls.Add(this.uceNetworkCablingType);
             this.tabItmPrincipal.Controls.Add(this.lblCategory);
             this.tabItmPrincipal.Controls.Add(this.lblNetworkCablingType);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 63);
@@ -198,13 +199,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceNetworkCablingType
-            // 
-            this.uceNetworkCablingType.Location = new System.Drawing.Point(89, 9);
-            this.uceNetworkCablingType.Name = "uceNetworkCablingType";
-            this.uceNetworkCablingType.Size = new System.Drawing.Size(226, 21);
-            this.uceNetworkCablingType.TabIndex = 109;
-            // 
             // lblNetworkCablingType
             // 
             this.lblNetworkCablingType.AutoSize = true;
@@ -229,6 +223,22 @@
             this.lblCategory.Size = new System.Drawing.Size(56, 14);
             this.lblCategory.TabIndex = 107;
             this.lblCategory.Text = "Categoría:";
+            // 
+            // nctcNetworkCablingType
+            // 
+            this.nctcNetworkCablingType.CustomParent = null;
+            this.nctcNetworkCablingType.DisplayMember = "Name";
+            this.nctcNetworkCablingType.Location = new System.Drawing.Point(89, 8);
+            this.nctcNetworkCablingType.Name = "nctcNetworkCablingType";
+            networkCablingTypeParameters1.Description = null;
+            networkCablingTypeParameters1.Name = null;
+            networkCablingTypeParameters1.NetworkCablingTypeId = null;
+            this.nctcNetworkCablingType.Parameters = networkCablingTypeParameters1;
+            this.nctcNetworkCablingType.ReadOnly = false;
+            this.nctcNetworkCablingType.Size = new System.Drawing.Size(226, 22);
+            this.nctcNetworkCablingType.TabIndex = 111;
+            this.nctcNetworkCablingType.Value = null;
+            this.nctcNetworkCablingType.ValueMember = "NetworkCablingTypeId";
             // 
             // CustomerInfrastructureNetworkCablingsControl
             // 
@@ -255,17 +265,16 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceNetworkCablingType)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceNetworkCablingType;
         private Infragistics.Win.Misc.UltraLabel lblNetworkCablingType;
         private Infragistics.Win.Misc.UltraLabel lblCategory;
         internal System.Windows.Forms.TextBox txtCategory;
+        internal Choosers.NetworkCablingTypeChooserControl nctcNetworkCablingType;
 
 
     }

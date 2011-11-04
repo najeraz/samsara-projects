@@ -38,9 +38,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceAccessPointType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.AccessPointBrandParameters accessPointBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.AccessPointBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.AccessPointTypeParameters accessPointTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.AccessPointTypeParameters();
             this.lblAccessPointType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceAccessPointBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblAccessPointBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.lblModel = new Infragistics.Win.Misc.UltraLabel();
@@ -48,6 +48,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.txtBandWidth = new System.Windows.Forms.TextBox();
             this.lblDistance = new Infragistics.Win.Misc.UltraLabel();
             this.txtDistance = new System.Windows.Forms.TextBox();
+            this.apbcAccessPointBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.AccessPointBrandChooserControl();
+            this.aptcAccessPointType = new Samsara.CustomerContext.Controls.Controls.Choosers.AccessPointTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -66,8 +68,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceAccessPointType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceAccessPointBrand)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -113,6 +113,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 233);
             // 
             // upnDetailButtons
@@ -159,15 +160,15 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.aptcAccessPointType);
+            this.tabItmPrincipal.Controls.Add(this.apbcAccessPointBrand);
             this.tabItmPrincipal.Controls.Add(this.txtDistance);
             this.tabItmPrincipal.Controls.Add(this.lblDistance);
             this.tabItmPrincipal.Controls.Add(this.txtBandWidth);
             this.tabItmPrincipal.Controls.Add(this.lblBandWidth);
             this.tabItmPrincipal.Controls.Add(this.txtModel);
             this.tabItmPrincipal.Controls.Add(this.lblModel);
-            this.tabItmPrincipal.Controls.Add(this.uceAccessPointType);
             this.tabItmPrincipal.Controls.Add(this.lblAccessPointType);
-            this.tabItmPrincipal.Controls.Add(this.uceAccessPointBrand);
             this.tabItmPrincipal.Controls.Add(this.lblAccessPointBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 85);
             // 
@@ -212,13 +213,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceAccessPointType
-            // 
-            this.uceAccessPointType.Location = new System.Drawing.Point(87, 45);
-            this.uceAccessPointType.Name = "uceAccessPointType";
-            this.uceAccessPointType.Size = new System.Drawing.Size(226, 21);
-            this.uceAccessPointType.TabIndex = 109;
-            // 
             // lblAccessPointType
             // 
             this.lblAccessPointType.AutoSize = true;
@@ -227,13 +221,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblAccessPointType.Size = new System.Drawing.Size(29, 14);
             this.lblAccessPointType.TabIndex = 107;
             this.lblAccessPointType.Text = "Tipo:";
-            // 
-            // uceAccessPointBrand
-            // 
-            this.uceAccessPointBrand.Location = new System.Drawing.Point(87, 18);
-            this.uceAccessPointBrand.Name = "uceAccessPointBrand";
-            this.uceAccessPointBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceAccessPointBrand.TabIndex = 108;
             // 
             // lblAccessPointBrand
             // 
@@ -292,6 +279,38 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.txtDistance.Size = new System.Drawing.Size(226, 20);
             this.txtDistance.TabIndex = 113;
             // 
+            // apbcAccessPointBrand
+            // 
+            this.apbcAccessPointBrand.CustomParent = null;
+            this.apbcAccessPointBrand.DisplayMember = "Name";
+            this.apbcAccessPointBrand.Location = new System.Drawing.Point(87, 17);
+            this.apbcAccessPointBrand.Name = "apbcAccessPointBrand";
+            accessPointBrandParameters1.AccessPointBrandId = null;
+            accessPointBrandParameters1.Description = null;
+            accessPointBrandParameters1.Name = null;
+            this.apbcAccessPointBrand.Parameters = accessPointBrandParameters1;
+            this.apbcAccessPointBrand.ReadOnly = false;
+            this.apbcAccessPointBrand.Size = new System.Drawing.Size(226, 22);
+            this.apbcAccessPointBrand.TabIndex = 114;
+            this.apbcAccessPointBrand.Value = null;
+            this.apbcAccessPointBrand.ValueMember = "AccessPointBrandId";
+            // 
+            // aptcAccessPointType
+            // 
+            this.aptcAccessPointType.CustomParent = null;
+            this.aptcAccessPointType.DisplayMember = "Name";
+            this.aptcAccessPointType.Location = new System.Drawing.Point(87, 45);
+            this.aptcAccessPointType.Name = "aptcAccessPointType";
+            accessPointTypeParameters1.AccessPointTypeId = null;
+            accessPointTypeParameters1.Description = null;
+            accessPointTypeParameters1.Name = null;
+            this.aptcAccessPointType.Parameters = accessPointTypeParameters1;
+            this.aptcAccessPointType.ReadOnly = false;
+            this.aptcAccessPointType.Size = new System.Drawing.Size(226, 22);
+            this.aptcAccessPointType.TabIndex = 115;
+            this.aptcAccessPointType.Value = null;
+            this.aptcAccessPointType.ValueMember = "AccessPointTypeId";
+            // 
             // CustomerInfrastructureNetworkWifiAccessPointsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,17 +336,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceAccessPointType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceAccessPointBrand)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceAccessPointType;
         private Infragistics.Win.Misc.UltraLabel lblAccessPointType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceAccessPointBrand;
         private Infragistics.Win.Misc.UltraLabel lblAccessPointBrand;
         internal System.Windows.Forms.TextBox txtDistance;
         private Infragistics.Win.Misc.UltraLabel lblDistance;
@@ -335,6 +350,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel lblBandWidth;
         internal System.Windows.Forms.TextBox txtModel;
         private Infragistics.Win.Misc.UltraLabel lblModel;
+        internal Choosers.AccessPointTypeChooserControl aptcAccessPointType;
+        internal Choosers.AccessPointBrandChooserControl apbcAccessPointBrand;
 
 
     }

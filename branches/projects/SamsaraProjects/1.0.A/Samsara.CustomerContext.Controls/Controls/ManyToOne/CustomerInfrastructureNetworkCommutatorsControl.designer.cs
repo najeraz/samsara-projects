@@ -39,14 +39,16 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureNetworkCommutatorsControl));
-            this.uceCommutatorType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.CommutatorTypeParameters commutatorTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.CommutatorTypeParameters();
+            Samsara.CustomerContext.Core.Parameters.CommutatorBrandParameters commutatorBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.CommutatorBrandParameters();
             this.lblCommutatorType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceCommutatorBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblCommutatorBrand = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfLines = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfTrunks = new Infragistics.Win.Misc.UltraLabel();
             this.steNumberOfTrunks = new Samsara.Controls.Controls.SamsaraTextEditor();
             this.steNumberOfExtensions = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.ctcCommutatorType = new Samsara.CustomerContext.Controls.Controls.Choosers.CommutatorTypeChooserControl();
+            this.cbcCommutatorBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.CommutatorBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -65,8 +67,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorBrand)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -112,6 +112,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -158,11 +159,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.cbcCommutatorBrand);
+            this.tabItmPrincipal.Controls.Add(this.ctcCommutatorType);
             this.tabItmPrincipal.Controls.Add(this.steNumberOfExtensions);
             this.tabItmPrincipal.Controls.Add(this.steNumberOfTrunks);
-            this.tabItmPrincipal.Controls.Add(this.uceCommutatorType);
             this.tabItmPrincipal.Controls.Add(this.lblCommutatorType);
-            this.tabItmPrincipal.Controls.Add(this.uceCommutatorBrand);
             this.tabItmPrincipal.Controls.Add(this.lblNumberOfTrunks);
             this.tabItmPrincipal.Controls.Add(this.lblNumberOfLines);
             this.tabItmPrincipal.Controls.Add(this.lblCommutatorBrand);
@@ -209,13 +210,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceCommutatorType
-            // 
-            this.uceCommutatorType.Location = new System.Drawing.Point(88, 45);
-            this.uceCommutatorType.Name = "uceCommutatorType";
-            this.uceCommutatorType.Size = new System.Drawing.Size(226, 21);
-            this.uceCommutatorType.TabIndex = 109;
-            // 
             // lblCommutatorType
             // 
             this.lblCommutatorType.AutoSize = true;
@@ -224,13 +218,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblCommutatorType.Size = new System.Drawing.Size(29, 14);
             this.lblCommutatorType.TabIndex = 107;
             this.lblCommutatorType.Text = "Tipo:";
-            // 
-            // uceCommutatorBrand
-            // 
-            this.uceCommutatorBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceCommutatorBrand.Name = "uceCommutatorBrand";
-            this.uceCommutatorBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceCommutatorBrand.TabIndex = 108;
             // 
             // lblCommutatorBrand
             // 
@@ -261,6 +248,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // steNumberOfTrunks
             // 
+            this.steNumberOfTrunks.CustomParent = null;
             this.steNumberOfTrunks.Location = new System.Drawing.Point(448, 18);
             this.steNumberOfTrunks.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfTrunks.Name = "steNumberOfTrunks";
@@ -271,6 +259,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // steNumberOfExtensions
             // 
+            this.steNumberOfExtensions.CustomParent = null;
             this.steNumberOfExtensions.Location = new System.Drawing.Point(448, 48);
             this.steNumberOfExtensions.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfExtensions.Name = "steNumberOfExtensions";
@@ -278,6 +267,38 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.steNumberOfExtensions.Size = new System.Drawing.Size(226, 20);
             this.steNumberOfExtensions.TabIndex = 110;
             this.steNumberOfExtensions.Value = ((object)(resources.GetObject("steNumberOfExtensions.Value")));
+            // 
+            // ctcCommutatorType
+            // 
+            this.ctcCommutatorType.CustomParent = null;
+            this.ctcCommutatorType.DisplayMember = "Name";
+            this.ctcCommutatorType.Location = new System.Drawing.Point(88, 45);
+            this.ctcCommutatorType.Name = "ctcCommutatorType";
+            commutatorTypeParameters1.CommutatorTypeId = null;
+            commutatorTypeParameters1.Description = null;
+            commutatorTypeParameters1.Name = null;
+            this.ctcCommutatorType.Parameters = commutatorTypeParameters1;
+            this.ctcCommutatorType.ReadOnly = false;
+            this.ctcCommutatorType.Size = new System.Drawing.Size(226, 22);
+            this.ctcCommutatorType.TabIndex = 112;
+            this.ctcCommutatorType.Value = null;
+            this.ctcCommutatorType.ValueMember = "CommutatorTypeId";
+            // 
+            // cbcCommutatorBrand
+            // 
+            this.cbcCommutatorBrand.CustomParent = null;
+            this.cbcCommutatorBrand.DisplayMember = "Name";
+            this.cbcCommutatorBrand.Location = new System.Drawing.Point(88, 17);
+            this.cbcCommutatorBrand.Name = "cbcCommutatorBrand";
+            commutatorBrandParameters1.CommutatorBrandId = null;
+            commutatorBrandParameters1.Description = null;
+            commutatorBrandParameters1.Name = null;
+            this.cbcCommutatorBrand.Parameters = commutatorBrandParameters1;
+            this.cbcCommutatorBrand.ReadOnly = false;
+            this.cbcCommutatorBrand.Size = new System.Drawing.Size(226, 22);
+            this.cbcCommutatorBrand.TabIndex = 113;
+            this.cbcCommutatorBrand.Value = null;
+            this.cbcCommutatorBrand.ValueMember = "CommutatorBrandId";
             // 
             // CustomerInfrastructureNetworkCommutatorsControl
             // 
@@ -304,22 +325,20 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceCommutatorBrand)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCommutatorType;
         private Infragistics.Win.Misc.UltraLabel lblCommutatorType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceCommutatorBrand;
         private Infragistics.Win.Misc.UltraLabel lblCommutatorBrand;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfTrunks;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfLines;
         internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfExtensions;
         internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfTrunks;
+        internal Choosers.CommutatorTypeChooserControl ctcCommutatorType;
+        internal Choosers.CommutatorBrandChooserControl cbcCommutatorBrand;
 
 
     }
