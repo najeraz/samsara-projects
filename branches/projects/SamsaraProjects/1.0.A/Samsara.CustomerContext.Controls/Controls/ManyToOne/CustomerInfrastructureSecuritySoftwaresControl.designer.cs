@@ -38,13 +38,15 @@
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureSecuritySoftwaresControl));
+            Samsara.CustomerContext.Core.Parameters.SecuritySoftwareBrandParameters securitySoftwareBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.SecuritySoftwareBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.SecuritySoftwareTypeParameters securitySoftwareTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.SecuritySoftwareTypeParameters();
             this.lblSecuritySoftwareType = new Infragistics.Win.Misc.UltraLabel();
             this.lblSecuritySoftwareBrand = new Infragistics.Win.Misc.UltraLabel();
             this.uchkConsoleInstalled = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.lblNumberOfClients = new Infragistics.Win.Misc.UltraLabel();
             this.steNumberOfClients = new Samsara.Controls.Controls.SamsaraTextEditor();
-            this.uceSecuritySoftwareBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.uceSecuritySoftwareType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ssbSecuritySoftwareBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.SecuritySoftwareBrandChooserControl();
+            this.sstcSecuritySoftwareType = new Samsara.CustomerContext.Controls.Controls.Choosers.SecuritySoftwareTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -64,8 +66,6 @@
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkConsoleInstalled)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSecuritySoftwareBrand)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSecuritySoftwareType)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -158,12 +158,12 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.sstcSecuritySoftwareType);
+            this.tabItmPrincipal.Controls.Add(this.ssbSecuritySoftwareBrand);
             this.tabItmPrincipal.Controls.Add(this.steNumberOfClients);
             this.tabItmPrincipal.Controls.Add(this.uchkConsoleInstalled);
             this.tabItmPrincipal.Controls.Add(this.lblNumberOfClients);
-            this.tabItmPrincipal.Controls.Add(this.uceSecuritySoftwareType);
             this.tabItmPrincipal.Controls.Add(this.lblSecuritySoftwareType);
-            this.tabItmPrincipal.Controls.Add(this.uceSecuritySoftwareBrand);
             this.tabItmPrincipal.Controls.Add(this.lblSecuritySoftwareBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
@@ -255,19 +255,37 @@
             this.steNumberOfClients.TabIndex = 113;
             this.steNumberOfClients.Value = ((object)(resources.GetObject("steNumberOfClients.Value")));
             // 
-            // uceSecuritySoftwareBrand
+            // ssbSecuritySoftwareBrand
             // 
-            this.uceSecuritySoftwareBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceSecuritySoftwareBrand.Name = "uceSecuritySoftwareBrand";
-            this.uceSecuritySoftwareBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceSecuritySoftwareBrand.TabIndex = 108;
+            this.ssbSecuritySoftwareBrand.CustomParent = null;
+            this.ssbSecuritySoftwareBrand.DisplayMember = "Name";
+            this.ssbSecuritySoftwareBrand.Location = new System.Drawing.Point(88, 17);
+            this.ssbSecuritySoftwareBrand.Name = "ssbSecuritySoftwareBrand";
+            securitySoftwareBrandParameters1.Description = null;
+            securitySoftwareBrandParameters1.Name = null;
+            securitySoftwareBrandParameters1.SecuritySoftwareBrandId = null;
+            this.ssbSecuritySoftwareBrand.Parameters = securitySoftwareBrandParameters1;
+            this.ssbSecuritySoftwareBrand.ReadOnly = false;
+            this.ssbSecuritySoftwareBrand.Size = new System.Drawing.Size(226, 22);
+            this.ssbSecuritySoftwareBrand.TabIndex = 114;
+            this.ssbSecuritySoftwareBrand.Value = null;
+            this.ssbSecuritySoftwareBrand.ValueMember = "SecuritySoftwareBrandId";
             // 
-            // uceSecuritySoftwareType
+            // sstcSecuritySoftwareType
             // 
-            this.uceSecuritySoftwareType.Location = new System.Drawing.Point(88, 45);
-            this.uceSecuritySoftwareType.Name = "uceSecuritySoftwareType";
-            this.uceSecuritySoftwareType.Size = new System.Drawing.Size(226, 21);
-            this.uceSecuritySoftwareType.TabIndex = 109;
+            this.sstcSecuritySoftwareType.CustomParent = null;
+            this.sstcSecuritySoftwareType.DisplayMember = "Name";
+            this.sstcSecuritySoftwareType.Location = new System.Drawing.Point(88, 45);
+            this.sstcSecuritySoftwareType.Name = "sstcSecuritySoftwareType";
+            securitySoftwareTypeParameters1.Description = null;
+            securitySoftwareTypeParameters1.Name = null;
+            securitySoftwareTypeParameters1.SecuritySoftwareTypeId = null;
+            this.sstcSecuritySoftwareType.Parameters = securitySoftwareTypeParameters1;
+            this.sstcSecuritySoftwareType.ReadOnly = false;
+            this.sstcSecuritySoftwareType.Size = new System.Drawing.Size(226, 22);
+            this.sstcSecuritySoftwareType.TabIndex = 115;
+            this.sstcSecuritySoftwareType.Value = null;
+            this.sstcSecuritySoftwareType.ValueMember = "SecuritySoftwareTypeId";
             // 
             // CustomerInfrastructureSecuritySoftwaresControl
             // 
@@ -295,8 +313,6 @@
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uchkConsoleInstalled)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSecuritySoftwareBrand)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSecuritySoftwareType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,8 +324,8 @@
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkConsoleInstalled;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfClients;
         internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfClients;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSecuritySoftwareType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSecuritySoftwareBrand;
+        internal Choosers.SecuritySoftwareTypeChooserControl sstcSecuritySoftwareType;
+        internal Choosers.SecuritySoftwareBrandChooserControl ssbSecuritySoftwareBrand;
 
 
     }

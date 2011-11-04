@@ -80,15 +80,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 UPSBrandParameters pmtUPSBrand = new UPSBrandParameters();
 
-                IList<UPSBrand> cctvBrands = this.srvUPSBrand.GetListByParameters(pmtUPSBrand);
-                WindowsFormsUtil.LoadCombo<UPSBrand>(this.controlCustomerInfrastructureUPSs.uceUPSBrand,
-                    cctvBrands, "UPSBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Parameters = pmtUPSBrand;
+                this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Refresh();
 
                 UPSTypeParameters pmtUPSType = new UPSTypeParameters();
 
-                IList<UPSType> cctvTypes = this.srvUPSType.GetListByParameters(pmtUPSType);
-                WindowsFormsUtil.LoadCombo<UPSType>(this.controlCustomerInfrastructureUPSs.uceUPSType,
-                    cctvTypes, "UPSTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureUPSs.utcUPSType.Parameters = pmtUPSType;
+                this.controlCustomerInfrastructureUPSs.utcUPSType.Refresh();
 
                 this.controlCustomerInfrastructureUPSs.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -136,8 +134,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureUPSs.uceUPSBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureUPSs.uceUPSType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Value = null;
+            this.controlCustomerInfrastructureUPSs.utcUPSType.Value = null;
             this.controlCustomerInfrastructureUPSs.txtCapacity.Text = string.Empty;
         }
 
@@ -191,11 +189,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.customerInfrastructureUPS = this.CustomerInfrastructure.CustomerInfrastructureUPSs
                     .Single(x => x.CustomerInfrastructureUPSId == entityId);
 
-            this.controlCustomerInfrastructureUPSs.uceUPSBrand.Value
-                = this.customerInfrastructureUPS.UPSBrand.UPSBrandId;
+            this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Value
+                = this.customerInfrastructureUPS.UPSBrand;
 
-            this.controlCustomerInfrastructureUPSs.uceUPSType.Value
-                = this.customerInfrastructureUPS.UPSType.UPSTypeId;
+            this.controlCustomerInfrastructureUPSs.utcUPSType.Value
+                = this.customerInfrastructureUPS.UPSType;
 
             this.controlCustomerInfrastructureUPSs.txtCapacity.Text
                 = this.customerInfrastructureUPS.Capacity;
@@ -205,11 +203,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureUPS.UPSBrand = this.srvUPSBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureUPSs.uceUPSBrand.Value));
+            this.customerInfrastructureUPS.UPSBrand = this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Value;
 
-            this.customerInfrastructureUPS.UPSType = this.srvUPSType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureUPSs.uceUPSType.Value));
+            this.customerInfrastructureUPS.UPSType = this.controlCustomerInfrastructureUPSs.utcUPSType.Value;
 
             this.customerInfrastructureUPS.Capacity = this.controlCustomerInfrastructureUPSs.txtCapacity.Text;
         }
@@ -219,21 +215,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureUPSs.uceUPSBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureUPSs.uceUPSBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del UPS.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureUPSs.uceUPSBrand.Focus();
+                this.controlCustomerInfrastructureUPSs.ubcUPSBrand.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureUPSs.uceUPSType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureUPSs.uceUPSType.Value) <= 0)
+            if (this.controlCustomerInfrastructureUPSs.utcUPSType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del UPS.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureUPSs.uceUPSType.Focus();
+                this.controlCustomerInfrastructureUPSs.utcUPSType.Focus();
                 return false;
             }
 
@@ -281,8 +275,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureUPSs.uceUPSType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureUPSs.uceUPSBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureUPSs.utcUPSType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureUPSs.ubcUPSBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureUPSs.txtCapacity.ReadOnly = !enabled;
         }
 

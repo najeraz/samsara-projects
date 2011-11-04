@@ -80,15 +80,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 TelephonyProviderParameters pmtTelephonyProvider = new TelephonyProviderParameters();
 
-                IList<TelephonyProvider> cctvBrands = this.srvTelephonyProvider.GetListByParameters(pmtTelephonyProvider);
-                WindowsFormsUtil.LoadCombo<TelephonyProvider>(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider,
-                    cctvBrands, "TelephonyProviderId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Parameters = pmtTelephonyProvider;
+                this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Refresh();
 
                 TelephonyLineTypeParameters pmtTelephonyLineType = new TelephonyLineTypeParameters();
 
-                IList<TelephonyLineType> cctvTypes = this.srvTelephonyLineType.GetListByParameters(pmtTelephonyLineType);
-                WindowsFormsUtil.LoadCombo<TelephonyLineType>(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType,
-                    cctvTypes, "TelephonyLineTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Parameters = pmtTelephonyLineType;
+                this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Refresh();
 
                 this.controlCustomerInfrastructureTelephonies.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -137,8 +135,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value = null;
+            this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Value = null;
             this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value = null;
         }
 
@@ -192,11 +190,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
                     .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value
-                = this.customerInfrastructureTelephony.TelephonyProvider.TelephonyProviderId;
+            this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value
+                = this.customerInfrastructureTelephony.TelephonyProvider;
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value
-                = this.customerInfrastructureTelephony.TelephonyLineType.TelephonyLineTypeId;
+            this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Value
+                = this.customerInfrastructureTelephony.TelephonyLineType;
 
             this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value
                 = this.customerInfrastructureTelephony.NumberOfLines;
@@ -206,11 +204,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureTelephony.TelephonyProvider = this.srvTelephonyProvider
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value));
+            this.customerInfrastructureTelephony.TelephonyProvider
+                = this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value;
 
-            this.customerInfrastructureTelephony.TelephonyLineType = this.srvTelephonyLineType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value));
+            this.customerInfrastructureTelephony.TelephonyLineType
+                = this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Value;
 
             this.customerInfrastructureTelephony.NumberOfLines 
                 = Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.steNumberOfLines.Value);
@@ -221,21 +219,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Value) <= 0)
+            if (this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Proveedor de Internet.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.Focus();
+                this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Value) <= 0)
+            if (this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo de Linea Telefónica.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.Focus();
+                this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.Focus();
                 return false;
             }
 
@@ -283,8 +279,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureTelephonies.uceTelephonyLineType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureTelephonies.uceTelephonyProvider.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.ReadOnly = !enabled;
             this.controlCustomerInfrastructureTelephonies.steNumberOfLines.ReadOnly = !enabled;
         }
 
