@@ -204,14 +204,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
-            this.tscDetTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderStatusChooserControl();
-            this.acDetApprovedBy = new Samsara.ProjectsAndTendering.Controls.Controls.AsesorChooserControl();
-            this.acDetAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.AsesorChooserControl();
-            this.eucDetEndUser = new Samsara.ProjectsAndTendering.Controls.Controls.EndUserChooserControl();
-            this.dcDetDependency = new Samsara.ProjectsAndTendering.Controls.Controls.DependencyChooserControl();
-            this.bcDetBidder = new Samsara.ProjectsAndTendering.Controls.Controls.BidderChooserControl();
-            this.oscDetRelatedOpportunity = new Samsara.ProjectsAndTendering.Controls.Controls.OpportunitySearchControl();
-            this.tscPreviousTender = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSearchControl();
+            this.tscDetTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
+            this.acDetApprovedBy = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
+            this.acDetAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
+            this.eucDetEndUser = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.EndUserChooserControl();
+            this.dcDetDependency = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl();
+            this.bcDetBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
+            this.oscDetRelatedOpportunity = new Samsara.ProjectsAndTendering.Controls.Controls.Search.OpportunitySearchControl();
+            this.tscPreviousTender = new Samsara.ProjectsAndTendering.Controls.Controls.Search.TenderSearchControl();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbDetAddress = new System.Windows.Forms.GroupBox();
@@ -374,11 +374,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ubgxSchFechas = new Infragistics.Win.Misc.UltraGroupBox();
             this.uosSchDates = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.lblSchEndUser = new System.Windows.Forms.Label();
-            this.eucSchEndUser = new Samsara.ProjectsAndTendering.Controls.Controls.EndUserChooserControl();
-            this.dcSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.DependencyChooserControl();
-            this.bcSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.BidderChooserControl();
-            this.acSchAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.AsesorChooserControl();
-            this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderStatusChooserControl();
+            this.eucSchEndUser = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.EndUserChooserControl();
+            this.dcSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl();
+            this.bcSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
+            this.acSchAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
+            this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -3354,7 +3354,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateManufacturer;
         private System.Windows.Forms.Label lblPreviousTender;
         internal System.Windows.Forms.TabControl tcDetTextControls;
-        internal Samsara.ProjectsAndTendering.Controls.Controls.TenderSearchControl tscPreviousTender;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Search.TenderSearchControl tscPreviousTender;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAcquisitionReason;
         internal System.Windows.Forms.GroupBox gbxDetAcquisitionReason;
         internal System.Windows.Forms.Label lblDetVeredictDate;
@@ -3363,7 +3363,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal System.Windows.Forms.GroupBox gbDetAddress;
         internal System.Windows.Forms.Label lblDetTenderName;
         internal System.Windows.Forms.Label lblDetRelatedOpportunity;
-        internal Samsara.ProjectsAndTendering.Controls.Controls.OpportunitySearchControl oscDetRelatedOpportunity;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Search.OpportunitySearchControl oscDetRelatedOpportunity;
         private System.Windows.Forms.TabPage Competitors;
         internal Samsara.Controls.SamsaraUltraGrid grdDetTenderCompetitors;
         private Infragistics.Win.Misc.UltraPanel upDetCompetitorsButtons;
@@ -3477,17 +3477,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal System.Windows.Forms.Label lblDetPreresultCompetitor;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultManufacturer;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPreresultCompetitor;
-        internal Controls.Controls.TenderStatusChooserControl tscDetTenderStatus;
-        internal Controls.Controls.AsesorChooserControl acDetApprovedBy;
-        internal Controls.Controls.AsesorChooserControl acDetAsesor;
-        internal Controls.Controls.EndUserChooserControl eucDetEndUser;
-        internal Controls.Controls.DependencyChooserControl dcDetDependency;
-        internal Controls.Controls.BidderChooserControl bcDetBidder;
-        internal Controls.Controls.EndUserChooserControl eucSchEndUser;
-        internal Controls.Controls.DependencyChooserControl dcSchDependency;
-        internal Controls.Controls.BidderChooserControl bcSchBidder;
-        internal Controls.Controls.TenderStatusChooserControl tscSchTenderStatus;
-        internal Controls.Controls.AsesorChooserControl acSchAsesor;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl tscDetTenderStatus;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl acDetApprovedBy;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl acDetAsesor;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.EndUserChooserControl eucDetEndUser;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl dcDetDependency;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl bcDetBidder;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.EndUserChooserControl eucSchEndUser;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl dcSchDependency;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl bcSchBidder;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl tscSchTenderStatus;
+        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl acSchAsesor;
     }
 }
 
