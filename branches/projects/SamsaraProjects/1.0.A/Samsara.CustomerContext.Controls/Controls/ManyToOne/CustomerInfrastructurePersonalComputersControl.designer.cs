@@ -37,9 +37,9 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.ucePersonalComputerType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters personalComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters();
             this.lblPersonalComputerType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceComputerBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtManufacturerReferenceNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtSerialNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -57,6 +57,8 @@
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.lblModel = new Infragistics.Win.Misc.UltraLabel();
             this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
+            this.pctcPersonalComputerType = new Samsara.CustomerContext.Controls.Controls.Choosers.PersonalComputerTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -75,8 +77,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ucePersonalComputerType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceComputerBrand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerReferenceNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
             this.tabItmSpecs.SuspendLayout();
@@ -132,6 +132,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 211);
             // 
             // upnDetailButtons
@@ -183,15 +184,15 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.pctcPersonalComputerType);
+            this.tabItmPrincipal.Controls.Add(this.cbcComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.txtManufacturerReferenceNumber);
             this.tabItmPrincipal.Controls.Add(this.txtModel);
             this.tabItmPrincipal.Controls.Add(this.lblModel);
             this.tabItmPrincipal.Controls.Add(this.txtSerialNumber);
             this.tabItmPrincipal.Controls.Add(this.lblSerie);
             this.tabItmPrincipal.Controls.Add(this.lblManufacturerReferenceNumber);
-            this.tabItmPrincipal.Controls.Add(this.ucePersonalComputerType);
             this.tabItmPrincipal.Controls.Add(this.lblPersonalComputerType);
-            this.tabItmPrincipal.Controls.Add(this.uceComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.lblComputerBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 107);
             // 
@@ -236,13 +237,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // ucePersonalComputerType
-            // 
-            this.ucePersonalComputerType.Location = new System.Drawing.Point(88, 45);
-            this.ucePersonalComputerType.Name = "ucePersonalComputerType";
-            this.ucePersonalComputerType.Size = new System.Drawing.Size(226, 21);
-            this.ucePersonalComputerType.TabIndex = 109;
-            // 
             // lblPersonalComputerType
             // 
             this.lblPersonalComputerType.AutoSize = true;
@@ -251,13 +245,6 @@
             this.lblPersonalComputerType.Size = new System.Drawing.Size(29, 14);
             this.lblPersonalComputerType.TabIndex = 107;
             this.lblPersonalComputerType.Text = "Tipo:";
-            // 
-            // uceComputerBrand
-            // 
-            this.uceComputerBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceComputerBrand.Name = "uceComputerBrand";
-            this.uceComputerBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceComputerBrand.TabIndex = 108;
             // 
             // lblComputerBrand
             // 
@@ -408,6 +395,38 @@
             this.txtModel.Size = new System.Drawing.Size(226, 21);
             this.txtModel.TabIndex = 115;
             // 
+            // cbcComputerBrand
+            // 
+            this.cbcComputerBrand.CustomParent = null;
+            this.cbcComputerBrand.DisplayMember = "Name";
+            this.cbcComputerBrand.Location = new System.Drawing.Point(88, 17);
+            this.cbcComputerBrand.Name = "cbcComputerBrand";
+            computerBrandParameters1.ComputerBrandId = null;
+            computerBrandParameters1.Description = null;
+            computerBrandParameters1.Name = null;
+            this.cbcComputerBrand.Parameters = computerBrandParameters1;
+            this.cbcComputerBrand.ReadOnly = false;
+            this.cbcComputerBrand.Size = new System.Drawing.Size(226, 22);
+            this.cbcComputerBrand.TabIndex = 116;
+            this.cbcComputerBrand.Value = null;
+            this.cbcComputerBrand.ValueMember = "ComputerBrandId";
+            // 
+            // pctcPersonalComputerType
+            // 
+            this.pctcPersonalComputerType.CustomParent = null;
+            this.pctcPersonalComputerType.DisplayMember = "Name";
+            this.pctcPersonalComputerType.Location = new System.Drawing.Point(88, 45);
+            this.pctcPersonalComputerType.Name = "pctcPersonalComputerType";
+            personalComputerTypeParameters1.Description = null;
+            personalComputerTypeParameters1.Name = null;
+            personalComputerTypeParameters1.PersonalComputerTypeId = null;
+            this.pctcPersonalComputerType.Parameters = personalComputerTypeParameters1;
+            this.pctcPersonalComputerType.ReadOnly = false;
+            this.pctcPersonalComputerType.Size = new System.Drawing.Size(226, 22);
+            this.pctcPersonalComputerType.TabIndex = 117;
+            this.pctcPersonalComputerType.Value = null;
+            this.pctcPersonalComputerType.ValueMember = "PersonalComputerTypeId";
+            // 
             // CustomerInfrastructurePersonalComputersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,8 +452,6 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ucePersonalComputerType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceComputerBrand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerReferenceNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
             this.tabItmSpecs.ResumeLayout(false);
@@ -454,9 +471,7 @@
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor ucePersonalComputerType;
         private Infragistics.Win.Misc.UltraLabel lblPersonalComputerType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceComputerBrand;
         private Infragistics.Win.Misc.UltraLabel lblComputerBrand;
         private System.Windows.Forms.TabPage tabItmSpecs;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtManufacturerReferenceNumber;
@@ -474,6 +489,8 @@
         private System.Windows.Forms.GroupBox gbxStorage;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
         private Infragistics.Win.Misc.UltraLabel lblModel;
+        internal Choosers.PersonalComputerTypeChooserControl pctcPersonalComputerType;
+        internal Choosers.ComputerBrandChooserControl cbcComputerBrand;
 
 
     }
