@@ -80,15 +80,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 ComputerBrandParameters pmtComputerBrand = new ComputerBrandParameters();
 
-                IList<ComputerBrand> cctvBrands = this.srvComputerBrand.GetListByParameters(pmtComputerBrand);
-                WindowsFormsUtil.LoadCombo<ComputerBrand>(this.controlCustomerInfrastructureServerComputers.uceComputerBrand,
-                    cctvBrands, "ComputerBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Parameters = pmtComputerBrand;
+                this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Refresh();
 
                 OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
 
-                IList<OperativeSystem> cctvTypes = this.srvOperativeSystem.GetListByParameters(pmtOperativeSystem);
-                WindowsFormsUtil.LoadCombo<OperativeSystem>(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem,
-                    cctvTypes, "OperativeSystemId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
+                this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Refresh();
 
                 this.controlCustomerInfrastructureServerComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -159,8 +157,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Value = null;
+            this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Value = null;
             this.controlCustomerInfrastructureServerComputers.txtUtilization.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtCPU.Text = string.Empty;
             this.controlCustomerInfrastructureServerComputers.txtManufacturerNumber.Text = string.Empty;
@@ -229,14 +227,14 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureServerComputers
                     .Single(x => x.CustomerInfrastructureServerComputerId == entityId);
 
-            this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value
-                = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
+            this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Value
+                = this.customerInfrastructureServerComputer.ComputerBrand;
 
             if (this.customerInfrastructureServerComputer.OperativeSystem == null)
-                this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
+                this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Value = null;
             else
-                this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value
-                    = this.customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
+                this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Value
+                    = this.customerInfrastructureServerComputer.OperativeSystem;
 
             this.controlCustomerInfrastructureServerComputers.txtUtilization.Text
                 = this.customerInfrastructureServerComputer.Utilization;
@@ -266,11 +264,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureServerComputer.ComputerBrand = this.srvComputerBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value));
+            this.customerInfrastructureServerComputer.ComputerBrand 
+                = this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Value;
 
-            this.customerInfrastructureServerComputer.OperativeSystem = this.srvOperativeSystem
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.Value));
+            this.customerInfrastructureServerComputer.OperativeSystem 
+                = this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Value;
 
             this.customerInfrastructureServerComputer.Utilization
                 = this.controlCustomerInfrastructureServerComputers.txtUtilization.Text;
@@ -295,12 +293,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Servidor.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureServerComputers.uceComputerBrand.Focus();
+                this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Focus();
                 return false;
             }
 
@@ -358,8 +355,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureServerComputers.uceOperativeSystem.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureServerComputers.uceComputerBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.txtUtilization.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.txtCPU.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.txtManufacturerNumber.ReadOnly = !enabled;
@@ -391,8 +388,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
 
             IList<OperativeSystem> cctvTypes = this.srvOperativeSystem.GetListByParameters(pmtOperativeSystem);
-            WindowsFormsUtil.LoadCombo<OperativeSystem>(this.controlCustomerInfrastructureServerComputers.uceOperativeSystem,
-                cctvTypes, "OperativeSystemId", "Name", "Seleccione");
+
+            this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
+            this.controlCustomerInfrastructureServerComputers.oscOperativeSystem.Refresh();
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["OperativeSystemId"], "OperativeSystemId", "Name", "Seleccione");

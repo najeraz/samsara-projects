@@ -39,6 +39,7 @@
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
             Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters personalComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters();
+            Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             this.lblPersonalComputerType = new Infragistics.Win.Misc.UltraLabel();
             this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtManufacturerReferenceNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -53,12 +54,12 @@
             this.lblCPU = new Infragistics.Win.Misc.UltraLabel();
             this.lblRAM = new Infragistics.Win.Misc.UltraLabel();
             this.Software = new System.Windows.Forms.TabPage();
-            this.uceOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.lblModel = new Infragistics.Win.Misc.UltraLabel();
             this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
             this.pctcPersonalComputerType = new Samsara.CustomerContext.Controls.Controls.Choosers.PersonalComputerTypeChooserControl();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -85,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).BeginInit();
             this.Software.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
             this.SuspendLayout();
             // 
@@ -355,20 +355,13 @@
             // Software
             // 
             this.Software.BackColor = System.Drawing.Color.Transparent;
-            this.Software.Controls.Add(this.uceOperativeSystem);
+            this.Software.Controls.Add(this.oscOperativeSystem);
             this.Software.Controls.Add(this.lblOperativeSystem);
             this.Software.Location = new System.Drawing.Point(4, 22);
             this.Software.Name = "Software";
             this.Software.Size = new System.Drawing.Size(696, 107);
             this.Software.TabIndex = 2;
             this.Software.Text = "Software";
-            // 
-            // uceOperativeSystem
-            // 
-            this.uceOperativeSystem.Location = new System.Drawing.Point(130, 13);
-            this.uceOperativeSystem.Name = "uceOperativeSystem";
-            this.uceOperativeSystem.Size = new System.Drawing.Size(226, 21);
-            this.uceOperativeSystem.TabIndex = 94;
             // 
             // lblOperativeSystem
             // 
@@ -427,6 +420,24 @@
             this.pctcPersonalComputerType.Value = null;
             this.pctcPersonalComputerType.ValueMember = "PersonalComputerTypeId";
             // 
+            // oscOperativeSystem
+            // 
+            this.oscOperativeSystem.CustomParent = null;
+            this.oscOperativeSystem.DisplayMember = "Name";
+            this.oscOperativeSystem.Location = new System.Drawing.Point(122, 14);
+            this.oscOperativeSystem.Name = "oscOperativeSystem";
+            operativeSystemParameters1.Description = null;
+            operativeSystemParameters1.IsLegit = null;
+            operativeSystemParameters1.Name = null;
+            operativeSystemParameters1.OperativeSystemId = null;
+            operativeSystemParameters1.OperativeSystemTypeId = null;
+            this.oscOperativeSystem.Parameters = operativeSystemParameters1;
+            this.oscOperativeSystem.ReadOnly = false;
+            this.oscOperativeSystem.Size = new System.Drawing.Size(226, 22);
+            this.oscOperativeSystem.TabIndex = 94;
+            this.oscOperativeSystem.Value = null;
+            this.oscOperativeSystem.ValueMember = "OperativeSystemId";
+            // 
             // CustomerInfrastructurePersonalComputersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,7 +474,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).EndInit();
             this.Software.ResumeLayout(false);
             this.Software.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceOperativeSystem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
             this.ResumeLayout(false);
 
@@ -484,13 +494,13 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtCPU;
         private Infragistics.Win.Misc.UltraLabel lblCPU;
         private Infragistics.Win.Misc.UltraLabel lblRAM;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceOperativeSystem;
         private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
         private System.Windows.Forms.GroupBox gbxStorage;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
         private Infragistics.Win.Misc.UltraLabel lblModel;
         internal Choosers.PersonalComputerTypeChooserControl pctcPersonalComputerType;
         internal Choosers.ComputerBrandChooserControl cbcComputerBrand;
+        internal Choosers.OperativeSystemChooserControl oscOperativeSystem;
 
 
     }

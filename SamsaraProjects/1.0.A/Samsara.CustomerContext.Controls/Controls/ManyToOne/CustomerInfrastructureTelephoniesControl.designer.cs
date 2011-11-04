@@ -38,12 +38,14 @@
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureTelephoniesControl));
-            this.uceTelephonyLineType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.TelephonyLineTypeParameters telephonyLineTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.TelephonyLineTypeParameters();
+            Samsara.CustomerContext.Core.Parameters.TelephonyProviderParameters telephonyProviderParameters1 = new Samsara.CustomerContext.Core.Parameters.TelephonyProviderParameters();
             this.lblTelephonyLineType = new Infragistics.Win.Misc.UltraLabel();
-            this.uceTelephonyProvider = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.lblTelephonyProvider = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfLines = new Infragistics.Win.Misc.UltraLabel();
             this.steNumberOfLines = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.tltcTelephonyLineType = new Samsara.CustomerContext.Controls.Controls.Choosers.TelephonyLineTypeChooserControl();
+            this.tpcTelephonyProvider = new Samsara.CustomerContext.Controls.Controls.Choosers.TelephonyProviderChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,8 +64,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceTelephonyLineType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceTelephonyProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -109,6 +109,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -155,11 +156,11 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.tpcTelephonyProvider);
+            this.tabItmPrincipal.Controls.Add(this.tltcTelephonyLineType);
             this.tabItmPrincipal.Controls.Add(this.steNumberOfLines);
             this.tabItmPrincipal.Controls.Add(this.lblNumberOfLines);
-            this.tabItmPrincipal.Controls.Add(this.uceTelephonyLineType);
             this.tabItmPrincipal.Controls.Add(this.lblTelephonyLineType);
-            this.tabItmPrincipal.Controls.Add(this.uceTelephonyProvider);
             this.tabItmPrincipal.Controls.Add(this.lblTelephonyProvider);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
             // 
@@ -204,13 +205,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceTelephonyLineType
-            // 
-            this.uceTelephonyLineType.Location = new System.Drawing.Point(88, 45);
-            this.uceTelephonyLineType.Name = "uceTelephonyLineType";
-            this.uceTelephonyLineType.Size = new System.Drawing.Size(226, 21);
-            this.uceTelephonyLineType.TabIndex = 109;
-            // 
             // lblTelephonyLineType
             // 
             this.lblTelephonyLineType.AutoSize = true;
@@ -219,13 +213,6 @@
             this.lblTelephonyLineType.Size = new System.Drawing.Size(29, 14);
             this.lblTelephonyLineType.TabIndex = 107;
             this.lblTelephonyLineType.Text = "Tipo:";
-            // 
-            // uceTelephonyProvider
-            // 
-            this.uceTelephonyProvider.Location = new System.Drawing.Point(88, 18);
-            this.uceTelephonyProvider.Name = "uceTelephonyProvider";
-            this.uceTelephonyProvider.Size = new System.Drawing.Size(226, 21);
-            this.uceTelephonyProvider.TabIndex = 108;
             // 
             // lblTelephonyProvider
             // 
@@ -247,6 +234,7 @@
             // 
             // steNumberOfLines
             // 
+            this.steNumberOfLines.CustomParent = null;
             this.steNumberOfLines.Location = new System.Drawing.Point(447, 19);
             this.steNumberOfLines.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfLines.Name = "steNumberOfLines";
@@ -254,6 +242,38 @@
             this.steNumberOfLines.Size = new System.Drawing.Size(226, 20);
             this.steNumberOfLines.TabIndex = 111;
             this.steNumberOfLines.Value = ((object)(resources.GetObject("steNumberOfLines.Value")));
+            // 
+            // tltcTelephonyLineType
+            // 
+            this.tltcTelephonyLineType.CustomParent = null;
+            this.tltcTelephonyLineType.DisplayMember = "Name";
+            this.tltcTelephonyLineType.Location = new System.Drawing.Point(88, 45);
+            this.tltcTelephonyLineType.Name = "tltcTelephonyLineType";
+            telephonyLineTypeParameters1.Description = null;
+            telephonyLineTypeParameters1.Name = null;
+            telephonyLineTypeParameters1.TelephonyLineTypeId = null;
+            this.tltcTelephonyLineType.Parameters = telephonyLineTypeParameters1;
+            this.tltcTelephonyLineType.ReadOnly = false;
+            this.tltcTelephonyLineType.Size = new System.Drawing.Size(226, 22);
+            this.tltcTelephonyLineType.TabIndex = 112;
+            this.tltcTelephonyLineType.Value = null;
+            this.tltcTelephonyLineType.ValueMember = "TelephonyLineTypeId";
+            // 
+            // tpcTelephonyProvider
+            // 
+            this.tpcTelephonyProvider.CustomParent = null;
+            this.tpcTelephonyProvider.DisplayMember = "Name";
+            this.tpcTelephonyProvider.Location = new System.Drawing.Point(88, 17);
+            this.tpcTelephonyProvider.Name = "tpcTelephonyProvider";
+            telephonyProviderParameters1.Description = null;
+            telephonyProviderParameters1.Name = null;
+            telephonyProviderParameters1.TelephonyProviderId = null;
+            this.tpcTelephonyProvider.Parameters = telephonyProviderParameters1;
+            this.tpcTelephonyProvider.ReadOnly = false;
+            this.tpcTelephonyProvider.Size = new System.Drawing.Size(226, 22);
+            this.tpcTelephonyProvider.TabIndex = 113;
+            this.tpcTelephonyProvider.Value = null;
+            this.tpcTelephonyProvider.ValueMember = "TelephonyProviderId";
             // 
             // CustomerInfrastructureTelephoniesControl
             // 
@@ -280,20 +300,18 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceTelephonyLineType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uceTelephonyProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceTelephonyLineType;
         private Infragistics.Win.Misc.UltraLabel lblTelephonyLineType;
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceTelephonyProvider;
         private Infragistics.Win.Misc.UltraLabel lblTelephonyProvider;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfLines;
         internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfLines;
+        internal Choosers.TelephonyProviderChooserControl tpcTelephonyProvider;
+        internal Choosers.TelephonyLineTypeChooserControl tltcTelephonyLineType;
 
 
     }

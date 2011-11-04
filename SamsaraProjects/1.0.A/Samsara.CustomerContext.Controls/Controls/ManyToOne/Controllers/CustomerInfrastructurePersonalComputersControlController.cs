@@ -93,9 +93,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
                 OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
 
-                IList<OperativeSystem> cctvOperativeSystems = this.srvOperativeSystem.GetListByParameters(pmtOperativeSystem);
-                WindowsFormsUtil.LoadCombo<OperativeSystem>(this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem,
-                    cctvOperativeSystems, "OperativeSystemId", "Name", "Seleccione");
+                this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
+                this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Refresh();
 
                 this.controlCustomerInfrastructurePersonalComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -156,7 +155,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value = null;
-            this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.txtCPU.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.txtRAM.Value = null;
@@ -227,10 +226,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 = this.customerInfrastructurePersonalComputer.PersonalComputerType;
 
             if (this.customerInfrastructurePersonalComputer.OperativeSystem == null)
-                this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value = ParameterConstants.IntDefault;
+                this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Value = null;
             else
-                this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value
-                    = this.customerInfrastructurePersonalComputer.OperativeSystem.OperativeSystemId;
+                this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Value
+                    = this.customerInfrastructurePersonalComputer.OperativeSystem;
 
             this.controlCustomerInfrastructurePersonalComputers.txtCPU.Text
                 = this.customerInfrastructurePersonalComputer.CPU;
@@ -261,8 +260,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.customerInfrastructurePersonalComputer.PersonalComputerType
                 = this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value;
 
-            this.customerInfrastructurePersonalComputer.OperativeSystem = this.srvOperativeSystem
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.Value));
+            this.customerInfrastructurePersonalComputer.OperativeSystem 
+                = this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Value;
 
             this.customerInfrastructurePersonalComputer.RAM
                 = this.controlCustomerInfrastructurePersonalComputers.txtRAM.Text;
@@ -359,7 +358,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.ReadOnly = !enabled;
-            this.controlCustomerInfrastructurePersonalComputers.uceOperativeSystem.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtModel.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtCPU.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.ReadOnly = !enabled;
