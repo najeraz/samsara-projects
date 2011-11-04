@@ -202,8 +202,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureServerComputerDBMS.DBMS = this.srvDBMS
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Value));
+            this.customerInfrastructureServerComputerDBMS.DBMS 
+                = this.controlCustomerInfrastructureServerComputerDBMSs.dcDBMS.Value;
 
             this.customerInfrastructureServerComputerDBMS.Description 
                 = this.controlCustomerInfrastructureServerComputerDBMSs.txtDescription.Text;

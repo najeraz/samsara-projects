@@ -191,8 +191,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureISP.ISP = this.srvISP
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureISPs.icISP.Value));
+            this.customerInfrastructureISP.ISP = this.controlCustomerInfrastructureISPs.icISP.Value;
 
             //TODO - Corregir value debe ser decimal y no string con la mascara...
             this.customerInfrastructureISP.Bandwidth = Convert.ToDecimal(this.controlCustomerInfrastructureISPs.steBandwidth.Value
