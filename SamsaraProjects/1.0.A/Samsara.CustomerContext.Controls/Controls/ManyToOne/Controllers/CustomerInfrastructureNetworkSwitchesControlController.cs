@@ -77,9 +77,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 SwitchBrandParameters pmtSwitchBrand = new SwitchBrandParameters();
 
-                IList<SwitchBrand> cctvBrands = this.srvSwitchBrand.GetListByParameters(pmtSwitchBrand);
-                WindowsFormsUtil.LoadCombo<SwitchBrand>(this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand,
-                    cctvBrands, "SwitchBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Parameters = pmtSwitchBrand;
+                this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Refresh();
 
                 this.controlCustomerInfrastructureNetworkSwitches.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -129,7 +128,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Value = null;
             this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.Value = string.Empty;
             this.controlCustomerInfrastructureNetworkSwitches.txtSpeed.Text = string.Empty;
         }
@@ -188,8 +187,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkSwitches
                     .Single(x => x.CustomerInfrastructureNetworkSwitchId == entityId);
 
-            this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value
-                = this.customerInfrastructureNetworkSwitch.SwitchBrand.SwitchBrandId;
+            this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Value
+                = this.customerInfrastructureNetworkSwitch.SwitchBrand;
 
             this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.Value
                 = this.customerInfrastructureNetworkSwitch.PortQuantity;
@@ -202,8 +201,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkSwitch.SwitchBrand = this.srvSwitchBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value));
+            this.customerInfrastructureNetworkSwitch.SwitchBrand 
+                = this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Value;
 
             this.customerInfrastructureNetworkSwitch.PortQuantity
                 = Convert.ToInt32(this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.Value.ToString().Replace(",", ""));
@@ -217,12 +216,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Switch.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.Focus();
+                this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Focus();
                 return false;
             }
 
@@ -272,7 +270,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             base.EnabledDetailControls(enabled);
 
             this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureNetworkSwitches.uceSwitchBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkSwitches.txtSpeed.ReadOnly = !enabled;
         }
 

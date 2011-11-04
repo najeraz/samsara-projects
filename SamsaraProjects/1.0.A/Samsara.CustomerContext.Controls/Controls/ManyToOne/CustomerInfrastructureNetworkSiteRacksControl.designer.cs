@@ -38,10 +38,11 @@
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureNetworkSiteRacksControl));
-            this.uceRack = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
             this.lblRackType = new Infragistics.Win.Misc.UltraLabel();
             this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
+            this.rtcRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -60,7 +61,6 @@
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceRack)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -106,6 +106,7 @@
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -152,8 +153,8 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.rtcRackType);
             this.tabItmPrincipal.Controls.Add(this.steQuantity);
-            this.tabItmPrincipal.Controls.Add(this.uceRack);
             this.tabItmPrincipal.Controls.Add(this.ultraLabel1);
             this.tabItmPrincipal.Controls.Add(this.lblRackType);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
@@ -199,13 +200,6 @@
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceRack
-            // 
-            this.uceRack.Location = new System.Drawing.Point(85, 17);
-            this.uceRack.Name = "uceRack";
-            this.uceRack.Size = new System.Drawing.Size(226, 21);
-            this.uceRack.TabIndex = 108;
-            // 
             // lblRackType
             // 
             this.lblRackType.AutoSize = true;
@@ -217,6 +211,7 @@
             // 
             // steQuantity
             // 
+            this.steQuantity.CustomParent = null;
             this.steQuantity.Location = new System.Drawing.Point(85, 44);
             this.steQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steQuantity.Name = "steQuantity";
@@ -233,6 +228,22 @@
             this.ultraLabel1.Size = new System.Drawing.Size(53, 14);
             this.ultraLabel1.TabIndex = 106;
             this.ultraLabel1.Text = "Cantidad:";
+            // 
+            // rtcRackType
+            // 
+            this.rtcRackType.CustomParent = null;
+            this.rtcRackType.DisplayMember = "Name";
+            this.rtcRackType.Location = new System.Drawing.Point(85, 16);
+            this.rtcRackType.Name = "rtcRackType";
+            rackTypeParameters1.Description = null;
+            rackTypeParameters1.Name = null;
+            rackTypeParameters1.RackTypeId = null;
+            this.rtcRackType.Parameters = rackTypeParameters1;
+            this.rtcRackType.ReadOnly = false;
+            this.rtcRackType.Size = new System.Drawing.Size(226, 22);
+            this.rtcRackType.TabIndex = 110;
+            this.rtcRackType.Value = null;
+            this.rtcRackType.ValueMember = "RackTypeId";
             // 
             // CustomerInfrastructureNetworkSiteRacksControl
             // 
@@ -259,17 +270,16 @@
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceRack)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceRack;
         private Infragistics.Win.Misc.UltraLabel lblRackType;
         internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
         private Infragistics.Win.Misc.UltraLabel ultraLabel1;
+        internal Choosers.RackTypeChooserControl rtcRackType;
 
 
     }

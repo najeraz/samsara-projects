@@ -38,12 +38,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceFirewallBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.FirewallBrandParameters firewallBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.FirewallBrandParameters();
             this.lblFirewallBrand = new Infragistics.Win.Misc.UltraLabel();
             this.gbxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtFirewallModel = new System.Windows.Forms.TextBox();
             this.lblFirewallModel = new Infragistics.Win.Misc.UltraLabel();
+            this.fbFirewallBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.FirewallBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,7 +63,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceFirewallBrand)).BeginInit();
             this.gbxDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +110,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -156,9 +157,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.fbFirewallBrand);
             this.tabItmPrincipal.Controls.Add(this.txtFirewallModel);
             this.tabItmPrincipal.Controls.Add(this.gbxDescription);
-            this.tabItmPrincipal.Controls.Add(this.uceFirewallBrand);
             this.tabItmPrincipal.Controls.Add(this.lblFirewallModel);
             this.tabItmPrincipal.Controls.Add(this.lblFirewallBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
@@ -204,13 +205,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceFirewallBrand
-            // 
-            this.uceFirewallBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceFirewallBrand.Name = "uceFirewallBrand";
-            this.uceFirewallBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceFirewallBrand.TabIndex = 108;
-            // 
             // lblFirewallBrand
             // 
             this.lblFirewallBrand.AutoSize = true;
@@ -255,6 +249,22 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblFirewallModel.TabIndex = 106;
             this.lblFirewallModel.Text = "Modelo:";
             // 
+            // fbFirewallBrand
+            // 
+            this.fbFirewallBrand.CustomParent = null;
+            this.fbFirewallBrand.DisplayMember = "Name";
+            this.fbFirewallBrand.Location = new System.Drawing.Point(88, 17);
+            this.fbFirewallBrand.Name = "fbFirewallBrand";
+            firewallBrandParameters1.Description = null;
+            firewallBrandParameters1.FirewallBrandId = null;
+            firewallBrandParameters1.Name = null;
+            this.fbFirewallBrand.Parameters = firewallBrandParameters1;
+            this.fbFirewallBrand.ReadOnly = false;
+            this.fbFirewallBrand.Size = new System.Drawing.Size(226, 22);
+            this.fbFirewallBrand.TabIndex = 112;
+            this.fbFirewallBrand.Value = null;
+            this.fbFirewallBrand.ValueMember = "FirewallBrandId";
+            // 
             // CustomerInfrastructureNetworkFirewallsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,7 +290,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceFirewallBrand)).EndInit();
             this.gbxDescription.ResumeLayout(false);
             this.gbxDescription.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
@@ -290,12 +299,12 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceFirewallBrand;
         private Infragistics.Win.Misc.UltraLabel lblFirewallBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
         private System.Windows.Forms.GroupBox gbxDescription;
         private Infragistics.Win.Misc.UltraLabel lblFirewallModel;
         internal System.Windows.Forms.TextBox txtFirewallModel;
+        internal Choosers.FirewallBrandChooserControl fbFirewallBrand;
 
 
     }

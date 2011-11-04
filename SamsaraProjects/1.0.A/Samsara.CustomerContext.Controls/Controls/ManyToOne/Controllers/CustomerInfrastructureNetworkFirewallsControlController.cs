@@ -77,9 +77,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 FirewallBrandParameters pmtFirewallBrand = new FirewallBrandParameters();
 
-                IList<FirewallBrand> cctvBrands = this.srvFirewallBrand.GetListByParameters(pmtFirewallBrand);
-                WindowsFormsUtil.LoadCombo<FirewallBrand>(this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand,
-                    cctvBrands, "FirewallBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Parameters = pmtFirewallBrand;
+                this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Refresh();
 
                 this.controlCustomerInfrastructureNetworkFirewalls.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -129,7 +128,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Value = null;
             this.controlCustomerInfrastructureNetworkFirewalls.txtFirewallModel.Text = string.Empty;
             this.controlCustomerInfrastructureNetworkFirewalls.txtDescription.Text = string.Empty;
         }
@@ -189,8 +188,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkFirewalls
                     .Single(x => x.CustomerInfrastructureNetworkFirewallId == entityId);
 
-            this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Value
-                = this.customerInfrastructureNetworkFirewall.FirewallBrand.FirewallBrandId;
+            this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Value
+                = this.customerInfrastructureNetworkFirewall.FirewallBrand;
 
             this.controlCustomerInfrastructureNetworkFirewalls.txtFirewallModel.Text
                 = this.customerInfrastructureNetworkFirewall.FirewallModel;
@@ -203,8 +202,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkFirewall.FirewallBrand = this.srvFirewallBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Value));
+            this.customerInfrastructureNetworkFirewall.FirewallBrand 
+                = this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Value;
 
             this.customerInfrastructureNetworkFirewall.FirewallModel
                 = this.controlCustomerInfrastructureNetworkFirewalls.txtFirewallModel.Text;
@@ -218,12 +217,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Firewall.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.Focus();
+                this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Focus();
                 return false;
             }
 
@@ -273,7 +271,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             base.EnabledDetailControls(enabled);
 
             this.controlCustomerInfrastructureNetworkFirewalls.txtFirewallModel.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureNetworkFirewalls.uceFirewallBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkFirewalls.txtDescription.ReadOnly = !enabled;
         }
 

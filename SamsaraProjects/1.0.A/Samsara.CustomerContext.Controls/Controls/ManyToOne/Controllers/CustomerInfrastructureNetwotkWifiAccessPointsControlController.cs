@@ -80,15 +80,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 AccessPointBrandParameters pmtAccessPointBrand = new AccessPointBrandParameters();
 
-                IList<AccessPointBrand> cctvBrands = this.srvAccessPointBrand.GetListByParameters(pmtAccessPointBrand);
-                WindowsFormsUtil.LoadCombo<AccessPointBrand>(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand,
-                    cctvBrands, "AccessPointBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Parameters = pmtAccessPointBrand;
+                this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Refresh();
 
                 AccessPointTypeParameters pmtAccessPointType = new AccessPointTypeParameters();
 
-                IList<AccessPointType> cctvTypes = this.srvAccessPointType.GetListByParameters(pmtAccessPointType);
-                WindowsFormsUtil.LoadCombo<AccessPointType>(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType,
-                    cctvTypes, "AccessPointTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Parameters = pmtAccessPointType;
+                this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Refresh();
 
                 this.controlCustomerInfrastructureNetworkWifiAccessPoints.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -140,8 +138,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Value = null;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Value = null;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.Text = string.Empty;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtBandWidth.Text = string.Empty;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtDistance.Text = string.Empty;
@@ -201,11 +199,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkWifiAccessPoints
                     .Single(x => x.CustomerInfrastructureNetworkWifiAccessPointId == entityId);
 
-            this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value
-                = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand.AccessPointBrandId;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Value
+                = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand;
 
-            this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Value
-                = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType.AccessPointTypeId;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Value
+                = this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType;
 
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.Text
                 = this.customerInfrastructureNetworkWifiAccessPoint.Model;
@@ -221,11 +219,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand = this.srvAccessPointBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value));
+            this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand
+                = this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Value;
 
-            this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType = this.srvAccessPointType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Value));
+            this.customerInfrastructureNetworkWifiAccessPoint.AccessPointType
+                = this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Value;
 
             this.customerInfrastructureNetworkWifiAccessPoint.Model
                 = this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.Text;
@@ -242,21 +240,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Punto de Acceso.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.Focus();
+                this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del Punto de Acceso.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.Focus();
+                this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Focus();
                 return false;
             }
 
@@ -307,8 +303,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtBandWidth.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtDistance.ReadOnly = !enabled;
@@ -335,8 +331,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             AccessPointTypeParameters pmtAccessPointType = new AccessPointTypeParameters();
 
             IList<AccessPointType> cctvTypes = this.srvAccessPointType.GetListByParameters(pmtAccessPointType);
-            WindowsFormsUtil.LoadCombo<AccessPointType>(this.controlCustomerInfrastructureNetworkWifiAccessPoints.uceAccessPointType,
-                cctvTypes, "AccessPointTypeId", "Name", "Seleccione");
+
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Parameters = pmtAccessPointType;
+            this.controlCustomerInfrastructureNetworkWifiAccessPoints.aptcAccessPointType.Refresh();
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["AccessPointTypeId"], "AccessPointTypeId", "Name", "Seleccione");

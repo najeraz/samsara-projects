@@ -80,8 +80,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 BackupSoftwareBrandParameters pmtBackupSoftwareBrand = new BackupSoftwareBrandParameters();
 
-                IList<BackupSoftwareBrand> cctvBrands = this.srvBackupSoftwareBrand.GetListByParameters(pmtBackupSoftwareBrand);
-
                 this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Parameters = pmtBackupSoftwareBrand;
                 this.controlCustomerInfrastructureBackupSoftwares.bsbcBackupSoftwareBrand.Refresh();
 
@@ -113,8 +111,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     = new CustomerInfrastructureServerComputerParameters();
 
                 pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
-                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
-                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
 
                 this.controlCustomerInfrastructureBackupSoftwares.cisccCustomerInfrastructureServerComputer.Parameters
                     = pmtCustomerInfrastructureServerComputer;
