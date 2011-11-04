@@ -15,8 +15,8 @@ using Samsara.Support.Util;
 
 namespace Samsara.Base.Controls.Controls
 {
-    public partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : 
-        SamsaraUserControl where TDao : IGenericDao<T, TId, TPmt> where TPmt : new()
+    public partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : SamsaraUserControl
+        where TDao : IGenericDao<T, TId, TPmt> where TPmt : new()
     {
         #region Attributes
 
@@ -177,8 +177,6 @@ namespace Samsara.Base.Controls.Controls
 
         private void suceEntities_ValueChanged(object sender, EventArgs e)
         {
-            SamsaraUltraComboEditor suceValue = sender as SamsaraUltraComboEditor;
-
             this.value = (this.service as GenericService<T, TId, TDao, TPmt>)
                 .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
 
