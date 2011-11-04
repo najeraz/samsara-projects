@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Controls.Controls
+namespace Samsara.ProjectsAndTendering.Controls.Controls.Choosers
 {
     public partial class OrganizationChooserControl : SamsaraEntityChooserControl<Organization, int, IOrganizationService, IOrganizationDao, OrganizationParameters>
     {
