@@ -111,8 +111,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     = new CustomerInfrastructureServerComputerParameters();
                 
                 pmtCustomerInfrastructureServerComputer.CustomerInfrastructureId = this.CustomerInfrastructure.CustomerInfrastructureId;
-                IList<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers
-                    = this.srvCustomerInfrastructureServerComputer.GetListByParameters(pmtCustomerInfrastructureServerComputer);
                 
                 this.controlCustomerInfrastructureAdministationSoftwares.cisccDetCustomerInfrastructureServerComputer.Parameters
                     = pmtCustomerInfrastructureServerComputer;

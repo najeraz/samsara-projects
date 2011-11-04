@@ -78,9 +78,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 ISPParameters pmtISP = new ISPParameters();
 
-                IList<ISP> cctvBrands = this.srvISP.GetListByParameters(pmtISP);
-                WindowsFormsUtil.LoadCombo<ISP>(this.controlCustomerInfrastructureISPs.uceISP,
-                    cctvBrands, "ISPId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureISPs.icISP.Parameters = pmtISP;
+                this.controlCustomerInfrastructureISPs.icISP.Refresh();
 
                 this.controlCustomerInfrastructureISPs.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -127,7 +126,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureISPs.uceISP.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureISPs.icISP.Value = null;
             this.controlCustomerInfrastructureISPs.steBandwidth.Value = null;
         }
 
@@ -181,8 +180,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
                     .Single(x => x.CustomerInfrastructureISPId == entityId);
 
-            this.controlCustomerInfrastructureISPs.uceISP.Value
-                = this.customerInfrastructureISP.ISP.ISPId;
+            this.controlCustomerInfrastructureISPs.icISP.Value
+                = this.customerInfrastructureISP.ISP;
 
             this.controlCustomerInfrastructureISPs.steBandwidth.Value
                 = this.customerInfrastructureISP.Bandwidth;
@@ -193,7 +192,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             base.LoadEntity();
 
             this.customerInfrastructureISP.ISP = this.srvISP
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureISPs.uceISP.Value));
+                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureISPs.icISP.Value));
 
             //TODO - Corregir value debe ser decimal y no string con la mascara...
             this.customerInfrastructureISP.Bandwidth = Convert.ToDecimal(this.controlCustomerInfrastructureISPs.steBandwidth.Value
@@ -205,12 +204,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureISPs.uceISP.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureISPs.uceISP.Value) <= 0)
+            if (this.controlCustomerInfrastructureISPs.icISP.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el ISP.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureISPs.uceISP.Focus();
+                this.controlCustomerInfrastructureISPs.icISP.Focus();
                 return false;
             }
 
@@ -255,7 +253,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureISPs.uceISP.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureISPs.icISP.ReadOnly = !enabled;
             this.controlCustomerInfrastructureISPs.steBandwidth.ReadOnly = !enabled;
         }
 

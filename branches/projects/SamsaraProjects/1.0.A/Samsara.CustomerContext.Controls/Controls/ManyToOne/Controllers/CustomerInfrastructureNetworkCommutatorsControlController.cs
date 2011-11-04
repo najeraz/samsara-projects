@@ -80,15 +80,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 CommutatorBrandParameters pmtCommutatorBrand = new CommutatorBrandParameters();
 
-                IList<CommutatorBrand> cctvBrands = this.srvCommutatorBrand.GetListByParameters(pmtCommutatorBrand);
-                WindowsFormsUtil.LoadCombo<CommutatorBrand>(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand,
-                    cctvBrands, "CommutatorBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Parameters = pmtCommutatorBrand;
+                this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Refresh();
 
                 CommutatorTypeParameters pmtCommutatorType = new CommutatorTypeParameters();
 
-                IList<CommutatorType> cctvTypes = this.srvCommutatorType.GetListByParameters(pmtCommutatorType);
-                WindowsFormsUtil.LoadCombo<CommutatorType>(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType,
-                    cctvTypes, "CommutatorTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Parameters = pmtCommutatorType;
+                this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Refresh();
 
                 this.controlCustomerInfrastructureNetworkCommutators.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -139,8 +137,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value = ParameterConstants.IntDefault;
-            this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Value = null;
+            this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Value = null;
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfTrunks.Value = null;
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfExtensions.Value = null;
         }
@@ -200,11 +198,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkCommutators
                     .Single(x => x.CustomerInfrastructureNetworkCommutatorId == entityId);
 
-            this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value
-                = this.customerInfrastructureNetworkCommutator.CommutatorBrand.CommutatorBrandId;
+            this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Value
+                = this.customerInfrastructureNetworkCommutator.CommutatorBrand;
 
-            this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value
-                = this.customerInfrastructureNetworkCommutator.CommutatorType.CommutatorTypeId;
+            this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Value
+                = this.customerInfrastructureNetworkCommutator.CommutatorType;
 
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfTrunks.Value
                 = this.customerInfrastructureNetworkCommutator.NumberOfTrunks;
@@ -217,11 +215,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkCommutator.CommutatorBrand = this.srvCommutatorBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value));
+            this.customerInfrastructureNetworkCommutator.CommutatorBrand 
+                = this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Value;
 
-            this.customerInfrastructureNetworkCommutator.CommutatorType = this.srvCommutatorType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value));
+            this.customerInfrastructureNetworkCommutator.CommutatorType 
+                = this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Value;
 
             this.customerInfrastructureNetworkCommutator.NumberOfExtensions
                 = Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.steNumberOfExtensions.Value);
@@ -235,21 +233,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Conmutador.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.Focus();
+                this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Focus();
                 return false;
             }
 
-            if (this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del Conmutador.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.Focus();
+                this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Focus();
                 return false;
             }
 
@@ -299,8 +295,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfTrunks.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfExtensions.ReadOnly = !enabled;
         }
@@ -325,9 +321,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             CommutatorTypeParameters pmtCommutatorType = new CommutatorTypeParameters();
 
+            this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Parameters = pmtCommutatorType;
+            this.controlCustomerInfrastructureNetworkCommutators.ctcCommutatorType.Refresh();
+
             IList<CommutatorType> cctvTypes = this.srvCommutatorType.GetListByParameters(pmtCommutatorType);
-            WindowsFormsUtil.LoadCombo<CommutatorType>(this.controlCustomerInfrastructureNetworkCommutators.uceCommutatorType,
-                cctvTypes, "CommutatorTypeId", "Name", "Seleccione");
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["CommutatorTypeId"], "CommutatorTypeId", "Name", "Seleccione");

@@ -77,9 +77,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 NetworkCablingTypeParameters pmtNetworkCablingType = new NetworkCablingTypeParameters();
 
-                IList<NetworkCablingType> cctvTypes = this.srvNetworkCablingType.GetListByParameters(pmtNetworkCablingType);
-                WindowsFormsUtil.LoadCombo<NetworkCablingType>(this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType,
-                    cctvTypes, "NetworkCablingTypeId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Parameters = pmtNetworkCablingType;
+                this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Refresh();
 
                 this.controlCustomerInfrastructureNetworkCablings.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -127,7 +126,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Value = null;
             this.controlCustomerInfrastructureNetworkCablings.txtCategory.Text = string.Empty;
         }
 
@@ -186,8 +185,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkCablings
                     .Single(x => x.CustomerInfrastructureNetworkCablingId == entityId);
 
-            this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Value
-                = this.customerInfrastructureNetworkCabling.NetworkCablingType.NetworkCablingTypeId;
+            this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Value
+                = this.customerInfrastructureNetworkCabling.NetworkCablingType;
 
             this.controlCustomerInfrastructureNetworkCablings.txtCategory.Text
                 = this.customerInfrastructureNetworkCabling.Category;
@@ -197,8 +196,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkCabling.NetworkCablingType = this.srvNetworkCablingType
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Value));
+            this.customerInfrastructureNetworkCabling.NetworkCablingType 
+                = this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Value;
 
             this.customerInfrastructureNetworkCabling.Category = this.controlCustomerInfrastructureNetworkCablings.txtCategory.Text;
         }
@@ -208,12 +207,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Value == null ||
-                Convert.ToInt32(this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del Cable de Red.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.Focus();
+                this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Focus();
                 return false;
             }
 
@@ -261,7 +259,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkCablings.txtCategory.ReadOnly = !enabled;
         }
 
@@ -279,10 +277,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             NetworkCablingTypeParameters pmtNetworkCablingType = new NetworkCablingTypeParameters();
 
-            IList<NetworkCablingType> cctvTypes = this.srvNetworkCablingType.GetListByParameters(pmtNetworkCablingType);
-            WindowsFormsUtil.LoadCombo<NetworkCablingType>(this.controlCustomerInfrastructureNetworkCablings.uceNetworkCablingType,
-                cctvTypes, "NetworkCablingTypeId", "Name", "Seleccione");
+            this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Parameters = pmtNetworkCablingType;
+            this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Refresh();
 
+            IList<NetworkCablingType> cctvTypes = this.srvNetworkCablingType.GetListByParameters(pmtNetworkCablingType);
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["NetworkCablingTypeId"], "NetworkCablingTypeId", "Name", "Seleccione");
         }

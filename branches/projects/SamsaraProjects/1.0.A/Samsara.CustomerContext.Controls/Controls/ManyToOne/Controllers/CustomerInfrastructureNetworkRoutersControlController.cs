@@ -77,9 +77,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             {
                 RouterBrandParameters pmtRouterBrand = new RouterBrandParameters();
 
-                IList<RouterBrand> cctvBrands = this.srvRouterBrand.GetListByParameters(pmtRouterBrand);
-                WindowsFormsUtil.LoadCombo<RouterBrand>(this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand,
-                    cctvBrands, "RouterBrandId", "Name", "Seleccione");
+                this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Parameters = pmtRouterBrand;
+                this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Refresh();
 
                 this.controlCustomerInfrastructureNetworkRouters.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -129,7 +128,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Value = ParameterConstants.IntDefault;
+            this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Value = null;
             this.controlCustomerInfrastructureNetworkRouters.txtRouterModel.Text = string.Empty;
             this.controlCustomerInfrastructureNetworkRouters.txtDescription.Text = string.Empty;
         }
@@ -188,8 +187,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     .CustomerInfrastructureNetworkRouters
                     .Single(x => x.CustomerInfrastructureNetworkRouterId == entityId);
 
-            this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Value
-                = this.customerInfrastructureNetworkRouter.RouterBrand.RouterBrandId;
+            this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Value
+                = this.customerInfrastructureNetworkRouter.RouterBrand;
 
             this.controlCustomerInfrastructureNetworkRouters.txtRouterModel.Text
                 = this.customerInfrastructureNetworkRouter.RouterModel;
@@ -202,8 +201,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             base.LoadEntity();
 
-            this.customerInfrastructureNetworkRouter.RouterBrand = this.srvRouterBrand
-                .GetById(Convert.ToInt32(this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Value));
+            this.customerInfrastructureNetworkRouter.RouterBrand
+                = this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Value;
 
             this.customerInfrastructureNetworkRouter.RouterModel
                 = this.controlCustomerInfrastructureNetworkRouters.txtRouterModel.Text;
@@ -217,12 +216,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (!base.ValidateControlsData())
                 return false;
 
-            if (this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Value == null ||
-                    Convert.ToInt32(this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Value) <= 0)
+            if (this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Router.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.Focus();
+                this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Focus();
                 return false;
             }
 
@@ -272,7 +270,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             base.EnabledDetailControls(enabled);
 
             this.controlCustomerInfrastructureNetworkRouters.txtRouterModel.ReadOnly = !enabled;
-            this.controlCustomerInfrastructureNetworkRouters.uceRouterBrand.ReadOnly = !enabled;
+            this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkRouters.txtDescription.ReadOnly = !enabled;
         }
 

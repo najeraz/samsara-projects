@@ -38,12 +38,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.uceRouterBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.RouterBrandParameters routerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.RouterBrandParameters();
             this.lblRouterBrand = new Infragistics.Win.Misc.UltraLabel();
             this.gbxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtRouterModel = new System.Windows.Forms.TextBox();
             this.lblRouterModel = new Infragistics.Win.Misc.UltraLabel();
+            this.rbcRouterBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.RouterBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -62,7 +63,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceRouterBrand)).BeginInit();
             this.gbxDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +110,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -156,9 +157,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.rbcRouterBrand);
             this.tabItmPrincipal.Controls.Add(this.txtRouterModel);
             this.tabItmPrincipal.Controls.Add(this.gbxDescription);
-            this.tabItmPrincipal.Controls.Add(this.uceRouterBrand);
             this.tabItmPrincipal.Controls.Add(this.lblRouterModel);
             this.tabItmPrincipal.Controls.Add(this.lblRouterBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 79);
@@ -204,13 +205,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceRouterBrand
-            // 
-            this.uceRouterBrand.Location = new System.Drawing.Point(88, 18);
-            this.uceRouterBrand.Name = "uceRouterBrand";
-            this.uceRouterBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceRouterBrand.TabIndex = 108;
-            // 
             // lblRouterBrand
             // 
             this.lblRouterBrand.AutoSize = true;
@@ -255,6 +249,22 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblRouterModel.TabIndex = 106;
             this.lblRouterModel.Text = "Modelo:";
             // 
+            // rbcRouterBrand
+            // 
+            this.rbcRouterBrand.CustomParent = null;
+            this.rbcRouterBrand.DisplayMember = "Name";
+            this.rbcRouterBrand.Location = new System.Drawing.Point(88, 17);
+            this.rbcRouterBrand.Name = "rbcRouterBrand";
+            routerBrandParameters1.Description = null;
+            routerBrandParameters1.Name = null;
+            routerBrandParameters1.RouterBrandId = null;
+            this.rbcRouterBrand.Parameters = routerBrandParameters1;
+            this.rbcRouterBrand.ReadOnly = false;
+            this.rbcRouterBrand.Size = new System.Drawing.Size(226, 22);
+            this.rbcRouterBrand.TabIndex = 112;
+            this.rbcRouterBrand.Value = null;
+            this.rbcRouterBrand.ValueMember = "RouterBrandId";
+            // 
             // CustomerInfrastructureNetworkRoutersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,7 +290,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceRouterBrand)).EndInit();
             this.gbxDescription.ResumeLayout(false);
             this.gbxDescription.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
@@ -290,12 +299,12 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceRouterBrand;
         private Infragistics.Win.Misc.UltraLabel lblRouterBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
         private System.Windows.Forms.GroupBox gbxDescription;
         private Infragistics.Win.Misc.UltraLabel lblRouterModel;
         internal System.Windows.Forms.TextBox txtRouterModel;
+        internal Choosers.RouterBrandChooserControl rbcRouterBrand;
 
 
     }

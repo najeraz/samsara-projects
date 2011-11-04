@@ -39,12 +39,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureNetworkSwitchesControl));
-            this.uceSwitchBrand = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            Samsara.CustomerContext.Core.Parameters.SwitchBrandParameters switchBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.SwitchBrandParameters();
             this.lblSwitchBrand = new Infragistics.Win.Misc.UltraLabel();
             this.lblSpeed = new Infragistics.Win.Misc.UltraLabel();
             this.stePortsQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
             this.lblPortsQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.txtSpeed = new System.Windows.Forms.TextBox();
+            this.sbcSwitchBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.SwitchBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -63,7 +64,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uceSwitchBrand)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -109,6 +109,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.Override.TemplateAddRowAppearance = appearance9;
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Size = new System.Drawing.Size(710, 239);
             // 
             // upnDetailButtons
@@ -155,9 +156,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.sbcSwitchBrand);
             this.tabItmPrincipal.Controls.Add(this.txtSpeed);
             this.tabItmPrincipal.Controls.Add(this.stePortsQuantity);
-            this.tabItmPrincipal.Controls.Add(this.uceSwitchBrand);
             this.tabItmPrincipal.Controls.Add(this.lblPortsQuantity);
             this.tabItmPrincipal.Controls.Add(this.lblSpeed);
             this.tabItmPrincipal.Controls.Add(this.lblSwitchBrand);
@@ -204,13 +205,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // uceSwitchBrand
-            // 
-            this.uceSwitchBrand.Location = new System.Drawing.Point(90, 18);
-            this.uceSwitchBrand.Name = "uceSwitchBrand";
-            this.uceSwitchBrand.Size = new System.Drawing.Size(226, 21);
-            this.uceSwitchBrand.TabIndex = 108;
-            // 
             // lblSwitchBrand
             // 
             this.lblSwitchBrand.AutoSize = true;
@@ -231,6 +225,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             // stePortsQuantity
             // 
+            this.stePortsQuantity.CustomParent = null;
             this.stePortsQuantity.Location = new System.Drawing.Point(441, 19);
             this.stePortsQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.stePortsQuantity.Name = "stePortsQuantity";
@@ -254,6 +249,22 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.txtSpeed.Name = "txtSpeed";
             this.txtSpeed.Size = new System.Drawing.Size(226, 20);
             this.txtSpeed.TabIndex = 110;
+            // 
+            // sbcSwitchBrand
+            // 
+            this.sbcSwitchBrand.CustomParent = null;
+            this.sbcSwitchBrand.DisplayMember = "Name";
+            this.sbcSwitchBrand.Location = new System.Drawing.Point(90, 17);
+            this.sbcSwitchBrand.Name = "sbcSwitchBrand";
+            switchBrandParameters1.Description = null;
+            switchBrandParameters1.Name = null;
+            switchBrandParameters1.SwitchBrandId = null;
+            this.sbcSwitchBrand.Parameters = switchBrandParameters1;
+            this.sbcSwitchBrand.ReadOnly = false;
+            this.sbcSwitchBrand.Size = new System.Drawing.Size(226, 22);
+            this.sbcSwitchBrand.TabIndex = 111;
+            this.sbcSwitchBrand.Value = null;
+            this.sbcSwitchBrand.ValueMember = "SwitchBrandId";
             // 
             // CustomerInfrastructureNetworkSwitchesControl
             // 
@@ -280,19 +291,18 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uceSwitchBrand)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        internal Infragistics.Win.UltraWinEditors.UltraComboEditor uceSwitchBrand;
         private Infragistics.Win.Misc.UltraLabel lblSwitchBrand;
         private Infragistics.Win.Misc.UltraLabel lblSpeed;
         private Infragistics.Win.Misc.UltraLabel lblPortsQuantity;
         internal Samsara.Controls.Controls.SamsaraTextEditor stePortsQuantity;
         internal System.Windows.Forms.TextBox txtSpeed;
+        internal Choosers.SwitchBrandChooserControl sbcSwitchBrand;
 
 
     }
