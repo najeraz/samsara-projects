@@ -332,6 +332,10 @@
           type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureNetworkWifiAccessPointService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ICustomerInfrastructureNetworkWifiAccessPointDao"/>
   </object>
+  <object id="ICustomerInfrastructurePersonalComputerClassificationService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructurePersonalComputerClassificationService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructurePersonalComputerClassificationDao"/>
+  </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 

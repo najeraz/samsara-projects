@@ -56,6 +56,7 @@
     <Compile Include="Entities\BackupSoftwareBrand.cs" />
     <Compile Include="Entities\AccessPointBrand.cs" />
     <Compile Include="Entities\AccessPointType.cs" />
+    <Compile Include="Entities\CustomerInfrastructurePersonalComputerClassification.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
     <Compile Include="Entities\SecuritySoftwareType.cs" />
     <Compile Include="Entities\CustomerInfrastructureBackupSoftware.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Parameters\BusinessTypeParameters.cs" />
     <Compile Include="Parameters\AccessPointBrandParameters.cs" />
     <Compile Include="Parameters\AccessPointTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePersonalComputerClassificationParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureNetworkWifiAccessPointParameters.cs" />
     <Compile Include="Parameters\SecuritySoftwareTypeParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureAdministationSoftwareParameters.cs" />

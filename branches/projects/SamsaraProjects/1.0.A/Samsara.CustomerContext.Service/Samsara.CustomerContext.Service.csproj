@@ -88,6 +88,7 @@
     <Compile Include="Impl\CustomerInfrastructureNetworkSwitchService.cs" />
     <Compile Include="Impl\CustomerInfrastructureNetworkWifiAccessPointService.cs" />
     <Compile Include="Impl\CustomerInfrastructureNetworkWifiService.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePersonalComputerClassificationService.cs" />
     <Compile Include="Impl\CustomerInfrastructurePersonalComputerService.cs" />
     <Compile Include="Impl\CustomerInfrastructurePrinterService.cs" />
     <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareService.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkSwitchService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiAccessPointService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerClassificationService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePrinterService.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureSecuritySoftwareService.cs" />
