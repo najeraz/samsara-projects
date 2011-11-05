@@ -79,6 +79,7 @@
     <Compile Include="Impl\CustomerInfrastructureAdministationSoftwareDao.cs" />
     <Compile Include="Impl\CustomerInfrastructureBackupSoftwareDao.cs" />
     <Compile Include="Impl\CustomerInfrastructureNetworkWifiAccessPointDao.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePersonalComputerClassificationDao.cs" />
     <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareDao.cs" />
     <Compile Include="Impl\SecuritySoftwareBrandDao.cs" />
     <Compile Include="Impl\SecuritySoftwareTypeDao.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkSwitchDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiAccessPointDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiDao.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerClassificationDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructurePrinterDao.cs" />
     <Compile Include="Interfaces\ICustomerInfrastructureSecuritySoftwareDao.cs" />

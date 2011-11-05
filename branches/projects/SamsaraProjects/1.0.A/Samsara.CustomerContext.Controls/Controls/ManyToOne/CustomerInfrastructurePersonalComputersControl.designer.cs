@@ -37,9 +37,9 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
             Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters personalComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters();
-            Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             this.lblPersonalComputerType = new Infragistics.Win.Misc.UltraLabel();
             this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtManufacturerReferenceNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -54,12 +54,12 @@
             this.lblCPU = new Infragistics.Win.Misc.UltraLabel();
             this.lblRAM = new Infragistics.Win.Misc.UltraLabel();
             this.Software = new System.Windows.Forms.TabPage();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
-            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
-            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
             this.pctcPersonalComputerType = new Samsara.CustomerContext.Controls.Controls.Choosers.PersonalComputerTypeChooserControl();
-            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
+            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -187,8 +187,6 @@
             this.tabItmPrincipal.Controls.Add(this.pctcPersonalComputerType);
             this.tabItmPrincipal.Controls.Add(this.cbcComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.txtManufacturerReferenceNumber);
-            this.tabItmPrincipal.Controls.Add(this.txtModel);
-            this.tabItmPrincipal.Controls.Add(this.lblModel);
             this.tabItmPrincipal.Controls.Add(this.txtSerialNumber);
             this.tabItmPrincipal.Controls.Add(this.lblSerie);
             this.tabItmPrincipal.Controls.Add(this.lblManufacturerReferenceNumber);
@@ -257,14 +255,14 @@
             // 
             // txtManufacturerReferenceNumber
             // 
-            this.txtManufacturerReferenceNumber.Location = new System.Drawing.Point(445, 45);
+            this.txtManufacturerReferenceNumber.Location = new System.Drawing.Point(444, 45);
             this.txtManufacturerReferenceNumber.Name = "txtManufacturerReferenceNumber";
             this.txtManufacturerReferenceNumber.Size = new System.Drawing.Size(226, 21);
             this.txtManufacturerReferenceNumber.TabIndex = 114;
             // 
             // txtSerialNumber
             // 
-            this.txtSerialNumber.Location = new System.Drawing.Point(445, 18);
+            this.txtSerialNumber.Location = new System.Drawing.Point(444, 18);
             this.txtSerialNumber.Name = "txtSerialNumber";
             this.txtSerialNumber.Size = new System.Drawing.Size(226, 21);
             this.txtSerialNumber.TabIndex = 115;
@@ -272,7 +270,7 @@
             // lblSerie
             // 
             this.lblSerie.AutoSize = true;
-            this.lblSerie.Location = new System.Drawing.Point(335, 22);
+            this.lblSerie.Location = new System.Drawing.Point(334, 22);
             this.lblSerie.Name = "lblSerie";
             this.lblSerie.Size = new System.Drawing.Size(34, 14);
             this.lblSerie.TabIndex = 110;
@@ -281,7 +279,7 @@
             // lblManufacturerReferenceNumber
             // 
             this.lblManufacturerReferenceNumber.AutoSize = true;
-            this.lblManufacturerReferenceNumber.Location = new System.Drawing.Point(335, 49);
+            this.lblManufacturerReferenceNumber.Location = new System.Drawing.Point(334, 49);
             this.lblManufacturerReferenceNumber.Name = "lblManufacturerReferenceNumber";
             this.lblManufacturerReferenceNumber.Size = new System.Drawing.Size(104, 14);
             this.lblManufacturerReferenceNumber.TabIndex = 111;
@@ -290,6 +288,8 @@
             // tabItmSpecs
             // 
             this.tabItmSpecs.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmSpecs.Controls.Add(this.txtModel);
+            this.tabItmSpecs.Controls.Add(this.lblModel);
             this.tabItmSpecs.Controls.Add(this.gbxStorage);
             this.tabItmSpecs.Controls.Add(this.txtRAM);
             this.tabItmSpecs.Controls.Add(this.txtCPU);
@@ -322,14 +322,14 @@
             // 
             // txtRAM
             // 
-            this.txtRAM.Location = new System.Drawing.Point(54, 48);
+            this.txtRAM.Location = new System.Drawing.Point(58, 70);
             this.txtRAM.Name = "txtRAM";
             this.txtRAM.Size = new System.Drawing.Size(226, 21);
             this.txtRAM.TabIndex = 98;
             // 
             // txtCPU
             // 
-            this.txtCPU.Location = new System.Drawing.Point(54, 21);
+            this.txtCPU.Location = new System.Drawing.Point(58, 43);
             this.txtCPU.Name = "txtCPU";
             this.txtCPU.Size = new System.Drawing.Size(226, 21);
             this.txtCPU.TabIndex = 97;
@@ -337,7 +337,7 @@
             // lblCPU
             // 
             this.lblCPU.AutoSize = true;
-            this.lblCPU.Location = new System.Drawing.Point(3, 25);
+            this.lblCPU.Location = new System.Drawing.Point(7, 47);
             this.lblCPU.Name = "lblCPU";
             this.lblCPU.Size = new System.Drawing.Size(31, 14);
             this.lblCPU.TabIndex = 95;
@@ -346,7 +346,7 @@
             // lblRAM
             // 
             this.lblRAM.AutoSize = true;
-            this.lblRAM.Location = new System.Drawing.Point(3, 52);
+            this.lblRAM.Location = new System.Drawing.Point(7, 74);
             this.lblRAM.Name = "lblRAM";
             this.lblRAM.Size = new System.Drawing.Size(32, 14);
             this.lblRAM.TabIndex = 96;
@@ -363,6 +363,24 @@
             this.Software.TabIndex = 2;
             this.Software.Text = "Software";
             // 
+            // oscOperativeSystem
+            // 
+            this.oscOperativeSystem.CustomParent = null;
+            this.oscOperativeSystem.DisplayMember = "Name";
+            this.oscOperativeSystem.Location = new System.Drawing.Point(122, 14);
+            this.oscOperativeSystem.Name = "oscOperativeSystem";
+            operativeSystemParameters1.Description = null;
+            operativeSystemParameters1.IsLegit = null;
+            operativeSystemParameters1.Name = null;
+            operativeSystemParameters1.OperativeSystemId = null;
+            operativeSystemParameters1.OperativeSystemTypeId = null;
+            this.oscOperativeSystem.Parameters = operativeSystemParameters1;
+            this.oscOperativeSystem.ReadOnly = false;
+            this.oscOperativeSystem.Size = new System.Drawing.Size(226, 22);
+            this.oscOperativeSystem.TabIndex = 94;
+            this.oscOperativeSystem.Value = null;
+            this.oscOperativeSystem.ValueMember = "OperativeSystemId";
+            // 
             // lblOperativeSystem
             // 
             this.lblOperativeSystem.AutoSize = true;
@@ -371,22 +389,6 @@
             this.lblOperativeSystem.Size = new System.Drawing.Size(100, 14);
             this.lblOperativeSystem.TabIndex = 93;
             this.lblOperativeSystem.Text = "Sistema Operativo:";
-            // 
-            // lblModel
-            // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(13, 76);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(45, 14);
-            this.lblModel.TabIndex = 110;
-            this.lblModel.Text = "Modelo:";
-            // 
-            // txtModel
-            // 
-            this.txtModel.Location = new System.Drawing.Point(88, 72);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(226, 21);
-            this.txtModel.TabIndex = 115;
             // 
             // cbcComputerBrand
             // 
@@ -420,23 +422,21 @@
             this.pctcPersonalComputerType.Value = null;
             this.pctcPersonalComputerType.ValueMember = "PersonalComputerTypeId";
             // 
-            // oscOperativeSystem
+            // txtModel
             // 
-            this.oscOperativeSystem.CustomParent = null;
-            this.oscOperativeSystem.DisplayMember = "Name";
-            this.oscOperativeSystem.Location = new System.Drawing.Point(122, 14);
-            this.oscOperativeSystem.Name = "oscOperativeSystem";
-            operativeSystemParameters1.Description = null;
-            operativeSystemParameters1.IsLegit = null;
-            operativeSystemParameters1.Name = null;
-            operativeSystemParameters1.OperativeSystemId = null;
-            operativeSystemParameters1.OperativeSystemTypeId = null;
-            this.oscOperativeSystem.Parameters = operativeSystemParameters1;
-            this.oscOperativeSystem.ReadOnly = false;
-            this.oscOperativeSystem.Size = new System.Drawing.Size(226, 22);
-            this.oscOperativeSystem.TabIndex = 94;
-            this.oscOperativeSystem.Value = null;
-            this.oscOperativeSystem.ValueMember = "OperativeSystemId";
+            this.txtModel.Location = new System.Drawing.Point(58, 16);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(226, 21);
+            this.txtModel.TabIndex = 117;
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Location = new System.Drawing.Point(7, 20);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(45, 14);
+            this.lblModel.TabIndex = 116;
+            this.lblModel.Text = "Modelo:";
             // 
             // CustomerInfrastructurePersonalComputersControl
             // 
@@ -496,11 +496,11 @@
         private Infragistics.Win.Misc.UltraLabel lblRAM;
         private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
         private System.Windows.Forms.GroupBox gbxStorage;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
-        private Infragistics.Win.Misc.UltraLabel lblModel;
         internal Choosers.PersonalComputerTypeChooserControl pctcPersonalComputerType;
         internal Choosers.ComputerBrandChooserControl cbcComputerBrand;
         internal Choosers.OperativeSystemChooserControl oscOperativeSystem;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
+        private Infragistics.Win.Misc.UltraLabel lblModel;
 
 
     }
