@@ -379,6 +379,10 @@
           type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkWifiAccessPointDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ICustomerInfrastructurePersonalComputerClassificationDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePersonalComputerClassificationDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 
