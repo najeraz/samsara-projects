@@ -3,7 +3,7 @@
   assembly="Samsara.CustomerContext.Core" 
   namespace="Samsara.CustomerContext.Core.Entities">
   
-  <class name="CCTVBrand" table="CustomerContext.CustomerInfrastructurePersonalComputerClassifications">
+  <class name="CustomerInfrastructurePersonalComputerClassification" table="CustomerContext.CustomerInfrastructurePersonalComputerClassifications">
     
     <id name="CustomerInfrastructurePersonalComputerClassificationId" type="int">
       <generator class="native"/>
