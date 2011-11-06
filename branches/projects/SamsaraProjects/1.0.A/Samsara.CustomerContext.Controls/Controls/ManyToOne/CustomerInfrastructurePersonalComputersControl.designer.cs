@@ -551,8 +551,6 @@
         private System.Windows.Forms.TabPage tabItmSpecs;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtManufacturerReferenceNumber;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSerialNumber;
-        private Infragistics.Win.Misc.UltraLabel lblSerie;
-        private Infragistics.Win.Misc.UltraLabel lblManufacturerReferenceNumber;
         private System.Windows.Forms.TabPage Software;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtStorage;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtRAM;
@@ -570,7 +568,9 @@
         private Infragistics.Win.Misc.UltraLabel ulblClassification;
         private Infragistics.Win.Misc.UltraLabel ulblCustomerInfraestructurePersonalComputerClassification;
         internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
-        private Infragistics.Win.Misc.UltraLabel ulblQuantity;
+        internal Infragistics.Win.Misc.UltraLabel lblSerie;
+        internal Infragistics.Win.Misc.UltraLabel lblManufacturerReferenceNumber;
+        internal Infragistics.Win.Misc.UltraLabel ulblQuantity;
 
 
     }

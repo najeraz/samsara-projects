@@ -98,6 +98,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Refresh();
 
+                this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification.Parameters
+                    = new CustomerInfrastructurePersonalComputerClassificationParameters();
+                this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification.Refresh();
+
                 this.controlCustomerInfrastructurePersonalComputers
                     .cipcccCustomerInfrastructurePersonalComputerClassification.ValueChanged
                     += new SamsaraEntityChooserValueChangedEventHandler<
@@ -327,7 +331,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 && (this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value == null
                 || string.IsNullOrEmpty(this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value.ToString())))
             {
-                MessageBox.Show("Favor de seleccionar la Cantidad de la Computadora.",
+                MessageBox.Show("Favor de seleccionar la Cantidad de la Computadoras.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructurePersonalComputers.steQuantity.Focus();
                 return false;
@@ -433,20 +437,16 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             if (e.NewValue != null)
             {
-                switch ((CustomerInfrastructurePersonalComputerClassificationEnum)
-                    e.NewValue.CustomerInfrastructurePersonalComputerClassificationId)
-                {
-                    case CustomerInfrastructurePersonalComputerClassificationEnum.Unique:
-                        this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = true;
-                        this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = false;
-                        this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = false;
-                        break;
-                    case CustomerInfrastructurePersonalComputerClassificationEnum.Multiple:
-                        this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = false;
-                        this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = true;
-                        this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = true;
-                        break;
-                }
+                bool isUnique = (CustomerInfrastructurePersonalComputerClassificationEnum)
+                    e.NewValue.CustomerInfrastructurePersonalComputerClassificationId
+                    == CustomerInfrastructurePersonalComputerClassificationEnum.Unique;
+
+                this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.ulblQuantity.Visible = isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = !isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.lblSerie.Visible = !isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = !isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.lblManufacturerReferenceNumber.Visible = !isUnique;
             }
         }
 
