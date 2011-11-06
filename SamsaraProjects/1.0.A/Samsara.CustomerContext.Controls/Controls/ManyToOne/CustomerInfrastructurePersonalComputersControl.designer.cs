@@ -40,6 +40,8 @@
             Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
             Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters personalComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.PersonalComputerTypeParameters();
+            Samsara.CustomerContext.Core.Parameters.CustomerInfrastructurePersonalComputerClassificationParameters customerInfrastructurePersonalComputerClassificationParameters1 = new Samsara.CustomerContext.Core.Parameters.CustomerInfrastructurePersonalComputerClassificationParameters();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructurePersonalComputersControl));
             this.lblPersonalComputerType = new Infragistics.Win.Misc.UltraLabel();
             this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtManufacturerReferenceNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -47,6 +49,8 @@
             this.lblSerie = new Infragistics.Win.Misc.UltraLabel();
             this.lblManufacturerReferenceNumber = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmSpecs = new System.Windows.Forms.TabPage();
+            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
             this.gbxStorage = new System.Windows.Forms.GroupBox();
             this.txtStorage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtRAM = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -58,8 +62,11 @@
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
             this.pctcPersonalComputerType = new Samsara.CustomerContext.Controls.Controls.Choosers.PersonalComputerTypeChooserControl();
-            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblCustomerInfraestructurePersonalComputerClassification = new Infragistics.Win.Misc.UltraLabel();
+            this.cipcccCustomerInfrastructurePersonalComputerClassification = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructurePersonalComputerClassificationChooserControl();
+            this.ulblClassification = new Infragistics.Win.Misc.UltraLabel();
+            this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.ulblQuantity = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -81,12 +88,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerReferenceNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
             this.tabItmSpecs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
             this.gbxStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).BeginInit();
             this.Software.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -184,13 +191,18 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.steQuantity);
+            this.tabItmPrincipal.Controls.Add(this.cipcccCustomerInfrastructurePersonalComputerClassification);
             this.tabItmPrincipal.Controls.Add(this.pctcPersonalComputerType);
             this.tabItmPrincipal.Controls.Add(this.cbcComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.txtManufacturerReferenceNumber);
             this.tabItmPrincipal.Controls.Add(this.txtSerialNumber);
+            this.tabItmPrincipal.Controls.Add(this.ulblQuantity);
             this.tabItmPrincipal.Controls.Add(this.lblSerie);
             this.tabItmPrincipal.Controls.Add(this.lblManufacturerReferenceNumber);
+            this.tabItmPrincipal.Controls.Add(this.ulblClassification);
             this.tabItmPrincipal.Controls.Add(this.lblPersonalComputerType);
+            this.tabItmPrincipal.Controls.Add(this.ulblCustomerInfraestructurePersonalComputerClassification);
             this.tabItmPrincipal.Controls.Add(this.lblComputerBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 107);
             // 
@@ -238,7 +250,7 @@
             // lblPersonalComputerType
             // 
             this.lblPersonalComputerType.AutoSize = true;
-            this.lblPersonalComputerType.Location = new System.Drawing.Point(13, 49);
+            this.lblPersonalComputerType.Location = new System.Drawing.Point(13, 45);
             this.lblPersonalComputerType.Name = "lblPersonalComputerType";
             this.lblPersonalComputerType.Size = new System.Drawing.Size(29, 14);
             this.lblPersonalComputerType.TabIndex = 107;
@@ -247,7 +259,7 @@
             // lblComputerBrand
             // 
             this.lblComputerBrand.AutoSize = true;
-            this.lblComputerBrand.Location = new System.Drawing.Point(13, 22);
+            this.lblComputerBrand.Location = new System.Drawing.Point(13, 18);
             this.lblComputerBrand.Name = "lblComputerBrand";
             this.lblComputerBrand.Size = new System.Drawing.Size(39, 14);
             this.lblComputerBrand.TabIndex = 106;
@@ -255,14 +267,14 @@
             // 
             // txtManufacturerReferenceNumber
             // 
-            this.txtManufacturerReferenceNumber.Location = new System.Drawing.Point(444, 45);
+            this.txtManufacturerReferenceNumber.Location = new System.Drawing.Point(446, 70);
             this.txtManufacturerReferenceNumber.Name = "txtManufacturerReferenceNumber";
             this.txtManufacturerReferenceNumber.Size = new System.Drawing.Size(226, 21);
             this.txtManufacturerReferenceNumber.TabIndex = 114;
             // 
             // txtSerialNumber
             // 
-            this.txtSerialNumber.Location = new System.Drawing.Point(444, 18);
+            this.txtSerialNumber.Location = new System.Drawing.Point(446, 43);
             this.txtSerialNumber.Name = "txtSerialNumber";
             this.txtSerialNumber.Size = new System.Drawing.Size(226, 21);
             this.txtSerialNumber.TabIndex = 115;
@@ -270,7 +282,7 @@
             // lblSerie
             // 
             this.lblSerie.AutoSize = true;
-            this.lblSerie.Location = new System.Drawing.Point(334, 22);
+            this.lblSerie.Location = new System.Drawing.Point(336, 47);
             this.lblSerie.Name = "lblSerie";
             this.lblSerie.Size = new System.Drawing.Size(34, 14);
             this.lblSerie.TabIndex = 110;
@@ -279,7 +291,7 @@
             // lblManufacturerReferenceNumber
             // 
             this.lblManufacturerReferenceNumber.AutoSize = true;
-            this.lblManufacturerReferenceNumber.Location = new System.Drawing.Point(334, 49);
+            this.lblManufacturerReferenceNumber.Location = new System.Drawing.Point(336, 74);
             this.lblManufacturerReferenceNumber.Name = "lblManufacturerReferenceNumber";
             this.lblManufacturerReferenceNumber.Size = new System.Drawing.Size(104, 14);
             this.lblManufacturerReferenceNumber.TabIndex = 111;
@@ -300,6 +312,22 @@
             this.tabItmSpecs.Size = new System.Drawing.Size(696, 107);
             this.tabItmSpecs.TabIndex = 1;
             this.tabItmSpecs.Text = "Especificaciones";
+            // 
+            // txtModel
+            // 
+            this.txtModel.Location = new System.Drawing.Point(58, 16);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(226, 21);
+            this.txtModel.TabIndex = 117;
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Location = new System.Drawing.Point(7, 20);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(45, 14);
+            this.lblModel.TabIndex = 116;
+            this.lblModel.Text = "Modelo:";
             // 
             // gbxStorage
             // 
@@ -394,7 +422,7 @@
             // 
             this.cbcComputerBrand.CustomParent = null;
             this.cbcComputerBrand.DisplayMember = "Name";
-            this.cbcComputerBrand.Location = new System.Drawing.Point(88, 17);
+            this.cbcComputerBrand.Location = new System.Drawing.Point(95, 13);
             this.cbcComputerBrand.Name = "cbcComputerBrand";
             computerBrandParameters1.ComputerBrandId = null;
             computerBrandParameters1.Description = null;
@@ -410,7 +438,7 @@
             // 
             this.pctcPersonalComputerType.CustomParent = null;
             this.pctcPersonalComputerType.DisplayMember = "Name";
-            this.pctcPersonalComputerType.Location = new System.Drawing.Point(88, 45);
+            this.pctcPersonalComputerType.Location = new System.Drawing.Point(95, 41);
             this.pctcPersonalComputerType.Name = "pctcPersonalComputerType";
             personalComputerTypeParameters1.Description = null;
             personalComputerTypeParameters1.Name = null;
@@ -422,21 +450,58 @@
             this.pctcPersonalComputerType.Value = null;
             this.pctcPersonalComputerType.ValueMember = "PersonalComputerTypeId";
             // 
-            // txtModel
+            // ulblCustomerInfraestructurePersonalComputerClassification
             // 
-            this.txtModel.Location = new System.Drawing.Point(58, 16);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(226, 21);
-            this.txtModel.TabIndex = 117;
+            this.ulblCustomerInfraestructurePersonalComputerClassification.AutoSize = true;
+            this.ulblCustomerInfraestructurePersonalComputerClassification.Location = new System.Drawing.Point(13, 76);
+            this.ulblCustomerInfraestructurePersonalComputerClassification.Name = "ulblCustomerInfraestructurePersonalComputerClassification";
+            this.ulblCustomerInfraestructurePersonalComputerClassification.Size = new System.Drawing.Size(0, 0);
+            this.ulblCustomerInfraestructurePersonalComputerClassification.TabIndex = 106;
             // 
-            // lblModel
+            // cipcccCustomerInfrastructurePersonalComputerClassification
             // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(7, 20);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(45, 14);
-            this.lblModel.TabIndex = 116;
-            this.lblModel.Text = "Modelo:";
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.CustomParent = null;
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.DisplayMember = "Name";
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.Location = new System.Drawing.Point(95, 70);
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.Name = "cipcccCustomerInfrastructurePersonalComputerClassification";
+            customerInfrastructurePersonalComputerClassificationParameters1.CustomerInfrastructurePersonalComputerClassificationParametersId = null;
+            customerInfrastructurePersonalComputerClassificationParameters1.Description = null;
+            customerInfrastructurePersonalComputerClassificationParameters1.Name = null;
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.Parameters = customerInfrastructurePersonalComputerClassificationParameters1;
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.ReadOnly = false;
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.Size = new System.Drawing.Size(226, 22);
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.TabIndex = 118;
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.Value = null;
+            this.cipcccCustomerInfrastructurePersonalComputerClassification.ValueMember = "CustomerInfrastructurePersonalComputerClassificationId";
+            // 
+            // ulblClassification
+            // 
+            this.ulblClassification.AutoSize = true;
+            this.ulblClassification.Location = new System.Drawing.Point(13, 74);
+            this.ulblClassification.Name = "ulblClassification";
+            this.ulblClassification.Size = new System.Drawing.Size(71, 14);
+            this.ulblClassification.TabIndex = 107;
+            this.ulblClassification.Text = "Clasificación:";
+            // 
+            // steQuantity
+            // 
+            this.steQuantity.CustomParent = null;
+            this.steQuantity.Location = new System.Drawing.Point(446, 17);
+            this.steQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steQuantity.Name = "steQuantity";
+            this.steQuantity.ReadOnly = false;
+            this.steQuantity.Size = new System.Drawing.Size(226, 20);
+            this.steQuantity.TabIndex = 119;
+            this.steQuantity.Value = ((object)(resources.GetObject("steQuantity.Value")));
+            // 
+            // ulblQuantity
+            // 
+            this.ulblQuantity.AutoSize = true;
+            this.ulblQuantity.Location = new System.Drawing.Point(336, 18);
+            this.ulblQuantity.Name = "ulblQuantity";
+            this.ulblQuantity.Size = new System.Drawing.Size(53, 14);
+            this.ulblQuantity.TabIndex = 110;
+            this.ulblQuantity.Text = "Cantidad:";
             // 
             // CustomerInfrastructurePersonalComputersControl
             // 
@@ -467,6 +532,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
             this.tabItmSpecs.ResumeLayout(false);
             this.tabItmSpecs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
             this.gbxStorage.ResumeLayout(false);
             this.gbxStorage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).EndInit();
@@ -474,7 +540,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).EndInit();
             this.Software.ResumeLayout(false);
             this.Software.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -501,6 +566,11 @@
         internal Choosers.OperativeSystemChooserControl oscOperativeSystem;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
         private Infragistics.Win.Misc.UltraLabel lblModel;
+        internal Choosers.CustomerInfrastructurePersonalComputerClassificationChooserControl cipcccCustomerInfrastructurePersonalComputerClassification;
+        private Infragistics.Win.Misc.UltraLabel ulblClassification;
+        private Infragistics.Win.Misc.UltraLabel ulblCustomerInfraestructurePersonalComputerClassification;
+        internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
+        private Infragistics.Win.Misc.UltraLabel ulblQuantity;
 
 
     }
