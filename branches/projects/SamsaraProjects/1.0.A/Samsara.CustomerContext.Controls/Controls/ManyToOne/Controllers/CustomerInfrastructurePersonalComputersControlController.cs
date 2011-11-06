@@ -8,10 +8,12 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
+using Samsara.Base.Controls.EventsArgs;
+using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Controls.Controllers;
-using Samsara.CustomerContext.Controls.Controls;
 using Samsara.CustomerContext.Core.Entities;
+using Samsara.CustomerContext.Core.Enums;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
@@ -95,6 +97,12 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Refresh();
+
+                this.controlCustomerInfrastructurePersonalComputers
+                    .cipcccCustomerInfrastructurePersonalComputerClassification.ValueChanged
+                    += new SamsaraEntityChooserValueChangedEventHandler<
+                        CustomerInfrastructurePersonalComputerClassification>
+                        (cipcccCustomerInfrastructurePersonalComputerClassification_ValueChanged);
 
                 this.controlCustomerInfrastructurePersonalComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
@@ -289,7 +297,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             if (this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value == null)
             {
-                MessageBox.Show("Favor de seleccionar la Marca de la Computadora.",
+                MessageBox.Show("Favor de seleccionar la Marca de la Computadora(s).",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Focus();
                 return false;
@@ -297,9 +305,31 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             if (this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Value == null)
             {
-                MessageBox.Show("Favor de seleccionar el Tipo de la Computadora.",
+                MessageBox.Show("Favor de seleccionar el Tipo de la Computadora(s).",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Focus();
+                return false;
+            }
+
+            if (this.controlCustomerInfrastructurePersonalComputers
+                .cipcccCustomerInfrastructurePersonalComputerClassification.Value == null)
+            {
+                MessageBox.Show("Favor de seleccionar la Clasificación de la Computadora(s).",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlCustomerInfrastructurePersonalComputers
+                    .cipcccCustomerInfrastructurePersonalComputerClassification.Focus();
+                return false;
+            }
+
+            if ((CustomerInfrastructurePersonalComputerClassificationEnum)this.controlCustomerInfrastructurePersonalComputers
+                .cipcccCustomerInfrastructurePersonalComputerClassification.Value.CustomerInfrastructurePersonalComputerClassificationId
+                == CustomerInfrastructurePersonalComputerClassificationEnum.Unique
+                && (this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value == null
+                || string.IsNullOrEmpty(this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value.ToString())))
+            {
+                MessageBox.Show("Favor de seleccionar la Cantidad de la Computadora.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlCustomerInfrastructurePersonalComputers.steQuantity.Focus();
                 return false;
             }
 
@@ -396,6 +426,28 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             IList<PersonalComputerType> cctvTypes = this.srvPersonalComputerType.GetListByParameters(pmtPersonalComputerType);
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
                 band.Columns["PersonalComputerTypeId"], "PersonalComputerTypeId", "Name", "Seleccione");
+        }
+
+        private void cipcccCustomerInfrastructurePersonalComputerClassification_ValueChanged(object sender, 
+            SamsaraEntityChooserValueChangedEventArgs<CustomerInfrastructurePersonalComputerClassification> e)
+        {
+            if (e.NewValue != null)
+            {
+                switch ((CustomerInfrastructurePersonalComputerClassificationEnum)
+                    e.NewValue.CustomerInfrastructurePersonalComputerClassificationId)
+                {
+                    case CustomerInfrastructurePersonalComputerClassificationEnum.Unique:
+                        this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = true;
+                        this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = false;
+                        this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = false;
+                        break;
+                    case CustomerInfrastructurePersonalComputerClassificationEnum.Multiple:
+                        this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = false;
+                        this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = true;
+                        this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = true;
+                        break;
+                }
+            }
         }
 
         #endregion Events

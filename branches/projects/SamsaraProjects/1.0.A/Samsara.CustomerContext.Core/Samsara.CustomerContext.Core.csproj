@@ -98,6 +98,7 @@
     <Compile Include="Entities\CustomerInfrastructure.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSite.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetwork.cs" />
+    <Compile Include="Enums\CustomerInfrastructurePersonalComputerClassificationEnum.cs" />
     <Compile Include="Parameters\BackupSoftwareBrandParameters.cs" />
     <Compile Include="Parameters\CCTVBrandParameters.cs" />
     <Compile Include="Parameters\CCTVTypeParameters.cs" />
