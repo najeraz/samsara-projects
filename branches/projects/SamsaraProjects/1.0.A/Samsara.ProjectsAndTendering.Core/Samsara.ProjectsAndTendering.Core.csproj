@@ -119,8 +119,8 @@
     <Compile Include="Entities\Tender.cs" />
     <Compile Include="Entities\Manufacturer.cs" />
     <Compile Include="Entities\Dependency.cs" />
-    <Compile Include="Enums\OpportunityTypeEnum.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
+    <Compile Include="Enums\OpportunityTypeEnum.cs" />
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
