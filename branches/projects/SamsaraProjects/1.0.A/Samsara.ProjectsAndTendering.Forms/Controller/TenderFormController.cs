@@ -328,11 +328,32 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new RowEventHandler(grdDetTenderLinesExtraCosts_AfterRowUpdate);
             this.frmTender.grdDetTenderLinesExtraCosts.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetTenderLinesExtraCosts_InitializeLayout);
+
             TenderLineExtraCostParameters pmtTenderLineExtraCost = new TenderLineExtraCostParameters();
             pmtTenderLineExtraCost.TenderLineId = ParameterConstants.IntNone;
             this.dtTenderLineExtraCosts = this.srvTenderLineExtraCost.SearchByParameters(pmtTenderLineExtraCost);
+
+            DataSet dsTenderLineExtraCosts = new DataSet();
+
+
+            this.dtTenderLines.PrimaryKey = new DataColumn[] { 
+                this.dtTenderLines.Columns["TenderLineId"] 
+            };
+
+            dsTenderLineExtraCosts.Tables.Add(this.dtTenderLines);
+
+            this.dtTenderLineExtraCosts.PrimaryKey = new DataColumn[] { 
+                this.dtTenderLines.Columns["TenderLineExtraCostId"] 
+            };
+
+            dsTenderLineExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
+
+            DataRelation drTenderLineExtraCosts = new DataRelation("drTenderLineExtraCosts",
+                this.dtTenderLines.Columns["TenderLineId"], this.dtTenderLineExtraCosts.Columns["TenderLineId"], true);
+            dsTenderLineExtraCosts.Relations.Add(drTenderLineExtraCosts);            
+
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = null;
-            this.frmTender.grdDetTenderLinesExtraCosts.DataSource = this.dtTenderLineExtraCosts;
+            this.frmTender.grdDetTenderLinesExtraCosts.DataSource = dsTenderLineExtraCosts;
 
             //grdDetPreresults
             this.frmTender.grdDetPreresults.InitializeLayout
@@ -375,7 +396,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.ubtnDetDeleteTenderFile.Click += new EventHandler(ubtnDetDeleteTenderFile_Click);
             this.frmTender.ubtnDetNewTenderFile.Click += new EventHandler(ubtnDetNewTenderFile_Click);
             this.frmTender.btnDetSearchFile.Click += new EventHandler(btnDetSearchFile_Click);
-            this.frmTender.uceDetTenderLineExtraCost.ValueChanged += new EventHandler(uceDetTenderLineExtraCost_ValueChanged);
             this.frmTender.ubtnDetCreateTenderLineExtraCost.Click += new EventHandler(ubtnDetCreateTenderLineExtraCost_Click);
             this.frmTender.ubtnDetDeleteTenderLineExtraCost.Click += new EventHandler(ubtnDetDeleteTenderLineExtraCost_Click);
             this.frmTender.uchkDetAddExtraCosts.CheckedChanged += new EventHandler(uchkDetAddExtraCosts_CheckedChanged);
@@ -862,6 +882,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
             this.dtTenderFiles.Rows.Clear();
+            this.dtTenderLineExtraCosts.Rows.Clear();
             this.dtTenderLines.Rows.Clear();
             this.dtTenderCompetitors.Rows.Clear();
             this.dtTenderWholesalers.Rows.Clear();
@@ -994,7 +1015,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 DataRow row = this.dtTenderLines.NewRow();
-                this.dtTenderLines.Rows.Add(row);
 
                 row["Description"] = tenderLine.Description;
                 row["ManufacturerId"] = tenderLine.Manufacturer.ManufacturerId;
@@ -1002,6 +1022,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["Quantity"] = tenderLine.Quantity;
                 row["TenderId"] = tenderLine.Tender.TenderId;
                 row["TenderLineId"] = tenderLine.TenderLineId;
+
+                this.dtTenderLines.Rows.Add(row);
             }
             this.grdDetTenderLines_InitializeLayout(null, null);
 
@@ -1055,6 +1077,23 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row["ExpirationDate"] = tenderWarranty.ExpirationDate;
                 row["Amount"] = tenderWarranty.Amount;
             }
+
+            foreach (TenderLineExtraCost tenderLineExtraCost in this.tender.TenderLines
+                .SelectMany(x => x.TenderLineExtraCosts))
+            {
+                DataRow row = this.dtTenderLineExtraCosts.NewRow();
+
+                row["TenderLineId"] = tenderLineExtraCost.TenderLine.TenderLineId;
+                row["TenderLineExtraCostId"] = tenderLineExtraCost.TenderLineExtraCostId;
+                row["Description"] = tenderLineExtraCost.Description;
+                row["Name"] = tenderLineExtraCost.Name;
+                row["Amount"] = tenderLineExtraCost.Amount;
+
+                this.dtTenderLineExtraCosts.Rows.Add(row);
+            }
+
+            this.frmTender.grdDetTenderLinesExtraCosts.Refresh();
+            this.frmTender.grdDetTenderLinesExtraCosts.Rows.ExpandAll(true);
 
             this.SearchTenderFiles();
             this.UpdatePriceComparisonGrid();
@@ -1739,10 +1778,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, availableManufacturers, 
                 band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
-
-            if (this.tender != null)
-                WindowsFormsUtil.LoadCombo<TenderLine>(this.frmTender.uceDetTenderLineExtraCost, 
-                    this.tender.TenderLines, "TenderLineId", "Name", "Seleccione");
         }
 
         private void grdDetTenderLines_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
@@ -2776,42 +2811,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void uceDetTenderLineExtraCost_ValueChanged(object sender, EventArgs e)
-        {
-            bool enableButtons = Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value) >= 1;
-            TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
-                   == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
-
-            this.frmTender.ubtnDetDeleteTenderLineExtraCost.Enabled = enableButtons;
-            this.frmTender.ubtnDetCreateTenderLineExtraCost.Enabled = enableButtons;
-
-            this.dtTenderLineExtraCosts.Rows.Clear();
-
-            if (tenderLine == null)
-                return;
-
-            foreach (TenderLineExtraCost tenderLineExtraCost in tenderLine.TenderLineExtraCosts)
-            {
-                DataRow row = this.dtTenderLineExtraCosts.NewRow();
-                this.dtTenderLineExtraCosts.Rows.Add(row);
-
-                row["Description"] = tenderLineExtraCost.Description;
-                row["Name"] = tenderLineExtraCost.Name;
-                row["Amount"] = tenderLineExtraCost.Amount;
-                row["TenderLineId"] = tenderLine.TenderLineId;
-
-                if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
-                    row["TenderLineExtraCostId"] = -tenderLineExtraCost.GetHashCode();
-                else
-                    row["TenderLineExtraCostId"] = tenderLineExtraCost.TenderLineExtraCostId;
-            }
-        }
-
         private void ubtnDetDeleteTenderLineExtraCost_Click(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
-            TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
-                   == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
+            TenderLine tenderLine = null;
+            //TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
+            //       == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
 
             if (tenderLine != null && activeRow != null)
             {
@@ -2836,8 +2841,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ubtnDetCreateTenderLineExtraCost_Click(object sender, EventArgs e)
         {
-            TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
-                == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
+            TenderLine tenderLine = null;
+            //TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
+            //    == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
             
             if (tenderLine != null)
             {
@@ -2868,8 +2874,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void grdDetTenderLinesExtraCosts_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            UltraGridLayout layout = e.Layout;
-            UltraGridBand band = layout.Bands[0];
+            UltraGridLayout layout = this.frmTender.grdDetTenderLinesExtraCosts.DisplayLayout;
+            UltraGridBand band = layout.Bands["drTenderLineExtraCosts"];
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
             band.Override.MinRowHeight = 3;

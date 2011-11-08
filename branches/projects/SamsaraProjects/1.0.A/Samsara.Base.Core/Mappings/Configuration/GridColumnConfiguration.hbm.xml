@@ -15,7 +15,7 @@
     
     <property name="ColumnName"/>
     <property name="ColumnEndUserName"/>
-    <property name="Band"/>
+    <property name="BandKey"/>
     <property name="Visible"/>
 
   </class>
