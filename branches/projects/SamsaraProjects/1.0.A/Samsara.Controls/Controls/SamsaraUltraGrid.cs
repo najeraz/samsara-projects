@@ -44,7 +44,7 @@ namespace Samsara.Controls
 
             FormConfiguration formConfiguration = null;
 
-            if (this.DataSource != null && this.DataSource is DataTable)
+            if (this.DataSource != null)
             {
                 IList<string> lstCustomControlNames = new List<string>();
                 this.GetCustomControlsNames(this.Parent, lstCustomControlNames);
@@ -96,7 +96,7 @@ namespace Samsara.Controls
                         if (gridConfiguration.GridColumnConfigurations != null)
                             gridColumnConfiguration = gridConfiguration
                                 .GridColumnConfigurations.SingleOrDefault(x => x.ColumnName == column.Key
-                                && x.Band == band.Index);
+                                && (x.BandKey == null || x.BandKey == band.Key));
 
                         if (gridColumnConfiguration == null)
                         {
@@ -106,7 +106,7 @@ namespace Samsara.Controls
                             gridColumnConfiguration.ColumnEndUserName = column.Key;
                             gridColumnConfiguration.GridConfiguration = gridConfiguration;
                             gridColumnConfiguration.Visible = false;
-                            gridColumnConfiguration.Band = band.Index;
+                            gridColumnConfiguration.BandKey = band.Key;
                             srvGridColumnConfiguration.SaveOrUpdate(gridColumnConfiguration);
                         }
                     }
@@ -123,7 +123,7 @@ namespace Samsara.Controls
                     {
                         GridColumnConfiguration gridColumnConfiguration = gridConfiguration
                                 .GridColumnConfigurations.Single(x => x.ColumnName == column.Key
-                                && x.Band == band.Index);
+                                && (x.BandKey == null || x.BandKey == band.Key));
 
                         column.Hidden = !gridColumnConfiguration.Visible && !gridConfiguration.IgnoreConfiguration;
                         column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;

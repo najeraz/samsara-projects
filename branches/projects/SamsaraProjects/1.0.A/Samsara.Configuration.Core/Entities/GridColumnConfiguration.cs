@@ -23,7 +23,7 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
-        public virtual int Band
+        public virtual string BandKey
         {
             get;
             set;
