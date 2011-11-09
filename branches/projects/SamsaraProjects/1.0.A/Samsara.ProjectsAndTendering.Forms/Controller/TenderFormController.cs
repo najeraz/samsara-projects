@@ -1092,7 +1092,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtTenderLineExtraCosts.Rows.Add(row);
             }
 
-            this.frmTender.grdDetTenderLinesExtraCosts.Refresh();
+            DataSet dsTenderLinesExtraCosts = new DataSet();
+
+            DataTable dt1 = this.dtTenderLines.Copy();
+            DataTable dt2 = this.dtTenderLineExtraCosts.Copy();
+
+            dsTenderLinesExtraCosts.Tables.Add(dt1);
+            dsTenderLinesExtraCosts.Tables.Add(dt2);
+            dsTenderLinesExtraCosts.Relations.Add(new DataRelation("drTenderLineExtraCosts",
+                dt1.Columns["TenderLineId"], dt2.Columns["TenderLineId"]));
+
+            this.frmTender.grdDetTenderLinesExtraCosts.DataSource = null;
+            this.frmTender.grdDetTenderLinesExtraCosts.DataSource = dsTenderLinesExtraCosts;
             this.frmTender.grdDetTenderLinesExtraCosts.Rows.ExpandAll(true);
 
             this.SearchTenderFiles();
