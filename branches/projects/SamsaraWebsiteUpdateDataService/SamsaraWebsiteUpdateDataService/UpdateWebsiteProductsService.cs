@@ -159,8 +159,8 @@ namespace SamsaraWebsiteUpdateDataService
         {
             sqlServerDataAdapter = new SqlDataAdapter(
                 "SELECT familia, nombre_familia, sublinea padre FROM familias_articulos union all"
-                + " SELECT sublinea + " + diferentOrderIndex 
-                + ", nombre_sublinea, null padre FROM sublineas_articulos", 
+                + " SELECT sublinea + " + diferentOrderIndex
+                + ", nombre_sublinea, null padre FROM sublineas_articulos",
                 this.sqlServerConnection);
 
             DataSet ds = new DataSet();
@@ -170,8 +170,8 @@ namespace SamsaraWebsiteUpdateDataService
                 .Select(x => new
                 {
                     codigo = Convert.ToInt32(x["familia"]),
-                    descripcion = x["nombre_familia"].ToString(),
-                    padre = Convert.ToInt32(x["padre"])
+                    descripcion = x["nombre_familia"].ToString().Trim(),
+                    padre = x["padre"] == DBNull.Value ? -1 : Convert.ToInt32(x["padre"])
                 }).ToList();
 
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.descripcion, id_padre FROM categorias c",
@@ -184,8 +184,8 @@ namespace SamsaraWebsiteUpdateDataService
                 .Select(x => new
                 {
                     codigo = Convert.ToInt32(x["codigo"]),
-                    descripcion = x["descripcion"].ToString(),
-                    padre = Convert.ToInt32(x["id_padre"])
+                    descripcion = x["descripcion"].ToString().Trim(),
+                    padre = x["id_padre"] == DBNull.Value ? -1 : Convert.ToInt32(x["id_padre"])
                 }).ToList();
 
             var categoriesToUpdate = currentCategoriesStock.Where(x => x.descripcion !=
@@ -198,8 +198,8 @@ namespace SamsaraWebsiteUpdateDataService
             foreach (var element in categoriesToUpdate)
             {
                 string updateQuery = string.Format(
-                    "UPDATE categorias SET categoria = {0}, id_padre = {1} WHERE codigo = '{2}'",
-                    element.descripcion, element.padre, element.codigo);
+                    "UPDATE categorias SET descripcion = '{0}', id_padre = {1} WHERE codigo = '{2}'",
+                    element.descripcion.Replace("'", "''"), element.padre, element.codigo);
 
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
@@ -324,8 +324,8 @@ namespace SamsaraWebsiteUpdateDataService
                 if (sublineasCodes.Count > 0)
                 {
                     sqlServerDataAdapter = new SqlDataAdapter(
-                        "SELECT sublinea + " + diferentOrderIndex 
-                        + ", nombre_sublinea FROM Sublineas_Articulos WHERE cast(sublinea as int) IN ('"
+                        "SELECT sublinea + " + diferentOrderIndex
+                        + " sublinea, nombre_sublinea FROM Sublineas_Articulos WHERE cast(sublinea as int) IN ('"
                         + sublineasStringCodes + "')", this.sqlServerConnection);
 
                     ds = new DataSet();
@@ -334,8 +334,8 @@ namespace SamsaraWebsiteUpdateDataService
                     foreach (DataRow row in ds.Tables["Sublineas"].AsEnumerable())
                     {
                         insertQuery += string.Format(
-                            "INSERT INTO categorias (descripcion, activo, codigo, categoria) "
-                            + "VALUES ('{0}', 1, '{1}', '', null);\n", 
+                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre) "
+                            + "VALUES ('{0}', 1, '{1}', '', null);\n",
                             row["nombre_sublinea"].ToString().Trim().Replace("'", "''"),
                             row["sublinea"]);
                     }
@@ -466,7 +466,7 @@ namespace SamsaraWebsiteUpdateDataService
         {
             sqlServerDataAdapter = new SqlDataAdapter(
                 "SELECT foto, clave_integer clave_articulo, es_principal FROM Imagenes.dbo.Fotos "
-                + "WHERE tabla = 'Articulos' and clave_integer != 0",
+                + "WHERE tabla = 'Articulos' AND clave_integer != 0 AND archivo_binario IS NOT NULL",
                 this.sqlServerConnection);
 
             DataSet ds = new DataSet();
@@ -479,12 +479,15 @@ namespace SamsaraWebsiteUpdateDataService
             {
                 string fileName = productGroup.Key + ".jpg";
 
-                Nullable<int> fotoId = productGroup.Select(x => Convert.ToInt32(x["es_principal"]) as Nullable<int>)
-                    .SingleOrDefault(x => x.Value == 1);
+                DataRow objFotoRow = productGroup
+                    .SingleOrDefault(x => (Convert.ToInt32(x["es_principal"]) as Nullable<int>) != null
+                        && (Convert.ToInt32(x["es_principal"]) as Nullable<int>) == 1);
+
+                Nullable<int> fotoId = objFotoRow == null ? null : Convert.ToInt32(objFotoRow["foto"]) as Nullable<int>;
 
                 if (!fotoId.HasValue)
                     fotoId = productGroup.OrderBy(x => x["foto"])
-                        .Select(x => Convert.ToInt32(x["clave_articulo"])).First();
+                        .Select(x => Convert.ToInt32(x["foto"])).First();
 
                 this.sqlServerCommand = new SqlCommand
                     ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE foto = "
@@ -509,7 +512,7 @@ namespace SamsaraWebsiteUpdateDataService
 
                 byte[] file = converterStream.ToArray();
 
-                if (!FTPHelper.ExistsFile(ftpServerIP, ftpUser, ftpPassword, fileName) || 
+                if (!FTPHelper.ExistsFile(ftpServerIP, ftpUser, ftpPassword, fileName) ||
                     FTPHelper.FileSize(ftpServerIP, ftpUser, ftpPassword, fileName) != file.Length)
                 {
                     eventLog1.WriteEntry("Uploading Image : " + fileName, EventLogEntryType.Information);
