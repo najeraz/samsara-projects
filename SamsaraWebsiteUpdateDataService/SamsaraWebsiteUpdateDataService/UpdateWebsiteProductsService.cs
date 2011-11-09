@@ -23,6 +23,7 @@ namespace SamsaraWebsiteUpdateDataService
         private static int numProdutcsInsert = 50;
         private static int numCategoriesInsert = 50;
         private static int numProdutcsCategoriesInsert = 200;
+        private static int diferentOrderIndex = 10000;
 
         private static string ftpUser = "productos@samsaracomputacion.com.mx";
         private static string ftpPassword = "Pr0DuCT05";
@@ -157,38 +158,51 @@ namespace SamsaraWebsiteUpdateDataService
         private void UpdateCategories()
         {
             sqlServerDataAdapter = new SqlDataAdapter(
-                "SELECT familia, nombre_familia FROM familias_articulos", this.sqlServerConnection);
+                "SELECT familia, nombre_familia, sublinea padre FROM familias_articulos union all"
+                + " SELECT sublinea + " + diferentOrderIndex 
+                + ", nombre_sublinea, null padre FROM sublineas_articulos", 
+                this.sqlServerConnection);
 
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Familias");
 
-            Dictionary<int, string> currentCategoriesStock = ds.Tables["Familias"].AsEnumerable()
-                .ToDictionary(x => Convert.ToInt32(x["familia"]), x => x["nombre_familia"].ToString());
+            var currentCategoriesStock = ds.Tables["Familias"].AsEnumerable()
+                .Select(x => new
+                {
+                    codigo = Convert.ToInt32(x["familia"]),
+                    descripcion = x["nombre_familia"].ToString(),
+                    padre = Convert.ToInt32(x["padre"])
+                }).ToList();
 
-            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.descripcion FROM categorias c",
+            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.descripcion, id_padre FROM categorias c",
                 this.mySqlConnection);
 
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "categorias");
 
-            Dictionary<int, string> oldCategories = ds.Tables["categorias"].AsEnumerable()
-                .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => x["descripcion"].ToString());
+            var oldCategories = ds.Tables["categorias"].AsEnumerable()
+                .Select(x => new
+                {
+                    codigo = Convert.ToInt32(x["codigo"]),
+                    descripcion = x["descripcion"].ToString(),
+                    padre = Convert.ToInt32(x["id_padre"])
+                }).ToList();
 
-            Dictionary<int, string> categoriesToUpdate = oldCategories.Where(x => x.Value != oldCategories[x.Key])
-                .ToDictionary(x => x.Key, x => x.Value);
+            var categoriesToUpdate = currentCategoriesStock.Where(x => x.descripcion !=
+                oldCategories.Single(y => y.codigo == x.codigo).descripcion ||
+                oldCategories.Single(y => y.codigo == x.codigo).padre != x.padre)
+                .ToList();
 
             eventLog1.WriteEntry("Categories To Update : " + categoriesToUpdate.Count, EventLogEntryType.Information);
 
-            foreach (KeyValuePair<int, string> element in categoriesToUpdate)
+            foreach (var element in categoriesToUpdate)
             {
-                if (element.Value.Trim() != oldCategories[element.Key])
-                {
-                    string updateQuery = string.Format("UPDATE categorias SET categoria = {0} WHERE codigo = '{1}'",
-                        element.Value, element.Key);
+                string updateQuery = string.Format(
+                    "UPDATE categorias SET categoria = {0}, id_padre = {1} WHERE codigo = '{2}'",
+                    element.descripcion, element.padre, element.codigo);
 
-                    this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
-                }
+                this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
             }
 
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.id_categoria FROM categorias c",
@@ -247,7 +261,8 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void InsertNewCategories()
         {
-            sqlServerDataAdapter = new SqlDataAdapter("SELECT familia FROM familias_articulos",
+            sqlServerDataAdapter = new SqlDataAdapter("SELECT familia FROM familias_articulos"
+                + " union all SELECT sublinea + " + diferentOrderIndex + " FROM Sublineas_Articulos;",
                 this.sqlServerConnection);
 
             DataSet ds = new DataSet();
@@ -277,24 +292,57 @@ namespace SamsaraWebsiteUpdateDataService
                 if (currentCodes.Count == 0)
                     break;
 
-                string allCodes = string.Join("','", currentCodes.ToArray());
+                IList<int> familiasCodes = currentCodes.Where(x => x < diferentOrderIndex).ToList();
+                IList<int> sublineasCodes = currentCodes.Where(x => x >= diferentOrderIndex)
+                    .Select(x => x - diferentOrderIndex).ToList();
 
-                sqlServerDataAdapter = new SqlDataAdapter(
-                    "SELECT familia, nombre_familia FROM familias_articulos WHERE cast(familia as int) IN ('"
-                    + allCodes + "')", this.sqlServerConnection);
+                string familiasStringCodes = string.Join("','", familiasCodes.ToArray());
+                string sublineasStringCodes = string.Join("','", sublineasCodes.ToArray());
 
-                ds = new DataSet();
-                sqlServerDataAdapter.Fill(ds, "Familias");
-
-                foreach (DataRow row in ds.Tables["Familias"].AsEnumerable())
+                if (familiasCodes.Count > 0)
                 {
-                    insertQuery += string.Format("INSERT INTO categorias (descripcion, activo, codigo, categoria) "
-                        + "VALUES ('{0}', 1, '{1}', '');\n", row["nombre_familia"].ToString().Trim().Replace("'", "''"),
-                        row["familia"]);
+                    sqlServerDataAdapter = new SqlDataAdapter(
+                        "SELECT familia, nombre_familia, sublinea padre FROM familias_articulos WHERE cast(familia as int) IN ('"
+                        + familiasStringCodes + "')", this.sqlServerConnection);
+
+                    ds = new DataSet();
+                    sqlServerDataAdapter.Fill(ds, "Familias");
+
+                    foreach (DataRow row in ds.Tables["Familias"].AsEnumerable())
+                    {
+                        insertQuery += string.Format(
+                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre) "
+                            + "VALUES ('{0}', 1, '{1}', '', {2});\n",
+                            row["nombre_familia"].ToString().Trim().Replace("'", "''"),
+                            row["familia"], row["padre"]);
+                    }
+
+                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                    this.mySqlCommand.ExecuteNonQuery();
                 }
 
-                this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                this.mySqlCommand.ExecuteNonQuery();
+                if (sublineasCodes.Count > 0)
+                {
+                    sqlServerDataAdapter = new SqlDataAdapter(
+                        "SELECT sublinea + " + diferentOrderIndex 
+                        + ", nombre_sublinea FROM Sublineas_Articulos WHERE cast(sublinea as int) IN ('"
+                        + sublineasStringCodes + "')", this.sqlServerConnection);
+
+                    ds = new DataSet();
+                    sqlServerDataAdapter.Fill(ds, "Sublineas");
+
+                    foreach (DataRow row in ds.Tables["Sublineas"].AsEnumerable())
+                    {
+                        insertQuery += string.Format(
+                            "INSERT INTO categorias (descripcion, activo, codigo, categoria) "
+                            + "VALUES ('{0}', 1, '{1}', '', null);\n", 
+                            row["nombre_sublinea"].ToString().Trim().Replace("'", "''"),
+                            row["sublinea"]);
+                    }
+
+                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
 
                 categoriesToInsert = categoriesToInsert.Except(currentCodes).ToList();
             } while (true);
@@ -424,8 +472,8 @@ namespace SamsaraWebsiteUpdateDataService
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            IEnumerable<IGrouping<int, DataRow>> productGroups = ds.Tables["Articulos"].AsEnumerable()
-                .GroupBy(x => Convert.ToInt32(x["clave_articulo"]));
+            IList<IGrouping<int, DataRow>> productGroups = ds.Tables["Articulos"].AsEnumerable()
+                .GroupBy(x => Convert.ToInt32(x["clave_articulo"])).ToList();
 
             foreach (IGrouping<int, DataRow> productGroup in productGroups)
             {
