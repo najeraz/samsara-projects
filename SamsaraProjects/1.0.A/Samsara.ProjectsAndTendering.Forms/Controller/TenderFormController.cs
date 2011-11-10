@@ -1101,6 +1101,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
             dsTenderLinesExtraCosts.Relations.Add(new DataRelation("drTenderLineExtraCosts",
                 this.dtTenderLines.Columns["TenderLineId"], this.dtTenderLineExtraCosts.Columns["TenderLineId"]));
+            dsTenderLinesExtraCosts.AcceptChanges();
 
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = null;
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = dsTenderLinesExtraCosts;
@@ -2825,13 +2826,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ubtnDetDeleteTenderLineExtraCost_Click(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
+            UltraGridBand bandTenderLineExtraCosts = this.frmTender
+                .grdDetTenderLinesExtraCosts.DisplayLayout.Bands["drTenderLineExtraCosts"];
 
-            if (activeRow != null)
+            if (activeRow != null && activeRow.Band == bandTenderLineExtraCosts)
             {
-                activeRow = activeRow.ParentRow ?? activeRow;
+                TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x =>
+                    x.TenderLineId == Convert.ToInt32(activeRow.ParentRow.Cells["TenderLineId"].Value));
 
-                TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => 
-                    x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value));
                 if (tenderLine != null)
                 {
                     TenderLineExtraCost tenderLineExtraCost = null;
@@ -2850,6 +2852,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         tenderLineExtraCost.Deleted = true;
                         tenderLineExtraCost.Activated = false;
                     }
+
+                    this.dtTenderLineExtraCosts.Rows.Remove((activeRow.ListObject as DataRowView).Row);
                 }
             }
         }
