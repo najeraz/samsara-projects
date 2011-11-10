@@ -89,6 +89,7 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -472,7 +473,8 @@
             this.firewallsToolStripMenuItem,
             this.dBMSToolStripMenuItem,
             this.marcasDeSoftwareDeSeguridadToolStripMenuItem,
-            this.marcasDeSoftwareDeRespaldoToolStripMenuItem});
+            this.marcasDeSoftwareDeRespaldoToolStripMenuItem,
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem});
             this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
             this.softwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.softwareToolStripMenuItem.Text = "Software";
@@ -576,6 +578,13 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // tiposDeSoftwareDeSeguridadToolStripMenuItem
+            // 
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Name = "tiposDeSoftwareDeSeguridadToolStripMenuItem";
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Text = "Tipos de Software de Seguridad";
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.tiposDeSoftwareDeSeguridadToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,6 +665,7 @@
         private System.Windows.Forms.ToolStripMenuItem marcasDeSoftwareDeRespaldoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaDePuntoDeAccesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDePuntoDeAccesoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeSoftwareDeSeguridadToolStripMenuItem;
     }
 }
 

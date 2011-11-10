@@ -274,7 +274,9 @@
     <Compile Include="Forms\SecuritySoftwareBrandSearchForm.designer.cs">
       <DependentUpon>SecuritySoftwareBrandSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SecuritySoftwareTypeForm.cs" />
+    <Compile Include="Forms\SecuritySoftwareTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\SecuritySoftwareTypeForm.designer.cs">
       <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
     </Compile>

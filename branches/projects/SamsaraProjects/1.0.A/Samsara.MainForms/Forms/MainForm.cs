@@ -560,6 +560,20 @@ namespace Samsara.MainForms.Forms
             }
         }
 
+        private void tiposDeSoftwareDeSeguridadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                SecuritySoftwareTypeForm frmSecuritySoftwareType = new SecuritySoftwareTypeForm();
+                frmSecuritySoftwareType.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
         private void marcasDeSoftwareDeRespaldoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
