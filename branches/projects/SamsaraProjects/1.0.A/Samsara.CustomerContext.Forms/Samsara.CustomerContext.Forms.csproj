@@ -130,6 +130,7 @@
     <Compile Include="Controllers\RackTypeFormController.cs" />
     <Compile Include="Controllers\RouterBrandFormController.cs" />
     <Compile Include="Controllers\SecuritySoftwareBrandFormController.cs" />
+    <Compile Include="Controllers\SecuritySoftwareTypeFormController.cs" />
     <Compile Include="Controllers\SwitchBrandFormController.cs" />
     <Compile Include="Controllers\TelephonyLineTypeFormController.cs" />
     <Compile Include="Controllers\TelephonyProviderFormController.cs" />
@@ -272,6 +273,10 @@
     </Compile>
     <Compile Include="Forms\SecuritySoftwareBrandSearchForm.designer.cs">
       <DependentUpon>SecuritySoftwareBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareTypeForm.cs" />
+    <Compile Include="Forms\SecuritySoftwareTypeForm.designer.cs">
+      <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SwitchBrandForm.cs">
       <SubType>Form</SubType>
@@ -534,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SecuritySoftwareBrandForm.resx">
       <DependentUpon>SecuritySoftwareBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SecuritySoftwareTypeForm.resx">
+      <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SwitchBrandForm.resx">
       <DependentUpon>SwitchBrandForm.cs</DependentUpon>
