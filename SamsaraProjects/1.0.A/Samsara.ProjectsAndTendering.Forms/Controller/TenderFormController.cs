@@ -1094,13 +1094,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             DataSet dsTenderLinesExtraCosts = new DataSet();
 
-            DataTable dt1 = this.dtTenderLines.Copy();
-            DataTable dt2 = this.dtTenderLineExtraCosts.Copy();
+            this.dtTenderLines = this.dtTenderLines.Copy();
+            this.dtTenderLineExtraCosts = this.dtTenderLineExtraCosts.Copy();
 
-            dsTenderLinesExtraCosts.Tables.Add(dt1);
-            dsTenderLinesExtraCosts.Tables.Add(dt2);
+            dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLines);
+            dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
             dsTenderLinesExtraCosts.Relations.Add(new DataRelation("drTenderLineExtraCosts",
-                dt1.Columns["TenderLineId"], dt2.Columns["TenderLineId"]));
+                this.dtTenderLines.Columns["TenderLineId"], this.dtTenderLineExtraCosts.Columns["TenderLineId"]));
 
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = null;
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = dsTenderLinesExtraCosts;
@@ -2825,61 +2825,71 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ubtnDetDeleteTenderLineExtraCost_Click(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
-            TenderLine tenderLine = null;
-            //TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
-            //       == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
 
-            if (tenderLine != null && activeRow != null)
+            if (activeRow != null)
             {
-                TenderLineExtraCost tenderLineExtraCost = null;
+                activeRow = activeRow.ParentRow ?? activeRow;
 
-                if (Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value) <= 0)
-                    tenderLineExtraCost = tenderLine.TenderLineExtraCosts.SingleOrDefault(x =>
-                        -x.GetHashCode() == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
-                else
-                    tenderLineExtraCost = tenderLine.TenderLineExtraCosts.SingleOrDefault(x =>
-                        x.TenderLineExtraCostId == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
-
-                if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
-                    tenderLine.TenderLineExtraCosts.Remove(tenderLineExtraCost);
-                else
+                TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => 
+                    x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value));
+                if (tenderLine != null)
                 {
-                    tenderLineExtraCost.Deleted = true;
-                    tenderLineExtraCost.Activated = false;
+                    TenderLineExtraCost tenderLineExtraCost = null;
+
+                    if (Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value) <= 0)
+                        tenderLineExtraCost = tenderLine.TenderLineExtraCosts.SingleOrDefault(x =>
+                            -x.GetHashCode() == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
+                    else
+                        tenderLineExtraCost = tenderLine.TenderLineExtraCosts.SingleOrDefault(x =>
+                            x.TenderLineExtraCostId == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
+
+                    if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
+                        tenderLine.TenderLineExtraCosts.Remove(tenderLineExtraCost);
+                    else
+                    {
+                        tenderLineExtraCost.Deleted = true;
+                        tenderLineExtraCost.Activated = false;
+                    }
                 }
             }
         }
 
         private void ubtnDetCreateTenderLineExtraCost_Click(object sender, EventArgs e)
         {
-            TenderLine tenderLine = null;
-            //TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
-            //    == Convert.ToInt32(this.frmTender.uceDetTenderLineExtraCost.Value));
-            
-            if (tenderLine != null)
+            UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
+
+            if (activeRow != null)
             {
-                TenderLineExtraCost tenderLineExtraCost = new TenderLineExtraCost();
-                tenderLine.TenderLineExtraCosts.Add(tenderLineExtraCost);
+                activeRow = activeRow.ParentRow ?? activeRow;
 
-                tenderLineExtraCost.Activated = true;
-                tenderLineExtraCost.Deleted = false;
-                tenderLineExtraCost.Amount = 0M;
-                tenderLineExtraCost.Description = string.Empty;
-                tenderLineExtraCost.Name = string.Empty;
-                tenderLineExtraCost.TenderLine = tenderLine;
+                TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x =>
+                    x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value));
+                if (tenderLine != null)
+                {
+                    TenderLineExtraCost tenderLineExtraCost = new TenderLineExtraCost();
+                    tenderLine.TenderLineExtraCosts.Add(tenderLineExtraCost);
 
-                DataRow row = this.dtTenderLineExtraCosts.NewRow();
-                this.dtTenderLineExtraCosts.Rows.Add(row);
+                    tenderLineExtraCost.Activated = true;
+                    tenderLineExtraCost.Deleted = false;
+                    tenderLineExtraCost.Amount = 0M;
+                    tenderLineExtraCost.Description = string.Empty;
+                    tenderLineExtraCost.Name = string.Empty;
+                    tenderLineExtraCost.TenderLine = tenderLine;
 
-                row["Amount"] = tenderLineExtraCost.Amount;
-                row["Description"] = tenderLineExtraCost.Description;
-                row["Name"] = tenderLineExtraCost.Name;
-                row["TenderLineId"] = tenderLineExtraCost.TenderLine.TenderLineId;
+                    DataRow row = this.dtTenderLineExtraCosts.NewRow();
 
-                if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
-                    row["TenderLineExtraCostId"] = -tenderLineExtraCost.GetHashCode();
-                else
-                    row["TenderLineExtraCostId"] = tenderLineExtraCost.TenderLineExtraCostId;
+                    row["Amount"] = tenderLineExtraCost.Amount;
+                    row["Description"] = tenderLineExtraCost.Description;
+                    row["Name"] = tenderLineExtraCost.Name;
+                    row["TenderLineId"] = tenderLineExtraCost.TenderLine.TenderLineId;
+
+                    if (tenderLineExtraCost.TenderLineExtraCostId <= 0)
+                        row["TenderLineExtraCostId"] = -tenderLineExtraCost.GetHashCode();
+                    else
+                        row["TenderLineExtraCostId"] = tenderLineExtraCost.TenderLineExtraCostId;
+
+                    this.dtTenderLineExtraCosts.Rows.Add(row);
+                }
             }
         }
 
