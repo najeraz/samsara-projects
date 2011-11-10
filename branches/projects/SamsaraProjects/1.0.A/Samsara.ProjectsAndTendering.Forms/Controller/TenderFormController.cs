@@ -354,6 +354,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = null;
             this.frmTender.grdDetTenderLinesExtraCosts.DataSource = dsTenderLineExtraCosts;
+            this.frmTender.grdDetTenderLinesExtraCosts.Rows.ExpandAll(true);
 
             //grdDetPreresults
             this.frmTender.grdDetPreresults.InitializeLayout
