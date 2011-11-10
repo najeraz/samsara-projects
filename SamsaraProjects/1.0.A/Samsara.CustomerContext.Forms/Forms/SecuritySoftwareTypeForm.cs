@@ -29,7 +29,7 @@ namespace Samsara.CustomerContext.Forms.Forms
 
         #region Methods
 
-        public override SecuritySoftwareType GetSerchResult()
+        public override SecuritySoftwareType GetSearchResult()
         {
             SecuritySoftwareType SecuritySoftwareType = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
