@@ -1525,7 +1525,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderLinesExtraCosts.DisplayLayout.Override.TemplateAddRowAppearance = appearance72;
             this.grdDetTenderLinesExtraCosts.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdDetTenderLinesExtraCosts.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdDetTenderLinesExtraCosts.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
             this.grdDetTenderLinesExtraCosts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderLinesExtraCosts.Location = new System.Drawing.Point(3, 3);
             this.grdDetTenderLinesExtraCosts.lstCustomControlNames = null;
