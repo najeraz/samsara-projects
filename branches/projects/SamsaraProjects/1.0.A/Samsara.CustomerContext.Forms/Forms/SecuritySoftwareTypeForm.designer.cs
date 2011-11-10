@@ -141,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
             this.Name = "SecuritySoftwareTypeForm";
-            this.Text = "Catálogo de Competencia";
+            this.Text = "Catálogo de Tipo de Software de Seguridad";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
