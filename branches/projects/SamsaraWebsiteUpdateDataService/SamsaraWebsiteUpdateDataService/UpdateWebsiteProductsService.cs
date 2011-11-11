@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -11,7 +12,6 @@ using System.Net;
 using System.ServiceProcess;
 using System.Threading;
 using MySql.Data.MySqlClient;
-using System.Diagnostics;
 
 namespace SamsaraWebsiteUpdateDataService
 {
