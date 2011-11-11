@@ -28,11 +28,6 @@ namespace SamsaraWebsiteUpdateDataService
         private static string ftpUser = "productos@samsaracomputacion.com.mx";
         private static string ftpPassword = "Pr0DuCT05";
         private static string ftpServerIP = "samsaracomputacion.com.mx";
-        
-        private static string sqlServerConnectionString 
-            = "Data Source=192.168.10.4;Initial Catalog=ERP_CIE;User Id=javier;Password=javier;";
-        private static string mySqlConnectionString
-            = "Data Source=external-db.s16121.gridserver.com;Database=db16121_samsara;User ID=db16121_exo;Password=aRT1samsara2011";
 
         private SqlConnection sqlServerConnection;
         private SqlDataAdapter sqlServerDataAdapter;
@@ -45,8 +40,8 @@ namespace SamsaraWebsiteUpdateDataService
         public UpdateWebsiteProductsService()
         {
             InitializeComponent();
-            this.sqlServerConnection = new SqlConnection(sqlServerConnectionString);
-            this.mySqlConnection = new MySqlConnection(mySqlConnectionString);
+            this.sqlServerConnection = new SqlConnection(ConnectionStrings.SqlServerConnectionString);
+            this.mySqlConnection = new MySqlConnection(ConnectionStrings.MySqlConnectionString);
 
             if (!System.Diagnostics.EventLog.SourceExists("WebsiteUpdateLogSource"))
                 System.Diagnostics.EventLog.CreateEventSource("WebsiteUpdateLogSource", 
