@@ -327,7 +327,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             if ((CustomerInfrastructurePersonalComputerClassificationEnum)this.controlCustomerInfrastructurePersonalComputers
                 .cipcccCustomerInfrastructurePersonalComputerClassification.Value.CustomerInfrastructurePersonalComputerClassificationId
-                == CustomerInfrastructurePersonalComputerClassificationEnum.Unique
+                == CustomerInfrastructurePersonalComputerClassificationEnum.Multiple
                 && (this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value == null
                 || string.IsNullOrEmpty(this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value.ToString())))
             {
@@ -441,12 +441,12 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     e.NewValue.CustomerInfrastructurePersonalComputerClassificationId
                     == CustomerInfrastructurePersonalComputerClassificationEnum.Unique;
 
-                this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = isUnique;
-                this.controlCustomerInfrastructurePersonalComputers.ulblQuantity.Visible = isUnique;
-                this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = !isUnique;
-                this.controlCustomerInfrastructurePersonalComputers.lblSerie.Visible = !isUnique;
-                this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = !isUnique;
-                this.controlCustomerInfrastructurePersonalComputers.lblManufacturerReferenceNumber.Visible = !isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.steQuantity.Visible = !isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.ulblQuantity.Visible = !isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Visible = isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.lblSerie.Visible = isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.txtManufacturerReferenceNumber.Visible = isUnique;
+                this.controlCustomerInfrastructurePersonalComputers.lblManufacturerReferenceNumber.Visible = isUnique;
             }
         }
 
