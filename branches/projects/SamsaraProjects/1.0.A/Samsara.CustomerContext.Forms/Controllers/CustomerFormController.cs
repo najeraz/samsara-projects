@@ -37,7 +37,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         }
 
         #endregion Constructor
-        
+
         #region Methods
 
         private void InitializeFormControls()
@@ -124,7 +124,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomerInfrastructureNetworkSite = null;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.CustomParent = this.frmCustomer;
             this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.LoadControls();
-            
+
             this.frmCustomer.HiddenDetail(true);
             this.ClearSearchControls();
         }
@@ -140,7 +140,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private bool ValidateFormInformation()
         {
-            if (this.frmCustomer.txtDetName.Text == null || 
+            if (this.frmCustomer.txtDetName.Text == null ||
                 this.frmCustomer.txtDetName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Favor de elegir un nombre para el Cliente.",
@@ -184,6 +184,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.frmCustomer.txtDetSiteCooling.Text = string.Empty;
             this.frmCustomer.txtDetSiteIsolatedRoom.Text = string.Empty;
             this.frmCustomer.txtDetSiteDescription.Text = string.Empty;
+            this.frmCustomer.btcDetBusinessType.Value = null;
 
             this.frmCustomer.tabCustomerDetail.SelectedTab = this.frmCustomer.tabCustomerDetail.TabPages[0];
             this.frmCustomer.tabDetInfrastructure.SelectedTab = this.frmCustomer.tabDetInfrastructure.TabPages[0];
@@ -421,12 +422,20 @@ namespace Samsara.CustomerContext.Forms.Controller
         }
 
         #endregion Methods
-        
+
         #region Events
-        
+
         private void btnSchSearch_Click(object sender, EventArgs e)
         {
-            this.Search();
+            try
+            {
+                this.frmCustomer.Cursor = Cursors.WaitCursor;
+                this.Search();
+            }
+            finally
+            {
+                this.frmCustomer.Cursor = Cursors.Default;
+            }
         }
 
         private void btnSchCreate_Click(object sender, EventArgs e)
@@ -493,15 +502,31 @@ namespace Samsara.CustomerContext.Forms.Controller
 
         private void btnDetSave_Click(object sender, EventArgs e)
         {
-            this.SaveCustomer();
+            try
+            {
+                this.frmCustomer.Cursor = Cursors.WaitCursor;
+                this.SaveCustomer();
+            }
+            finally
+            {
+                this.frmCustomer.Cursor = Cursors.Default;
+            }
         }
-        
+
         private void btnSchEdit_Click(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmCustomer.grdSchSearch.ActiveRow;
 
-            if (activeRow != null)
-                this.EditCustomer(Convert.ToInt32(activeRow.Cells[0].Value));
+            try
+            {
+                this.frmCustomer.Cursor = Cursors.WaitCursor;
+                if (activeRow != null)
+                    this.EditCustomer(Convert.ToInt32(activeRow.Cells[0].Value));
+            }
+            finally
+            {
+                this.frmCustomer.Cursor = Cursors.Default;
+            }
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -518,8 +543,16 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             UltraGridRow activeRow = this.frmCustomer.grdSchSearch.ActiveRow;
 
-            if (activeRow != null)
-                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+            try
+            {
+                this.frmCustomer.Cursor = Cursors.WaitCursor;
+                if (activeRow != null)
+                    this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+            }
+            finally
+            {
+                this.frmCustomer.Cursor = Cursors.Default;
+            }
         }
 
         #endregion Events
