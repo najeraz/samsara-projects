@@ -10,6 +10,7 @@
     </id>
 
     <property name="SerialNumber"/>
+    <property name="Quantity"/>
     <property name="ManufacturerReferenceNumber"/>
     <property name="CPU"/>
     <property name="RAM"/>
@@ -21,6 +22,10 @@
     <many-to-one name="CustomerInfrastructure"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureId"/>
+
+    <many-to-one name="CustomerInfrastructurePersonalComputerClassification"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePersonalComputerClassification, 
+                 Samsara.CustomerContext.Core" column="CustomerInfrastructurePersonalComputerClassificationId"/>
 
     <many-to-one name="PersonalComputerType"
                  class="Samsara.CustomerContext.Core.Entities.PersonalComputerType, Samsara.CustomerContext.Core"

@@ -39,12 +39,18 @@
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Samsara.CustomerContext.Core.Parameters.PrinterTypeParameters printerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.PrinterTypeParameters();
             Samsara.CustomerContext.Core.Parameters.PrinterBrandParameters printerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.PrinterBrandParameters();
+            Samsara.CustomerContext.Core.Parameters.CustomerInfrastructurePrinterClassificationParameters customerInfrastructurePrinterClassificationParameters1 = new Samsara.CustomerContext.Core.Parameters.CustomerInfrastructurePrinterClassificationParameters();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructurePrintersControl));
             this.txtlSerialNumber = new System.Windows.Forms.TextBox();
             this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
             this.lblPrinterType = new Infragistics.Win.Misc.UltraLabel();
             this.lblPrinterBrand = new Infragistics.Win.Misc.UltraLabel();
             this.ptcPrinterType = new Samsara.CustomerContext.Controls.Controls.Choosers.PrinterTypeChooserControl();
             this.pbcPrinterBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.PrinterBrandChooserControl();
+            this.cipccCustomerInfrastructurePrinterClassification = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructurePrinterClassificationChooserControl();
+            this.lblCustomerInfrastructurePrinterClassification = new Infragistics.Win.Misc.UltraLabel();
+            this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.ulblQuantity = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -155,10 +161,14 @@
             // 
             // tabItmPrincipal
             // 
+            this.tabItmPrincipal.Controls.Add(this.steQuantity);
+            this.tabItmPrincipal.Controls.Add(this.ulblQuantity);
+            this.tabItmPrincipal.Controls.Add(this.cipccCustomerInfrastructurePrinterClassification);
             this.tabItmPrincipal.Controls.Add(this.pbcPrinterBrand);
             this.tabItmPrincipal.Controls.Add(this.ptcPrinterType);
             this.tabItmPrincipal.Controls.Add(this.txtlSerialNumber);
             this.tabItmPrincipal.Controls.Add(this.lblSerialNumber);
+            this.tabItmPrincipal.Controls.Add(this.lblCustomerInfrastructurePrinterClassification);
             this.tabItmPrincipal.Controls.Add(this.lblPrinterType);
             this.tabItmPrincipal.Controls.Add(this.lblPrinterBrand);
             this.tabItmPrincipal.Size = new System.Drawing.Size(696, 114);
@@ -214,7 +224,7 @@
             // lblSerialNumber
             // 
             this.lblSerialNumber.AutoSize = true;
-            this.lblSerialNumber.Location = new System.Drawing.Point(351, 22);
+            this.lblSerialNumber.Location = new System.Drawing.Point(337, 22);
             this.lblSerialNumber.Name = "lblSerialNumber";
             this.lblSerialNumber.Size = new System.Drawing.Size(93, 14);
             this.lblSerialNumber.TabIndex = 110;
@@ -270,6 +280,51 @@
             this.pbcPrinterBrand.Value = null;
             this.pbcPrinterBrand.ValueMember = "PrinterBrandId";
             // 
+            // cipccCustomerInfrastructurePrinterClassification
+            // 
+            this.cipccCustomerInfrastructurePrinterClassification.CustomParent = null;
+            this.cipccCustomerInfrastructurePrinterClassification.DisplayMember = "Name";
+            this.cipccCustomerInfrastructurePrinterClassification.Location = new System.Drawing.Point(88, 74);
+            this.cipccCustomerInfrastructurePrinterClassification.Name = "cipccCustomerInfrastructurePrinterClassification";
+            customerInfrastructurePrinterClassificationParameters1.CustomerInfrastructurePrinterClassificationParametersId = null;
+            customerInfrastructurePrinterClassificationParameters1.Description = null;
+            customerInfrastructurePrinterClassificationParameters1.Name = null;
+            this.cipccCustomerInfrastructurePrinterClassification.Parameters = customerInfrastructurePrinterClassificationParameters1;
+            this.cipccCustomerInfrastructurePrinterClassification.ReadOnly = false;
+            this.cipccCustomerInfrastructurePrinterClassification.Size = new System.Drawing.Size(226, 22);
+            this.cipccCustomerInfrastructurePrinterClassification.TabIndex = 114;
+            this.cipccCustomerInfrastructurePrinterClassification.Value = null;
+            this.cipccCustomerInfrastructurePrinterClassification.ValueMember = "CustomerInfrastructurePrinterClassificationId";
+            // 
+            // lblCustomerInfrastructurePrinterClassification
+            // 
+            this.lblCustomerInfrastructurePrinterClassification.AutoSize = true;
+            this.lblCustomerInfrastructurePrinterClassification.Location = new System.Drawing.Point(13, 78);
+            this.lblCustomerInfrastructurePrinterClassification.Name = "lblCustomerInfrastructurePrinterClassification";
+            this.lblCustomerInfrastructurePrinterClassification.Size = new System.Drawing.Size(71, 14);
+            this.lblCustomerInfrastructurePrinterClassification.TabIndex = 107;
+            this.lblCustomerInfrastructurePrinterClassification.Text = "Clasificación:";
+            // 
+            // steQuantity
+            // 
+            this.steQuantity.CustomParent = null;
+            this.steQuantity.Location = new System.Drawing.Point(447, 45);
+            this.steQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steQuantity.Name = "steQuantity";
+            this.steQuantity.ReadOnly = false;
+            this.steQuantity.Size = new System.Drawing.Size(226, 20);
+            this.steQuantity.TabIndex = 121;
+            this.steQuantity.Value = ((object)(resources.GetObject("steQuantity.Value")));
+            // 
+            // ulblQuantity
+            // 
+            this.ulblQuantity.AutoSize = true;
+            this.ulblQuantity.Location = new System.Drawing.Point(337, 49);
+            this.ulblQuantity.Name = "ulblQuantity";
+            this.ulblQuantity.Size = new System.Drawing.Size(53, 14);
+            this.ulblQuantity.TabIndex = 120;
+            this.ulblQuantity.Text = "Cantidad:";
+            // 
             // CustomerInfrastructurePrintersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,12 +356,16 @@
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraLabel lblSerialNumber;
         private Infragistics.Win.Misc.UltraLabel lblPrinterType;
         private Infragistics.Win.Misc.UltraLabel lblPrinterBrand;
         internal System.Windows.Forms.TextBox txtlSerialNumber;
         internal Choosers.PrinterBrandChooserControl pbcPrinterBrand;
         internal Choosers.PrinterTypeChooserControl ptcPrinterType;
+        private Infragistics.Win.Misc.UltraLabel lblCustomerInfrastructurePrinterClassification;
+        internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
+        internal Infragistics.Win.Misc.UltraLabel ulblQuantity;
+        internal Choosers.CustomerInfrastructurePrinterClassificationChooserControl cipccCustomerInfrastructurePrinterClassification;
+        internal Infragistics.Win.Misc.UltraLabel lblSerialNumber;
 
 
     }

@@ -231,25 +231,25 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // lblNumberOfLines
             // 
             this.lblNumberOfLines.AutoSize = true;
-            this.lblNumberOfLines.Location = new System.Drawing.Point(338, 49);
+            this.lblNumberOfLines.Location = new System.Drawing.Point(332, 48);
             this.lblNumberOfLines.Name = "lblNumberOfLines";
-            this.lblNumberOfLines.Size = new System.Drawing.Size(100, 14);
+            this.lblNumberOfLines.Size = new System.Drawing.Size(127, 14);
             this.lblNumberOfLines.TabIndex = 106;
-            this.lblNumberOfLines.Text = "Número de Lineas:";
+            this.lblNumberOfLines.Text = "Número de extensiones:";
             // 
             // lblNumberOfTrunks
             // 
             this.lblNumberOfTrunks.AutoSize = true;
-            this.lblNumberOfTrunks.Location = new System.Drawing.Point(338, 22);
+            this.lblNumberOfTrunks.Location = new System.Drawing.Point(332, 22);
             this.lblNumberOfTrunks.Name = "lblNumberOfTrunks";
-            this.lblNumberOfTrunks.Size = new System.Drawing.Size(110, 14);
+            this.lblNumberOfTrunks.Size = new System.Drawing.Size(57, 14);
             this.lblNumberOfTrunks.TabIndex = 106;
-            this.lblNumberOfTrunks.Text = "Número de Trucales:";
+            this.lblNumberOfTrunks.Text = "Troncales:";
             // 
             // steNumberOfTrunks
             // 
             this.steNumberOfTrunks.CustomParent = null;
-            this.steNumberOfTrunks.Location = new System.Drawing.Point(448, 18);
+            this.steNumberOfTrunks.Location = new System.Drawing.Point(461, 19);
             this.steNumberOfTrunks.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfTrunks.Name = "steNumberOfTrunks";
             this.steNumberOfTrunks.ReadOnly = false;
@@ -260,7 +260,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // steNumberOfExtensions
             // 
             this.steNumberOfExtensions.CustomParent = null;
-            this.steNumberOfExtensions.Location = new System.Drawing.Point(448, 48);
+            this.steNumberOfExtensions.Location = new System.Drawing.Point(461, 45);
             this.steNumberOfExtensions.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steNumberOfExtensions.Name = "steNumberOfExtensions";
             this.steNumberOfExtensions.ReadOnly = false;

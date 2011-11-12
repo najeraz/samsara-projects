@@ -238,9 +238,9 @@
             this.lblCustomerInfraestructureServerComputer.AutoSize = true;
             this.lblCustomerInfraestructureServerComputer.Location = new System.Drawing.Point(13, 49);
             this.lblCustomerInfraestructureServerComputer.Name = "lblCustomerInfraestructureServerComputer";
-            this.lblCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(50, 14);
+            this.lblCustomerInfraestructureServerComputer.Size = new System.Drawing.Size(67, 14);
             this.lblCustomerInfraestructureServerComputer.TabIndex = 111;
-            this.lblCustomerInfraestructureServerComputer.Text = "Servidor:";
+            this.lblCustomerInfraestructureServerComputer.Text = "Montado en:";
             // 
             // bsbcBackupSoftwareBrand
             // 

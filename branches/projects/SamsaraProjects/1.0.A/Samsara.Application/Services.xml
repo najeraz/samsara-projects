@@ -336,6 +336,10 @@
           type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructurePersonalComputerClassificationService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ICustomerInfrastructurePersonalComputerClassificationDao"/>
   </object>
+  <object id="ICustomerInfrastructurePrinterClassificationService"
+          type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructurePrinterClassificationService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="ICustomerInfrastructurePrinterClassificationDao"/>
+  </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 
