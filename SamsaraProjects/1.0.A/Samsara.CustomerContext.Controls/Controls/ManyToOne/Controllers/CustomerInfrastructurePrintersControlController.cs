@@ -8,9 +8,11 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
+using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Core.Context;
 using Samsara.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
+using Samsara.CustomerContext.Core.Enums;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Support.Util;
@@ -87,6 +89,19 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.controlCustomerInfrastructurePrinters.ptcPrinterType.Parameters = pmtPrinterType;
                 this.controlCustomerInfrastructurePrinters.ptcPrinterType.Refresh();
 
+                CustomerInfrastructurePrinterClassificationParameters pmtCustomerInfrastructurePrinterClassification
+                    = new CustomerInfrastructurePrinterClassificationParameters();
+
+                this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification
+                    .Parameters = pmtCustomerInfrastructurePrinterClassification;
+                this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification.Refresh();
+
+                this.controlCustomerInfrastructurePrinters
+                    .cipccCustomerInfrastructurePrinterClassification.ValueChanged
+                    +=new Base.Controls.EventsHandlers.SamsaraEntityChooserValueChangedEventHandler
+                        <CustomerInfrastructurePrinterClassification>
+                        (cipccCustomerInfrastructurePrinterClassification_ValueChanged);
+
                 this.controlCustomerInfrastructurePrinters.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
@@ -136,6 +151,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructurePrinters.pbcPrinterBrand.Value = null;
             this.controlCustomerInfrastructurePrinters.ptcPrinterType.Value = null;
             this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text = string.Empty;
+            this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification.Value = null;
+            this.controlCustomerInfrastructurePrinters.steQuantity.Value = null;
         }
 
         public override void ClearControls()
@@ -196,6 +213,12 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text
                 = this.customerInfrastructurePrinter.SerialNumber;
+
+            this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification.Value
+                = this.customerInfrastructurePrinter.CustomerInfrastructurePrinterClassification;
+
+            this.controlCustomerInfrastructurePrinters.steQuantity.Value
+                = this.customerInfrastructurePrinter.Quantity;
         }
 
         protected override void LoadEntity()
@@ -205,11 +228,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.customerInfrastructurePrinter.PrinterBrand 
                 = this.controlCustomerInfrastructurePrinters.pbcPrinterBrand.Value;
 
-            this.customerInfrastructurePrinter.PrinterType 
+            this.customerInfrastructurePrinter.PrinterType
                 = this.controlCustomerInfrastructurePrinters.ptcPrinterType.Value;
 
-            this.customerInfrastructurePrinter.SerialNumber 
+            this.customerInfrastructurePrinter.SerialNumber
                 = this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Text;
+
+            this.customerInfrastructurePrinter.CustomerInfrastructurePrinterClassification
+                = this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification.Value;
+
+            if (this.controlCustomerInfrastructurePrinters.steQuantity.Value == null
+                || this.controlCustomerInfrastructurePrinters.steQuantity.Value.ToString().Trim() == string.Empty)
+                this.customerInfrastructurePrinter.Quantity = null;
+            else
+                this.customerInfrastructurePrinter.Quantity
+                    = Convert.ToInt32(this.controlCustomerInfrastructurePrinters.steQuantity.Value);
         }
 
         protected override bool ValidateControlsData()
@@ -230,6 +263,28 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 MessageBox.Show("Favor de seleccionar el Tipo de Impresora.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructurePrinters.ptcPrinterType.Focus();
+                return false;
+            }
+
+            if (this.controlCustomerInfrastructurePrinters
+                .cipccCustomerInfrastructurePrinterClassification.Value == null)
+            {
+                MessageBox.Show("Favor de seleccionar la Clasificación de la(s) Impresoras(s).",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlCustomerInfrastructurePrinters
+                    .cipccCustomerInfrastructurePrinterClassification.Focus();
+                return false;
+            }
+
+            if ((CustomerInfrastructurePrinterClassificationEnum)this.controlCustomerInfrastructurePrinters
+                .cipccCustomerInfrastructurePrinterClassification.Value.CustomerInfrastructurePrinterClassificationId
+                == CustomerInfrastructurePrinterClassificationEnum.Multiple
+                && (this.controlCustomerInfrastructurePrinters.steQuantity.Value == null
+                || string.IsNullOrEmpty(this.controlCustomerInfrastructurePrinters.steQuantity.Value.ToString())))
+            {
+                MessageBox.Show("Favor de seleccionar la Cantidad de las Impresoras.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlCustomerInfrastructurePrinters.steQuantity.Focus();
                 return false;
             }
 
@@ -278,6 +333,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructurePrinters.ptcPrinterType.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePrinters.pbcPrinterBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePrinters.txtlSerialNumber.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePrinters.steQuantity.ReadOnly = !enabled;
         }
 
         #endregion Protected
@@ -303,6 +360,22 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             IList<PrinterType> printerTypes = this.srvPrinterType.GetListByParameters(pmtPrinterType);
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, printerTypes,
                 band.Columns["PrinterTypeId"], "PrinterTypeId", "Name", "Seleccione");
+        }
+
+        private void cipccCustomerInfrastructurePrinterClassification_ValueChanged(object sender,
+            SamsaraEntityChooserValueChangedEventArgs<CustomerInfrastructurePrinterClassification> e)
+        {
+            if (e.NewValue != null)
+            {
+                bool isUnique = (CustomerInfrastructurePrinterClassificationEnum)
+                    e.NewValue.CustomerInfrastructurePrinterClassificationId
+                    == CustomerInfrastructurePrinterClassificationEnum.Unique;
+
+                this.controlCustomerInfrastructurePrinters.steQuantity.Visible = !isUnique;
+                this.controlCustomerInfrastructurePrinters.ulblQuantity.Visible = !isUnique;
+                this.controlCustomerInfrastructurePrinters.txtlSerialNumber.Visible = isUnique;
+                this.controlCustomerInfrastructurePrinters.lblSerialNumber.Visible = isUnique;
+            }
         }
 
         #endregion Events

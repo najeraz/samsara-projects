@@ -56,6 +56,7 @@
     <Compile Include="Entities\BackupSoftwareBrand.cs" />
     <Compile Include="Entities\AccessPointBrand.cs" />
     <Compile Include="Entities\AccessPointType.cs" />
+    <Compile Include="Entities\CustomerInfrastructurePrinterClassification.cs" />
     <Compile Include="Entities\CustomerInfrastructurePersonalComputerClassification.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
     <Compile Include="Entities\SecuritySoftwareType.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Entities\CustomerInfrastructure.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSite.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetwork.cs" />
+    <Compile Include="Enums\CustomerInfrastructurePrinterClassificationEnum.cs" />
     <Compile Include="Enums\CustomerInfrastructurePersonalComputerClassificationEnum.cs" />
     <Compile Include="Parameters\BackupSoftwareBrandParameters.cs" />
     <Compile Include="Parameters\CCTVBrandParameters.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Parameters\BusinessTypeParameters.cs" />
     <Compile Include="Parameters\AccessPointBrandParameters.cs" />
     <Compile Include="Parameters\AccessPointTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePrinterClassificationParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructurePersonalComputerClassificationParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureNetworkWifiAccessPointParameters.cs" />
     <Compile Include="Parameters\SecuritySoftwareTypeParameters.cs" />

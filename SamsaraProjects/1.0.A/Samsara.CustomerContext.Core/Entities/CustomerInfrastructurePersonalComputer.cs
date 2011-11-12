@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -19,6 +20,18 @@ namespace Samsara.CustomerContext.Core.Entities
         }
 
         public virtual CustomerInfrastructure CustomerInfrastructure
+        {
+            get;
+            set;
+        }
+
+        public virtual CustomerInfrastructurePersonalComputerClassification CustomerInfrastructurePersonalComputerClassification
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<int> Quantity
         {
             get;
             set;
