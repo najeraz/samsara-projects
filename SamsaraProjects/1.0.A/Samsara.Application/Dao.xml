@@ -383,6 +383,10 @@
           type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePersonalComputerClassificationDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ICustomerInfrastructurePrinterClassificationDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePrinterClassificationDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 
