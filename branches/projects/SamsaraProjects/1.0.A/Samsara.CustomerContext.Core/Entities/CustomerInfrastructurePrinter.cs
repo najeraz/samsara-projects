@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -24,7 +25,19 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual CustomerInfrastructurePrinterClassification CustomerInfrastructurePrinterClassification
+        {
+            get;
+            set;
+        }
+
         public virtual string SerialNumber
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<int> Quantity
         {
             get;
             set;

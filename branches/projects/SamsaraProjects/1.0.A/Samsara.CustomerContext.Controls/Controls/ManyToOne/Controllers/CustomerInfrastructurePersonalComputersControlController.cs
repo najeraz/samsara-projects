@@ -98,9 +98,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Refresh();
 
-                this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification.Parameters
-                    = new CustomerInfrastructurePersonalComputerClassificationParameters();
-                this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification.Refresh();
+                this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification
+                    .Parameters= new CustomerInfrastructurePersonalComputerClassificationParameters();
+                this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification
+                    .Refresh();
 
                 this.controlCustomerInfrastructurePersonalComputers
                     .cipcccCustomerInfrastructurePersonalComputerClassification.ValueChanged
@@ -174,6 +175,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.txtStorage.Value = null;
             this.controlCustomerInfrastructurePersonalComputers.txtModel.Value = null;
+            this.controlCustomerInfrastructurePersonalComputers
+                .cipcccCustomerInfrastructurePersonalComputerClassification.Value = null;
+            this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value = null;
         }
 
         public override void ClearControls()
@@ -260,6 +264,12 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructurePersonalComputers.txtModel.Text
                 = this.customerInfrastructurePersonalComputer.Model;
+
+            this.controlCustomerInfrastructurePersonalComputers.cipcccCustomerInfrastructurePersonalComputerClassification.Value
+                = this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerClassification;
+
+            this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value
+                = this.customerInfrastructurePersonalComputer.Quantity;
         }
 
         protected override void LoadEntity()
@@ -292,6 +302,17 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.customerInfrastructurePersonalComputer.Model
                 = this.controlCustomerInfrastructurePersonalComputers.txtModel.Text;
+
+            this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerClassification
+                = this.controlCustomerInfrastructurePersonalComputers
+                .cipcccCustomerInfrastructurePersonalComputerClassification.Value;
+
+            if (this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value == null
+                || this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value.ToString().Trim() == string.Empty)
+                this.customerInfrastructurePersonalComputer.Quantity = null;
+            else
+                this.customerInfrastructurePersonalComputer.Quantity
+                    = Convert.ToInt32(this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value);
         }
 
         protected override bool ValidateControlsData()
@@ -318,7 +339,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (this.controlCustomerInfrastructurePersonalComputers
                 .cipcccCustomerInfrastructurePersonalComputerClassification.Value == null)
             {
-                MessageBox.Show("Favor de seleccionar la Clasificación de la Computadora(s).",
+                MessageBox.Show("Favor de seleccionar la Clasificación de la(s) Computadora(s).",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructurePersonalComputers
                     .cipcccCustomerInfrastructurePersonalComputerClassification.Focus();
@@ -331,7 +352,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 && (this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value == null
                 || string.IsNullOrEmpty(this.controlCustomerInfrastructurePersonalComputers.steQuantity.Value.ToString())))
             {
-                MessageBox.Show("Favor de seleccionar la Cantidad de la Computadoras.",
+                MessageBox.Show("Favor de seleccionar la Cantidad de las Computadoras.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlCustomerInfrastructurePersonalComputers.steQuantity.Focus();
                 return false;
@@ -399,6 +420,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructurePersonalComputers.txtRAM.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtSerialNumber.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.txtStorage.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePersonalComputers
+                .cipcccCustomerInfrastructurePersonalComputerClassification.ReadOnly = !enabled;
+            this.controlCustomerInfrastructurePersonalComputers.steQuantity.ReadOnly = !enabled;
         }
 
         #endregion Protected

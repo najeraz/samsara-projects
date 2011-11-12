@@ -159,6 +159,7 @@ namespace Samsara.CustomerContext.Forms.Controller
 
             this.Customer.CustomerInfrastructure.GroundedOutlet = this.frmCustomer.txtGroundedOutlet.Text;
             this.Customer.CustomerInfrastructure.TrainingAndCourses = this.frmCustomer.txtTrainingAndCourses.Text;
+            this.Customer.BusinessType = this.frmCustomer.btcDetBusinessType.Value;
 
             this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.IsolatedRoom
                 = this.frmCustomer.txtDetSiteIsolatedRoom.Text;
@@ -315,6 +316,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             {
                 this.frmCustomer.txtGroundedOutlet.Text = this.Customer.CustomerInfrastructure.GroundedOutlet;
                 this.frmCustomer.txtTrainingAndCourses.Text = this.Customer.CustomerInfrastructure.TrainingAndCourses;
+                this.frmCustomer.btcDetBusinessType.Value = this.Customer.BusinessType;
 
                 if (this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork != null
                     && this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite != null)

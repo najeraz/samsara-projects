@@ -10,12 +10,17 @@
     </id>
 
     <property name="SerialNumber"/>
+    <property name="Quantity"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
     <many-to-one name="CustomerInfrastructure"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureId"/>
+
+    <many-to-one name="CustomerInfrastructurePrinterClassification"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePrinterClassification, 
+                 Samsara.CustomerContext.Core" column="CustomerInfrastructurePrinterClassificationId"/>
 
     <many-to-one name="PrinterType"
                  class="Samsara.CustomerContext.Core.Entities.PrinterType, Samsara.CustomerContext.Core"
