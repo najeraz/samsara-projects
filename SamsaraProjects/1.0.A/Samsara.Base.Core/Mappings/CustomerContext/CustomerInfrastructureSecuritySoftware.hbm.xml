@@ -18,6 +18,10 @@
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
                  column="CustomerInfrastructureId"/>
 
+    <many-to-one name="SecuritySoftwareType"
+                 class="Samsara.CustomerContext.Core.Entities.SecuritySoftwareType, Samsara.CustomerContext.Core"
+                 column="SecuritySoftwareTypeId"/>
+
     <many-to-one name="SecuritySoftwareBrand"
                  class="Samsara.CustomerContext.Core.Entities.SecuritySoftwareBrand, Samsara.CustomerContext.Core"
                  column="SecuritySoftwareBrandId"/>
