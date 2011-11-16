@@ -126,8 +126,13 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                     row["CustomerInfrastructureBackupSoftwareId"] 
                         = customerInfrastructureBackupSoftware.CustomerInfrastructureBackupSoftwareId;
                     row["BackupSoftwareBrandId"] = customerInfrastructureBackupSoftware.BackupSoftwareBrand.BackupSoftwareBrandId;
-                    row["CustomerInfrastructureServerComputerId"] = customerInfrastructureBackupSoftware
-                        .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+
+                    if (customerInfrastructureBackupSoftware.CustomerInfrastructureServerComputer == null)
+                        row["CustomerInfrastructureServerComputerId"] = DBNull.Value;
+                    else
+                        row["CustomerInfrastructureServerComputerId"] = customerInfrastructureBackupSoftware
+                            .CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerId;
+
                     row["Description"] = customerInfrastructureBackupSoftware.Description;
                 }
             }
