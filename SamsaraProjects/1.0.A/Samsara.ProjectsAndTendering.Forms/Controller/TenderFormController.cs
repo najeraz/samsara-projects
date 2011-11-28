@@ -335,17 +335,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             DataSet dsTenderLineExtraCosts = new DataSet();
 
-
-            this.dtTenderLines.PrimaryKey = new DataColumn[] { 
-                this.dtTenderLines.Columns["TenderLineId"] 
-            };
-
             dsTenderLineExtraCosts.Tables.Add(this.dtTenderLines);
-
-            this.dtTenderLineExtraCosts.PrimaryKey = new DataColumn[] { 
-                this.dtTenderLines.Columns["TenderLineExtraCostId"] 
-            };
-
             dsTenderLineExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
 
             DataRelation drTenderLineExtraCosts = new DataRelation("drTenderLineExtraCosts",
@@ -1097,6 +1087,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.dtTenderLines = this.dtTenderLines.Copy();
             this.dtTenderLineExtraCosts = this.dtTenderLineExtraCosts.Copy();
+
+            this.frmTender.grdDetTenderLines.DataSource = this.dtTenderLines;
 
             dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLines);
             dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
@@ -1896,7 +1888,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ubtnDetCreateLine_Click(object sender, EventArgs e)
         {
             this.grdDetTenderLines_InitializeLayout(null, null);
-
 
             TenderLine tenderLine = new TenderLine();
             this.tender.TenderLines.Add(tenderLine);
