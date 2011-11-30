@@ -107,11 +107,6 @@ namespace Samsara.Base.Controls.Controls
 
             editorButtonAdd.Click -= new EditorButtonEventHandler(editorButtonAdd_Click);
             editorButtonAdd.Click += new EditorButtonEventHandler(editorButtonAdd_Click);
-
-            EditorButton editorButtonRefresh = this.suceEntities.ButtonsLeft["Refresh"] as EditorButton;
-
-            editorButtonRefresh.Click -= new EditorButtonEventHandler(editorButtonRefresh_Click);
-            editorButtonRefresh.Click += new EditorButtonEventHandler(editorButtonRefresh_Click);
         }
 
         #endregion Public
@@ -167,11 +162,6 @@ namespace Samsara.Base.Controls.Controls
                 form.ShowDialog(this);
             }
 
-            this.RefreshCombo();
-        }
-
-        private void editorButtonRefresh_Click(object sender, EditorButtonEventArgs e)
-        {
             this.RefreshCombo();
         }
 
