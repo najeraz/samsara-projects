@@ -624,9 +624,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // tabDetDetail
             // 
             this.tabDetDetail.Controls.Add(this.Principal);
-            this.tabDetDetail.Controls.Add(this.Log);
             this.tabDetDetail.Controls.Add(this.TenderDetails);
             this.tabDetDetail.Controls.Add(this.AnalysisAndResults);
+            this.tabDetDetail.Controls.Add(this.Log);
             this.tabDetDetail.Controls.Add(this.Files);
             this.tabDetDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDetDetail.Location = new System.Drawing.Point(3, 16);
