@@ -160,6 +160,14 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.TenderExchangeRateDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ITenderSubstatusDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderSubstatusDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITenderLineStatusDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.TenderLineStatusDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
   <object id="IFormConfigurationDao"
           type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.Configuration.Dao">
