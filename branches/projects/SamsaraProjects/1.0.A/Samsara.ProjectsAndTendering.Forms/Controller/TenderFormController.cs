@@ -438,16 +438,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
-                if (Convert.ToInt32(row["ManufacturerId"]) == -1)
-                {
-                    MessageBox.Show("Debe seleccionar un fabricante por partida.",
-                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
-                    this.frmTender.tcDetTextControls.SelectedTab =
-                        this.frmTender.tcDetTextControls.TabPages["TenderLines"];
-                    return false;
-                }
+                //if (Convert.ToInt32(row["ManufacturerId"]) == -1)
+                //{
+                //    MessageBox.Show("Debe seleccionar un fabricante por partida.",
+                //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    this.frmTender.tabDetDetail.SelectedTab =
+                //        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                //    this.frmTender.tcDetTextControls.SelectedTab =
+                //        this.frmTender.tcDetTextControls.TabPages["TenderLines"];
+                //    return false;
+                //}
 
                 if (row["Quantity"].ToString().Trim() == string.Empty
                     || Convert.ToDecimal(row["Quantity"]) <= 0)
@@ -1008,7 +1008,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 DataRow row = this.dtTenderLines.NewRow();
 
                 row["Description"] = tenderLine.Description;
-                row["ManufacturerId"] = tenderLine.Manufacturer.ManufacturerId;
+                if (tenderLine.Manufacturer == null)
+                    row["ManufacturerId"] = DBNull.Value;
+                else
+                    row["ManufacturerId"] = tenderLine.Manufacturer.ManufacturerId;
                 row["Name"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
                 row["TenderId"] = tenderLine.Tender.TenderId;
@@ -2893,6 +2896,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             UltraGridLayout layout = this.frmTender.grdDetTenderLinesExtraCosts.DisplayLayout;
             UltraGridBand band = layout.Bands["drTenderLineExtraCosts"];
+            UltraGridBand bandLines = layout.Bands["TenderLine"];
+
+            bandLines.Columns["Name"].CellActivation = Activation.ActivateOnly;
 
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
             band.Override.MinRowHeight = 3;
@@ -2913,24 +2919,28 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void grdDetTenderLinesExtraCosts_AfterRowUpdate(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetTenderLinesExtraCosts.ActiveRow;
-            TenderLineExtraCost tenderLineExtraCost = null;
 
-            if (Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value) <= 0)
-                tenderLineExtraCost = this.tender.TenderLines
-                    .Single(x => x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value))
-                    .TenderLineExtraCosts.Single(x => -x.GetHashCode()
-                        == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
-            else
-                tenderLineExtraCost = this.tender.TenderLines
-                    .Single(x => x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value))
-                    .TenderLineExtraCosts.Single(x => x.TenderLineExtraCostId
-                        == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
+            if (activeRow != null && activeRow.Band.Key == "drTenderLineExtraCosts")
+            {
+                TenderLineExtraCost tenderLineExtraCost = null;
 
-            tenderLineExtraCost.Description = activeRow.Cells["Description"].Value.ToString();
-            tenderLineExtraCost.Name = activeRow.Cells["Name"].Value.ToString();
-            tenderLineExtraCost.Amount = Convert.ToDecimal(activeRow.Cells["Amount"].Value);
+                if (Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value) <= 0)
+                    tenderLineExtraCost = this.tender.TenderLines
+                        .Single(x => x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value))
+                        .TenderLineExtraCosts.Single(x => -x.GetHashCode()
+                            == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
+                else
+                    tenderLineExtraCost = this.tender.TenderLines
+                        .Single(x => x.TenderLineId == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value))
+                        .TenderLineExtraCosts.Single(x => x.TenderLineExtraCostId
+                            == Convert.ToInt32(activeRow.Cells["TenderLineExtraCostId"].Value));
 
-            this.UpdatePricingStrategyExtraCosts();
+                tenderLineExtraCost.Description = activeRow.Cells["Description"].Value.ToString();
+                tenderLineExtraCost.Name = activeRow.Cells["Name"].Value.ToString();
+                tenderLineExtraCost.Amount = Convert.ToDecimal(activeRow.Cells["Amount"].Value);
+
+                this.UpdatePricingStrategyExtraCosts();
+            }
         }
 
         private void uchkDetAddExtraCosts_CheckedChanged(object sender, EventArgs e)
