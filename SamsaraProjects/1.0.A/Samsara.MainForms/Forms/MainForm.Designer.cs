@@ -34,7 +34,6 @@
             this.licitacionesYOprtinidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licitanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dependenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioFinalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fabricanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaLicitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +81,7 @@
             this.dBMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasDeSoftwareDeRespaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iSPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorDeTelefoníaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +89,6 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tiposDeSoftwareDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +118,6 @@
             this.licitacionesYOprtinidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.licitanteToolStripMenuItem,
             this.dependenciaToolStripMenuItem,
-            this.usuarioFinalToolStripMenuItem,
             this.fabricanteToolStripMenuItem,
             this.asesorToolStripMenuItem,
             this.estatusDeLaLicitaciónToolStripMenuItem,
@@ -147,13 +145,6 @@
             this.dependenciaToolStripMenuItem.Text = "Dependencia";
             this.dependenciaToolStripMenuItem.Click += new System.EventHandler(this.dependenciaToolStripMenuItem_Click);
             // 
-            // usuarioFinalToolStripMenuItem
-            // 
-            this.usuarioFinalToolStripMenuItem.Name = "usuarioFinalToolStripMenuItem";
-            this.usuarioFinalToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.usuarioFinalToolStripMenuItem.Text = "Usuario Final";
-            this.usuarioFinalToolStripMenuItem.Click += new System.EventHandler(this.usuarioFinalToolStripMenuItem_Click);
-            // 
             // fabricanteToolStripMenuItem
             // 
             this.fabricanteToolStripMenuItem.Name = "fabricanteToolStripMenuItem";
@@ -167,13 +158,7 @@
             this.asesorToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.asesorToolStripMenuItem.Text = "Asesor";
             this.asesorToolStripMenuItem.Click += new System.EventHandler(this.asesorToolStripMenuItem_Click);
-            // 
-            // estatusDeLaLicitaciónToolStripMenuItem
-            // 
-            this.estatusDeLaLicitaciónToolStripMenuItem.Name = "estatusDeLaLicitaciónToolStripMenuItem";
-            this.estatusDeLaLicitaciónToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.estatusDeLaLicitaciónToolStripMenuItem.Text = "Estatus de la Licitación";
-            this.estatusDeLaLicitaciónToolStripMenuItem.Click += new System.EventHandler(this.estatusDeLaLicitaciónToolStripMenuItem_Click);
+
             // 
             // competenciaToolStripMenuItem
             // 
@@ -247,7 +232,7 @@
             this.catálogoDeClientesToolStripMenuItem,
             this.girosDeNegocioToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // catálogoDeClientesToolStripMenuItem
@@ -271,7 +256,7 @@
             this.softwareToolStripMenuItem,
             this.proveedoresToolStripMenuItem});
             this.infraestructuraToolStripMenuItem.Name = "infraestructuraToolStripMenuItem";
-            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.infraestructuraToolStripMenuItem.Text = "Infraestructura";
             // 
             // hardwareToolStripMenuItem
@@ -284,7 +269,7 @@
             this.perifericosToolStripMenuItem,
             this.energíaToolStripMenuItem});
             this.hardwareToolStripMenuItem.Name = "hardwareToolStripMenuItem";
-            this.hardwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hardwareToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.hardwareToolStripMenuItem.Text = "Hardware";
             // 
             // computadorasToolStripMenuItem
@@ -476,7 +461,7 @@
             this.marcasDeSoftwareDeRespaldoToolStripMenuItem,
             this.tiposDeSoftwareDeSeguridadToolStripMenuItem});
             this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.softwareToolStripMenuItem.Text = "Software";
             // 
             // sistemasOperativosToolStripMenuItem
@@ -521,13 +506,20 @@
             this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Text = "Marcas de Software de Respaldo";
             this.marcasDeSoftwareDeRespaldoToolStripMenuItem.Click += new System.EventHandler(this.marcasDeSoftwareDeRespaldoToolStripMenuItem_Click);
             // 
+            // tiposDeSoftwareDeSeguridadToolStripMenuItem
+            // 
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Name = "tiposDeSoftwareDeSeguridadToolStripMenuItem";
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Text = "Tipos de Software de Seguridad";
+            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.tiposDeSoftwareDeSeguridadToolStripMenuItem_Click);
+            // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iSPToolStripMenuItem,
             this.proveedorDeTelefoníaToolStripMenuItem});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
             // iSPToolStripMenuItem
@@ -578,13 +570,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // tiposDeSoftwareDeSeguridadToolStripMenuItem
-            // 
-            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Name = "tiposDeSoftwareDeSeguridadToolStripMenuItem";
-            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Text = "Tipos de Software de Seguridad";
-            this.tiposDeSoftwareDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.tiposDeSoftwareDeSeguridadToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -614,7 +599,6 @@
         private System.Windows.Forms.ToolStripMenuItem licitacionesYOprtinidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licitanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dependenciaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuarioFinalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fabricanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asesorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaLicitaciónToolStripMenuItem;

@@ -123,6 +123,7 @@
     <Compile Include="Impl\PricingStrategyDao.cs" />
     <Compile Include="Impl\TenderExchangeRateDao.cs" />
     <Compile Include="Impl\DocumentTypeWarrantyDao.cs" />
+    <Compile Include="Impl\TenderSubstatusDao.cs" />
     <Compile Include="Impl\WarrantyTypeDao.cs" />
     <Compile Include="Impl\TenderWarrantyDao.cs" />
     <Compile Include="Impl\TenderWholesalerDao.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Interfaces\IPricingStrategyDao.cs" />
     <Compile Include="Interfaces\ITenderExchangeRateDao.cs" />
     <Compile Include="Interfaces\IDocumentTypeWarrantyDao.cs" />
+    <Compile Include="Interfaces\ITenderSubstatusDao.cs" />
     <Compile Include="Interfaces\IWarrantyTypeDao.cs" />
     <Compile Include="Interfaces\ITenderWarrantyDao.cs" />
     <Compile Include="Interfaces\ITenderWholesalerDao.cs" />

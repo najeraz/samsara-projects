@@ -153,9 +153,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.acDetAsesor.Parameters = pmtAsesor;
             this.frmTender.acDetAsesor.Refresh();
 
-            this.frmTender.acDetApprovedBy.Parameters = pmtAsesor;
-            this.frmTender.acDetApprovedBy.Refresh();
-
             // TenderStatus
             TenderStatusParameters pmtTenderStatus = new TenderStatusParameters();
 
@@ -197,12 +194,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             // EndUser
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = ParameterConstants.IntNone;
-
-            this.frmTender.eucDetEndUser.Parameters = pmtEndUser;
-            this.frmTender.eucDetEndUser.Refresh();
-
-            this.frmTender.eucSchEndUser.Parameters = pmtEndUser;
-            this.frmTender.eucSchEndUser.Refresh();
 
             // Currency            
             CurrencyParameters pmtCurrency = new CurrencyParameters();
@@ -553,17 +544,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.tender.Bidder = this.frmTender.bcDetBidder.Value;
             this.tender.Dependency = this.frmTender.dcDetDependency.Value;
-            this.tender.EndUser = this.frmTender.eucDetEndUser.Value;
+            this.tender.EndUser = null;
             this.tender.Asesor = this.frmTender.acDetAsesor.Value;
-            this.tender.ApprovedBy = this.frmTender.acDetApprovedBy.Value;
+            this.tender.ApprovedBy = null;
             this.tender.TenderStatus = this.frmTender.tscDetTenderStatus.Value;
 
             this.tender.ClarificationDate = (Nullable<DateTime>)this.frmTender.dteDetClarificationDate.Value;
             this.tender.Deadline = (Nullable<DateTime>)this.frmTender.dteDetDeadline.Value;
-            this.tender.PreRevisionDate = (Nullable<DateTime>)this.frmTender.dteDetPrerevisionDate.Value;
+            this.tender.PreRevisionDate = null;
             this.tender.RegistrationDate = (Nullable<DateTime>)this.frmTender.dteDetRegistrationDate.Value;
-            this.tender.VerdictDate = (Nullable<DateTime>)this.frmTender.dteDetVeredictDate.Value;
-            this.tender.Address = this.frmTender.txtDetAddress.Text;
+            this.tender.VerdictDate = null;
+            this.tender.Address = string.Empty;
             this.tender.AcquisitionReason = this.frmTender.txtDetAcquisitionReason.Text;
             this.tender.PricingStrategy = this.frmTender.txtDetPricingStrategy.Text;
             this.tender.Results = this.frmTender.txtDetResults.Text;
@@ -851,14 +842,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void ClearDetailControls()
         {
-            this.frmTender.acDetApprovedBy.Value = null;
             this.frmTender.acDetAsesor.Value = null;
             this.frmTender.bcDetBidder.Value = null;
             this.frmTender.dcDetDependency.Value = null;
-            this.frmTender.eucDetEndUser.Value = null;
             this.frmTender.tscDetTenderStatus.Value = null;
             this.frmTender.txtDetAcquisitionReason.Text = string.Empty;
-            this.frmTender.txtDetAddress.Text = string.Empty;
             this.frmTender.txtDetPreResults.Text = string.Empty;
             this.frmTender.txtDetPriceComparison.Text = string.Empty;
             this.frmTender.txtDetPricingStrategy.Text = string.Empty;
@@ -866,9 +854,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.txtDetTenderName.Text = string.Empty;
             this.frmTender.dteDetClarificationDate.Value = null;
             this.frmTender.dteDetDeadline.Value = null;
-            this.frmTender.dteDetPrerevisionDate.Value = null;
             this.frmTender.dteDetRegistrationDate.Value = null;
-            this.frmTender.dteDetVeredictDate.Value = null;
             this.frmTender.oscDetRelatedOpportunity.Clear();
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
@@ -895,7 +881,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.acSchAsesor.Value = null;
             this.frmTender.bcSchBidder.Value = null;
             this.frmTender.dcSchDependency.Value = null;
-            this.frmTender.eucSchEndUser.Value = null;
             this.frmTender.tscSchTenderStatus.Value = null;
             this.frmTender.uosSchDates.Value = -1;
             this.frmTender.dteSchMaxDate.DateTime = DateTime.Now;
@@ -952,14 +937,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void LoadFormFromEntity()
         {
-            this.frmTender.acDetApprovedBy.Value = this.tender.ApprovedBy;
             this.frmTender.acDetAsesor.Value = this.tender.Asesor;
             this.frmTender.bcDetBidder.Value = this.tender.Bidder;
             this.frmTender.dcDetDependency.Value = this.tender.Dependency;
-            this.frmTender.eucDetEndUser.Value = this.tender.EndUser;
             this.frmTender.tscDetTenderStatus.Value = this.tender.TenderStatus;
             this.frmTender.txtDetAcquisitionReason.Text = this.tender.AcquisitionReason;
-            this.frmTender.txtDetAddress.Text = this.tender.Address;
             this.frmTender.txtDetPreResults.Text = this.tender.PreResults;
             this.frmTender.txtDetPriceComparison.Text = this.tender.PriceComparison;
             this.frmTender.txtDetPricingStrategy.Text = this.tender.PricingStrategy;
@@ -969,12 +951,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.dteDetClarificationDate.Value = this.tender.ClarificationDate.Value;
             if (this.tender.Deadline.HasValue)
                 this.frmTender.dteDetDeadline.Value = this.tender.Deadline.Value;
-            if (this.tender.PreRevisionDate.HasValue)
-                this.frmTender.dteDetPrerevisionDate.Value = this.tender.PreRevisionDate.Value;
             if (this.tender.RegistrationDate.HasValue)
                 this.frmTender.dteDetRegistrationDate.Value = this.tender.RegistrationDate.Value;
-            if (this.tender.VerdictDate.HasValue)
-                this.frmTender.dteDetVeredictDate.Value = this.tender.VerdictDate.Value;
             this.frmTender.tscPreviousTender.Value = this.tender.PreviousTender;
             this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
             this.frmTender.uchkDetAddExtraCosts.Checked = this.tender.AddExtraCosts;
@@ -1161,8 +1139,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 -1 : this.frmTender.bcSchBidder.Value.BidderId;
             pmtTender.DependencyId = this.frmTender.dcSchDependency.Value == null ?
                 -1 : this.frmTender.dcSchDependency.Value.DependencyId;
-            pmtTender.EndUserId = this.frmTender.eucSchEndUser.Value == null ?
-                -1 : this.frmTender.eucSchEndUser.Value.EndUserId;
             pmtTender.TenderStatusId = this.frmTender.tscSchTenderStatus.Value == null ?
                 -1 : this.frmTender.tscSchTenderStatus.Value.TenderStatusId;
             pmtTender.Name = "%" + this.frmTender.txtSchTenderName.Text + "%";
@@ -1947,9 +1923,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = this.frmTender.dcSchDependency.Value == null ?
                 -1 : this.frmTender.dcSchDependency.Value.DependencyId;
-
-            this.frmTender.eucSchEndUser.Parameters = pmtEndUser;
-            this.frmTender.eucSchEndUser.Refresh();
         }
 
         private void dcDetDependency_ValueChanged(object sender, EventArgs e)
@@ -1957,9 +1930,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             EndUserParameters pmtEndUser = new EndUserParameters();
             pmtEndUser.DependencyId = this.frmTender.dcDetDependency.Value == null ?
                 -1 : this.frmTender.dcDetDependency.Value.DependencyId;
-
-            this.frmTender.eucDetEndUser.Parameters = pmtEndUser;
-            this.frmTender.eucDetEndUser.Refresh();
         }
 
         private void btnSchEdit_Click(object sender, EventArgs e)

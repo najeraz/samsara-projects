@@ -84,20 +84,6 @@ namespace Samsara.MainForms.Forms
             }
         }
 
-        private void estatusDeLaLicitaciónToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                TenderStatusForm frmTenderStatus = new TenderStatusForm();
-                frmTenderStatus.Show();
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
         private void licitacionesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
