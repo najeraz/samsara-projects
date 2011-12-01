@@ -38,6 +38,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance152 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance153 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance154 = new Infragistics.Win.Appearance();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
             Infragistics.Win.Appearance appearance134 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance135 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance136 = new Infragistics.Win.Appearance();
@@ -198,9 +199,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
             Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
             Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
+            this.tscDetTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
             this.tcDetTenderLineDetail = new System.Windows.Forms.TabControl();
             this.TenderLinesHeader = new System.Windows.Forms.TabPage();
             this.grdDetTenderLines = new Samsara.Controls.SamsaraUltraGrid();
@@ -233,6 +236,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblDetTenderName = new System.Windows.Forms.Label();
             this.txtDetTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblDetAsesor = new System.Windows.Forms.Label();
+            this.lblDetTenderSubstatus = new System.Windows.Forms.Label();
             this.lblDetTenderStatus = new System.Windows.Forms.Label();
             this.lblDetClarificationDate = new System.Windows.Forms.Label();
             this.dteDetDeadline = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
@@ -359,6 +363,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.bcSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
             this.acSchAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
             this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
+            this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
+            this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -484,11 +490,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             // pnlDetCtgButtons
             // 
-            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 425);
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 448);
             this.pnlDetCtgButtons.Size = new System.Drawing.Size(829, 25);
             // 
             // gbxSearchParameters
             // 
+            this.gbxSearchParameters.Controls.Add(this.tscSchTenderSubstatus);
+            this.gbxSearchParameters.Controls.Add(this.lblSchTenderSubstatus);
             this.gbxSearchParameters.Controls.Add(this.tscSchTenderStatus);
             this.gbxSearchParameters.Controls.Add(this.acSchAsesor);
             this.gbxSearchParameters.Controls.Add(this.dcSchDependency);
@@ -505,7 +513,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.tabDetDetail);
-            this.gbxDetDetail.Size = new System.Drawing.Size(829, 422);
+            this.gbxDetDetail.Size = new System.Drawing.Size(829, 445);
             // 
             // btnSchClose
             // 
@@ -582,7 +590,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdSchSearch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdSchSearch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
             this.grdSchSearch.Location = new System.Drawing.Point(3, 136);
-            this.grdSchSearch.Size = new System.Drawing.Size(829, 289);
+            this.grdSchSearch.Size = new System.Drawing.Size(829, 312);
             // 
             // btnDetCancel
             // 
@@ -594,7 +602,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             // tabPrincipal
             // 
-            this.tabPrincipal.Size = new System.Drawing.Size(843, 479);
+            this.tabPrincipal.Size = new System.Drawing.Size(843, 502);
             // 
             // tabDetDetail
             // 
@@ -606,7 +614,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tabDetDetail.Location = new System.Drawing.Point(3, 16);
             this.tabDetDetail.Name = "tabDetDetail";
             this.tabDetDetail.SelectedIndex = 0;
-            this.tabDetDetail.Size = new System.Drawing.Size(823, 403);
+            this.tabDetDetail.Size = new System.Drawing.Size(823, 426);
             this.tabDetDetail.TabIndex = 0;
             // 
             // Principal
@@ -616,7 +624,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.Principal.Location = new System.Drawing.Point(4, 22);
             this.Principal.Name = "Principal";
             this.Principal.Padding = new System.Windows.Forms.Padding(3);
-            this.Principal.Size = new System.Drawing.Size(815, 377);
+            this.Principal.Size = new System.Drawing.Size(815, 400);
             this.Principal.TabIndex = 0;
             this.Principal.Text = "Principal";
             // 
@@ -625,6 +633,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             // upDetControls.ClientArea
             // 
+            this.upDetControls.ClientArea.Controls.Add(this.tscDetTenderSubstatus);
             this.upDetControls.ClientArea.Controls.Add(this.tcDetTenderLineDetail);
             this.upDetControls.ClientArea.Controls.Add(this.tscDetTenderStatus);
             this.upDetControls.ClientArea.Controls.Add(this.acDetAsesor);
@@ -640,6 +649,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetControls.ClientArea.Controls.Add(this.lblDetTenderName);
             this.upDetControls.ClientArea.Controls.Add(this.txtDetTenderName);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetAsesor);
+            this.upDetControls.ClientArea.Controls.Add(this.lblDetTenderSubstatus);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetTenderStatus);
             this.upDetControls.ClientArea.Controls.Add(this.lblDetClarificationDate);
             this.upDetControls.ClientArea.Controls.Add(this.dteDetDeadline);
@@ -650,17 +660,32 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upDetControls.Location = new System.Drawing.Point(3, 3);
             this.upDetControls.Name = "upDetControls";
-            this.upDetControls.Size = new System.Drawing.Size(809, 371);
+            this.upDetControls.Size = new System.Drawing.Size(809, 394);
             this.upDetControls.TabIndex = 57;
+            // 
+            // tscDetTenderSubstatus
+            // 
+            this.tscDetTenderSubstatus.CustomParent = null;
+            this.tscDetTenderSubstatus.DisplayMember = "Name";
+            this.tscDetTenderSubstatus.Location = new System.Drawing.Point(167, 368);
+            this.tscDetTenderSubstatus.Name = "tscDetTenderSubstatus";
+            tenderSubstatusParameters2.Name = null;
+            this.tscDetTenderSubstatus.Parameters = tenderSubstatusParameters2;
+            this.tscDetTenderSubstatus.ReadOnly = false;
+            this.tscDetTenderSubstatus.Size = new System.Drawing.Size(226, 22);
+            this.tscDetTenderSubstatus.TabIndex = 96;
+            this.tscDetTenderSubstatus.Value = null;
+            this.tscDetTenderSubstatus.ValueMember = "TenderSubstatusId";
             // 
             // tcDetTenderLineDetail
             // 
             this.tcDetTenderLineDetail.Controls.Add(this.TenderLinesHeader);
             this.tcDetTenderLineDetail.Controls.Add(this.TenderLineDetail);
-            this.tcDetTenderLineDetail.Location = new System.Drawing.Point(414, 10);
+            this.tcDetTenderLineDetail.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tcDetTenderLineDetail.Location = new System.Drawing.Point(409, 0);
             this.tcDetTenderLineDetail.Name = "tcDetTenderLineDetail";
             this.tcDetTenderLineDetail.SelectedIndex = 0;
-            this.tcDetTenderLineDetail.Size = new System.Drawing.Size(386, 352);
+            this.tcDetTenderLineDetail.Size = new System.Drawing.Size(400, 394);
             this.tcDetTenderLineDetail.TabIndex = 2;
             // 
             // TenderLinesHeader
@@ -671,7 +696,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.TenderLinesHeader.Location = new System.Drawing.Point(4, 22);
             this.TenderLinesHeader.Name = "TenderLinesHeader";
             this.TenderLinesHeader.Padding = new System.Windows.Forms.Padding(3);
-            this.TenderLinesHeader.Size = new System.Drawing.Size(378, 326);
+            this.TenderLinesHeader.Size = new System.Drawing.Size(392, 368);
             this.TenderLinesHeader.TabIndex = 0;
             this.TenderLinesHeader.Text = "Partidas";
             // 
@@ -735,7 +760,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderLines.Location = new System.Drawing.Point(3, 3);
             this.grdDetTenderLines.lstCustomControlNames = null;
             this.grdDetTenderLines.Name = "grdDetTenderLines";
-            this.grdDetTenderLines.Size = new System.Drawing.Size(372, 295);
+            this.grdDetTenderLines.Size = new System.Drawing.Size(386, 337);
             this.grdDetTenderLines.TabIndex = 2;
             this.grdDetTenderLines.Text = "samsaraUltraGrid1";
             // 
@@ -747,15 +772,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.pnlDetLineButtons.Controls.Add(this.ubtnDetCreateLine);
             this.pnlDetLineButtons.Controls.Add(this.upDetSeparator532);
             this.pnlDetLineButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 298);
+            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 340);
             this.pnlDetLineButtons.Name = "pnlDetLineButtons";
-            this.pnlDetLineButtons.Size = new System.Drawing.Size(372, 25);
+            this.pnlDetLineButtons.Size = new System.Drawing.Size(386, 25);
             this.pnlDetLineButtons.TabIndex = 3;
             // 
             // upDetSeparator4534
             // 
             this.upDetSeparator4534.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator4534.Location = new System.Drawing.Point(170, 0);
+            this.upDetSeparator4534.Location = new System.Drawing.Point(184, 0);
             this.upDetSeparator4534.Name = "upDetSeparator4534";
             this.upDetSeparator4534.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator4534.TabIndex = 12;
@@ -763,7 +788,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // ubtnDetDeleteLine
             // 
             this.ubtnDetDeleteLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteLine.Location = new System.Drawing.Point(186, 0);
+            this.ubtnDetDeleteLine.Location = new System.Drawing.Point(200, 0);
             this.ubtnDetDeleteLine.Name = "ubtnDetDeleteLine";
             this.ubtnDetDeleteLine.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteLine.TabIndex = 9;
@@ -772,7 +797,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // upDetSeparator4327
             // 
             this.upDetSeparator4327.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator4327.Location = new System.Drawing.Point(263, 0);
+            this.upDetSeparator4327.Location = new System.Drawing.Point(277, 0);
             this.upDetSeparator4327.Name = "upDetSeparator4327";
             this.upDetSeparator4327.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator4327.TabIndex = 10;
@@ -780,7 +805,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // ubtnDetCreateLine
             // 
             this.ubtnDetCreateLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreateLine.Location = new System.Drawing.Point(279, 0);
+            this.ubtnDetCreateLine.Location = new System.Drawing.Point(293, 0);
             this.ubtnDetCreateLine.Name = "ubtnDetCreateLine";
             this.ubtnDetCreateLine.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateLine.TabIndex = 8;
@@ -789,7 +814,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // upDetSeparator532
             // 
             this.upDetSeparator532.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator532.Location = new System.Drawing.Point(356, 0);
+            this.upDetSeparator532.Location = new System.Drawing.Point(370, 0);
             this.upDetSeparator532.Name = "upDetSeparator532";
             this.upDetSeparator532.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator532.TabIndex = 11;
@@ -802,7 +827,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.TenderLineDetail.Location = new System.Drawing.Point(4, 22);
             this.TenderLineDetail.Name = "TenderLineDetail";
             this.TenderLineDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.TenderLineDetail.Size = new System.Drawing.Size(378, 326);
+            this.TenderLineDetail.Size = new System.Drawing.Size(392, 368);
             this.TenderLineDetail.TabIndex = 1;
             this.TenderLineDetail.Text = "Costos extras por partida";
             // 
@@ -865,7 +890,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderLinesExtraCosts.Location = new System.Drawing.Point(3, 3);
             this.grdDetTenderLinesExtraCosts.lstCustomControlNames = null;
             this.grdDetTenderLinesExtraCosts.Name = "grdDetTenderLinesExtraCosts";
-            this.grdDetTenderLinesExtraCosts.Size = new System.Drawing.Size(372, 295);
+            this.grdDetTenderLinesExtraCosts.Size = new System.Drawing.Size(386, 337);
             this.grdDetTenderLinesExtraCosts.TabIndex = 6;
             // 
             // pnlDetTenderLineExtraCostsButtons
@@ -876,15 +901,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.pnlDetTenderLineExtraCostsButtons.Controls.Add(this.ubtnDetCreateTenderLineExtraCost);
             this.pnlDetTenderLineExtraCostsButtons.Controls.Add(this.upDetSeparator45345);
             this.pnlDetTenderLineExtraCostsButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetTenderLineExtraCostsButtons.Location = new System.Drawing.Point(3, 298);
+            this.pnlDetTenderLineExtraCostsButtons.Location = new System.Drawing.Point(3, 340);
             this.pnlDetTenderLineExtraCostsButtons.Name = "pnlDetTenderLineExtraCostsButtons";
-            this.pnlDetTenderLineExtraCostsButtons.Size = new System.Drawing.Size(372, 25);
+            this.pnlDetTenderLineExtraCostsButtons.Size = new System.Drawing.Size(386, 25);
             this.pnlDetTenderLineExtraCostsButtons.TabIndex = 4;
             // 
             // upDetSeparator582
             // 
             this.upDetSeparator582.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator582.Location = new System.Drawing.Point(170, 0);
+            this.upDetSeparator582.Location = new System.Drawing.Point(184, 0);
             this.upDetSeparator582.Name = "upDetSeparator582";
             this.upDetSeparator582.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator582.TabIndex = 12;
@@ -892,7 +917,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // ubtnDetDeleteTenderLineExtraCost
             // 
             this.ubtnDetDeleteTenderLineExtraCost.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteTenderLineExtraCost.Location = new System.Drawing.Point(186, 0);
+            this.ubtnDetDeleteTenderLineExtraCost.Location = new System.Drawing.Point(200, 0);
             this.ubtnDetDeleteTenderLineExtraCost.Name = "ubtnDetDeleteTenderLineExtraCost";
             this.ubtnDetDeleteTenderLineExtraCost.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetDeleteTenderLineExtraCost.TabIndex = 9;
@@ -901,7 +926,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // upDetSeparator5085
             // 
             this.upDetSeparator5085.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator5085.Location = new System.Drawing.Point(263, 0);
+            this.upDetSeparator5085.Location = new System.Drawing.Point(277, 0);
             this.upDetSeparator5085.Name = "upDetSeparator5085";
             this.upDetSeparator5085.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator5085.TabIndex = 10;
@@ -909,7 +934,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // ubtnDetCreateTenderLineExtraCost
             // 
             this.ubtnDetCreateTenderLineExtraCost.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreateTenderLineExtraCost.Location = new System.Drawing.Point(279, 0);
+            this.ubtnDetCreateTenderLineExtraCost.Location = new System.Drawing.Point(293, 0);
             this.ubtnDetCreateTenderLineExtraCost.Name = "ubtnDetCreateTenderLineExtraCost";
             this.ubtnDetCreateTenderLineExtraCost.Size = new System.Drawing.Size(77, 25);
             this.ubtnDetCreateTenderLineExtraCost.TabIndex = 8;
@@ -918,7 +943,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // upDetSeparator45345
             // 
             this.upDetSeparator45345.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator45345.Location = new System.Drawing.Point(356, 0);
+            this.upDetSeparator45345.Location = new System.Drawing.Point(370, 0);
             this.upDetSeparator45345.Name = "upDetSeparator45345";
             this.upDetSeparator45345.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator45345.TabIndex = 11;
@@ -1080,6 +1105,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblDetAsesor.TabIndex = 47;
             this.lblDetAsesor.Text = "Asesor:";
             // 
+            // lblDetTenderSubstatus
+            // 
+            this.lblDetTenderSubstatus.AutoSize = true;
+            this.lblDetTenderSubstatus.Location = new System.Drawing.Point(3, 372);
+            this.lblDetTenderSubstatus.Name = "lblDetTenderSubstatus";
+            this.lblDetTenderSubstatus.Size = new System.Drawing.Size(63, 13);
+            this.lblDetTenderSubstatus.TabIndex = 45;
+            this.lblDetTenderSubstatus.Text = "Subestatus:";
+            // 
             // lblDetTenderStatus
             // 
             this.lblDetTenderStatus.AutoSize = true;
@@ -1152,7 +1186,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.AnalysisAndResults.Controls.Add(this.tcDetTextControls);
             this.AnalysisAndResults.Location = new System.Drawing.Point(4, 22);
             this.AnalysisAndResults.Name = "AnalysisAndResults";
-            this.AnalysisAndResults.Size = new System.Drawing.Size(815, 377);
+            this.AnalysisAndResults.Size = new System.Drawing.Size(815, 400);
             this.AnalysisAndResults.TabIndex = 4;
             this.AnalysisAndResults.Text = "Comparativo de Precios, Estrategia de Precios, Fianzas y Resultados";
             // 
@@ -1166,7 +1200,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tcDetAnalysisAndResults.Location = new System.Drawing.Point(0, 157);
             this.tcDetAnalysisAndResults.Name = "tcDetAnalysisAndResults";
             this.tcDetAnalysisAndResults.SelectedIndex = 0;
-            this.tcDetAnalysisAndResults.Size = new System.Drawing.Size(815, 220);
+            this.tcDetAnalysisAndResults.Size = new System.Drawing.Size(815, 243);
             this.tcDetAnalysisAndResults.TabIndex = 0;
             // 
             // ComparativoDePrecios
@@ -1176,7 +1210,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ComparativoDePrecios.Controls.Add(this.upnlDetPriceComparison);
             this.ComparativoDePrecios.Location = new System.Drawing.Point(4, 22);
             this.ComparativoDePrecios.Name = "ComparativoDePrecios";
-            this.ComparativoDePrecios.Size = new System.Drawing.Size(807, 194);
+            this.ComparativoDePrecios.Size = new System.Drawing.Size(807, 217);
             this.ComparativoDePrecios.TabIndex = 9;
             this.ComparativoDePrecios.Text = "Comparativo de Precios";
             // 
@@ -1241,7 +1275,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetPriceComparison.Location = new System.Drawing.Point(0, 0);
             this.grdDetPriceComparison.lstCustomControlNames = null;
             this.grdDetPriceComparison.Name = "grdDetPriceComparison";
-            this.grdDetPriceComparison.Size = new System.Drawing.Size(807, 96);
+            this.grdDetPriceComparison.Size = new System.Drawing.Size(807, 119);
             this.grdDetPriceComparison.TabIndex = 78;
             this.grdDetPriceComparison.Text = "samsaraUltraGrid1";
             // 
@@ -1253,7 +1287,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upnlDetPriceComparison.ClientArea.Controls.Add(this.gbxDetPriceComparison);
             this.upnlDetPriceComparison.ClientArea.Controls.Add(this.gbxDetExchangeRates);
             this.upnlDetPriceComparison.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlDetPriceComparison.Location = new System.Drawing.Point(0, 96);
+            this.upnlDetPriceComparison.Location = new System.Drawing.Point(0, 119);
             this.upnlDetPriceComparison.Name = "upnlDetPriceComparison";
             this.upnlDetPriceComparison.Size = new System.Drawing.Size(807, 98);
             this.upnlDetPriceComparison.TabIndex = 81;
@@ -2368,7 +2402,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.Log.Controls.Add(this.pnlDetLogButtons);
             this.Log.Location = new System.Drawing.Point(4, 22);
             this.Log.Name = "Log";
-            this.Log.Size = new System.Drawing.Size(815, 377);
+            this.Log.Size = new System.Drawing.Size(815, 400);
             this.Log.TabIndex = 7;
             this.Log.Text = "Bitácora";
             // 
@@ -2433,7 +2467,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
             this.grdDetLog.lstCustomControlNames = null;
             this.grdDetLog.Name = "grdDetLog";
-            this.grdDetLog.Size = new System.Drawing.Size(815, 259);
+            this.grdDetLog.Size = new System.Drawing.Size(815, 282);
             this.grdDetLog.TabIndex = 1;
             this.grdDetLog.Text = "samsaraUltraGrid1";
             // 
@@ -2441,7 +2475,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             this.gbxDetLog.Controls.Add(this.txtDetLog);
             this.gbxDetLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxDetLog.Location = new System.Drawing.Point(0, 259);
+            this.gbxDetLog.Location = new System.Drawing.Point(0, 282);
             this.gbxDetLog.Name = "gbxDetLog";
             this.gbxDetLog.Size = new System.Drawing.Size(815, 93);
             this.gbxDetLog.TabIndex = 4;
@@ -2463,7 +2497,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.pnlDetLogButtons.Controls.Add(this.ubtnDetCreateLog);
             this.pnlDetLogButtons.Controls.Add(this.upDetSeparator1241);
             this.pnlDetLogButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetLogButtons.Location = new System.Drawing.Point(0, 352);
+            this.pnlDetLogButtons.Location = new System.Drawing.Point(0, 375);
             this.pnlDetLogButtons.Name = "pnlDetLogButtons";
             this.pnlDetLogButtons.Size = new System.Drawing.Size(815, 25);
             this.pnlDetLogButtons.TabIndex = 5;
@@ -2501,7 +2535,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.Files.Controls.Add(this.pnlDetTenderFilesButtons);
             this.Files.Location = new System.Drawing.Point(4, 22);
             this.Files.Name = "Files";
-            this.Files.Size = new System.Drawing.Size(815, 377);
+            this.Files.Size = new System.Drawing.Size(815, 400);
             this.Files.TabIndex = 3;
             this.Files.Text = "Archivos Adjuntos";
             // 
@@ -2566,7 +2600,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderFiles.Location = new System.Drawing.Point(0, 0);
             this.grdDetTenderFiles.lstCustomControlNames = null;
             this.grdDetTenderFiles.Name = "grdDetTenderFiles";
-            this.grdDetTenderFiles.Size = new System.Drawing.Size(815, 214);
+            this.grdDetTenderFiles.Size = new System.Drawing.Size(815, 237);
             this.grdDetTenderFiles.TabIndex = 3;
             this.grdDetTenderFiles.Text = "samsaraUltraGrid1";
             // 
@@ -2578,7 +2612,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.pnlDetTenderFiles.Controls.Add(this.ubtnDetCancelTenderFile);
             this.pnlDetTenderFiles.Controls.Add(this.gbxDetSearchFile);
             this.pnlDetTenderFiles.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetTenderFiles.Location = new System.Drawing.Point(0, 214);
+            this.pnlDetTenderFiles.Location = new System.Drawing.Point(0, 237);
             this.pnlDetTenderFiles.Name = "pnlDetTenderFiles";
             this.pnlDetTenderFiles.Size = new System.Drawing.Size(815, 138);
             this.pnlDetTenderFiles.TabIndex = 5;
@@ -2676,7 +2710,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.pnlDetTenderFilesButtons.Controls.Add(this.ubtnDetNewTenderFile);
             this.pnlDetTenderFilesButtons.Controls.Add(this.upSeparatorTenderFiles);
             this.pnlDetTenderFilesButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetTenderFilesButtons.Location = new System.Drawing.Point(0, 352);
+            this.pnlDetTenderFilesButtons.Location = new System.Drawing.Point(0, 375);
             this.pnlDetTenderFilesButtons.Name = "pnlDetTenderFilesButtons";
             this.pnlDetTenderFilesButtons.Size = new System.Drawing.Size(815, 25);
             this.pnlDetTenderFilesButtons.TabIndex = 4;
@@ -2750,7 +2784,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // lblSchDependency
             // 
             this.lblSchDependency.AutoSize = true;
-            this.lblSchDependency.Location = new System.Drawing.Point(11, 81);
+            this.lblSchDependency.Location = new System.Drawing.Point(11, 82);
             this.lblSchDependency.Name = "lblSchDependency";
             this.lblSchDependency.Size = new System.Drawing.Size(74, 13);
             this.lblSchDependency.TabIndex = 61;
@@ -2759,7 +2793,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // lblSchAsesor
             // 
             this.lblSchAsesor.AutoSize = true;
-            this.lblSchAsesor.Location = new System.Drawing.Point(381, 26);
+            this.lblSchAsesor.Location = new System.Drawing.Point(394, 26);
             this.lblSchAsesor.Name = "lblSchAsesor";
             this.lblSchAsesor.Size = new System.Drawing.Size(42, 13);
             this.lblSchAsesor.TabIndex = 62;
@@ -2786,7 +2820,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // lblSchTenderStatus
             // 
             this.lblSchTenderStatus.AutoSize = true;
-            this.lblSchTenderStatus.Location = new System.Drawing.Point(381, 54);
+            this.lblSchTenderStatus.Location = new System.Drawing.Point(394, 54);
             this.lblSchTenderStatus.Name = "lblSchTenderStatus";
             this.lblSchTenderStatus.Size = new System.Drawing.Size(45, 13);
             this.lblSchTenderStatus.TabIndex = 66;
@@ -2813,7 +2847,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // lblSchMinDate
             // 
             this.lblSchMinDate.AutoSize = true;
-            this.lblSchMinDate.Location = new System.Drawing.Point(159, 89);
+            this.lblSchMinDate.Location = new System.Drawing.Point(159, 52);
             this.lblSchMinDate.Name = "lblSchMinDate";
             this.lblSchMinDate.Size = new System.Drawing.Size(35, 13);
             this.lblSchMinDate.TabIndex = 70;
@@ -2822,7 +2856,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // lblSchEndDate
             // 
             this.lblSchEndDate.AutoSize = true;
-            this.lblSchEndDate.Location = new System.Drawing.Point(160, 115);
+            this.lblSchEndDate.Location = new System.Drawing.Point(160, 78);
             this.lblSchEndDate.Name = "lblSchEndDate";
             this.lblSchEndDate.Size = new System.Drawing.Size(24, 13);
             this.lblSchEndDate.TabIndex = 69;
@@ -2836,9 +2870,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ubgxSchFechas.Controls.Add(this.lblSchEndDate);
             this.ubgxSchFechas.Controls.Add(this.uosSchDates);
             this.ubgxSchFechas.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubgxSchFechas.Location = new System.Drawing.Point(783, 16);
+            this.ubgxSchFechas.Location = new System.Drawing.Point(738, 16);
             this.ubgxSchFechas.Name = "ubgxSchFechas";
-            this.ubgxSchFechas.Size = new System.Drawing.Size(43, 89);
+            this.ubgxSchFechas.Size = new System.Drawing.Size(88, 89);
             this.ubgxSchFechas.TabIndex = 71;
             this.ubgxSchFechas.Text = "Rango de Fechas:";
             this.ubgxSchFechas.Visible = false;
@@ -2866,9 +2900,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             valueListItem12,
             valueListItem13,
             valueListItem14});
-            this.uosSchDates.Location = new System.Drawing.Point(3, 66);
+            this.uosSchDates.Location = new System.Drawing.Point(3, 29);
             this.uosSchDates.Name = "uosSchDates";
-            this.uosSchDates.Size = new System.Drawing.Size(145, 20);
+            this.uosSchDates.Size = new System.Drawing.Size(145, 57);
             this.uosSchDates.TabIndex = 0;
             // 
             // dcSchDependency
@@ -2905,7 +2939,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             this.acSchAsesor.CustomParent = null;
             this.acSchAsesor.DisplayMember = "Name";
-            this.acSchAsesor.Location = new System.Drawing.Point(465, 23);
+            this.acSchAsesor.Location = new System.Drawing.Point(478, 23);
             this.acSchAsesor.Name = "acSchAsesor";
             asesorParameters1.FullName = null;
             asesorParameters1.Name = null;
@@ -2922,7 +2956,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             this.tscSchTenderStatus.CustomParent = null;
             this.tscSchTenderStatus.DisplayMember = "Name";
-            this.tscSchTenderStatus.Location = new System.Drawing.Point(465, 51);
+            this.tscSchTenderStatus.Location = new System.Drawing.Point(478, 51);
             this.tscSchTenderStatus.Name = "tscSchTenderStatus";
             tenderStatusParameters1.Name = null;
             this.tscSchTenderStatus.Parameters = tenderStatusParameters1;
@@ -2932,11 +2966,34 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderStatus.Value = null;
             this.tscSchTenderStatus.ValueMember = "TenderStatusId";
             // 
+            // tscSchTenderSubstatus
+            // 
+            this.tscSchTenderSubstatus.CustomParent = null;
+            this.tscSchTenderSubstatus.DisplayMember = "Name";
+            this.tscSchTenderSubstatus.Location = new System.Drawing.Point(478, 79);
+            this.tscSchTenderSubstatus.Name = "tscSchTenderSubstatus";
+            tenderSubstatusParameters1.Name = null;
+            this.tscSchTenderSubstatus.Parameters = tenderSubstatusParameters1;
+            this.tscSchTenderSubstatus.ReadOnly = false;
+            this.tscSchTenderSubstatus.Size = new System.Drawing.Size(226, 22);
+            this.tscSchTenderSubstatus.TabIndex = 98;
+            this.tscSchTenderSubstatus.Value = null;
+            this.tscSchTenderSubstatus.ValueMember = "TenderSubstatusId";
+            // 
+            // lblSchTenderSubstatus
+            // 
+            this.lblSchTenderSubstatus.AutoSize = true;
+            this.lblSchTenderSubstatus.Location = new System.Drawing.Point(394, 82);
+            this.lblSchTenderSubstatus.Name = "lblSchTenderSubstatus";
+            this.lblSchTenderSubstatus.Size = new System.Drawing.Size(63, 13);
+            this.lblSchTenderSubstatus.TabIndex = 97;
+            this.lblSchTenderSubstatus.Text = "Subestatus:";
+            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 479);
+            this.ClientSize = new System.Drawing.Size(843, 502);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TenderForm";
             this.Text = "Licitaciones";
@@ -3243,6 +3300,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl bcSchBidder;
         internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl tscSchTenderStatus;
         internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl acSchAsesor;
+        private System.Windows.Forms.Label lblSchTenderSubstatus;
+        private System.Windows.Forms.Label lblDetTenderSubstatus;
+        internal Controls.Controls.TenderSubstatusChooserControl tscSchTenderSubstatus;
+        internal Controls.Controls.TenderSubstatusChooserControl tscDetTenderSubstatus;
     }
 }
 

@@ -117,6 +117,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.TenderSubstatusService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="ITenderSubstatusDao"/>
   </object>
+  <object id="ITenderLineStatusService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.TenderLineStatusService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="ITenderLineStatusDao"/>
+  </object>
   
   <object id="IFormConfigurationService"
           type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.Configuration.Service">

@@ -158,9 +158,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.tscDetTenderStatus.Parameters = pmtTenderStatus;
             this.frmTender.tscDetTenderStatus.Refresh();
+            this.frmTender.tscDetTenderStatus.ReadOnly = true;
 
             this.frmTender.tscSchTenderStatus.Parameters = pmtTenderStatus;
             this.frmTender.tscSchTenderStatus.Refresh();
+
+            // TenderSubstatus
+            TenderSubstatusParameters pmtTenderSubstatus = new TenderSubstatusParameters();
+
+            this.frmTender.tscDetTenderSubstatus.Parameters = pmtTenderSubstatus;
+            this.frmTender.tscDetTenderSubstatus.Refresh();
+            this.frmTender.tscDetTenderSubstatus.ReadOnly = true;
+
+            this.frmTender.tscSchTenderSubstatus.Parameters = pmtTenderSubstatus;
+            this.frmTender.tscSchTenderSubstatus.Refresh();
 
             // Bidder
             BidderParameters pmtBidder = new BidderParameters();
@@ -773,7 +784,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 tenderLine.Tender = this.tender;
                 tenderLine.Description = row["Description"].ToString();
-                tenderLine.Manufacturer = this.srvManufacturer.GetById(Convert.ToInt32(row["ManufacturerId"]));
+                if (row["ManufacturerId"] == DBNull.Value)
+                    tenderLine.Manufacturer = null;
+                else
+                    tenderLine.Manufacturer = this.srvManufacturer.GetById(Convert.ToInt32(row["ManufacturerId"]));
                 tenderLine.Name = row["Name"].ToString();
                 tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
                 tenderLine.Activated = true;
@@ -1174,6 +1188,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtPriceComparison.Columns.Add(dc);
             }
 
+            if (!this.dtPriceComparison.Columns.Contains("TenderLineQuantity"))
+            {
+                DataColumn dc = new DataColumn("TenderLineQuantity", typeof(string));
+                this.dtPriceComparison.Columns.Add(dc);
+            }
+
+            if (!this.dtPriceComparison.Columns.Contains("TenderLineDescription"))
+            {
+                DataColumn dc = new DataColumn("TenderLineDescription", typeof(string));
+                this.dtPriceComparison.Columns.Add(dc);
+            }
+
             if (!this.dtPriceComparison.Columns.Contains("SelectedWholesalerId"))
             {
                 DataColumn dc = new DataColumn("SelectedWholesalerId", typeof(int));
@@ -1252,6 +1278,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     rowPC["BestPriceCurrencyId"] = this.defaultCurrency.CurrencyId;
                     rowPC["SelectedWholesalerId"] = -1;
                     rowPC["TenderLineName"] = row["Name"];
+                    rowPC["TenderLineQuantity"] = row["Quantity"];
+                    rowPC["TenderLineDescription"] = row["Description"];
                     rowPC["SelectBestChoise"] = "Seleccionar";
                     this.dtPriceComparison.Rows.Add(rowPC);
                 }
@@ -1777,6 +1805,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.UpdatePricingStrategyGrid();
                 }
             }
+
+            DataRow rowPC = this.dtPriceComparison.AsEnumerable().SingleOrDefault(
+                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+            if (rowPC != null && e.Cell.Column.Key == "Quantity")
+            {
+                rowPC["TenderLineQuantity"] = e.NewValue;
+            }
+
+            if (rowPC != null && e.Cell.Column.Key == "Description")
+            {
+                rowPC["TenderLineDescription"] = e.NewValue;
+            }
+
+            if (rowPC != null && e.Cell.Column.Key == "Name")
+            {
+                rowPC["TenderLineName"] = e.NewValue;
+            }
         }
 
         private void grdDetTenderLines_AfterCellUpdate(object sender, EventArgs e)
@@ -2132,6 +2178,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].Hidden = true;
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
+            band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineQuantity"].Header.Caption = "Cantidad";
+            band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineDescription"].Header.Caption = "Producto";
             band.Columns["SelectedWholesalerId"].Header.Caption = "Seleccionado";
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["BestPrice"],
                 TextMaskFormatEnum.Currency);
