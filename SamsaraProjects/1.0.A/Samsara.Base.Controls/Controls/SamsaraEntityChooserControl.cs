@@ -40,6 +40,11 @@ namespace Samsara.Base.Controls.Controls
             set
             {
                 this.suceEntities.ReadOnly = value;
+                
+                foreach (EditorButton buttonLeft in this.suceEntities.ButtonsLeft)
+                {
+                    buttonLeft.Enabled = !value;
+                }
             }
         }
         
