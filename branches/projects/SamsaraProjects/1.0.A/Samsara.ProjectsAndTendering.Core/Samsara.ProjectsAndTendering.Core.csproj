@@ -91,6 +91,7 @@
     <Compile Include="Entities\Bidder.cs" />
     <Compile Include="Entities\BidderType.cs" />
     <Compile Include="Entities\Competitor.cs" />
+    <Compile Include="Entities\TenderSubstatus.cs" />
     <Compile Include="Entities\TenderLineExtraCost.cs" />
     <Compile Include="Entities\TenderFile.cs" />
     <Compile Include="Entities\TenderLineCompetitor.cs" />
@@ -119,12 +120,15 @@
     <Compile Include="Entities\Tender.cs" />
     <Compile Include="Entities\Manufacturer.cs" />
     <Compile Include="Entities\Dependency.cs" />
+    <Compile Include="Enums\TenderSubstatusesEnum.cs" />
+    <Compile Include="Enums\TenderStatusesEnum.cs" />
     <Compile Include="Enums\DateTypeSearchEnum.cs" />
     <Compile Include="Enums\OpportunityTypeEnum.cs" />
     <Compile Include="Parameters\BidderParameters.cs" />
     <Compile Include="Parameters\AsesorParameters.cs" />
     <Compile Include="Parameters\BidderTypeParameters.cs" />
     <Compile Include="Parameters\CompetitorParameters.cs" />
+    <Compile Include="Parameters\TenderSubstatusParameters.cs" />
     <Compile Include="Parameters\TenderFileExtraCostParameters.cs" />
     <Compile Include="Parameters\TenderFileParameters.cs" />
     <Compile Include="Parameters\PricingStrategyParameters.cs" />
