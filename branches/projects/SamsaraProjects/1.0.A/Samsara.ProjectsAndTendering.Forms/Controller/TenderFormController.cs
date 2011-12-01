@@ -2180,6 +2180,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineName"].Header.Caption = "Partida";
             band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineQuantity"].Header.Caption = "Cantidad";
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TenderLineQuantity"],
+                TextMaskFormatEnum.NaturalQuantity);
             band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineDescription"].Header.Caption = "Producto";
             band.Columns["SelectedWholesalerId"].Header.Caption = "Seleccionado";
