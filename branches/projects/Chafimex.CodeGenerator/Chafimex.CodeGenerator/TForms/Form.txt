@@ -29,7 +29,7 @@ namespace Samsara.#Schema#.Forms.Forms
 
         #region Methods
 
-        public override #EntityName# GetSerchResult()
+        public override #EntityName# GetSearchResult()
         {
             #EntityName# #EntityName# = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
