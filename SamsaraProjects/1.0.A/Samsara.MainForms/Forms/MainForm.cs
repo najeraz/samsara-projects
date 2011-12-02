@@ -601,5 +601,19 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                ProductForm frmProduct = new ProductForm();
+                frmProduct.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

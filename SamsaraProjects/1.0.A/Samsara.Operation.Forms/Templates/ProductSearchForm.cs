@@ -1,8 +1,8 @@
 ﻿
 using Samsara.Base.Forms.Forms;
-using Samsara.ProjectsAndTendering.Core.Entities;
+using Samsara.Operation.Core.Entities;
 
-namespace Samsara.ProjectsAndTendering.Forms.Templates
+namespace Samsara.Operation.Forms.Templates
 {
     public partial class ProductSearchForm : GenericSearchForm<Product>
     {
@@ -11,7 +11,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Templates
             InitializeComponent();
         }
 
-        public override Product GetSerchResult()
+        public override Product GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

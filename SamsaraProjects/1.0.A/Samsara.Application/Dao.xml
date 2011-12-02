@@ -187,7 +187,7 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IProductDao"
-          type="Samsara.ProjectsAndTendering.Dao.Impl.ProductDao, Samsara.ProjectsAndTendering.Dao">
+          type="Samsara.Operation.Dao.Impl.ProductDao, Samsara.Operation.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 

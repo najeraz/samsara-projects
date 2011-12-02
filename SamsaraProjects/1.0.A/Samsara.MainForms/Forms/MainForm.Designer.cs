@@ -88,6 +88,7 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,7 +203,8 @@
             // operacónToolStripMenuItem
             // 
             this.operacónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.monedasToolStripMenuItem});
+            this.monedasToolStripMenuItem,
+            this.productosToolStripMenuItem});
             this.operacónToolStripMenuItem.Name = "operacónToolStripMenuItem";
             this.operacónToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.operacónToolStripMenuItem.Text = "Operación";
@@ -567,6 +569,13 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,6 +655,7 @@
         private System.Windows.Forms.ToolStripMenuItem marcaDePuntoDeAccesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDePuntoDeAccesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeSoftwareDeSeguridadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
     }
 }
 
