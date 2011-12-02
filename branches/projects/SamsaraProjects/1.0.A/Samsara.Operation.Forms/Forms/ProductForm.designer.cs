@@ -1,4 +1,4 @@
-﻿namespace Samsara.ProjectsAndTendering.Forms.Forms
+﻿namespace Samsara.Operation.Forms.Forms
 {
     partial class ProductForm
     {

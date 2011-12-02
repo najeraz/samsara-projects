@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.ProjectsAndTendering.Forms.Templates
+namespace Samsara.Operation.Forms.Templates
 {
     public partial class ProductSearchForm
     {

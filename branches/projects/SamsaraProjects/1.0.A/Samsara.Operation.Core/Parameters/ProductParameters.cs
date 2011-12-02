@@ -10,5 +10,11 @@ namespace Samsara.Operation.Core.Parameters
             get;
             set;
         }
+
+        public string Code
+        {
+            get;
+            set;
+        }
     }
 }

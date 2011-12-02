@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.ProjectsAndTendering.Controls.Controls
+namespace Samsara.Operation.Controls.Controls
 {
     partial class ProductChooserControl
     {

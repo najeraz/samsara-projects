@@ -3,12 +3,12 @@ using System;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.ProjectsAndTendering.Core.Entities;
-using Samsara.ProjectsAndTendering.Forms.Controller;
-using Samsara.ProjectsAndTendering.Forms.Templates;
-using Samsara.ProjectsAndTendering.Service.Interfaces;
+using Samsara.Operation.Core.Entities;
+using Samsara.Operation.Forms.Controller;
+using Samsara.Operation.Forms.Templates;
+using Samsara.Operation.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Forms.Forms
+namespace Samsara.Operation.Forms.Forms
 {
     public partial class ProductForm : ProductSearchForm
     {
@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
 
         #region Methods
 
-        public override Product GetSerchResult()
+        public override Product GetSearchResult()
         {
             Product Product = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
