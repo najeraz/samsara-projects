@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Operation.Core" 
+  namespace="Samsara.Operation.Core.Entities">
+  
+  <class name="Product" table="Operation.Currencies">
+    
+    <id name="ProductId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="IsDefault"/>
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+
+  </class>
+
+  <query name="Product.GetByParameters">
+    <![CDATA[
+        from Product where Deleted = 0 and Activated = 1
+        and IsDefault = :IsDefault
+    ]]>
+  </query>
+
+  <query name="Product.GetListByParameters">
+    <![CDATA[
+        from Product where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="Product.SearchByParameters">
+    <![CDATA[
+        from Product where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+  
+</hibernate-mapping>

@@ -36,7 +36,6 @@
             this.dependenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fabricanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estatusDeLaLicitaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.competenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estatusDeLaOportunidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,7 +119,6 @@
             this.dependenciaToolStripMenuItem,
             this.fabricanteToolStripMenuItem,
             this.asesorToolStripMenuItem,
-            this.estatusDeLaLicitaciónToolStripMenuItem,
             this.competenciaToolStripMenuItem,
             this.estatusDeLaOportunidadToolStripMenuItem,
             this.organizacionesToolStripMenuItem,
@@ -158,7 +156,6 @@
             this.asesorToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.asesorToolStripMenuItem.Text = "Asesor";
             this.asesorToolStripMenuItem.Click += new System.EventHandler(this.asesorToolStripMenuItem_Click);
-
             // 
             // competenciaToolStripMenuItem
             // 
@@ -213,7 +210,7 @@
             // monedasToolStripMenuItem
             // 
             this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
-            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.monedasToolStripMenuItem.Text = "Monedas";
             this.monedasToolStripMenuItem.Click += new System.EventHandler(this.monedasToolStripMenuItem_Click);
             // 
@@ -601,7 +598,6 @@
         private System.Windows.Forms.ToolStripMenuItem dependenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fabricanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asesorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estatusDeLaLicitaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem competenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estatusDeLaOportunidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem organizacionesToolStripMenuItem;
