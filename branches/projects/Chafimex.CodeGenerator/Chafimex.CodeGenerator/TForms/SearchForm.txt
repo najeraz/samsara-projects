@@ -11,7 +11,7 @@ namespace Samsara.#Schema#.Forms.Templates
             InitializeComponent();
         }
 
-        public override #EntityName# GetSerchResult()
+        public override #EntityName# GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

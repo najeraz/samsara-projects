@@ -87,6 +87,8 @@ namespace Chafimex.CodeGenerator
                     Directory.Delete(serviceFolderPath, true);
                 if (Directory.Exists(formFolderPath))
                     Directory.Delete(formFolderPath, true);
+                if (Directory.Exists(controlsFolderPath))
+                    Directory.Delete(controlsFolderPath, true);
 
                 Directory.CreateDirectory(daoFolderPath);
                 Directory.CreateDirectory(serviceFolderPath);
