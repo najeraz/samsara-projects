@@ -1,11 +1,11 @@
 ﻿
 using Samsara.Base.Service.Impl;
-using Samsara.ProjectsAndTendering.Core.Entities;
-using Samsara.ProjectsAndTendering.Core.Parameters;
-using Samsara.ProjectsAndTendering.Dao.Interfaces;
-using Samsara.ProjectsAndTendering.Service.Interfaces;
+using Samsara.Operation.Core.Entities;
+using Samsara.Operation.Core.Parameters;
+using Samsara.Operation.Dao.Interfaces;
+using Samsara.Operation.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Service.Impl
+namespace Samsara.Operation.Service.Impl
 {
     public class ProductService : GenericService<Product, int, IProductDao, ProductParameters>, IProductService
     {

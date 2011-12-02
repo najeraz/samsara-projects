@@ -1,12 +1,12 @@
 ﻿
 using System.Reflection;
 using Samsara.Base.Controls.Controls;
-using Samsara.ProjectsAndTendering.Core.Entities;
-using Samsara.ProjectsAndTendering.Core.Parameters;
-using Samsara.ProjectsAndTendering.Dao.Interfaces;
-using Samsara.ProjectsAndTendering.Service.Interfaces;
+using Samsara.Operation.Core.Entities;
+using Samsara.Operation.Core.Parameters;
+using Samsara.Operation.Dao.Interfaces;
+using Samsara.Operation.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Controls.Controls
+namespace Samsara.Operation.Controls.Controls
 {
     public partial class ProductChooserControl : SamsaraEntityChooserControl<Product, int, IProductService, IProductDao, ProductParameters>
     {

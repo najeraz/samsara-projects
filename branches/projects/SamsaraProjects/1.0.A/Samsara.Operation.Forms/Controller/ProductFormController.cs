@@ -5,12 +5,12 @@ using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.ProjectsAndTendering.Core.Entities;
-using Samsara.ProjectsAndTendering.Core.Parameters;
-using Samsara.ProjectsAndTendering.Forms.Forms;
-using Samsara.ProjectsAndTendering.Service.Interfaces;
+using Samsara.Operation.Core.Entities;
+using Samsara.Operation.Core.Parameters;
+using Samsara.Operation.Forms.Forms;
+using Samsara.Operation.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Forms.Controller
+namespace Samsara.Operation.Forms.Controller
 {
     public class ProductFormController
     {
@@ -64,7 +64,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (this.frmProduct.txtDetName.Text == null || 
                 this.frmProduct.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Producto.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmProduct.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el Product?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Producto?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void DeleteEntity(int ProductId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Producto?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Product = this.srvProduct.GetById(ProductId);
@@ -140,6 +140,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             ProductParameters pmtProduct = new ProductParameters();
 
             pmtProduct.Name = "%" + this.frmProduct.txtSchName.Text + "%";
+            pmtProduct.Code = "%" + this.frmProduct.txtSchName.Text + "%";
 
             DataTable dtProducts = srvProduct.SearchByParameters(pmtProduct);
 

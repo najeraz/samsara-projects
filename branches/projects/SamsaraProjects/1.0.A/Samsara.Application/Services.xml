@@ -140,7 +140,7 @@
     <property name="Dao" ref="ICurrencyDao"/>
   </object>
   <object id="IProductService"
-          type="Samsara.ProjectsAndTendering.Service.Impl.ProductService, Samsara.ProjectsAndTendering.Service">
+          type="Samsara.Operation.Service.Impl.ProductService, Samsara.Operation.Service">
     <property name="Dao" ref="IProductDao"/>
   </object>
 

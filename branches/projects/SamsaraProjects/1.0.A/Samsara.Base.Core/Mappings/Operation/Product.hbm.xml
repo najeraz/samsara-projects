@@ -3,14 +3,14 @@
   assembly="Samsara.Operation.Core" 
   namespace="Samsara.Operation.Core.Entities">
   
-  <class name="Product" table="Operation.Currencies">
+  <class name="Product" table="Operation.Products">
     
     <id name="ProductId" type="int">
       <generator class="native"/>
     </id>
 
-    <property name="IsDefault"/>
     <property name="Name"/>
+    <property name="Code"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
@@ -20,7 +20,6 @@
   <query name="Product.GetByParameters">
     <![CDATA[
         from Product where Deleted = 0 and Activated = 1
-        and IsDefault = :IsDefault
     ]]>
   </query>
 
@@ -33,7 +32,7 @@
   <query name="Product.SearchByParameters">
     <![CDATA[
         from Product where Deleted = 0 and Activated = 1
-        and Name like :Name
+        and Name like :Name and Code like :Code
     ]]>
   </query>
   
