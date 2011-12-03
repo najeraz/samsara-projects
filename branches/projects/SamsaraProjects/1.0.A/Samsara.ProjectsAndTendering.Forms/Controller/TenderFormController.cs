@@ -318,8 +318,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             PricingStrategyParameters pmtPricingStrategy = new PricingStrategyParameters();
             pmtPricingStrategy.PricingStrategyId = ParameterConstants.IntNone;
             this.dtPricingStrategy = this.srvPricingStrategy.SearchByParameters(pmtPricingStrategy);
+            this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineId", typeof(int)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineName", typeof(string)));
-            this.dtPricingStrategy.Columns.Add(new DataColumn("Quantity", typeof(decimal)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineQuantity", typeof(decimal)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineDescription", typeof(string)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("Warranties", typeof(decimal)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("ExtraCosts", typeof(decimal)));
             this.frmTender.grdDetPricingStrategy.DataSource = null;
@@ -1382,6 +1384,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtPreresults.Columns.Add(dc);
             }
 
+            if (!this.dtPreresults.Columns.Contains("TenderLineQuantity"))
+            {
+                DataColumn dc = new DataColumn("TenderLineQuantity", typeof(decimal));
+                this.dtPreresults.Columns.Add(dc);
+            }
+
+            if (!this.dtPreresults.Columns.Contains("TenderLineDescription"))
+            {
+                DataColumn dc = new DataColumn("TenderLineDescription", typeof(string));
+                this.dtPreresults.Columns.Add(dc);
+            }
+
             foreach (int competitorId in this.dtTenderCompetitors.AsEnumerable()
                 .Select(x => Convert.ToInt32(x["CompetitorId"])))
             {
@@ -1564,8 +1578,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
 
                 row["PricingStrategyId"] = pricingStrategy.PricingStrategyId = tenderLine.TenderLineId;
+                row["TenderLineId"] = tenderLine.TenderLineId;
                 row["TenderLineName"] = tenderLine.Name;
-                row["Quantity"] = tenderLine.Quantity;
+                row["TenderLineQuantity"] = tenderLine.Quantity;
+                row["TenderLineDescription"] = tenderLine.Description;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
                 row["RealPrice"] = pricingStrategy.RealPrice;
                 row["SelectedPrice"] = pricingStrategy.SelectedPrice;
@@ -1810,19 +1826,37 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
 
             if (rowPC != null && e.Cell.Column.Key == "Quantity")
-            {
                 rowPC["TenderLineQuantity"] = e.NewValue;
-            }
 
             if (rowPC != null && e.Cell.Column.Key == "Description")
-            {
                 rowPC["TenderLineDescription"] = e.NewValue;
-            }
 
             if (rowPC != null && e.Cell.Column.Key == "Name")
-            {
                 rowPC["TenderLineName"] = e.NewValue;
-            }
+
+            DataRow rowPE = this.dtPricingStrategy.AsEnumerable().SingleOrDefault(
+                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+            if (rowPE != null && e.Cell.Column.Key == "Quantity")
+                rowPE["TenderLineQuantity"] = e.NewValue;
+
+            if (rowPE != null && e.Cell.Column.Key == "Description")
+                rowPE["TenderLineDescription"] = e.NewValue;
+
+            if (rowPE != null && e.Cell.Column.Key == "Name")
+                rowPE["TenderLineName"] = e.NewValue;
+
+            DataRow rowP = this.dtPreresults.AsEnumerable().SingleOrDefault(
+                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+            if (rowP != null && e.Cell.Column.Key == "Quantity")
+                rowP["TenderLineQuantity"] = e.NewValue;
+
+            if (rowP != null && e.Cell.Column.Key == "Description")
+                rowP["TenderLineDescription"] = e.NewValue;
+
+            if (rowP != null && e.Cell.Column.Key == "Name")
+                rowP["TenderLineName"] = e.NewValue;
         }
 
         private void grdDetTenderLines_AfterCellUpdate(object sender, EventArgs e)
@@ -2219,7 +2253,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .Contains(x.WholesalerId));
 
             WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers,
-                    band.Columns["SelectedWholesalerId"], "WholesalerId", "Name", "[Fabricante]");
+                    band.Columns["SelectedWholesalerId"], "WholesalerId", "Name", "Seleccione");
 
             foreach (DataColumn col in this.dtPriceComparison.Columns.Cast<DataColumn>()
                 .Where(x => int.TryParse(x.ColumnName, out columnName)))
@@ -2470,22 +2504,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridBand band = layout.Bands[0];
 
             WholesalerParameters pmtWholesaler = new WholesalerParameters();
-            IEnumerable<Wholesaler> ieWholesalers 
+            IList<Wholesaler> lstWholesalers 
                 = this.srvWholesaler.GetListByParameters(pmtWholesaler);
-            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, ieWholesalers, 
+            WindowsFormsUtil.SetUltraGridValueList<Wholesaler>(layout, lstWholesalers, 
                 band.Columns["WholesalerId"], "WholesalerId", "Name", "Seleccione");
             band.Columns["WholesalerId"].CellActivation = Activation.ActivateOnly;
 
-            ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
-            IEnumerable<Manufacturer> ieManufacturers 
-                = this.srvManufacturer.GetListByParameters(pmtManufacturer);
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, ieManufacturers, 
-                band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
-            band.Columns["ManufacturerId"].CellActivation = Activation.AllowEdit;
-
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TenderLineQuantity"],
                 TextMaskFormatEnum.NaturalQuantity);
-            band.Columns["Quantity"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["RealPrice"],
                 TextMaskFormatEnum.Currency);
@@ -2623,6 +2651,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].Hidden = true;
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
+            band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineQuantity"].Header.Caption = "Cantidad";
+            band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineDescription"].Header.Caption = "Producto";
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);

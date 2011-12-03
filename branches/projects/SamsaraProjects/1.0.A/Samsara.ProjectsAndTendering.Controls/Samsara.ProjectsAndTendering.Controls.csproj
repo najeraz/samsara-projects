@@ -262,7 +262,9 @@
     <Compile Include="Controls\Choosers\WholesalerChooserControl.designer.cs">
       <DependentUpon>WholesalerChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TenderLineStatusChooserControl.cs" />
+    <Compile Include="Controls\Choosers\TenderLineStatusChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\TenderLineStatusChooserControl.designer.cs">
       <DependentUpon>TenderLineStatusChooserControl.cs</DependentUpon>
     </Compile>
