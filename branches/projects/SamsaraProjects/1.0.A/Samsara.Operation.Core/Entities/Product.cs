@@ -18,6 +18,12 @@ namespace Samsara.Operation.Core.Entities
             set;
         }
 
+        public virtual ProductBrand ProductBrand
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
