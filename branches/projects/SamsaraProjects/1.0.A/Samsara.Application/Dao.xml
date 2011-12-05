@@ -190,6 +190,10 @@
           type="Samsara.Operation.Dao.Impl.ProductDao, Samsara.Operation.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IProductBrandDao"
+          type="Samsara.Operation.Dao.Impl.ProductBrandDao, Samsara.Operation.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
   <object id="ICCTVBrandDao"
           type="Samsara.CustomerContext.Dao.Impl.CCTVBrandDao, Samsara.CustomerContext.Dao">
