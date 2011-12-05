@@ -3042,6 +3042,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
             band.Columns["Warranties"].Hidden = !this.tender.ProrateWarranties;
             this.UpdatePricingStrategyGrid();
+            this.UpdatePricingStrategyWarranties();
         }
 
         private void ubtnDetDownloadTenderFile_Click(object sender, EventArgs e)
