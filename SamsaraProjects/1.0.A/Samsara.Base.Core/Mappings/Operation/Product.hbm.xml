@@ -15,6 +15,10 @@
     <property name="Deleted"/>
     <property name="Activated"/>
 
+    <many-to-one name="ProductBrand" lazy="false"
+                 class="Samsara.Operation.Core.Entities.ProductBrand, Samsara.Operation.Core"
+                 column="ProductBrandId"/>
+
   </class>
 
   <query name="Product.GetByParameters">
