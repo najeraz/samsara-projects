@@ -24,6 +24,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        public virtual bool CanProrate
+        {
+            get;
+            set;
+        }
+
         public virtual string Description
         {
             get;

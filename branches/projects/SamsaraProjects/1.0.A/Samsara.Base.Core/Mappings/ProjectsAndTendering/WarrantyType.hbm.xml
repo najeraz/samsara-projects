@@ -8,8 +8,9 @@
     <id name="WarrantyTypeId" type="int">
       <generator class="native"/>
     </id>
-
+    
     <property name="Name"/>
+    <property name="CanProrate"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>

@@ -257,6 +257,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetTenderWarranties_InitializeLayout);
             this.frmTender.grdDetTenderWarranties.AfterCellUpdate +=
                 new CellEventHandler(grdDetTenderWarranties_AfterCellUpdate);
+            this.frmTender.grdDetTenderWarranties.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(grdDetTenderWarranties_BeforeCellUpdate);
             TenderWarrantyParameters pmtTenderWarranty = new TenderWarrantyParameters();
             pmtTenderWarranty.TenderId = ParameterConstants.IntNone;
             this.dtTenderWarranties = this.srvTenderWarranty.SearchByParameters(pmtTenderWarranty);
@@ -1436,6 +1438,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     DataRow rowPC = this.dtPreresults.NewRow();
                     rowPC["TenderLineId"] = row["TenderLineId"];
                     rowPC["TenderLineName"] = row["Name"];
+                    rowPC["TenderLineQuantity"] = row["Quantity"];
+                    rowPC["TenderLineDescription"] = row["Description"];
                     this.dtPreresults.Rows.Add(rowPC);
                 }
             }
@@ -1540,9 +1544,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
 
                 if (this.tender.ProrateWarranties)
-                    proratedWarrantiesSummary = drPricingStrategy == null
-                        || drPricingStrategy["Warranties"] == DBNull.Value ?
-                        pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["Warranties"]);
+                    proratedWarrantiesSummary = this.tender.TenderWarranties
+                        .Where(x => (x.WarrantyType.CanProrate)).Sum(x => x.Amount);
 
                 try
                 {
@@ -1557,13 +1560,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 pricingStrategy.UnitProfit = pricingStrategy.UnitPriceBeforeTax
                     - pricingStrategy.SelectedPrice;
+
                 pricingStrategy.TenderLineProfit = pricingStrategy.UnitProfit
                     * tenderLine.Quantity;
+
                 pricingStrategy.UnitPriceAfterTax = pricingStrategy.UnitPriceBeforeTax
                     * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA));
 
                 pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
                     * tenderLine.Quantity;
+
                 pricingStrategy.TotalPriceAfterTax = pricingStrategy.TotalPriceBeforeTax
                     * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA)) + proratedWarrantiesSummary
                     + extraCostsSummary;
@@ -1736,9 +1742,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void UpdatePricingStrategyWarranties()
         {
-            decimal totalWarranties = this.dtTenderWarranties.AsEnumerable()
-                    .Where(x => x["Amount"] != DBNull.Value)
-                    .Sum(x => Convert.ToDecimal(x["Amount"]));
+            decimal totalWarranties = this.tender.TenderWarranties.Where(x => x.WarrantyType.CanProrate)
+                .Sum(x => x.Amount);
             decimal totalTenderAfterTax = this.dtPricingStrategy.AsEnumerable()
                     .Where(x => x["TotalPriceAfterTax"] != DBNull.Value)
                     .Sum(x => Convert.ToDecimal(x["TotalPriceAfterTax"]));
@@ -2628,13 +2633,33 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 band.Columns["DocumentTypeWarrantyId"], "DocumentTypeWarrantyId", "Name", "Seleccione");
         }
 
+        private void grdDetTenderWarranties_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            if (e.Cell.Column.Key == "Amount")
+            {
+                TenderWarranty tenderWarranty = this.tender.TenderWarranties
+                    .Single(x => x.TenderWarrantyId == Convert.ToInt32(e.Cell.Row.Cells["TenderWarrantyId"].Value));
+
+                tenderWarranty.Amount = Convert.ToDecimal(e.NewValue);
+            }
+
+            if (e.Cell.Column.Key == "WarrantyTypeId")
+            {
+                TenderWarranty tenderWarranty = this.tender.TenderWarranties
+                    .Single(x => x.TenderWarrantyId == Convert.ToInt32(e.Cell.Row.Cells["TenderWarrantyId"].Value));
+
+                tenderWarranty.WarrantyType = this.srvWarrantyType
+                    .GetById(Convert.ToInt32(e.NewValue));
+            }
+        }
+
         private void grdDetTenderWarranties_AfterCellUpdate(object sender, EventArgs e)
         {
             UltraGridCell activeCell = this.frmTender.grdDetTenderWarranties.ActiveCell;
 
             if (activeCell == null)
                 return;
-
+            
             activeCell.Row.PerformAutoSize();
 
             this.UpdatePricingStrategyWarranties();
@@ -2651,8 +2676,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineId"].Hidden = true;
             band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineName"].Header.Caption = "Partida";
+
             band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineQuantity"].Header.Caption = "Cantidad";
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TenderLineQuantity"],
+                TextMaskFormatEnum.NaturalQuantity);
+
             band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineDescription"].Header.Caption = "Producto";
 
