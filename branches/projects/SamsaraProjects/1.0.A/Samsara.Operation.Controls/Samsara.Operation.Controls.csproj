@@ -82,6 +82,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Choosers\ProductBrandChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ProductBrandChooserControl.designer.cs">
+      <DependentUpon>ProductBrandChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

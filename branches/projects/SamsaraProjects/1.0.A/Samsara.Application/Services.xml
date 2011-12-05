@@ -143,6 +143,10 @@
           type="Samsara.Operation.Service.Impl.ProductService, Samsara.Operation.Service">
     <property name="Dao" ref="IProductDao"/>
   </object>
+  <object id="IProductBrandService"
+          type="Samsara.Operation.Service.Impl.ProductBrandService, Samsara.Operation.Service">
+    <property name="Dao" ref="IProductBrandDao"/>
+  </object>
 
   <object id="ICCTVBrandService"
           type="Samsara.CustomerContext.Service.Impl.CCTVBrandService, Samsara.CustomerContext.Service">
