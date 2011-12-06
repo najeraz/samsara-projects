@@ -46,6 +46,21 @@ namespace Samsara.Operation.Forms.Controller
             this.frmProduct.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmProduct.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
+            this.frmProduct.btnSchDelete.Visible = false;
+            this.frmProduct.btnSchCreate.Visible = false;
+            this.frmProduct.btnSchEdit.Text = "Ver Detalle";
+
+            this.frmProduct.txtDetDescription.ReadOnly = true;
+            this.frmProduct.txtDetName.ReadOnly = true;
+
+            ProductBrandParameters pmtProductBrand = new ProductBrandParameters();
+
+            this.frmProduct.pbcDetProductBrand.Parameters = pmtProductBrand;
+            this.frmProduct.pbcDetProductBrand.Refresh();
+            this.frmProduct.pbcDetProductBrand.ReadOnly = true;
+            this.frmProduct.pbcSchProductBrand.Parameters = pmtProductBrand;
+            this.frmProduct.pbcSchProductBrand.Refresh();
+
             this.frmProduct.HiddenDetail(true);
             this.ClearSearchControls();
         }
@@ -86,11 +101,13 @@ namespace Samsara.Operation.Forms.Controller
         {
             this.frmProduct.txtDetName.Text = string.Empty;
             this.frmProduct.txtDetDescription.Text = string.Empty;
+            this.frmProduct.pbcDetProductBrand.Value = null;
         }
 
         private void ClearSearchControls()
         {
             this.frmProduct.txtSchName.Text = string.Empty;
+            this.frmProduct.pbcSchProductBrand.Value = null;
         }
 
         private void SaveProduct()
@@ -121,6 +138,7 @@ namespace Samsara.Operation.Forms.Controller
         {
             this.frmProduct.txtDetName.Text = this.Product.Name;
             this.frmProduct.txtDetDescription.Text = this.Product.Description;
+            this.frmProduct.pbcDetProductBrand.Value = this.Product.ProductBrand;
         }
 
         private void DeleteEntity(int ProductId)
@@ -140,6 +158,8 @@ namespace Samsara.Operation.Forms.Controller
             ProductParameters pmtProduct = new ProductParameters();
 
             pmtProduct.Name = "%" + this.frmProduct.txtSchName.Text + "%";
+            pmtProduct.ProductBrandId = this.frmProduct.pbcSchProductBrand.Value == null ? 
+                -1 : this.frmProduct.pbcSchProductBrand.Value.ProductBrandId;
 
             DataTable dtProducts = srvProduct.SearchByParameters(pmtProduct);
 
