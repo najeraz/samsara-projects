@@ -15,7 +15,7 @@ namespace SamsaraProjectsUpdaterService
         #region Attibutes
 
         private static int oneMinute = 60000;
-        private static long criticalInterval = 10 * oneMinute;
+        private static long criticalInterval = 5 * oneMinute;
 
         private static int numBrandsInsert = 50;
         private static int numProductsInsert = 50;
