@@ -46,6 +46,9 @@ namespace Samsara.Operation.Forms.Controller
             this.frmProductBrand.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmProductBrand.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
+            this.frmProductBrand.btnSchDelete.Visible = false;
+            this.frmProductBrand.btnSchCreate.Visible = false;
+
             this.frmProductBrand.HiddenDetail(true);
             this.ClearSearchControls();
         }

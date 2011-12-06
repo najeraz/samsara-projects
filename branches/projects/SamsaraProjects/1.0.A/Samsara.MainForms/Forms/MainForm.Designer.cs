@@ -44,6 +44,7 @@
             this.tiposDeDocumentosDeFianzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operacónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monedasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextoDelClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catálogoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +89,7 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -204,7 +205,8 @@
             // 
             this.operacónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.monedasToolStripMenuItem,
-            this.productosToolStripMenuItem});
+            this.productosToolStripMenuItem,
+            this.marcasDeProductosToolStripMenuItem});
             this.operacónToolStripMenuItem.Name = "operacónToolStripMenuItem";
             this.operacónToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.operacónToolStripMenuItem.Text = "Operación";
@@ -212,9 +214,16 @@
             // monedasToolStripMenuItem
             // 
             this.monedasToolStripMenuItem.Name = "monedasToolStripMenuItem";
-            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.monedasToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.monedasToolStripMenuItem.Text = "Monedas";
             this.monedasToolStripMenuItem.Click += new System.EventHandler(this.monedasToolStripMenuItem_Click);
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // contextoDelClienteToolStripMenuItem
             // 
@@ -569,12 +578,12 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // productosToolStripMenuItem
+            // marcasDeProductosToolStripMenuItem
             // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.productosToolStripMenuItem.Text = "Productos";
-            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            this.marcasDeProductosToolStripMenuItem.Name = "marcasDeProductosToolStripMenuItem";
+            this.marcasDeProductosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.marcasDeProductosToolStripMenuItem.Text = "Marcas de Productos";
+            this.marcasDeProductosToolStripMenuItem.Click += new System.EventHandler(this.marcasDeProductosToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -656,6 +665,7 @@
         private System.Windows.Forms.ToolStripMenuItem tipoDePuntoDeAccesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiposDeSoftwareDeSeguridadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasDeProductosToolStripMenuItem;
     }
 }
 

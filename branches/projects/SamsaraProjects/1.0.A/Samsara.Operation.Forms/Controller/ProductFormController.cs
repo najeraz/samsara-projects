@@ -140,7 +140,6 @@ namespace Samsara.Operation.Forms.Controller
             ProductParameters pmtProduct = new ProductParameters();
 
             pmtProduct.Name = "%" + this.frmProduct.txtSchName.Text + "%";
-            pmtProduct.Code = "%" + this.frmProduct.txtSchName.Text + "%";
 
             DataTable dtProducts = srvProduct.SearchByParameters(pmtProduct);
 
