@@ -33,11 +33,17 @@
     ]]>
   </query>
 
-  <query name="Product.SearchByParameters">
+  <sql-query name="Product.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="ProductId" type="int"/>
+    <return-scalar column="ProductName" type="string"/>
+    <return-scalar column="BrandName" type="string"/>
     <![CDATA[
-        from Product where Deleted = 0 and Activated = 1
-        and Name like :Name and Code like :Code
+        SELECT p.ProductId, p.Name ProductName, pb.Name BrandName
+        FROM        Operation.Products p
+        LEFT JOIN   Operation.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
+        WHERE       p.Deleted = 0 AND p.Activated = 1
+        AND         p.Name LIKE :Name
     ]]>
-  </query>
+  </sql-query>
   
 </hibernate-mapping>
