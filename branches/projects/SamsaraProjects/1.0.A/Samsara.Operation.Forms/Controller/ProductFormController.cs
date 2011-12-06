@@ -64,7 +64,7 @@ namespace Samsara.Operation.Forms.Controller
             if (this.frmProduct.txtDetName.Text == null || 
                 this.frmProduct.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para el Producto.",
+                MessageBox.Show("Favor de elegir un nombre para la Marca de Producto.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmProduct.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.Operation.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el Producto?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar la Marca de Producto?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.Operation.Forms.Controller
 
         private void DeleteEntity(int ProductId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar el Producto?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Marca de Producto?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Product = this.srvProduct.GetById(ProductId);

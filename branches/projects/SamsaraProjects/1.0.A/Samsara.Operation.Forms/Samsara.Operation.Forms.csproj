@@ -98,7 +98,9 @@
     <Compile Include="Forms\CurrencyForm.designer.cs">
       <DependentUpon>CurrencyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ProductBrandForm.cs" />
+    <Compile Include="Forms\ProductBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ProductBrandForm.designer.cs">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </Compile>
@@ -115,7 +117,9 @@
     <Compile Include="Templates\CurrencySearchForm.Designer.cs">
       <DependentUpon>CurrencySearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\ProductBrandSearchForm.cs" />
+    <Compile Include="Templates\ProductBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Templates\ProductBrandSearchForm.designer.cs">
       <DependentUpon>ProductBrandSearchForm.cs</DependentUpon>
     </Compile>
