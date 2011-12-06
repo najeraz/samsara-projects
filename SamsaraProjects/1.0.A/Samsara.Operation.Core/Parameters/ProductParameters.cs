@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Operation.Core.Parameters
@@ -12,6 +13,12 @@ namespace Samsara.Operation.Core.Parameters
         }
 
         public string Code
+        {
+            get;
+            set;
+        }
+
+        public Nullable<int> ProductBrandId
         {
             get;
             set;

@@ -48,6 +48,10 @@ namespace Samsara.Operation.Forms.Controller
 
             this.frmProductBrand.btnSchDelete.Visible = false;
             this.frmProductBrand.btnSchCreate.Visible = false;
+            this.frmProductBrand.btnSchEdit.Text = "Ver Detalle";
+
+            this.frmProductBrand.txtDetDescription.ReadOnly = true;
+            this.frmProductBrand.txtDetName.ReadOnly = true;
 
             this.frmProductBrand.HiddenDetail(true);
             this.ClearSearchControls();

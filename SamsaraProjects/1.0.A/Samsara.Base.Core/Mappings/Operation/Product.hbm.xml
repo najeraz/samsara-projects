@@ -43,6 +43,7 @@
         LEFT JOIN   Operation.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
         WHERE       p.Deleted = 0 AND p.Activated = 1
         AND         p.Name LIKE :Name
+        AND         (p.ProductBrandId = :ProductBrandId OR :ProductBrandId = -1)
     ]]>
   </sql-query>
   
