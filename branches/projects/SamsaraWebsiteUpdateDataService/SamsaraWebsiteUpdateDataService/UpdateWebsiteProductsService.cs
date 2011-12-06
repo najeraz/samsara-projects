@@ -183,7 +183,7 @@ namespace SamsaraWebsiteUpdateDataService
                     padre = x["id_padre"] == DBNull.Value ? -1 : Convert.ToInt32(x["id_padre"])
                 }).ToList();
 
-            var categoriesToUpdate = currentCategoriesStock.Where(x => x.descripcion !=
+            var categoriesToUpdate = currentCategoriesStock.AsParallel().Where(x => x.descripcion !=
                 oldCategories.Single(y => y.codigo == x.codigo).descripcion ||
                 oldCategories.Single(y => y.codigo == x.codigo).padre != x.padre)
                 .ToList();
