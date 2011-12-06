@@ -1,12 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Data.SqlClient;
 using System.Threading;
 
 namespace SamsaraProjectsUpdaterService
@@ -18,19 +17,19 @@ namespace SamsaraProjectsUpdaterService
         private static int oneMinute = 60000;
         private static long criticalInterval = 10 * oneMinute;
 
-        private static int numProdutcsInsert = 50;
         private static int numBrandsInsert = 50;
-        private static int numProdutcsBrandsInsert = 200;
+        private static int numProductsInsert = 50;
 
         private SqlConnection alleatoErpConnection;
         private SqlDataAdapter alleatoErpDataAdapter;
-        private SqlCommand alleatoErpCommand;
 
         private SqlConnection samsaraProjectsConnection;
         private SqlDataAdapter samsaraProjectsDataAdapter;
         private SqlCommand samsaraProjectsCommand;
 
         #endregion Attibutes
+
+        #region Constructor
 
         public SamsaraProjectsUpdaterService()
         {
@@ -47,6 +46,12 @@ namespace SamsaraProjectsUpdaterService
             eventLog1.Log = "SamsaraProjectsUpdaterLog";
         }
 
+        #endregion Constructor
+
+        #region Methods
+
+        #region Service Commands
+
         protected override void OnStart(string[] args)
         {
             eventLog1.WriteEntry("SERVICE - Started", EventLogEntryType.Information);
@@ -59,6 +64,10 @@ namespace SamsaraProjectsUpdaterService
         {
             // TODO: Add code here to perform any tear-down necessary to stop your service.
         }
+
+        #endregion Service Commands
+
+        #region Private
 
         private void UpdateProcess(object state)
         {
@@ -86,11 +95,38 @@ namespace SamsaraProjectsUpdaterService
 
             try
             {
-                //this.InsertNewProducts();
+                this.InsertNewBrands();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR -  : " + ex.Message, EventLogEntryType.Error);
+                eventLog1.WriteEntry("ERROR - InsertNewBrands : " + ex.Message, EventLogEntryType.Error);
+            }
+
+            try
+            {
+                this.UpdateBrands();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateBrands : " + ex.Message, EventLogEntryType.Error);
+            }
+
+            try
+            {
+                this.InsertNewProducts();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message, EventLogEntryType.Error);
+            }
+
+            try
+            {
+                this.UpdateProducts();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateProducts : " + ex.Message, EventLogEntryType.Error);
             }
 
             eventLog1.WriteEntry("Update Process - Stoped", EventLogEntryType.Information);
@@ -128,7 +164,7 @@ namespace SamsaraProjectsUpdaterService
                 if (currentIds.Count == 0)
                     break;
 
-                IList<int> marcasIds = currentIds.ToList();
+                IList<int> marcasIds = currentIds;
 
                 string marcasStringIds = string.Join("','", marcasIds.ToArray());
 
@@ -147,7 +183,7 @@ namespace SamsaraProjectsUpdaterService
                             "INSERT INTO brands (ProductBrandId, Name, Description) "
                             + "VALUES ({0}, '{1}', '{2}');\n",
                             row["marca"].ToString().Trim(),
-                            row["nombre_marca"].ToString().Trim().Replace("'", "''"), 
+                            row["nombre_marca"].ToString().Trim().Replace("'", "''"),
                             row["comentarios"].ToString().Trim());
                     }
 
@@ -177,7 +213,7 @@ namespace SamsaraProjectsUpdaterService
                     comentarios = x["comentarios"].ToString().Trim()
                 }).ToList();
 
-            this.samsaraProjectsDataAdapter = new SqlDataAdapter("SELECT c.ProductBrandId, Name, Description FROM Operation.ProductBrands",
+            this.samsaraProjectsDataAdapter = new SqlDataAdapter("SELECT ProductBrandId, Name, Description FROM Operation.ProductBrands",
                 this.samsaraProjectsConnection);
 
             ds = new DataSet();
@@ -208,5 +244,123 @@ namespace SamsaraProjectsUpdaterService
                 this.samsaraProjectsCommand.ExecuteNonQuery();
             }
         }
+
+        private void InsertNewProducts()
+        {
+            alleatoErpDataAdapter = new SqlDataAdapter("SELECT cast(clave_articulo as int) producto FROM articulos",
+                this.alleatoErpConnection);
+
+            DataSet ds = new DataSet();
+            alleatoErpDataAdapter.Fill(ds, "Productos");
+
+            IList<int> erpProductsIds = ds.Tables["Productos"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["producto"])).ToList();
+
+            this.samsaraProjectsDataAdapter = new SqlDataAdapter("SELECT ProductId FROM Operation.Products",
+                this.samsaraProjectsConnection);
+
+            ds = new DataSet();
+            this.samsaraProjectsDataAdapter.Fill(ds, "Products");
+
+            IList<int> samsaraProjectsProductsIds = ds.Tables["Products"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["ProductId"])).ToList();
+
+            IList<int> productsToInsert = erpProductsIds.Except(samsaraProjectsProductsIds).ToList();
+
+            eventLog1.WriteEntry("Products To Insert : " + productsToInsert.Count, EventLogEntryType.Information);
+
+            do
+            {
+                string insertQuery = string.Empty;
+                IList<int> currentIds = productsToInsert.Take(numProductsInsert).ToList();
+
+                if (currentIds.Count == 0)
+                    break;
+
+                IList<int> productosIds = currentIds;
+
+                string productosStringIds = string.Join("','", productosIds.ToArray());
+
+                if (productosIds.Count > 0)
+                {
+                    alleatoErpDataAdapter = new SqlDataAdapter(
+                        "SELECT clave_articulo producto, nombre_articulo nombre_producto, CAST (marca AS INT) marca"
+                        + "FROM articulos WHERE cast(clave_articulo as int) IN ('"
+                        + productosStringIds + "')", this.alleatoErpConnection);
+
+                    ds = new DataSet();
+                    alleatoErpDataAdapter.Fill(ds, "Productos");
+
+                    foreach (DataRow row in ds.Tables["Productos"].AsEnumerable())
+                    {
+                        insertQuery += string.Format(
+                            "INSERT INTO products (ProductId, Name, ProductBrandId) "
+                            + "VALUES ({0}, '{1}', {2});\n",
+                            row["producto"].ToString().Trim(),
+                            row["nombre_producto"].ToString().Trim().Replace("'", "''"),
+                            row["marca"]);
+                    }
+
+                    this.samsaraProjectsCommand = new SqlCommand(insertQuery, this.samsaraProjectsConnection);
+                    this.samsaraProjectsCommand.ExecuteNonQuery();
+                }
+
+                productsToInsert = productsToInsert.Except(currentIds).ToList();
+            } while (true);
+
+        }
+
+        private void UpdateProducts()
+        {
+            alleatoErpDataAdapter = new SqlDataAdapter(
+                "SELECT clave_articulo producto, nombre_articulo nombre_producto, CAST (marca AS INT) marca FROM Articulos",
+                this.alleatoErpConnection);
+
+            DataSet ds = new DataSet();
+            alleatoErpDataAdapter.Fill(ds, "Productos");
+
+            var currentProductsStock = ds.Tables["Productos"].AsEnumerable()
+                .Select(x => new
+                {
+                    id = Convert.ToInt32(x["producto"]),
+                    nombre = x["nombre_producto"].ToString().Trim(),
+                    marca = Convert.ToInt32(x["marca"])
+                }).ToList();
+
+            this.samsaraProjectsDataAdapter = new SqlDataAdapter("SELECT ProductId, Name, ProductBrandId FROM Operation.Products",
+                this.samsaraProjectsConnection);
+
+            ds = new DataSet();
+            this.samsaraProjectsDataAdapter.Fill(ds, "products");
+
+            var oldProducts = ds.Tables["products"].AsEnumerable()
+                .Select(x => new
+                {
+                    id = Convert.ToInt32(x["ProductId"]),
+                    nombre = x["Name"].ToString().Trim(),
+                    marca = Convert.ToInt32(x["ProductBrandId"])
+                }).ToList();
+
+            var productsToUpdate = currentProductsStock.Where(x => x.nombre !=
+                oldProducts.Single(y => y.id == x.id).nombre ||
+                oldProducts.Single(y => y.id == x.id).marca != x.marca)
+                .ToList();
+
+            eventLog1.WriteEntry("Products To Update : " + productsToUpdate.Count, EventLogEntryType.Information);
+
+            foreach (var element in productsToUpdate)
+            {
+                string updateQuery = string.Format(
+                    "UPDATE Operation.Products SET ProductBrandId = {0}, Name = '{1}' WHERE ProductId = {2}",
+                    element.marca, element.nombre.Replace("'", "''"), element.id);
+
+                this.samsaraProjectsCommand = new SqlCommand(updateQuery, this.samsaraProjectsConnection);
+                this.samsaraProjectsCommand.ExecuteNonQuery();
+            }
+        }
+
+        #endregion Private
+
+        #endregion Methods
     }
 }
