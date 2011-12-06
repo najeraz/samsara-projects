@@ -180,8 +180,8 @@ namespace SamsaraProjectsUpdaterService
                     foreach (DataRow row in ds.Tables["Marcas"].AsEnumerable())
                     {
                         insertQuery += string.Format(
-                            "INSERT INTO brands (ProductBrandId, Name, Description) "
-                            + "VALUES ({0}, '{1}', '{2}');\n",
+                            "INSERT INTO Operation.ProductBrands (ProductBrandId, Name, Description, Activated, Deleted) "
+                            + "VALUES ({0}, '{1}', '{2}', 1, 0);\n",
                             row["marca"].ToString().Trim(),
                             row["nombre_marca"].ToString().Trim().Replace("'", "''"),
                             row["comentarios"].ToString().Trim());
@@ -227,7 +227,7 @@ namespace SamsaraProjectsUpdaterService
                     comentarios = x["Description"].ToString().Trim()
                 }).ToList();
 
-            var brandsToUpdate = currentBrandsStock.Where(x => x.nombre !=
+            var brandsToUpdate = currentBrandsStock.AsParallel().Where(x => x.nombre !=
                 oldBrands.Single(y => y.id == x.id).nombre ||
                 oldBrands.Single(y => y.id == x.id).comentarios != x.comentarios)
                 .ToList();
@@ -284,7 +284,7 @@ namespace SamsaraProjectsUpdaterService
                 if (productosIds.Count > 0)
                 {
                     alleatoErpDataAdapter = new SqlDataAdapter(
-                        "SELECT clave_articulo producto, nombre_articulo nombre_producto, CAST (marca AS INT) marca"
+                        "SELECT clave_articulo producto, nombre_articulo nombre_producto, CAST (marca AS INT) marca "
                         + "FROM articulos WHERE cast(clave_articulo as int) IN ('"
                         + productosStringIds + "')", this.alleatoErpConnection);
 
@@ -294,11 +294,11 @@ namespace SamsaraProjectsUpdaterService
                     foreach (DataRow row in ds.Tables["Productos"].AsEnumerable())
                     {
                         insertQuery += string.Format(
-                            "INSERT INTO products (ProductId, Name, ProductBrandId) "
-                            + "VALUES ({0}, '{1}', {2});\n",
+                            "INSERT INTO Operation.Products (ProductId, Name, ProductBrandId, Activated, Deleted) "
+                            + "VALUES ({0}, '{1}', {2}, 1, 0);\n",
                             row["producto"].ToString().Trim(),
                             row["nombre_producto"].ToString().Trim().Replace("'", "''"),
-                            row["marca"]);
+                            row["marca"] == DBNull.Value ? "NULL" : row["marca"].ToString());
                     }
 
                     this.samsaraProjectsCommand = new SqlCommand(insertQuery, this.samsaraProjectsConnection);
@@ -324,7 +324,7 @@ namespace SamsaraProjectsUpdaterService
                 {
                     id = Convert.ToInt32(x["producto"]),
                     nombre = x["nombre_producto"].ToString().Trim(),
-                    marca = Convert.ToInt32(x["marca"])
+                    marca = x["marca"].ToString()
                 }).ToList();
 
             this.samsaraProjectsDataAdapter = new SqlDataAdapter("SELECT ProductId, Name, ProductBrandId FROM Operation.Products",
@@ -338,10 +338,10 @@ namespace SamsaraProjectsUpdaterService
                 {
                     id = Convert.ToInt32(x["ProductId"]),
                     nombre = x["Name"].ToString().Trim(),
-                    marca = Convert.ToInt32(x["ProductBrandId"])
+                    marca = x["ProductBrandId"].ToString()
                 }).ToList();
 
-            var productsToUpdate = currentProductsStock.Where(x => x.nombre !=
+            var productsToUpdate = currentProductsStock.AsParallel().Where(x => x.nombre !=
                 oldProducts.Single(y => y.id == x.id).nombre ||
                 oldProducts.Single(y => y.id == x.id).marca != x.marca)
                 .ToList();
