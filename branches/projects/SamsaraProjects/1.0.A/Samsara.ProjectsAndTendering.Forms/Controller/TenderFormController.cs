@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
@@ -220,11 +221,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetTenderLines_InitializeLayout);
             this.frmTender.grdDetTenderLines.BeforeCellUpdate
                 += new BeforeCellUpdateEventHandler(grdDetTenderLines_BeforeCellUpdate);
+            this.frmTender.grdDetTenderLines.ClickCellButton
+                += new CellEventHandler(grdDetTenderLines_ClickCellButton);
             this.frmTender.grdDetTenderLines.AfterCellUpdate
                 += new CellEventHandler(grdDetTenderLines_AfterCellUpdate);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
             this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
+            this.dtTenderLines.Columns.Add("SearchProduct", typeof(string));
             this.frmTender.grdDetTenderLines.DataSource = null;
             this.frmTender.grdDetTenderLines.DataSource = dtTenderLines;
 
@@ -1804,6 +1808,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
 
+            band.Columns["SearchProduct"].Style =
+                Infragistics.Win.UltraWinGrid.ColumnStyle.Button;
+            band.Columns["SearchProduct"].ButtonDisplayStyle =
+                Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"], 
                 TextMaskFormatEnum.NaturalQuantity);
 
@@ -1816,8 +1825,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
 
             ProductParameters pmtProducts = new ProductParameters();
-            pmtProducts.Name = "";
-            
+            pmtProducts.Name = "";            
             DataTable dtProducts = this.srvProduct.CustomSearchByParameters(
                 "Product.Search100Products", pmtProducts, false);
 
@@ -1884,6 +1892,34 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return;
 
             activeCell.Row.PerformAutoSize();
+        }
+
+        private void grdDetTenderLines_ClickCellButton(object sender, CellEventArgs e)
+        {
+            if (e.Cell.Column.Key == "SearchProduct")
+            {
+                Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + "Samsara.Operation.Forms.dll");
+                Type formType = assembly.GetType("Samsara.Operation.Forms.Forms.ProductForm");
+
+                Form form = Activator.CreateInstance(formType) as Form;
+
+                form.ShowDialog();
+
+                object a = formType.InvokeMember("PrepareSearchControls", BindingFlags.InvokeMethod, null, form, null);
+
+                form.GetType().GetProperty("SearchResult").GetValue(form, null);
+
+                //ISearchForm<Product> form = Activator.CreateInstance(typeof(ProductForm)) as ISearchForm<T>;
+                //form.ParentSearchForm = this.ParentForm;
+                //form.PrepareSearchControls();
+                //(form as Form).ShowDialog(this);
+                //this.Value = form.SearchResult;
+                //if (this.Value != null)
+                //{
+                //    this.txtName.Text = this.Value.GetType()
+                //        .GetProperty(this.DisplayMember).GetValue(this.Value, null).ToString();
+                //}
+            }
         }
 
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
