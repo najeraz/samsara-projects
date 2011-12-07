@@ -39,7 +39,7 @@
     <return-scalar column="BrandName" type="string"/>
     <![CDATA[
         SELECT      
-            p.ProductId, p.Name ProductName, pb.Name BrandName
+            p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName, pb.Name BrandName
         FROM        Operation.Products p
         LEFT JOIN   Operation.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
         WHERE       p.Deleted = 0 AND p.Activated = 1
@@ -53,7 +53,7 @@
     <return-scalar column="ProductName" type="string"/>
     <![CDATA[
         SELECT TOP 100
-            p.ProductId, p.Name ProductName
+            p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName
         FROM        Operation.Products p
         WHERE       p.Deleted = 0 AND p.Activated = 1
         AND         p.Name LIKE :Name
