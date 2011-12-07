@@ -23,6 +23,10 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Manufacturer, Samsara.ProjectsAndTendering.Core"
                  column="ManufacturerId"/>
 
+    <many-to-one name="Product"
+                 class="Samsara.Operation.Core.Entities.Product, Samsara.Operation.Core"
+                 column="ProductId"/>
+
     <many-to-one name="Wholesaler"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Wholesaler, Samsara.ProjectsAndTendering.Core"
                  column="WholesalerId"/>

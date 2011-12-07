@@ -2,6 +2,7 @@
 using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Samsara.Operation.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
@@ -43,6 +44,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
         }
 
         public virtual PricingStrategy PricingStrategy
+        {
+            get;
+            set;
+        }
+
+        public virtual Product Product
         {
             get;
             set;
