@@ -252,9 +252,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\AsesorSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\AsesorSearchForm.cs" />
     <Compile Include="Templates\AsesorSearchForm.Designer.cs">
       <DependentUpon>AsesorSearchForm.cs</DependentUpon>
     </Compile>
@@ -282,9 +280,7 @@
     <Compile Include="Templates\WarrantyTypeSearchForm.Designer.cs">
       <DependentUpon>WarrantyTypeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\WholesalerSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\WholesalerSearchForm.cs" />
     <Compile Include="Templates\WholesalerSearchForm.Designer.cs">
       <DependentUpon>WholesalerSearchForm.cs</DependentUpon>
     </Compile>
