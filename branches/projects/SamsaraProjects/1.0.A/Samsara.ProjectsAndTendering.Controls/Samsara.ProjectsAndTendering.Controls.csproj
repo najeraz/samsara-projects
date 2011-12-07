@@ -118,7 +118,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\AsesorChooserControl.cs" />
+    <Compile Include="Controls\Choosers\AsesorChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\AsesorChooserControl.designer.cs">
       <DependentUpon>AsesorChooserControl.cs</DependentUpon>
     </Compile>
@@ -194,7 +196,9 @@
     <Compile Include="Controls\Choosers\OpportunityStatusChooserControl.designer.cs">
       <DependentUpon>OpportunityStatusChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\OpportunityTypeChooserControl.cs" />
+    <Compile Include="Controls\Choosers\OpportunityTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\OpportunityTypeChooserControl.designer.cs">
       <DependentUpon>OpportunityTypeChooserControl.cs</DependentUpon>
     </Compile>
@@ -252,7 +256,9 @@
     <Compile Include="Controls\Choosers\TenderLogChooserControl.designer.cs">
       <DependentUpon>TenderLogChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TenderManufacturerChooserControl.cs" />
+    <Compile Include="Controls\Choosers\TenderManufacturerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\TenderManufacturerChooserControl.designer.cs">
       <DependentUpon>TenderManufacturerChooserControl.cs</DependentUpon>
     </Compile>
@@ -268,7 +274,9 @@
     <Compile Include="Controls\Choosers\TenderStatusChooserControl.designer.cs">
       <DependentUpon>TenderStatusChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TenderWarrantyChooserControl.cs" />
+    <Compile Include="Controls\Choosers\TenderWarrantyChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\TenderWarrantyChooserControl.designer.cs">
       <DependentUpon>TenderWarrantyChooserControl.cs</DependentUpon>
     </Compile>
