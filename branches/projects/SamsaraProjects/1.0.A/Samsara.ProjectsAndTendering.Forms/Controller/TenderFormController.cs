@@ -222,8 +222,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new BeforeCellUpdateEventHandler(grdDetTenderLines_BeforeCellUpdate);
             this.frmTender.grdDetTenderLines.AfterCellUpdate
                 += new CellEventHandler(grdDetTenderLines_AfterCellUpdate);
-            this.frmTender.grdDetTenderLines.KeyDown 
-                += new KeyEventHandler(grdDetTenderLines_KeyDown);
             TenderLineParameters pmtTenderLine = new TenderLineParameters();
             pmtTenderLine.TenderId = ParameterConstants.IntNone;
             this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
@@ -1875,22 +1873,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 rowP["TenderLineDescription"] = e.NewValue;
 
             if (rowP != null && e.Cell.Column.Key == "Name")
-                rowP["TenderLineName"] = e.NewValue;
-
-            UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
-            UltraGridCell activeCell = this.frmTender.grdDetTenderLines.ActiveCell;
-
-            if (activeCell != null && activeCell.Column.Key == "Description")
-            {
-                ProductParameters pmtProducts = new ProductParameters();
-                pmtProducts.Name = "%" + e.NewValue.ToString() + "%";
-
-                DataTable dtProducts = this.srvProduct.CustomSearchByParameters(
-                    "Product.Search100Products", pmtProducts, false);
-
-                WindowsFormsUtil.SetUltraGridValueList(layout, dtProducts,
-                    layout.Bands[0].Columns["ProductId"], "Column1", "Column2", null);
-            }
+                rowP["TenderLineName"] = e.NewValue;            
         }
 
         private void grdDetTenderLines_AfterCellUpdate(object sender, EventArgs e)
@@ -3107,27 +3090,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void grdDetTenderLines_KeyDown(object sender, KeyEventArgs e)
-        {
-            UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
+        //UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
+        //    UltraGridCell activeCell = this.frmTender.grdDetTenderLines.ActiveCell;
 
-            if (e.KeyCode == Keys.Enter)
-            {
-                UltraGridCell activeCell = this.frmTender.grdDetTenderLines.ActiveCell;
+        //    if (activeCell != null && activeCell.Column.Key == "Description")
+        //    {
+        //        ProductParameters pmtProducts = new ProductParameters();
+        //        pmtProducts.Name = "%" + e.NewValue.ToString() + "%";
 
-                if (activeCell != null && activeCell.Column.Key == "ProductId")
-                {
-                    ProductParameters pmtProducts = new ProductParameters();
-                    pmtProducts.Name = "";
+        //        DataTable dtProducts = this.srvProduct.CustomSearchByParameters(
+        //            "Product.Search100Products", pmtProducts, false);
 
-                    DataTable dtProducts = this.srvProduct.CustomSearchByParameters(
-                        "Product.Search100Products", pmtProducts, false);
-
-                    WindowsFormsUtil.SetUltraGridValueList(layout, dtProducts,
-                        layout.Bands[0].Columns["ProductId"], "ProductId", "Name", null);
-                }
-            }
-        }
+        //        WindowsFormsUtil.SetUltraGridValueList(layout, dtProducts,
+        //            layout.Bands[0].Columns["ProductId"], "Column1", "Column2", null);
+        //    }
 
         #endregion Events
     }
