@@ -190,7 +190,9 @@
     <EmbeddedResource Include="Mappings\ProjectsAndTendering\TenderLineStatus.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\Operation\Product.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Operation\Product.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Operation\ProductBrand.hbm.xml" />

@@ -50,18 +50,18 @@ namespace Samsara.Support.Util
                 combo.Value = -1;
         }
 
-        public static void LoadCombo(UltraComboEditor combo, DataTable data,
+        public static void LoadCombo(UltraComboEditor combo, DataTable dataTable,
             string valueMember, string displayMember)
         {
-            DataRow row = data.NewRow();
+            DataRow row = dataTable.NewRow();
 
             row[valueMember] = -1;
             row[displayMember] = "Seleccione";
 
-            data.Rows.InsertAt(row, 0);
+            dataTable.Rows.InsertAt(row, 0);
 
             combo.DataSource = null;
-            combo.DataSource = data;
+            combo.DataSource = dataTable;
             combo.ValueMember = valueMember;
             combo.DisplayMember = displayMember;
             combo.Value = -1;
@@ -128,6 +128,7 @@ namespace Samsara.Support.Util
 
             vl = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
             vl.ValueListItems.Clear();
+
             if (defaultValue != null)
                 vl.ValueListItems.Add(-1, defaultValue);
 
@@ -138,8 +139,33 @@ namespace Samsara.Support.Util
             }
 
             vl.SelectedItem = -1;
-            //column.ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
             column.ValueList = layout.ValueLists[typeof(T).Name + valueMember + displayMember];
+        }
+
+        public static void SetUltraGridValueList(UltraGridLayout layout, DataTable dataTable,
+            UltraGridColumn column, string valueMember, string displayMember, string defaultValue)
+        {
+            ValueList vl;
+
+            if (dataTable.TableName == null)
+                dataTable.TableName = string.Empty;
+
+            if (!layout.ValueLists.Exists(dataTable.TableName + valueMember + displayMember))
+                vl = layout.ValueLists.Add(dataTable.TableName + valueMember + displayMember);
+
+            vl = layout.ValueLists[dataTable.TableName + valueMember + displayMember];
+            vl.ValueListItems.Clear();
+
+            if (defaultValue != null)
+                vl.ValueListItems.Add(-1, defaultValue);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                vl.ValueListItems.Add(row[valueMember], row[displayMember].ToString());
+            }
+
+            vl.SelectedItem = -1;
+            column.ValueList = layout.ValueLists[dataTable.TableName + valueMember + displayMember];
         }
     }
 }
