@@ -118,9 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\AsesorChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\AsesorChooserControl.cs" />
     <Compile Include="Controls\Choosers\AsesorChooserControl.designer.cs">
       <DependentUpon>AsesorChooserControl.cs</DependentUpon>
     </Compile>
@@ -196,9 +194,7 @@
     <Compile Include="Controls\Choosers\OpportunityStatusChooserControl.designer.cs">
       <DependentUpon>OpportunityStatusChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\OpportunityTypeChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\OpportunityTypeChooserControl.cs" />
     <Compile Include="Controls\Choosers\OpportunityTypeChooserControl.designer.cs">
       <DependentUpon>OpportunityTypeChooserControl.cs</DependentUpon>
     </Compile>
@@ -256,9 +252,7 @@
     <Compile Include="Controls\Choosers\TenderLogChooserControl.designer.cs">
       <DependentUpon>TenderLogChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TenderManufacturerChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\TenderManufacturerChooserControl.cs" />
     <Compile Include="Controls\Choosers\TenderManufacturerChooserControl.designer.cs">
       <DependentUpon>TenderManufacturerChooserControl.cs</DependentUpon>
     </Compile>
@@ -274,9 +268,7 @@
     <Compile Include="Controls\Choosers\TenderStatusChooserControl.designer.cs">
       <DependentUpon>TenderStatusChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TenderWarrantyChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\TenderWarrantyChooserControl.cs" />
     <Compile Include="Controls\Choosers\TenderWarrantyChooserControl.designer.cs">
       <DependentUpon>TenderWarrantyChooserControl.cs</DependentUpon>
     </Compile>
@@ -304,12 +296,6 @@
     <Compile Include="Controls\Choosers\TenderLineStatusChooserControl.designer.cs">
       <DependentUpon>TenderLineStatusChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -318,9 +304,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Search\TenderSearchControl.resx">
       <DependentUpon>TenderSearchControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
