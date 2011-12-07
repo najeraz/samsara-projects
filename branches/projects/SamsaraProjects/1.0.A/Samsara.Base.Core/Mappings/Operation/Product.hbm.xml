@@ -38,12 +38,26 @@
     <return-scalar column="ProductName" type="string"/>
     <return-scalar column="BrandName" type="string"/>
     <![CDATA[
-        SELECT p.ProductId, p.Name ProductName, pb.Name BrandName
+        SELECT      
+            p.ProductId, p.Name ProductName, pb.Name BrandName
         FROM        Operation.Products p
         LEFT JOIN   Operation.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
         WHERE       p.Deleted = 0 AND p.Activated = 1
         AND         p.Name LIKE :Name
         AND         (p.ProductBrandId = :ProductBrandId OR :ProductBrandId = -1)
+    ]]>
+  </sql-query>
+
+  <sql-query name="Product.Search100Products" cacheable="false" read-only="true">
+    <return-scalar column="ProductId" type="int"/>
+    <return-scalar column="ProductName" type="string"/>
+    <![CDATA[
+        SELECT TOP 100
+            p.ProductId, p.Name ProductName
+        FROM        Operation.Products p
+        WHERE       p.Deleted = 0 AND p.Activated = 1
+        AND         p.Name LIKE :Name
+        ORDER BY p.Name
     ]]>
   </sql-query>
   
