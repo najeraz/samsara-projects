@@ -243,9 +243,7 @@
     <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.cs" />
     <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkCommutatorChooserControl.cs</DependentUpon>
     </Compile>
@@ -327,9 +325,7 @@
     <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkWifiChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkWifiChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerChooserControl.cs" />
     <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructurePersonalComputerChooserControl.cs</DependentUpon>
     </Compile>
@@ -507,9 +503,7 @@
     <Compile Include="Controls\Choosers\UPSBrandChooserControl.designer.cs">
       <DependentUpon>UPSBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UPSTypeChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\UPSTypeChooserControl.cs" />
     <Compile Include="Controls\Choosers\UPSTypeChooserControl.designer.cs">
       <DependentUpon>UPSTypeChooserControl.cs</DependentUpon>
     </Compile>

@@ -220,9 +220,7 @@
     <Compile Include="Forms\NetworkCablingTypeForm.designer.cs">
       <DependentUpon>NetworkCablingTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OperativeSystemForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\OperativeSystemForm.cs" />
     <Compile Include="Forms\OperativeSystemForm.designer.cs">
       <DependentUpon>OperativeSystemForm.cs</DependentUpon>
     </Compile>
@@ -280,9 +278,7 @@
     <Compile Include="Forms\SecuritySoftwareTypeForm.designer.cs">
       <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SwitchBrandForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\SwitchBrandForm.cs" />
     <Compile Include="Forms\SwitchBrandForm.designer.cs">
       <DependentUpon>SwitchBrandForm.cs</DependentUpon>
     </Compile>
@@ -359,9 +355,7 @@
     <Compile Include="Templates\CommutatorTypeSearchForm.Designer.cs">
       <DependentUpon>CommutatorTypeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\ComputerBrandSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\ComputerBrandSearchForm.cs" />
     <Compile Include="Templates\ComputerBrandSearchForm.Designer.cs">
       <DependentUpon>ComputerBrandSearchForm.cs</DependentUpon>
     </Compile>
@@ -395,9 +389,7 @@
     <Compile Include="Templates\NetworkCablingTypeSearchForm.Designer.cs">
       <DependentUpon>NetworkCablingTypeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\OperativeSystemSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\OperativeSystemSearchForm.cs" />
     <Compile Include="Templates\OperativeSystemSearchForm.Designer.cs">
       <DependentUpon>OperativeSystemSearchForm.cs</DependentUpon>
     </Compile>
@@ -407,9 +399,7 @@
     <Compile Include="Templates\OperativeSystemTypeSearchForm.Designer.cs">
       <DependentUpon>OperativeSystemTypeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\PersonalComputerTypeSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\PersonalComputerTypeSearchForm.cs" />
     <Compile Include="Templates\PersonalComputerTypeSearchForm.Designer.cs">
       <DependentUpon>PersonalComputerTypeSearchForm.cs</DependentUpon>
     </Compile>
