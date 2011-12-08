@@ -38,18 +38,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance152 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance153 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance154 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance134 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance135 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance136 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance137 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance138 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance139 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance140 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance141 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance142 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance143 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance144 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance145 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance61 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance62 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance63 = new Infragistics.Win.Appearance();
@@ -205,13 +193,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
             this.tcDetTenderLineDetail = new System.Windows.Forms.TabControl();
             this.TenderLinesHeader = new System.Windows.Forms.TabPage();
-            this.grdDetTenderLines = new Samsara.Controls.SamsaraUltraGrid();
-            this.pnlDetLineButtons = new System.Windows.Forms.Panel();
-            this.upDetSeparator4534 = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetDeleteLine = new Infragistics.Win.Misc.UltraButton();
-            this.upDetSeparator4327 = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDetCreateLine = new Infragistics.Win.Misc.UltraButton();
-            this.upDetSeparator532 = new Infragistics.Win.Misc.UltraPanel();
+            this.mtoDetTenderLines = new Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.TenderLinesControl();
             this.TenderLineDetail = new System.Windows.Forms.TabPage();
             this.grdDetTenderLinesExtraCosts = new Samsara.Controls.SamsaraUltraGrid();
             this.pnlDetTenderLineExtraCostsButtons = new System.Windows.Forms.Panel();
@@ -376,11 +358,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetControls.SuspendLayout();
             this.tcDetTenderLineDetail.SuspendLayout();
             this.TenderLinesHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderLines)).BeginInit();
-            this.pnlDetLineButtons.SuspendLayout();
-            this.upDetSeparator4534.SuspendLayout();
-            this.upDetSeparator4327.SuspendLayout();
-            this.upDetSeparator532.SuspendLayout();
             this.TenderLineDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderLinesExtraCosts)).BeginInit();
             this.pnlDetTenderLineExtraCostsButtons.SuspendLayout();
@@ -658,8 +635,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // TenderLinesHeader
             // 
             this.TenderLinesHeader.BackColor = System.Drawing.Color.Transparent;
-            this.TenderLinesHeader.Controls.Add(this.grdDetTenderLines);
-            this.TenderLinesHeader.Controls.Add(this.pnlDetLineButtons);
+            this.TenderLinesHeader.Controls.Add(this.mtoDetTenderLines);
             this.TenderLinesHeader.Location = new System.Drawing.Point(4, 22);
             this.TenderLinesHeader.Name = "TenderLinesHeader";
             this.TenderLinesHeader.Padding = new System.Windows.Forms.Padding(3);
@@ -667,124 +643,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.TenderLinesHeader.TabIndex = 0;
             this.TenderLinesHeader.Text = "Partidas";
             // 
-            // grdDetTenderLines
+            // mtoDetTenderLines
             // 
-            appearance134.BackColor = System.Drawing.SystemColors.Window;
-            appearance134.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdDetTenderLines.DisplayLayout.Appearance = appearance134;
-            this.grdDetTenderLines.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdDetTenderLines.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance135.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance135.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance135.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance135.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetTenderLines.DisplayLayout.GroupByBox.Appearance = appearance135;
-            appearance136.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetTenderLines.DisplayLayout.GroupByBox.BandLabelAppearance = appearance136;
-            this.grdDetTenderLines.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance137.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance137.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance137.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance137.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetTenderLines.DisplayLayout.GroupByBox.PromptAppearance = appearance137;
-            this.grdDetTenderLines.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdDetTenderLines.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance138.BackColor = System.Drawing.SystemColors.Window;
-            appearance138.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetTenderLines.DisplayLayout.Override.ActiveCellAppearance = appearance138;
-            appearance139.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance139.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdDetTenderLines.DisplayLayout.Override.ActiveRowAppearance = appearance139;
-            this.grdDetTenderLines.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdDetTenderLines.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance140.BackColor = System.Drawing.SystemColors.Window;
-            this.grdDetTenderLines.DisplayLayout.Override.CardAreaAppearance = appearance140;
-            appearance141.BorderColor = System.Drawing.Color.Silver;
-            appearance141.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdDetTenderLines.DisplayLayout.Override.CellAppearance = appearance141;
-            this.grdDetTenderLines.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdDetTenderLines.DisplayLayout.Override.CellPadding = 0;
-            appearance142.BackColor = System.Drawing.SystemColors.Control;
-            appearance142.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance142.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance142.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance142.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetTenderLines.DisplayLayout.Override.GroupByRowAppearance = appearance142;
-            appearance143.TextHAlignAsString = "Left";
-            this.grdDetTenderLines.DisplayLayout.Override.HeaderAppearance = appearance143;
-            this.grdDetTenderLines.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdDetTenderLines.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance144.BackColor = System.Drawing.SystemColors.Window;
-            appearance144.BorderColor = System.Drawing.Color.Silver;
-            this.grdDetTenderLines.DisplayLayout.Override.RowAppearance = appearance144;
-            this.grdDetTenderLines.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance145.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdDetTenderLines.DisplayLayout.Override.TemplateAddRowAppearance = appearance145;
-            this.grdDetTenderLines.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdDetTenderLines.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdDetTenderLines.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdDetTenderLines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetTenderLines.Location = new System.Drawing.Point(3, 3);
-            this.grdDetTenderLines.lstCustomControlNames = null;
-            this.grdDetTenderLines.Name = "grdDetTenderLines";
-            this.grdDetTenderLines.Size = new System.Drawing.Size(381, 337);
-            this.grdDetTenderLines.TabIndex = 2;
-            this.grdDetTenderLines.Text = "samsaraUltraGrid1";
-            // 
-            // pnlDetLineButtons
-            // 
-            this.pnlDetLineButtons.Controls.Add(this.upDetSeparator4534);
-            this.pnlDetLineButtons.Controls.Add(this.ubtnDetDeleteLine);
-            this.pnlDetLineButtons.Controls.Add(this.upDetSeparator4327);
-            this.pnlDetLineButtons.Controls.Add(this.ubtnDetCreateLine);
-            this.pnlDetLineButtons.Controls.Add(this.upDetSeparator532);
-            this.pnlDetLineButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDetLineButtons.Location = new System.Drawing.Point(3, 340);
-            this.pnlDetLineButtons.Name = "pnlDetLineButtons";
-            this.pnlDetLineButtons.Size = new System.Drawing.Size(381, 25);
-            this.pnlDetLineButtons.TabIndex = 3;
-            // 
-            // upDetSeparator4534
-            // 
-            this.upDetSeparator4534.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator4534.Location = new System.Drawing.Point(179, 0);
-            this.upDetSeparator4534.Name = "upDetSeparator4534";
-            this.upDetSeparator4534.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator4534.TabIndex = 12;
-            // 
-            // ubtnDetDeleteLine
-            // 
-            this.ubtnDetDeleteLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetDeleteLine.Location = new System.Drawing.Point(195, 0);
-            this.ubtnDetDeleteLine.Name = "ubtnDetDeleteLine";
-            this.ubtnDetDeleteLine.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetDeleteLine.TabIndex = 9;
-            this.ubtnDetDeleteLine.Text = "Borrar";
-            // 
-            // upDetSeparator4327
-            // 
-            this.upDetSeparator4327.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator4327.Location = new System.Drawing.Point(272, 0);
-            this.upDetSeparator4327.Name = "upDetSeparator4327";
-            this.upDetSeparator4327.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator4327.TabIndex = 10;
-            // 
-            // ubtnDetCreateLine
-            // 
-            this.ubtnDetCreateLine.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDetCreateLine.Location = new System.Drawing.Point(288, 0);
-            this.ubtnDetCreateLine.Name = "ubtnDetCreateLine";
-            this.ubtnDetCreateLine.Size = new System.Drawing.Size(77, 25);
-            this.ubtnDetCreateLine.TabIndex = 8;
-            this.ubtnDetCreateLine.Text = "Nueva";
-            // 
-            // upDetSeparator532
-            // 
-            this.upDetSeparator532.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upDetSeparator532.Location = new System.Drawing.Point(365, 0);
-            this.upDetSeparator532.Name = "upDetSeparator532";
-            this.upDetSeparator532.Size = new System.Drawing.Size(16, 25);
-            this.upDetSeparator532.TabIndex = 11;
+            this.mtoDetTenderLines.CustomParent = null;
+            this.mtoDetTenderLines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mtoDetTenderLines.Location = new System.Drawing.Point(3, 3);
+            this.mtoDetTenderLines.Name = "mtoDetTenderLines";
+            this.mtoDetTenderLines.Size = new System.Drawing.Size(381, 362);
+            this.mtoDetTenderLines.TabIndex = 0;
+            this.mtoDetTenderLines.Tender = null;
             // 
             // TenderLineDetail
             // 
@@ -3023,11 +2890,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetControls.ResumeLayout(false);
             this.tcDetTenderLineDetail.ResumeLayout(false);
             this.TenderLinesHeader.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderLines)).EndInit();
-            this.pnlDetLineButtons.ResumeLayout(false);
-            this.upDetSeparator4534.ResumeLayout(false);
-            this.upDetSeparator4327.ResumeLayout(false);
-            this.upDetSeparator532.ResumeLayout(false);
             this.TenderLineDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetTenderLinesExtraCosts)).EndInit();
             this.pnlDetTenderLineExtraCostsButtons.ResumeLayout(false);
@@ -3283,13 +3145,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal System.Windows.Forms.Button btnDetSearchFile;
         private System.Windows.Forms.TabControl tcDetTenderLineDetail;
         private System.Windows.Forms.TabPage TenderLinesHeader;
-        private System.Windows.Forms.Panel pnlDetLineButtons;
-        private Infragistics.Win.Misc.UltraPanel upDetSeparator4534;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetDeleteLine;
-        private Infragistics.Win.Misc.UltraPanel upDetSeparator4327;
-        internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLine;
-        private Infragistics.Win.Misc.UltraPanel upDetSeparator532;
-        internal Samsara.Controls.SamsaraUltraGrid grdDetTenderLines;
         private System.Windows.Forms.TabPage TenderLineDetail;
         internal Samsara.Controls.SamsaraUltraGrid grdDetTenderLinesExtraCosts;
         private System.Windows.Forms.Panel pnlDetTenderLineExtraCostsButtons;
@@ -3322,6 +3177,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal Controls.Controls.TenderSubstatusChooserControl tscSchTenderSubstatus;
         internal Controls.Controls.TenderSubstatusChooserControl tscDetTenderSubstatus;
         private Infragistics.Win.Misc.UltraPanel upDetPrincipal;
+        internal Controls.Controls.ManyToOne.TenderLinesControl mtoDetTenderLines;
     }
 }
 
