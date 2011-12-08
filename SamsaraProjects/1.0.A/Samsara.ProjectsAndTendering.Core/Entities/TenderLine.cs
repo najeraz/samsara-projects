@@ -61,6 +61,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        public virtual Competitor CompetitorWon
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
