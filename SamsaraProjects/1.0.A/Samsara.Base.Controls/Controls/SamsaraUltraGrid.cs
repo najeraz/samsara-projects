@@ -132,20 +132,19 @@ namespace Samsara.Base.Controls.Controls
             }
         }
 
-        // TODO: Javier Nájera - Modificar para verificar si es derivado SamsaraUserControl en lugar del ManyToOneLevel1Control
         public void GetCustomControlsNames(Control control, IList<string> controlsNames)
         {
             if (control == null)
                 return;
 
-            if (control is Form || control.GetType().BaseType == typeof(SamsaraUserControl))
-                controlsNames.Add(control.Name);
-
-            if (control is Form || (control.GetType().BaseType.BaseType != null
+            if (control is Form || control.GetType().BaseType == typeof(SamsaraUserControl)
+                || (control.GetType().BaseType.BaseType != null
                 && control.GetType().BaseType.BaseType == typeof(SamsaraUserControl)))
                 controlsNames.Add(control.Name);
 
-            if (control.GetType().BaseType == typeof(SamsaraUserControl))
+            if (control.GetType().BaseType == typeof(SamsaraUserControl) 
+                || (control.GetType().BaseType.BaseType != null
+                && control.GetType().BaseType.BaseType == typeof(SamsaraUserControl)))
                 this.GetCustomControlsNames((control as SamsaraUserControl).CustomParent, controlsNames);
             else
                 this.GetCustomControlsNames(control.Parent, controlsNames);
