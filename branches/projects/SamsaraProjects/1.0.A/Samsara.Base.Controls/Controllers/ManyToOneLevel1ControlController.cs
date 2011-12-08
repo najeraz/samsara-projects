@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Infragistics.Win.Misc;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controls;
+using Samsara.Base.Controls.EventsArgs;
 
 namespace Samsara.Base.Controls.Controllers
 {
@@ -113,6 +114,14 @@ namespace Samsara.Base.Controls.Controllers
                 this.LoadEntity();
                 this.AddEntity();
                 this.HideDetail();
+
+                UltraGridCell activeCell = this.control.grdRelations.ActiveCell;
+
+                if (activeCell != null)
+                {
+                    this.control.OnEntityChanged(new ManyToOneLevel1EntityChangedEventArgs<T>(
+                        GetEntity(Convert.ToInt32(activeCell.Row.Cells[0].Value))));
+                }
             }
         }
 
@@ -194,6 +203,11 @@ namespace Samsara.Base.Controls.Controllers
             this.control.upnlSeparatorCancelRelation.Visible = enabled;
             this.control.ubtnSaveRelation.Visible = enabled;
             this.control.upnlSeparatorSaveRelation.Visible = enabled;
+        }
+
+        protected virtual T GetEntity(int entityId)
+        {
+            return default(T);
         }
 
         #endregion Public
