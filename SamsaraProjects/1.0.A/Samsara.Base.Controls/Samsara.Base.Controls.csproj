@@ -31,8 +31,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Infragistics2.Shared.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\InfragisticsLib\Infragistics2.Win.Misc.v10.3.dll</HintPath>
+    </Reference>
     <Reference Include="Infragistics2.Win.UltraWinEditors.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\InfragisticsLib\Infragistics2.Win.UltraWinGrid.v10.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinMaskedEdit.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\InfragisticsLib\Infragistics2.Win.UltraWinMaskedEdit.v10.3.dll</HintPath>
+    </Reference>
     <Reference Include="Infragistics2.Win.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="nunit.framework">
@@ -50,8 +66,19 @@
       <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Controls">
-      <HintPath>..\bin\Samsara.Controls.dll</HintPath>
+    <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Support.Util">
@@ -69,20 +96,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ManyToOneLevel1ControlController.cs" />
+    <Compile Include="Controls\ManyToOneLevel1Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ManyToOneLevel1Control.Designer.cs">
+      <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SamsaraEntityChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\SamsaraEntityChooserControl.designer.cs">
       <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SamsaraUltraButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraComboEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraGrid.Designer.cs">
+      <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraMaskedEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUserControl.Designer.cs">
+      <DependentUpon>SamsaraUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventsArgs\SamsaraEntityChooserValueChangedEventArgs.cs" />
     <Compile Include="EventsHandlers\SamsaraEntityChooserValueChangedEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SamsaraTextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraTextEditor.Designer.cs">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ManyToOneLevel1Control.resx">
+      <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\SamsaraEntityChooserControl.resx">
       <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraUltraGrid.resx">
+      <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraUserControl.resx">
+      <DependentUpon>SamsaraUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraTextEditor.resx">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

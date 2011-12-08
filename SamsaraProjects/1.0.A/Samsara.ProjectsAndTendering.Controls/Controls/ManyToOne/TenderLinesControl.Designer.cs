@@ -42,7 +42,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.lblConcept = new Infragistics.Win.Misc.UltraLabel();
             this.lblQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.txtName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.lblProduct = new Infragistics.Win.Misc.UltraLabel();
             this.pscProduct = new Samsara.Operation.Controls.Controls.Search.ProductSearchControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -296,7 +296,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel lblConcept;
         private Infragistics.Win.Misc.UltraLabel lblQuantity;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtName;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steQuantity;
         private Infragistics.Win.Misc.UltraLabel lblProduct;
         internal Operation.Controls.Controls.Search.ProductSearchControl pscProduct;
     }

@@ -40,7 +40,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfrastructureNetworkSiteRacksControl));
             Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
             this.lblRackType = new Infragistics.Win.Misc.UltraLabel();
-            this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
             this.rtcRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -277,7 +277,7 @@
         #endregion
 
         private Infragistics.Win.Misc.UltraLabel lblRackType;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steQuantity;
         private Infragistics.Win.Misc.UltraLabel ultraLabel1;
         internal Choosers.RackTypeChooserControl rtcRackType;
 

@@ -1,4 +1,4 @@
-﻿using Samsara.Controls.Templates;
+﻿using Samsara.Base.Controls.Controls;
 using Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 

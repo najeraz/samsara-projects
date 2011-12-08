@@ -42,7 +42,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             Samsara.CustomerContext.Core.Parameters.SwitchBrandParameters switchBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.SwitchBrandParameters();
             this.lblSwitchBrand = new Infragistics.Win.Misc.UltraLabel();
             this.lblSpeed = new Infragistics.Win.Misc.UltraLabel();
-            this.stePortsQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.stePortsQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.lblPortsQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.txtSpeed = new System.Windows.Forms.TextBox();
             this.sbcSwitchBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.SwitchBrandChooserControl();
@@ -300,7 +300,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel lblSwitchBrand;
         private Infragistics.Win.Misc.UltraLabel lblSpeed;
         private Infragistics.Win.Misc.UltraLabel lblPortsQuantity;
-        internal Samsara.Controls.Controls.SamsaraTextEditor stePortsQuantity;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor stePortsQuantity;
         internal System.Windows.Forms.TextBox txtSpeed;
         internal Choosers.SwitchBrandChooserControl sbcSwitchBrand;
 

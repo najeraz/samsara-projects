@@ -9,7 +9,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.Controls.Controllers;
+using Samsara.Base.Controls.Controllers;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Service.Interfaces;

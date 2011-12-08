@@ -99,7 +99,7 @@
             this.dteDetPrerevisionDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.dteDetRegistrationDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.Log = new System.Windows.Forms.TabPage();
-            this.grdDetLog = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdDetLog = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             this.gbxDetLog = new System.Windows.Forms.GroupBox();
             this.txtDetLog = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.pnlDetLogButtons = new System.Windows.Forms.Panel();
@@ -1096,7 +1096,7 @@
         internal Infragistics.Win.Misc.UltraButton ubtnDetGenerateTender;
         private System.Windows.Forms.Label lblSchOpportunityType;
         private System.Windows.Forms.TabPage Log;
-        internal Samsara.Controls.SamsaraUltraGrid grdDetLog;
+        internal Samsara.Base.Controls.Controls.SamsaraUltraGrid grdDetLog;
         private System.Windows.Forms.Panel pnlDetLogButtons;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorCreateLog;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateLog;

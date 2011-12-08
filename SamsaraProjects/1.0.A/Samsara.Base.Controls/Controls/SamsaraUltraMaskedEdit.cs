@@ -1,7 +1,7 @@
 ﻿
 using Infragistics.Win.UltraWinMaskedEdit;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public class SamsaraUltraMaskedEdit : UltraMaskedEdit
     {

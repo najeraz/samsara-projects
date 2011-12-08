@@ -44,7 +44,7 @@
             this.lblSecuritySoftwareBrand = new Infragistics.Win.Misc.UltraLabel();
             this.uchkConsoleInstalled = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.lblNumberOfClients = new Infragistics.Win.Misc.UltraLabel();
-            this.steNumberOfClients = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steNumberOfClients = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ssbSecuritySoftwareBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.SecuritySoftwareBrandChooserControl();
             this.sstcSecuritySoftwareType = new Samsara.CustomerContext.Controls.Controls.Choosers.SecuritySoftwareTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -323,7 +323,7 @@
         private Infragistics.Win.Misc.UltraLabel lblSecuritySoftwareBrand;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkConsoleInstalled;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfClients;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfClients;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steNumberOfClients;
         internal Choosers.SecuritySoftwareTypeChooserControl sstcSecuritySoftwareType;
         internal Choosers.SecuritySoftwareBrandChooserControl ssbSecuritySoftwareBrand;
 
