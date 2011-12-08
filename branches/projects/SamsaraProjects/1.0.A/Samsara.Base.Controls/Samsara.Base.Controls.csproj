@@ -130,7 +130,9 @@
     <Compile Include="Controls\SamsaraUserControl.Designer.cs">
       <DependentUpon>SamsaraUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventsArgs\ManyToOneLevel1EntityChangedEventArgs.cs" />
     <Compile Include="EventsArgs\SamsaraEntityChooserValueChangedEventArgs.cs" />
+    <Compile Include="EventsHandlers\ManyToOneLevel1EntityChangedEventHandler.cs" />
     <Compile Include="EventsHandlers\SamsaraEntityChooserValueChangedEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controls\SamsaraTextEditor.cs">

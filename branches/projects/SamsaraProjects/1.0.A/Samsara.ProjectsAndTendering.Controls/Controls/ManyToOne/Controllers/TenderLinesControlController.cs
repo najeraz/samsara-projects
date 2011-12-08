@@ -20,7 +20,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 {
-    public class TenderLinesControlController : ManyToOneLevel1ControlController
+    public class TenderLinesControlController : ManyToOneLevel1ControlController<TenderLine>
     {
         #region Attributes
 

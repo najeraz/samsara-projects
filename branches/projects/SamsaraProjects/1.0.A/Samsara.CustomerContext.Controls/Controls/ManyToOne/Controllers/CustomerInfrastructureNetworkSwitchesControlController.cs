@@ -17,7 +17,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
-    public class CustomerInfrastructureNetworkSwitchesControlController : ManyToOneLevel1ControlController
+    public class CustomerInfrastructureNetworkSwitchesControlController : ManyToOneLevel1ControlController<CustomerInfrastructureNetworkSwitch>
     {
         #region Attributes
 

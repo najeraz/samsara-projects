@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
-    public partial class CustomerInfrastructureNetworkWifiAccessPointsControl : ManyToOneLevel1Control
+    public partial class CustomerInfrastructureNetworkWifiAccessPointsControl : ManyToOneLevel1Control<CustomerInfrastructureNetworkWifiAccessPoint>
     {
         #region Properties
 

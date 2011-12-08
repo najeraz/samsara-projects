@@ -55,6 +55,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        public virtual TenderLineStatus TenderLineStatus
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
