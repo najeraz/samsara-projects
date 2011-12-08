@@ -21,6 +21,18 @@ namespace Samsara.Controls
             set;
         }
 
+        public bool ReadOnly
+        {
+            get
+            {
+                return !this.btnSearch.Enabled;
+            }
+            set
+            {
+                this.btnSearch.Enabled = !value;
+            }
+        }
+
         public T Value
         {
             get
@@ -34,6 +46,10 @@ namespace Samsara.Controls
                 {
                     this.txtName.Text = this.Value.GetType()
                         .GetProperty(this.DisplayMember).GetValue(this.Value, null).ToString();
+                }
+                else
+                {
+                    this.txtName.Text = string.Empty;
                 }
             }
         }
