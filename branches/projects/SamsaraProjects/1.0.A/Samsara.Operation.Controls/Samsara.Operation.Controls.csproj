@@ -94,10 +94,21 @@
     <Compile Include="Controls\Choosers\ProductChooserControl.designer.cs">
       <DependentUpon>ProductChooserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Search\ProductSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Search\ProductSearchControl.designer.cs">
+      <DependentUpon>ProductSearchControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\ManyToOne\Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Search\ProductSearchControl.resx">
+      <DependentUpon>ProductSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

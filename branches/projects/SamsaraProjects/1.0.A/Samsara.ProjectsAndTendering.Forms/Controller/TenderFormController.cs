@@ -167,6 +167,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.tscSchTenderStatus.Parameters = pmtTenderStatus;
             this.frmTender.tscSchTenderStatus.Refresh();
 
+            // mtoDetTenderLines
+            this.frmTender.mtoDetTenderLines.Tender = null;
+            this.frmTender.mtoDetTenderLines.CustomParent = this.frmTender;
+            this.frmTender.mtoDetTenderLines.LoadControls();
+
             // TenderSubstatus
             TenderSubstatusParameters pmtTenderSubstatus = new TenderSubstatusParameters();
 
@@ -215,22 +220,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
             WindowsFormsUtil.LoadCombo<Currency>(this.frmTender.uceDetPreresultCurrency,
                 lstCurrencies, "CurrencyId", "Code", null);
-
-            //grdDetTenderLines
-            this.frmTender.grdDetTenderLines.InitializeLayout
-                += new InitializeLayoutEventHandler(grdDetTenderLines_InitializeLayout);
-            this.frmTender.grdDetTenderLines.BeforeCellUpdate
-                += new BeforeCellUpdateEventHandler(grdDetTenderLines_BeforeCellUpdate);
-            this.frmTender.grdDetTenderLines.ClickCellButton
-                += new CellEventHandler(grdDetTenderLines_ClickCellButton);
-            this.frmTender.grdDetTenderLines.AfterCellUpdate
-                += new CellEventHandler(grdDetTenderLines_AfterCellUpdate);
-            TenderLineParameters pmtTenderLine = new TenderLineParameters();
-            pmtTenderLine.TenderId = ParameterConstants.IntNone;
-            this.dtTenderLines = this.srvTenderLine.SearchByParameters(pmtTenderLine);
-            this.dtTenderLines.Columns.Add("SearchProduct", typeof(string));
-            this.frmTender.grdDetTenderLines.DataSource = null;
-            this.frmTender.grdDetTenderLines.DataSource = dtTenderLines;
 
             //grdDetTenderCompetitors
             this.frmTender.grdDetExchangeRates.InitializeLayout
@@ -348,6 +337,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             DataSet dsTenderLineExtraCosts = new DataSet();
 
+            this.dtTenderLines = this.frmTender.mtoDetTenderLines.grdRelations.DataSource as DataTable;
+
             dsTenderLineExtraCosts.Tables.Add(this.dtTenderLines);
             dsTenderLineExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
 
@@ -383,8 +374,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmTender.ubtnDetDeleteManufacturer.Click += new EventHandler(ubtnDetDeleteManufacturer_Click);
             this.frmTender.ubtnDetCreateManufacturer.Click += new EventHandler(ubtnDetCreateManufacturer_Click);
-            this.frmTender.ubtnDetCreateLine.Click += new EventHandler(ubtnDetCreateLine_Click);
-            this.frmTender.ubtnDetDeleteLine.Click += new EventHandler(ubtnDetDeleteLine_Click);
             this.frmTender.ubtnDetCreateLog.Click += new EventHandler(ubtnDetCreateLog_Click);
             this.frmTender.ubtnDetCreateCompetitor.Click += new EventHandler(ubtnDetCreateCompetitor_Click);
             this.frmTender.ubtnDetDeleteCompetitor.Click += new EventHandler(ubtnDetDeleteCompetitor_Click);
@@ -589,7 +578,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
 
             this.LoadTenderManufacturers();
-            this.LoadTenderLines();
             this.LoadPricingEstrategy();
             this.LoadTenderWholesalers();
             this.LoadTenderCompetitors();
@@ -771,41 +759,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
-        private void LoadTenderLines()
-        {
-            foreach (TenderLine tenderLine in this.tender.TenderLines)
-            {
-                tenderLine.Deleted = true;
-                tenderLine.Activated = false;
-            }
-
-            foreach (DataRow row in this.dtTenderLines.Rows)
-            {
-                TenderLine tenderLine = null;
-
-                if (Convert.ToInt32(row["TenderLineId"]) <= 0)
-                    tenderLine = this.tender.TenderLines
-                        .Single(x => row["TenderLineId"] != DBNull.Value &&
-                            -x.GetHashCode() == Convert.ToInt32(row["TenderLineId"]));
-                else
-                    tenderLine = this.tender.TenderLines
-                        .Single(x => row["TenderLineId"] != DBNull.Value &&
-                            x.TenderLineId == Convert.ToInt32(row["TenderLineId"]) &&
-                            Convert.ToInt32(row["TenderLineId"]) > 0);
-
-                tenderLine.Tender = this.tender;
-                tenderLine.Description = row["Description"].ToString();
-                if (row["ManufacturerId"] == DBNull.Value)
-                    tenderLine.Manufacturer = null;
-                else
-                    tenderLine.Manufacturer = this.srvManufacturer.GetById(Convert.ToInt32(row["ManufacturerId"]));
-                tenderLine.Name = row["Name"].ToString();
-                tenderLine.Quantity = Convert.ToDecimal(row["Quantity"]);
-                tenderLine.Activated = true;
-                tenderLine.Deleted = false;
-            }
-        }
-
         private void LoadTenderManufacturers()
         {
             foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
@@ -898,6 +851,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderExchangeRates.Clear();
             this.frmTender.uchkDetAddExtraCosts.Checked = false;
             this.frmTender.uchkDetProrateWarranties.Checked = false;
+            this.frmTender.mtoDetTenderLines.ClearControls();
         }
 
         private void ClearSearchControls()
@@ -982,6 +936,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
             this.frmTender.uchkDetAddExtraCosts.Checked = this.tender.AddExtraCosts;
             this.frmTender.uchkDetProrateWarranties.Checked = this.tender.ProrateWarranties;
+
+            this.frmTender.mtoDetTenderLines.Tender = this.tender;
+            this.frmTender.mtoDetTenderLines.LoadControls();
+
             this.uchkDetAddExtraCosts_CheckedChanged(null, null);
             this.uchkDetProrateWarranties_CheckedChanged(null, null);
 
@@ -1022,7 +980,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 this.dtTenderLines.Rows.Add(row);
             }
-            this.grdDetTenderLines_InitializeLayout(null, null);
 
             foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
             {
@@ -1093,8 +1050,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.dtTenderLines = this.dtTenderLines.Copy();
             this.dtTenderLineExtraCosts = this.dtTenderLineExtraCosts.Copy();
-
-            this.frmTender.grdDetTenderLines.DataSource = this.dtTenderLines;
 
             dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLines);
             dsTenderLinesExtraCosts.Tables.Add(this.dtTenderLineExtraCosts);
@@ -1792,136 +1747,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.SaveTender();
         }
 
-        private void grdDetTenderLines_InitializeLayout(object sender, InitializeLayoutEventArgs e)
-        {
-            UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
-            UltraGridBand band = layout.Bands[0];
-            ManufacturerParameters pmtManufacturer = new ManufacturerParameters();
-            IList<Manufacturer> lstManufacturers = this.srvManufacturer.GetListByParameters(pmtManufacturer);
-
-            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
-            band.Override.MinRowHeight = 3;
-            band.Override.RowSizing = RowSizing.AutoFixed;
-            band.Override.RowSizingAutoMaxLines = 5;
-
-            band.Columns["TenderLineId"].CellActivation = Activation.ActivateOnly;
-            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
-            band.Columns["Description"].VertScrollBar = true;
-
-            band.Columns["SearchProduct"].Style =
-                Infragistics.Win.UltraWinGrid.ColumnStyle.Button;
-            band.Columns["SearchProduct"].ButtonDisplayStyle =
-                Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
-
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"], 
-                TextMaskFormatEnum.NaturalQuantity);
-
-            IEnumerable<Manufacturer> availableManufacturers = this.tender == null ||
-                this.tender.TenderManufacturers == null ? lstManufacturers.Where(x => false) :
-                lstManufacturers.Where(x => this.tender.TenderManufacturers
-                    .Select(y => y.Manufacturer.ManufacturerId).Contains(x.ManufacturerId));
-
-            WindowsFormsUtil.SetUltraGridValueList<Manufacturer>(layout, availableManufacturers, 
-                band.Columns["ManufacturerId"], "ManufacturerId", "Name", "Seleccione");
-
-            ProductParameters pmtProducts = new ProductParameters();
-            pmtProducts.Name = "";            
-            DataTable dtProducts = this.srvProduct.CustomSearchByParameters(
-                "Product.Search100Products", pmtProducts, false);
-
-            WindowsFormsUtil.SetUltraGridValueList(layout, dtProducts,
-                band.Columns["ProductId"], "ProductId", "Name", null);
-        }
-
-        private void grdDetTenderLines_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
-        {
-            if (e.Cell.Column.Key == "Quantity")
-            {
-                TenderLine tenderLine = this.tender.TenderLines.SingleOrDefault(x => x.TenderLineId
-                    == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
-
-                if (tenderLine != null)
-                {
-                    tenderLine.Quantity = Convert.ToInt32(e.NewValue);
-                    this.UpdatePricingStrategyGrid();
-                }
-            }
-
-            DataRow rowPC = this.dtPriceComparison.AsEnumerable().SingleOrDefault(
-                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
-
-            if (rowPC != null && e.Cell.Column.Key == "Quantity")
-                rowPC["TenderLineQuantity"] = e.NewValue;
-
-            if (rowPC != null && e.Cell.Column.Key == "Description")
-                rowPC["TenderLineDescription"] = e.NewValue;
-
-            if (rowPC != null && e.Cell.Column.Key == "Name")
-                rowPC["TenderLineName"] = e.NewValue;
-
-            DataRow rowPE = this.dtPricingStrategy.AsEnumerable().SingleOrDefault(
-                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
-
-            if (rowPE != null && e.Cell.Column.Key == "Quantity")
-                rowPE["TenderLineQuantity"] = e.NewValue;
-
-            if (rowPE != null && e.Cell.Column.Key == "Description")
-                rowPE["TenderLineDescription"] = e.NewValue;
-
-            if (rowPE != null && e.Cell.Column.Key == "Name")
-                rowPE["TenderLineName"] = e.NewValue;
-
-            DataRow rowP = this.dtPreresults.AsEnumerable().SingleOrDefault(
-                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
-
-            if (rowP != null && e.Cell.Column.Key == "Quantity")
-                rowP["TenderLineQuantity"] = e.NewValue;
-
-            if (rowP != null && e.Cell.Column.Key == "Description")
-                rowP["TenderLineDescription"] = e.NewValue;
-
-            if (rowP != null && e.Cell.Column.Key == "Name")
-                rowP["TenderLineName"] = e.NewValue;            
-        }
-
-        private void grdDetTenderLines_AfterCellUpdate(object sender, EventArgs e)
-        {
-            UltraGridCell activeCell = this.frmTender.grdDetTenderLines.ActiveCell;
-
-            if (activeCell == null)
-                return;
-
-            activeCell.Row.PerformAutoSize();
-        }
-
-        private void grdDetTenderLines_ClickCellButton(object sender, CellEventArgs e)
-        {
-            if (e.Cell.Column.Key == "SearchProduct")
-            {
-                Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + "Samsara.Operation.Forms.dll");
-                Type formType = assembly.GetType("Samsara.Operation.Forms.Forms.ProductForm");
-
-                Form form = Activator.CreateInstance(formType) as Form;
-
-                form.ShowDialog();
-
-                object a = formType.InvokeMember("PrepareSearchControls", BindingFlags.InvokeMethod, null, form, null);
-
-                form.GetType().GetProperty("SearchResult").GetValue(form, null);
-
-                //ISearchForm<Product> form = Activator.CreateInstance(typeof(ProductForm)) as ISearchForm<T>;
-                //form.ParentSearchForm = this.ParentForm;
-                //form.PrepareSearchControls();
-                //(form as Form).ShowDialog(this);
-                //this.Value = form.SearchResult;
-                //if (this.Value != null)
-                //{
-                //    this.txtName.Text = this.Value.GetType()
-                //        .GetProperty(this.DisplayMember).GetValue(this.Value, null).ToString();
-                //}
-            }
-        }
-
         private void grdDetTenderManufacturers_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = this.frmTender.grdDetTenderManufacturers.DisplayLayout;
@@ -1995,35 +1820,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             this.dtTenderManufacturers.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
-        }
-
-        private void ubtnDetCreateLine_Click(object sender, EventArgs e)
-        {
-            this.grdDetTenderLines_InitializeLayout(null, null);
-
-            TenderLine tenderLine = new TenderLine();
-            this.tender.TenderLines.Add(tenderLine);
-
-            DataRow newRow = this.dtTenderLines.NewRow();
-            this.dtTenderLines.Rows.Add(newRow);
-            newRow["ManufacturerId"] = -1;
-            newRow["TenderLineId"] = -tenderLine.GetHashCode();
-
-            this.dtTenderLines.AcceptChanges();
-            this.UpdatePriceComparisonGrid();
-            this.UpdatePreresultsGrid();
-        }
-
-        private void ubtnDetDeleteLine_Click(object sender, EventArgs e)
-        {
-            UltraGridRow activeRow = this.frmTender.grdDetTenderLines.ActiveRow;
-
-            if (activeRow == null) return;
-
-            this.dtTenderLines.Rows.Remove(((DataRowView)activeRow.ListObject).Row);
-
-            this.UpdatePriceComparisonGrid();
-            this.UpdatePreresultsGrid();
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
@@ -3125,21 +2921,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.Cursor = Cursors.Default;
             }
         }
-
-        //UltraGridLayout layout = this.frmTender.grdDetTenderLines.DisplayLayout;
-        //    UltraGridCell activeCell = this.frmTender.grdDetTenderLines.ActiveCell;
-
-        //    if (activeCell != null && activeCell.Column.Key == "Description")
-        //    {
-        //        ProductParameters pmtProducts = new ProductParameters();
-        //        pmtProducts.Name = "%" + e.NewValue.ToString() + "%";
-
-        //        DataTable dtProducts = this.srvProduct.CustomSearchByParameters(
-        //            "Product.Search100Products", pmtProducts, false);
-
-        //        WindowsFormsUtil.SetUltraGridValueList(layout, dtProducts,
-        //            layout.Bands[0].Columns["ProductId"], "Column1", "Column2", null);
-        //    }
 
         #endregion Events
     }
