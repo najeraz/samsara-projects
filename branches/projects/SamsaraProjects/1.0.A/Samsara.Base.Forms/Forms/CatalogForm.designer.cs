@@ -43,7 +43,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogForm));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.Search = new System.Windows.Forms.TabPage();
-            this.grdSchSearch = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdSchSearch = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             this.upSchSearchButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upSchSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchClear = new System.Windows.Forms.Button();
@@ -518,7 +518,7 @@
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorBottonSearch;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorDelete;
         public System.Windows.Forms.Button btnSchDelete;
-        public Controls.SamsaraUltraGrid grdSchSearch;
+        public Samsara.Base.Controls.Controls.SamsaraUltraGrid grdSchSearch;
         public System.Windows.Forms.Button btnDetCancel;
         public System.Windows.Forms.Button btnDetSave;
         public System.Windows.Forms.TabControl tabPrincipal;

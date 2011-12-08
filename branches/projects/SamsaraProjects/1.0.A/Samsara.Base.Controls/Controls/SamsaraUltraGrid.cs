@@ -1,7 +1,6 @@
 ﻿
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
@@ -11,10 +10,8 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
-using Samsara.Controls.Controls;
-using Samsara.Controls.Templates;
 
-namespace Samsara.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraUltraGrid : UltraGrid
     {

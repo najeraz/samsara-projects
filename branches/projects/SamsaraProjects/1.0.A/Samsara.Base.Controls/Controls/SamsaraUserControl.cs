@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
+﻿
+using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraUserControl : UserControl
     {

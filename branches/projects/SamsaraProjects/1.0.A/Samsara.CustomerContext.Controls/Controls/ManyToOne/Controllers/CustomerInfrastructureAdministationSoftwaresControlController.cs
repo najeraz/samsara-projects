@@ -8,7 +8,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.Controls.Controllers;
+using Samsara.Base.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;

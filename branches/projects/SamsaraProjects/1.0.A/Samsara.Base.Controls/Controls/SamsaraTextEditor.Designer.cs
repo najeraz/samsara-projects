@@ -1,4 +1,5 @@
-﻿namespace Samsara.Controls.Controls
+﻿
+namespace Samsara.Base.Controls.Controls
 {
     partial class SamsaraTextEditor
     {
@@ -28,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.sumeValue = new Samsara.Controls.Controls.SamsaraUltraMaskedEdit();
+            this.sumeValue = new SamsaraUltraMaskedEdit();
             this.SuspendLayout();
             // 
             // sumeValue

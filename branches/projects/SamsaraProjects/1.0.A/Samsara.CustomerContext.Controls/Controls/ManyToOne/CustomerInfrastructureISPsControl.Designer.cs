@@ -41,7 +41,7 @@
             Samsara.CustomerContext.Core.Parameters.ISPParameters ispParameters1 = new Samsara.CustomerContext.Core.Parameters.ISPParameters();
             this.lblBandwidth = new Infragistics.Win.Misc.UltraLabel();
             this.lblISP = new Infragistics.Win.Misc.UltraLabel();
-            this.steBandwidth = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steBandwidth = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.icISP = new Samsara.CustomerContext.Controls.Controls.Choosers.ISPChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
@@ -278,7 +278,7 @@
 
         private Infragistics.Win.Misc.UltraLabel lblBandwidth;
         private Infragistics.Win.Misc.UltraLabel lblISP;
-        public Samsara.Controls.Controls.SamsaraTextEditor steBandwidth;
+        public Samsara.Base.Controls.Controls.SamsaraTextEditor steBandwidth;
         internal Choosers.ISPChooserControl icISP;
 
 

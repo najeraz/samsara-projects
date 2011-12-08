@@ -335,6 +335,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTenderLineExtraCost.TenderLineId = ParameterConstants.IntNone;
             this.dtTenderLineExtraCosts = this.srvTenderLineExtraCost.SearchByParameters(pmtTenderLineExtraCost);
 
+            this.frmTender.mtoDetTenderLines.grdRelations.BeforeRowUpdate
+                += new CancelableRowEventHandler(grdRelations_BeforeRowUpdate);
+
+            this.frmTender.mtoDetTenderLines.grdRelations.BeforeCellUpdate
+                += new BeforeCellUpdateEventHandler(mtoDetTenderLines_grdRelations_BeforeCellUpdate);
+
             DataSet dsTenderLineExtraCosts = new DataSet();
 
             this.dtTenderLines = this.frmTender.mtoDetTenderLines.grdRelations.DataSource as DataTable;
@@ -2920,6 +2926,53 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 this.frmTender.Cursor = Cursors.Default;
             }
+        }
+
+        private void mtoDetTenderLines_grdRelations_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            if (e.Cell.Column.Key == "Quantity")
+                this.UpdatePricingStrategyGrid();
+
+            DataRow rowPC = this.dtPriceComparison.AsEnumerable().SingleOrDefault(
+                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+            if (rowPC != null && e.Cell.Column.Key == "Quantity")
+                rowPC["TenderLineQuantity"] = e.NewValue;
+
+            if (rowPC != null && e.Cell.Column.Key == "Description")
+                rowPC["TenderLineDescription"] = e.NewValue;
+
+            if (rowPC != null && e.Cell.Column.Key == "Name")
+                rowPC["TenderLineName"] = e.NewValue;
+
+            DataRow rowPE = this.dtPricingStrategy.AsEnumerable().SingleOrDefault(
+                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+            if (rowPE != null && e.Cell.Column.Key == "Quantity")
+                rowPE["TenderLineQuantity"] = e.NewValue;
+
+            if (rowPE != null && e.Cell.Column.Key == "Description")
+                rowPE["TenderLineDescription"] = e.NewValue;
+
+            if (rowPE != null && e.Cell.Column.Key == "Name")
+                rowPE["TenderLineName"] = e.NewValue;
+
+            DataRow rowP = this.dtPreresults.AsEnumerable().SingleOrDefault(
+                x => Convert.ToInt32(x["TenderLineId"]) == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+            if (rowP != null && e.Cell.Column.Key == "Quantity")
+                rowP["TenderLineQuantity"] = e.NewValue;
+
+            if (rowP != null && e.Cell.Column.Key == "Description")
+                rowP["TenderLineDescription"] = e.NewValue;
+
+            if (rowP != null && e.Cell.Column.Key == "Name")
+                rowP["TenderLineName"] = e.NewValue;            
+        }
+
+        private void grdRelations_BeforeRowUpdate(object sender, EventArgs e)
+        {
+
         }
 
         #endregion Events

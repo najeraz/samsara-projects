@@ -50,7 +50,7 @@
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxModules = new System.Windows.Forms.GroupBox();
             this.txtModules = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.steNumberOfUsers = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steNumberOfUsers = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl();
             this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -416,7 +416,7 @@
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModules;
         private System.Windows.Forms.GroupBox gbxDescription;
         private System.Windows.Forms.GroupBox gbxModules;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
         internal Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl cisccDetCustomerInfrastructureServerComputer;
         internal Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl dcDetDBMS;
 

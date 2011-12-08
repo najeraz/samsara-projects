@@ -1,6 +1,7 @@
-﻿using Infragistics.Win.Misc;
+﻿
+using Infragistics.Win.Misc;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public class SamsaraUltraButton : UltraButton
     {

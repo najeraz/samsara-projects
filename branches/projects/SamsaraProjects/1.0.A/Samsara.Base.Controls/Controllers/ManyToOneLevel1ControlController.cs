@@ -5,9 +5,9 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Infragistics.Win.Misc;
 using Infragistics.Win.UltraWinGrid;
-using Samsara.Controls.Templates;
+using Samsara.Base.Controls.Controls;
 
-namespace Samsara.Controls.Controllers
+namespace Samsara.Base.Controls.Controllers
 {
     public class ManyToOneLevel1ControlController
     {

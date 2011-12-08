@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.Controls.Templates
+namespace Samsara.Base.Controls.Controls
 {
     partial class ManyToOneLevel1Control
     {
@@ -62,7 +62,7 @@ namespace Samsara.Controls.Templates
             this.upnlSeparatorCancelRelation = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCancelRelation = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.grdRelations = new Samsara.Controls.SamsaraUltraGrid();
+            this.grdRelations = new SamsaraUltraGrid();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
             this.upnlSeparatorDeleteRelation.SuspendLayout();

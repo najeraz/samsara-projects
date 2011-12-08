@@ -1,4 +1,5 @@
-﻿namespace Samsara.Controls.Controls
+﻿
+namespace Samsara.Base.Controls.Controls
 {
     partial class SamsaraUserControl
     {
