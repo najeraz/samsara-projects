@@ -281,6 +281,12 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             this.controlTenderLines.steQuantity.ReadOnly = !enabled;
         }
 
+        protected override TenderLine GetEntity(int entityId)
+        {
+            return this.Tender.TenderLines
+                .SingleOrDefault(x => x.TenderLineId == entityId);
+        } 
+
         #endregion Protected
 
         #endregion Methods

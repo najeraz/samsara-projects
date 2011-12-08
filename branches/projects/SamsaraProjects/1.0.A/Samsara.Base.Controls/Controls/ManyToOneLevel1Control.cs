@@ -35,7 +35,7 @@ namespace Samsara.Base.Controls.Controls
 
         #region Protected
 
-        protected virtual void OnValueChanged(ManyToOneLevel1EntityChangedEventArgs<T> e)
+        public virtual void OnEntityChanged(ManyToOneLevel1EntityChangedEventArgs<T> e)
         {
             if (EntityChanged != null)
                 EntityChanged(this, e);
