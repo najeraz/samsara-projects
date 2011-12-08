@@ -19,7 +19,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
-    public class CustomerInfrastructurePrintersControlController : ManyToOneLevel1ControlController
+    public class CustomerInfrastructurePrintersControlController : ManyToOneLevel1ControlController<CustomerInfrastructurePrinter>
     {
         #region Attributes
 

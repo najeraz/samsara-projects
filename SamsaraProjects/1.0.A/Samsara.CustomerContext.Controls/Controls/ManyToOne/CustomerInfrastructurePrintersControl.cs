@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
-    public partial class CustomerInfrastructurePrintersControl : ManyToOneLevel1Control
+    public partial class CustomerInfrastructurePrintersControl : ManyToOneLevel1Control<CustomerInfrastructurePrinter>
     {
         #region Properties
 

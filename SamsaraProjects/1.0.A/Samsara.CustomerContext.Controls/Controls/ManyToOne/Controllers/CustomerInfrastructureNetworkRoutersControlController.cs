@@ -17,7 +17,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
-    public class CustomerInfrastructureNetworkRoutersControlController : ManyToOneLevel1ControlController
+    public class CustomerInfrastructureNetworkRoutersControlController : ManyToOneLevel1ControlController<CustomerInfrastructureNetworkRouter>
     {
         #region Attributes
 
@@ -47,7 +47,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         #region Constructor
 
         public CustomerInfrastructureNetworkRoutersControlController(
-            CustomerInfrastructureNetworkRoutersControl instance) : base(instance)  
+            CustomerInfrastructureNetworkRoutersControl instance)
+            : base(instance)  
         {
             this.controlCustomerInfrastructureNetworkRouters = instance;
 

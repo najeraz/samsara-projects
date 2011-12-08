@@ -26,9 +26,13 @@ namespace Samsara.Base.Controls.Controls
 
         #endregion Attributes
 
-        #region Properties
+        #region EventHandlers
 
         public event SamsaraEntityChooserValueChangedEventHandler<T> ValueChanged;
+
+        #endregion EventHandlers
+
+        #region Properties
 
         public bool ReadOnly
         {

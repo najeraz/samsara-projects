@@ -20,7 +20,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
-    public class CustomerInfrastructurePersonalComputersControlController : ManyToOneLevel1ControlController
+    public class CustomerInfrastructurePersonalComputersControlController : ManyToOneLevel1ControlController<CustomerInfrastructurePersonalComputer>
     {
         #region Attributes
 

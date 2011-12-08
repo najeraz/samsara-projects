@@ -19,6 +19,10 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
                  column="TenderId"/>
 
+    <many-to-one name="TenderLineStatus"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineStatus, Samsara.ProjectsAndTendering.Core"
+                 column="TenderLineStatusId"/>
+
     <many-to-one name="Manufacturer"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Manufacturer, Samsara.ProjectsAndTendering.Core"
                  column="ManufacturerId"/>

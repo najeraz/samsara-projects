@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.Base.Controls.Controls
 {
-    partial class ManyToOneLevel1Control
+    partial class ManyToOneLevel1Control<T>
     {
         /// <summary> 
         /// Required designer variable.

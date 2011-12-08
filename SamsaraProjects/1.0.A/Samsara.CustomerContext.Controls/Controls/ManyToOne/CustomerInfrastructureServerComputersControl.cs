@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
 {
-    public partial class CustomerInfrastructureServerComputersControl : ManyToOneLevel1Control
+    public partial class CustomerInfrastructureServerComputersControl : ManyToOneLevel1Control<CustomerInfrastructureServerComputer>
     {
         #region Properties
 
