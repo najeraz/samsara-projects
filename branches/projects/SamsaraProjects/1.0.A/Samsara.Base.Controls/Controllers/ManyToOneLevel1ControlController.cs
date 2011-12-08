@@ -9,17 +9,17 @@ using Samsara.Base.Controls.Controls;
 
 namespace Samsara.Base.Controls.Controllers
 {
-    public class ManyToOneLevel1ControlController
+    public class ManyToOneLevel1ControlController<T>
     {
         #region Attributes
 
-        private ManyToOneLevel1Control control;
+        private ManyToOneLevel1Control<T> control;
 
         #endregion Attributes
 
         #region Constructor
 
-        public ManyToOneLevel1ControlController(ManyToOneLevel1Control instance)
+        public ManyToOneLevel1ControlController(ManyToOneLevel1Control<T> instance)
         {
             this.control = instance;
             this.InitializeControlControls();

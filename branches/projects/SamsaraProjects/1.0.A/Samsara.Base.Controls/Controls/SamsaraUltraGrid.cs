@@ -138,10 +138,14 @@ namespace Samsara.Base.Controls.Controls
             if (control == null)
                 return;
 
-            if (control is Form || control.GetType().BaseType == typeof(ManyToOneLevel1Control))
+            if (control is Form || control.GetType().BaseType == typeof(SamsaraUserControl))
                 controlsNames.Add(control.Name);
 
-            if (control.GetType().BaseType == typeof(ManyToOneLevel1Control))
+            if (control is Form || (control.GetType().BaseType.BaseType != null
+                && control.GetType().BaseType.BaseType == typeof(SamsaraUserControl)))
+                controlsNames.Add(control.Name);
+
+            if (control.GetType().BaseType == typeof(SamsaraUserControl))
                 this.GetCustomControlsNames((control as SamsaraUserControl).CustomParent, controlsNames);
             else
                 this.GetCustomControlsNames(control.Parent, controlsNames);

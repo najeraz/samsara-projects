@@ -17,7 +17,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
-    public class CustomerInfrastructureCCTVsControlController : ManyToOneLevel1ControlController
+    public class CustomerInfrastructureCCTVsControlController : ManyToOneLevel1ControlController<CustomerInfrastructureCCTV>
     {
         #region Attributes
 
