@@ -45,8 +45,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblCommutatorBrand = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfLines = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfTrunks = new Infragistics.Win.Misc.UltraLabel();
-            this.steNumberOfTrunks = new Samsara.Controls.Controls.SamsaraTextEditor();
-            this.steNumberOfExtensions = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steNumberOfTrunks = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.steNumberOfExtensions = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ctcCommutatorType = new Samsara.CustomerContext.Controls.Controls.Choosers.CommutatorTypeChooserControl();
             this.cbcCommutatorBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.CommutatorBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -335,8 +335,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel lblCommutatorBrand;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfTrunks;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfLines;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfExtensions;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfTrunks;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steNumberOfExtensions;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steNumberOfTrunks;
         internal Choosers.CommutatorTypeChooserControl ctcCommutatorType;
         internal Choosers.CommutatorBrandChooserControl cbcCommutatorBrand;
 

@@ -65,7 +65,7 @@
             this.ulblCustomerInfraestructurePersonalComputerClassification = new Infragistics.Win.Misc.UltraLabel();
             this.cipcccCustomerInfrastructurePersonalComputerClassification = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructurePersonalComputerClassificationChooserControl();
             this.ulblClassification = new Infragistics.Win.Misc.UltraLabel();
-            this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ulblQuantity = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
@@ -567,7 +567,7 @@
         internal Choosers.CustomerInfrastructurePersonalComputerClassificationChooserControl cipcccCustomerInfrastructurePersonalComputerClassification;
         private Infragistics.Win.Misc.UltraLabel ulblClassification;
         private Infragistics.Win.Misc.UltraLabel ulblCustomerInfraestructurePersonalComputerClassification;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steQuantity;
         internal Infragistics.Win.Misc.UltraLabel lblSerie;
         internal Infragistics.Win.Misc.UltraLabel lblManufacturerReferenceNumber;
         internal Infragistics.Win.Misc.UltraLabel ulblQuantity;

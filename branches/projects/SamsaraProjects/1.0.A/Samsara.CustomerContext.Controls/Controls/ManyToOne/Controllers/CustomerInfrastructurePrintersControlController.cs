@@ -10,7 +10,7 @@ using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Core.Context;
-using Samsara.Controls.Controllers;
+using Samsara.Base.Controls.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Enums;
 using Samsara.CustomerContext.Core.Parameters;

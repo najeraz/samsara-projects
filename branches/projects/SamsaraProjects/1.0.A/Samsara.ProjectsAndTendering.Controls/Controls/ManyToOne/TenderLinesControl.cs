@@ -1,5 +1,5 @@
 ﻿
-using Samsara.Controls.Templates;
+using Samsara.Base.Controls.Controls;
 using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers;
 using Samsara.ProjectsAndTendering.Core.Entities;
 

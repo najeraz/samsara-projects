@@ -1,6 +1,7 @@
-﻿using Infragistics.Win.UltraWinEditors;
+﻿
+using Infragistics.Win.UltraWinEditors;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public class SamsaraUltraComboEditor : UltraComboEditor
     {

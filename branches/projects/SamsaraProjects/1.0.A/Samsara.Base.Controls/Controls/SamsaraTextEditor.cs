@@ -4,7 +4,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
 using Samsara.Support.Util;
 
-namespace Samsara.Controls.Controls
+namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraTextEditor : SamsaraUserControl
     {

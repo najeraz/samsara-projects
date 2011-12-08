@@ -49,7 +49,7 @@
             this.pbcPrinterBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.PrinterBrandChooserControl();
             this.cipccCustomerInfrastructurePrinterClassification = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructurePrinterClassificationChooserControl();
             this.lblCustomerInfrastructurePrinterClassification = new Infragistics.Win.Misc.UltraLabel();
-            this.steQuantity = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ulblQuantity = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
@@ -362,7 +362,7 @@
         internal Choosers.PrinterBrandChooserControl pbcPrinterBrand;
         internal Choosers.PrinterTypeChooserControl ptcPrinterType;
         private Infragistics.Win.Misc.UltraLabel lblCustomerInfrastructurePrinterClassification;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steQuantity;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steQuantity;
         internal Infragistics.Win.Misc.UltraLabel ulblQuantity;
         internal Choosers.CustomerInfrastructurePrinterClassificationChooserControl cipccCustomerInfrastructurePrinterClassification;
         internal Infragistics.Win.Misc.UltraLabel lblSerialNumber;

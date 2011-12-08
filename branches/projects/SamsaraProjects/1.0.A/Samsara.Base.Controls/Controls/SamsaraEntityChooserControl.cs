@@ -10,7 +10,6 @@ using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Base.Service.Impl;
-using Samsara.Controls.Controls;
 using Samsara.Support.Util;
 
 namespace Samsara.Base.Controls.Controls

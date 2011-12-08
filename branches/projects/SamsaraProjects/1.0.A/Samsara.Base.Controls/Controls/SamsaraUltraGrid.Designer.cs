@@ -1,4 +1,5 @@
-﻿namespace Samsara.Controls
+﻿
+namespace Samsara.Base.Controls.Controls
 {
     partial class SamsaraUltraGrid
     {

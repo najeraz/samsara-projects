@@ -43,7 +43,7 @@
             this.lblTelephonyLineType = new Infragistics.Win.Misc.UltraLabel();
             this.lblTelephonyProvider = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfLines = new Infragistics.Win.Misc.UltraLabel();
-            this.steNumberOfLines = new Samsara.Controls.Controls.SamsaraTextEditor();
+            this.steNumberOfLines = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.tltcTelephonyLineType = new Samsara.CustomerContext.Controls.Controls.Choosers.TelephonyLineTypeChooserControl();
             this.tpcTelephonyProvider = new Samsara.CustomerContext.Controls.Controls.Choosers.TelephonyProviderChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -309,7 +309,7 @@
         private Infragistics.Win.Misc.UltraLabel lblTelephonyLineType;
         private Infragistics.Win.Misc.UltraLabel lblTelephonyProvider;
         private Infragistics.Win.Misc.UltraLabel lblNumberOfLines;
-        internal Samsara.Controls.Controls.SamsaraTextEditor steNumberOfLines;
+        internal Samsara.Base.Controls.Controls.SamsaraTextEditor steNumberOfLines;
         internal Choosers.TelephonyProviderChooserControl tpcTelephonyProvider;
         internal Choosers.TelephonyLineTypeChooserControl tltcTelephonyLineType;
 
