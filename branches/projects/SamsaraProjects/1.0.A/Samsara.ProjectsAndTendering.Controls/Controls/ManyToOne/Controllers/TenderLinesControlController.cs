@@ -1,25 +1,22 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
-using Samsara.Base.Core.Context;
 using Samsara.Base.Controls.Controllers;
+using Samsara.Base.Core.Context;
+using Samsara.Controls.Interfaces;
+using Samsara.Operation.Core.Entities;
+using Samsara.Operation.Service.Interfaces;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 using Samsara.Support.Util;
-using Samsara.Operation.Service.Interfaces;
-using Samsara.Operation.Core.Parameters;
-using Samsara.Operation.Core.Entities;
-using System.Reflection;
-using Samsara.Controls;
-using Samsara.Controls.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 {
