@@ -166,7 +166,7 @@ namespace SamsaraWebsiteUpdateDataService
                 {
                     codigo = Convert.ToInt32(x["familia"]),
                     descripcion = x["nombre_familia"].ToString().Trim(),
-                    padre = x["padre"] == DBNull.Value ? -1 : Convert.ToInt32(x["padre"])
+                    padre = x["padre"] == DBNull.Value ? -1 : Convert.ToInt32(x["padre"]) + diferentOrderIndex
                 }).ToList();
 
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.descripcion, id_padre FROM categorias c",
