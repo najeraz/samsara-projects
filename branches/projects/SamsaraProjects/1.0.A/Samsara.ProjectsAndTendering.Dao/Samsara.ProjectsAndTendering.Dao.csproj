@@ -118,6 +118,7 @@
     <Compile Include="Impl\BidderDao.cs" />
     <Compile Include="Impl\BidderTypeDao.cs" />
     <Compile Include="Impl\CompetitorDao.cs" />
+    <Compile Include="Impl\OfferedPriceTypeDao.cs" />
     <Compile Include="Impl\TenderLineExtraCostDao.cs" />
     <Compile Include="Impl\TenderFileDao.cs" />
     <Compile Include="Impl\PricingStrategyDao.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Impl\TenderDao.cs" />
     <Compile Include="Impl\ManufacturerDao.cs" />
     <Compile Include="Impl\DependencyDao.cs" />
+    <Compile Include="Interfaces\IOfferedPriceTypeDao.cs" />
     <Compile Include="Interfaces\ITenderLineExtraCostDao.cs" />
     <Compile Include="Interfaces\ITenderFileDao.cs" />
     <Compile Include="Interfaces\IPricingStrategyDao.cs" />

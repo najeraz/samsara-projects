@@ -60,6 +60,10 @@
           type="Samsara.ProjectsAndTendering.Dao.Impl.BidderDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IOfferedPriceTypeDao"
+          type="Samsara.ProjectsAndTendering.Dao.Impl.OfferedPriceTypeDao, Samsara.ProjectsAndTendering.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   <object id="IBidderTypeDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.BidderTypeDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
