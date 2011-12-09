@@ -41,6 +41,9 @@
     <many-to-one name="Asesor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Asesor, Samsara.ProjectsAndTendering.Core"
                  column="AsesorId"/>
+    <many-to-one name="TenderSubstatus"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.TenderSubstatus, Samsara.ProjectsAndTendering.Core"
+                 column="TenderSubstatusId"/>
     <many-to-one name="TenderStatus"
                  class="Samsara.ProjectsAndTendering.Core.Entities.TenderStatus, Samsara.ProjectsAndTendering.Core"
                  column="TenderStatusId"/>
