@@ -11,6 +11,7 @@
     
     <property name="Name"/>
     <property name="Quantity"/>
+    <property name="Concept"/>
     <property name="Description"/>
     <property name="Deleted"/>
     <property name="Activated"/>
