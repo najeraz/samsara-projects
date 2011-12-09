@@ -189,6 +189,9 @@
       <DependentUpon>TenderSubstatusChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\ManyToOne\Controllers\TenderLinesControlController.cs" />
+    <Compile Include="Controls\ManyToOne\Templates\TenderTenderLinesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\ManyToOne\TenderLinesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
