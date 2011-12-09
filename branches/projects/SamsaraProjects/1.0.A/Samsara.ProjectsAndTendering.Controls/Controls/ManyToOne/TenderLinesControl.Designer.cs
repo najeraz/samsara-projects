@@ -47,6 +47,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.pscProduct = new Samsara.Operation.Controls.Controls.Search.ProductSearchControl();
             this.ugbxConcept = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtConcept = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -69,6 +70,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             ((System.ComponentModel.ISupportInitialize)(this.ugbxConcept)).BeginInit();
             this.ugbxConcept.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtConcept)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -115,11 +117,11 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdRelations.Size = new System.Drawing.Size(643, 170);
+            this.grdRelations.Size = new System.Drawing.Size(643, 152);
             // 
             // upnDetailButtons
             // 
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 170);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 152);
             this.upnDetailButtons.Size = new System.Drawing.Size(643, 25);
             // 
             // upnlSeparatorDeleteRelation
@@ -152,23 +154,18 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 195);
-            this.gbxDetDetail.Size = new System.Drawing.Size(643, 193);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 177);
+            this.gbxDetDetail.Size = new System.Drawing.Size(643, 211);
             // 
             // tabDetail
             // 
-            this.tabDetail.Size = new System.Drawing.Size(637, 174);
+            this.tabDetail.Size = new System.Drawing.Size(637, 192);
             // 
             // tabItmPrincipal
             // 
             this.tabItmPrincipal.Controls.Add(this.ugbxConcept);
-            this.tabItmPrincipal.Controls.Add(this.pscProduct);
-            this.tabItmPrincipal.Controls.Add(this.steQuantity);
-            this.tabItmPrincipal.Controls.Add(this.txtName);
-            this.tabItmPrincipal.Controls.Add(this.lblConcept);
-            this.tabItmPrincipal.Controls.Add(this.lblProduct);
-            this.tabItmPrincipal.Controls.Add(this.lblQuantity);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(629, 148);
+            this.tabItmPrincipal.Controls.Add(this.panel1);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(629, 166);
             // 
             // upnlButtons
             // 
@@ -214,7 +211,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // lblConcept
             // 
             this.lblConcept.AutoSize = true;
-            this.lblConcept.Location = new System.Drawing.Point(10, 10);
+            this.lblConcept.Location = new System.Drawing.Point(12, 12);
             this.lblConcept.Name = "lblConcept";
             this.lblConcept.Size = new System.Drawing.Size(43, 14);
             this.lblConcept.TabIndex = 107;
@@ -223,7 +220,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(449, 10);
+            this.lblQuantity.Location = new System.Drawing.Point(12, 38);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(53, 14);
             this.lblQuantity.TabIndex = 106;
@@ -231,7 +228,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(85, 6);
+            this.txtName.Location = new System.Drawing.Point(87, 8);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(336, 21);
             this.txtName.TabIndex = 112;
@@ -239,7 +236,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // steQuantity
             // 
             this.steQuantity.CustomParent = null;
-            this.steQuantity.Location = new System.Drawing.Point(524, 7);
+            this.steQuantity.Location = new System.Drawing.Point(87, 35);
             this.steQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.steQuantity.Name = "steQuantity";
             this.steQuantity.ReadOnly = false;
@@ -250,7 +247,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // lblProduct
             // 
             this.lblProduct.AutoSize = true;
-            this.lblProduct.Location = new System.Drawing.Point(10, 39);
+            this.lblProduct.Location = new System.Drawing.Point(12, 65);
             this.lblProduct.Name = "lblProduct";
             this.lblProduct.Size = new System.Drawing.Size(53, 14);
             this.lblProduct.TabIndex = 106;
@@ -258,22 +255,22 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // 
             // pscProduct
             // 
-            this.pscProduct.Location = new System.Drawing.Point(85, 33);
+            this.pscProduct.Location = new System.Drawing.Point(87, 61);
             this.pscProduct.Name = "pscProduct";
             this.pscProduct.ReadOnly = false;
-            this.pscProduct.Size = new System.Drawing.Size(535, 24);
+            this.pscProduct.Size = new System.Drawing.Size(336, 24);
             this.pscProduct.TabIndex = 114;
             this.pscProduct.Value = null;
             // 
             // ugbxConcept
             // 
             this.ugbxConcept.Controls.Add(this.txtConcept);
-            this.ugbxConcept.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ugbxConcept.Location = new System.Drawing.Point(3, 63);
+            this.ugbxConcept.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ugbxConcept.Location = new System.Drawing.Point(3, 94);
             this.ugbxConcept.Name = "ugbxConcept";
-            this.ugbxConcept.Size = new System.Drawing.Size(623, 82);
+            this.ugbxConcept.Size = new System.Drawing.Size(623, 69);
             this.ugbxConcept.TabIndex = 115;
-            this.ugbxConcept.Text = "Descripción:";
+            this.ugbxConcept.Text = "Concepto:";
             // 
             // txtConcept
             // 
@@ -281,8 +278,22 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.txtConcept.Location = new System.Drawing.Point(3, 16);
             this.txtConcept.Multiline = true;
             this.txtConcept.Name = "txtConcept";
-            this.txtConcept.Size = new System.Drawing.Size(617, 63);
+            this.txtConcept.Size = new System.Drawing.Size(617, 50);
             this.txtConcept.TabIndex = 112;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblConcept);
+            this.panel1.Controls.Add(this.lblQuantity);
+            this.panel1.Controls.Add(this.pscProduct);
+            this.panel1.Controls.Add(this.lblProduct);
+            this.panel1.Controls.Add(this.steQuantity);
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(623, 91);
+            this.panel1.TabIndex = 116;
             // 
             // TenderLinesControl
             // 
@@ -301,7 +312,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.gbxDetDetail.ResumeLayout(false);
             this.tabDetail.ResumeLayout(false);
             this.tabItmPrincipal.ResumeLayout(false);
-            this.tabItmPrincipal.PerformLayout();
             this.upnlButtons.ClientArea.ResumeLayout(false);
             this.upnlButtons.ResumeLayout(false);
             this.upnlSeparatorSaveRelation.ResumeLayout(false);
@@ -314,6 +324,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.ugbxConcept.ResumeLayout(false);
             this.ugbxConcept.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtConcept)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -328,5 +340,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
         internal Operation.Controls.Controls.Search.ProductSearchControl pscProduct;
         private Infragistics.Win.Misc.UltraGroupBox ugbxConcept;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtConcept;
+        private System.Windows.Forms.Panel panel1;
     }
 }

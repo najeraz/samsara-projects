@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Samsara.Base.Service.Interfaces
@@ -36,6 +37,12 @@ namespace Samsara.Base.Service.Interfaces
         /// </summary>
         /// <param name="entity">The entity</param>
         void Refresh(T entity);
+
+        /// <summary>
+        /// Get server datetime
+        /// </summary>
+        /// <returns>Server datetime</returns>
+        DateTime GetServerDateTime();
 
         /// <summary>
         /// Get entity  by Id

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Samsara.Base.Dao.Interfaces;
@@ -43,6 +44,11 @@ namespace Samsara.Base.Service.Impl
         public virtual void Refresh(T entity)
         {
             this.Dao.Refresh(entity);
+        }
+
+        public virtual DateTime GetServerDateTime()
+        {
+            return this.Dao.GetServerDateTime();
         }
 
         public T GetById(TId id)

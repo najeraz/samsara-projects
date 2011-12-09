@@ -338,6 +338,7 @@
             this.btnSchEdit.TabIndex = 7;
             this.btnSchEdit.Text = "Modificar";
             this.btnSchEdit.UseVisualStyleBackColor = true;
+            this.btnSchEdit.Click += new System.EventHandler(this.btnSchEdit_Click);
             // 
             // upSchSeparatorCreate
             // 
@@ -356,6 +357,7 @@
             this.btnSchCreate.TabIndex = 8;
             this.btnSchCreate.Text = "Nuevo";
             this.btnSchCreate.UseVisualStyleBackColor = true;
+            this.btnSchCreate.Click += new System.EventHandler(this.btnSchCreate_Click);
             // 
             // upSchSeparatorBottom
             // 

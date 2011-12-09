@@ -722,7 +722,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderLinesExtraCosts.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdDetTenderLinesExtraCosts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderLinesExtraCosts.Location = new System.Drawing.Point(3, 3);
-            this.grdDetTenderLinesExtraCosts.lstCustomControlNames = null;
             this.grdDetTenderLinesExtraCosts.Name = "grdDetTenderLinesExtraCosts";
             this.grdDetTenderLinesExtraCosts.Size = new System.Drawing.Size(381, 337);
             this.grdDetTenderLinesExtraCosts.TabIndex = 6;
@@ -1155,7 +1154,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetPriceComparison.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetPriceComparison.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetPriceComparison.Location = new System.Drawing.Point(0, 0);
-            this.grdDetPriceComparison.lstCustomControlNames = null;
             this.grdDetPriceComparison.Name = "grdDetPriceComparison";
             this.grdDetPriceComparison.Size = new System.Drawing.Size(807, 119);
             this.grdDetPriceComparison.TabIndex = 78;
@@ -1267,7 +1265,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetExchangeRates.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetExchangeRates.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetExchangeRates.Location = new System.Drawing.Point(3, 16);
-            this.grdDetExchangeRates.lstCustomControlNames = null;
             this.grdDetExchangeRates.Name = "grdDetExchangeRates";
             this.grdDetExchangeRates.Size = new System.Drawing.Size(276, 79);
             this.grdDetExchangeRates.TabIndex = 84;
@@ -1345,7 +1342,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetPricingStrategy.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetPricingStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetPricingStrategy.Location = new System.Drawing.Point(3, 28);
-            this.grdDetPricingStrategy.lstCustomControlNames = null;
             this.grdDetPricingStrategy.Name = "grdDetPricingStrategy";
             this.grdDetPricingStrategy.Size = new System.Drawing.Size(801, 66);
             this.grdDetPricingStrategy.TabIndex = 76;
@@ -1476,7 +1472,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetPreresults.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetPreresults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetPreresults.Location = new System.Drawing.Point(0, 0);
-            this.grdDetPreresults.lstCustomControlNames = null;
             this.grdDetPreresults.Name = "grdDetPreresults";
             this.grdDetPreresults.Size = new System.Drawing.Size(807, 0);
             this.grdDetPreresults.TabIndex = 82;
@@ -1815,7 +1810,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderWholesalers.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetTenderWholesalers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderWholesalers.Location = new System.Drawing.Point(0, 0);
-            this.grdDetTenderWholesalers.lstCustomControlNames = null;
             this.grdDetTenderWholesalers.Name = "grdDetTenderWholesalers";
             this.grdDetTenderWholesalers.Size = new System.Drawing.Size(807, 106);
             this.grdDetTenderWholesalers.TabIndex = 3;
@@ -1946,7 +1940,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderManufacturers.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetTenderManufacturers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderManufacturers.Location = new System.Drawing.Point(0, 0);
-            this.grdDetTenderManufacturers.lstCustomControlNames = null;
             this.grdDetTenderManufacturers.Name = "grdDetTenderManufacturers";
             this.grdDetTenderManufacturers.Size = new System.Drawing.Size(807, 106);
             this.grdDetTenderManufacturers.TabIndex = 0;
@@ -2080,7 +2073,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderCompetitors.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetTenderCompetitors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderCompetitors.Location = new System.Drawing.Point(0, 0);
-            this.grdDetTenderCompetitors.lstCustomControlNames = null;
             this.grdDetTenderCompetitors.Name = "grdDetTenderCompetitors";
             this.grdDetTenderCompetitors.Size = new System.Drawing.Size(807, 106);
             this.grdDetTenderCompetitors.TabIndex = 2;
@@ -2214,7 +2206,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderWarranties.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetTenderWarranties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderWarranties.Location = new System.Drawing.Point(0, 0);
-            this.grdDetTenderWarranties.lstCustomControlNames = null;
             this.grdDetTenderWarranties.Name = "grdDetTenderWarranties";
             this.grdDetTenderWarranties.Size = new System.Drawing.Size(807, 106);
             this.grdDetTenderWarranties.TabIndex = 5;
@@ -2347,7 +2338,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
-            this.grdDetLog.lstCustomControlNames = null;
             this.grdDetLog.Name = "grdDetLog";
             this.grdDetLog.Size = new System.Drawing.Size(815, 282);
             this.grdDetLog.TabIndex = 1;
@@ -2480,7 +2470,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetTenderFiles.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetTenderFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetTenderFiles.Location = new System.Drawing.Point(0, 0);
-            this.grdDetTenderFiles.lstCustomControlNames = null;
             this.grdDetTenderFiles.Name = "grdDetTenderFiles";
             this.grdDetTenderFiles.Size = new System.Drawing.Size(815, 237);
             this.grdDetTenderFiles.TabIndex = 3;

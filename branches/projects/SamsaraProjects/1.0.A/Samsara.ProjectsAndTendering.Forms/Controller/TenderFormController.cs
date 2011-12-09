@@ -261,8 +261,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new InitializeLayoutEventHandler(grdDetTenderWarranties_InitializeLayout);
             this.frmTender.grdDetTenderWarranties.AfterCellUpdate +=
                 new CellEventHandler(grdDetTenderWarranties_AfterCellUpdate);
-            this.frmTender.grdDetTenderWarranties.BeforeCellUpdate
-                += new BeforeCellUpdateEventHandler(grdDetTenderWarranties_BeforeCellUpdate);
             TenderWarrantyParameters pmtTenderWarranty = new TenderWarrantyParameters();
             pmtTenderWarranty.TenderId = ParameterConstants.IntNone;
             this.dtTenderWarranties = this.srvTenderWarranty.SearchByParameters(pmtTenderWarranty);
@@ -376,11 +374,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.grdDetLog.DataSource = null;
             this.frmTender.grdDetLog.DataSource = this.dtTenderLog;
 
+            this.frmTender.dteDetRegistrationDate.ReadOnly = true;
+
             this.frmTender.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmTender.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
             this.frmTender.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
             this.frmTender.btnDetSave.Click += new EventHandler(btnDetSave_Click);
             this.frmTender.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
+            this.frmTender.btnDetCancel.Text = "Cerrar";
             this.frmTender.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
             this.frmTender.btnSchClear.Click += new EventHandler(btnSchClear_Click);
             this.frmTender.ubtnDetDeleteManufacturer.Click += new EventHandler(ubtnDetDeleteManufacturer_Click);
@@ -596,39 +597,34 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadTenderExchangeRates();
             this.LaodTenderWarranties();
 
-            IList<TenderLineStatus> lstTenderLineStatuses 
+            IList<TenderLineStatus> lstTenderLineStatuses
                 = this.tender.TenderLines.Where(x => x.Activated && !x.Deleted)
                 .Select(x => x.TenderLineStatus).Distinct().ToList();
 
             this.tender.TenderStatus = this.srvTenderStatus.GetById((int)TenderStatusesEnum.Open);
 
-            if (!lstTenderLineStatuses.Contains(null))
-            {
+            if (!lstTenderLineStatuses.Contains(null) && lstTenderLineStatuses.Count != 0)
                 this.tender.TenderStatus = this.srvTenderStatus.GetById((int)TenderStatusesEnum.Closed);
+            else if (lstTenderLineStatuses.Count > 1)
+                this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.PartialWon);
+            else if (lstTenderLineStatuses.Count == 1 && lstTenderLineStatuses.Single() != null)
+            {
+                TenderLineStatus tenderLineStatus = lstTenderLineStatuses.Single();
 
-                if (lstTenderLineStatuses.Count > 1)
+                switch (((TenderLineStatusesEnum)tenderLineStatus.TenderLineStatusId))
                 {
-                    this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.PartialWon);
-                }
-                else
-                {
-                    TenderLineStatus tenderLineStatus = lstTenderLineStatuses.First();
-
-                    switch (((TenderLineStatusesEnum)tenderLineStatus.TenderLineStatusId))
-                    {
-                        case TenderLineStatusesEnum.CouldNotParticipate:
-                            this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.CouldNotParticipate);
-                            break;
-                        case TenderLineStatusesEnum.Lost:
-                            this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Lost);
-                            break;
-                        case TenderLineStatusesEnum.Won:
-                            this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Won);
-                            break;
-                        default:
-                            this.tender.TenderSubstatus = null;
-                            break;
-                    }
+                    case TenderLineStatusesEnum.CouldNotParticipate:
+                        this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.CouldNotParticipate);
+                        break;
+                    case TenderLineStatusesEnum.Lost:
+                        this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Lost);
+                        break;
+                    case TenderLineStatusesEnum.Won:
+                        this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Won);
+                        break;
+                    default:
+                        this.tender.TenderSubstatus = null;
+                        break;
                 }
             }
 
@@ -881,7 +877,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.txtDetTenderName.Text = string.Empty;
             this.frmTender.dteDetClarificationDate.Value = null;
             this.frmTender.dteDetDeadline.Value = null;
-            this.frmTender.dteDetRegistrationDate.Value = null;
+            this.frmTender.dteDetRegistrationDate.Value = this.srvTender.GetServerDateTime();
             this.frmTender.oscDetRelatedOpportunity.Clear();
             this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
@@ -936,7 +932,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.frmTender.Cursor = Cursors.WaitCursor;
                     this.LoadEntity();
                     this.srvTender.SaveOrUpdate(this.tender);
-                    this.EditTender(this.tender.TenderId);
+                    this.ClearDetailControls();
+                    this.LoadFormFromEntity();
                 }
                 finally
                 {
@@ -1525,6 +1522,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void UpdatePricingStrategyGrid()
         {
+            decimal warrantiesSummary = 0;
+
+            if (this.tender.ProrateWarranties)
+            {
+                foreach (DataRow rowW in this.dtTenderWarranties.Rows)
+                {
+                    WarrantyType warrantyType = this.srvWarrantyType
+                        .GetById(Convert.ToInt32(rowW["WarrantyTypeId"]));
+
+                    if (warrantyType != null && warrantyType.CanProrate && rowW["Amount"] != DBNull.Value)
+                        warrantiesSummary += Convert.ToDecimal(rowW["Amount"]);
+                }
+            }
+
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
@@ -1563,10 +1574,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     extraCostsSummary = drPricingStrategy == null
                         || drPricingStrategy["ExtraCosts"] == DBNull.Value ?
                         pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
-
-                if (this.tender.ProrateWarranties)
-                    proratedWarrantiesSummary = this.tender.TenderWarranties
-                        .Where(x => (x.WarrantyType.CanProrate)).Sum(x => x.Amount);
 
                 try
                 {
@@ -2544,26 +2551,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             WindowsFormsUtil.SetUltraGridValueList<DocumentTypeWarranty>(layout, lstDocumentTypeWarranties,
                 band.Columns["DocumentTypeWarrantyId"], "DocumentTypeWarrantyId", "Name", "Seleccione");
-        }
-
-        private void grdDetTenderWarranties_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
-        {
-            if (e.Cell.Column.Key == "Amount")
-            {
-                TenderWarranty tenderWarranty = this.tender.TenderWarranties
-                    .Single(x => x.TenderWarrantyId == Convert.ToInt32(e.Cell.Row.Cells["TenderWarrantyId"].Value));
-
-                tenderWarranty.Amount = Convert.ToDecimal(e.NewValue);
-            }
-
-            if (e.Cell.Column.Key == "WarrantyTypeId")
-            {
-                TenderWarranty tenderWarranty = this.tender.TenderWarranties
-                    .Single(x => x.TenderWarrantyId == Convert.ToInt32(e.Cell.Row.Cells["TenderWarrantyId"].Value));
-
-                tenderWarranty.WarrantyType = this.srvWarrantyType
-                    .GetById(Convert.ToInt32(e.NewValue));
-            }
         }
 
         private void grdDetTenderWarranties_AfterCellUpdate(object sender, EventArgs e)
