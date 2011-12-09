@@ -1,11 +1,11 @@
 ﻿
-using Samsara.Base.Controls.Controls;
 using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers;
+using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Templates;
 using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
 {
-    public partial class TenderLinesControl : ManyToOneLevel1Control<TenderLine>
+    public partial class TenderLinesControl : TenderTenderLinesControl
     {
         #region Properties
 
