@@ -188,6 +188,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
             Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
             Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
+            Infragistics.Win.ValueListItem valueListItem1 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem2 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.Appearance appearance134 = new Infragistics.Win.Appearance();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -238,7 +241,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetExchangeRates = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             this.EstrategiaPrecios = new System.Windows.Forms.TabPage();
             this.grdDetPricingStrategy = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
-            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
+            this.upnlDetPricingStrategiesControls = new Infragistics.Win.Misc.UltraPanel();
             this.uchkDetAddExtraCosts = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.uchkDetProrateWarranties = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.gbxDetPricingStrategy = new System.Windows.Forms.GroupBox();
@@ -348,6 +351,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
             this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
             this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
+            this.suceDetOfferedPrice = new Samsara.Base.Controls.Controls.SamsaraUltraComboEditor();
+            this.lblDetOfferedPrice = new Infragistics.Win.Misc.UltraLabel();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -384,8 +389,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.grdDetExchangeRates)).BeginInit();
             this.EstrategiaPrecios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetPricingStrategy)).BeginInit();
-            this.ultraPanel1.ClientArea.SuspendLayout();
-            this.ultraPanel1.SuspendLayout();
+            this.upnlDetPricingStrategiesControls.ClientArea.SuspendLayout();
+            this.upnlDetPricingStrategiesControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetAddExtraCosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetProrateWarranties)).BeginInit();
             this.gbxDetPricingStrategy.SuspendLayout();
@@ -466,6 +471,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).BeginInit();
             this.ubgxSchFechas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suceDetOfferedPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
@@ -959,6 +965,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             this.oscDetRelatedOpportunity.Location = new System.Drawing.Point(147, 248);
             this.oscDetRelatedOpportunity.Name = "oscDetRelatedOpportunity";
+            this.oscDetRelatedOpportunity.ReadOnly = false;
             this.oscDetRelatedOpportunity.Size = new System.Drawing.Size(250, 24);
             this.oscDetRelatedOpportunity.TabIndex = 75;
             this.oscDetRelatedOpportunity.Value = null;
@@ -976,6 +983,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             this.tscPreviousTender.Location = new System.Drawing.Point(147, 275);
             this.tscPreviousTender.Name = "tscPreviousTender";
+            this.tscPreviousTender.ReadOnly = false;
             this.tscPreviousTender.Size = new System.Drawing.Size(250, 24);
             this.tscPreviousTender.TabIndex = 12;
             this.tscPreviousTender.Value = null;
@@ -1274,7 +1282,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // 
             this.EstrategiaPrecios.BackColor = System.Drawing.Color.Transparent;
             this.EstrategiaPrecios.Controls.Add(this.grdDetPricingStrategy);
-            this.EstrategiaPrecios.Controls.Add(this.ultraPanel1);
+            this.EstrategiaPrecios.Controls.Add(this.upnlDetPricingStrategiesControls);
             this.EstrategiaPrecios.Controls.Add(this.gbxDetPricingStrategy);
             this.EstrategiaPrecios.Location = new System.Drawing.Point(4, 22);
             this.EstrategiaPrecios.Name = "EstrategiaPrecios";
@@ -1347,18 +1355,20 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetPricingStrategy.TabIndex = 76;
             this.grdDetPricingStrategy.Text = "samsaraUltraGrid1";
             // 
-            // ultraPanel1
+            // upnlDetPricingStrategiesControls
             // 
             // 
-            // ultraPanel1.ClientArea
+            // upnlDetPricingStrategiesControls.ClientArea
             // 
-            this.ultraPanel1.ClientArea.Controls.Add(this.uchkDetAddExtraCosts);
-            this.ultraPanel1.ClientArea.Controls.Add(this.uchkDetProrateWarranties);
-            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ultraPanel1.Location = new System.Drawing.Point(3, 3);
-            this.ultraPanel1.Name = "ultraPanel1";
-            this.ultraPanel1.Size = new System.Drawing.Size(801, 25);
-            this.ultraPanel1.TabIndex = 85;
+            this.upnlDetPricingStrategiesControls.ClientArea.Controls.Add(this.lblDetOfferedPrice);
+            this.upnlDetPricingStrategiesControls.ClientArea.Controls.Add(this.suceDetOfferedPrice);
+            this.upnlDetPricingStrategiesControls.ClientArea.Controls.Add(this.uchkDetAddExtraCosts);
+            this.upnlDetPricingStrategiesControls.ClientArea.Controls.Add(this.uchkDetProrateWarranties);
+            this.upnlDetPricingStrategiesControls.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upnlDetPricingStrategiesControls.Location = new System.Drawing.Point(3, 3);
+            this.upnlDetPricingStrategiesControls.Name = "upnlDetPricingStrategiesControls";
+            this.upnlDetPricingStrategiesControls.Size = new System.Drawing.Size(801, 25);
+            this.upnlDetPricingStrategiesControls.TabIndex = 85;
             // 
             // uchkDetAddExtraCosts
             // 
@@ -1713,7 +1723,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.Resultados.Name = "Resultados";
             this.Resultados.Size = new System.Drawing.Size(807, 217);
             this.Resultados.TabIndex = 3;
-            this.Resultados.Text = "Fallo y Conclusiones";
+            this.Resultados.Text = "Conclusiones";
             // 
             // txtDetResults
             // 
@@ -2860,6 +2870,32 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblSchTenderSubstatus.TabIndex = 97;
             this.lblSchTenderSubstatus.Text = "Subestatus:";
             // 
+            // suceDetOfferedPrice
+            // 
+            this.suceDetOfferedPrice.Dock = System.Windows.Forms.DockStyle.Right;
+            valueListItem1.DataValue = 1;
+            valueListItem1.DisplayText = "Precio Unitario";
+            valueListItem2.DataValue = 2;
+            valueListItem2.DisplayText = "Precio Total Partida";
+            this.suceDetOfferedPrice.Items.AddRange(new Infragistics.Win.ValueListItem[] {
+            valueListItem1,
+            valueListItem2});
+            this.suceDetOfferedPrice.Location = new System.Drawing.Point(618, 0);
+            this.suceDetOfferedPrice.Name = "suceDetOfferedPrice";
+            this.suceDetOfferedPrice.Size = new System.Drawing.Size(183, 21);
+            this.suceDetOfferedPrice.TabIndex = 86;
+            // 
+            // lblDetOfferedPrice
+            // 
+            appearance134.TextVAlignAsString = "Middle";
+            this.lblDetOfferedPrice.Appearance = appearance134;
+            this.lblDetOfferedPrice.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDetOfferedPrice.Location = new System.Drawing.Point(521, 0);
+            this.lblDetOfferedPrice.Name = "lblDetOfferedPrice";
+            this.lblDetOfferedPrice.Size = new System.Drawing.Size(97, 25);
+            this.lblDetOfferedPrice.TabIndex = 87;
+            this.lblDetOfferedPrice.Text = "Precio Ofertado:";
+            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2908,9 +2944,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.grdDetExchangeRates)).EndInit();
             this.EstrategiaPrecios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetPricingStrategy)).EndInit();
-            this.ultraPanel1.ClientArea.ResumeLayout(false);
-            this.ultraPanel1.ClientArea.PerformLayout();
-            this.ultraPanel1.ResumeLayout(false);
+            this.upnlDetPricingStrategiesControls.ClientArea.ResumeLayout(false);
+            this.upnlDetPricingStrategiesControls.ClientArea.PerformLayout();
+            this.upnlDetPricingStrategiesControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetAddExtraCosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetProrateWarranties)).EndInit();
             this.gbxDetPricingStrategy.ResumeLayout(false);
@@ -3001,6 +3037,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ubgxSchFechas.ResumeLayout(false);
             this.ubgxSchFechas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suceDetOfferedPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3142,7 +3179,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         private Infragistics.Win.Misc.UltraPanel upDetSeparator5085;
         internal Infragistics.Win.Misc.UltraButton ubtnDetCreateTenderLineExtraCost;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator45345;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
+        private Infragistics.Win.Misc.UltraPanel upnlDetPricingStrategiesControls;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetAddExtraCosts;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetProrateWarranties;
         private Infragistics.Win.Misc.UltraPanel unplDetPreresultsDetail;
@@ -3167,6 +3204,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         internal Controls.Controls.TenderSubstatusChooserControl tscDetTenderSubstatus;
         private Infragistics.Win.Misc.UltraPanel upDetPrincipal;
         internal Controls.Controls.ManyToOne.TenderLinesControl mtoDetTenderLines;
+        private Infragistics.Win.Misc.UltraLabel lblDetOfferedPrice;
+        private Base.Controls.Controls.SamsaraUltraComboEditor suceDetOfferedPrice;
     }
 }
 

@@ -688,7 +688,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     pricingStrategy.SelectedPrice = Convert.ToDecimal(row["SelectedPrice"]);
                     pricingStrategy.TenderLineProfit = Convert.ToDecimal(row["TenderLineProfit"]);
-                    pricingStrategy.RealPrice = Convert.ToDecimal(row["RealPrice"]);
+                    pricingStrategy.OfferedPriceBeforeTax = Convert.ToDecimal(row["OfferedPriceBeforeTax"]);
                     pricingStrategy.TotalPriceAfterTax = Convert.ToDecimal(row["TotalPriceAfterTax"]);
                     pricingStrategy.TotalPriceBeforeTax = Convert.ToDecimal(row["TotalPriceBeforeTax"]);
                     pricingStrategy.UnitPriceAfterTax = Convert.ToDecimal(row["UnitPriceAfterTax"]);
@@ -1551,9 +1551,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     || drPricingStrategy["ProfitMargin"] == DBNull.Value ?
                     pricingStrategy.ProfitMargin : Convert.ToDecimal(drPricingStrategy["ProfitMargin"]);
 
-                pricingStrategy.RealPrice = drPricingStrategy == null
-                    || drPricingStrategy["RealPrice"] == DBNull.Value ?
-                    pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["RealPrice"]);
+                pricingStrategy.OfferedPriceBeforeTax = drPricingStrategy == null
+                    || drPricingStrategy["OfferedPriceBeforeTax"] == DBNull.Value ?
+                    pricingStrategy.OfferedPriceBeforeTax : Convert.ToDecimal(drPricingStrategy["OfferedPriceBeforeTax"]);
 
                 try
                 {
@@ -1650,7 +1650,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderLineQuantity"] = tenderLine.Quantity;
                 row["TenderLineDescription"] = tenderLine.Description;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
-                row["RealPrice"] = pricingStrategy.RealPrice;
+                row["OfferedPriceBeforeTax"] = pricingStrategy.OfferedPriceBeforeTax;
                 row["SelectedPrice"] = pricingStrategy.SelectedPrice;
                 row["TenderLineProfit"] = pricingStrategy.TenderLineProfit;
                 row["TotalPriceAfterTax"] = pricingStrategy.TotalPriceAfterTax;
@@ -1702,15 +1702,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row.Cells["SelectedPrice"].Activation = Activation.AllowEdit;
                 }
 
-                if (row.Cells["RealPrice"].Value != DBNull.Value
+                if (row.Cells["OfferedPriceBeforeTax"].Value != DBNull.Value
                     && row.Cells["TotalPriceAfterTax"].Value != DBNull.Value
-                    && Convert.ToDecimal(row.Cells["RealPrice"].Value)
+                    && Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value)
                     < MoneyUtil.Round(Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value))
                     || Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value) * 1.05M
-                    < Convert.ToDecimal(row.Cells["RealPrice"].Value))
-                    row.Cells["RealPrice"].Appearance.BackColor = Color.Red;
+                    < Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value))
+                    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.Red;
                 else
-                    row.Cells["RealPrice"].Appearance.BackColor = Color.White;
+                    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.White;
             }
         }
 
@@ -2449,10 +2449,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["RealPrice"],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedPriceBeforeTax"],
                 TextMaskFormatEnum.Currency);
-            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["RealPrice"]);
-            band.Columns["RealPrice"].CellActivation = Activation.AllowEdit;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedPriceBeforeTax"]);
+            band.Columns["OfferedPriceBeforeTax"].CellActivation = Activation.AllowEdit;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Warranties"],
                 TextMaskFormatEnum.Currency);
