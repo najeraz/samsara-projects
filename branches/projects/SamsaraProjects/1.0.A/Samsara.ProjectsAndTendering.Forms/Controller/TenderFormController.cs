@@ -54,6 +54,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IWarrantyTypeService srvWarrantyType;
         private ITenderWarrantyService srvTenderWarranty;
         private IPricingStrategyService srvPricingStrategy;
+        private ITenderSubstatusService srvTenderSubstatus;
         private ITenderCompetitorService srvTenderCompetitor;
         private ITenderWholesalerService srvTenderWholesaler;
         private ITenderLineStatusService srvTenderLineStatus;
@@ -130,6 +131,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvProduct);
             this.srvTenderLineStatus = SamsaraAppContext.Resolve<ITenderLineStatusService>();
             Assert.IsNotNull(this.srvTenderLineStatus);
+            this.srvTenderSubstatus = SamsaraAppContext.Resolve<ITenderSubstatusService>();
+            Assert.IsNotNull(this.srvTenderSubstatus);
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             pmtCurrency.IsDefault = true;
@@ -592,6 +595,42 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LoadTenderLogs();
             this.LoadTenderExchangeRates();
             this.LaodTenderWarranties();
+
+            IList<TenderLineStatus> lstTenderLineStatuses 
+                = this.tender.TenderLines.Where(x => x.Activated && !x.Deleted)
+                .Select(x => x.TenderLineStatus).Distinct().ToList();
+
+            this.tender.TenderStatus = this.srvTenderStatus.GetById((int)TenderStatusesEnum.Open);
+
+            if (!lstTenderLineStatuses.Contains(null))
+            {
+                this.tender.TenderStatus = this.srvTenderStatus.GetById((int)TenderStatusesEnum.Closed);
+
+                if (lstTenderLineStatuses.Count > 1)
+                {
+                    this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.PartialWon);
+                }
+                else
+                {
+                    TenderLineStatus tenderLineStatus = lstTenderLineStatuses.First();
+
+                    switch (((TenderLineStatusesEnum)tenderLineStatus.TenderLineStatusId))
+                    {
+                        case TenderLineStatusesEnum.CouldNotParticipate:
+                            this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.CouldNotParticipate);
+                            break;
+                        case TenderLineStatusesEnum.Lost:
+                            this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Lost);
+                            break;
+                        case TenderLineStatusesEnum.Won:
+                            this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Won);
+                            break;
+                        default:
+                            this.tender.TenderSubstatus = null;
+                            break;
+                    }
+                }
+            }
 
             this.tender.Activated = true;
             this.tender.Deleted = false;

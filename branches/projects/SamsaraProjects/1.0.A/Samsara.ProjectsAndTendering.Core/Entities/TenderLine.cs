@@ -79,6 +79,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        public virtual string Concept
+        {
+            get;
+            set;
+        }
+
         public virtual string Description
         {
             get;

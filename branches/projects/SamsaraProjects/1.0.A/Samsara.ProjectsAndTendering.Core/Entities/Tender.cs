@@ -269,6 +269,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        public virtual TenderSubstatus TenderSubstatus
+        {
+            get;
+            set;
+        }
+
         public virtual Asesor ApprovedBy
         {
             get;
