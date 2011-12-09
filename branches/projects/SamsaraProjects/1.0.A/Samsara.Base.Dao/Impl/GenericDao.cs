@@ -54,6 +54,20 @@ namespace Samsara.Base.Dao.Impl
             return HibernateTemplate.Get<T>(Id);
         }
 
+        public DateTime GetServerDateTime()
+        {
+            DateTime result;
+
+            object resultFromServerDateCall = Session.CreateSQLQuery("SELECT GETDATE()").UniqueResult();
+
+            if (resultFromServerDateCall is string)
+                result = DateTime.Parse((string)resultFromServerDateCall);
+            else
+                result = (DateTime)resultFromServerDateCall;
+
+            return result;
+        }
+
         public T GetByParameters(Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(

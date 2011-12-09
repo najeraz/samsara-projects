@@ -351,7 +351,6 @@ namespace Samsara.Base.Controls.Controls
             this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
             this.grdRelations.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdRelations.Location = new System.Drawing.Point(0, 0);
-            this.grdRelations.lstCustomControlNames = null;
             this.grdRelations.Name = "grdRelations";
             this.grdRelations.Size = new System.Drawing.Size(728, 235);
             this.grdRelations.TabIndex = 98;

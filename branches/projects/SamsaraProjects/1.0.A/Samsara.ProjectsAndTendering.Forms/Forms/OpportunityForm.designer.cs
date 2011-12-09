@@ -700,7 +700,6 @@
             this.grdDetLog.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdDetLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetLog.Location = new System.Drawing.Point(0, 0);
-            this.grdDetLog.lstCustomControlNames = null;
             this.grdDetLog.Name = "grdDetLog";
             this.grdDetLog.Size = new System.Drawing.Size(736, 242);
             this.grdDetLog.TabIndex = 1;

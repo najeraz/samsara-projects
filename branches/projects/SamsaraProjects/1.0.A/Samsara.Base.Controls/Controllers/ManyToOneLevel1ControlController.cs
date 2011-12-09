@@ -76,6 +76,7 @@ namespace Samsara.Base.Controls.Controllers
 
         public virtual void ClearControls()
         {
+            this.HideDetail();
         }
 
         private void InitializeControlControls()
