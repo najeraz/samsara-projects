@@ -136,6 +136,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
             this.controlTenderLines.pscProduct.Value = null;
             this.controlTenderLines.txtName.Text = string.Empty;
+            this.controlTenderLines.txtConcept.Text = string.Empty;
             this.controlTenderLines.steQuantity.Value = null;
         }
 
@@ -191,6 +192,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
             this.controlTenderLines.pscProduct.Value = this.tenderLine.Product;
             this.controlTenderLines.txtName.Text = this.tenderLine.Name;
+            this.controlTenderLines.txtConcept.Text = this.tenderLine.Concept;
             this.controlTenderLines.steQuantity.Value = this.tenderLine.Quantity;
         }
 
@@ -201,6 +203,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             this.tenderLine.Product = this.controlTenderLines.pscProduct.Value;
             this.tenderLine.Description = this.tenderLine.Product.Name;
             this.tenderLine.Quantity = Convert.ToDecimal(this.controlTenderLines.steQuantity.Value);
+            this.tenderLine.Concept = this.controlTenderLines.txtConcept.Text;
             this.tenderLine.Name = this.controlTenderLines.txtName.Text;
         }
 
@@ -228,6 +231,15 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             if (this.controlTenderLines.txtName.Value == null)
             {
                 MessageBox.Show("Favor de asignar un Nombre a la Partida.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.controlTenderLines.pscProduct.Focus();
+                return false;
+            }
+
+
+            if (this.controlTenderLines.txtConcept.Value == null)
+            {
+                MessageBox.Show("Favor de asignar un Concepto.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.controlTenderLines.pscProduct.Focus();
                 return false;
@@ -279,6 +291,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             this.controlTenderLines.pscProduct.ReadOnly = !enabled;
             this.controlTenderLines.txtName.ReadOnly = !enabled;
             this.controlTenderLines.steQuantity.ReadOnly = !enabled;
+            this.controlTenderLines.txtConcept.ReadOnly = !enabled;
         }
 
         protected override TenderLine GetEntity(int entityId)
