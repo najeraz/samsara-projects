@@ -10,6 +10,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
+using Samsara.Support.Util;
 
 namespace Samsara.Base.Controls.Controls
 {
@@ -137,19 +138,17 @@ namespace Samsara.Base.Controls.Controls
             if (control == null)
                 return;
 
-            if (control is Form || control.GetType().BaseType == typeof(SamsaraUserControl)
-                || (control.GetType().BaseType.BaseType != null
-                && control.GetType().BaseType.BaseType == typeof(SamsaraUserControl)))
+            bool isForm = control is Form;
+            bool isSamsaraUserControl = control.GetType().IsSubclassOf(typeof(SamsaraUserControl));
+
+            if (isForm || isSamsaraUserControl)
                 controlsNames.Add(control.Name);
 
-            if (control.GetType().BaseType == typeof(SamsaraUserControl) 
-                || (control.GetType().BaseType.BaseType != null
-                && control.GetType().BaseType.BaseType == typeof(SamsaraUserControl)))
+            if (isSamsaraUserControl)
                 this.GetCustomControlsNames((control as SamsaraUserControl).CustomParent, controlsNames);
             else
                 this.GetCustomControlsNames(control.Parent, controlsNames);
         }
 
-        public IList<string> lstCustomControlNames { get; set; }
     }
 }

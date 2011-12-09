@@ -117,6 +117,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
                     row["TenderLineId"] = tenderLine.TenderLineId;
                     row["Name"] = tenderLine.Name;
                     row["Quantity"] = tenderLine.Quantity;
+                    row["Concept"] = tenderLine.Concept;
                     row["Description"] = tenderLine.Description;
                     if (tenderLine.Product == null)
                         row["ProductId"] = DBNull.Value;
@@ -280,6 +281,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             row["Name"] = this.tenderLine.Name;
             row["Quantity"] = this.tenderLine.Quantity;
             row["Description"] = this.tenderLine.Description;
+            row["Concept"] = this.tenderLine.Concept;
 
             this.dtTenderLines.AcceptChanges();
         }
