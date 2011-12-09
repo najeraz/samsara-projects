@@ -1112,7 +1112,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.UpdatePricingStrategyGrid();
             this.UpdatePreresultsGrid();
             this.UpdatePricingStrategyExtraCosts();
-            this.UpdatePricingStrategyWarranties();
         }
 
         private void SearchTenderFiles()
@@ -1523,6 +1522,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void UpdatePricingStrategyGrid()
         {
             decimal warrantiesSummary = 0;
+            decimal totalLineBeforeTaxSummary = 0;
 
             if (this.tender.ProrateWarranties)
             {
@@ -1539,21 +1539,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
-                decimal proratedWarrantiesSummary = 0;
-                decimal extraCostsSummary = 0;
-
-                if (pricingStrategy == null)
-                {
-                    pricingStrategy = new PricingStrategy();
-                    tenderLine.PricingStrategy = pricingStrategy;
-
-                    pricingStrategy.ProfitMargin = 5;
-                    pricingStrategy.Activated = true;
-                    pricingStrategy.Deleted = false;
-                }
-
-                if (tenderLine.Wholesaler != null)
-                    pricingStrategy.Wholesaler = tenderLine.Wholesaler;
 
                 DataRow drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
                     .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
@@ -1570,21 +1555,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     || drPricingStrategy["RealPrice"] == DBNull.Value ?
                     pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["RealPrice"]);
 
-                if (this.tender.AddExtraCosts)
-                    extraCostsSummary = drPricingStrategy == null
-                        || drPricingStrategy["ExtraCosts"] == DBNull.Value ?
-                        pricingStrategy.RealPrice : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
-
                 try
                 {
                     pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
                         / (1 - pricingStrategy.ProfitMargin / 100M);
                 }
-                catch (DivideByZeroException ex)
+                catch
                 {
-                    ex.ToString();
                     pricingStrategy.UnitPriceBeforeTax = 0;
                 }
+
+                totalLineBeforeTaxSummary += pricingStrategy.UnitPriceBeforeTax * tenderLine.Quantity;
 
                 pricingStrategy.UnitProfit = pricingStrategy.UnitPriceBeforeTax
                     - pricingStrategy.SelectedPrice;
@@ -1597,10 +1578,62 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
                     * tenderLine.Quantity;
+            }
+
+            foreach (TenderLine tenderLine in this.tender.TenderLines)
+            {
+                decimal proratedWarrantiesSummary = 0;
+                decimal extraCostsSummary = 0;
+
+                PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+
+                DataRow drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
+
+                if (this.tender.AddExtraCosts)
+                {
+                    extraCostsSummary = drPricingStrategy == null
+                        || drPricingStrategy["ExtraCosts"] == DBNull.Value ?
+                        0M : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
+                }
+            
+                if (this.tender.ProrateWarranties)
+                {
+                    try
+                    {
+                        proratedWarrantiesSummary = ((pricingStrategy.UnitPriceBeforeTax * tenderLine.Quantity) 
+                            / totalLineBeforeTaxSummary) * warrantiesSummary;
+                    }
+                    catch
+                    {
+                        proratedWarrantiesSummary = 0;
+                    }
+                }
+
+                if (drPricingStrategy != null)
+                    drPricingStrategy["Warranties"] = proratedWarrantiesSummary;
 
                 pricingStrategy.TotalPriceAfterTax = pricingStrategy.TotalPriceBeforeTax
                     * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA)) + proratedWarrantiesSummary
                     + extraCostsSummary;
+            }
+
+            foreach (TenderLine tenderLine in this.tender.TenderLines)
+            {
+                PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+
+                if (pricingStrategy == null)
+                {
+                    pricingStrategy = new PricingStrategy();
+                    tenderLine.PricingStrategy = pricingStrategy;
+
+                    pricingStrategy.ProfitMargin = 5;
+                    pricingStrategy.Activated = true;
+                    pricingStrategy.Deleted = false;
+                }
+
+                if (tenderLine.Wholesaler != null)
+                    pricingStrategy.Wholesaler = tenderLine.Wholesaler;
 
                 DataRow row = this.dtPricingStrategy.AsEnumerable()
                     .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
@@ -1772,31 +1805,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     .TenderLineExtraCosts.Sum(x => x.Amount);
             }
         }
-
-        private void UpdatePricingStrategyWarranties()
-        {
-            decimal totalWarranties = this.tender.TenderWarranties.Where(x => x.WarrantyType.CanProrate)
-                .Sum(x => x.Amount);
-            decimal totalTenderAfterTax = this.dtPricingStrategy.AsEnumerable()
-                    .Where(x => x["TotalPriceAfterTax"] != DBNull.Value)
-                    .Sum(x => Convert.ToDecimal(x["TotalPriceAfterTax"]));
-
-            foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
-            {
-                try
-                {
-                    row["Warranties"] = totalWarranties == 0 ? 0M :
-                        (Convert.ToDecimal(row["TotalPriceAfterTax"]) / totalTenderAfterTax)
-                        * totalWarranties;
-                }
-                catch (DivideByZeroException ex)
-                {
-                    ex.ToString(); 
-                    row["Warranties"] = 0;
-                }
-            }
-        }
-
+        
         #endregion Methods
 
         #region Events
@@ -2561,8 +2570,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 return;
             
             activeCell.Row.PerformAutoSize();
-
-            this.UpdatePricingStrategyWarranties();
+            this.UpdatePricingStrategyGrid();
         }
 
         private void grdDetPreresults_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -2966,7 +2974,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
             band.Columns["Warranties"].Hidden = !this.tender.ProrateWarranties;
             this.UpdatePricingStrategyGrid();
-            this.UpdatePricingStrategyWarranties();
         }
 
         private void ubtnDetDownloadTenderFile_Click(object sender, EventArgs e)
