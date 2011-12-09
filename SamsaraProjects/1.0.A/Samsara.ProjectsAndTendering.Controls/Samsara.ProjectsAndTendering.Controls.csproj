@@ -170,6 +170,10 @@
     <Compile Include="Controls\Choosers\ManufacturerChooserControl.designer.cs">
       <DependentUpon>ManufacturerChooserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Choosers\OfferedPriceTypeChooserControl.cs" />
+    <Compile Include="Controls\Choosers\OfferedPriceTypeChooserControl.designer.cs">
+      <DependentUpon>OfferedPriceTypeChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Choosers\OpportunityChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

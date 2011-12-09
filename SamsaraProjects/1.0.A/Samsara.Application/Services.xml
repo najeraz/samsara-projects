@@ -9,6 +9,10 @@
           type="Samsara.ProjectsAndTendering.Service.Impl.AsesorService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IAsesorDao"/>
   </object>
+  <object id="IOfferedPriceTypeService"
+          type="Samsara.ProjectsAndTendering.Service.Impl.OfferedPriceTypeService, Samsara.ProjectsAndTendering.Service">
+    <property name="Dao" ref="IOfferedPriceTypeDao"/>
+  </object>
   <object id="IBidderService" 
           type="Samsara.ProjectsAndTendering.Service.Impl.BidderService, Samsara.ProjectsAndTendering.Service">
     <property name="Dao" ref="IBidderDao"/>

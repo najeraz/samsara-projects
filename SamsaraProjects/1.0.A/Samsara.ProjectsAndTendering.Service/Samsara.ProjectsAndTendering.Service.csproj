@@ -119,6 +119,7 @@
     <Compile Include="Impl\BidderService.cs" />
     <Compile Include="Impl\BidderTypeService.cs" />
     <Compile Include="Impl\CompetitorService.cs" />
+    <Compile Include="Impl\OfferedPriceTypeService.cs" />
     <Compile Include="Impl\TenderLineExtraCostService.cs" />
     <Compile Include="Impl\TenderFileService.cs" />
     <Compile Include="Impl\PricingStrategyService.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Impl\TenderService.cs" />
     <Compile Include="Impl\ManufacturerService.cs" />
     <Compile Include="Impl\DependencyService.cs" />
+    <Compile Include="Interfaces\IOfferedPriceTypeService.cs" />
     <Compile Include="Interfaces\ITenderLineExtraCostService.cs" />
     <Compile Include="Interfaces\ITenderFileService.cs" />
     <Compile Include="Interfaces\IPricingStrategyService.cs" />
