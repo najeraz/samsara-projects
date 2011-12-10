@@ -40,7 +40,7 @@ namespace SamsaraProjectsUpdaterService
 
             if (!System.Diagnostics.EventLog.SourceExists("SamsaraProjectsUpdaterLogSource"))
                 System.Diagnostics.EventLog.CreateEventSource("SamsaraProjectsUpdaterLogSource",
-                    "UpdateProductsLog");
+                    "SamsaraProjectsUpdaterLog");
 
             eventLog1.Source = "SamsaraProjectsUpdaterLogSource";
             eventLog1.Log = "SamsaraProjectsUpdaterLog";
