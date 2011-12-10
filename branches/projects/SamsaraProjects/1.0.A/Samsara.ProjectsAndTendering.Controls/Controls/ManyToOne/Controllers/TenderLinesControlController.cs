@@ -202,7 +202,10 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             base.LoadEntity();
 
             this.tenderLine.Product = this.controlTenderLines.pscProduct.Value;
-            this.tenderLine.Description = this.tenderLine.Product.Name;
+            if (this.tenderLine.Product != null)
+                this.tenderLine.Description = this.tenderLine.Product.Name;
+            else
+                this.tenderLine.Description = string.Empty;
             this.tenderLine.Quantity = Convert.ToDecimal(this.controlTenderLines.steQuantity.Value);
             this.tenderLine.Concept = this.controlTenderLines.txtConcept.Text;
             this.tenderLine.Name = this.controlTenderLines.txtName.Text;
@@ -212,14 +215,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
         {
             if (!base.ValidateControlsData())
                 return false;
-
-            if (this.controlTenderLines.pscProduct.Value == null)
-            {
-                MessageBox.Show("Favor de seleccionar el Producto.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlTenderLines.pscProduct.Focus();
-                return false;
-            }
 
             if (this.controlTenderLines.steQuantity.Value == null)
             {
@@ -276,8 +271,10 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
                 row["TenderLineId"] = -(this.tenderLine as object).GetHashCode();
             else
                 row["TenderLineId"] = this.tenderLine.TenderLineId;
-
-            row["ProductId"] = this.tenderLine.Product.ProductId;
+            if (this.tenderLine.Product != null)
+                row["ProductId"] = this.tenderLine.Product.ProductId;
+            else
+                row["ProductId"] = DBNull.Value;
             row["Name"] = this.tenderLine.Name;
             row["Quantity"] = this.tenderLine.Quantity;
             row["Description"] = this.tenderLine.Description;
@@ -323,6 +320,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             band.Columns["TenderLineId"].CellActivation = Activation.ActivateOnly;
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
             band.Columns["Description"].VertScrollBar = true;
+            band.Columns["Concept"].CellMultiLine = DefaultableBoolean.True;
+            band.Columns["Concept"].VertScrollBar = true;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
                 TextMaskFormatEnum.NaturalQuantity);

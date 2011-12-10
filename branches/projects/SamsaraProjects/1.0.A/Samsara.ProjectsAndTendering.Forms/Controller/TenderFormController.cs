@@ -1024,7 +1024,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderWholesalerId"] = tenderWholesaler.TenderWholesalerId;
             }
 
-            foreach (TenderLine tenderLine in this.tender.TenderLines)
+            foreach (TenderLine tenderLine in this.tender.TenderLines.OrderBy(x => x.Name))
             {
                 DataRow row = this.dtTenderLines.NewRow();
 
@@ -2650,12 +2650,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (UltraGridRow row in this.frmTender.grdDetPreresults.Rows)
             {
-                decimal parser = 0;
+                int parser = 0;
 
                 UltraGridCell minCell = row.Cells.Cast<UltraGridCell>()
-                    .Single(x => x.Column.Key == row.Cells.Cast<UltraGridCell>()
-                        .Where(z => decimal.TryParse(z.Column.Key, out parser) && z.Value != DBNull.Value)
-                        .OrderBy(y => Convert.ToDecimal(y.Value)).First().Column.Key);
+                        .Where(z => int.TryParse(z.Column.Key, out parser) && z.Value != DBNull.Value)
+                        .OrderBy(y => Convert.ToDecimal(y.Value)).FirstOrDefault();
 
                 foreach (UltraGridCell cell in row.Cells)
                 {
