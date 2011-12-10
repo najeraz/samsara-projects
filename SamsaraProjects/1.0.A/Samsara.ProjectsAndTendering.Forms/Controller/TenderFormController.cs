@@ -599,6 +599,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PriceComparison = this.frmTender.txtDetPriceComparison.Text;
             this.tender.AddExtraCosts = this.frmTender.uchkDetAddExtraCosts.Checked;
             this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
+            this.tender.OfferedPriceType = this.frmTender.optcDetOfferedPriceType.Value;
 
             this.LoadTenderManufacturers();
             this.LoadPricingEstrategy();
@@ -700,6 +701,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     pricingStrategy.SelectedPrice = Convert.ToDecimal(row["SelectedPrice"]);
                     pricingStrategy.TenderLineProfit = Convert.ToDecimal(row["TenderLineProfit"]);
                     pricingStrategy.OfferedPriceBeforeTax = Convert.ToDecimal(row["OfferedPriceBeforeTax"]);
+                    pricingStrategy.OfferedPriceAfterTax = Convert.ToDecimal(row["OfferedPriceAfterTax"]);
                     pricingStrategy.TotalPriceAfterTax = Convert.ToDecimal(row["TotalPriceAfterTax"]);
                     pricingStrategy.TotalPriceBeforeTax = Convert.ToDecimal(row["TotalPriceBeforeTax"]);
                     pricingStrategy.UnitPriceAfterTax = Convert.ToDecimal(row["UnitPriceAfterTax"]);
@@ -993,6 +995,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
             this.frmTender.uchkDetAddExtraCosts.Checked = this.tender.AddExtraCosts;
             this.frmTender.uchkDetProrateWarranties.Checked = this.tender.ProrateWarranties;
+            this.frmTender.optcDetOfferedPriceType.Value = this.tender.OfferedPriceType;
 
             this.frmTender.mtoDetTenderLines.Tender = this.tender;
             this.frmTender.mtoDetTenderLines.LoadControls();
@@ -1528,21 +1531,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.grdDetPreresults.DataSource = null;
             this.frmTender.grdDetPreresults.DataSource = dtPreresults;
-
-            foreach (UltraGridRow row in this.frmTender.grdDetPreresults.Rows)
-            {
-                UltraGridCell minCell = row.Cells.Cast<UltraGridCell>().AsParallel()
-                    .Single(x => x.Column.Key == row.Cells.Cast<UltraGridCell>()
-                        .Where(z => !z.Column.Key.EndsWith("C")).OrderBy(y => y.Value).First().Column.Key);
-
-                foreach (UltraGridCell cell in row.Cells)
-                {
-                    if (cell == minCell)
-                        cell.Appearance.BackColor = Color.Yellow;
-                    else
-                        cell.Appearance.BackColor = Color.White;
-                }
-            }
         }
 
         private void UpdatePricingStrategyGrid()
@@ -1604,6 +1592,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
                     * tenderLine.Quantity;
+
+                pricingStrategy.OfferedPriceAfterTax 
+                    = pricingStrategy.OfferedPriceBeforeTax * 1.15M;
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -1677,6 +1668,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["TenderLineDescription"] = tenderLine.Description;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
                 row["OfferedPriceBeforeTax"] = pricingStrategy.OfferedPriceBeforeTax;
+                row["OfferedPriceAfterTax"] = pricingStrategy.OfferedPriceAfterTax;
                 row["SelectedPrice"] = pricingStrategy.SelectedPrice;
                 row["TenderLineProfit"] = pricingStrategy.TenderLineProfit;
                 row["TotalPriceAfterTax"] = pricingStrategy.TotalPriceAfterTax;
@@ -1727,16 +1719,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row.Cells["ManufacturerId"].Activation = Activation.AllowEdit;
                     row.Cells["SelectedPrice"].Activation = Activation.AllowEdit;
                 }
-
-                //if (row.Cells["OfferedPriceBeforeTax"].Value != DBNull.Value
-                //    && row.Cells["TotalPriceAfterTax"].Value != DBNull.Value
-                //    && Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value)
-                //    < MoneyUtil.Round(Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value))
-                //    || Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value) * 1.05M
-                //    < Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value))
-                //    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.Red;
-                //else
-                //    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.White;
             }
         }
 
@@ -2665,6 +2647,24 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 band.Columns[col.ColumnName].Header.Caption
                     = this.GetCompetitor(Convert.ToInt32(col.ColumnName)).Name;
             }
+
+            foreach (UltraGridRow row in this.frmTender.grdDetPreresults.Rows)
+            {
+                decimal parser = 0;
+
+                UltraGridCell minCell = row.Cells.Cast<UltraGridCell>()
+                    .Single(x => x.Column.Key == row.Cells.Cast<UltraGridCell>()
+                        .Where(z => decimal.TryParse(z.Column.Key, out parser) && z.Value != DBNull.Value)
+                        .OrderBy(y => Convert.ToDecimal(y.Value)).First().Column.Key);
+
+                foreach (UltraGridCell cell in row.Cells)
+                {
+                    if (cell == minCell)
+                        cell.Appearance.BackColor = Color.Yellow;
+                    else
+                        cell.Appearance.BackColor = Color.White;
+                }
+            }
         }
 
         private void grdDetPreresults_DoubleClickCell(object sender, DoubleClickCellEventArgs e)
@@ -2761,6 +2761,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 = this.frmTender.uceDetPreresultCurrency.Value;
 
             this.ShowPreresultsDetail(false);
+            this.grdDetPreresults_InitializeLayout(null, null);
         }
 
         private void ubtnDetCancelPreresult_Click(object sender, EventArgs e)
