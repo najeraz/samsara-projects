@@ -9,6 +9,7 @@ using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Core.Parameters;
 using Samsara.Operation.Forms.Forms;
 using Samsara.Operation.Service.Interfaces;
+using Samsara.Support.Util;
 
 namespace Samsara.Operation.Forms.Controller
 {
@@ -157,7 +158,8 @@ namespace Samsara.Operation.Forms.Controller
         {
             ProductParameters pmtProduct = new ProductParameters();
 
-            pmtProduct.Name = "%" + this.frmProduct.txtSchName.Text + "%";
+            pmtProduct.Name = SQLUtil.CreateSearchQueryCondition(
+                this.frmProduct.txtSchName.Text.Trim(), SQLUtil.SearchQueryConditionsEnum.AND);
             pmtProduct.ProductBrandId = this.frmProduct.pbcSchProductBrand.Value == null ? 
                 -1 : this.frmProduct.pbcSchProductBrand.Value.ProductBrandId;
 
