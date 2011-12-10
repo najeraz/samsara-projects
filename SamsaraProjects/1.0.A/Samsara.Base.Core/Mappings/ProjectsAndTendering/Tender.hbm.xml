@@ -29,6 +29,9 @@
     <many-to-one name="Opportunity" lazy="false"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Opportunity, Samsara.ProjectsAndTendering.Core"
                  column="OpportunityId"/>
+    <many-to-one name="OfferedPriceType"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.OfferedPriceType, Samsara.ProjectsAndTendering.Core"
+                 column="OfferedPriceTypeId"/>
     <many-to-one name="Bidder"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Bidder, Samsara.ProjectsAndTendering.Core"
                  column="BidderId"/>

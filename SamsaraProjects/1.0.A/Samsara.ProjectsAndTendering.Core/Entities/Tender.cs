@@ -41,6 +41,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        public virtual OfferedPriceType OfferedPriceType
+        {
+            get;
+            set;
+        }
+
         public virtual Bidder Bidder
         {
             get;

@@ -56,6 +56,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private IPricingStrategyService srvPricingStrategy;
         private ITenderSubstatusService srvTenderSubstatus;
         private ITenderCompetitorService srvTenderCompetitor;
+        private IOfferedPriceTypeService srvOfferedPriceType;
         private ITenderWholesalerService srvTenderWholesaler;
         private ITenderLineStatusService srvTenderLineStatus;
         private ITenderManufacturerService srvTenderManufacturer;
@@ -133,6 +134,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             Assert.IsNotNull(this.srvTenderLineStatus);
             this.srvTenderSubstatus = SamsaraAppContext.Resolve<ITenderSubstatusService>();
             Assert.IsNotNull(this.srvTenderSubstatus);
+            this.srvOfferedPriceType = SamsaraAppContext.Resolve<IOfferedPriceTypeService>();
+            Assert.IsNotNull(this.srvOfferedPriceType);
 
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             pmtCurrency.IsDefault = true;
@@ -203,6 +206,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 SamsaraEntityChooserValueChangedEventHandler<Bidder>(bcSchBidder_ValueChanged);
             this.frmTender.bcDetBidder.ValueChanged += new 
                 SamsaraEntityChooserValueChangedEventHandler<Bidder>(bcDetBidder_ValueChanged);
+
+            //optcDetOfferedPriceType
+            this.frmTender.optcDetOfferedPriceType.Parameters = new OfferedPriceTypeParameters();
+            this.frmTender.optcDetOfferedPriceType.Refresh();
+            this.frmTender.optcDetOfferedPriceType.ValueChanged
+                += new SamsaraEntityChooserValueChangedEventHandler<OfferedPriceType>(optcDetOfferedPriceType_ValueChanged);
+            this.frmTender.optcDetOfferedPriceType.Value 
+                = this.srvOfferedPriceType.GetById((int)OfferedPriceTypesEnum.UnitaryPrice);
 
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
@@ -1517,6 +1528,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.grdDetPreresults.DataSource = null;
             this.frmTender.grdDetPreresults.DataSource = dtPreresults;
+
+            foreach (UltraGridRow row in this.frmTender.grdDetPreresults.Rows)
+            {
+                UltraGridCell minCell = row.Cells.Cast<UltraGridCell>().AsParallel()
+                    .Single(x => x.Column.Key == row.Cells.Cast<UltraGridCell>()
+                        .Where(z => !z.Column.Key.EndsWith("C")).OrderBy(y => y.Value).First().Column.Key);
+
+                foreach (UltraGridCell cell in row.Cells)
+                {
+                    if (cell == minCell)
+                        cell.Appearance.BackColor = Color.Yellow;
+                    else
+                        cell.Appearance.BackColor = Color.White;
+                }
+            }
         }
 
         private void UpdatePricingStrategyGrid()
@@ -1702,15 +1728,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row.Cells["SelectedPrice"].Activation = Activation.AllowEdit;
                 }
 
-                if (row.Cells["OfferedPriceBeforeTax"].Value != DBNull.Value
-                    && row.Cells["TotalPriceAfterTax"].Value != DBNull.Value
-                    && Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value)
-                    < MoneyUtil.Round(Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value))
-                    || Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value) * 1.05M
-                    < Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value))
-                    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.Red;
-                else
-                    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.White;
+                //if (row.Cells["OfferedPriceBeforeTax"].Value != DBNull.Value
+                //    && row.Cells["TotalPriceAfterTax"].Value != DBNull.Value
+                //    && Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value)
+                //    < MoneyUtil.Round(Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value))
+                //    || Convert.ToDecimal(row.Cells["TotalPriceAfterTax"].Value) * 1.05M
+                //    < Convert.ToDecimal(row.Cells["OfferedPriceBeforeTax"].Value))
+                //    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.Red;
+                //else
+                //    row.Cells["OfferedPriceBeforeTax"].Appearance.BackColor = Color.White;
             }
         }
 
@@ -2454,6 +2480,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedPriceBeforeTax"]);
             band.Columns["OfferedPriceBeforeTax"].CellActivation = Activation.AllowEdit;
 
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedPriceAfterTax"],
+                TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedPriceAfterTax"]);
+            band.Columns["OfferedPriceAfterTax"].CellActivation = Activation.AllowEdit;
+
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Warranties"],
                 TextMaskFormatEnum.Currency);
             WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["Warranties"]);
@@ -3033,6 +3064,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             rowP["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowP["TenderLineDescription"] = e.EntityChanged.Description;
             rowP["TenderLineName"] = e.EntityChanged.Name;
+        }
+
+        public void optcDetOfferedPriceType_ValueChanged(object sender, 
+            SamsaraEntityChooserValueChangedEventArgs<OfferedPriceType> e)
+        {
+            if (e.NewValue == null)
+            {
+                this.frmTender.optcDetOfferedPriceType.Value
+                    = this.srvOfferedPriceType.GetById((int)OfferedPriceTypesEnum.UnitaryPrice);
+            }
         }
 
         #endregion Events
