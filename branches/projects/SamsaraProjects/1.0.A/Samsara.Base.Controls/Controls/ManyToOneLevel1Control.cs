@@ -3,8 +3,8 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Samsara.Base.Controls.Controllers;
-using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Controls.EventsArgs;
+using Samsara.Base.Controls.EventsHandlers;
 
 namespace Samsara.Base.Controls.Controls
 {
