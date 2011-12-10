@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
+using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Core.Enums;
@@ -21,7 +22,6 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 using Samsara.Support.Util;
-using Samsara.Base.Controls.EventsArgs;
 
 namespace Samsara.ProjectsAndTendering.Forms.Controller
 {
