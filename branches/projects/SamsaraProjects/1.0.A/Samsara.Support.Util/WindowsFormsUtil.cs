@@ -23,9 +23,13 @@ namespace Samsara.Support.Util
 
         public static void AddUltraGridSummary(UltraGridBand band, UltraGridColumn column)
         {
-            band.Summaries.Add(column.Key + band.Key, SummaryType.Sum, column, SummaryPosition.UseSummaryPositionColumn);
-            band.Summaries[column.Key + band.Key].DisplayFormat = "{0:###,###,##0.00}";
-            band.Summaries[column.Key + band.Key].Appearance.TextHAlign = HAlign.Right;
+            try
+            {
+                band.Summaries.Add(column.Key + band.Key, SummaryType.Sum, column, SummaryPosition.UseSummaryPositionColumn);
+                band.Summaries[column.Key + band.Key].DisplayFormat = "{0:###,###,##0.00}";
+                band.Summaries[column.Key + band.Key].Appearance.TextHAlign = HAlign.Right;
+            }
+            catch { }
         }
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
