@@ -20,6 +20,8 @@ namespace Samsara.Support.Util
         {
             string logicOperator = null;
 
+            searchText = ClearText(searchText);
+
             IList<string> words = searchText.Split(' ')
                 .Where(x => x != null && x.Trim() != string.Empty)
                 .Select(x => "\"" + x.Trim() + "\"").ToList();
@@ -40,6 +42,13 @@ namespace Samsara.Support.Util
                 return "*";
 
             return string.Join(" " + logicOperator + " ", words.ToArray());
+        }
+
+        private static string ClearText(string searchText)
+        {
+            searchText = searchText.Replace("\"", "");
+
+            return searchText;
         }
     }
 }
