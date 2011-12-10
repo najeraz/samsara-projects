@@ -38,12 +38,12 @@
     <return-scalar column="ProductName" type="string"/>
     <return-scalar column="BrandName" type="string"/>
     <![CDATA[
-        SELECT      
+        SELECT
             p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName, pb.Name BrandName
         FROM        Operation.Products p
         LEFT JOIN   Operation.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
         WHERE       p.Deleted = 0 AND p.Activated = 1
-        AND         p.Name LIKE :Name
+        AND         (CONTAINS(p.Name, :Name) OR :Name = '*')
         AND         (p.ProductBrandId = :ProductBrandId OR :ProductBrandId = -1)
     ]]>
   </sql-query>

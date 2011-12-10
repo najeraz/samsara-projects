@@ -23,5 +23,11 @@ namespace Samsara.Operation.Core.Parameters
             get;
             set;
         }
+
+        public string StrProductBrandId
+        {
+            get;
+            set;
+        }
     }
 }
