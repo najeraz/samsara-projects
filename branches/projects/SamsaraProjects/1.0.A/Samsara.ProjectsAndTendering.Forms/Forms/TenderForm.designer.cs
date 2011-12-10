@@ -92,6 +92,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance59 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance60 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance134 = new Infragistics.Win.Appearance();
+            Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters offeredPriceTypeParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters();
             Infragistics.Win.Appearance appearance73 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance74 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance75 = new Infragistics.Win.Appearance();
@@ -189,7 +190,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
             Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
             Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters offeredPriceTypeParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -242,6 +242,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdDetPricingStrategy = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             this.upnlDetPricingStrategiesControls = new Infragistics.Win.Misc.UltraPanel();
             this.lblDetOfferedPrice = new Infragistics.Win.Misc.UltraLabel();
+            this.optcDetOfferedPriceType = new Samsara.ProjectsAndTendering.Controls.Controls.OfferedPriceTypeChooserControl();
             this.uchkDetAddExtraCosts = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.uchkDetProrateWarranties = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.gbxDetPricingStrategy = new System.Windows.Forms.GroupBox();
@@ -351,7 +352,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
             this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
             this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
-            this.optcDetOfferedPriceType = new Samsara.ProjectsAndTendering.Controls.Controls.OfferedPriceTypeChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -1378,6 +1378,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblDetOfferedPrice.Size = new System.Drawing.Size(97, 25);
             this.lblDetOfferedPrice.TabIndex = 87;
             this.lblDetOfferedPrice.Text = "Precio Ofertado:";
+            // 
+            // optcDetOfferedPriceType
+            // 
+            this.optcDetOfferedPriceType.CustomParent = null;
+            this.optcDetOfferedPriceType.DisplayMember = "Name";
+            this.optcDetOfferedPriceType.Dock = System.Windows.Forms.DockStyle.Right;
+            this.optcDetOfferedPriceType.Location = new System.Drawing.Point(575, 0);
+            this.optcDetOfferedPriceType.Name = "optcDetOfferedPriceType";
+            offeredPriceTypeParameters1.Name = null;
+            this.optcDetOfferedPriceType.Parameters = offeredPriceTypeParameters1;
+            this.optcDetOfferedPriceType.ReadOnly = false;
+            this.optcDetOfferedPriceType.Size = new System.Drawing.Size(226, 25);
+            this.optcDetOfferedPriceType.TabIndex = 88;
+            this.optcDetOfferedPriceType.Value = null;
+            this.optcDetOfferedPriceType.ValueMember = "OfferedPriceTypeId";
             // 
             // uchkDetAddExtraCosts
             // 
@@ -2428,7 +2443,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.Files.Name = "Files";
             this.Files.Size = new System.Drawing.Size(815, 400);
             this.Files.TabIndex = 3;
-            this.Files.Text = "Archivos Adjuntos";
+            this.Files.Text = "Fallo y Archivos Adjuntos";
             // 
             // grdDetTenderFiles
             // 
@@ -2878,21 +2893,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblSchTenderSubstatus.Size = new System.Drawing.Size(63, 13);
             this.lblSchTenderSubstatus.TabIndex = 97;
             this.lblSchTenderSubstatus.Text = "Subestatus:";
-            // 
-            // optcDetOfferedPriceType
-            // 
-            this.optcDetOfferedPriceType.CustomParent = null;
-            this.optcDetOfferedPriceType.DisplayMember = "Name";
-            this.optcDetOfferedPriceType.Dock = System.Windows.Forms.DockStyle.Right;
-            this.optcDetOfferedPriceType.Location = new System.Drawing.Point(575, 0);
-            this.optcDetOfferedPriceType.Name = "optcDetOfferedPriceType";
-            offeredPriceTypeParameters1.Name = null;
-            this.optcDetOfferedPriceType.Parameters = offeredPriceTypeParameters1;
-            this.optcDetOfferedPriceType.ReadOnly = false;
-            this.optcDetOfferedPriceType.Size = new System.Drawing.Size(226, 25);
-            this.optcDetOfferedPriceType.TabIndex = 88;
-            this.optcDetOfferedPriceType.Value = null;
-            this.optcDetOfferedPriceType.ValueMember = "OfferedPriceTypeId";
             // 
             // TenderForm
             // 

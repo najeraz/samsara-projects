@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsUtil.cs" />
+    <Compile Include="SQLUtil.cs" />
     <Compile Include="TextMaskFormatEnum.cs" />
     <Compile Include="FilesUtil.cs" />
     <Compile Include="MoneyUtil.cs" />
