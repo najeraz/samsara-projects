@@ -156,6 +156,7 @@ namespace Samsara.Operation.Forms.Controller
 
         private void Search()
         {
+            DataTable dtProducts = null;
             ProductParameters pmtProduct = new ProductParameters();
 
             pmtProduct.Name = SQLUtil.CreateSearchQueryCondition(
@@ -163,7 +164,11 @@ namespace Samsara.Operation.Forms.Controller
             pmtProduct.ProductBrandId = this.frmProduct.pbcSchProductBrand.Value == null ? 
                 -1 : this.frmProduct.pbcSchProductBrand.Value.ProductBrandId;
 
-            DataTable dtProducts = srvProduct.SearchByParameters(pmtProduct);
+            try
+            {
+                dtProducts = srvProduct.SearchByParameters(pmtProduct);
+            }
+            catch { } 
 
             this.frmProduct.grdSchSearch.DataSource = null;
             this.frmProduct.grdSchSearch.DataSource = dtProducts;
