@@ -2465,7 +2465,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedPriceAfterTax"],
                 TextMaskFormatEnum.Currency);
             WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedPriceAfterTax"]);
-            band.Columns["OfferedPriceAfterTax"].CellActivation = Activation.AllowEdit;
+            band.Columns["OfferedPriceAfterTax"].CellActivation = Activation.ActivateOnly;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Warranties"],
                 TextMaskFormatEnum.Currency);
@@ -2521,7 +2521,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridCell activeCell = this.frmTender.grdDetPricingStrategy.ActiveCell;
 
             if (activeCell != null && activeCell.Column.Key == "SelectedPrice"
-                || activeCell.Column.Key == "ProfitMargin")
+                || activeCell.Column.Key == "ProfitMargin" || activeCell.Column.Key == "OfferedPriceBeforeTax")
             {
                 this.UpdatePricingStrategyGrid();
             }
