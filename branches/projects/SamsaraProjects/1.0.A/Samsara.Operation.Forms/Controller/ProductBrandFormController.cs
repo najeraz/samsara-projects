@@ -160,7 +160,15 @@ namespace Samsara.Operation.Forms.Controller
         
         private void btnSchSearch_Click(object sender, EventArgs e)
         {
-            this.Search();
+            try
+            {
+                this.frmProductBrand.Cursor = Cursors.WaitCursor;
+                this.Search();
+            }
+            finally
+            {
+                this.frmProductBrand.Cursor = Cursors.Default;
+            }
         }
 
         private void btnSchCreate_Click(object sender, EventArgs e)
