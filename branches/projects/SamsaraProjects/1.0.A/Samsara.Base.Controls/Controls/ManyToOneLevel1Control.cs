@@ -37,7 +37,7 @@ namespace Samsara.Base.Controls.Controls
 
         public virtual void OnEntityChanged(ManyToOneLevel1EntityChangedEventArgs<T> e)
         {
-            if (EntityChanged != null)
+            if (EntityChanged != null && e.EntityChanged != null)
                 EntityChanged(this, e);
         }
 

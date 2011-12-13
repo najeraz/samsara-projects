@@ -12,6 +12,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
         private ISet<TenderLineWholesaler> tenderLineWholesalers;
         private ISet<TenderLineCompetitor> tenderLineCompetitors;
         private ISet<TenderLineExtraCost> tenderLineExtraCosts;
+        private PricingStrategy pricingStrategy;
 
         public TenderLine()
         {
@@ -45,8 +46,17 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
 
         public virtual PricingStrategy PricingStrategy
         {
-            get;
-            set;
+            get
+            {
+                if (this.pricingStrategy == null)
+                    pricingStrategy = new PricingStrategy();
+
+                return this.pricingStrategy;
+            }
+            set
+            {
+                this.pricingStrategy = value;
+            }
         }
 
         public virtual Product Product

@@ -3,7 +3,7 @@ namespace Samsara.ProjectsAndTendering.Core.Enums
 {
     public enum OfferedPriceTypesEnum
     {
-        UnitaryPrice = 1,
-        TotalLinePrice
+        PriceBeforeTax = 1,
+        PriceAfterTax
     }
 }

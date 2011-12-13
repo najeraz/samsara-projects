@@ -116,13 +116,8 @@ namespace Samsara.Base.Controls.Controllers
                 this.AddEntity();
                 this.HideDetail();
 
-                UltraGridCell activeCell = this.control.grdRelations.ActiveCell;
-
-                if (activeCell != null)
-                {
-                    this.control.OnEntityChanged(new ManyToOneLevel1EntityChangedEventArgs<T>(
-                        GetEntity(Convert.ToInt32(activeCell.Row.Cells[0].Value))));
-                }
+                this.control.OnEntityChanged(new ManyToOneLevel1EntityChangedEventArgs<T>(
+                    GetEntity(this.GetEntityId())));
             }
         }
 
@@ -209,6 +204,11 @@ namespace Samsara.Base.Controls.Controllers
         protected virtual T GetEntity(int entityId)
         {
             return default(T);
+        }
+
+        protected virtual int GetEntityId()
+        {
+            return -1;
         }
 
         #endregion Public
