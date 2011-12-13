@@ -54,7 +54,7 @@ namespace SamsaraProjectsUpdaterService
 
         protected override void OnStart(string[] args)
         {
-            eventLog1.WriteEntry("SERVICE - Started", EventLogEntryType.Information);
+            eventLog1.WriteEntry("SamsaraProjectsUpdaterService - Started", EventLogEntryType.Information);
 
             TimerCallback timerCallback = new TimerCallback(UpdateProcess);
             System.Threading.Timer serviceTimer = new System.Threading.Timer(timerCallback, null, 0, criticalInterval);
@@ -62,7 +62,7 @@ namespace SamsaraProjectsUpdaterService
 
         protected override void OnStop()
         {
-            // TODO: Add code here to perform any tear-down necessary to stop your service.
+            eventLog1.WriteEntry("SamsaraProjectsUpdaterService - Stopped", EventLogEntryType.Information);
         }
 
         #endregion Service Commands
