@@ -37,10 +37,13 @@ namespace Samsara.Controls
             this.upSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.upBody = new Infragistics.Win.Misc.UltraPanel();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.upSeparator4 = new Infragistics.Win.Misc.UltraPanel();
             this.upSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.upSeparator1.SuspendLayout();
             this.upBody.ClientArea.SuspendLayout();
             this.upBody.SuspendLayout();
+            this.upSeparator4.SuspendLayout();
             this.upSeparator2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,9 +74,9 @@ namespace Samsara.Controls
             this.upBody.ClientArea.Controls.Add(this.txtName);
             this.upBody.ClientArea.Controls.Add(this.upSeparator2);
             this.upBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.upBody.Location = new System.Drawing.Point(42, 0);
+            this.upBody.Location = new System.Drawing.Point(84, 0);
             this.upBody.Name = "upBody";
-            this.upBody.Size = new System.Drawing.Size(287, 24);
+            this.upBody.Size = new System.Drawing.Size(245, 24);
             this.upBody.TabIndex = 4;
             // 
             // txtName
@@ -82,16 +85,34 @@ namespace Samsara.Controls
             this.txtName.Location = new System.Drawing.Point(0, 2);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(287, 20);
+            this.txtName.Size = new System.Drawing.Size(245, 20);
             this.txtName.TabIndex = 6;
-            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(42, 0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(32, 24);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // upSeparator4
+            // 
+            this.upSeparator4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upSeparator4.Location = new System.Drawing.Point(74, 0);
+            this.upSeparator4.Name = "upSeparator4";
+            this.upSeparator4.Size = new System.Drawing.Size(10, 24);
+            this.upSeparator4.TabIndex = 6;
             // 
             // upSeparator2
             // 
             this.upSeparator2.Dock = System.Windows.Forms.DockStyle.Top;
             this.upSeparator2.Location = new System.Drawing.Point(0, 0);
             this.upSeparator2.Name = "upSeparator2";
-            this.upSeparator2.Size = new System.Drawing.Size(287, 2);
+            this.upSeparator2.Size = new System.Drawing.Size(245, 2);
             this.upSeparator2.TabIndex = 5;
             // 
             // SamsaraSearchControl
@@ -99,6 +120,8 @@ namespace Samsara.Controls
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.upBody);
+            this.Controls.Add(this.upSeparator4);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.upSeparator1);
             this.Controls.Add(this.btnSearch);
             this.Name = "SamsaraSearchControl";
@@ -107,6 +130,7 @@ namespace Samsara.Controls
             this.upBody.ClientArea.ResumeLayout(false);
             this.upBody.ClientArea.PerformLayout();
             this.upBody.ResumeLayout(false);
+            this.upSeparator4.ResumeLayout(false);
             this.upSeparator2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -118,6 +142,8 @@ namespace Samsara.Controls
         private Infragistics.Win.Misc.UltraPanel upSeparator1;
         private Infragistics.Win.Misc.UltraPanel upBody;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Button btnDelete;
+        private Infragistics.Win.Misc.UltraPanel upSeparator4;
         private Infragistics.Win.Misc.UltraPanel upSeparator2;
     }
 }
