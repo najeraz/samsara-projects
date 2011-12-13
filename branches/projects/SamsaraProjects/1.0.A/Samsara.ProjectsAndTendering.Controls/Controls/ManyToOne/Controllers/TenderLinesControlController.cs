@@ -295,8 +295,20 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
         protected override TenderLine GetEntity(int entityId)
         {
-            return this.Tender.TenderLines
-                .SingleOrDefault(x => x.TenderLineId == entityId);
+            if (entityId <= 0)
+                return this.Tender.TenderLines
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.Tender.TenderLines
+                    .Single(x => x.TenderLineId == entityId);
+        }
+
+        protected override int GetEntityId()
+        {
+            if (this.tenderLine.TenderLineId <= 0)
+                return -this.tenderLine.GetHashCode();
+            else
+                return this.tenderLine.TenderLineId;
         } 
 
         #endregion Protected

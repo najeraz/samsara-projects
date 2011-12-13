@@ -16,8 +16,8 @@
     <property name="UnitPriceAfterTax"/>
     <property name="TotalPriceBeforeTax"/>
     <property name="TotalPriceAfterTax"/>
-    <property name="OfferedPriceBeforeTax"/>
-    <property name="OfferedPriceAfterTax"/>
+    <property name="OfferedTotalPrice"/>
+    <property name="OfferedUnitaryPrice"/>
     <property name="Deleted"/>
     <property name="Activated"/>
     

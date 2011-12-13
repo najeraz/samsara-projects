@@ -177,7 +177,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.tscSchTenderStatus.Refresh();
 
             // mtoDetTenderLines
-            this.frmTender.mtoDetTenderLines.Tender = null;
+            this.frmTender.mtoDetTenderLines.Tender = this.tender;
             this.frmTender.mtoDetTenderLines.CustomParent = this.frmTender;
             this.frmTender.mtoDetTenderLines.LoadControls();
             this.frmTender.mtoDetTenderLines.EntityChanged
@@ -213,7 +213,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.optcDetOfferedPriceType.ValueChanged
                 += new SamsaraEntityChooserValueChangedEventHandler<OfferedPriceType>(optcDetOfferedPriceType_ValueChanged);
             this.frmTender.optcDetOfferedPriceType.Value 
-                = this.srvOfferedPriceType.GetById((int)OfferedPriceTypesEnum.UnitaryPrice);
+                = this.srvOfferedPriceType.GetById((int)OfferedPriceTypesEnum.PriceBeforeTax);
 
             // Dependency
             DependencyParameters pmtDependency = new DependencyParameters();
@@ -418,7 +418,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.uchkDetProrateWarranties.CheckedChanged += new EventHandler(uchkDetProrateWarranties_CheckedChanged);
             this.frmTender.ubtnDetDownloadTenderFile.Click += new EventHandler(ubtnDetDownloadTenderFile_Click);
 
-            this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+            this.hiddenTenderDetailTab = this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
             this.frmTender.uosSchDates.Value = -1;
             this.frmTender.HiddenDetail(true);
 
@@ -468,7 +468,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 //    MessageBox.Show("Debe seleccionar un fabricante por partida.",
                 //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //    this.frmTender.tabDetDetail.SelectedTab =
-                //        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                //        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                 //    this.frmTender.tcDetTextControls.SelectedTab =
                 //        this.frmTender.tcDetTextControls.TabPages["TenderLines"];
                 //    return false;
@@ -480,7 +480,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     MessageBox.Show("Debe poner una cantidad correcta por partida.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["TenderLines"];
                     return false;
@@ -495,7 +495,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         "Debe seleccionar un competidor por renglón en la lista de competidores.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Competitors"];
                     return false;
@@ -510,7 +510,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         "Debe seleccionar un mayorista por renglón en la lista de mayoristas.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Wholesalers"];
                     return false;
@@ -525,7 +525,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         "Debe seleccionar un fabricante por renglón en la lista de fabricantes.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Manufacturers"];
                     return false;
@@ -540,7 +540,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         "Debe seleccionar un tipo de fianza por renglón en la lista de fianzas.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Warranties"];
                     return false;
@@ -552,7 +552,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         "Debe seleccionar un tipo de documento de fianza por renglón en la lista de fianzas.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Warranties"];
                     return false;
@@ -564,7 +564,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                         "Debe seleccionar un monto de la fianza por renglón en la lista de fianzas.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.frmTender.tabDetDetail.SelectedTab =
-                        this.frmTender.tabDetDetail.TabPages["TenderDetails"];
+                        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
                     this.frmTender.tcDetTextControls.SelectedTab =
                         this.frmTender.tcDetTextControls.TabPages["Warranties"];
                     return false;
@@ -685,8 +685,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
             {
-                TenderLine tenderLine = this.tender.TenderLines
-                    .Single(x => x.TenderLineId == Convert.ToInt32((row["PricingStrategyId"])));
+                int tenderLineId = Convert.ToInt32(row["PricingStrategyId"]);
+                TenderLine tenderLine = null;
+
+                if (tenderLineId <= 0)
+                    tenderLine = this.tender.TenderLines
+                        .Single(x => -x.GetHashCode() == tenderLineId);
+                else
+                    tenderLine = this.tender.TenderLines
+                        .Single(x => x.TenderLineId == tenderLineId);
+
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
 
                 if (pricingStrategy == null)
@@ -700,8 +708,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     pricingStrategy.SelectedPrice = Convert.ToDecimal(row["SelectedPrice"]);
                     pricingStrategy.TenderLineProfit = Convert.ToDecimal(row["TenderLineProfit"]);
-                    pricingStrategy.OfferedPriceBeforeTax = Convert.ToDecimal(row["OfferedPriceBeforeTax"]);
-                    pricingStrategy.OfferedPriceAfterTax = Convert.ToDecimal(row["OfferedPriceAfterTax"]);
+                    pricingStrategy.OfferedTotalPrice = Convert.ToDecimal(row["OfferedTotalPrice"]);
+                    pricingStrategy.OfferedUnitaryPrice = Convert.ToDecimal(row["OfferedUnitaryPrice"]);
                     pricingStrategy.TotalPriceAfterTax = Convert.ToDecimal(row["TotalPriceAfterTax"]);
                     pricingStrategy.TotalPriceBeforeTax = Convert.ToDecimal(row["TotalPriceBeforeTax"]);
                     pricingStrategy.UnitPriceAfterTax = Convert.ToDecimal(row["UnitPriceAfterTax"]);
@@ -961,7 +969,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 this.frmTender.Cursor = Cursors.WaitCursor;
                 this.tender = this.srvTender.GetById(tenderId);
-
+                this.frmTender.mtoDetTenderLines.Tender = this.tender;
+                
                 this.ClearDetailControls();
                 this.LoadFormFromEntity();
                 this.frmTender.HiddenDetail(false);
@@ -999,9 +1008,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             this.frmTender.mtoDetTenderLines.Tender = this.tender;
             this.frmTender.mtoDetTenderLines.LoadControls();
-
-            this.uchkDetAddExtraCosts_CheckedChanged(null, null);
-            this.uchkDetProrateWarranties_CheckedChanged(null, null);
 
             foreach (TenderCompetitor tenderCompetitor in this.tender
                 .TenderCompetitors.Where(x => x.Activated && !x.Deleted)
@@ -1134,6 +1140,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.UpdatePricingStrategyGrid();
             this.UpdatePreresultsGrid();
             this.UpdatePricingStrategyExtraCosts();
+
+            this.uchkDetAddExtraCosts_CheckedChanged(null, null);
+            this.uchkDetProrateWarranties_CheckedChanged(null, null);
         }
 
         private void SearchTenderFiles()
@@ -1303,7 +1312,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (DataRow row in this.dtTenderLines.AsEnumerable())
             {
-                if (Convert.ToInt32(row["TenderLineId"]) > 0 && !this.dtPriceComparison.Rows.Cast<DataRow>()
+                if (!this.dtPriceComparison.Rows.Cast<DataRow>()
                     .Select(x => x["TenderLineId"].ToString()).Contains(row["TenderLineId"].ToString()))
                 {
                     DataRow rowPC = this.dtPriceComparison.NewRow();
@@ -1374,7 +1383,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 if (tenderLine.Wholesaler != null)
                 {
-                    DataRow row = this.dtPriceComparison.AsEnumerable().SingleOrDefault(x =>
+                    DataRow row = this.dtPriceComparison.AsEnumerable().Single(x =>
                         Convert.ToInt32(x["TenderLineId"]) == tenderLine.TenderLineId);
                     TenderLineWholesaler tenderLineWholesaler = tenderLine.TenderLineWholesalers
                         .SingleOrDefault(x => x.Wholesaler.WholesalerId == tenderLine.Wholesaler.WholesalerId);
@@ -1467,11 +1476,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
-                if (tenderLine.TenderLineId > 0 && !this.dtPreresults.Rows.Cast<DataRow>()
-                    .Select(x => x["TenderLineId"].ToString()).Contains(tenderLine.TenderLineId.ToString()))
+                int tenderLineId = tenderLine.TenderLineId <= 0 ? -tenderLine.GetHashCode() : tenderLine.TenderLineId;
+
+                if (!this.dtPreresults.Rows.Cast<DataRow>()
+                    .Select(x => x["TenderLineId"].ToString()).Contains(tenderLineId.ToString()))
                 {
                     DataRow rowPC = this.dtPreresults.NewRow();
-                    rowPC["TenderLineId"] = tenderLine.TenderLineId;
+                    rowPC["TenderLineId"] = tenderLineId;
                     rowPC["TenderLineName"] = tenderLine.Name;
                     rowPC["TenderLineQuantity"] = tenderLine.Quantity;
                     rowPC["TenderLineDescription"] = tenderLine.Description;
@@ -1561,21 +1572,30 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+                DataRow drPricingStrategy = null;
 
-                DataRow drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
-                    .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
+                if (tenderLine.TenderLineId <= 0)
+                    drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == -tenderLine.GetHashCode());
+                else
+                    drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
 
-                pricingStrategy.SelectedPrice = drPricingStrategy == null
-                    || drPricingStrategy["SelectedPrice"] == DBNull.Value ?
-                    pricingStrategy.SelectedPrice : Convert.ToDecimal(drPricingStrategy["SelectedPrice"]);
+                if (drPricingStrategy != null)
+                    pricingStrategy.SelectedPrice = drPricingStrategy["SelectedPrice"] == DBNull.Value ?
+                        0 : Convert.ToDecimal(drPricingStrategy["SelectedPrice"]);
 
                 pricingStrategy.ProfitMargin = drPricingStrategy == null
                     || drPricingStrategy["ProfitMargin"] == DBNull.Value ?
                     pricingStrategy.ProfitMargin : Convert.ToDecimal(drPricingStrategy["ProfitMargin"]);
 
-                pricingStrategy.OfferedPriceBeforeTax = drPricingStrategy == null
-                    || drPricingStrategy["OfferedPriceBeforeTax"] == DBNull.Value ?
-                    pricingStrategy.OfferedPriceBeforeTax : Convert.ToDecimal(drPricingStrategy["OfferedPriceBeforeTax"]);
+                pricingStrategy.OfferedTotalPrice = drPricingStrategy == null
+                    || drPricingStrategy["OfferedTotalPrice"] == DBNull.Value ?
+                    pricingStrategy.OfferedTotalPrice : Convert.ToDecimal(drPricingStrategy["OfferedTotalPrice"]);
+
+                pricingStrategy.Wholesaler = drPricingStrategy == null
+                    || drPricingStrategy["WholesalerId"] == DBNull.Value ?
+                    pricingStrategy.Wholesaler : this.GetWholesaler(Convert.ToInt32(drPricingStrategy["WholesalerId"]));
 
                 try
                 {
@@ -1601,8 +1621,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
                     * tenderLine.Quantity;
 
-                pricingStrategy.OfferedPriceAfterTax 
-                    = pricingStrategy.OfferedPriceBeforeTax * 1.15M;
+                //pricingStrategy.OfferedTotalPrice
+                //    = pricingStrategy.OfferedUnitaryPrice * tenderLine.Quantity;
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -1611,9 +1631,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 decimal extraCostsSummary = 0;
 
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+                DataRow drPricingStrategy = null;
 
-                DataRow drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
-                    .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
+                if (tenderLine.TenderLineId <= 0)
+                    drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == -tenderLine.GetHashCode());
+                else
+                    drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
 
                 if (this.tender.AddExtraCosts)
                 {
@@ -1657,11 +1682,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     pricingStrategy.Deleted = false;
                 }
 
-                if (tenderLine.Wholesaler != null)
-                    pricingStrategy.Wholesaler = tenderLine.Wholesaler;
+                DataRow row = null;
 
-                DataRow row = this.dtPricingStrategy.AsEnumerable()
-                    .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
+                if (tenderLine.TenderLineId <= 0)
+                    row = this.dtPricingStrategy.AsEnumerable()
+                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == -tenderLine.GetHashCode());
+                else
+                    row = this.dtPricingStrategy.AsEnumerable()
+                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
 
                 if (row == null)
                 {
@@ -1669,14 +1697,23 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     this.dtPricingStrategy.Rows.Add(row);
                 }
 
-                row["PricingStrategyId"] = pricingStrategy.PricingStrategyId = tenderLine.TenderLineId;
-                row["TenderLineId"] = tenderLine.TenderLineId;
+                if (tenderLine.TenderLineId <= 0)
+                {
+                    row["PricingStrategyId"] = -tenderLine.GetHashCode();
+                    row["TenderLineId"] = -tenderLine.GetHashCode();
+                }
+                else
+                {
+                    row["PricingStrategyId"] = pricingStrategy.PricingStrategyId = tenderLine.TenderLineId;
+                    row["TenderLineId"] = tenderLine.TenderLineId;
+                }
+
                 row["TenderLineName"] = tenderLine.Name;
                 row["TenderLineQuantity"] = tenderLine.Quantity;
                 row["TenderLineDescription"] = tenderLine.Description;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
-                row["OfferedPriceBeforeTax"] = pricingStrategy.OfferedPriceBeforeTax;
-                row["OfferedPriceAfterTax"] = pricingStrategy.OfferedPriceAfterTax;
+                row["OfferedTotalPrice"] = pricingStrategy.OfferedTotalPrice;
+                row["OfferedUnitaryPrice"] = pricingStrategy.OfferedUnitaryPrice;
                 row["SelectedPrice"] = pricingStrategy.SelectedPrice;
                 row["TenderLineProfit"] = pricingStrategy.TenderLineProfit;
                 row["TotalPriceAfterTax"] = pricingStrategy.TotalPriceAfterTax;
@@ -1685,30 +1722,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 row["UnitPriceBeforeTax"] = pricingStrategy.UnitPriceBeforeTax;
                 row["UnitProfit"] = pricingStrategy.UnitProfit;
 
-                if (tenderLine.Wholesaler != null)
-                {
-                    if (pricingStrategy.Wholesaler != null)
-                        row["WholesalerId"] = pricingStrategy.Wholesaler.WholesalerId;
-                    else
-                        row["WholesalerId"] = -1;
-
-                    row["ManufacturerId"] = DBNull.Value;
-                }
+                if (pricingStrategy.Wholesaler != null)
+                    row["WholesalerId"] = pricingStrategy.Wholesaler.WholesalerId;
                 else
-                {
-                    if (pricingStrategy.Manufacturer != null)
-                        row["ManufacturerId"] = pricingStrategy.Manufacturer.ManufacturerId;
-                    else
-                        row["ManufacturerId"] = -1;
-
                     row["WholesalerId"] = DBNull.Value;
-                }
 
                 if (tenderLine.TenderLineStatus != null)
                     row["TenderLineStatusId"] = tenderLine.TenderLineStatus.TenderLineStatusId;
                 else
                     row["TenderLineStatusId"] = -1;
             }
+
             this.dtPricingStrategy.AcceptChanges();
             this.UpdatePricingStrategyGridColumns();
         }
@@ -1816,9 +1840,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             foreach (DataRow row in this.dtPricingStrategy.AsEnumerable())
             {
-                row["ExtraCosts"] = this.tender.TenderLines
-                    .Single(x => x.TenderLineId == Convert.ToInt32(row["PricingStrategyId"]))
-                    .TenderLineExtraCosts.Sum(x => x.Amount);
+                int tenderLineId = Convert.ToInt32(row["PricingStrategyId"]);
+
+                if (tenderLineId <= 0)
+                    row["ExtraCosts"] = this.tender.TenderLines
+                        .Single(x => -x.GetHashCode() == tenderLineId)
+                        .TenderLineExtraCosts.Sum(x => x.Amount);
+                else
+                    row["ExtraCosts"] = this.tender.TenderLines
+                        .Single(x => x.TenderLineId == tenderLineId)
+                        .TenderLineExtraCosts.Sum(x => x.Amount);
             }
         }
         
@@ -1834,6 +1865,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
             this.tender = new Tender();
+            this.frmTender.mtoDetTenderLines.Tender = this.tender;
             this.ClearDetailControls();
             this.ShowDetail(true);
         }
@@ -2242,47 +2274,61 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (activeCell.Column.Key.EndsWith("C"))
                 strColumnName = strColumnName.Replace("C", "");
 
-            if ((Convert.ToInt32(activeCell.Row.Cells["TenderLineId"].Value) > 0
-                && int.TryParse(activeCell.Column.Key, out columnName) ||
-                Convert.ToInt32(activeCell.Row.Cells["TenderLineId"].Value) > 0
-                && activeCell.Column.Key.EndsWith("C")) &&
+            if (int.TryParse(activeCell.Column.Key, out columnName) ||
+                activeCell.Column.Key.EndsWith("C") &&
                 activeCell.Row.Cells[strColumnName].Column.Key == activeCell.Row.Cells["SelectedWholesalerId"].Value.ToString())
             {
                 if (activeCell.Row.Cells[strColumnName].Value == DBNull.Value)
                 {
-                    activeCell.Row.Cells["BestPrice"].Value = DBNull.Value;
+                    (activeCell.Row.ListObject as DataRowView)["BestPrice"] = DBNull.Value;
                     activeCell.Row.Cells["SelectedWholesalerId"].Value = -1;
                 }
                 else
-                    activeCell.Row.Cells["BestPrice"].Value = Convert.ToDecimal(activeCell.Row.Cells[strColumnName].Value) *
+                    (activeCell.Row.ListObject as DataRowView)["BestPrice"] = Convert.ToDecimal(activeCell.Row.Cells[strColumnName].Value) *
                         this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[strColumnName + "C"].Value));
+
+                this.dtPriceComparison.AcceptChanges();
             }
+
             this.SelectedWholesalerEditor_SelectionChanged(null, null);
+            this.UpdatePricingStrategyGrid();
         }
 
         private void grdDetPriceComparison_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
             int columnName;
+            int tenderLineId = Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value);
+            TenderLineWholesaler tenderLineWholesaler = null;
 
-            if (Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
-                && int.TryParse(e.Cell.Column.Key, out columnName) ||
-                Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
-                && e.Cell.Column.Key.EndsWith("C"))
+            if (int.TryParse(e.Cell.Column.Key, out columnName) 
+                || e.Cell.Column.Key.EndsWith("C"))
             {
                 string strColumnName = e.Cell.Column.Key;
 
                 if (e.Cell.Column.Key.EndsWith("C"))
                     strColumnName = strColumnName.Replace("C", "");
 
-                TenderLineWholesaler tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
-                    .SingleOrDefault(x => x.TenderLine.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)
-                    && x.Wholesaler.WholesalerId.ToString() == strColumnName);
+                if (tenderLineId <= 0)
+                    tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
+                        .SingleOrDefault(x => -x.GetHashCode() == tenderLineId
+                        && x.Wholesaler.WholesalerId.ToString() == strColumnName);
+                else
+                    tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
+                        .SingleOrDefault(x => x.TenderLine.TenderLineId == tenderLineId
+                        && x.Wholesaler.WholesalerId.ToString() == strColumnName);
 
                 if (tenderLineWholesaler == null)
                 {
+                    TenderLine tenderLine = null;
                     tenderLineWholesaler = new TenderLineWholesaler();
-                    TenderLine tenderLine = this.tender.TenderLines
-                        .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+                    if (tenderLineId <= 0)
+                        tenderLine = this.tender.TenderLines
+                            .Single(x => -x.GetHashCode() == tenderLineId);
+                    else
+                        tenderLine = this.tender.TenderLines
+                            .Single(x => x.TenderLineId == tenderLineId);
+
                     tenderLine.TenderLineWholesalers.Add(tenderLineWholesaler);
                     tenderLineWholesaler.Currency
                         = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
@@ -2302,11 +2348,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (e.Cell.Column.Key == "SelectedWholesalerId")
             {
-                this.tender.TenderLines.Single(x => x.TenderLineId ==
-                    Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)).Wholesaler
-                    = this.GetWholesaler(Convert.ToInt32(e.NewValue));
+                if (tenderLineId <= 0)
+                    this.tender.TenderLines.Single(x => -x.GetHashCode() ==
+                        Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)).Wholesaler
+                        = this.GetWholesaler(Convert.ToInt32(e.NewValue));
+                else
+                    this.tender.TenderLines.Single(x => x.TenderLineId ==
+                        Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value)).Wholesaler
+                        = this.GetWholesaler(Convert.ToInt32(e.NewValue));
             }
-            this.UpdatePricingStrategyGrid();
         }
 
         private void grdDetPriceComparison_ClickCellButton(object sender, CellEventArgs e)
@@ -2328,14 +2378,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (minPriceCell != null)
             {
-                e.Cell.Row.Cells["BestPrice"].Value = Convert.ToDecimal(minPriceCell.Value) *
+                (e.Cell.Row.ListObject as DataRowView)["BestPrice"] = Convert.ToDecimal(minPriceCell.Value) *
                         this.GetExchangeRate(Convert.ToInt32(e.Cell.Row.Cells[minPriceCell.Column.Key + "C"].Value));
-                e.Cell.Row.Cells["SelectedWholesalerId"].Value = Convert.ToInt32(minPriceCell.Column.Key);
+                (e.Cell.Row.ListObject as DataRowView)["SelectedWholesalerId"] = Convert.ToInt32(minPriceCell.Column.Key);
             }
             else
             {
-                e.Cell.Row.Cells["BestPrice"].Value = DBNull.Value;
-                e.Cell.Row.Cells["SelectedWholesalerId"].Value = -1;
+                (e.Cell.Row.ListObject as DataRowView)["BestPrice"] = DBNull.Value;
+                (e.Cell.Row.ListObject as DataRowView)["SelectedWholesalerId"] = -1;
             }
             this.SelectedWholesalerEditor_SelectionChanged(null, null);
             this.UpdatePricingStrategyGrid();
@@ -2343,16 +2393,23 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void SelectedWholesalerEditor_SelectionChanged(object sender, EventArgs e)
         {
+            DataRow drPricingStrategy = null;
             object value = null;
             UltraGridRow activeRow = this.frmTender.grdDetPriceComparison.ActiveRow;
             EditorWithCombo editor = sender as EditorWithCombo;
+            int tenderLineId = Convert.ToInt32(activeRow.Cells["TenderLineId"].Value);
+
             if (editor != null)
                 value = editor.Value;
             else
                 value = activeRow.Cells["SelectedWholesalerId"].Value;
-            DataRow drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
-                .Single(x => Convert.ToInt32(x["PricingStrategyId"])
-                    == Convert.ToInt32(activeRow.Cells["TenderLineId"].Value));
+
+            if (tenderLineId <= 0)
+                drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLineId);
+            else
+                drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
+                    .Single(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLineId);
 
             if (activeRow == null)
                 return;
@@ -2360,22 +2417,25 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (Convert.ToInt32(value) > 0)
             {
                 if (activeRow.Cells[value.ToString()].Value == DBNull.Value)
-                    activeRow.Cells["BestPrice"].Value = DBNull.Value;
+                    (activeRow.ListObject as DataRowView)["BestPrice"] = DBNull.Value;
                 else
-                    activeRow.Cells["BestPrice"].Value = Convert.ToDecimal(activeRow.Cells[value.ToString()].Value)
+                    (activeRow.ListObject as DataRowView)["BestPrice"] = Convert.ToDecimal(activeRow.Cells[value.ToString()].Value)
                         * this.GetExchangeRate(Convert.ToInt32(activeRow.Cells[value + "C"].Value));
+
+                (activeRow.ListObject as DataRowView)["SelectedWholesalerId"] = value;
                 drPricingStrategy["WholesalerId"] = value;
-                drPricingStrategy["ManufacturerId"] = DBNull.Value;
-                drPricingStrategy["SelectedPrice"] = activeRow.Cells["BestPrice"].Value;
+                drPricingStrategy["SelectedPrice"] = (activeRow.ListObject as DataRowView)["BestPrice"];
             }
             else
             {
-                activeRow.Cells["BestPrice"].Value = DBNull.Value;
+                (activeRow.ListObject as DataRowView)["BestPrice"] = DBNull.Value;
+                (activeRow.ListObject as DataRowView)["SelectedWholesalerId"] = -1;
                 drPricingStrategy["WholesalerId"] = DBNull.Value;
-                drPricingStrategy["ManufacturerId"] = -1;
                 drPricingStrategy["SelectedPrice"] = DBNull.Value;
             }
-            this.UpdatePricingStrategyGridColumns();
+
+            this.dtPriceComparison.AcceptChanges();
+            this.UpdatePricingStrategyGrid();
         }
 
         private void CurrencyEditor_SelectionChanged(object sender, EventArgs e)
@@ -2468,15 +2528,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineDescription"].CellActivation = Activation.ActivateOnly;
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedPriceBeforeTax"],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedTotalPrice"],
                 TextMaskFormatEnum.Currency);
-            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedPriceBeforeTax"]);
-            band.Columns["OfferedPriceBeforeTax"].CellActivation = Activation.AllowEdit;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedTotalPrice"]);
+            band.Columns["OfferedTotalPrice"].CellActivation = Activation.AllowEdit;
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedPriceAfterTax"],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedUnitaryPrice"],
                 TextMaskFormatEnum.Currency);
-            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedPriceAfterTax"]);
-            band.Columns["OfferedPriceAfterTax"].CellActivation = Activation.ActivateOnly;
+            WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedUnitaryPrice"]);
+            band.Columns["OfferedUnitaryPrice"].CellActivation = Activation.AllowEdit;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Warranties"],
                 TextMaskFormatEnum.Currency);
@@ -2532,7 +2592,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             UltraGridCell activeCell = this.frmTender.grdDetPricingStrategy.ActiveCell;
 
             if (activeCell != null && activeCell.Column.Key == "SelectedPrice"
-                || activeCell.Column.Key == "ProfitMargin" || activeCell.Column.Key == "OfferedPriceBeforeTax")
+                || activeCell.Column.Key == "ProfitMargin" || activeCell.Column.Key == "OfferedTotalPrice")
             {
                 this.UpdatePricingStrategyGrid();
             }
@@ -3053,24 +3113,35 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void mtoDetTenderLines_EntityChanged(object sender, ManyToOneLevel1EntityChangedEventArgs<TenderLine> e)
         {
-            this.UpdatePricingStrategyGrid();
+            DataRow rowPC = null;
+            DataRow rowPE = null;
+            DataRow rowP = null;
 
-            DataRow rowPC = this.dtPriceComparison.AsEnumerable().SingleOrDefault(
-                x => Convert.ToInt32(x["TenderLineId"]) == e.EntityChanged.TenderLineId);
+            int tenderLineId = e.EntityChanged.TenderLineId <= 0 ?
+                -e.EntityChanged.GetHashCode() : e.EntityChanged.TenderLineId;
+
+            this.dtTenderLines = this.frmTender.mtoDetTenderLines.grdRelations.DataSource as DataTable;
+
+            this.UpdatePriceComparisonGrid();
+            this.UpdatePricingStrategyGrid();
+            this.UpdatePreresultsGrid();
+
+            rowPC = this.dtPriceComparison.AsEnumerable().Single(
+                x => Convert.ToInt32(x["TenderLineId"]) == tenderLineId);
 
             rowPC["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowPC["TenderLineDescription"] = e.EntityChanged.Description;
             rowPC["TenderLineName"] = e.EntityChanged.Name;
 
-            DataRow rowPE = this.dtPricingStrategy.AsEnumerable().SingleOrDefault(
-                x => Convert.ToInt32(x["TenderLineId"]) == e.EntityChanged.TenderLineId);
+            rowPE = this.dtPriceComparison.AsEnumerable().Single(
+                x => Convert.ToInt32(x["TenderLineId"]) == tenderLineId);
 
             rowPE["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowPE["TenderLineDescription"] = e.EntityChanged.Description;
             rowPE["TenderLineName"] = e.EntityChanged.Name;
 
-            DataRow rowP = this.dtPreresults.AsEnumerable().SingleOrDefault(
-                x => Convert.ToInt32(x["TenderLineId"]) == e.EntityChanged.TenderLineId);
+            rowP = this.dtPriceComparison.AsEnumerable().Single(
+                x => Convert.ToInt32(x["TenderLineId"]) == tenderLineId);
 
             rowP["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowP["TenderLineDescription"] = e.EntityChanged.Description;
@@ -3083,7 +3154,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             if (e.NewValue == null)
             {
                 this.frmTender.optcDetOfferedPriceType.Value
-                    = this.srvOfferedPriceType.GetById((int)OfferedPriceTypesEnum.UnitaryPrice);
+                    = this.srvOfferedPriceType.GetById((int)OfferedPriceTypesEnum.PriceBeforeTax);
             }
         }
 
