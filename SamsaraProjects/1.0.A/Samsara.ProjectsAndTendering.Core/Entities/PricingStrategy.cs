@@ -77,13 +77,13 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual decimal OfferedPriceBeforeTax
+        public virtual decimal OfferedTotalPrice
         {
             get;
             set;
         }
 
-        public virtual decimal OfferedPriceAfterTax
+        public virtual decimal OfferedUnitaryPrice
         {
             get;
             set;
