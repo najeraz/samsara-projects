@@ -82,13 +82,10 @@ namespace Samsara.Controls
             }
         }
 
-        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
-            {
-                this.value = default(T);
-                this.txtName.Text = string.Empty;
-            }
+            this.value = default(T);
+            this.txtName.Text = string.Empty;
         }
     }
 }
