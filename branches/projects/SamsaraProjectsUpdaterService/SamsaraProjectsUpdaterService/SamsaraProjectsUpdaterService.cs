@@ -38,9 +38,8 @@ namespace SamsaraProjectsUpdaterService
             this.alleatoErpConnection = new SqlConnection(ConnectionStrings.AlleatoErpConnectionString);
             this.samsaraProjectsConnection = new SqlConnection(ConnectionStrings.SamsaraProjectsConnectionString);
 
-            if (!System.Diagnostics.EventLog.SourceExists("SamsaraProjectsUpdaterLogSource"))
-                System.Diagnostics.EventLog.CreateEventSource("SamsaraProjectsUpdaterLogSource",
-                    "SamsaraProjectsUpdaterLog");
+            if (!EventLog.SourceExists("SamsaraProjectsUpdaterLogSource"))
+                EventLog.CreateEventSource("SamsaraProjectsUpdaterLogSource", "SamsaraProjectsUpdaterLog");
 
             eventLog1.Source = "SamsaraProjectsUpdaterLogSource";
             eventLog1.Log = "SamsaraProjectsUpdaterLog";
