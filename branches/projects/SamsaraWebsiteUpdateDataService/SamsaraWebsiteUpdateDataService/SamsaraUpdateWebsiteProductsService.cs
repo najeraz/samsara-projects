@@ -20,6 +20,7 @@ namespace SamsaraWebsiteUpdateDataService
         private static int oneMinute = 60000;
         private static long criticalInterval = 10 * oneMinute;
 
+        private static int numBrandsInsert = 50;
         private static int numProdutcsUpdate = 50;
         private static int numProdutcsInsert = 50;
         private static int numCategoriesInsert = 50;
@@ -85,6 +86,11 @@ namespace SamsaraWebsiteUpdateDataService
             }
             catch (Exception ex)
             {
+                try
+                {
+                    this.mySqlConnection.Close();
+                }
+                catch { }
                 eventLog1.WriteEntry("ERROR - MySQL Connection : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
@@ -99,11 +105,11 @@ namespace SamsaraWebsiteUpdateDataService
             }
             try
             {
-                this.UpdateStock();
+                this.UpdateProducts();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - UpdateStock : " + ex.Message, EventLogEntryType.Error);
+                eventLog1.WriteEntry("ERROR - UpdateProducts : " + ex.Message, EventLogEntryType.Error);
             }
             try
             {
@@ -149,6 +155,119 @@ namespace SamsaraWebsiteUpdateDataService
             }
 
             eventLog1.WriteEntry("Update Process - Stoped", EventLogEntryType.Information);
+        }
+
+        private void InsertNewBrands()
+        {
+            this.sqlServerDataAdapter = new SqlDataAdapter("SELECT cast(marca as int) marca FROM marcas_articulos",
+                this.sqlServerConnection);
+
+            DataSet ds = new DataSet();
+            this.sqlServerDataAdapter.Fill(ds, "Marcas");
+
+            IList<int> erpBrandsIds = ds.Tables["Marcas"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["marca"])).ToList();
+
+            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT codigo FROM marcas",
+                this.mySqlConnection);
+
+            ds = new DataSet();
+            this.mySqlDataAdapter.Fill(ds, "Brands");
+
+            IList<int> samsaraProjectsBrandsIds = ds.Tables["Brands"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["codigo"])).ToList();
+
+            IList<int> brandsToInsert = erpBrandsIds.Except(samsaraProjectsBrandsIds).ToList();
+
+            eventLog1.WriteEntry("Brands To Insert : " + brandsToInsert.Count, EventLogEntryType.Information);
+
+            do
+            {
+                string insertQuery = string.Empty;
+                IList<int> currentIds = brandsToInsert.Take(numBrandsInsert).ToList();
+
+                if (currentIds.Count == 0)
+                    break;
+
+                IList<int> marcasIds = currentIds;
+
+                string marcasStringIds = string.Join("','", marcasIds.ToArray());
+
+                if (marcasIds.Count > 0)
+                {
+                    this.sqlServerDataAdapter = new SqlDataAdapter(
+                        "SELECT marca, nombre_marca, comentarios FROM marcas_articulos WHERE cast(marca as int) IN ('"
+                        + marcasStringIds + "')", this.sqlServerConnection);
+
+                    ds = new DataSet();
+                    this.sqlServerDataAdapter.Fill(ds, "Marcas");
+
+                    foreach (DataRow row in ds.Tables["Marcas"].AsEnumerable())
+                    {
+                        insertQuery += string.Format(
+                            "INSERT INTO marcas (codigo, nombre, descripcion) "
+                            + "VALUES ({0}, '{1}', '{2}');\n",
+                            row["marca"].ToString().Trim(),
+                            row["nombre_marca"].ToString().Trim().Replace("'", "''"),
+                            row["comentarios"].ToString().Trim());
+                    }
+
+                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
+
+                brandsToInsert = brandsToInsert.Except(currentIds).ToList();
+            } while (true);
+
+        }
+
+        private void UpdateBrands()
+        {
+            this.sqlServerDataAdapter = new SqlDataAdapter(
+                "SELECT marca, nombre_marca, comentarios FROM marcas_articulos",
+                this.sqlServerConnection);
+
+            DataSet ds = new DataSet();
+            this.sqlServerDataAdapter.Fill(ds, "Marcas");
+
+            var currentBrandsStock = ds.Tables["Marcas"].AsEnumerable()
+                .Select(x => new
+                {
+                    id = Convert.ToInt32(x["marca"]),
+                    nombre = x["nombre_marca"].ToString().Trim(),
+                    comentarios = x["comentarios"].ToString().Trim()
+                }).ToList();
+
+            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT codigo, nombre, descripcion FROM marcas",
+                this.mySqlConnection);
+
+            ds = new DataSet();
+            this.mySqlDataAdapter.Fill(ds, "brands");
+
+            var oldBrands = ds.Tables["brands"].AsEnumerable()
+                .Select(x => new
+                {
+                    id = Convert.ToInt32(x["codigo"]),
+                    nombre = x["nombre"].ToString().Trim(),
+                    comentarios = x["descripcion"].ToString().Trim()
+                }).ToList();
+
+            var brandsToUpdate = currentBrandsStock.AsParallel().Where(x => x.nombre !=
+                oldBrands.Single(y => y.id == x.id).nombre ||
+                oldBrands.Single(y => y.id == x.id).comentarios != x.comentarios)
+                .ToList();
+
+            eventLog1.WriteEntry("Brands To Update : " + brandsToUpdate.Count, EventLogEntryType.Information);
+
+            foreach (var element in brandsToUpdate)
+            {
+                string updateQuery = string.Format(
+                    "UPDATE marcas SET descripcion = '{0}', nombre = '{1}' WHERE codigo = {2}",
+                    element.comentarios.Replace("'", "''"), element.nombre.Replace("'", "''"), element.id);
+
+                this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
+            }
         }
 
         private void UpdateCategories()
@@ -345,13 +464,17 @@ namespace SamsaraWebsiteUpdateDataService
 
         }
 
-        private void UpdateStock()
+        private void UpdateProducts()
         {
             sqlServerDataAdapter = new SqlDataAdapter(
-                    "SELECT a.clave_articulo, ea.stock FROM Articulos a "
-                    + "INNER JOIN ( SELECT sum(disponible) stock, articulo "
-                    + "FROM existencias_articulos ea GROUP BY ea.articulo "
-                    + ") ea ON ea.articulo = a.articulo", this.sqlServerConnection);
+                @"
+                    SELECT a.clave_articulo, ea.stock, cast(marca as int) marca,
+                    precio4, precio5 FROM Articulos a 
+                    INNER JOIN ( SELECT sum(disponible) stock, articulo,
+                    max(precio4) precio4, max(precio5) precio5
+                    FROM existencias_articulos ea GROUP BY ea.articulo
+                    ) ea ON ea.articulo = a.articulo
+                ", this.sqlServerConnection);
 
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
@@ -359,11 +482,17 @@ namespace SamsaraWebsiteUpdateDataService
             var currentProductsStock = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => new
                 {
-                    productoId = Convert.ToInt32(x["clave_articulo"]),
-                    stock = Convert.ToInt32(x["stock"])
+                    productId = Convert.ToInt32(x["clave_articulo"]),
+                    stock = Convert.ToInt32(x["stock"]),
+                    brand = x["marca"].ToString().Trim() == string.Empty ? "null" : x["marca"].ToString().Trim(),
+                    price4 = Convert.ToDecimal(x["precio4"]),
+                    price5 = Convert.ToDecimal(x["precio5"])
                 }).ToList();
 
-            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT codigo, stock FROM productos", this.mySqlConnection);
+            this.mySqlDataAdapter = new MySqlDataAdapter(
+                @"
+                    SELECT codigo, stock, codigo_marca, precio4, precio5 FROM productos
+                ", this.mySqlConnection);
 
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "productos");
@@ -371,13 +500,19 @@ namespace SamsaraWebsiteUpdateDataService
             var oldProductsStock = ds.Tables["productos"].AsEnumerable()
                 .Select(x => new
                 {
-                    productoId = Convert.ToInt32(x["codigo"]),
-                    stock = Convert.ToInt32(x["stock"])
+                    productId = Convert.ToInt32(x["codigo"]),
+                    stock = Convert.ToInt32(x["stock"]),
+                    brand = x["codigo_marca"].ToString().Trim() == string.Empty ? "null" : x["codigo_marca"].ToString().Trim(),
+                    price4 = Convert.ToDecimal(x["precio4"]),
+                    price5 = Convert.ToDecimal(x["precio5"])
                 }).ToList();
 
-            var stockToUpdate = currentProductsStock.AsParallel().Where(x => x.stock !=
-                oldProductsStock.Single(y => y.productoId == x.productoId).stock)
-                .OrderByDescending(x => x.productoId).ToList();
+            var stockToUpdate = currentProductsStock.AsParallel().Where(x =>
+                x.stock != oldProductsStock.Single(y => y.productId == x.productId).stock ||
+                x.brand != oldProductsStock.Single(y => y.productId == x.productId).brand ||
+                x.price4 != oldProductsStock.Single(y => y.productId == x.productId).price4 ||
+                x.price5 != oldProductsStock.Single(y => y.productId == x.productId).price5)
+                .OrderByDescending(x => x.productId).ToList();
 
             do
             {
@@ -390,8 +525,11 @@ namespace SamsaraWebsiteUpdateDataService
 
                 foreach (var element in currentElements)
                 {
-                    updateQuery += string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}';\n",
-                        element.stock, element.productoId);
+                    updateQuery += string.Format(@"
+                        UPDATE productos SET stock = {0}, codigo_marca = {1} , precio4 = {2} , precio5 = {3} 
+                        WHERE codigo = '{4}';
+                        ",
+                        element.stock, element.brand, element.price4, element.price5, element.productId);
                 }
 
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
@@ -435,22 +573,30 @@ namespace SamsaraWebsiteUpdateDataService
                 string allCodes = string.Join(",", currentCodes.ToArray());
 
                 sqlServerDataAdapter = new SqlDataAdapter(
-                    "SELECT a.clave_articulo, a.nombre_articulo, ea.stock FROM Articulos a "
-                    + "INNER JOIN ( SELECT sum(disponible) stock, articulo "
-                    + "FROM existencias_articulos ea GROUP BY ea.articulo "
-                    + ") ea ON ea.articulo = a.articulo WHERE a.clave_articulo in ("
-                    + allCodes + ")", this.sqlServerConnection);
+                    string.Format(@"
+                        SELECT a.clave_articulo, a.nombre_articulo, cast(marca as int) marca, 
+                        precio4, precio5, ea.stock
+                        FROM Articulos a INNER JOIN ( SELECT sum(disponible) stock, articulo,
+                        max(precio4) precio4, max(precio5) precio5
+                        FROM existencias_articulos ea GROUP BY ea.articulo
+                        ) ea ON ea.articulo = a.articulo WHERE a.clave_articulo in
+                        ({0})
+                    ", allCodes), this.sqlServerConnection);
 
                 ds = new DataSet();
                 sqlServerDataAdapter.Fill(ds, "Articulos");
 
                 foreach (DataRow row in ds.Tables["Articulos"].AsEnumerable())
                 {
-                    insertQuery += string.Format("INSERT INTO productos ("
-                        + "descripcion, foto, stock, codigo, nombre, descripcion_larga) "
-                        + "VALUES ('{0}', '{1}', {2}, {3}, '', '');\n",
+                    insertQuery += string.Format(@"
+                        INSERT INTO productos (descripcion, foto, stock, codigo, nombre, 
+                        descripcion_larga, codigo_marca, precio4, precio5)
+                        VALUES ('{0}', '{1}', {2}, {3}, '', '', {4}, {5}, {6});
+                        ",
                         row["nombre_articulo"].ToString().Trim().Replace("'", "''"),
-                        row["clave_articulo"] + ".jpg", row["stock"], row["clave_articulo"]);
+                        row["clave_articulo"] + ".jpg", row["stock"], row["clave_articulo"],
+                        row["marca"].ToString() == string.Empty ? "null" : row["marca"].ToString(),
+                        row["precio4"].ToString(), row["precio5"].ToString());
                 }
 
                 this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
