@@ -20,6 +20,7 @@ namespace SamsaraWebsiteUpdateDataService
         private static int oneMinute = 60000;
         private static long criticalInterval = 10 * oneMinute;
 
+        private static int numProdutcsUpdate = 50;
         private static int numProdutcsInsert = 50;
         private static int numCategoriesInsert = 50;
         private static int numProdutcsCategoriesInsert = 200;
@@ -374,18 +375,30 @@ namespace SamsaraWebsiteUpdateDataService
                     stock = Convert.ToInt32(x["stock"])
                 }).ToList();
 
-            var stockToUpdate = currentProductsStock.AsParallel().Where(x => x.productoId !=
+            var stockToUpdate = currentProductsStock.AsParallel().Where(x => x.stock !=
                 oldProductsStock.Single(y => y.productoId == x.productoId).stock)
                 .OrderByDescending(x => x.productoId).ToList();
 
-            foreach (var element in stockToUpdate)
+            do
             {
-                string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}'",
-                    element.stock, element.productoId);
+                var currentElements = stockToUpdate.Take(numProdutcsUpdate).ToList();
+
+                if (currentElements.Count == 0)
+                    break;
+
+                string updateQuery = string.Empty;
+
+                foreach (var element in currentElements)
+                {
+                    updateQuery += string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}';\n",
+                        element.stock, element.productoId);
+                }
 
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
-            }
+
+                stockToUpdate = stockToUpdate.Except(currentElements).ToList();
+            } while (true);
         }
 
         private void InsertNewProducts()
