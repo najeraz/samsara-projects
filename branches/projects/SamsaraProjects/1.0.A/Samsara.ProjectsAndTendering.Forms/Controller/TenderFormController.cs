@@ -453,7 +453,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             if (this.frmTender.txtDetTenderName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Licitación.",
+                MessageBox.Show("Favor de elegir un Número para la Licitación.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmTender.tabDetDetail.SelectedTab =
                     this.frmTender.tabDetDetail.TabPages["Principal"];
@@ -702,6 +702,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     pricingStrategy = new PricingStrategy();
                     tenderLine.PricingStrategy = pricingStrategy;
+                    pricingStrategy.PricingStrategyId = -pricingStrategy.GetHashCode();
                 }
 
                 pricingStrategy.ProfitMargin = Convert.ToDecimal(row["ProfitMargin"]);
@@ -1597,6 +1598,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
+
+                if (tenderLine.PricingStrategy == null)
+                {
+                    tenderLine.PricingStrategy = pricingStrategy = new PricingStrategy();
+                    tenderLine.PricingStrategy.PricingStrategyId = -pricingStrategy.GetHashCode();
+                }
+
                 DataRow drPricingStrategy = null;
 
                 if (tenderLine.TenderLineId <= 0)
@@ -1701,6 +1709,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     pricingStrategy = new PricingStrategy();
                     tenderLine.PricingStrategy = pricingStrategy;
+                    pricingStrategy.PricingStrategyId = -pricingStrategy.GetHashCode();
 
                     pricingStrategy.ProfitMargin = 5;
                     pricingStrategy.Activated = true;
@@ -1726,6 +1735,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     row["PricingStrategyId"] = -tenderLine.GetHashCode();
                     row["TenderLineId"] = -tenderLine.GetHashCode();
+                    pricingStrategy.PricingStrategyId = -tenderLine.GetHashCode();
                 }
                 else
                 {
@@ -2770,6 +2780,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 e.Cell.Column.Key.EndsWith("C"))
             {
                 string strColumnName = e.Cell.Column.Key;
+                int tenderLineId = Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value);
+                TenderLine tenderLine = null;
 
                 if (e.Cell.Column.Key.EndsWith("C"))
                     strColumnName = strColumnName.Replace("C", "");
@@ -2782,8 +2794,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 if (this.tenderLineCompetitor == null)
                 {
                     this.tenderLineCompetitor = new TenderLineCompetitor();
-                    TenderLine tenderLine = this.tender.TenderLines
-                        .Single(x => x.TenderLineId == Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value));
+
+                    if (tenderLineId <= 0)
+                        tenderLine = this.tender.TenderLines
+                            .Single(x => -x.GetHashCode() == tenderLineId);
+                    else
+                        tenderLine = this.tender.TenderLines
+                            .Single(x => x.TenderLineId == tenderLineId);
+
                     tenderLine.TenderLineCompetitors.Add(this.tenderLineCompetitor);
                     this.tenderLineCompetitor.Currency
                         = this.GetCurrency(Convert.ToInt32(e.Cell.Row.Cells[strColumnName + "C"].Value));
