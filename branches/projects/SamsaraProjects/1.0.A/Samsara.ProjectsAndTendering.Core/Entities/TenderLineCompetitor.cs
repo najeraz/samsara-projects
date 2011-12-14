@@ -47,7 +47,13 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual string Manufacturer
+        public virtual string Brand
+        {
+            get;
+            set;
+        }
+
+        public virtual string Model
         {
             get;
             set;

@@ -602,6 +602,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.OfferedPriceType = this.frmTender.optcDetOfferedPriceType.Value;
 
             this.LoadTenderManufacturers();
+            this.LoadTenderLines();
             this.LoadPricingEstrategy();
             this.LoadTenderWholesalers();
             this.LoadTenderCompetitors();
@@ -825,6 +826,29 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
         }
 
+        private void LoadTenderLines()
+        {
+            foreach (DataRow row in this.dtPriceComparison.Rows)
+            {
+                TenderLine tenderLine = null;
+
+                if (Convert.ToInt32(row["TenderLineId"]) <= 0)
+                    tenderLine = this.tender.TenderLines
+                        .Single(x => row["TenderLineId"] != DBNull.Value &&
+                            -x.GetHashCode() == Convert.ToInt32(row["TenderLineId"]));
+                else
+                    tenderLine = this.tender.TenderLines
+                        .Single(x => row["TenderLineId"] != DBNull.Value &&
+                            x.TenderLineId == Convert.ToInt32(row["TenderLineId"]) &&
+                            Convert.ToInt32(row["TenderLineId"]) > 0);
+
+                if (row["SelectedWholesalerId"] == DBNull.Value)
+                    tenderLine.Wholesaler = null;
+                else
+                    tenderLine.Wholesaler = this.GetWholesaler(Convert.ToInt32(row["SelectedWholesalerId"]));
+            }
+        }
+
         private void LoadTenderManufacturers()
         {
             foreach (TenderManufacturer tenderManufacturer in this.tender.TenderManufacturers)
@@ -935,7 +959,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ClearPreresultsControls()
         {
             this.frmTender.uceDetPreresultCurrency.Value = null;
-            this.frmTender.txtDetPreresultManufacturer.Value = null;
+            this.frmTender.txtDetPreresultBrand.Value = null;
+            this.frmTender.txtDetPreresultModel.Value = null;
             this.frmTender.txtDetPreresultCompetitor.Value = null;
             this.frmTender.txtDetPreresultsComments.Value = null;
             this.frmTender.umskDetPreresultPrice.Value = null;
@@ -2741,10 +2766,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             int columnName;
 
-            if (Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
-                && int.TryParse(e.Cell.Column.Key, out columnName) ||
-                Convert.ToInt32(e.Cell.Row.Cells["TenderLineId"].Value) > 0
-                && e.Cell.Column.Key.EndsWith("C"))
+            if (int.TryParse(e.Cell.Column.Key, out columnName) ||
+                e.Cell.Column.Key.EndsWith("C"))
             {
                 string strColumnName = e.Cell.Column.Key;
 
@@ -2775,7 +2798,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.uceDetPreresultCurrency.Value = this.GetCurrency(Convert.ToInt32(
                     e.Cell.Row.Cells[strColumnName + "C"].Value)).CurrencyId;
                 this.frmTender.txtDetPreresultCompetitor.Value = e.Cell.Column.Header.Caption;
-                this.frmTender.txtDetPreresultManufacturer.Value = this.tenderLineCompetitor.Manufacturer;
+                this.frmTender.txtDetPreresultBrand.Value = this.tenderLineCompetitor.Brand;
+                this.frmTender.txtDetPreresultModel.Value = this.tenderLineCompetitor.Model;
                 this.frmTender.umskDetPreresultPrice.Value = this.tenderLineCompetitor.Price;
                 this.frmTender.txtDetPreresultsComments.Value = this.tenderLineCompetitor.Description;
 
@@ -2817,7 +2841,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tenderLineCompetitor.Price = this.frmTender.umskDetPreresultPrice.Text.Trim() == string.Empty ?
                 null : (Nullable<Decimal>)Convert.ToDecimal(this.frmTender.umskDetPreresultPrice.Text) *
                 this.GetExchangeRate(Convert.ToInt32(activeCell.Row.Cells[strColumnName + "C"].Value));
-            this.tenderLineCompetitor.Manufacturer = this.frmTender.txtDetPreresultManufacturer.Text;
+            this.tenderLineCompetitor.Model = this.frmTender.txtDetPreresultModel.Text;
+            this.tenderLineCompetitor.Brand = this.frmTender.txtDetPreresultBrand.Text;
             this.tenderLineCompetitor.Description = this.frmTender.txtDetPreresultsComments.Text;
             this.tenderLineCompetitor.Currency
                 = this.GetCurrency(Convert.ToInt32(this.frmTender.uceDetPreresultCurrency.Value));
