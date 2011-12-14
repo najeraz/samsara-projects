@@ -15,7 +15,7 @@ using MySql.Data.MySqlClient;
 
 namespace SamsaraWebsiteUpdateDataService
 {
-    partial class UpdateWebsiteProductsService : ServiceBase
+    partial class SamsaraUpdateWebsiteProductsService : ServiceBase
     {
         private static int oneMinute = 60000;
         private static long criticalInterval = 10 * oneMinute;
@@ -38,7 +38,7 @@ namespace SamsaraWebsiteUpdateDataService
         private MySqlDataAdapter mySqlDataAdapter;
         private MySqlCommand mySqlCommand;
 
-        public UpdateWebsiteProductsService()
+        public SamsaraUpdateWebsiteProductsService()
         {
             InitializeComponent();
             this.sqlServerConnection = new SqlConnection(ConnectionStrings.SqlServerConnectionString);

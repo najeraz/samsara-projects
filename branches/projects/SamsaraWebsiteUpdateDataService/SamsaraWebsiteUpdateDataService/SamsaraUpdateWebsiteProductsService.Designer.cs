@@ -1,6 +1,6 @@
 ﻿namespace SamsaraWebsiteUpdateDataService
 {
-    partial class UpdateWebsiteProductsService
+    partial class SamsaraUpdateWebsiteProductsService
     {
         /// <summary> 
         /// Required designer variable.
