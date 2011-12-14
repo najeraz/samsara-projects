@@ -11,7 +11,8 @@
 
     <property name="Price"/>
     <property name="Description"/>
-    <property name="Manufacturer"/>
+    <property name="Brand"/>
+    <property name="Model"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
