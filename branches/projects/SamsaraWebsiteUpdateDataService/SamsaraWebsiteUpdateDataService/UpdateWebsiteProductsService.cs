@@ -355,26 +355,33 @@ namespace SamsaraWebsiteUpdateDataService
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            Dictionary<int, int> currentProductsStock = ds.Tables["Articulos"].AsEnumerable()
-                .ToDictionary(x => Convert.ToInt32(x["clave_articulo"]), x => Convert.ToInt32(x["stock"]));
+            var currentProductsStock = ds.Tables["Articulos"].AsEnumerable()
+                .Select(x => new
+                {
+                    productoId = Convert.ToInt32(x["clave_articulo"]),
+                    stock = Convert.ToInt32(x["stock"])
+                }).ToList();
 
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT codigo, stock FROM productos", this.mySqlConnection);
 
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "productos");
 
-            Dictionary<int, int> oldProductsStock = ds.Tables["productos"].AsEnumerable()
-                .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => Convert.ToInt32(x["stock"]));
+            var oldProductsStock = ds.Tables["productos"].AsEnumerable()
+                .Select(x => new
+                {
+                    productoId = Convert.ToInt32(x["codigo"]),
+                    stock = Convert.ToInt32(x["stock"])
+                }).ToList();
 
-            Dictionary<int, int> stockToUpdate = oldProductsStock.Where(x => x.Value != oldProductsStock[x.Key])
-                .ToDictionary(x => x.Key, x => x.Value);
+            var stockToUpdate = currentProductsStock.AsParallel().Where(x => x.productoId !=
+                oldProductsStock.Single(y => y.productoId == x.productoId).stock)
+                .OrderByDescending(x => x.productoId).ToList();
 
-            eventLog1.WriteEntry("Stock To Update : " + stockToUpdate.Count, EventLogEntryType.Information);
-
-            foreach (KeyValuePair<int, int> element in stockToUpdate)
+            foreach (var element in stockToUpdate)
             {
                 string updateQuery = string.Format("UPDATE productos SET stock = {0} WHERE codigo = '{1}'",
-                    element.Value, element.Key);
+                    element.stock, element.productoId);
 
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
