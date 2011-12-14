@@ -60,19 +60,19 @@
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateWebsiteProductsService.cs">
+    <Compile Include="SamsaraUpdateWebsiteProductsService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UpdateWebsiteProductsService.Designer.cs">
-      <DependentUpon>UpdateWebsiteProductsService.cs</DependentUpon>
+    <Compile Include="SamsaraUpdateWebsiteProductsService.Designer.cs">
+      <DependentUpon>SamsaraUpdateWebsiteProductsService.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateWebsiteProductsService.resx">
-      <DependentUpon>UpdateWebsiteProductsService.cs</DependentUpon>
+    <EmbeddedResource Include="SamsaraUpdateWebsiteProductsService.resx">
+      <DependentUpon>SamsaraUpdateWebsiteProductsService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

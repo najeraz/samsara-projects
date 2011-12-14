@@ -12,7 +12,7 @@ namespace SamsaraWebsiteUpdateDataService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
 			{ 
-				new UpdateWebsiteProductsService() 
+				new SamsaraUpdateWebsiteProductsService() 
 			};
             ServiceBase.Run(ServicesToRun);
         }
