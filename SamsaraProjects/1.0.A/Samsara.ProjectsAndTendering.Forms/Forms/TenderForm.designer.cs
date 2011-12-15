@@ -50,11 +50,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance70 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance71 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance72 = new Infragistics.Win.Appearance();
-            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters3 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters3 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters3 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters3 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters3 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
             Infragistics.Win.Appearance appearance109 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance110 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance111 = new Infragistics.Win.Appearance();
@@ -92,7 +92,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance59 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance60 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance134 = new Infragistics.Win.Appearance();
-            Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters offeredPriceTypeParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters offeredPriceTypeParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.OfferedPriceTypeParameters();
             Infragistics.Win.Appearance appearance73 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance74 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance75 = new Infragistics.Win.Appearance();
@@ -185,11 +185,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
-            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -258,9 +258,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.unplDetPreresultsDetail = new Infragistics.Win.Misc.UltraPanel();
             this.uceDetPreresultCurrency = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.umskDetPreresultPrice = new Infragistics.Win.UltraWinMaskedEdit.UltraMaskedEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblDetPreresultManufacturer = new System.Windows.Forms.Label();
             this.lblDetPreresultPrice = new System.Windows.Forms.Label();
             this.lblDetPreresultCompetitor = new System.Windows.Forms.Label();
+            this.txtDetPreresultModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtDetPreresultBrand = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtDetPreresultCompetitor = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.upnlDetPreresultButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -352,8 +354,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
             this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
             this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
-            this.txtDetPreresultModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -408,6 +408,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.unplDetPreresultsDetail.ClientArea.SuspendLayout();
             this.unplDetPreresultsDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetPreresultCurrency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultBrand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultCompetitor)).BeginInit();
             this.upnlDetPreresultButtons.ClientArea.SuspendLayout();
@@ -472,13 +473,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).BeginInit();
             this.ubgxSchFechas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultModel)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 448);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(829, 25);
             // 
             // gbxSearchParameters
             // 
@@ -837,8 +836,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscDetTenderSubstatus.DisplayMember = "Name";
             this.tscDetTenderSubstatus.Location = new System.Drawing.Point(174, 361);
             this.tscDetTenderSubstatus.Name = "tscDetTenderSubstatus";
-            tenderSubstatusParameters3.Name = null;
-            this.tscDetTenderSubstatus.Parameters = tenderSubstatusParameters3;
+            tenderSubstatusParameters2.Name = null;
+            this.tscDetTenderSubstatus.Parameters = tenderSubstatusParameters2;
             this.tscDetTenderSubstatus.ReadOnly = false;
             this.tscDetTenderSubstatus.Size = new System.Drawing.Size(226, 22);
             this.tscDetTenderSubstatus.TabIndex = 96;
@@ -869,8 +868,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscDetTenderStatus.DisplayMember = "Name";
             this.tscDetTenderStatus.Location = new System.Drawing.Point(174, 333);
             this.tscDetTenderStatus.Name = "tscDetTenderStatus";
-            tenderStatusParameters3.Name = null;
-            this.tscDetTenderStatus.Parameters = tenderStatusParameters3;
+            tenderStatusParameters2.Name = null;
+            this.tscDetTenderStatus.Parameters = tenderStatusParameters2;
             this.tscDetTenderStatus.ReadOnly = false;
             this.tscDetTenderStatus.Size = new System.Drawing.Size(226, 22);
             this.tscDetTenderStatus.TabIndex = 95;
@@ -893,11 +892,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.acDetAsesor.DisplayMember = "Name";
             this.acDetAsesor.Location = new System.Drawing.Point(174, 305);
             this.acDetAsesor.Name = "acDetAsesor";
-            asesorParameters3.FullName = null;
-            asesorParameters3.Name = null;
-            asesorParameters3.ShowAll = null;
-            asesorParameters3.ShowApprovers = null;
-            this.acDetAsesor.Parameters = asesorParameters3;
+            asesorParameters2.FullName = null;
+            asesorParameters2.Name = null;
+            asesorParameters2.ShowAll = null;
+            asesorParameters2.ShowApprovers = null;
+            this.acDetAsesor.Parameters = asesorParameters2;
             this.acDetAsesor.ReadOnly = false;
             this.acDetAsesor.Size = new System.Drawing.Size(226, 22);
             this.acDetAsesor.TabIndex = 94;
@@ -919,9 +918,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.dcDetDependency.DisplayMember = "Name";
             this.dcDetDependency.Location = new System.Drawing.Point(174, 58);
             this.dcDetDependency.Name = "dcDetDependency";
-            dependencyParameters3.BidderId = null;
-            dependencyParameters3.Name = null;
-            this.dcDetDependency.Parameters = dependencyParameters3;
+            dependencyParameters2.BidderId = null;
+            dependencyParameters2.Name = null;
+            this.dcDetDependency.Parameters = dependencyParameters2;
             this.dcDetDependency.ReadOnly = false;
             this.dcDetDependency.Size = new System.Drawing.Size(226, 22);
             this.dcDetDependency.TabIndex = 92;
@@ -944,9 +943,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.bcDetBidder.DisplayMember = "Name";
             this.bcDetBidder.Location = new System.Drawing.Point(174, 3);
             this.bcDetBidder.Name = "bcDetBidder";
-            bidderParameters3.BidderTypeId = null;
-            bidderParameters3.Name = null;
-            this.bcDetBidder.Parameters = bidderParameters3;
+            bidderParameters2.BidderTypeId = null;
+            bidderParameters2.Name = null;
+            this.bcDetBidder.Parameters = bidderParameters2;
             this.bcDetBidder.ReadOnly = false;
             this.bcDetBidder.Size = new System.Drawing.Size(226, 22);
             this.bcDetBidder.TabIndex = 91;
@@ -1389,8 +1388,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.optcDetOfferedPriceType.Dock = System.Windows.Forms.DockStyle.Right;
             this.optcDetOfferedPriceType.Location = new System.Drawing.Point(575, 0);
             this.optcDetOfferedPriceType.Name = "optcDetOfferedPriceType";
-            offeredPriceTypeParameters2.Name = null;
-            this.optcDetOfferedPriceType.Parameters = offeredPriceTypeParameters2;
+            offeredPriceTypeParameters1.Name = null;
+            this.optcDetOfferedPriceType.Parameters = offeredPriceTypeParameters1;
             this.optcDetOfferedPriceType.ReadOnly = false;
             this.optcDetOfferedPriceType.Size = new System.Drawing.Size(226, 25);
             this.optcDetOfferedPriceType.TabIndex = 88;
@@ -1625,6 +1624,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.umskDetPreresultPrice.Size = new System.Drawing.Size(126, 20);
             this.umskDetPreresultPrice.TabIndex = 84;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "Modelo:";
+            // 
             // lblDetPreresultManufacturer
             // 
             this.lblDetPreresultManufacturer.AutoSize = true;
@@ -1651,6 +1659,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblDetPreresultCompetitor.Size = new System.Drawing.Size(72, 13);
             this.lblDetPreresultCompetitor.TabIndex = 81;
             this.lblDetPreresultCompetitor.Text = "Competencia:";
+            // 
+            // txtDetPreresultModel
+            // 
+            this.txtDetPreresultModel.Location = new System.Drawing.Point(87, 81);
+            this.txtDetPreresultModel.Name = "txtDetPreresultModel";
+            this.txtDetPreresultModel.Size = new System.Drawing.Size(207, 21);
+            this.txtDetPreresultModel.TabIndex = 79;
             // 
             // txtDetPreresultBrand
             // 
@@ -2821,9 +2836,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.dcSchDependency.DisplayMember = "Name";
             this.dcSchDependency.Location = new System.Drawing.Point(142, 78);
             this.dcSchDependency.Name = "dcSchDependency";
-            dependencyParameters2.BidderId = null;
-            dependencyParameters2.Name = null;
-            this.dcSchDependency.Parameters = dependencyParameters2;
+            dependencyParameters1.BidderId = null;
+            dependencyParameters1.Name = null;
+            this.dcSchDependency.Parameters = dependencyParameters1;
             this.dcSchDependency.ReadOnly = false;
             this.dcSchDependency.Size = new System.Drawing.Size(226, 22);
             this.dcSchDependency.TabIndex = 87;
@@ -2836,9 +2851,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.bcSchBidder.DisplayMember = "Name";
             this.bcSchBidder.Location = new System.Drawing.Point(142, 50);
             this.bcSchBidder.Name = "bcSchBidder";
-            bidderParameters2.BidderTypeId = null;
-            bidderParameters2.Name = null;
-            this.bcSchBidder.Parameters = bidderParameters2;
+            bidderParameters1.BidderTypeId = null;
+            bidderParameters1.Name = null;
+            this.bcSchBidder.Parameters = bidderParameters1;
             this.bcSchBidder.ReadOnly = false;
             this.bcSchBidder.Size = new System.Drawing.Size(226, 22);
             this.bcSchBidder.TabIndex = 86;
@@ -2851,11 +2866,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.acSchAsesor.DisplayMember = "Name";
             this.acSchAsesor.Location = new System.Drawing.Point(478, 23);
             this.acSchAsesor.Name = "acSchAsesor";
-            asesorParameters2.FullName = null;
-            asesorParameters2.Name = null;
-            asesorParameters2.ShowAll = null;
-            asesorParameters2.ShowApprovers = null;
-            this.acSchAsesor.Parameters = asesorParameters2;
+            asesorParameters1.FullName = null;
+            asesorParameters1.Name = null;
+            asesorParameters1.ShowAll = null;
+            asesorParameters1.ShowApprovers = null;
+            this.acSchAsesor.Parameters = asesorParameters1;
             this.acSchAsesor.ReadOnly = false;
             this.acSchAsesor.Size = new System.Drawing.Size(226, 22);
             this.acSchAsesor.TabIndex = 89;
@@ -2868,8 +2883,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderStatus.DisplayMember = "Name";
             this.tscSchTenderStatus.Location = new System.Drawing.Point(478, 51);
             this.tscSchTenderStatus.Name = "tscSchTenderStatus";
-            tenderStatusParameters2.Name = null;
-            this.tscSchTenderStatus.Parameters = tenderStatusParameters2;
+            tenderStatusParameters1.Name = null;
+            this.tscSchTenderStatus.Parameters = tenderStatusParameters1;
             this.tscSchTenderStatus.ReadOnly = false;
             this.tscSchTenderStatus.Size = new System.Drawing.Size(226, 22);
             this.tscSchTenderStatus.TabIndex = 90;
@@ -2882,8 +2897,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderSubstatus.DisplayMember = "Name";
             this.tscSchTenderSubstatus.Location = new System.Drawing.Point(478, 79);
             this.tscSchTenderSubstatus.Name = "tscSchTenderSubstatus";
-            tenderSubstatusParameters2.Name = null;
-            this.tscSchTenderSubstatus.Parameters = tenderSubstatusParameters2;
+            tenderSubstatusParameters1.Name = null;
+            this.tscSchTenderSubstatus.Parameters = tenderSubstatusParameters1;
             this.tscSchTenderSubstatus.ReadOnly = false;
             this.tscSchTenderSubstatus.Size = new System.Drawing.Size(226, 22);
             this.tscSchTenderSubstatus.TabIndex = 98;
@@ -2898,22 +2913,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblSchTenderSubstatus.Size = new System.Drawing.Size(63, 13);
             this.lblSchTenderSubstatus.TabIndex = 97;
             this.lblSchTenderSubstatus.Text = "Subestatus:";
-            // 
-            // txtDetPreresultModel
-            // 
-            this.txtDetPreresultModel.Location = new System.Drawing.Point(87, 81);
-            this.txtDetPreresultModel.Name = "txtDetPreresultModel";
-            this.txtDetPreresultModel.Size = new System.Drawing.Size(207, 21);
-            this.txtDetPreresultModel.TabIndex = 79;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 83;
-            this.label1.Text = "Modelo:";
             // 
             // TenderForm
             // 
@@ -2986,6 +2985,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.unplDetPreresultsDetail.ClientArea.PerformLayout();
             this.unplDetPreresultsDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uceDetPreresultCurrency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultModel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultBrand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultCompetitor)).EndInit();
             this.upnlDetPreresultButtons.ClientArea.ResumeLayout(false);
@@ -3056,7 +3056,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ubgxSchFechas.ResumeLayout(false);
             this.ubgxSchFechas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPreresultModel)).EndInit();
             this.ResumeLayout(false);
 
         }
