@@ -943,6 +943,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.uchkDetAddExtraCosts.Checked = false;
             this.frmTender.uchkDetProrateWarranties.Checked = false;
             this.frmTender.mtoDetTenderLines.ClearControls();
+
+            this.uchkDetAddExtraCosts_CheckedChanged(null, null);
+            this.uchkDetProrateWarranties_CheckedChanged(null, null);
         }
 
         private void ClearSearchControls()
