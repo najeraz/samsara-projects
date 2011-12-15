@@ -1666,7 +1666,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 }
 
                 pricingStrategy.UnitProfit = pricingStrategy.UnitPriceBeforeTax
-                    * pricingStrategy.ProfitMargin;
+                    * pricingStrategy.ProfitMargin / 100M;
 
                 pricingStrategy.TenderLineProfit = pricingStrategy.UnitProfit
                     * tenderLine.Quantity;
