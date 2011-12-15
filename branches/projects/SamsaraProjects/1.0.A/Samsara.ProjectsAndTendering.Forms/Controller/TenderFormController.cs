@@ -1237,7 +1237,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             bool createdFlag = false;
             int intColumnName;
 
-            if (this.dtPriceComparison == null)
+            if (this.dtPriceComparison.Columns.Count == 0)
             {
                 this.dtPriceComparison = new DataTable();
                 createdFlag = true;
@@ -1433,7 +1433,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             int intColumnName;
 
-            if (this.dtPreresults == null)
+            if (this.dtPreresults.Columns.Count == 0)
             {
                 this.dtPreresults = new DataTable();
             }
@@ -1583,7 +1583,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             decimal warrantiesSummary = 0;
             decimal totalLineBeforeTaxSummary = 0;
 
-            if (this.tender.ProrateWarranties)
+            if (this.frmTender.uchkDetProrateWarranties.Checked)
             {
                 foreach (DataRow rowW in this.dtTenderWarranties.Rows)
                 {
@@ -1597,6 +1597,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
+                decimal proratedWarrantiesSummary = 0;
+                decimal extraCostsSummary = 0;
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
 
                 if (tenderLine.PricingStrategy == null)
@@ -1630,6 +1632,33 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     || drPricingStrategy["WholesalerId"] == DBNull.Value ?
                     pricingStrategy.Wholesaler : this.GetWholesaler(Convert.ToInt32(drPricingStrategy["WholesalerId"]));
 
+                if (this.frmTender.uchkDetAddExtraCosts.Checked)
+                {
+                    extraCostsSummary = drPricingStrategy == null
+                        || drPricingStrategy["ExtraCosts"] == DBNull.Value ?
+                        0M : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
+                }
+
+                if (this.frmTender.uchkDetProrateWarranties.Checked)
+                {
+                    try
+                    {
+                        proratedWarrantiesSummary = ((pricingStrategy.UnitPriceBeforeTax * tenderLine.Quantity)
+                            / totalLineBeforeTaxSummary) * warrantiesSummary;
+                    }
+                    catch
+                    {
+                        proratedWarrantiesSummary = 0;
+                    }
+                }
+
+                if (drPricingStrategy != null)
+                    drPricingStrategy["Warranties"] = proratedWarrantiesSummary;
+
+                pricingStrategy.UnitPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
+                    * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA)) + proratedWarrantiesSummary / tenderLine.Quantity
+                    + extraCostsSummary;
+
                 try
                 {
                     pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
@@ -1654,51 +1683,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 pricingStrategy.TotalPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
                     * tenderLine.Quantity;
 
-                //pricingStrategy.OfferedTotalPrice
-                //    = pricingStrategy.OfferedUnitaryPrice * tenderLine.Quantity;
-            }
-
-            foreach (TenderLine tenderLine in this.tender.TenderLines)
-            {
-                decimal proratedWarrantiesSummary = 0;
-                decimal extraCostsSummary = 0;
-
-                PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
-                DataRow drPricingStrategy = null;
-
-                if (tenderLine.TenderLineId <= 0)
-                    drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
-                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == -tenderLine.GetHashCode());
-                else
-                    drPricingStrategy = this.dtPricingStrategy.AsEnumerable()
-                        .SingleOrDefault(x => Convert.ToInt32(x["PricingStrategyId"]) == tenderLine.TenderLineId);
-
-                if (this.tender.AddExtraCosts)
-                {
-                    extraCostsSummary = drPricingStrategy == null
-                        || drPricingStrategy["ExtraCosts"] == DBNull.Value ?
-                        0M : Convert.ToDecimal(drPricingStrategy["ExtraCosts"]);
-                }
-            
-                if (this.tender.ProrateWarranties)
-                {
-                    try
-                    {
-                        proratedWarrantiesSummary = ((pricingStrategy.UnitPriceBeforeTax * tenderLine.Quantity) 
-                            / totalLineBeforeTaxSummary) * warrantiesSummary;
-                    }
-                    catch
-                    {
-                        proratedWarrantiesSummary = 0;
-                    }
-                }
-
-                if (drPricingStrategy != null)
-                    drPricingStrategy["Warranties"] = proratedWarrantiesSummary;
-
-                pricingStrategy.TotalPriceAfterTax = pricingStrategy.TotalPriceBeforeTax
-                    * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA)) + proratedWarrantiesSummary
-                    + extraCostsSummary;
+                pricingStrategy.OfferedTotalPrice
+                    = pricingStrategy.OfferedUnitaryPrice * tenderLine.Quantity;
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
@@ -2345,7 +2331,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                 if (tenderLineId <= 0)
                     tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
-                        .SingleOrDefault(x => -x.GetHashCode() == tenderLineId
+                        .SingleOrDefault(x => -x.TenderLine.GetHashCode() == tenderLineId
                         && x.Wholesaler.WholesalerId.ToString() == strColumnName);
                 else
                     tenderLineWholesaler = this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
@@ -2493,7 +2479,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
                     drTenderExchangeRate["SourceCurrency.CurrencyId"] = Convert.ToInt32(editor.Value);
                     drTenderExchangeRate["DestinyCurrency.CurrencyId"] = this.defaultCurrency.CurrencyId;
-                    drTenderExchangeRate["Rate"] = 0.00;
+                    drTenderExchangeRate["Rate"] = 1M;
 
                     this.dtTenderExchangeRates.AcceptChanges();
                 }
@@ -2566,7 +2552,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedTotalPrice"],
                 TextMaskFormatEnum.Currency);
             WindowsFormsUtil.AddUltraGridSummary(band, band.Columns["OfferedTotalPrice"]);
-            band.Columns["OfferedTotalPrice"].CellActivation = Activation.AllowEdit;
+            band.Columns["OfferedTotalPrice"].CellActivation = Activation.ActivateOnly;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["OfferedUnitaryPrice"],
                 TextMaskFormatEnum.Currency);
@@ -3107,8 +3093,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             UltraGridBand band = this.frmTender.grdDetPricingStrategy.DisplayLayout.Bands[0];
 
-            this.tender.AddExtraCosts = this.frmTender.uchkDetAddExtraCosts.Checked;
-            band.Columns["ExtraCosts"].Hidden = !this.tender.AddExtraCosts;
+            band.Columns["ExtraCosts"].Hidden = !this.frmTender.uchkDetAddExtraCosts.Checked;
             this.UpdatePricingStrategyGrid();
         }
 
@@ -3116,8 +3101,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             UltraGridBand band = this.frmTender.grdDetPricingStrategy.DisplayLayout.Bands[0];
 
-            this.tender.ProrateWarranties = this.frmTender.uchkDetProrateWarranties.Checked;
-            band.Columns["Warranties"].Hidden = !this.tender.ProrateWarranties;
+            band.Columns["Warranties"].Hidden = !this.frmTender.uchkDetProrateWarranties.Checked;
             this.UpdatePricingStrategyGrid();
         }
 
