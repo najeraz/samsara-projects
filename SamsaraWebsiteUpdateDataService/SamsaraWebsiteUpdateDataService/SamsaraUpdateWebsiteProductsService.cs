@@ -479,7 +479,7 @@ namespace SamsaraWebsiteUpdateDataService
             DataSet ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
-            var currentProductsStock = ds.Tables["Articulos"].AsEnumerable()
+            var currentProducts = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => new
                 {
                     productId = Convert.ToInt32(x["clave_articulo"]),
@@ -497,7 +497,7 @@ namespace SamsaraWebsiteUpdateDataService
             ds = new DataSet();
             this.mySqlDataAdapter.Fill(ds, "productos");
 
-            var oldProductsStock = ds.Tables["productos"].AsEnumerable()
+            var oldProducts = ds.Tables["productos"].AsEnumerable()
                 .Select(x => new
                 {
                     productId = Convert.ToInt32(x["codigo"]),
@@ -507,16 +507,16 @@ namespace SamsaraWebsiteUpdateDataService
                     price5 = Convert.ToDecimal(x["precio5"])
                 }).ToList();
 
-            var stockToUpdate = currentProductsStock.AsParallel().Where(x =>
-                x.stock != oldProductsStock.Single(y => y.productId == x.productId).stock ||
-                x.brand != oldProductsStock.Single(y => y.productId == x.productId).brand ||
-                x.price4 != oldProductsStock.Single(y => y.productId == x.productId).price4 ||
-                x.price5 != oldProductsStock.Single(y => y.productId == x.productId).price5)
+            var productsToUpdate = currentProducts.AsParallel().Where(x =>
+                x.stock != oldProducts.Single(y => y.productId == x.productId).stock ||
+                x.brand != oldProducts.Single(y => y.productId == x.productId).brand ||
+                x.price4 != oldProducts.Single(y => y.productId == x.productId).price4 ||
+                x.price5 != oldProducts.Single(y => y.productId == x.productId).price5)
                 .OrderByDescending(x => x.productId).ToList();
 
             do
             {
-                var currentElements = stockToUpdate.Take(numProdutcsUpdate).ToList();
+                var currentElements = productsToUpdate.Take(numProdutcsUpdate).ToList();
 
                 if (currentElements.Count == 0)
                     break;
@@ -535,7 +535,7 @@ namespace SamsaraWebsiteUpdateDataService
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
 
-                stockToUpdate = stockToUpdate.Except(currentElements).ToList();
+                productsToUpdate = productsToUpdate.Except(currentElements).ToList();
             } while (true);
         }
 
