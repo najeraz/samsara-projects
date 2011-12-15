@@ -1581,7 +1581,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void UpdatePricingStrategyGrid()
         {
             decimal warrantiesSummary = 0;
-            decimal totalLineBeforeTaxSummary = 0;
 
             if (this.frmTender.uchkDetProrateWarranties.Checked)
             {
@@ -1597,14 +1596,14 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderLine tenderLine in this.tender.TenderLines)
             {
-                decimal proratedWarrantiesSummary = 0;
+                decimal proratedLineWarranties = 0;
                 decimal extraCostsSummary = 0;
                 PricingStrategy pricingStrategy = tenderLine.PricingStrategy;
 
                 if (tenderLine.PricingStrategy == null)
                 {
                     tenderLine.PricingStrategy = pricingStrategy = new PricingStrategy();
-                    tenderLine.PricingStrategy.PricingStrategyId = -pricingStrategy.GetHashCode();
+                    tenderLine.PricingStrategy.PricingStrategyId = -tenderLine.GetHashCode();
                 }
 
                 DataRow drPricingStrategy = null;
@@ -1643,36 +1642,31 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     try
                     {
-                        proratedWarrantiesSummary = ((pricingStrategy.UnitPriceBeforeTax * tenderLine.Quantity)
-                            / totalLineBeforeTaxSummary) * warrantiesSummary;
+                        proratedLineWarranties = ((pricingStrategy.SelectedPrice * tenderLine.Quantity)
+                            / this.tender.TenderLines.Sum(x => x.PricingStrategy.SelectedPrice * x.Quantity)) * warrantiesSummary;
                     }
                     catch
                     {
-                        proratedWarrantiesSummary = 0;
+                        proratedLineWarranties = 0;
                     }
                 }
 
                 if (drPricingStrategy != null)
-                    drPricingStrategy["Warranties"] = proratedWarrantiesSummary;
-
-                pricingStrategy.UnitPriceBeforeTax = pricingStrategy.UnitPriceBeforeTax
-                    * (1 + TaxesUtil.GetTaxPercent(TaxEnum.IVA)) + proratedWarrantiesSummary / tenderLine.Quantity
-                    + extraCostsSummary;
+                    drPricingStrategy["Warranties"] = proratedLineWarranties;
 
                 try
                 {
                     pricingStrategy.UnitPriceBeforeTax = pricingStrategy.SelectedPrice
-                        / (1 - pricingStrategy.ProfitMargin / 100M);
+                        / (1 - pricingStrategy.ProfitMargin / 100M)
+                        + proratedLineWarranties / tenderLine.Quantity + extraCostsSummary;
                 }
                 catch
                 {
                     pricingStrategy.UnitPriceBeforeTax = 0;
                 }
 
-                totalLineBeforeTaxSummary += pricingStrategy.UnitPriceBeforeTax * tenderLine.Quantity;
-
                 pricingStrategy.UnitProfit = pricingStrategy.UnitPriceBeforeTax
-                    - pricingStrategy.SelectedPrice;
+                    * pricingStrategy.ProfitMargin;
 
                 pricingStrategy.TenderLineProfit = pricingStrategy.UnitProfit
                     * tenderLine.Quantity;
