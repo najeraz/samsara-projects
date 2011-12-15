@@ -934,8 +934,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderWholesalers.Rows.Clear();
             this.dtTenderWarranties.Rows.Clear();
             this.dtTenderLog.Rows.Clear();
-            this.dtPriceComparison = null;
-            this.dtPreresults = null;
+            this.dtPriceComparison = new DataTable();
+            this.dtPreresults = new DataTable();
             this.dtPricingStrategy.Rows.Clear();
             this.frmTender.grdDetPriceComparison.DataSource = null;
             this.frmTender.grdDetPreresults.DataSource = null;
