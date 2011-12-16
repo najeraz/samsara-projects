@@ -130,8 +130,8 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             get;
             set;
         }
-            
-        public virtual string Address
+
+        public virtual string Comments
         {
             get;
             set;

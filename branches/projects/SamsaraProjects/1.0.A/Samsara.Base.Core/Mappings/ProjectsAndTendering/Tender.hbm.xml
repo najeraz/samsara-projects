@@ -21,7 +21,7 @@
     <property name="PricingStrategy"/>
     <property name="PriceComparison"/>
     <property name="Results"/>
-    <property name="Address"/>
+    <property name="Comments"/>
     <property name="VerdictDate"/>
     <property name="Deleted"/>
     <property name="Activated"/>
@@ -136,11 +136,11 @@
     <return-scalar column="VerdictDate" type="DateTime"/>
     <return-scalar column="TenderStatusName" type="string"/>
     <return-scalar column="ApproverName" type="string"/>
-    <return-scalar column="PreviousTenderName" type="string"/>
+    <return-scalar column="Comments" type="string"/>
     <![CDATA[
       SELECT t.TenderId, t.RegistrationDate, b.Name BidderName, t.Name TenderName,
       d.Name DependencyName, a.Name AsesorName, t.PreRevisionDate, t.Deadline, t.VerdictDate, 
-      ts.Name TenderStatusName, ap.Name ApproverName, pt.Name PreviousTenderName
+      ts.Name TenderStatusName, ap.Name ApproverName, t.Comments
       FROM ProjectsAndTendering.Tenders t
       INNER JOIN  ProjectsAndTendering.Bidders b	    		ON b.BidderId = t.BidderId AND b.Deleted = 0 and b.Activated = 1
       LEFT JOIN   ProjectsAndTendering.Asesors a		    	ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1

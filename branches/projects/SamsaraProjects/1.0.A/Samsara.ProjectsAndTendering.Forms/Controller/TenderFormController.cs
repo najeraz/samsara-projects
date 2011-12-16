@@ -422,8 +422,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.uosSchDates.Value = -1;
             this.frmTender.HiddenDetail(true);
 
-            this.frmTender.tscPreviousTender.DisplayMember = "Name";
-            this.frmTender.tscPreviousTender.SearchForm = this.frmTender;
             this.frmTender.oscDetRelatedOpportunity.DisplayMember = "Name";
             this.frmTender.oscDetRelatedOpportunity.SearchForm = new OpportunityForm();
             this.ClearSearchControls();
@@ -588,13 +586,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.tender.PreRevisionDate = null;
             this.tender.RegistrationDate = (Nullable<DateTime>)this.frmTender.dteDetRegistrationDate.Value;
             this.tender.VerdictDate = null;
-            this.tender.Address = string.Empty;
+            this.tender.Comments = this.frmTender.txtDetComments.Text;
             this.tender.AcquisitionReason = this.frmTender.txtDetAcquisitionReason.Text;
             this.tender.PricingStrategy = this.frmTender.txtDetPricingStrategy.Text;
             this.tender.Results = this.frmTender.txtDetResults.Text;
             this.tender.PreResults = this.frmTender.txtDetPreResults.Text;
             this.tender.Name = this.frmTender.txtDetTenderName.Text;
-            this.tender.PreviousTender = this.frmTender.tscPreviousTender.Value;
+            this.tender.PreviousTender = null;
             this.tender.Opportunity = this.frmTender.oscDetRelatedOpportunity.Value;
             this.tender.PriceComparison = this.frmTender.txtDetPriceComparison.Text;
             this.tender.AddExtraCosts = this.frmTender.uchkDetAddExtraCosts.Checked;
@@ -925,7 +923,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.dteDetDeadline.Value = null;
             this.frmTender.dteDetRegistrationDate.Value = this.srvTender.GetServerDateTime();
             this.frmTender.oscDetRelatedOpportunity.Clear();
-            this.frmTender.tscPreviousTender.Clear();
             this.dtTenderManufacturers.Rows.Clear();
             this.dtTenderFiles.Rows.Clear();
             this.dtTenderLineExtraCosts.Rows.Clear();
@@ -942,6 +939,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.dtTenderExchangeRates.Clear();
             this.frmTender.uchkDetAddExtraCosts.Checked = false;
             this.frmTender.uchkDetProrateWarranties.Checked = false;
+            this.frmTender.txtDetComments.Text = string.Empty;
             this.frmTender.mtoDetTenderLines.ClearControls();
 
             this.uchkDetAddExtraCosts_CheckedChanged(null, null);
@@ -1029,11 +1027,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.frmTender.dteDetDeadline.Value = this.tender.Deadline.Value;
             if (this.tender.RegistrationDate.HasValue)
                 this.frmTender.dteDetRegistrationDate.Value = this.tender.RegistrationDate.Value;
-            this.frmTender.tscPreviousTender.Value = this.tender.PreviousTender;
             this.frmTender.oscDetRelatedOpportunity.Value = this.tender.Opportunity;
             this.frmTender.uchkDetAddExtraCosts.Checked = this.tender.AddExtraCosts;
             this.frmTender.uchkDetProrateWarranties.Checked = this.tender.ProrateWarranties;
             this.frmTender.optcDetOfferedPriceType.Value = this.tender.OfferedPriceType;
+            this.frmTender.txtDetComments.Text = this.tender.Comments;
 
             this.frmTender.mtoDetTenderLines.Tender = this.tender;
             this.frmTender.mtoDetTenderLines.LoadControls();
