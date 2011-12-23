@@ -97,6 +97,23 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
+                this.InsertNewBrands();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message, EventLogEntryType.Error);
+            }
+            try
+            {
+                this.UpdateBrands();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateProducts : " + ex.Message, EventLogEntryType.Error);
+            }
+
+            try
+            {
                 this.InsertNewProducts();
             }
             catch (Exception ex)
