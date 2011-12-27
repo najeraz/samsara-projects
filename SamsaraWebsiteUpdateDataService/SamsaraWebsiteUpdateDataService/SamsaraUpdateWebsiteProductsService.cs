@@ -361,7 +361,10 @@ namespace SamsaraWebsiteUpdateDataService
             ds = new DataSet();
             sqlServerDataAdapter.Fill(ds, "Articulos");
 
+            int familyId = 0;
+
             Dictionary<int, int> productsCategories = ds.Tables["Articulos"].AsEnumerable()
+                .Where(x => int.TryParse(x["familia"].ToString(), out familyId))
                 .ToDictionary(x => Convert.ToInt32(x["clave_articulo"]), x => Convert.ToInt32(x["familia"]));
 
             this.mySqlCommand = new MySqlCommand("DELETE FROM productos_categorias", this.mySqlConnection);
