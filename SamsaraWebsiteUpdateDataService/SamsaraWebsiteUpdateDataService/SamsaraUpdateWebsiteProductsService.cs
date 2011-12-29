@@ -61,7 +61,7 @@ namespace SamsaraWebsiteUpdateDataService
             TimerCallback timerCallbackData = new TimerCallback(UpdateDataProcess);
             Timer serviceTimerData = new Timer(timerCallbackData, null, 0, updateDataTime);
 
-            TimerCallback timerCallbackImages = new TimerCallback(UpdateDataProcess);
+            TimerCallback timerCallbackImages = new TimerCallback(UpdateImagesProcess);
             Timer serviceTimerImages = new Timer(timerCallbackImages, null, 0, updateImagesTime);
         }
 
@@ -695,13 +695,25 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void UpdateImages()
         {
-            sqlServerDataAdapter = new SqlDataAdapter(
+            SqlConnection sqlConnection = new SqlConnection(ConnectionStrings.SqlServerConnectionString);
+
+            try
+            {
+                sqlConnection.Open();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - MSSQL Connection : " + ex.Message, EventLogEntryType.Error);
+                return;
+            }
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(
                 "SELECT foto, clave_integer clave_articulo, es_principal FROM Imagenes.dbo.Fotos "
                 + "WHERE tabla = 'Articulos' AND clave_integer != 0 AND archivo_binario IS NOT NULL",
-                this.sqlServerConnection);
+                sqlConnection);
 
             DataSet ds = new DataSet();
-            sqlServerDataAdapter.Fill(ds, "Articulos");
+            sqlDataAdapter.Fill(ds, "Articulos");
 
             IList<IGrouping<int, DataRow>> productGroups = ds.Tables["Articulos"].AsEnumerable()
                 .GroupBy(x => Convert.ToInt32(x["clave_articulo"])).ToList();
@@ -720,11 +732,11 @@ namespace SamsaraWebsiteUpdateDataService
                     fotoId = productGroup.OrderBy(x => x["foto"])
                         .Select(x => Convert.ToInt32(x["foto"])).First();
 
-                this.sqlServerCommand = new SqlCommand
+                SqlCommand sqlCommand = new SqlCommand
                     ("SELECT archivo_binario FROM Imagenes.dbo.Fotos WHERE foto = "
-                    + fotoId.Value, this.sqlServerConnection);
+                    + fotoId.Value, sqlConnection);
 
-                byte[] imagedata = (byte[])this.sqlServerCommand.ExecuteScalar();
+                byte[] imagedata = (byte[])sqlCommand.ExecuteScalar();
 
                 Image image = Image.FromStream(new MemoryStream(imagedata));
 
@@ -750,6 +762,15 @@ namespace SamsaraWebsiteUpdateDataService
 
                     this.Upload(file, fileName);
                 }
+            }
+
+            try
+            {
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - MSSQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
             }
         }
     }
