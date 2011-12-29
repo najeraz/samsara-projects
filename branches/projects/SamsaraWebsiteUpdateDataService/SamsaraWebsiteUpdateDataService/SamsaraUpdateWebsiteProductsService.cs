@@ -18,7 +18,8 @@ namespace SamsaraWebsiteUpdateDataService
     partial class SamsaraUpdateWebsiteProductsService : ServiceBase
     {
         private static int oneMinute = 60000;
-        private static long criticalInterval = 10 * oneMinute;
+        private static long updateDataTime = 10 * oneMinute;
+        private static long updateImagesTime = 30 * oneMinute;
 
         private static int numBrandsInsert = 50;
         private static int numProdutcsUpdate = 50;
@@ -57,8 +58,11 @@ namespace SamsaraWebsiteUpdateDataService
         {
             eventLog1.WriteEntry("SERVICE - Started", EventLogEntryType.Information);
 
-            TimerCallback timerCallback = new TimerCallback(UpdateProcess);
-            System.Threading.Timer serviceTimer = new System.Threading.Timer(timerCallback, null, 0, criticalInterval);
+            TimerCallback timerCallbackData = new TimerCallback(UpdateDataProcess);
+            Timer serviceTimerData = new Timer(timerCallbackData, null, 0, updateDataTime);
+
+            TimerCallback timerCallbackImages = new TimerCallback(UpdateDataProcess);
+            Timer serviceTimerImages = new Timer(timerCallbackImages, null, 0, updateImagesTime);
         }
 
         protected override void OnStop()
@@ -66,9 +70,9 @@ namespace SamsaraWebsiteUpdateDataService
             eventLog1.WriteEntry("SERVICE - Stopped", EventLogEntryType.Information);
         }
 
-        private void UpdateProcess(object state)
+        private void UpdateDataProcess(object state)
         {
-            eventLog1.WriteEntry("Update Process - Starting", EventLogEntryType.Information);
+            eventLog1.WriteEntry("UpdateDataProcess - Starting", EventLogEntryType.Information);
 
             try
             {
@@ -144,14 +148,6 @@ namespace SamsaraWebsiteUpdateDataService
             {
                 eventLog1.WriteEntry("ERROR - UpdateCategories : " + ex.Message, EventLogEntryType.Error);
             }
-            try
-            {
-                this.UpdateImages();
-            }
-            catch (Exception ex)
-            {
-                eventLog1.WriteEntry("ERROR - UpdateImages : " + ex.Message, EventLogEntryType.Error);
-            }
 
             try
             {
@@ -171,7 +167,23 @@ namespace SamsaraWebsiteUpdateDataService
                 eventLog1.WriteEntry("ERROR - MySQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
             }
 
-            eventLog1.WriteEntry("Update Process - Stoped", EventLogEntryType.Information);
+            eventLog1.WriteEntry("UpdateDataProcess - Stoped", EventLogEntryType.Information);
+        }
+
+        private void UpdateImagesProcess(object state)
+        {
+            eventLog1.WriteEntry("UpdateImagesProcess - Starting", EventLogEntryType.Information);
+            
+            try
+            {
+                this.UpdateImages();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - UpdateImages : " + ex.Message, EventLogEntryType.Error);
+            }
+
+            eventLog1.WriteEntry("UpdateImagesProcess - Stoped", EventLogEntryType.Information);
         }
 
         private void InsertNewBrands()
@@ -247,7 +259,7 @@ namespace SamsaraWebsiteUpdateDataService
             DataSet ds = new DataSet();
             this.sqlServerDataAdapter.Fill(ds, "Marcas");
 
-            var currentBrandsStock = ds.Tables["Marcas"].AsEnumerable()
+            var currentBrands = ds.Tables["Marcas"].AsEnumerable()
                 .Select(x => new
                 {
                     id = Convert.ToInt32(x["marca"]),
@@ -269,7 +281,7 @@ namespace SamsaraWebsiteUpdateDataService
                     comentarios = x["descripcion"].ToString().Trim()
                 }).ToList();
 
-            var brandsToUpdate = currentBrandsStock.AsParallel().Where(x => x.nombre !=
+            var brandsToUpdate = currentBrands.AsParallel().Where(x => x.nombre !=
                 oldBrands.Single(y => y.id == x.id).nombre ||
                 oldBrands.Single(y => y.id == x.id).comentarios != x.comentarios)
                 .ToList();
@@ -283,6 +295,19 @@ namespace SamsaraWebsiteUpdateDataService
                     element.comentarios.Replace("'", "''"), element.nombre.Replace("'", "''"), element.id);
 
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
+            }
+
+            IList<int> brandsToDelete = oldBrands.Select(x => x.id)
+                .Except(currentBrands.Select(x => x.id)).ToList();
+
+            if (brandsToDelete.Count > 0)
+            {
+                string deleteQuery = string.Format(@"
+                        DELETE FROM marcas WHERE codigo in ({0});
+                        ", string.Join<int>(",", brandsToDelete));
+
+                this.mySqlCommand = new MySqlCommand(deleteQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
             }
         }
@@ -470,7 +495,7 @@ namespace SamsaraWebsiteUpdateDataService
                     {
                         insertQuery += string.Format(
                             "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre) "
-                            + "VALUES ('{0}', 1, '{1}', '', null);\n",
+                            + "VALUES ('{0}', 1, '{1}', '', 0);\n",
                             row["nombre_sublinea"].ToString().Trim().Replace("'", "''"),
                             row["sublinea"]);
                     }
@@ -481,6 +506,18 @@ namespace SamsaraWebsiteUpdateDataService
 
                 categoriesToInsert = categoriesToInsert.Except(currentCodes).ToList();
             } while (true);
+
+            IList<int> categoriesToDelete = websiteCategoriesCodes.Except(erpCategoriesCodes).ToList();
+
+            if (categoriesToDelete.Count > 0)
+            {
+                string deleteQuery = string.Format(@"
+                        DELETE FROM categorias WHERE codigo in ({0});
+                        ", string.Join<int>(",", categoriesToDelete));
+
+                this.mySqlCommand = new MySqlCommand(deleteQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
+            }
 
         }
 
@@ -557,6 +594,19 @@ namespace SamsaraWebsiteUpdateDataService
 
                 productsToUpdate = productsToUpdate.Except(currentElements).ToList();
             } while (true);
+
+            IList<int> productsToDelete = oldProducts.Select(x => x.productId)
+                .Except(currentProducts.Select(x => x.productId)).ToList();
+
+            if (productsToDelete.Count > 0)
+            {
+                string deleteQuery = string.Format(@"
+                        DELETE FROM productos WHERE codigo in ({0});
+                        ", string.Join<int>(",", productsToDelete));
+
+                this.mySqlCommand = new MySqlCommand(deleteQuery, this.mySqlConnection);
+                this.mySqlCommand.ExecuteNonQuery();
+            }
         }
 
         private void InsertNewProducts()
