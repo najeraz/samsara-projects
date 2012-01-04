@@ -323,7 +323,7 @@ namespace SamsaraProjectsUpdaterService
                 {
                     id = Convert.ToInt32(x["producto"]),
                     nombre = x["nombre_producto"].ToString().Trim(),
-                    marca = x["marca"].ToString()
+                    marca = x["marca"].ToString() == string.Empty ? "null" : x["marca"].ToString()
                 }).ToList();
 
             this.samsaraProjectsDataAdapter = new SqlDataAdapter("SELECT ProductId, Name, ProductBrandId FROM Operation.Products",
@@ -337,7 +337,7 @@ namespace SamsaraProjectsUpdaterService
                 {
                     id = Convert.ToInt32(x["ProductId"]),
                     nombre = x["Name"].ToString().Trim(),
-                    marca = x["ProductBrandId"].ToString()
+                    marca = x["ProductBrandId"].ToString() == string.Empty ? "null" : x["ProductBrandId"].ToString()
                 }).ToList();
 
             var productsToUpdate = currentProductsStock.AsParallel().Where(x => x.nombre !=
