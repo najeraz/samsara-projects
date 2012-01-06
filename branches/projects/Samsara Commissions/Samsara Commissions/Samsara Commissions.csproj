@@ -34,8 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infragistics2.Shared.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinMaskedEdit.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v10.3, Version=10.3.20103.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +61,12 @@
       <DependentUpon>ComisionDataDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ComisionTypeEnum.cs" />
+    <Compile Include="MinimalMarginDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinimalMarginDialog.designer.cs">
+      <DependentUpon>MinimalMarginDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetalleQuincena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,8 +84,22 @@
     <Compile Include="NumberUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SamsaraTextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SamsaraTextEditor.designer.cs">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SamsaraUltraMaskedEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextMaskFormatEnum.cs" />
+    <Compile Include="WindowsFormsUtil.cs" />
     <EmbeddedResource Include="ComisionDataDialog.resx">
       <DependentUpon>ComisionDataDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MinimalMarginDialog.resx">
+      <DependentUpon>MinimalMarginDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetalleQuincena.resx">
       <DependentUpon>DetalleQuincena.cs</DependentUpon>
@@ -79,6 +107,7 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -88,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SamsaraTextEditor.resx">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

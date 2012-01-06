@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComisionDataDialog));
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.mskComision = new System.Windows.Forms.MaskedTextBox();
-            this.mskCuota = new System.Windows.Forms.MaskedTextBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.rbtnMes = new System.Windows.Forms.RadioButton();
             this.rbtnAño = new System.Windows.Forms.RadioButton();
+            this.txtComision = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtCuota = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -66,22 +67,6 @@
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cuota:";
-            // 
-            // mskComision
-            // 
-            this.mskComision.Location = new System.Drawing.Point(66, 31);
-            this.mskComision.Name = "mskComision";
-            this.mskComision.PromptChar = ' ';
-            this.mskComision.Size = new System.Drawing.Size(100, 20);
-            this.mskComision.TabIndex = 2;
-            // 
-            // mskCuota
-            // 
-            this.mskCuota.Location = new System.Drawing.Point(66, 5);
-            this.mskCuota.Name = "mskCuota";
-            this.mskCuota.PromptChar = ' ';
-            this.mskCuota.Size = new System.Drawing.Size(100, 20);
-            this.mskCuota.TabIndex = 2;
             // 
             // btnAccept
             // 
@@ -118,6 +103,26 @@
             this.rbtnAño.UseVisualStyleBackColor = true;
             this.rbtnAño.CheckedChanged += new System.EventHandler(this.rbtnAño_CheckedChanged);
             // 
+            // txtComision
+            // 
+            this.txtComision.Location = new System.Drawing.Point(67, 32);
+            this.txtComision.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
+            this.txtComision.Name = "txtComision";
+            this.txtComision.ReadOnly = false;
+            this.txtComision.Size = new System.Drawing.Size(99, 20);
+            this.txtComision.TabIndex = 4;
+            this.txtComision.Value = ((object)(resources.GetObject("txtComision.Value")));
+            // 
+            // txtCuota
+            // 
+            this.txtCuota.Location = new System.Drawing.Point(67, 6);
+            this.txtCuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtCuota.Name = "txtCuota";
+            this.txtCuota.ReadOnly = false;
+            this.txtCuota.Size = new System.Drawing.Size(99, 20);
+            this.txtCuota.TabIndex = 4;
+            this.txtCuota.Value = ((object)(resources.GetObject("txtCuota.Value")));
+            // 
             // ComisionDataDialog
             // 
             this.AcceptButton = this.btnAccept;
@@ -125,10 +130,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(315, 89);
+            this.Controls.Add(this.txtCuota);
+            this.Controls.Add(this.txtComision);
             this.Controls.Add(this.rbtnAño);
             this.Controls.Add(this.rbtnMes);
-            this.Controls.Add(this.mskCuota);
-            this.Controls.Add(this.mskComision);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAccept);
@@ -146,10 +151,10 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox mskComision;
-        private System.Windows.Forms.MaskedTextBox mskCuota;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.RadioButton rbtnMes;
         private System.Windows.Forms.RadioButton rbtnAño;
+        private Samsara.Base.Controls.Controls.SamsaraTextEditor txtComision;
+        private Samsara.Base.Controls.Controls.SamsaraTextEditor txtCuota;
     }
 }
