@@ -360,7 +360,7 @@ namespace ComisionesAgentes
                 {
                     decimal cuota = Convert.ToDecimal(row["cuota"]);
                     sumatoria_cuotas += cuota;
-                    acumulado += Convert.ToDecimal(row["utilidad_real"]);
+                    acumulado += Convert.ToDecimal(row["utilidad_comisionable"]);
                     row["total_acumulado"] = acumulado;
                     row["acumulado_cuota"]
                         = (acumulado < cuota ? acumulado : cuota).ToString("N4");
@@ -616,7 +616,7 @@ namespace ComisionesAgentes
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                List<string> lstAgents = this.lbAgentesEquivalentes.SelectedItems.Cast<DataRowView>()
+                List<string> lstAgents = this.lbAgentesEquivalentes.Items.Cast<DataRowView>()
                     .Select(x => x["agente"].ToString()).ToList();
 
                 lstAgents.Add(this.cbxAgentes.SelectedValue.ToString());
@@ -659,12 +659,6 @@ namespace ComisionesAgentes
                 this.CalculaComisionesQ(data.Tables[0], data.Tables[1]);
                 this.ProcesaFacturasCanceladas(data.Tables[3]);
                 this.ProcesaFacturasRefacturaciónAgena(data.Tables[4]);
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("No se pudo generar el reporte, posiblemente por falta de "
-                    + "configuración de cuotas del agente, consulte al administrador del sistema.\n"
-                    + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
