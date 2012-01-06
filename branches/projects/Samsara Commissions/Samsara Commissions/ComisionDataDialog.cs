@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ComisionesAgentes
@@ -17,7 +11,7 @@ namespace ComisionesAgentes
             {
                 try
                 {
-                    return Convert.ToDecimal(this.mskCuota.Text);
+                    return Convert.ToDecimal(this.txtCuota.Value);
                 }
                 catch
                 {
@@ -26,7 +20,7 @@ namespace ComisionesAgentes
             }
             set
             {
-                this.mskCuota.Text = value.ToString();
+                this.txtCuota.Value = value;
             }
         }
 
@@ -36,7 +30,7 @@ namespace ComisionesAgentes
             {
                 try
                 {
-                    return Convert.ToDecimal(this.mskComision.Text);
+                    return Convert.ToDecimal(this.txtComision.Value.ToString().Replace("%", "")) / 100M;
                 }
                 catch
                 {
@@ -45,7 +39,7 @@ namespace ComisionesAgentes
             }
             set
             {
-                this.mskComision.Text = value.ToString();
+                this.txtComision.Value = value;
             }
         }
 
