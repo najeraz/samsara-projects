@@ -1,14 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Collections;
 using ComisionesSamsara;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
 
 namespace ComisionesAgentes
 {
@@ -47,13 +47,14 @@ namespace ComisionesAgentes
             {
                 this.LlenaDicMeses();
                 this.InsertNewAgents();
-                this.LoadCombosAgentes();
+                this.LoadCombosAgentes(true);
                 this.dtpInicio.Value = new DateTime(2011, 01, 01);
                 this.dtpFin.Value = DateTime.Now;
                 this.LoadGridAgentesActivos();
                 this.LoadDudAños();
                 this.LoadAjustes();
                 this.tcConfiguracion.Enabled = isConfigurable;
+                this.cbxAgenteMargenes_SelectedIndexChanged(null, null);
             }
             catch (SqlException ex)
             {
@@ -89,37 +90,192 @@ namespace ComisionesAgentes
             this.dudAños.SelectedItem = DateTime.Now.Year;
         }
 
-        private void LoadCombosAgentes()
+        private void LoadCombosAgentes(bool loadAgentesConfig)
         {
-            consulta = "select * from agentes_activos WHERE activo = 1 order by nombre_agente";
+            DataSet ds = null;
 
-            DataSet ds = new DataSet();
+            if (loadAgentesConfig)
+            {
+                consulta = @"
+                    SELECT * FROM agentes_activos 
+                    WHERE activo = 1
+                    ORDER BY nombre_agente
+                ";
+
+                ds = new DataSet();
+                da = new SqlDataAdapter(consulta, cnn);
+                da.Fill(ds, "agentes");
+
+                this.cbxAgentesConfig.DataSource = ds.Tables["agentes"].Copy();
+                this.cbxAgentesConfig.ValueMember = "agente";
+                this.cbxAgentesConfig.DisplayMember = "nombre_agente";
+            }
+
+            consulta = @"
+                    SELECT * FROM agentes_activos 
+                    WHERE activo = 1 AND puede_comisionar = 1
+                    ORDER BY nombre_agente
+                ";
+
+            ds = new DataSet();
             da = new SqlDataAdapter(consulta, cnn);
             da.Fill(ds, "agentes");
+
             this.cbxAgentes.DataSource = null;
             this.cbxAgentes.DataSource = ds.Tables["agentes"].Copy();
             this.cbxAgentes.ValueMember = "agente";
             this.cbxAgentes.DisplayMember = "nombre_agente";
 
-            this.cbxAgentesConfig.DataSource = null;
-            this.cbxAgentesConfig.DataSource = ds.Tables["agentes"].Copy();
-            this.cbxAgentesConfig.ValueMember = "agente";
-            this.cbxAgentesConfig.DisplayMember = "nombre_agente";
-
             this.cbxAgenteComision.DataSource = null;
             this.cbxAgenteComision.DataSource = ds.Tables["agentes"].Copy();
             this.cbxAgenteComision.ValueMember = "agente";
             this.cbxAgenteComision.DisplayMember = "nombre_agente";
+
+            this.cbxAgenteMargenes.DataSource = null;
+            this.cbxAgenteMargenes.DataSource = ds.Tables["agentes"].Copy();
+            this.cbxAgenteMargenes.ValueMember = "agente";
+            this.cbxAgenteMargenes.DisplayMember = "nombre_agente";
         }
 
         private void LoadGridAgentesActivos()
         {
-            consulta = "select * from agentes_activos order by activo desc, nombre_agente";
+            consulta = @"
+                    SELECT agente, nombre_agente, activo, puede_comisionar
+                    FROM agentes_activos 
+                    ORDER BY activo desc, nombre_agente
+                ";
             da = new SqlDataAdapter(consulta, cnn);
             ds = new DataSet();
             da.Fill(ds, "agentes_activos");
             this.grdAgentesActivos.DataSource = ds.Tables["agentes_activos"];
             this.grdAgentesActivos.Columns["nombre_agente"].Width = 200;
+        }
+
+        private void LoadGrdLineas(int idAgente)
+        {
+            bool closed = cnn.State == ConnectionState.Closed;
+
+            if (closed)
+            {
+                cnn.Open();
+            }
+
+            consulta = string.Format(@"
+                    SELECT la.linea, RTRIM(la.nombre_linea) nombre_linea,
+                    SUM(COALESCE(fag.margen_minimo, 0)) / CASE WHEN 
+                    SUM(CASE WHEN fag.margen_minimo IS NOT NULL
+						THEN 1 ELSE 0 END
+                    ) = 0 THEN NULL ELSE
+                    SUM(CASE WHEN fag.margen_minimo IS NOT NULL
+						THEN 1 ELSE 0 END
+                    ) END * 100.0 margen_promedio,
+                    CAST(SUM(CASE WHEN fag.margen_minimo IS NOT NULL
+						THEN 1 ELSE 0 END
+                    ) AS VARCHAR(10)) + ' de ' + CAST(COUNT(*) AS VARCHAR(10)) familias_configuradas
+                    FROM ERP_CIE.dbo.Lineas_Articulos la
+                    INNER JOIN ERP_CIE.dbo.Sublineas_Articulos sa ON sa.linea = la.linea
+                    INNER JOIN ERP_CIE.dbo.Familias_Articulos fa ON fa.sublinea = sa.sublinea
+                    INNER JOIN Familias_Agentes fag ON fag.familia = fa.familia
+                    WHERE agente = {0}
+                    GROUP BY la.linea, la.nombre_linea
+                    ORDER BY nombre_linea
+                ", idAgente);
+            da = new SqlDataAdapter(consulta, cnn);
+            ds = new DataSet();
+            da.Fill(ds, "lineas");
+            this.grdLineas.DataSource = ds.Tables["lineas"];
+
+            if (closed)
+            {
+                cnn.Close();
+            }
+        }
+
+        private void LoadGrdSublineas(int idAgente, int linea)
+        {
+            bool closed = cnn.State == ConnectionState.Closed;
+
+            if (closed)
+            {
+                cnn.Open();
+            }
+
+            consulta = string.Format(@"
+                    SELECT la.linea, sa.sublinea, RTRIM(sa.nombre_sublinea) nombre_sublinea,
+                    SUM(COALESCE(fag.margen_minimo, 0)) / CASE WHEN 
+                    SUM(CASE WHEN fag.margen_minimo IS NOT NULL
+						THEN 1 ELSE 0 END
+                    ) = 0 THEN NULL ELSE
+                    SUM(CASE WHEN fag.margen_minimo IS NOT NULL
+						THEN 1 ELSE 0 END
+                    ) END * 100.0 margen_promedio,
+                    CAST(SUM(CASE WHEN fag.margen_minimo IS NOT NULL
+						THEN 1 ELSE 0 END
+                    ) AS VARCHAR(10)) + ' de ' + CAST(COUNT(*) AS VARCHAR(10)) familias_configuradas
+                    FROM ERP_CIE.dbo.Sublineas_Articulos sa
+                    INNER JOIN ERP_CIE.dbo.Lineas_Articulos la ON la.linea = sa.linea
+                    INNER JOIN ERP_CIE.dbo.Familias_Articulos fa ON fa.sublinea = sa.sublinea
+                    INNER JOIN Familias_Agentes fag ON fag.familia = fa.familia
+                    WHERE sa.linea = {0} AND agente = {1}
+                    GROUP BY la.linea, sa.sublinea, sa.nombre_sublinea
+                    ORDER BY nombre_sublinea
+                ", linea, idAgente);
+
+            da = new SqlDataAdapter(consulta, cnn);
+            ds = new DataSet();
+            da.Fill(ds, "sublineas");
+            this.grdSublineas.DataSource = ds.Tables["sublineas"];
+
+            if (closed)
+            {
+                cnn.Close();
+            }
+        }
+
+        private void LoadGrdFamilias(int idAgente, Nullable<int> sublinea)
+        {
+            bool closed = cnn.State == ConnectionState.Closed;
+
+            if (closed)
+            {
+                cnn.Open();
+            }
+
+            consulta = string.Format(@"
+                    INSERT INTO Familias_Agentes (familia, agente)
+                    SELECT familia, {0}
+                    FROM	ERP_CIE.dbo.Familias_Articulos fa
+                    WHERE familia NOT IN (
+					    SELECT familia FROM Familias_Agentes
+					    WHERE agente = {0}
+                    )
+                ", idAgente);
+
+            SqlCommand command = new SqlCommand(consulta, cnn);
+            command.ExecuteNonQuery();
+
+            if (sublinea != null)
+            {
+                consulta = string.Format(@"
+					    SELECT la.linea, sa.sublinea, fa.familia, RTRIM(far.nombre_familia) nombre_familia, 
+                        fa.margen_minimo * 100.0 margen_minimo
+                        FROM Familias_Agentes fa
+                        INNER JOIN ERP_CIE.dbo.Familias_Articulos far ON far.familia = fa.familia
+                        INNER JOIN ERP_CIE.dbo.Sublineas_Articulos sa ON sa.sublinea = far.sublinea
+                        INNER JOIN ERP_CIE.dbo.Lineas_Articulos la ON la.linea = sa.linea
+					    WHERE agente = {0} AND sa.sublinea = {1}
+                        ORDER BY nombre_familia
+                    ", idAgente, sublinea);
+                da = new SqlDataAdapter(consulta, cnn);
+                ds = new DataSet();
+                da.Fill(ds, "margenes");
+                this.grdFamilias.DataSource = ds.Tables["margenes"];
+            }
+
+            if (closed)
+            {
+                cnn.Close();
+            }
         }
 
         private void LoadAjustes()
@@ -128,6 +284,7 @@ namespace ComisionesAgentes
             {
                 consulta = "select id ajuste, aj.agente, nombre_agente, fecha_ajuste from ajustes aj "
                     + "inner join agentes_activos aa on aa.agente = aj.agente where activo = 1 and borrado = 0";
+
                 da = new SqlDataAdapter(consulta, cnn);
                 ds = new DataSet();
                 da.Fill(ds, "ajustes");
@@ -154,9 +311,11 @@ namespace ComisionesAgentes
                 consulta = "select id ajuste, aj.agente, nombre_agente, fecha_ajuste from ajustes aj "
                     + "inner join agentes_activos ag on ag.agente = aj.agente where aj.agente = "
                     + idAgente + " and borrado = 0 order by ajuste";
+
                 da = new SqlDataAdapter(consulta, cnn);
                 ds = new DataSet();
                 da.Fill(ds, "ajustes");
+
                 this.grdAjustes.DataSource = null;
                 this.grdAjustes.DataSource = ds.Tables["ajustes"];
             }
@@ -166,11 +325,13 @@ namespace ComisionesAgentes
         {
             cnn.Open();
 
-            consulta = "INSERT INTO agentes_activos (agente, nombre_agente, activo) "
-                + "select distinct cast(f.agente as int) agente, "
-                + "LEFT( ERP_CIE.dbo.Nombre_Persona2( f.agente), 100) nombre_agente, 0 "
-                + "FROM	ERP_CIE.dbo.Facturas_Clientes f "
-                + "WHERE agente not in (select agente from agentes_activos)";
+            consulta = @"
+                INSERT INTO agentes_activos (agente, nombre_agente, activo, puede_comisionar)
+                select distinct cast(f.agente as int) agente,
+                LEFT( ERP_CIE.dbo.Nombre_Persona2( f.agente), 100) nombre_agente, 0, 0
+                FROM	ERP_CIE.dbo.Facturas_Clientes f
+                WHERE agente not in (select agente from agentes_activos)
+                ";
 
             SqlCommand command = new SqlCommand(consulta, cnn);
             command.ExecuteNonQuery();
@@ -564,11 +725,14 @@ namespace ComisionesAgentes
         {
             int idAgente;
 
-            if (int.TryParse(this.cbxAgenteComision.SelectedValue.ToString(), out idAgente))
+            if (int.TryParse(this.cbxAgentesConfig.SelectedValue.ToString(), out idAgente))
             {
-                cnn.Open();
+                bool closed = cnn.State == ConnectionState.Closed;
 
-                this.clstConfigSelected.SetSelected(e.Index, true);
+                if (closed)
+                {
+                    cnn.Open();
+                }
 
                 consulta = "DELETE FROM agentes_equivalentes WHERE agente_original = "
                     + idAgente + " AND agente_equivalente = "
@@ -584,8 +748,13 @@ namespace ComisionesAgentes
                     command = new SqlCommand(consulta, cnn);
                     command.ExecuteNonQuery();
                 }
-                this.cbxAgentes_SelectedValueChanged(null, null);
-                cnn.Close();
+
+                if (closed)
+                {
+                    cnn.Close();
+                }
+
+                this.LoadCombosAgentes(false);
             }
         }
 
@@ -610,35 +779,55 @@ namespace ComisionesAgentes
                 this.lbAgentesEquivalentes.DataSource = ds.Tables["agentes_equivalentes"];
                 this.lbAgentesEquivalentes.ValueMember = "agente";
                 this.lbAgentesEquivalentes.DisplayMember = "nombre_agente";
-                //this.cbxAgenteComision.SelectedValue = this.cbxAgentesConfig.SelectedValue = idAgente;
             }
         }
 
         private void grdAgentesActivos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1 || e.ColumnIndex != this.grdAgentesActivos.Columns["activo"].Index)
+            if (e.RowIndex == -1)
                 return;
 
-            bool activo = Convert.ToBoolean(
-                this.grdAgentesActivos.Rows[e.RowIndex].Cells["activo"].Value);
+            if (e.ColumnIndex == this.grdAgentesActivos.Columns["activo"].Index)
+            {
+                bool activo = Convert.ToBoolean(
+                    this.grdAgentesActivos.Rows[e.RowIndex].Cells["activo"].Value);
 
-            if (MessageBox.Show("¿Esta seguro de " + (activo ? "desactivar" : "activar") 
-                + " el agente " 
-                + this.grdAgentesActivos.Rows[e.RowIndex].Cells["nombre_agente"].Value 
-                + "?", "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                return;
+                if (MessageBox.Show("¿Esta seguro de " + (activo ? "desactivar" : "activar")
+                    + " el agente "
+                    + this.grdAgentesActivos.Rows[e.RowIndex].Cells["nombre_agente"].Value
+                    + "?", "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
 
-            cnn.Open();
+                cnn.Open();
 
-            consulta = "UPDATE agentes_activos SET activo = " + (activo ? 0 : 1)
-                + " WHERE agente = "
-                + this.grdAgentesActivos.Rows[e.RowIndex].Cells["agente"].Value;
-            SqlCommand command = new SqlCommand(consulta, cnn);
-            command.ExecuteNonQuery();
+                consulta = "UPDATE agentes_activos SET activo = " + (activo ? 0 : 1)
+                    + " WHERE agente = "
+                    + this.grdAgentesActivos.Rows[e.RowIndex].Cells["agente"].Value;
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.ExecuteNonQuery();
 
-            this.LoadGridAgentesActivos();
-            this.LoadCombosAgentes();
-            cnn.Close();
+                this.LoadGridAgentesActivos();
+                this.LoadCombosAgentes(true);
+                cnn.Close();
+            }
+
+            if (e.ColumnIndex == this.grdAgentesActivos.Columns["puede_comisionar"].Index)
+            {
+                bool puedeComisionar = Convert.ToBoolean(
+                    this.grdAgentesActivos.Rows[e.RowIndex].Cells["puede_comisionar"].Value);
+
+                cnn.Open();
+
+                consulta = "UPDATE agentes_activos SET puede_comisionar = " + (puedeComisionar ? 0 : 1)
+                    + " WHERE agente = "
+                    + this.grdAgentesActivos.Rows[e.RowIndex].Cells["agente"].Value;
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.ExecuteNonQuery();
+
+                this.LoadGridAgentesActivos();
+                this.LoadCombosAgentes(true);
+                cnn.Close();
+            }
         }
 
         private void grdComisionesAgente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -648,7 +837,7 @@ namespace ComisionesAgentes
 
             ComisionDataDialog dialog = new ComisionDataDialog();
             dialog.Comision = Convert.ToDecimal(
-                this.grdComisionesAgente.Rows[e.RowIndex].Cells["comision"].Value);
+                this.grdComisionesAgente.Rows[e.RowIndex].Cells["comision"].Value) * 100M;
             dialog.Cuota = Convert.ToDecimal(
                 this.grdComisionesAgente.Rows[e.RowIndex].Cells["cuota"].Value);
             dialog.ShowDialog(this);
@@ -865,6 +1054,221 @@ namespace ComisionesAgentes
                 e.CellStyle.Format = "";
             else
                 e.CellStyle.Format = "c";
+        }
+
+        private void cbxAgenteMargenes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idAgente = 0;
+
+            if (this.cbxAgenteMargenes.SelectedValue != null)
+                int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
+
+            this.LoadGrdLineas(idAgente);
+            this.LoadGrdSublineas(idAgente, -1);
+            this.LoadGrdFamilias(idAgente, null);
+        }
+
+        private void grdFamilias_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+
+            band.Columns["nombre_familia"].Header.Caption = "Familia";
+            band.Columns["margen_minimo"].Header.Caption = "Margen Mínimo";
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_minimo"],
+                WindowsFormsUtil.TextMaskFormatEnum.Percentage);
+
+            band.Columns["familia"].Hidden = true;
+            band.Columns["linea"].Hidden = true;
+            band.Columns["sublinea"].Hidden = true;
+        }
+
+        private void ComisionesForm_SizeChanged(object sender, EventArgs e)
+        {
+            this.gbxLineas.Size = new Size(this.Size.Width / 2, (this.Size.Height - 200) / 2);
+            this.pnlLineasSublineas.Size = new Size(this.Size.Width / 2, (this.Size.Height - 200) / 2);
+        }
+
+        private void grdLineas_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridBand band = e.Layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+
+            band.Columns["nombre_linea"].Header.Caption = "Linea";
+            band.Columns["margen_promedio"].Header.Caption = "Margen Promedio";
+            band.Columns["familias_configuradas"].Header.Caption = "Familias Configuradas";
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_promedio"],
+                WindowsFormsUtil.TextMaskFormatEnum.Percentage);
+
+            band.Columns["linea"].Hidden = true;
+        }
+
+        private void grdSublineas_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridBand band = e.Layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+
+            band.Columns["nombre_sublinea"].Header.Caption = "Sublinea";
+            band.Columns["margen_promedio"].Header.Caption = "Margen Promedio";
+            band.Columns["familias_configuradas"].Header.Caption = "Familias Configuradas";
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_promedio"],
+                WindowsFormsUtil.TextMaskFormatEnum.Percentage);
+
+            band.Columns["sublinea"].Hidden = true;
+            band.Columns["linea"].Hidden = true;
+        }
+        
+        private void grdLineas_ClickCell(object sender, ClickCellEventArgs e)
+        {
+            int linea = -1;
+            int idAgente = 0;
+
+            linea = Convert.ToInt32(e.Cell.Row.Cells["linea"].Value);
+
+            if (this.cbxAgenteMargenes.SelectedValue != null)
+                int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
+
+            this.LoadGrdSublineas(idAgente, linea);
+            this.LoadGrdFamilias(idAgente, linea);
+        }
+
+        private void grdSublineas_ClickCell(object sender, ClickCellEventArgs e)
+        {
+            Nullable<int> sublinea = null;
+            int idAgente = 0;
+
+            sublinea = Convert.ToInt32(e.Cell.Row.Cells["sublinea"].Value);
+
+            if (this.cbxAgenteMargenes.SelectedValue != null)
+                int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
+
+            this.LoadGrdFamilias(idAgente, sublinea);
+        }
+
+        private void grdLineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
+        {
+            MinimalMarginDialog dialog = new MinimalMarginDialog();
+
+            dialog.ConceptName = e.Row.Cells["nombre_linea"].Value.ToString();
+            if (e.Row.Cells["margen_promedio"].Value != DBNull.Value)
+                dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_promedio"].Value);
+            dialog.gbxMinimalMargin.Text = "Linea de Producto:";
+
+            dialog.ShowDialog(this);
+            
+            if (dialog.Accepted)
+            {
+                int idAgente = 0;
+
+                if (this.cbxAgenteMargenes.SelectedValue != null)
+                    int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
+
+                consulta = string.Format(@"
+                        UPDATE Familias_Agentes SET margen_minimo = {2}
+                        WHERE agente = {0} AND familia IN (
+                            SELECT fa.familia 
+                            FROM ERP_CIE.dbo.Sublineas_Articulos sa 
+                            INNER JOIN ERP_CIE.dbo.Familias_Articulos fa ON fa.sublinea = sa.sublinea
+                            WHERE linea = {1}
+                        )
+                    ", idAgente, e.Row.Cells["linea"].Value,
+                     dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
+
+                cnn.Open();
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.ExecuteNonQuery();
+                cnn.Close();
+
+                this.LoadGrdLineas(idAgente);
+                this.LoadGrdSublineas(idAgente, Convert.ToInt32(e.Row.Cells["linea"].Value));
+                this.LoadGrdFamilias(idAgente, null);
+            }
+        }
+
+        private void grdSublineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
+        {
+            MinimalMarginDialog dialog = new MinimalMarginDialog();
+
+            dialog.ConceptName = e.Row.Cells["nombre_sublinea"].Value.ToString();
+            if (e.Row.Cells["margen_promedio"].Value != DBNull.Value)
+                dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_promedio"].Value);
+            dialog.gbxMinimalMargin.Text = "Subinea de Producto:";
+
+            dialog.ShowDialog(this);
+
+            if (dialog.Accepted)
+            {
+                int idAgente = 0;
+
+                if (this.cbxAgenteMargenes.SelectedValue != null)
+                    int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
+
+                consulta = string.Format(@"
+                        UPDATE Familias_Agentes SET margen_minimo = {2}
+                        WHERE agente = {0} AND familia IN (
+                            SELECT fa.familia 
+                            FROM ERP_CIE.dbo.Familias_Articulos fa 
+                            WHERE fa.sublinea = {1}
+                        )
+                    ", idAgente, e.Row.Cells["sublinea"].Value,
+                     dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
+
+                cnn.Open();
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.Transaction = this.transacction;
+                command.ExecuteNonQuery();
+                cnn.Close();
+
+                this.LoadGrdLineas(idAgente);
+                this.LoadGrdSublineas(idAgente, Convert.ToInt32(e.Row.Cells["linea"].Value));
+                this.LoadGrdFamilias(idAgente, Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+            }
+        }
+
+        private void grdFamilias_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
+        {
+            MinimalMarginDialog dialog = new MinimalMarginDialog();
+
+            dialog.ConceptName = e.Row.Cells["nombre_familia"].Value.ToString();
+            if (e.Row.Cells["margen_minimo"].Value != DBNull.Value)
+                dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_minimo"].Value);
+            dialog.gbxMinimalMargin.Text = "Familia de Producto:";
+
+            dialog.ShowDialog(this);
+
+            if (dialog.Accepted)
+            {
+                int idAgente = 0;
+
+                if (this.cbxAgenteMargenes.SelectedValue != null)
+                    int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
+
+                consulta = string.Format(@"
+                        UPDATE Familias_Agentes SET margen_minimo = {2}
+                        WHERE agente = {0} AND familia = {1}
+                    ", idAgente, e.Row.Cells["familia"].Value,
+                     dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
+
+                cnn.Open();
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.Transaction = this.transacction;
+                command.ExecuteNonQuery();
+                cnn.Close();
+
+                this.LoadGrdLineas(idAgente);
+                this.LoadGrdSublineas(idAgente, Convert.ToInt32(e.Row.Cells["linea"].Value));
+                this.LoadGrdFamilias(idAgente, Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+            }
         }
         
         #endregion Events
