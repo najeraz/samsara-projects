@@ -98,10 +98,20 @@ namespace ComisionesAgentes
                     checkedColumns = new Dictionary<string, string>();
                 }
 
-                this.grdDetalleQuincena.DataSource = this.DtDetalleComisiones.AsEnumerable()
-                    .Where(x => Convert.ToInt32(x["mes"]) == this.Mes
-                        && this.Q == x["Q"].ToString().Trim()
-                        && Convert.ToInt32(x["anio"]) == this.Año).CopyToDataTable();
+                try
+                {
+                    this.grdDetalleQuincena.DataSource = this.DtDetalleComisiones.AsEnumerable()
+                        .Where(x => Convert.ToInt32(x["mes"]) == this.Mes
+                            && this.Q == x["Q"].ToString().Trim()
+                            && Convert.ToInt32(x["anio"]) == this.Año).CopyToDataTable();
+
+                    this.tcFacturasPagadas.TabPages["FacturasPagadas"].Text = "Facturas Pagadas [" +
+                            this.grdDetalleQuincena.Rows.Count + "]";
+                }
+                catch
+                {
+                    this.tcFacturasPagadas.TabPages["FacturasPagadas"].Text = "Facturas Pagadas [0]";
+                }
 
                 try
                 {
@@ -111,11 +121,10 @@ namespace ComisionesAgentes
                             && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcComplemento.TabPages["FacturasCanceladas"].Text = "Facturas Canceladas [" +
-                        ((DataTable)this.grdFacturasCanceladas.DataSource).Rows.Count + "]";
+                        this.grdFacturasCanceladas.Rows.Count + "]";
                 }
-                catch (Exception ex)
+                catch
                 {
-                    ex.ToString();
                     this.tcComplemento.TabPages["FacturasCanceladas"].Text = "Facturas Canceladas [0]";
                 }
 
@@ -127,11 +136,10 @@ namespace ComisionesAgentes
                             && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcComplemento.TabPages["FacturasPendientes"].Text = "Facturas Pendientes [" +
-                        ((DataTable)this.grdFacturasPendientes.DataSource).Rows.Count + "]";
+                        this.grdFacturasPendientes.Rows.Count + "]";
                 }
-                catch (Exception ex)
+                catch
                 {
-                    ex.ToString();
                     this.tcComplemento.TabPages["FacturasPendientes"].Text = "Facturas Pendientes [0]";
                 }
 
@@ -190,6 +198,17 @@ namespace ComisionesAgentes
             if (this.grdDetalleQuincena.Rows[e.RowIndex].Cells["pendiente_pago"].Value.ToString() == "Si")
             {
                 e.CellStyle.BackColor = Color.LightGreen;
+            }
+
+            decimal utilidad = Convert.ToDecimal(this.grdDetalleQuincena.Rows[e.RowIndex].Cells["utilidad_comisionable"].Value);
+            decimal utilidadComisionable = Convert.ToDecimal(this.grdDetalleQuincena.Rows[e.RowIndex].Cells["utilidad_comisionable"].Value);
+
+            if (utilidad - utilidadComisionable > 0.01M || utilidadComisionable <= 0)
+            {
+                if (e.CellStyle.BackColor == Color.LightGreen)
+                    e.CellStyle.BackColor = Color.YellowGreen;
+                else
+                    e.CellStyle.BackColor = Color.Yellow;
             }
         }
 
