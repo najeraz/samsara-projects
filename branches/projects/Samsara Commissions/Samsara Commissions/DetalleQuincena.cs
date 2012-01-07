@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ComisionesSamsara;
+using Infragistics.Win.UltraWinGrid;
 
 namespace SamsaraCommissions
 {
@@ -80,6 +81,9 @@ namespace SamsaraCommissions
 
         public void LoadData()
         {
+            UltraGridLayout layout = this.grdDetalleQuincena.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
             try
             {
                 this.LlenaDicMeses();
@@ -152,8 +156,7 @@ namespace SamsaraCommissions
                     {
                         this.clbColumnas.SetItemChecked(this.clbColumnas.Items.Count - 1,
                             checkedColumns[columName] == "1");
-                        this.grdDetalleQuincena.Columns[columName].Visible
-                            = checkedColumns[columName] == "1";
+                        band.Columns[columName].Hidden = checkedColumns[columName] == "0";
                     }
                     else
                     {
@@ -167,12 +170,14 @@ namespace SamsaraCommissions
 
         private void clbColumnas_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (this.grdDetalleQuincena.Columns.Count > 0)
+            UltraGridLayout layout = this.grdDetalleQuincena.DisplayLayout;
+            UltraGridBand band = layout.Bands[0];
+
+            if (this.grdDetalleQuincena.DisplayLayout.Bands[0].Columns.Count > 0)
             {
-                this.grdDetalleQuincena.Columns[e.Index].Visible
-                    = !this.clbColumnas.GetItemChecked(e.Index);
-                checkedColumns[this.grdDetalleQuincena.Columns[e.Index].Name]
-                    = this.grdDetalleQuincena.Columns[e.Index].Visible ? "1" : "0";
+                band.Columns[e.Index].Hidden = this.clbColumnas.GetItemChecked(e.Index);
+                checkedColumns[band.Columns[e.Index].Header.Caption]
+                    = band.Columns[e.Index].Hidden ? "0" : "1";
             }
 
             FileUtils.Write(checkedColumns, "dictionary.bin");
@@ -218,6 +223,12 @@ namespace SamsaraCommissions
             {
                 e.CellStyle.BackColor = Color.Red;
             }
+        }
+
+        private void grdDetalleQuincena_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
         }
     }
 }
