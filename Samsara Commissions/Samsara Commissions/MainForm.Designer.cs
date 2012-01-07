@@ -105,9 +105,6 @@ namespace ComisionesAgentes
             this.grdSublineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.pnlMargenes = new System.Windows.Forms.Panel();
-            this.cbxAgenteMargenes = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.Comiciones = new System.Windows.Forms.TabPage();
             this.tcComisiones = new System.Windows.Forms.TabControl();
             this.Resumen = new System.Windows.Forms.TabPage();
@@ -169,7 +166,6 @@ namespace ComisionesAgentes
             ((System.ComponentModel.ISupportInitialize)(this.grdSublineas)).BeginInit();
             this.gbxLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).BeginInit();
-            this.pnlMargenes.SuspendLayout();
             this.Comiciones.SuspendLayout();
             this.tcComisiones.SuspendLayout();
             this.Resumen.SuspendLayout();
@@ -531,7 +527,6 @@ namespace ComisionesAgentes
             // 
             this.MargenesMínimos.Controls.Add(this.gbxFamilias);
             this.MargenesMínimos.Controls.Add(this.pnlLineasSublineas);
-            this.MargenesMínimos.Controls.Add(this.pnlMargenes);
             this.MargenesMínimos.Location = new System.Drawing.Point(4, 22);
             this.MargenesMínimos.Name = "MargenesMínimos";
             this.MargenesMínimos.Size = new System.Drawing.Size(627, 432);
@@ -543,9 +538,9 @@ namespace ComisionesAgentes
             // 
             this.gbxFamilias.Controls.Add(this.grdFamilias);
             this.gbxFamilias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxFamilias.Location = new System.Drawing.Point(289, 37);
+            this.gbxFamilias.Location = new System.Drawing.Point(289, 0);
             this.gbxFamilias.Name = "gbxFamilias";
-            this.gbxFamilias.Size = new System.Drawing.Size(338, 395);
+            this.gbxFamilias.Size = new System.Drawing.Size(338, 432);
             this.gbxFamilias.TabIndex = 13;
             this.gbxFamilias.TabStop = false;
             this.gbxFamilias.Text = "Familias:";
@@ -609,7 +604,7 @@ namespace ComisionesAgentes
             this.grdFamilias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdFamilias.Location = new System.Drawing.Point(3, 16);
             this.grdFamilias.Name = "grdFamilias";
-            this.grdFamilias.Size = new System.Drawing.Size(332, 376);
+            this.grdFamilias.Size = new System.Drawing.Size(332, 413);
             this.grdFamilias.TabIndex = 9;
             this.grdFamilias.Text = "ultraGrid1";
             this.grdFamilias.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdFamilias_InitializeLayout);
@@ -620,9 +615,9 @@ namespace ComisionesAgentes
             this.pnlLineasSublineas.Controls.Add(this.gbxSubLineas);
             this.pnlLineasSublineas.Controls.Add(this.gbxLineas);
             this.pnlLineasSublineas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLineasSublineas.Location = new System.Drawing.Point(0, 37);
+            this.pnlLineasSublineas.Location = new System.Drawing.Point(0, 0);
             this.pnlLineasSublineas.Name = "pnlLineasSublineas";
-            this.pnlLineasSublineas.Size = new System.Drawing.Size(289, 395);
+            this.pnlLineasSublineas.Size = new System.Drawing.Size(289, 432);
             this.pnlLineasSublineas.TabIndex = 12;
             // 
             // gbxSubLineas
@@ -631,7 +626,7 @@ namespace ComisionesAgentes
             this.gbxSubLineas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxSubLineas.Location = new System.Drawing.Point(0, 192);
             this.gbxSubLineas.Name = "gbxSubLineas";
-            this.gbxSubLineas.Size = new System.Drawing.Size(289, 203);
+            this.gbxSubLineas.Size = new System.Drawing.Size(289, 240);
             this.gbxSubLineas.TabIndex = 13;
             this.gbxSubLineas.TabStop = false;
             this.gbxSubLineas.Text = "Sublineas:";
@@ -695,7 +690,7 @@ namespace ComisionesAgentes
             this.grdSublineas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdSublineas.Location = new System.Drawing.Point(3, 16);
             this.grdSublineas.Name = "grdSublineas";
-            this.grdSublineas.Size = new System.Drawing.Size(283, 184);
+            this.grdSublineas.Size = new System.Drawing.Size(283, 221);
             this.grdSublineas.TabIndex = 10;
             this.grdSublineas.Text = "ultraGrid1";
             this.grdSublineas.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdSublineas_InitializeLayout);
@@ -778,34 +773,6 @@ namespace ComisionesAgentes
             this.grdLineas.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdLineas_InitializeLayout);
             this.grdLineas.ClickCell += new Infragistics.Win.UltraWinGrid.ClickCellEventHandler(this.grdLineas_ClickCell);
             this.grdLineas.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.grdLineas_DoubleClickRow);
-            // 
-            // pnlMargenes
-            // 
-            this.pnlMargenes.Controls.Add(this.cbxAgenteMargenes);
-            this.pnlMargenes.Controls.Add(this.label14);
-            this.pnlMargenes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMargenes.Location = new System.Drawing.Point(0, 0);
-            this.pnlMargenes.Name = "pnlMargenes";
-            this.pnlMargenes.Size = new System.Drawing.Size(627, 37);
-            this.pnlMargenes.TabIndex = 7;
-            // 
-            // cbxAgenteMargenes
-            // 
-            this.cbxAgenteMargenes.FormattingEnabled = true;
-            this.cbxAgenteMargenes.Location = new System.Drawing.Point(59, 8);
-            this.cbxAgenteMargenes.Name = "cbxAgenteMargenes";
-            this.cbxAgenteMargenes.Size = new System.Drawing.Size(286, 21);
-            this.cbxAgenteMargenes.TabIndex = 9;
-            this.cbxAgenteMargenes.SelectedIndexChanged += new System.EventHandler(this.cbxAgenteMargenes_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 11);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 13);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "Agente:";
             // 
             // Comiciones
             // 
@@ -1262,8 +1229,6 @@ namespace ComisionesAgentes
             ((System.ComponentModel.ISupportInitialize)(this.grdSublineas)).EndInit();
             this.gbxLineas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).EndInit();
-            this.pnlMargenes.ResumeLayout(false);
-            this.pnlMargenes.PerformLayout();
             this.Comiciones.ResumeLayout(false);
             this.tcComisiones.ResumeLayout(false);
             this.Resumen.ResumeLayout(false);
@@ -1362,9 +1327,6 @@ namespace ComisionesAgentes
         private System.Windows.Forms.TabPage RefacturaciónAgena;
         private System.Windows.Forms.DataGridView grdRefacturaciónAgena;
         private System.Windows.Forms.TabPage MargenesMínimos;
-        private System.Windows.Forms.Panel pnlMargenes;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cbxAgenteMargenes;
         private System.Windows.Forms.GroupBox gbxFamilias;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdFamilias;
         private System.Windows.Forms.Panel pnlLineasSublineas;
