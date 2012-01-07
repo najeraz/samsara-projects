@@ -61,6 +61,12 @@
       <DependentUpon>ComisionDataDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ComisionTypeEnum.cs" />
+    <Compile Include="DetalleFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleFactura.Designer.cs">
+      <DependentUpon>DetalleFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="MinimalMarginDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="WindowsFormsUtil.cs" />
     <EmbeddedResource Include="ComisionDataDialog.resx">
       <DependentUpon>ComisionDataDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleFactura.resx">
+      <DependentUpon>DetalleFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MinimalMarginDialog.resx">
       <DependentUpon>MinimalMarginDialog.cs</DependentUpon>

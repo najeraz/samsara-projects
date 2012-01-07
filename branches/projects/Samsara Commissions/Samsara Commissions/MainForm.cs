@@ -10,14 +10,14 @@ using ComisionesSamsara;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 
-namespace ComisionesAgentes
+namespace SamsaraCommissions
 {
     public partial class ComisionesForm : Form
     {
         #region Attributes
 
         private static string cnnString =
-            "Data Source=192.168.10.4;Initial Catalog=Comisiones;User Id=javier;Password=javier;";
+            "Data Source=samsaraca.dyndns.org;Initial Catalog=Comisiones;User Id=javier;Password=javier;";
         private static bool isConfigurable = true;
         private SqlConnection cnn;
         private DataSet ds;
