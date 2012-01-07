@@ -130,11 +130,6 @@ namespace ComisionesAgentes
             this.cbxAgenteComision.DataSource = ds.Tables["agentes"].Copy();
             this.cbxAgenteComision.ValueMember = "agente";
             this.cbxAgenteComision.DisplayMember = "nombre_agente";
-
-            this.cbxAgenteMargenes.DataSource = null;
-            this.cbxAgenteMargenes.DataSource = ds.Tables["agentes"].Copy();
-            this.cbxAgenteMargenes.ValueMember = "agente";
-            this.cbxAgenteMargenes.DisplayMember = "nombre_agente";
         }
 
         private void LoadGridAgentesActivos()
@@ -151,7 +146,7 @@ namespace ComisionesAgentes
             this.grdAgentesActivos.Columns["nombre_agente"].Width = 200;
         }
 
-        private void LoadGrdLineas(int idAgente)
+        private void LoadGrdLineas()
         {
             bool closed = cnn.State == ConnectionState.Closed;
 
@@ -175,11 +170,10 @@ namespace ComisionesAgentes
                     FROM ERP_CIE.dbo.Lineas_Articulos la
                     INNER JOIN ERP_CIE.dbo.Sublineas_Articulos sa ON sa.linea = la.linea
                     INNER JOIN ERP_CIE.dbo.Familias_Articulos fa ON fa.sublinea = sa.sublinea
-                    INNER JOIN Familias_Agentes fag ON fag.familia = fa.familia
-                    WHERE agente = {0}
+                    INNER JOIN Familias_Margenes_Minimos fag ON fag.familia = fa.familia
                     GROUP BY la.linea, la.nombre_linea
                     ORDER BY nombre_linea
-                ", idAgente);
+                ");
             da = new SqlDataAdapter(consulta, cnn);
             ds = new DataSet();
             da.Fill(ds, "lineas");
@@ -191,7 +185,7 @@ namespace ComisionesAgentes
             }
         }
 
-        private void LoadGrdSublineas(int idAgente, int linea)
+        private void LoadGrdSublineas(int linea)
         {
             bool closed = cnn.State == ConnectionState.Closed;
 
@@ -215,11 +209,11 @@ namespace ComisionesAgentes
                     FROM ERP_CIE.dbo.Sublineas_Articulos sa
                     INNER JOIN ERP_CIE.dbo.Lineas_Articulos la ON la.linea = sa.linea
                     INNER JOIN ERP_CIE.dbo.Familias_Articulos fa ON fa.sublinea = sa.sublinea
-                    INNER JOIN Familias_Agentes fag ON fag.familia = fa.familia
-                    WHERE sa.linea = {0} AND agente = {1}
+                    INNER JOIN Familias_Margenes_Minimos fag ON fag.familia = fa.familia
+                    WHERE sa.linea = {0}
                     GROUP BY la.linea, sa.sublinea, sa.nombre_sublinea
                     ORDER BY nombre_sublinea
-                ", linea, idAgente);
+                ", linea);
 
             da = new SqlDataAdapter(consulta, cnn);
             ds = new DataSet();
@@ -232,7 +226,7 @@ namespace ComisionesAgentes
             }
         }
 
-        private void LoadGrdFamilias(int idAgente, Nullable<int> sublinea)
+        private void LoadGrdFamilias(Nullable<int> sublinea)
         {
             bool closed = cnn.State == ConnectionState.Closed;
 
@@ -242,14 +236,13 @@ namespace ComisionesAgentes
             }
 
             consulta = string.Format(@"
-                    INSERT INTO Familias_Agentes (familia, agente)
-                    SELECT familia, {0}
+                    INSERT INTO Familias_Margenes_Minimos (familia)
+                    SELECT familia
                     FROM	ERP_CIE.dbo.Familias_Articulos fa
                     WHERE familia NOT IN (
-					    SELECT familia FROM Familias_Agentes
-					    WHERE agente = {0}
+					    SELECT familia FROM Familias_Margenes_Minimos
                     )
-                ", idAgente);
+                ");
 
             SqlCommand command = new SqlCommand(consulta, cnn);
             command.ExecuteNonQuery();
@@ -259,13 +252,13 @@ namespace ComisionesAgentes
                 consulta = string.Format(@"
 					    SELECT la.linea, sa.sublinea, fa.familia, RTRIM(far.nombre_familia) nombre_familia, 
                         fa.margen_minimo * 100.0 margen_minimo
-                        FROM Familias_Agentes fa
+                        FROM Familias_Margenes_Minimos fa
                         INNER JOIN ERP_CIE.dbo.Familias_Articulos far ON far.familia = fa.familia
                         INNER JOIN ERP_CIE.dbo.Sublineas_Articulos sa ON sa.sublinea = far.sublinea
                         INNER JOIN ERP_CIE.dbo.Lineas_Articulos la ON la.linea = sa.linea
-					    WHERE agente = {0} AND sa.sublinea = {1}
+					    WHERE sa.sublinea = {0}
                         ORDER BY nombre_familia
-                    ", idAgente, sublinea);
+                    ", sublinea);
                 da = new SqlDataAdapter(consulta, cnn);
                 ds = new DataSet();
                 da.Fill(ds, "margenes");
@@ -1052,14 +1045,9 @@ namespace ComisionesAgentes
 
         private void cbxAgenteMargenes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int idAgente = 0;
-
-            if (this.cbxAgenteMargenes.SelectedValue != null)
-                int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
-
-            this.LoadGrdLineas(idAgente);
-            this.LoadGrdSublineas(idAgente, -1);
-            this.LoadGrdFamilias(idAgente, null);
+            this.LoadGrdLineas();
+            this.LoadGrdSublineas(-1);
+            this.LoadGrdFamilias(null);
         }
 
         private void grdFamilias_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -1125,28 +1113,20 @@ namespace ComisionesAgentes
         private void grdLineas_ClickCell(object sender, ClickCellEventArgs e)
         {
             int linea = -1;
-            int idAgente = 0;
 
             linea = Convert.ToInt32(e.Cell.Row.Cells["linea"].Value);
 
-            if (this.cbxAgenteMargenes.SelectedValue != null)
-                int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
-
-            this.LoadGrdSublineas(idAgente, linea);
-            this.LoadGrdFamilias(idAgente, linea);
+            this.LoadGrdSublineas(linea);
+            this.LoadGrdFamilias(linea);
         }
 
         private void grdSublineas_ClickCell(object sender, ClickCellEventArgs e)
         {
             Nullable<int> sublinea = null;
-            int idAgente = 0;
 
             sublinea = Convert.ToInt32(e.Cell.Row.Cells["sublinea"].Value);
 
-            if (this.cbxAgenteMargenes.SelectedValue != null)
-                int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
-
-            this.LoadGrdFamilias(idAgente, sublinea);
+            this.LoadGrdFamilias(sublinea);
         }
 
         private void grdLineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
@@ -1162,20 +1142,15 @@ namespace ComisionesAgentes
             
             if (dialog.Accepted)
             {
-                int idAgente = 0;
-
-                if (this.cbxAgenteMargenes.SelectedValue != null)
-                    int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
-
                 consulta = string.Format(@"
-                        UPDATE Familias_Agentes SET margen_minimo = {2}
-                        WHERE agente = {0} AND familia IN (
+                        UPDATE Familias_Margenes_Minimos SET margen_minimo = {1}
+                        WHERE familia IN (
                             SELECT fa.familia 
                             FROM ERP_CIE.dbo.Sublineas_Articulos sa 
                             INNER JOIN ERP_CIE.dbo.Familias_Articulos fa ON fa.sublinea = sa.sublinea
-                            WHERE linea = {1}
+                            WHERE linea = {0}
                         )
-                    ", idAgente, e.Row.Cells["linea"].Value,
+                    ", e.Row.Cells["linea"].Value,
                      dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
 
                 cnn.Open();
@@ -1183,9 +1158,9 @@ namespace ComisionesAgentes
                 command.ExecuteNonQuery();
                 cnn.Close();
 
-                this.LoadGrdLineas(idAgente);
-                this.LoadGrdSublineas(idAgente, Convert.ToInt32(e.Row.Cells["linea"].Value));
-                this.LoadGrdFamilias(idAgente, null);
+                this.LoadGrdLineas();
+                this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
+                this.LoadGrdFamilias(null);
             }
         }
 
@@ -1202,19 +1177,14 @@ namespace ComisionesAgentes
 
             if (dialog.Accepted)
             {
-                int idAgente = 0;
-
-                if (this.cbxAgenteMargenes.SelectedValue != null)
-                    int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
-
                 consulta = string.Format(@"
-                        UPDATE Familias_Agentes SET margen_minimo = {2}
-                        WHERE agente = {0} AND familia IN (
+                        UPDATE Familias_Margenes_Minimos SET margen_minimo = {1}
+                        WHERE familia IN (
                             SELECT fa.familia 
                             FROM ERP_CIE.dbo.Familias_Articulos fa 
-                            WHERE fa.sublinea = {1}
+                            WHERE fa.sublinea = {0}
                         )
-                    ", idAgente, e.Row.Cells["sublinea"].Value,
+                    ", e.Row.Cells["sublinea"].Value,
                      dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
 
                 cnn.Open();
@@ -1223,9 +1193,9 @@ namespace ComisionesAgentes
                 command.ExecuteNonQuery();
                 cnn.Close();
 
-                this.LoadGrdLineas(idAgente);
-                this.LoadGrdSublineas(idAgente, Convert.ToInt32(e.Row.Cells["linea"].Value));
-                this.LoadGrdFamilias(idAgente, Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+                this.LoadGrdLineas();
+                this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
+                this.LoadGrdFamilias(Convert.ToInt32(e.Row.Cells["sublinea"].Value));
             }
         }
 
@@ -1242,15 +1212,10 @@ namespace ComisionesAgentes
 
             if (dialog.Accepted)
             {
-                int idAgente = 0;
-
-                if (this.cbxAgenteMargenes.SelectedValue != null)
-                    int.TryParse(this.cbxAgenteMargenes.SelectedValue.ToString(), out idAgente);
-
                 consulta = string.Format(@"
-                        UPDATE Familias_Agentes SET margen_minimo = {2}
-                        WHERE agente = {0} AND familia = {1}
-                    ", idAgente, e.Row.Cells["familia"].Value,
+                        UPDATE Familias_Margenes_Minimos SET margen_minimo = {1}
+                        WHERE familia = {0}
+                    ", e.Row.Cells["familia"].Value,
                      dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
 
                 cnn.Open();
@@ -1259,9 +1224,9 @@ namespace ComisionesAgentes
                 command.ExecuteNonQuery();
                 cnn.Close();
 
-                this.LoadGrdLineas(idAgente);
-                this.LoadGrdSublineas(idAgente, Convert.ToInt32(e.Row.Cells["linea"].Value));
-                this.LoadGrdFamilias(idAgente, Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+                this.LoadGrdLineas();
+                this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
+                this.LoadGrdFamilias(Convert.ToInt32(e.Row.Cells["sublinea"].Value));
             }
         }
         
