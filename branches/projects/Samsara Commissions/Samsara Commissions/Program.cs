@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ComisionesAgentes
+namespace SamsaraCommissions
 {
     static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace ComisionesAgentes
+﻿namespace SamsaraCommissions
 {
     partial class DetalleQuincena
     {

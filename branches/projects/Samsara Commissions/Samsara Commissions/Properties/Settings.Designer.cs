@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Samsara_Commissions.Properties
+namespace SamsaraCommissions.Properties
 {
 
 

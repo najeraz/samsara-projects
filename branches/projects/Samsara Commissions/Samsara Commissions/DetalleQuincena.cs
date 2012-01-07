@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ComisionesSamsara;
 
-namespace ComisionesAgentes
+namespace SamsaraCommissions
 {
     public partial class DetalleQuincena : Form
     {

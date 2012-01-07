@@ -1,5 +1,5 @@
 ﻿
-namespace ComisionesAgentes
+namespace SamsaraCommissions
 {
     partial class ComisionesForm
     {
@@ -82,7 +82,7 @@ namespace ComisionesAgentes
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.cbxAgentesConfig = new System.Windows.Forms.ComboBox();
-            this.ComisionesAgentes = new System.Windows.Forms.TabPage();
+            this.SamsaraCommissions = new System.Windows.Forms.TabPage();
             this.grdComisionesAgente = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dudAños = new System.Windows.Forms.DomainUpDown();
@@ -151,7 +151,7 @@ namespace ComisionesAgentes
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.ComisionesAgentes.SuspendLayout();
+            this.SamsaraCommissions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgente)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.Ajustes.SuspendLayout();
@@ -259,7 +259,7 @@ namespace ComisionesAgentes
             // 
             this.tcConfiguracion.Controls.Add(this.AgentesActivos);
             this.tcConfiguracion.Controls.Add(this.AgentesEquivalentes);
-            this.tcConfiguracion.Controls.Add(this.ComisionesAgentes);
+            this.tcConfiguracion.Controls.Add(this.SamsaraCommissions);
             this.tcConfiguracion.Controls.Add(this.Ajustes);
             this.tcConfiguracion.Controls.Add(this.MargenesMínimos);
             this.tcConfiguracion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -362,16 +362,16 @@ namespace ComisionesAgentes
             this.cbxAgentesConfig.TabIndex = 9;
             this.cbxAgentesConfig.SelectedValueChanged += new System.EventHandler(this.cbxAgentesConfig_SelectedValueChanged);
             // 
-            // ComisionesAgentes
+            // SamsaraCommissions
             // 
-            this.ComisionesAgentes.Controls.Add(this.grdComisionesAgente);
-            this.ComisionesAgentes.Controls.Add(this.groupBox3);
-            this.ComisionesAgentes.Location = new System.Drawing.Point(4, 22);
-            this.ComisionesAgentes.Name = "ComisionesAgentes";
-            this.ComisionesAgentes.Size = new System.Drawing.Size(627, 432);
-            this.ComisionesAgentes.TabIndex = 2;
-            this.ComisionesAgentes.Text = "Comisiones Agentes";
-            this.ComisionesAgentes.UseVisualStyleBackColor = true;
+            this.SamsaraCommissions.Controls.Add(this.grdComisionesAgente);
+            this.SamsaraCommissions.Controls.Add(this.groupBox3);
+            this.SamsaraCommissions.Location = new System.Drawing.Point(4, 22);
+            this.SamsaraCommissions.Name = "SamsaraCommissions";
+            this.SamsaraCommissions.Size = new System.Drawing.Size(627, 432);
+            this.SamsaraCommissions.TabIndex = 2;
+            this.SamsaraCommissions.Text = "Comisiones Agentes";
+            this.SamsaraCommissions.UseVisualStyleBackColor = true;
             // 
             // grdComisionesAgente
             // 
@@ -1212,7 +1212,7 @@ namespace ComisionesAgentes
             this.groupBox4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.ComisionesAgentes.ResumeLayout(false);
+            this.SamsaraCommissions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgente)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -1274,7 +1274,7 @@ namespace ComisionesAgentes
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxAgentesConfig;
-        private System.Windows.Forms.TabPage ComisionesAgentes;
+        private System.Windows.Forms.TabPage SamsaraCommissions;
         private System.Windows.Forms.DataGridView grdComisionesAgente;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DomainUpDown dudAños;
