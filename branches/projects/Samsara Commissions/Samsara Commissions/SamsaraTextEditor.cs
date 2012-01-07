@@ -1,8 +1,8 @@
 ﻿
 using System.ComponentModel;
+using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
-using System.Windows.Forms;
 using Samsara.Support.Util;
 
 namespace Samsara.Base.Controls.Controls
