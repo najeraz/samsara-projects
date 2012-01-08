@@ -15,6 +15,7 @@ namespace ComisionesSamsara
     {
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
+        private static string integerMask = "nnnnnnnnnnnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn %";
         private static string realPercentageMask = "nnn.nnnnnn %";
@@ -26,6 +27,7 @@ namespace ComisionesSamsara
         {
             Currency,
             Rate,
+            Integer,
             Percentage,
             RealPercentage,
             NoLimitPercentage,
@@ -96,6 +98,12 @@ namespace ComisionesSamsara
                     break;
                 case TextMaskFormatEnum.NaturalQuantity:
                     column.MaskInput = naturalQuantityMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case TextMaskFormatEnum.Integer:
+                    column.MaskInput = integerMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
