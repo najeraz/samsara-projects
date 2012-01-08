@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ComisionesSamsara
+namespace SamsaraCommissions
 {
     public class NumberUtils
     {
