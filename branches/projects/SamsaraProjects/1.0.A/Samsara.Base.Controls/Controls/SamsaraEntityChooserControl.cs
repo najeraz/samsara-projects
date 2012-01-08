@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinEditors;
@@ -96,6 +97,11 @@ namespace Samsara.Base.Controls.Controls
             this.ValueMember = typeof(T).Name + "Id";
             this.DisplayMember = "Name";
             this.Parameters = new TPmt();
+            
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.Refresh();
+            }
         }
 
         #endregion Constructor
