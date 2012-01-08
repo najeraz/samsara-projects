@@ -9,7 +9,7 @@ using Infragistics.Win.UltraWinEditors;
 using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinMaskedEdit;
 
-namespace ComisionesSamsara
+namespace SamsaraCommissions
 {
     public class WindowsFormsUtil
     {
