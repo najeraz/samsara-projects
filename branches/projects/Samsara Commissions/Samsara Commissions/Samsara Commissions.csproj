@@ -61,6 +61,7 @@
       <DependentUpon>ComisionDataDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="ComisionTypeEnum.cs" />
+    <Compile Include="ConectionStrings.cs" />
     <Compile Include="DetalleFactura.cs">
       <SubType>Form</SubType>
     </Compile>
