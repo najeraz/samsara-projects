@@ -268,5 +268,9 @@ namespace SamsaraCommissions
                 }
             });
         }
+
+        private void grdDetalleQuincena_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
+        {
+        }
     }
 }

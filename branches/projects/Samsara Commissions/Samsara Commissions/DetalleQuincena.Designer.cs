@@ -276,6 +276,7 @@
             this.grdDetalleQuincena.TabIndex = 10;
             this.grdDetalleQuincena.Text = "ultraGrid1";
             this.grdDetalleQuincena.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdDetalleQuincena_InitializeLayout);
+            this.grdDetalleQuincena.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.grdDetalleQuincena_DoubleClickRow);
             // 
             // DetalleQuincena
             // 

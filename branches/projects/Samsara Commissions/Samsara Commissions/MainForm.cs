@@ -16,8 +16,6 @@ namespace SamsaraCommissions
     {
         #region Attributes
 
-        private static string cnnString =
-            "Data Source=samsaraca.dyndns.org;Initial Catalog=Comisiones;User Id=javier;Password=javier;";
         private static bool isConfigurable = true;
         private SqlConnection cnn;
         private DataSet ds;
@@ -32,7 +30,7 @@ namespace SamsaraCommissions
 
         public ComisionesForm()
         {
-            cnn = new SqlConnection(cnnString);
+            cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
             InitializeComponent();
             PostInitializeComponent();
         }
