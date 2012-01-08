@@ -6,6 +6,8 @@ using System.Linq;
 using System.Windows.Forms;
 using ComisionesSamsara;
 using Infragistics.Win.UltraWinGrid;
+using System.Threading.Tasks;
+using Infragistics.Win;
 
 namespace SamsaraCommissions
 {
@@ -198,25 +200,6 @@ namespace SamsaraCommissions
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
-        private void grdDetalleQuincena_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.grdDetalleQuincena.Rows[e.RowIndex].Cells["pendiente_pago"].Value.ToString() == "Si")
-            {
-                e.CellStyle.BackColor = Color.LightGreen;
-            }
-
-            decimal utilidad = Convert.ToDecimal(this.grdDetalleQuincena.Rows[e.RowIndex].Cells["utilidad_comisionable"].Value);
-            decimal utilidadComisionable = Convert.ToDecimal(this.grdDetalleQuincena.Rows[e.RowIndex].Cells["utilidad_comisionable"].Value);
-
-            if (utilidad - utilidadComisionable > 0.01M || utilidadComisionable <= 0)
-            {
-                if (e.CellStyle.BackColor == Color.LightGreen)
-                    e.CellStyle.BackColor = Color.YellowGreen;
-                else
-                    e.CellStyle.BackColor = Color.Yellow;
-            }
-        }
-
         private void grdFacturasCanceladas_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (this.grdFacturasCanceladas.Rows[e.RowIndex].Cells["pendiente_cobro"].Value.ToString() == "Si")
@@ -229,6 +212,61 @@ namespace SamsaraCommissions
         {
             UltraGridLayout layout = e.Layout;
             UltraGridBand band = layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["fiscal"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["factura"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["factura_original"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["costo"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_comisionable"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_utilidad"],
+                WindowsFormsUtil.TextMaskFormatEnum.Percentage);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_acumulado"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_cuota"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_comision"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_comision_agente"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_pagado"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["porcentaje_comision"],
+                WindowsFormsUtil.TextMaskFormatEnum.Percentage);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+
+            Parallel.ForEach(this.grdDetalleQuincena.Rows, row =>
+            {
+                if (row.Cells["pendiente_pago"].Value.ToString() == "Si")
+                {
+                    row.CellAppearance.BackColor = Color.LightGreen;
+                }
+
+                decimal utilidad = Convert.ToDecimal(row.Cells["utilidad_comisionable"].Value);
+                decimal utilidadComisionable = Convert.ToDecimal(row.Cells["utilidad_comisionable"].Value);
+
+                if (utilidad - utilidadComisionable > 0.01M || utilidadComisionable <= 0)
+                {
+                    if (row.CellAppearance.BackColor == Color.LightGreen)
+                        row.CellAppearance.BackColor = Color.YellowGreen;
+                    else
+                        row.CellAppearance.BackColor = Color.Yellow;
+                }
+            });
         }
     }
 }
