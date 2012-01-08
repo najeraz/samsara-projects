@@ -89,7 +89,7 @@ namespace SamsaraCommissions
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["costo_promedio"],
                 WindowsFormsUtil.TextMaskFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cantidad"],
-                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+                WindowsFormsUtil.TextMaskFormatEnum.NaturalQuantity);
         }
 
         private void grdCredits_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
@@ -103,7 +103,7 @@ namespace SamsaraCommissions
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["movimiento"],
                 WindowsFormsUtil.TextMaskFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
-                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
         }
 
         private void grdCharges_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
@@ -117,7 +117,7 @@ namespace SamsaraCommissions
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["movimiento"],
                 WindowsFormsUtil.TextMaskFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
-                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
         }
     }
 }
