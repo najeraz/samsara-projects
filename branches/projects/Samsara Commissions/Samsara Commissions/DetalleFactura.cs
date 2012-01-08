@@ -52,6 +52,10 @@ namespace SamsaraCommissions
                     AND		m.fecha         < dateadd(day, 1, getdate())
                 ", this.IdFactura);
 
+            ds = new DataSet();
+            da = new SqlDataAdapter(consulta, cnn);
+            da.Fill(ds, "data");
+
             this.grdCredits.DataSource = ds.Tables["data"];
 
             consulta = string.Format(@"
@@ -62,6 +66,10 @@ namespace SamsaraCommissions
                     AND		m.estado_actual <> 'Cancelado'
                     AND		m.fecha         < dateadd(day, 1, getdate())
                 ", this.IdFactura);
+
+            ds = new DataSet();
+            da = new SqlDataAdapter(consulta, cnn);
+            da.Fill(ds, "data");
 
             this.grdCharges.DataSource = ds.Tables["data"];
         }
