@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using ComisionesSamsara;
+using SamsaraCommissions;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 
@@ -1033,6 +1034,7 @@ namespace SamsaraCommissions
             this.LoadAjustes();
         }
 
+        [DebuggerStepThrough]
         private void grdReporteAnual_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (this.grdReporteAnual.Rows[e.RowIndex].Cells["concepto"].Value.ToString() == "Comisión")

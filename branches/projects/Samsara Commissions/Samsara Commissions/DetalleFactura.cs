@@ -1,7 +1,10 @@
 ﻿
-using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using Infragistics.Win.UltraWinGrid;
+using Infragistics.Win;
+using SamsaraCommissions;
 
 namespace SamsaraCommissions
 {
@@ -24,7 +27,7 @@ namespace SamsaraCommissions
             InitializeComponent();
         }
 
-        private void LoadGrids()
+        public void LoadGrids()
         {
             consulta = string.Format(@"
                     SELECT numero_linea, a.nombre_articulo, dfc.precio_pactado, dfc.costo_promedio, dfc.cantidad
@@ -61,6 +64,52 @@ namespace SamsaraCommissions
                 ", this.IdFactura);
 
             this.grdCharges.DataSource = ds.Tables["data"];
+        }
+
+        private void grdLines_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
+            
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["numero_linea"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["precio_pactado"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["costo_promedio"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cantidad"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+        }
+
+        private void grdCredits_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
+            
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["movimiento"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+        }
+
+        private void grdCharges_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["movimiento"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
+                WindowsFormsUtil.TextMaskFormatEnum.Integer);
         }
     }
 }

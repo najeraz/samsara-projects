@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
-using ComisionesSamsara;
-using Infragistics.Win.UltraWinGrid;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using SamsaraCommissions;
 using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
 
 namespace SamsaraCommissions
 {
@@ -271,6 +271,10 @@ namespace SamsaraCommissions
 
         private void grdDetalleQuincena_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
+            DetalleFactura form = new DetalleFactura();
+            form.IdFactura = Convert.ToInt32(e.Row.Cells["factura"].Value);
+            form.LoadGrids();
+            form.ShowDialog(this);
         }
     }
 }

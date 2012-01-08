@@ -1,5 +1,5 @@
 ﻿
-namespace ComisionesSamsara
+namespace SamsaraCommissions
 {
     public class GeneralUtils
     {

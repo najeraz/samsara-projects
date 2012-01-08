@@ -180,6 +180,7 @@
             this.grdLines.Size = new System.Drawing.Size(744, 121);
             this.grdLines.TabIndex = 9;
             this.grdLines.Text = "ultraGrid1";
+            this.grdLines.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdLines_InitializeLayout);
             // 
             // panel1
             // 
@@ -264,6 +265,7 @@
             this.grdCharges.Size = new System.Drawing.Size(368, 125);
             this.grdCharges.TabIndex = 9;
             this.grdCharges.Text = "ultraGrid2";
+            this.grdCharges.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdCharges_InitializeLayout);
             // 
             // groupBox3
             // 
@@ -338,6 +340,7 @@
             this.grdCredits.Size = new System.Drawing.Size(370, 125);
             this.grdCredits.TabIndex = 9;
             this.grdCredits.Text = "ultraGrid3";
+            this.grdCredits.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdCredits_InitializeLayout);
             // 
             // panel2
             // 
