@@ -17,7 +17,7 @@ namespace SamsaraCommissions
     {
         #region Attributes
 
-        private static bool isConfigurable = false;
+        private static bool isConfigurable = true;
         private SqlConnection cnn;
         private DataSet ds;
         private string consulta;
