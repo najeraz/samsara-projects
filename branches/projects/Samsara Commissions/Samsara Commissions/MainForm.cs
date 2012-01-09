@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SamsaraCommissions;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using System.Security.Principal;
 
 namespace SamsaraCommissions
 {
@@ -17,7 +18,19 @@ namespace SamsaraCommissions
     {
         #region Attributes
 
-        private static bool isConfigurable = true;
+        private static bool isConfigurable =
+            WindowsIdentity.GetCurrent().Name == @"SAMSARA\ADMINISTRACION"
+            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\DIRECCION"
+            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\javier";
+
+        private static bool canPay =
+            WindowsIdentity.GetCurrent().Name == @"SAMSARA\ADMINISTRACION"
+            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\javier";
+
+        private static bool canChangeMargins =
+            WindowsIdentity.GetCurrent().Name == @"SAMSARA\DIRECCION"
+            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\javier";
+
         private SqlConnection cnn;
         private DataSet ds;
         private string consulta;
@@ -992,7 +1005,7 @@ namespace SamsaraCommissions
 
         private void lblAgente_TextChanged(object sender, EventArgs e)
         {
-            this.pnlAdmin.Enabled = this.lblAgente.Text.Length > 0 && isConfigurable;
+            this.pnlAdmin.Enabled = this.lblAgente.Text.Length > 0 && canPay;
         }
 
         private void btnEliminarAjuste_Click(object sender, EventArgs e)
@@ -1131,7 +1144,7 @@ namespace SamsaraCommissions
 
         private void grdLineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
-            if (isConfigurable)
+            if (canChangeMargins)
             {
                 MinimalMarginDialog dialog = new MinimalMarginDialog();
 
@@ -1169,7 +1182,7 @@ namespace SamsaraCommissions
 
         private void grdSublineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
-            if (isConfigurable)
+            if (canChangeMargins)
             {
                 MinimalMarginDialog dialog = new MinimalMarginDialog();
 
@@ -1207,7 +1220,7 @@ namespace SamsaraCommissions
 
         private void grdFamilias_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
-            if (isConfigurable)
+            if (canChangeMargins)
             {
                 MinimalMarginDialog dialog = new MinimalMarginDialog();
 
