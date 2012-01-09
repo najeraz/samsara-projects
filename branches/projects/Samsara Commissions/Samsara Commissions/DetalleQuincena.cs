@@ -107,7 +107,7 @@ namespace SamsaraCommissions
                 try
                 {
                     this.grdDetalleQuincena.DataSource = this.DtDetalleComisiones.AsEnumerable()
-                        .Where(x => Convert.ToInt32(x["mes"]) == this.Mes
+                        .AsParallel().Where(x => Convert.ToInt32(x["mes"]) == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
                             && Convert.ToInt32(x["anio"]) == this.Año).CopyToDataTable();
 
@@ -122,7 +122,7 @@ namespace SamsaraCommissions
                 try
                 {
                     this.grdFacturasCanceladas.DataSource = this.DtFacturasCanceladas.AsEnumerable()
-                        .Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
+                        .AsParallel().Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
                             && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
@@ -137,7 +137,7 @@ namespace SamsaraCommissions
                 try
                 {
                     this.grdFacturasPendientes.DataSource = this.DtFacturasPendientes.AsEnumerable()
-                        .Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
+                        .AsParallel().Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
                             && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
