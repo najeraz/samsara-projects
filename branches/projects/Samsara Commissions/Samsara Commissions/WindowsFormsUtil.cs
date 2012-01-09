@@ -17,7 +17,7 @@ namespace SamsaraCommissions
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
         private static string integerMask = "nnnnnnnnnnnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
-        private static string percentageMask = "nnn.nn %";
+        private static string percentageMask = "-nnn.nn %";
         private static string realPercentageMask = "nnn.nnnnnn %";
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
         private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
