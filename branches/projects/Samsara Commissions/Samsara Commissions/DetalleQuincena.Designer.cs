@@ -45,6 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tcFacturasPagadas = new System.Windows.Forms.TabControl();
             this.FacturasPagadas = new System.Windows.Forms.TabPage();
+            this.grdDetalleQuincena = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tcComplemento = new System.Windows.Forms.TabControl();
             this.FacturasCanceladas = new System.Windows.Forms.TabPage();
@@ -53,12 +54,12 @@
             this.grdFacturasPendientes = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clbColumnas = new System.Windows.Forms.CheckedListBox();
-            this.grdDetalleQuincena = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.tcDetalle.SuspendLayout();
             this.DetalleQui.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tcFacturasPagadas.SuspendLayout();
             this.FacturasPagadas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleQuincena)).BeginInit();
             this.panel2.SuspendLayout();
             this.tcComplemento.SuspendLayout();
             this.FacturasCanceladas.SuspendLayout();
@@ -66,7 +67,6 @@
             this.FacturasPendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasPendientes)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleQuincena)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDetalle
@@ -122,6 +122,71 @@
             this.FacturasPagadas.Text = "Facturas Pagadas";
             this.FacturasPagadas.UseVisualStyleBackColor = true;
             // 
+            // grdDetalleQuincena
+            // 
+            appearance13.BackColor = System.Drawing.SystemColors.Window;
+            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdDetalleQuincena.DisplayLayout.Appearance = appearance13;
+            this.grdDetalleQuincena.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetalleQuincena.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance14.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance14.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetalleQuincena.DisplayLayout.GroupByBox.Appearance = appearance14;
+            appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetalleQuincena.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
+            this.grdDetalleQuincena.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance16.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance16.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdDetalleQuincena.DisplayLayout.GroupByBox.PromptAppearance = appearance16;
+            this.grdDetalleQuincena.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdDetalleQuincena.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance17.BackColor = System.Drawing.SystemColors.Window;
+            appearance17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdDetalleQuincena.DisplayLayout.Override.ActiveCellAppearance = appearance17;
+            appearance18.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance18.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdDetalleQuincena.DisplayLayout.Override.ActiveRowAppearance = appearance18;
+            this.grdDetalleQuincena.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdDetalleQuincena.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance19.BackColor = System.Drawing.SystemColors.Window;
+            this.grdDetalleQuincena.DisplayLayout.Override.CardAreaAppearance = appearance19;
+            appearance20.BorderColor = System.Drawing.Color.Silver;
+            appearance20.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdDetalleQuincena.DisplayLayout.Override.CellAppearance = appearance20;
+            this.grdDetalleQuincena.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdDetalleQuincena.DisplayLayout.Override.CellPadding = 0;
+            appearance21.BackColor = System.Drawing.SystemColors.Control;
+            appearance21.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance21.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance21.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance21.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdDetalleQuincena.DisplayLayout.Override.GroupByRowAppearance = appearance21;
+            appearance22.TextHAlignAsString = "Left";
+            this.grdDetalleQuincena.DisplayLayout.Override.HeaderAppearance = appearance22;
+            this.grdDetalleQuincena.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdDetalleQuincena.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance23.BackColor = System.Drawing.SystemColors.Window;
+            appearance23.BorderColor = System.Drawing.Color.Silver;
+            this.grdDetalleQuincena.DisplayLayout.Override.RowAppearance = appearance23;
+            this.grdDetalleQuincena.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdDetalleQuincena.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
+            this.grdDetalleQuincena.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdDetalleQuincena.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdDetalleQuincena.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdDetalleQuincena.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetalleQuincena.Location = new System.Drawing.Point(3, 3);
+            this.grdDetalleQuincena.Name = "grdDetalleQuincena";
+            this.grdDetalleQuincena.Size = new System.Drawing.Size(528, 165);
+            this.grdDetalleQuincena.TabIndex = 10;
+            this.grdDetalleQuincena.Text = "ultraGrid1";
+            this.grdDetalleQuincena.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdDetalleQuincena_InitializeLayout);
+            this.grdDetalleQuincena.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.grdDetalleQuincena_DoubleClickRow);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.tcComplemento);
@@ -133,8 +198,8 @@
             // 
             // tcComplemento
             // 
-            this.tcComplemento.Controls.Add(this.FacturasCanceladas);
             this.tcComplemento.Controls.Add(this.FacturasPendientes);
+            this.tcComplemento.Controls.Add(this.FacturasCanceladas);
             this.tcComplemento.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcComplemento.Location = new System.Drawing.Point(0, 0);
             this.tcComplemento.Name = "tcComplemento";
@@ -213,71 +278,6 @@
             this.clbColumnas.TabIndex = 0;
             this.clbColumnas.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbColumnas_ItemCheck);
             // 
-            // grdDetalleQuincena
-            // 
-            appearance13.BackColor = System.Drawing.SystemColors.Window;
-            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdDetalleQuincena.DisplayLayout.Appearance = appearance13;
-            this.grdDetalleQuincena.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdDetalleQuincena.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance14.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance14.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetalleQuincena.DisplayLayout.GroupByBox.Appearance = appearance14;
-            appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetalleQuincena.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
-            this.grdDetalleQuincena.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance16.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance16.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdDetalleQuincena.DisplayLayout.GroupByBox.PromptAppearance = appearance16;
-            this.grdDetalleQuincena.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdDetalleQuincena.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance17.BackColor = System.Drawing.SystemColors.Window;
-            appearance17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdDetalleQuincena.DisplayLayout.Override.ActiveCellAppearance = appearance17;
-            appearance18.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance18.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdDetalleQuincena.DisplayLayout.Override.ActiveRowAppearance = appearance18;
-            this.grdDetalleQuincena.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdDetalleQuincena.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance19.BackColor = System.Drawing.SystemColors.Window;
-            this.grdDetalleQuincena.DisplayLayout.Override.CardAreaAppearance = appearance19;
-            appearance20.BorderColor = System.Drawing.Color.Silver;
-            appearance20.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdDetalleQuincena.DisplayLayout.Override.CellAppearance = appearance20;
-            this.grdDetalleQuincena.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdDetalleQuincena.DisplayLayout.Override.CellPadding = 0;
-            appearance21.BackColor = System.Drawing.SystemColors.Control;
-            appearance21.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance21.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance21.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance21.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdDetalleQuincena.DisplayLayout.Override.GroupByRowAppearance = appearance21;
-            appearance22.TextHAlignAsString = "Left";
-            this.grdDetalleQuincena.DisplayLayout.Override.HeaderAppearance = appearance22;
-            this.grdDetalleQuincena.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdDetalleQuincena.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance23.BackColor = System.Drawing.SystemColors.Window;
-            appearance23.BorderColor = System.Drawing.Color.Silver;
-            this.grdDetalleQuincena.DisplayLayout.Override.RowAppearance = appearance23;
-            this.grdDetalleQuincena.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdDetalleQuincena.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
-            this.grdDetalleQuincena.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdDetalleQuincena.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdDetalleQuincena.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
-            this.grdDetalleQuincena.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetalleQuincena.Location = new System.Drawing.Point(3, 3);
-            this.grdDetalleQuincena.Name = "grdDetalleQuincena";
-            this.grdDetalleQuincena.Size = new System.Drawing.Size(528, 165);
-            this.grdDetalleQuincena.TabIndex = 10;
-            this.grdDetalleQuincena.Text = "ultraGrid1";
-            this.grdDetalleQuincena.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdDetalleQuincena_InitializeLayout);
-            this.grdDetalleQuincena.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.grdDetalleQuincena_DoubleClickRow);
-            // 
             // DetalleQuincena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +291,7 @@
             this.panel1.ResumeLayout(false);
             this.tcFacturasPagadas.ResumeLayout(false);
             this.FacturasPagadas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleQuincena)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tcComplemento.ResumeLayout(false);
             this.FacturasCanceladas.ResumeLayout(false);
@@ -298,7 +299,6 @@
             this.FacturasPendientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasPendientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleQuincena)).EndInit();
             this.ResumeLayout(false);
 
         }

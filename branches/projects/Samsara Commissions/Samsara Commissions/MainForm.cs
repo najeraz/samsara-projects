@@ -17,7 +17,7 @@ namespace SamsaraCommissions
     {
         #region Attributes
 
-        private static bool isConfigurable = true;
+        private static bool isConfigurable = false;
         private SqlConnection cnn;
         private DataSet ds;
         private string consulta;
@@ -1109,7 +1109,7 @@ namespace SamsaraCommissions
             band.Columns["sublinea"].Hidden = true;
             band.Columns["linea"].Hidden = true;
         }
-        
+
         private void grdLineas_ClickCell(object sender, ClickCellEventArgs e)
         {
             int linea = -1;
@@ -1131,18 +1131,20 @@ namespace SamsaraCommissions
 
         private void grdLineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
-            MinimalMarginDialog dialog = new MinimalMarginDialog();
-
-            dialog.ConceptName = e.Row.Cells["nombre_linea"].Value.ToString();
-            if (e.Row.Cells["margen_promedio"].Value != DBNull.Value)
-                dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_promedio"].Value);
-            dialog.gbxMinimalMargin.Text = "Linea de Producto:";
-
-            dialog.ShowDialog(this);
-            
-            if (dialog.Accepted)
+            if (isConfigurable)
             {
-                consulta = string.Format(@"
+                MinimalMarginDialog dialog = new MinimalMarginDialog();
+
+                dialog.ConceptName = e.Row.Cells["nombre_linea"].Value.ToString();
+                if (e.Row.Cells["margen_promedio"].Value != DBNull.Value)
+                    dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_promedio"].Value);
+                dialog.gbxMinimalMargin.Text = "Linea de Producto:";
+
+                dialog.ShowDialog(this);
+
+                if (dialog.Accepted)
+                {
+                    consulta = string.Format(@"
                         UPDATE Familias_Margenes_Minimos SET margen_minimo = {1}
                         WHERE familia IN (
                             SELECT fa.familia 
@@ -1151,33 +1153,36 @@ namespace SamsaraCommissions
                             WHERE linea = {0}
                         )
                     ", e.Row.Cells["linea"].Value,
-                     dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
+                         dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
 
-                cnn.Open();
-                SqlCommand command = new SqlCommand(consulta, cnn);
-                command.ExecuteNonQuery();
-                cnn.Close();
+                    cnn.Open();
+                    SqlCommand command = new SqlCommand(consulta, cnn);
+                    command.ExecuteNonQuery();
+                    cnn.Close();
 
-                this.LoadGrdLineas();
-                this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
-                this.LoadGrdFamilias(null);
+                    this.LoadGrdLineas();
+                    this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
+                    this.LoadGrdFamilias(null);
+                }
             }
         }
 
         private void grdSublineas_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
-            MinimalMarginDialog dialog = new MinimalMarginDialog();
-
-            dialog.ConceptName = e.Row.Cells["nombre_sublinea"].Value.ToString();
-            if (e.Row.Cells["margen_promedio"].Value != DBNull.Value)
-                dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_promedio"].Value);
-            dialog.gbxMinimalMargin.Text = "Subinea de Producto:";
-
-            dialog.ShowDialog(this);
-
-            if (dialog.Accepted)
+            if (isConfigurable)
             {
-                consulta = string.Format(@"
+                MinimalMarginDialog dialog = new MinimalMarginDialog();
+
+                dialog.ConceptName = e.Row.Cells["nombre_sublinea"].Value.ToString();
+                if (e.Row.Cells["margen_promedio"].Value != DBNull.Value)
+                    dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_promedio"].Value);
+                dialog.gbxMinimalMargin.Text = "Subinea de Producto:";
+
+                dialog.ShowDialog(this);
+
+                if (dialog.Accepted)
+                {
+                    consulta = string.Format(@"
                         UPDATE Familias_Margenes_Minimos SET margen_minimo = {1}
                         WHERE familia IN (
                             SELECT fa.familia 
@@ -1185,48 +1190,52 @@ namespace SamsaraCommissions
                             WHERE fa.sublinea = {0}
                         )
                     ", e.Row.Cells["sublinea"].Value,
-                     dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
+                         dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
 
-                cnn.Open();
-                SqlCommand command = new SqlCommand(consulta, cnn);
-                command.Transaction = this.transacction;
-                command.ExecuteNonQuery();
-                cnn.Close();
+                    cnn.Open();
+                    SqlCommand command = new SqlCommand(consulta, cnn);
+                    command.Transaction = this.transacction;
+                    command.ExecuteNonQuery();
+                    cnn.Close();
 
-                this.LoadGrdLineas();
-                this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
-                this.LoadGrdFamilias(Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+                    this.LoadGrdLineas();
+                    this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
+                    this.LoadGrdFamilias(Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+                }
             }
         }
 
         private void grdFamilias_DoubleClickRow(object sender, DoubleClickRowEventArgs e)
         {
-            MinimalMarginDialog dialog = new MinimalMarginDialog();
-
-            dialog.ConceptName = e.Row.Cells["nombre_familia"].Value.ToString();
-            if (e.Row.Cells["margen_minimo"].Value != DBNull.Value)
-                dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_minimo"].Value);
-            dialog.gbxMinimalMargin.Text = "Familia de Producto:";
-
-            dialog.ShowDialog(this);
-
-            if (dialog.Accepted)
+            if (isConfigurable)
             {
-                consulta = string.Format(@"
+                MinimalMarginDialog dialog = new MinimalMarginDialog();
+
+                dialog.ConceptName = e.Row.Cells["nombre_familia"].Value.ToString();
+                if (e.Row.Cells["margen_minimo"].Value != DBNull.Value)
+                    dialog.MinimalMargin = Convert.ToDecimal(e.Row.Cells["margen_minimo"].Value);
+                dialog.gbxMinimalMargin.Text = "Familia de Producto:";
+
+                dialog.ShowDialog(this);
+
+                if (dialog.Accepted)
+                {
+                    consulta = string.Format(@"
                         UPDATE Familias_Margenes_Minimos SET margen_minimo = {1}
                         WHERE familia = {0}
                     ", e.Row.Cells["familia"].Value,
-                     dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
+                         dialog.MinimalMargin == null ? "null" : (dialog.MinimalMargin / 100M).ToString());
 
-                cnn.Open();
-                SqlCommand command = new SqlCommand(consulta, cnn);
-                command.Transaction = this.transacction;
-                command.ExecuteNonQuery();
-                cnn.Close();
+                    cnn.Open();
+                    SqlCommand command = new SqlCommand(consulta, cnn);
+                    command.Transaction = this.transacction;
+                    command.ExecuteNonQuery();
+                    cnn.Close();
 
-                this.LoadGrdLineas();
-                this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
-                this.LoadGrdFamilias(Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+                    this.LoadGrdLineas();
+                    this.LoadGrdSublineas(Convert.ToInt32(e.Row.Cells["linea"].Value));
+                    this.LoadGrdFamilias(Convert.ToInt32(e.Row.Cells["sublinea"].Value));
+                }
             }
         }
         
