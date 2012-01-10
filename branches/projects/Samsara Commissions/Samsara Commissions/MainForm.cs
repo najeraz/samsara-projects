@@ -44,9 +44,16 @@ namespace SamsaraCommissions
 
         public ComisionesForm()
         {
-            cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
-            InitializeComponent();
-            PostInitializeComponent();
+            try
+            {
+                cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
+                InitializeComponent();
+                PostInitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         #endregion Constructor
@@ -67,6 +74,8 @@ namespace SamsaraCommissions
                 this.LoadAjustes();
                 this.tcConfiguracion.Enabled = isConfigurable;
                 this.cbxAgenteMargenes_SelectedIndexChanged(null, null);
+
+                this.Text += "  -  " + WindowsIdentity.GetCurrent().Name;
             }
             catch (SqlException ex)
             {
