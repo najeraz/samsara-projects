@@ -6,11 +6,11 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using SamsaraCommissions;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using System.Security.Principal;
 
 namespace SamsaraCommissions
 {
@@ -19,17 +19,17 @@ namespace SamsaraCommissions
         #region Attributes
 
         private static bool isConfigurable =
-            WindowsIdentity.GetCurrent().Name == @"SAMSARA\ADMINISTRACION"
-            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\DIRECCION"
-            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\javier";
+            WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\ADMINISTRACION"
+            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\DIRECCION"
+            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\JAVIER";
 
         private static bool canPay =
-            WindowsIdentity.GetCurrent().Name == @"SAMSARA\ADMINISTRACION"
-            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\javier";
+            WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\ADMINISTRACION"
+            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\JAVIER";
 
         private static bool canChangeMargins =
-            WindowsIdentity.GetCurrent().Name == @"SAMSARA\DIRECCION"
-            || WindowsIdentity.GetCurrent().Name == @"SAMSARA\javier";
+            WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\DIRECCION"
+            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\JAVIER";
 
         private SqlConnection cnn;
         private DataSet ds;
@@ -75,7 +75,7 @@ namespace SamsaraCommissions
                 this.tcConfiguracion.Enabled = isConfigurable;
                 this.cbxAgenteMargenes_SelectedIndexChanged(null, null);
 
-                this.Text += "  -  " + WindowsIdentity.GetCurrent().Name;
+                this.Text += "  -  " + WindowsIdentity.GetCurrent().Name.ToUpper();
             }
             catch (SqlException ex)
             {
@@ -415,10 +415,14 @@ namespace SamsaraCommissions
                 dtResumenComisiones.Rows.Add(rowResumen);
             }
 
-            consulta = "select * from comisiones_pagadas cp WHERE agente = "
-                + this.cbxAgentes.SelectedValue + " and id = ( "
-                + "select max(id) from comisiones_pagadas WHERE agente = cp.agente "
-                + "and mes = cp.mes and anio = cp.anio and q = cp.q)";
+            consulta = string.Format(@"
+                    SELECT * FROM comisiones_pagadas cp 
+                    WHERE agente = {0} AND id = ( 
+                        SELECT max(cp1.id) from comisiones_pagadas cp1
+                        INNER JOIN ajustes a ON a.id = cp1.ajuste
+                        WHERE cp1.agente = cp.agente AND a.borrado = 0
+                        AND mes = cp.mes AND anio = cp.anio AND q = cp.q)
+                ", this.cbxAgentes.SelectedValue);
 
             da = new SqlDataAdapter(consulta, cnn);
             ds = new DataSet();
@@ -442,7 +446,7 @@ namespace SamsaraCommissions
                     - Convert.ToDecimal(resumenRow["total_pagado"])).ToString("N2");
             }
 
-            this.ActualizaTotalComisiones();
+            this.ActualizaTotalComisiones(null, 0M);
             this.lblAgente.Text = this.cbxAgentes.SelectedValue.ToString();
 
             var años = dtComisiones.AsEnumerable().Select(x => new
@@ -473,11 +477,32 @@ namespace SamsaraCommissions
             ds.Tables["meses"].Rows.Remove(ds.Tables["meses"].Rows[0]);
             ds.Tables["meses"].AcceptChanges();
         }
-        
-        private void ActualizaTotalComisiones()
+
+        private bool ActualizaTotalComisiones(UltraGridRow row, decimal newCellValue)
         {
-            this.txtTotalComisiones.Text = ((DataTable)this.grdResumenComisiones.DataSource)
-                .AsEnumerable().Sum(x => NumberUtils.DecimalValue(x["saldo_a_pagar"])).ToString("N2");
+            IList<UltraGridRow> list = new List<UltraGridRow>();
+            list.Add(row);
+
+            if (string.IsNullOrEmpty(this.txtTotalComisiones.Text))
+                this.txtTotalComisiones.Text = decimal.Zero.ToString("N2");
+
+            decimal oldValue = Convert.ToDecimal(this.txtTotalComisiones.Text);
+
+            decimal newValue = this.grdResumenComisiones.Rows.Cast<UltraGridRow>().Except(list)
+                .AsEnumerable().Sum(x => NumberUtils.DecimalValue(x.Cells["saldo_a_pagar"].Value))
+                + (row == null ? 0 : newCellValue);
+
+            decimal difference = Math.Abs(oldValue - newValue);
+
+            if (row != null && oldValue != newValue &&
+                MessageBox.Show(string.Format("Cambió de total a pagar, la diferencia {0} es por {1}. ¿Desea continuar?",
+                    oldValue < newValue ? "a Favor" : "en Contra", difference.ToString("N2")),
+                    "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return false;
+
+            this.txtTotalComisiones.Text = newValue.ToString("N2");
+
+            return true;
         }
 
         private void UpdateGrdAgentesActivos()
@@ -657,15 +682,10 @@ namespace SamsaraCommissions
                 da.Fill(data);
 
                 this.FormatGridResumenComisiones();
-                this.grdDetalleComisiones.DataSource = null;
                 this.grdDetalleComisiones.DataSource = data.Tables[0];
-                this.grdResumenComisiones.DataSource = null;
                 this.grdResumenComisiones.DataSource = data.Tables[1];
-                this.grdFacturasPendientes.DataSource = null;
                 this.grdFacturasPendientes.DataSource = data.Tables[2];
-                this.grdFacturasCanceladas.DataSource = null;
                 this.grdFacturasCanceladas.DataSource = data.Tables[3];
-                this.grdRefacturaciónAgena.DataSource = null;
                 this.grdRefacturaciónAgena.DataSource = data.Tables[4];
 
                 this.CreaReporteAnual(data.Tables[1]);
@@ -962,10 +982,10 @@ namespace SamsaraCommissions
 
         private void GeneralGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
-            if (((DataGridView)sender) == this.grdResumenComisiones && e.Column.Name == "saldo_a_pagar")
-                e.Column.ReadOnly = false || !isConfigurable;
-            else
-                e.Column.ReadOnly = true;
+            //if (((UltraGrid)sender) == this.grdResumenComisiones && e.Column.Name == "saldo_a_pagar")
+            //    e.Column.ReadOnly = false || !canPay;
+            //else
+            //    e.Column.ReadOnly = true;
 
             if (GeneralUtils.IsRightAlignment(e.Column.Name))
             {
@@ -999,12 +1019,9 @@ namespace SamsaraCommissions
             {
                 cnn.Close();
                 this.CalculaComisionesQ();
+                this.pnlAdmin.Enabled = false;
+                this.LoadAjustes();
             }
-        }
-
-        private void grdResumenComisiones_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            this.ActualizaTotalComisiones();
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)
@@ -1020,7 +1037,7 @@ namespace SamsaraCommissions
         private void btnEliminarAjuste_Click(object sender, EventArgs e)
         {
             string[] ajusteIds = this.grdAjustes.SelectedRows.Cast<DataGridViewRow>()
-                .Select(x => (x.DataBoundItem as DataRowView).Row["saldo_a_pagar"].ToString()).ToArray();
+                .Select(x => (x.DataBoundItem as DataRowView).Row["ajuste"].ToString()).ToArray();
 
             string pregunta = ajusteIds.Count() > 1 ? "¿Esta seguro de borrar los ajustes "
                 : "¿Esta seguro de borrar el ajuste ";
@@ -1033,7 +1050,7 @@ namespace SamsaraCommissions
                 return;
 
             consulta = "update ajustes set borrado = 1, "
-                + "fecha_borrado = getdate() where ajuste in ("
+                + "fecha_borrado = getdate() where id in ("
                 + string.Join(", ", ajusteIds.ToArray()) + ")";
 
             cnn.Open();
@@ -1261,6 +1278,58 @@ namespace SamsaraCommissions
             }
         }
         
+        private void grdResumenComisiones_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            Parallel.ForEach(band.Columns.Cast<UltraGridColumn>(), column =>
+            {
+                column.CellActivation = Activation.ActivateOnly;
+            });
+
+            band.Columns["saldo_a_pagar"].CellActivation = Activation.AllowEdit;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_general"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_Q"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_comision"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["porcentaje_comision"],
+                WindowsFormsUtil.TextMaskFormatEnum.Percentage);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["monto_comision"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["saldo_a_pagar"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_pagado"],
+                WindowsFormsUtil.TextMaskFormatEnum.Currency);
+        }
+
+        private void grdResumenComisiones_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
+        {
+            if (e.Cell.Column.Key == "saldo_a_pagar")
+            {
+                if (e.NewValue == DBNull.Value)
+                    e.Cancel = true;
+
+                if (!e.Cancel)
+                    e.Cancel = !this.ActualizaTotalComisiones(e.Cell.Row, Convert.ToDecimal(e.NewValue));
+            }
+        }
+
+        private void grdResumenComisiones_AfterCellUpdate(object sender, CellEventArgs e)
+        {
+            UltraGridRow activeRow = this.grdResumenComisiones.ActiveRow;
+
+            if (activeRow != null)
+                activeRow.Cells["monto_comision"].Value
+                    = Convert.ToDecimal(activeRow.Cells["total_pagado"].Value)
+                    + Convert.ToDecimal(activeRow.Cells["saldo_a_pagar"].Value);
+        }
+
         #endregion Events
     }
 }
