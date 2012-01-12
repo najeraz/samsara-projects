@@ -29,7 +29,6 @@ namespace SamsaraCommissions
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComisionesForm));
             Infragistics.Win.Appearance appearance25 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance26 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance27 = new Infragistics.Win.Appearance();
@@ -42,6 +41,19 @@ namespace SamsaraCommissions
             Infragistics.Win.Appearance appearance34 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance35 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance36 = new Infragistics.Win.Appearance();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComisionesForm));
+            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance19 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance21 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance37 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance38 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance39 = new Infragistics.Win.Appearance();
@@ -99,8 +111,13 @@ namespace SamsaraCommissions
             this.btnEliminarAjuste = new System.Windows.Forms.Button();
             this.Comiciones = new System.Windows.Forms.TabPage();
             this.tcComisiones = new System.Windows.Forms.TabControl();
+            this.ReporteAnual = new System.Windows.Forms.TabPage();
+            this.grdReporteAnual = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbxAños = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.Pagos = new System.Windows.Forms.TabPage();
-            this.grdResumenComisiones = new System.Windows.Forms.DataGridView();
+            this.grdResumenComisiones = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.pnlAdmin = new System.Windows.Forms.Panel();
             this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnActualizarComisiones = new System.Windows.Forms.Button();
@@ -108,19 +125,15 @@ namespace SamsaraCommissions
             this.label12 = new System.Windows.Forms.Label();
             this.lblAgente = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.ReporteAnual = new System.Windows.Forms.TabPage();
-            this.grdReporteAnual = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.cbxAños = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Detalle = new System.Windows.Forms.TabPage();
+            this.grdDetalleComisiones = new System.Windows.Forms.DataGridView();
+            this.RefacturaciónAgena = new System.Windows.Forms.TabPage();
+            this.grdRefacturaciónAgena = new System.Windows.Forms.DataGridView();
             this.FacturasPendientes = new System.Windows.Forms.TabPage();
             this.grdFacturasPendientes = new System.Windows.Forms.DataGridView();
             this.FacturasCanceladas = new System.Windows.Forms.TabPage();
             this.grdFacturasCanceladas = new System.Windows.Forms.DataGridView();
-            this.RefacturaciónAgena = new System.Windows.Forms.TabPage();
-            this.grdRefacturaciónAgena = new System.Windows.Forms.DataGridView();
-            this.Detalle = new System.Windows.Forms.TabPage();
-            this.grdDetalleComisiones = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
@@ -142,7 +155,6 @@ namespace SamsaraCommissions
             this.grdSublineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Configuración.SuspendLayout();
             this.tcConfiguracion.SuspendLayout();
@@ -161,20 +173,21 @@ namespace SamsaraCommissions
             this.panel5.SuspendLayout();
             this.Comiciones.SuspendLayout();
             this.tcComisiones.SuspendLayout();
-            this.Pagos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisiones)).BeginInit();
-            this.pnlAdmin.SuspendLayout();
             this.ReporteAnual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnual)).BeginInit();
             this.panel3.SuspendLayout();
+            this.Pagos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisiones)).BeginInit();
+            this.pnlAdmin.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.Detalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleComisiones)).BeginInit();
+            this.RefacturaciónAgena.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdRefacturaciónAgena)).BeginInit();
             this.FacturasPendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasPendientes)).BeginInit();
             this.FacturasCanceladas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasCanceladas)).BeginInit();
-            this.RefacturaciónAgena.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdRefacturaciónAgena)).BeginInit();
-            this.Detalle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleComisiones)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -187,7 +200,6 @@ namespace SamsaraCommissions
             ((System.ComponentModel.ISupportInitialize)(this.grdSublineas)).BeginInit();
             this.gbxLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).BeginInit();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -255,7 +267,6 @@ namespace SamsaraCommissions
             this.Configuración.Size = new System.Drawing.Size(641, 464);
             this.Configuración.TabIndex = 1;
             this.Configuración.Text = "Configuración";
-            this.Configuración.UseVisualStyleBackColor = true;
             // 
             // tcConfiguracion
             // 
@@ -536,7 +547,6 @@ namespace SamsaraCommissions
             this.Comiciones.Size = new System.Drawing.Size(641, 464);
             this.Comiciones.TabIndex = 0;
             this.Comiciones.Text = "Comisiones";
-            this.Comiciones.UseVisualStyleBackColor = true;
             // 
             // tcComisiones
             // 
@@ -549,8 +559,64 @@ namespace SamsaraCommissions
             this.tcComisiones.Size = new System.Drawing.Size(507, 270);
             this.tcComisiones.TabIndex = 2;
             // 
+            // ReporteAnual
+            // 
+            this.ReporteAnual.BackColor = System.Drawing.Color.Transparent;
+            this.ReporteAnual.Controls.Add(this.grdReporteAnual);
+            this.ReporteAnual.Controls.Add(this.panel3);
+            this.ReporteAnual.Location = new System.Drawing.Point(4, 22);
+            this.ReporteAnual.Name = "ReporteAnual";
+            this.ReporteAnual.Size = new System.Drawing.Size(499, 244);
+            this.ReporteAnual.TabIndex = 4;
+            this.ReporteAnual.Text = "Reporte Anual";
+            // 
+            // grdReporteAnual
+            // 
+            this.grdReporteAnual.AllowUserToAddRows = false;
+            this.grdReporteAnual.AllowUserToDeleteRows = false;
+            this.grdReporteAnual.AllowUserToResizeRows = false;
+            this.grdReporteAnual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdReporteAnual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdReporteAnual.Location = new System.Drawing.Point(0, 30);
+            this.grdReporteAnual.Name = "grdReporteAnual";
+            this.grdReporteAnual.ReadOnly = true;
+            this.grdReporteAnual.Size = new System.Drawing.Size(499, 214);
+            this.grdReporteAnual.TabIndex = 2;
+            this.grdReporteAnual.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdReporteAnual_CellClick);
+            this.grdReporteAnual.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdReporteAnual_CellFormatting);
+            this.grdReporteAnual.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cbxAños);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(499, 30);
+            this.panel3.TabIndex = 6;
+            // 
+            // cbxAños
+            // 
+            this.cbxAños.FormattingEnabled = true;
+            this.cbxAños.Location = new System.Drawing.Point(55, 3);
+            this.cbxAños.Name = "cbxAños";
+            this.cbxAños.Size = new System.Drawing.Size(121, 21);
+            this.cbxAños.TabIndex = 3;
+            this.cbxAños.SelectedIndexChanged += new System.EventHandler(this.cbxAños_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 6);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Año:";
+            // 
             // Pagos
             // 
+            this.Pagos.BackColor = System.Drawing.Color.Transparent;
             this.Pagos.Controls.Add(this.grdResumenComisiones);
             this.Pagos.Controls.Add(this.pnlAdmin);
             this.Pagos.Location = new System.Drawing.Point(4, 22);
@@ -558,21 +624,72 @@ namespace SamsaraCommissions
             this.Pagos.Size = new System.Drawing.Size(499, 244);
             this.Pagos.TabIndex = 1;
             this.Pagos.Text = "Pagos";
-            this.Pagos.UseVisualStyleBackColor = true;
             // 
             // grdResumenComisiones
             // 
-            this.grdResumenComisiones.AllowUserToAddRows = false;
-            this.grdResumenComisiones.AllowUserToDeleteRows = false;
-            this.grdResumenComisiones.AllowUserToResizeRows = false;
-            this.grdResumenComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            appearance25.BackColor = System.Drawing.SystemColors.Window;
+            appearance25.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdResumenComisiones.DisplayLayout.Appearance = appearance25;
+            this.grdResumenComisiones.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdResumenComisiones.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance26.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance26.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance26.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance26.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdResumenComisiones.DisplayLayout.GroupByBox.Appearance = appearance26;
+            appearance27.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdResumenComisiones.DisplayLayout.GroupByBox.BandLabelAppearance = appearance27;
+            this.grdResumenComisiones.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance28.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance28.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance28.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdResumenComisiones.DisplayLayout.GroupByBox.PromptAppearance = appearance28;
+            this.grdResumenComisiones.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdResumenComisiones.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance29.BackColor = System.Drawing.SystemColors.Window;
+            appearance29.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdResumenComisiones.DisplayLayout.Override.ActiveCellAppearance = appearance29;
+            appearance30.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance30.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdResumenComisiones.DisplayLayout.Override.ActiveRowAppearance = appearance30;
+            this.grdResumenComisiones.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdResumenComisiones.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance31.BackColor = System.Drawing.SystemColors.Window;
+            this.grdResumenComisiones.DisplayLayout.Override.CardAreaAppearance = appearance31;
+            appearance32.BorderColor = System.Drawing.Color.Silver;
+            appearance32.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdResumenComisiones.DisplayLayout.Override.CellAppearance = appearance32;
+            this.grdResumenComisiones.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdResumenComisiones.DisplayLayout.Override.CellPadding = 0;
+            appearance33.BackColor = System.Drawing.SystemColors.Control;
+            appearance33.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance33.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance33.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance33.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdResumenComisiones.DisplayLayout.Override.GroupByRowAppearance = appearance33;
+            appearance34.TextHAlignAsString = "Left";
+            this.grdResumenComisiones.DisplayLayout.Override.HeaderAppearance = appearance34;
+            this.grdResumenComisiones.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdResumenComisiones.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance35.BackColor = System.Drawing.SystemColors.Window;
+            appearance35.BorderColor = System.Drawing.Color.Silver;
+            this.grdResumenComisiones.DisplayLayout.Override.RowAppearance = appearance35;
+            this.grdResumenComisiones.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance36.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdResumenComisiones.DisplayLayout.Override.TemplateAddRowAppearance = appearance36;
+            this.grdResumenComisiones.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdResumenComisiones.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdResumenComisiones.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdResumenComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdResumenComisiones.Location = new System.Drawing.Point(0, 0);
             this.grdResumenComisiones.Name = "grdResumenComisiones";
             this.grdResumenComisiones.Size = new System.Drawing.Size(499, 208);
-            this.grdResumenComisiones.TabIndex = 1;
-            this.grdResumenComisiones.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResumenComisiones_CellValueChanged);
-            this.grdResumenComisiones.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            this.grdResumenComisiones.TabIndex = 10;
+            this.grdResumenComisiones.Text = "ultraGrid1";
+            this.grdResumenComisiones.AfterCellUpdate += new Infragistics.Win.UltraWinGrid.CellEventHandler(this.grdResumenComisiones_AfterCellUpdate);
+            this.grdResumenComisiones.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdResumenComisiones_InitializeLayout);
+            this.grdResumenComisiones.BeforeCellUpdate += new Infragistics.Win.UltraWinGrid.BeforeCellUpdateEventHandler(this.grdResumenComisiones_BeforeCellUpdate);
             // 
             // pnlAdmin
             // 
@@ -644,138 +761,25 @@ namespace SamsaraCommissions
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(87, 10);
+            this.label11.Location = new System.Drawing.Point(103, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 13);
+            this.label11.Size = new System.Drawing.Size(73, 13);
             this.label11.TabIndex = 5;
-            this.label11.Text = "Total comisiones:";
+            this.label11.Text = "Total a pagar:";
             // 
-            // ReporteAnual
+            // tabControl1
             // 
-            this.ReporteAnual.Controls.Add(this.grdReporteAnual);
-            this.ReporteAnual.Controls.Add(this.panel3);
-            this.ReporteAnual.Location = new System.Drawing.Point(4, 22);
-            this.ReporteAnual.Name = "ReporteAnual";
-            this.ReporteAnual.Size = new System.Drawing.Size(499, 244);
-            this.ReporteAnual.TabIndex = 4;
-            this.ReporteAnual.Text = "Reporte Anual";
-            this.ReporteAnual.UseVisualStyleBackColor = true;
-            // 
-            // grdReporteAnual
-            // 
-            this.grdReporteAnual.AllowUserToAddRows = false;
-            this.grdReporteAnual.AllowUserToDeleteRows = false;
-            this.grdReporteAnual.AllowUserToResizeRows = false;
-            this.grdReporteAnual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdReporteAnual.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdReporteAnual.Location = new System.Drawing.Point(0, 30);
-            this.grdReporteAnual.Name = "grdReporteAnual";
-            this.grdReporteAnual.ReadOnly = true;
-            this.grdReporteAnual.Size = new System.Drawing.Size(499, 214);
-            this.grdReporteAnual.TabIndex = 2;
-            this.grdReporteAnual.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdReporteAnual_CellClick);
-            this.grdReporteAnual.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdReporteAnual_CellFormatting);
-            this.grdReporteAnual.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.cbxAños);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(499, 30);
-            this.panel3.TabIndex = 6;
-            // 
-            // cbxAños
-            // 
-            this.cbxAños.FormattingEnabled = true;
-            this.cbxAños.Location = new System.Drawing.Point(55, 3);
-            this.cbxAños.Name = "cbxAños";
-            this.cbxAños.Size = new System.Drawing.Size(121, 21);
-            this.cbxAños.TabIndex = 3;
-            this.cbxAños.SelectedIndexChanged += new System.EventHandler(this.cbxAños_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 6);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Año:";
-            // 
-            // FacturasPendientes
-            // 
-            this.FacturasPendientes.Controls.Add(this.grdFacturasPendientes);
-            this.FacturasPendientes.Location = new System.Drawing.Point(4, 22);
-            this.FacturasPendientes.Name = "FacturasPendientes";
-            this.FacturasPendientes.Size = new System.Drawing.Size(267, 244);
-            this.FacturasPendientes.TabIndex = 5;
-            this.FacturasPendientes.Text = "Facturas pendientes";
-            this.FacturasPendientes.UseVisualStyleBackColor = true;
-            // 
-            // grdFacturasPendientes
-            // 
-            this.grdFacturasPendientes.AllowUserToAddRows = false;
-            this.grdFacturasPendientes.AllowUserToDeleteRows = false;
-            this.grdFacturasPendientes.AllowUserToResizeRows = false;
-            this.grdFacturasPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdFacturasPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdFacturasPendientes.Location = new System.Drawing.Point(0, 0);
-            this.grdFacturasPendientes.Name = "grdFacturasPendientes";
-            this.grdFacturasPendientes.ReadOnly = true;
-            this.grdFacturasPendientes.Size = new System.Drawing.Size(267, 244);
-            this.grdFacturasPendientes.TabIndex = 1;
-            this.grdFacturasPendientes.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
-            // 
-            // FacturasCanceladas
-            // 
-            this.FacturasCanceladas.Controls.Add(this.grdFacturasCanceladas);
-            this.FacturasCanceladas.Location = new System.Drawing.Point(4, 22);
-            this.FacturasCanceladas.Name = "FacturasCanceladas";
-            this.FacturasCanceladas.Size = new System.Drawing.Size(267, 244);
-            this.FacturasCanceladas.TabIndex = 6;
-            this.FacturasCanceladas.Text = "Facturas Canceladas";
-            this.FacturasCanceladas.UseVisualStyleBackColor = true;
-            // 
-            // grdFacturasCanceladas
-            // 
-            this.grdFacturasCanceladas.AllowUserToAddRows = false;
-            this.grdFacturasCanceladas.AllowUserToDeleteRows = false;
-            this.grdFacturasCanceladas.AllowUserToResizeRows = false;
-            this.grdFacturasCanceladas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdFacturasCanceladas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdFacturasCanceladas.Location = new System.Drawing.Point(0, 0);
-            this.grdFacturasCanceladas.Name = "grdFacturasCanceladas";
-            this.grdFacturasCanceladas.ReadOnly = true;
-            this.grdFacturasCanceladas.Size = new System.Drawing.Size(267, 244);
-            this.grdFacturasCanceladas.TabIndex = 3;
-            this.grdFacturasCanceladas.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
-            // 
-            // RefacturaciónAgena
-            // 
-            this.RefacturaciónAgena.Controls.Add(this.grdRefacturaciónAgena);
-            this.RefacturaciónAgena.Location = new System.Drawing.Point(4, 22);
-            this.RefacturaciónAgena.Name = "RefacturaciónAgena";
-            this.RefacturaciónAgena.Size = new System.Drawing.Size(267, 244);
-            this.RefacturaciónAgena.TabIndex = 7;
-            this.RefacturaciónAgena.Text = "Refacturación Agena";
-            this.RefacturaciónAgena.UseVisualStyleBackColor = true;
-            // 
-            // grdRefacturaciónAgena
-            // 
-            this.grdRefacturaciónAgena.AllowUserToAddRows = false;
-            this.grdRefacturaciónAgena.AllowUserToDeleteRows = false;
-            this.grdRefacturaciónAgena.AllowUserToResizeRows = false;
-            this.grdRefacturaciónAgena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdRefacturaciónAgena.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdRefacturaciónAgena.Location = new System.Drawing.Point(0, 0);
-            this.grdRefacturaciónAgena.Name = "grdRefacturaciónAgena";
-            this.grdRefacturaciónAgena.ReadOnly = true;
-            this.grdRefacturaciónAgena.Size = new System.Drawing.Size(267, 244);
-            this.grdRefacturaciónAgena.TabIndex = 4;
-            this.grdRefacturaciónAgena.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            this.tabControl1.Controls.Add(this.Detalle);
+            this.tabControl1.Controls.Add(this.RefacturaciónAgena);
+            this.tabControl1.Controls.Add(this.FacturasPendientes);
+            this.tabControl1.Controls.Add(this.FacturasCanceladas);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabControl1.Location = new System.Drawing.Point(510, 191);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(128, 270);
+            this.tabControl1.TabIndex = 9;
+            this.tabControl1.Visible = false;
             // 
             // Detalle
             // 
@@ -801,6 +805,78 @@ namespace SamsaraCommissions
             this.grdDetalleComisiones.Size = new System.Drawing.Size(114, 238);
             this.grdDetalleComisiones.TabIndex = 0;
             this.grdDetalleComisiones.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            // 
+            // RefacturaciónAgena
+            // 
+            this.RefacturaciónAgena.Controls.Add(this.grdRefacturaciónAgena);
+            this.RefacturaciónAgena.Location = new System.Drawing.Point(4, 22);
+            this.RefacturaciónAgena.Name = "RefacturaciónAgena";
+            this.RefacturaciónAgena.Size = new System.Drawing.Size(120, 244);
+            this.RefacturaciónAgena.TabIndex = 7;
+            this.RefacturaciónAgena.Text = "Refacturación Agena";
+            this.RefacturaciónAgena.UseVisualStyleBackColor = true;
+            // 
+            // grdRefacturaciónAgena
+            // 
+            this.grdRefacturaciónAgena.AllowUserToAddRows = false;
+            this.grdRefacturaciónAgena.AllowUserToDeleteRows = false;
+            this.grdRefacturaciónAgena.AllowUserToResizeRows = false;
+            this.grdRefacturaciónAgena.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdRefacturaciónAgena.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdRefacturaciónAgena.Location = new System.Drawing.Point(0, 0);
+            this.grdRefacturaciónAgena.Name = "grdRefacturaciónAgena";
+            this.grdRefacturaciónAgena.ReadOnly = true;
+            this.grdRefacturaciónAgena.Size = new System.Drawing.Size(120, 244);
+            this.grdRefacturaciónAgena.TabIndex = 4;
+            this.grdRefacturaciónAgena.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            // 
+            // FacturasPendientes
+            // 
+            this.FacturasPendientes.Controls.Add(this.grdFacturasPendientes);
+            this.FacturasPendientes.Location = new System.Drawing.Point(4, 22);
+            this.FacturasPendientes.Name = "FacturasPendientes";
+            this.FacturasPendientes.Size = new System.Drawing.Size(120, 244);
+            this.FacturasPendientes.TabIndex = 5;
+            this.FacturasPendientes.Text = "Facturas pendientes";
+            this.FacturasPendientes.UseVisualStyleBackColor = true;
+            // 
+            // grdFacturasPendientes
+            // 
+            this.grdFacturasPendientes.AllowUserToAddRows = false;
+            this.grdFacturasPendientes.AllowUserToDeleteRows = false;
+            this.grdFacturasPendientes.AllowUserToResizeRows = false;
+            this.grdFacturasPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdFacturasPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdFacturasPendientes.Location = new System.Drawing.Point(0, 0);
+            this.grdFacturasPendientes.Name = "grdFacturasPendientes";
+            this.grdFacturasPendientes.ReadOnly = true;
+            this.grdFacturasPendientes.Size = new System.Drawing.Size(120, 244);
+            this.grdFacturasPendientes.TabIndex = 1;
+            this.grdFacturasPendientes.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            // 
+            // FacturasCanceladas
+            // 
+            this.FacturasCanceladas.Controls.Add(this.grdFacturasCanceladas);
+            this.FacturasCanceladas.Location = new System.Drawing.Point(4, 22);
+            this.FacturasCanceladas.Name = "FacturasCanceladas";
+            this.FacturasCanceladas.Size = new System.Drawing.Size(120, 244);
+            this.FacturasCanceladas.TabIndex = 6;
+            this.FacturasCanceladas.Text = "Facturas Canceladas";
+            this.FacturasCanceladas.UseVisualStyleBackColor = true;
+            // 
+            // grdFacturasCanceladas
+            // 
+            this.grdFacturasCanceladas.AllowUserToAddRows = false;
+            this.grdFacturasCanceladas.AllowUserToDeleteRows = false;
+            this.grdFacturasCanceladas.AllowUserToResizeRows = false;
+            this.grdFacturasCanceladas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdFacturasCanceladas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdFacturasCanceladas.Location = new System.Drawing.Point(0, 0);
+            this.grdFacturasCanceladas.Name = "grdFacturasCanceladas";
+            this.grdFacturasCanceladas.ReadOnly = true;
+            this.grdFacturasCanceladas.Size = new System.Drawing.Size(120, 244);
+            this.grdFacturasCanceladas.TabIndex = 3;
+            this.grdFacturasCanceladas.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
             // 
             // groupBox1
             // 
@@ -943,6 +1019,7 @@ namespace SamsaraCommissions
             // 
             // MargenesMínimos
             // 
+            this.MargenesMínimos.BackColor = System.Drawing.Color.Transparent;
             this.MargenesMínimos.Controls.Add(this.gbxFamilias);
             this.MargenesMínimos.Controls.Add(this.pnlLineasSublineas);
             this.MargenesMínimos.Location = new System.Drawing.Point(4, 22);
@@ -950,7 +1027,6 @@ namespace SamsaraCommissions
             this.MargenesMínimos.Size = new System.Drawing.Size(641, 464);
             this.MargenesMínimos.TabIndex = 8;
             this.MargenesMínimos.Text = "Margenes Mínimos";
-            this.MargenesMínimos.UseVisualStyleBackColor = true;
             // 
             // gbxFamilias
             // 
@@ -965,57 +1041,57 @@ namespace SamsaraCommissions
             // 
             // grdFamilias
             // 
-            appearance25.BackColor = System.Drawing.SystemColors.Window;
-            appearance25.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdFamilias.DisplayLayout.Appearance = appearance25;
+            appearance13.BackColor = System.Drawing.SystemColors.Window;
+            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdFamilias.DisplayLayout.Appearance = appearance13;
             this.grdFamilias.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdFamilias.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance26.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance26.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance26.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance26.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdFamilias.DisplayLayout.GroupByBox.Appearance = appearance26;
-            appearance27.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdFamilias.DisplayLayout.GroupByBox.BandLabelAppearance = appearance27;
+            appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance14.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance14.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdFamilias.DisplayLayout.GroupByBox.Appearance = appearance14;
+            appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdFamilias.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
             this.grdFamilias.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance28.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance28.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance28.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdFamilias.DisplayLayout.GroupByBox.PromptAppearance = appearance28;
+            appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance16.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance16.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdFamilias.DisplayLayout.GroupByBox.PromptAppearance = appearance16;
             this.grdFamilias.DisplayLayout.MaxColScrollRegions = 1;
             this.grdFamilias.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance29.BackColor = System.Drawing.SystemColors.Window;
-            appearance29.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdFamilias.DisplayLayout.Override.ActiveCellAppearance = appearance29;
-            appearance30.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance30.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdFamilias.DisplayLayout.Override.ActiveRowAppearance = appearance30;
+            appearance17.BackColor = System.Drawing.SystemColors.Window;
+            appearance17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdFamilias.DisplayLayout.Override.ActiveCellAppearance = appearance17;
+            appearance18.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance18.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdFamilias.DisplayLayout.Override.ActiveRowAppearance = appearance18;
             this.grdFamilias.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdFamilias.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance31.BackColor = System.Drawing.SystemColors.Window;
-            this.grdFamilias.DisplayLayout.Override.CardAreaAppearance = appearance31;
-            appearance32.BorderColor = System.Drawing.Color.Silver;
-            appearance32.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdFamilias.DisplayLayout.Override.CellAppearance = appearance32;
+            appearance19.BackColor = System.Drawing.SystemColors.Window;
+            this.grdFamilias.DisplayLayout.Override.CardAreaAppearance = appearance19;
+            appearance20.BorderColor = System.Drawing.Color.Silver;
+            appearance20.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdFamilias.DisplayLayout.Override.CellAppearance = appearance20;
             this.grdFamilias.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
             this.grdFamilias.DisplayLayout.Override.CellPadding = 0;
-            appearance33.BackColor = System.Drawing.SystemColors.Control;
-            appearance33.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance33.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance33.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance33.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdFamilias.DisplayLayout.Override.GroupByRowAppearance = appearance33;
-            appearance34.TextHAlignAsString = "Left";
-            this.grdFamilias.DisplayLayout.Override.HeaderAppearance = appearance34;
+            appearance21.BackColor = System.Drawing.SystemColors.Control;
+            appearance21.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance21.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance21.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance21.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdFamilias.DisplayLayout.Override.GroupByRowAppearance = appearance21;
+            appearance22.TextHAlignAsString = "Left";
+            this.grdFamilias.DisplayLayout.Override.HeaderAppearance = appearance22;
             this.grdFamilias.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
             this.grdFamilias.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance35.BackColor = System.Drawing.SystemColors.Window;
-            appearance35.BorderColor = System.Drawing.Color.Silver;
-            this.grdFamilias.DisplayLayout.Override.RowAppearance = appearance35;
+            appearance23.BackColor = System.Drawing.SystemColors.Window;
+            appearance23.BorderColor = System.Drawing.Color.Silver;
+            this.grdFamilias.DisplayLayout.Override.RowAppearance = appearance23;
             this.grdFamilias.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance36.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdFamilias.DisplayLayout.Override.TemplateAddRowAppearance = appearance36;
+            appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdFamilias.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
             this.grdFamilias.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdFamilias.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdFamilias.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
@@ -1192,20 +1268,6 @@ namespace SamsaraCommissions
             this.grdLineas.ClickCell += new Infragistics.Win.UltraWinGrid.ClickCellEventHandler(this.grdLineas_ClickCell);
             this.grdLineas.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.grdLineas_DoubleClickRow);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.Detalle);
-            this.tabControl1.Controls.Add(this.RefacturaciónAgena);
-            this.tabControl1.Controls.Add(this.FacturasPendientes);
-            this.tabControl1.Controls.Add(this.FacturasCanceladas);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl1.Location = new System.Drawing.Point(510, 191);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(128, 270);
-            this.tabControl1.TabIndex = 9;
-            this.tabControl1.Visible = false;
-            // 
             // ComisionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1236,22 +1298,23 @@ namespace SamsaraCommissions
             this.panel5.ResumeLayout(false);
             this.Comiciones.ResumeLayout(false);
             this.tcComisiones.ResumeLayout(false);
-            this.Pagos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisiones)).EndInit();
-            this.pnlAdmin.ResumeLayout(false);
-            this.pnlAdmin.PerformLayout();
             this.ReporteAnual.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnual)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.Pagos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisiones)).EndInit();
+            this.pnlAdmin.ResumeLayout(false);
+            this.pnlAdmin.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.Detalle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleComisiones)).EndInit();
+            this.RefacturaciónAgena.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdRefacturaciónAgena)).EndInit();
             this.FacturasPendientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasPendientes)).EndInit();
             this.FacturasCanceladas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasCanceladas)).EndInit();
-            this.RefacturaciónAgena.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdRefacturaciónAgena)).EndInit();
-            this.Detalle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetalleComisiones)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1265,7 +1328,6 @@ namespace SamsaraCommissions
             ((System.ComponentModel.ISupportInitialize)(this.grdSublineas)).EndInit();
             this.gbxLineas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1306,7 +1368,6 @@ namespace SamsaraCommissions
         private System.Windows.Forms.TabPage Comiciones;
         private System.Windows.Forms.TabControl tcComisiones;
         private System.Windows.Forms.TabPage Pagos;
-        private System.Windows.Forms.DataGridView grdResumenComisiones;
         private System.Windows.Forms.Panel pnlAdmin;
         private System.Windows.Forms.Button btnRestablecer;
         private System.Windows.Forms.Button btnActualizarComisiones;
@@ -1349,6 +1410,7 @@ namespace SamsaraCommissions
         private System.Windows.Forms.GroupBox gbxLineas;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdLineas;
         private System.Windows.Forms.TabControl tabControl1;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisiones;
     }
 }
 
