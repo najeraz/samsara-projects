@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <description>
+    Configuration of Services
+  </description>
+
+  <object id="IAlleatoERPService" 
+          type="Samsara.AlleatoERP.Service.Impl.AlleatoERPService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="IAlleatoERPDao"/>
+  </object>
+
+</objects>
+
