@@ -1,10 +1,8 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Data;
-using Samsara.AlleatoERP.Dao.Interfaces;
-using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.AlleatoERP.Dao.Impl;
+using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Service.Impl

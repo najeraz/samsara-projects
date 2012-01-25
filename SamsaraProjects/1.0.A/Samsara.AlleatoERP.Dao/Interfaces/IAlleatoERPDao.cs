@@ -1,8 +1,8 @@
 ﻿
+using System;
 using System.Data;
 using NHibernate.Impl;
 using Samsara.Base.Core.Parameters;
-using System;
 
 namespace Samsara.AlleatoERP.Dao.Interfaces
 {
