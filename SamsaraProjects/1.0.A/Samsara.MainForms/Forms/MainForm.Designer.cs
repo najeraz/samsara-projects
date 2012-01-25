@@ -90,6 +90,9 @@
             this.licitacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.oportunidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tableroDeControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coberturaHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coberturaVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -578,12 +581,35 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiMainMenu,
-            this.licitacionesToolStripMenuItem});
+            this.licitacionesToolStripMenuItem,
+            this.tableroDeControlToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(811, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tableroDeControlToolStripMenuItem
+            // 
+            this.tableroDeControlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.coberturaHorizontalToolStripMenuItem,
+            this.coberturaVerticalToolStripMenuItem});
+            this.tableroDeControlToolStripMenuItem.Name = "tableroDeControlToolStripMenuItem";
+            this.tableroDeControlToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.tableroDeControlToolStripMenuItem.Text = "Tablero de Control";
+            // 
+            // coberturaHorizontalToolStripMenuItem
+            // 
+            this.coberturaHorizontalToolStripMenuItem.Name = "coberturaHorizontalToolStripMenuItem";
+            this.coberturaHorizontalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.coberturaHorizontalToolStripMenuItem.Text = "Cobertura Horizontal";
+            this.coberturaHorizontalToolStripMenuItem.Click += new System.EventHandler(this.coberturaHorizontalToolStripMenuItem_Click);
+            // 
+            // coberturaVerticalToolStripMenuItem
+            // 
+            this.coberturaVerticalToolStripMenuItem.Name = "coberturaVerticalToolStripMenuItem";
+            this.coberturaVerticalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.coberturaVerticalToolStripMenuItem.Text = "Cobertura Vertical";
             // 
             // MainForm
             // 
@@ -666,6 +692,9 @@
         private System.Windows.Forms.ToolStripMenuItem tiposDeSoftwareDeSeguridadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcasDeProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableroDeControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coberturaHorizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coberturaVerticalToolStripMenuItem;
     }
 }
 

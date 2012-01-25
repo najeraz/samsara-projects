@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.Operation.Forms.Forms;
 using Samsara.ProjectsAndTendering.Forms.Forms;
+using Samsara.Dashboard.Forms.Forms;
 
 namespace Samsara.MainForms.Forms
 {
@@ -623,6 +624,20 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.WaitCursor;
                 ProductBrandForm frmProductBrand = new ProductBrandForm();
                 frmProductBrand.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void coberturaHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                HorizontalIntegrationReportForm frmHorizontalIntegrationReport = new HorizontalIntegrationReportForm();
+                frmHorizontalIntegrationReport.Show();
             }
             finally
             {
