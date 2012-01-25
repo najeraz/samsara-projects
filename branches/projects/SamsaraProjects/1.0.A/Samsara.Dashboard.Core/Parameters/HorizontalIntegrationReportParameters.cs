@@ -1,6 +1,6 @@
 ﻿
-using Samsara.Base.Core.Parameters;
 using System;
+using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Dashboard.Core.Parameters
 {
