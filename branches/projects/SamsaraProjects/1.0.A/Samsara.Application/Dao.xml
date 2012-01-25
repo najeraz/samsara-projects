@@ -15,7 +15,7 @@
     
     <property name="MappingAssemblies">
       <list>
-        <value>Samsara.Base.Core</value>
+        <value>Samsara.Persistance.NHibernate</value>
       </list>
     </property>
     
