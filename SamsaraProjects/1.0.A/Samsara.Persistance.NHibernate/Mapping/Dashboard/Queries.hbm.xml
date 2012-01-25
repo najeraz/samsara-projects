@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.AlleatoERP.Core" 
+  namespace="Samsara.AlleatoERP.Core.Entities">
+
+  <sql-query name="SearchHorizontalVerticalSalesReport" cacheable="false" read-only="true">
+    <return-scalar column="familia" type="int"/>
+    <return-scalar column="nombre_familia" type="string"/>
+    <return-scalar column="sublinea" type="int"/>
+    <return-scalar column="nombre_sublinea" type="string"/>
+    <return-scalar column="linea" type="int"/>
+    <return-scalar column="nombre_linea" type="string"/>
+    <return-scalar column="mes" type="int"/>
+    <return-scalar column="cliente" type="int"/>
+    <return-scalar column="nombre_cliente" type="string"/>
+    <return-scalar column="nombre_comercial" type="string"/>
+    <return-scalar column="total" type="decimal"/>
+    <return-scalar column="agente_cliente" type="int"/>
+    <return-scalar column="nombre_agente_cliente" type="string"/>
+    <![CDATA[
+      SELECT
+      CAST(fam.familia as int) familia, fam.nombre_familia, 
+      CAST(s.sublinea as int) sublinea, s.nombre_sublinea, 
+      CAST(l.linea as int) linea, l.nombre_linea, MONTH(f.fecha_factura) mes,
+      CAST(c.cliente as int) cliente, c.nombre_cliente, c.nombre_comercial, dfc.precio_pactado * dfc.cantidad total,
+      CAST(c.agente as int) agente_cliente, LEFT( dbo.Nombre_Persona2( c.agente), 80) nombre_agente_cliente
+      FROM		Facturas_Clientes f
+      INNER JOIN	Detalles_Facturas_Clientes dfc 	ON dfc.factura = f.factura
+      INNER JOIN	Articulos a			      	ON a.articulo = dfc.articulo
+      INNER JOIN	Clientes c			      	ON c.cliente = f.cliente
+      INNER JOIN	familias_articulos fam	ON fam.familia = a.familia
+      INNER JOIN	sublineas_articulos s   ON s.sublinea = fam.sublinea
+      INNER JOIN	lineas_articulos l	    ON l.linea = s.linea
+      WHERE f.sucursal = 1
+      AND	f.estado_actual != 'Cancelada'
+      AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
+      AND cast(f.agente as int) in (SELECT data FROM Comisiones.dbo.split(:Agents,','))
+      ORDER BY c.agente ASC, f.factura ASC
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>
