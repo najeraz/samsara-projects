@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.AlleatoERP.Controls.Controls
 {
-    partial class SalesAgentChooserControl
+    partial class StaffChooserControl
     {
         /// <summary> 
         /// Required designer variable.

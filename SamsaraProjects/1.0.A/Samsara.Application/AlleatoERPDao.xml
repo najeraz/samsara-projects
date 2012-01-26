@@ -56,8 +56,8 @@
           type="Samsara.AlleatoERP.Dao.Impl.ProductSublineDao, Samsara.AlleatoERP.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
   </object>
-  <object id="ISalesAgentDao"
-          type="Samsara.AlleatoERP.Dao.Impl.SalesAgentDao, Samsara.AlleatoERP.Dao">
+  <object id="IStaffDao"
+          type="Samsara.AlleatoERP.Dao.Impl.StaffDao, Samsara.AlleatoERP.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
   </object>
   <object id="IAERPCustomerDao"

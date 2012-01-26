@@ -46,12 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AERPCustomer.cs" />
-    <Compile Include="Entities\SalesAgent.cs" />
+    <Compile Include="Entities\Staff.cs" />
     <Compile Include="Entities\ProductFamily.cs" />
     <Compile Include="Entities\ProductSubline.cs" />
     <Compile Include="Entities\ProductLine.cs" />
     <Compile Include="Parameters\AERPCustomerParameters.cs" />
-    <Compile Include="Parameters\SalesAgentParameters.cs" />
+    <Compile Include="Parameters\StaffParameters.cs" />
     <Compile Include="Parameters\ProductSublineParameters.cs" />
     <Compile Include="Parameters\ProductLineParameters.cs" />
     <Compile Include="Parameters\ProductFamilyParameters.cs" />

@@ -77,7 +77,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\AERPCustomerChooserControl.cs" />
+    <Compile Include="Controls\Choosers\AERPCustomerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\AERPCustomerChooserControl.designer.cs">
       <DependentUpon>AERPCustomerChooserControl.cs</DependentUpon>
     </Compile>
@@ -99,11 +101,11 @@
     <Compile Include="Controls\Choosers\ProductSublineChooserControl.designer.cs">
       <DependentUpon>ProductSublineChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\SalesAgentChooserControl.cs">
+    <Compile Include="Controls\Choosers\StaffChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\SalesAgentChooserControl.designer.cs">
-      <DependentUpon>SalesAgentChooserControl.cs</DependentUpon>
+    <Compile Include="Controls\Choosers\StaffChooserControl.designer.cs">
+      <DependentUpon>StaffChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+  assembly="Samsara.AlleatoERP.Core"
+  namespace="Samsara.AlleatoERP.Core.Entities">
+  
+  <class name="AERPCustomer" table="Clientes">
+
+    <id name="AERPCustomerId" column="cliente" type="int">
+    </id>
+
+    <property name="Name" column="nombre_cliente"/>
+    <property name="ComercialName" column="nombre_comercial"/>
+
+    <many-to-one name="Staff" lazy="false"
+                 class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
+                 column="agente"/>
+  </class>
+
+  <query name="AERPCustomer.GetByParameters">
+    <![CDATA[
+        from AERPCustomer
+    ]]>
+  </query>
+
+  <query name="AERPCustomer.GetListByParameters">
+    <![CDATA[
+        from AERPCustomer
+    ]]>
+  </query>
+
+  <query name="AERPCustomer.SearchByParameters">
+    <![CDATA[
+        from AERPCustomer 
+        where Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>

@@ -5,7 +5,7 @@ using Samsara.Base.Dao.Interfaces;
 
 namespace Samsara.AlleatoERP.Dao.Interfaces
 {
-    public interface ISalesAgentDao : IGenericReadOnlyDao<SalesAgent, int, SalesAgentParameters>
+    public interface IStaffDao : IGenericReadOnlyDao<Staff, int, StaffParameters>
     {
     }
 }

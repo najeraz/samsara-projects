@@ -3,19 +3,19 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Core.Parameters
 {
-    public class SalesAgentParameters : GenericParameters
+    public class StaffParameters : GenericParameters
     {
-        public SalesAgentParameters()
+        public StaffParameters()
         {
         }
 
-        public int? SalesAgentId
+        public int? StaffId
         {
             get;
             set;
         }
 
-        public string Name
+        public string Names
         {
             get;
             set;
