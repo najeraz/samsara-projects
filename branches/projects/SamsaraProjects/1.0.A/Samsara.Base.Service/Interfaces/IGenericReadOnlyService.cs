@@ -29,6 +29,12 @@ namespace Samsara.Base.Service.Interfaces
         T GetByParameters(Tpmt parameters);
 
         /// <summary>
+        /// Returns an all entities on a list
+        /// </summary>
+        /// <returns>List of entities</returns>
+        IList<T> GetAll();
+
+        /// <summary>
         /// Get datatable by parameters
         /// </summary>
         /// <param name="parameters">The parameters</param>

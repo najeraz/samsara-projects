@@ -77,13 +77,13 @@
     <Compile Include="Impl\ProductFamilyService.cs" />
     <Compile Include="Impl\ProductLineService.cs" />
     <Compile Include="Impl\ProductSublineService.cs" />
-    <Compile Include="Impl\SalesAgentService.cs" />
+    <Compile Include="Impl\StaffService.cs" />
     <Compile Include="Interfaces\IAERPCustomerService.cs" />
     <Compile Include="Interfaces\IAlleatoERPService.cs" />
     <Compile Include="Interfaces\IProductFamilyService.cs" />
     <Compile Include="Interfaces\IProductLineService.cs" />
     <Compile Include="Interfaces\IProductSublineService.cs" />
-    <Compile Include="Interfaces\ISalesAgentService.cs" />
+    <Compile Include="Interfaces\IStaffService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

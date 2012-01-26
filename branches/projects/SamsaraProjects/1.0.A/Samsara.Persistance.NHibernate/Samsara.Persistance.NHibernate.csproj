@@ -345,7 +345,10 @@
     <EmbeddedResource Include="Mapping\AlleatoERP\ProductFamily.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\AlleatoERP\SalesAgent.hbm.xml" />
+    <EmbeddedResource Include="Mapping\AlleatoERP\Staff.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\AlleatoERP\AERPCustomer.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
