@@ -7,7 +7,7 @@ using Samsara.AlleatoERP.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class SalesAgentService : GenericReadOnlyService<SalesAgent, int, ISalesAgentDao, SalesAgentParameters>, ISalesAgentService
+    public class StaffService : GenericReadOnlyService<Staff, int, IStaffDao, StaffParameters>, IStaffService
     {
     }
 }

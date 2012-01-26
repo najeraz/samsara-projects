@@ -36,6 +36,11 @@ namespace Samsara.Base.Service.Impl
             return Dao.GetByParameters(parameters);
         }
 
+        public IList<T> GetAll()
+        {
+            return Dao.GetAll();
+        }
+
         public DataTable SearchByParameters(Tpmt parameters)
         {
             return this.Dao.SearchByParameters(parameters);

@@ -6,7 +6,7 @@ using Samsara.Base.Dao.Impl;
 
 namespace Samsara.AlleatoERP.Dao.Impl
 {
-    public class SalesAgentDao : GenericReadOnlyDao<SalesAgent, int, SalesAgentParameters>, ISalesAgentDao
+    public class StaffDao : GenericReadOnlyDao<Staff, int, StaffParameters>, IStaffDao
     {
     }
 }

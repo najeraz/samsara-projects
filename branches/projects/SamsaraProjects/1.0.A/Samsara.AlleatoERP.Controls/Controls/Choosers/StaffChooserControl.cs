@@ -8,9 +8,9 @@ using Samsara.AlleatoERP.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Controls.Controls
 {
-    public partial class SalesAgentChooserControl : SamsaraEntityChooserControl<SalesAgent, int, ISalesAgentService, ISalesAgentDao, SalesAgentParameters>
+    public partial class StaffChooserControl : SamsaraEntityChooserControl<Staff, int, IStaffService, IStaffDao, StaffParameters>
     {
-        public SalesAgentChooserControl()
+        public StaffChooserControl()
         {
             string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
                 Assembly.GetExecutingAssembly().FullName.IndexOf(","));
@@ -19,7 +19,7 @@ namespace Samsara.AlleatoERP.Controls.Controls
                 .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
 
             assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.SalesAgentForm";
+            assemblyFormClassName = schemaNamespace + ".Forms.Forms.StaffForm";
             InitializeComponent();
         }
     }

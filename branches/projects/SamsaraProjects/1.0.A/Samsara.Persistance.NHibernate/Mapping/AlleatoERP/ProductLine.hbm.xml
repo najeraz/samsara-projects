@@ -3,7 +3,7 @@
   assembly="Samsara.AlleatoERP.Core"
   namespace="Samsara.AlleatoERP.Core.Entities">
   
-  <class name="ProductLine" table="lineas_articulos">
+  <class name="ProductLine" table="Lineas_Articulos">
 
     <id name="ProductLineId" type="int">
     </id>

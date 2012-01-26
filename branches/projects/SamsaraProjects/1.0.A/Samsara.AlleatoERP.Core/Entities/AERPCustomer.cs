@@ -4,21 +4,33 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class SalesAgent : GenericEntity
+    public class AERPCustomer
     {
-        public SalesAgent()
+        public AERPCustomer()
         {
-            SalesAgentId = -1;
+            AERPCustomerId = -1;
         }
 
         [PrimaryKey]
-        public virtual int SalesAgentId
+        public virtual int AERPCustomerId
         {
             get;
             set;
         }
 
         public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual string ComercialName
+        {
+            get;
+            set;
+        }
+
+        public virtual Staff Staff
         {
             get;
             set;

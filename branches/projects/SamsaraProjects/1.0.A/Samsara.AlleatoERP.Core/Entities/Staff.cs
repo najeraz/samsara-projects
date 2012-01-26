@@ -4,21 +4,21 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class ProductLine
+    public class Staff
     {
-        public ProductLine()
+        public Staff()
         {
-            ProductLineId = -1;
+            StaffId = -1;
         }
 
         [PrimaryKey]
-        public virtual int ProductLineId
+        public virtual int StaffId
         {
             get;
             set;
         }
 
-        public virtual string Name
+        public virtual string Names
         {
             get;
             set;

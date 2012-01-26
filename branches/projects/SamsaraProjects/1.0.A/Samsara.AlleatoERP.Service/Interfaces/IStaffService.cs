@@ -5,7 +5,7 @@ using Samsara.AlleatoERP.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Service.Interfaces
 {
-    public interface ISalesAgentService : IGenericReadOnlyService<SalesAgent, int, SalesAgentParameters>
+    public interface IStaffService : IGenericReadOnlyService<Staff, int, StaffParameters>
     {
 	}
 }
