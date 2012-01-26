@@ -16,7 +16,7 @@ using Samsara.Support.Util;
 namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : SamsaraUserControl
-        where TDao : IGenericDao<T, TId, TPmt> where TPmt : new()
+        where TDao : IGenericReadOnlyDao<T, TId, TPmt> where TPmt : new()
     {
         #region Attributes
 
@@ -153,7 +153,7 @@ namespace Samsara.Base.Controls.Controls
 
         private void RefreshCombo()
         {
-            IList<T> entityList = (this.service as GenericService<T, TId, TDao, TPmt>)
+            IList<T> entityList = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
                 .GetListByParameters(this.Parameters);
 
             this.suceEntities.DataSource = null;
@@ -181,7 +181,7 @@ namespace Samsara.Base.Controls.Controls
 
         private void suceEntities_ValueChanged(object sender, EventArgs e)
         {
-            this.value = (this.service as GenericService<T, TId, TDao, TPmt>)
+            this.value = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
                 .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
 
             OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(this.value)); 
