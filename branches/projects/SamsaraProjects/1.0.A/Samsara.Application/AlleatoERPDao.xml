@@ -44,6 +44,26 @@
           type="Samsara.AlleatoERP.Dao.Impl.AlleatoERPDao, Samsara.AlleatoERP.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
   </object>
+  <object id="IProductFamilyDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductFamilyDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
+  </object>
+  <object id="IProductLineDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductLineDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
+  </object>
+  <object id="IProductSublineDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductSublineDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
+  </object>
+  <object id="ISalesAgentDao"
+          type="Samsara.AlleatoERP.Dao.Impl.SalesAgentDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
+  </object>
+  <object id="IAERPCustomerDao"
+          type="Samsara.AlleatoERP.Dao.Impl.AERPCustomerDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
+  </object>
 
 </objects>
 
