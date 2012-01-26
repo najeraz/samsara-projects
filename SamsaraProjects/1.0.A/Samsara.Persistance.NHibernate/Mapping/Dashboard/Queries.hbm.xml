@@ -34,7 +34,6 @@
       WHERE f.sucursal = 1
       AND	f.estado_actual != 'Cancelada'
       AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
-      AND cast(f.agente as int) in (SELECT data FROM Comisiones.dbo.split(:Agents,','))
       ORDER BY c.agente ASC, f.factura ASC
     ]]>
   </sql-query>

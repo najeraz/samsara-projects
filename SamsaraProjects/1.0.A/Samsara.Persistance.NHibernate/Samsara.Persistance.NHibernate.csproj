@@ -43,7 +43,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Dashboard\Queries.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Dashboard\Queries.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\ProjectsAndTendering\Asesor.hbm.xml" />
