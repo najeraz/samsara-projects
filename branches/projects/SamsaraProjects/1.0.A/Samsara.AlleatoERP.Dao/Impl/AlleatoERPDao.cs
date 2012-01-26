@@ -68,35 +68,38 @@ namespace Samsara.AlleatoERP.Dao.Impl
             object parameterValue;
             Type nullableType;
 
-            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
+            if (parameters != null)
             {
-                parameterValue = pInfo.GetValue(parameters, null);
-                nullableType = Nullable.GetUnderlyingType(pInfo.PropertyType);
-                if (parameterValue != null)
+                foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
                 {
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(int)))
+                    parameterValue = pInfo.GetValue(parameters, null);
+                    nullableType = Nullable.GetUnderlyingType(pInfo.PropertyType);
+                    if (parameterValue != null)
                     {
-                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
-                    {
-                        dnq.SetBoolean(pInfo.Name, (bool)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                    {
-                        dnq.SetDateTime(pInfo.Name, (DateTime)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                    {
-                        dnq.SetString(pInfo.Name, parameterValue.ToString());
-                    }
-                    else if (nullableType != null && nullableType.IsEnum)
-                    {
-                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
-                    }
-                    else
-                    {
-                        dnq.SetParameter(pInfo.Name, parameterValue);
+                        if (pInfo.PropertyType.IsAssignableFrom(typeof(int)))
+                        {
+                            dnq.SetInt32(pInfo.Name, (int)parameterValue);
+                        }
+                        else if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
+                        {
+                            dnq.SetBoolean(pInfo.Name, (bool)parameterValue);
+                        }
+                        else if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
+                        {
+                            dnq.SetDateTime(pInfo.Name, (DateTime)parameterValue);
+                        }
+                        else if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
+                        {
+                            dnq.SetString(pInfo.Name, parameterValue.ToString());
+                        }
+                        else if (nullableType != null && nullableType.IsEnum)
+                        {
+                            dnq.SetInt32(pInfo.Name, (int)parameterValue);
+                        }
+                        else
+                        {
+                            dnq.SetParameter(pInfo.Name, parameterValue);
+                        }
                     }
                 }
             }

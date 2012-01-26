@@ -644,5 +644,19 @@ namespace Samsara.MainForms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void coberturaVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                VerticalIntegrationReportForm frmVerticalIntegrationReport = new VerticalIntegrationReportForm();
+                frmVerticalIntegrationReport.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }
