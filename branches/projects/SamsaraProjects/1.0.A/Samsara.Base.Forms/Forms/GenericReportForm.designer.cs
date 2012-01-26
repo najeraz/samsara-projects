@@ -48,7 +48,7 @@
             this.upPrplSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
             this.btnPrplClear = new System.Windows.Forms.Button();
             this.upPrplSeparatorSearch = new Infragistics.Win.Misc.UltraPanel();
-            this.btnPrplSearch = new System.Windows.Forms.Button();
+            this.btnPrplGenerate = new System.Windows.Forms.Button();
             this.upPrplSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
             this.gbxPrplParameters = new System.Windows.Forms.GroupBox();
             this.tabPrincipal.SuspendLayout();
@@ -155,7 +155,7 @@
             this.upPrplSearchButtons.ClientArea.Controls.Add(this.upPrplSeparatorClean);
             this.upPrplSearchButtons.ClientArea.Controls.Add(this.btnPrplClear);
             this.upPrplSearchButtons.ClientArea.Controls.Add(this.upPrplSeparatorSearch);
-            this.upPrplSearchButtons.ClientArea.Controls.Add(this.btnPrplSearch);
+            this.upPrplSearchButtons.ClientArea.Controls.Add(this.btnPrplGenerate);
             this.upPrplSearchButtons.ClientArea.Controls.Add(this.upPrplSeparatorBottonSearch);
             this.upPrplSearchButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.upPrplSearchButtons.Location = new System.Drawing.Point(3, 97);
@@ -189,15 +189,16 @@
             this.upPrplSeparatorSearch.Size = new System.Drawing.Size(16, 25);
             this.upPrplSeparatorSearch.TabIndex = 5;
             // 
-            // btnPrplSearch
+            // btnPrplGenerate
             // 
-            this.btnPrplSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPrplSearch.Location = new System.Drawing.Point(535, 0);
-            this.btnPrplSearch.Name = "btnPrplSearch";
-            this.btnPrplSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnPrplSearch.TabIndex = 3;
-            this.btnPrplSearch.Text = "Buscar";
-            this.btnPrplSearch.UseVisualStyleBackColor = true;
+            this.btnPrplGenerate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPrplGenerate.Location = new System.Drawing.Point(535, 0);
+            this.btnPrplGenerate.Name = "btnPrplGenerate";
+            this.btnPrplGenerate.Size = new System.Drawing.Size(75, 25);
+            this.btnPrplGenerate.TabIndex = 3;
+            this.btnPrplGenerate.Text = "Generar";
+            this.btnPrplGenerate.UseVisualStyleBackColor = true;
+            this.btnPrplGenerate.Click += new System.EventHandler(this.btnClick);
             // 
             // upPrplSeparatorBottonSearch
             // 
@@ -246,7 +247,7 @@
         internal Infragistics.Win.Misc.UltraPanel upPrplSeparatorClean;
         public System.Windows.Forms.Button btnPrplClear;
         internal Infragistics.Win.Misc.UltraPanel upPrplSeparatorSearch;
-        public System.Windows.Forms.Button btnPrplSearch;
+        public System.Windows.Forms.Button btnPrplGenerate;
         internal Infragistics.Win.Misc.UltraPanel upPrplSeparatorBottonSearch;
         public Samsara.Base.Controls.Controls.SamsaraUltraGrid grdPrincipal;
         public System.Windows.Forms.TabControl tabPrincipal;

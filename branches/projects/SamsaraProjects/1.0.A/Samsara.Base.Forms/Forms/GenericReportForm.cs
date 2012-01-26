@@ -39,6 +39,30 @@ namespace Samsara.Base.Forms.Forms
             this.Close();
         }
 
+        private void btnClick(object sender, System.EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+
+                switch (btn.Name)
+                {
+                    case "btnPrplGenerate":
+                        this.controller.GenerateReport();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch { }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
         #endregion Events
     }
 }

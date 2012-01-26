@@ -11,6 +11,8 @@ namespace Samsara.Dashboard.Forms.Controller
     {
         #region Attributes
 
+        private HorizontalIntegrationReportForm frmHorizontalIntegration;
+
         #endregion Attributes
 
         #region Constructor
@@ -18,17 +20,7 @@ namespace Samsara.Dashboard.Forms.Controller
         public HorizontalIntegrationReportFormController(HorizontalIntegrationReportForm frmHorizontalIntegration)
             : base(frmHorizontalIntegration)
         {
-            HorizontalIntegrationReportParameters pmtHorizontalIntegrationReport 
-                = new HorizontalIntegrationReportParameters();
-
-            pmtHorizontalIntegrationReport.MinDate = new DateTime(2011, 01, 01);
-            pmtHorizontalIntegrationReport.MaxDate = this.srvAlleatoERP.GetServerDateTime();
-            pmtHorizontalIntegrationReport.Agents = "20,49";
-
-            DataTable dt = this.srvAlleatoERP.CustomSearchByParameters("SearchHorizontalVerticalSalesReport", 
-                pmtHorizontalIntegrationReport, false);
-
-            this.frmGenericReport.grdPrincipal.DataSource = dt;
+            this.frmHorizontalIntegration = frmHorizontalIntegration;
         }
 
         #endregion Constructor
@@ -48,6 +40,26 @@ namespace Samsara.Dashboard.Forms.Controller
         }
 
         #endregion Protected
+
+        #region Internal
+
+        public override void GenerateReport()
+        {
+            base.GenerateReport();
+
+            HorizontalIntegrationReportParameters pmtHorizontalIntegrationReport
+                = new HorizontalIntegrationReportParameters();
+
+            //pmtHorizontalIntegrationReport.MinDate = this.frm;
+            pmtHorizontalIntegrationReport.MaxDate = this.srvAlleatoERP.GetServerDateTime();
+
+            DataTable dt = this.srvAlleatoERP.CustomSearchByParameters("SearchHorizontalVerticalSalesReport",
+                pmtHorizontalIntegrationReport, false);
+
+            //this.form.grdPrincipal.DataSource = dt;
+        }
+
+        #endregion Internal
 
         #endregion Methods
     }
