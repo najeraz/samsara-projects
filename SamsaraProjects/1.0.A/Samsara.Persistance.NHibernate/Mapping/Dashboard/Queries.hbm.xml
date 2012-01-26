@@ -19,11 +19,12 @@
     <return-scalar column="nombre_agente_cliente" type="string"/>
     <![CDATA[
       SELECT
-      CAST(fam.familia as int) familia, fam.nombre_familia, 
-      CAST(s.sublinea as int) sublinea, s.nombre_sublinea, 
-      CAST(l.linea as int) linea, l.nombre_linea, MONTH(f.fecha_factura) mes,
-      CAST(c.cliente as int) cliente, c.nombre_cliente, c.nombre_comercial, dfc.precio_pactado * dfc.cantidad total,
-      CAST(c.agente as int) agente_cliente, LEFT( dbo.Nombre_Persona2( c.agente), 80) nombre_agente_cliente
+      CAST(fam.familia AS int) familia, fam.nombre_familia, 
+      CAST(s.sublinea AS int) sublinea, s.nombre_sublinea, 
+      CAST(l.linea AS int) linea, l.nombre_linea, MONTH(f.fecha_factura) mes,
+      CAST(c.cliente AS int) cliente, dbo.ALLTRIM(c.nombre_cliente) nombre_cliente, 
+      dbo.ALLTRIM(c.nombre_comercial) nombre_comercial, dfc.precio_pactado * dfc.cantidad total,
+      CAST(c.agente AS int) agente_cliente, dbo.ALLTRIM(LEFT( dbo.Nombre_Persona2( c.agente), 80)) nombre_agente_cliente
       FROM		Facturas_Clientes f
       INNER JOIN	Detalles_Facturas_Clientes dfc 	ON dfc.factura = f.factura
       INNER JOIN	Articulos a			      	ON a.articulo = dfc.articulo
@@ -34,7 +35,7 @@
       WHERE f.sucursal = 1
       AND	f.estado_actual != 'Cancelada'
       AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
-      ORDER BY c.agente ASC, f.factura ASC
+      ORDER BY c.agente ASC, CAST(c.cliente AS int) ASC, f.factura ASC
     ]]>
   </sql-query>
 
