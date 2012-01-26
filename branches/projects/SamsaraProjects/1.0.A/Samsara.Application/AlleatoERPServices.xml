@@ -9,6 +9,26 @@
           type="Samsara.AlleatoERP.Service.Impl.AlleatoERPService, Samsara.AlleatoERP.Service">
     <property name="Dao" ref="IAlleatoERPDao"/>
   </object>
+  <object id="IProductFamilyService"
+          type="Samsara.AlleatoERP.Service.Impl.ProductFamilyService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="IProductFamilyDao"/>
+  </object>
+  <object id="IProductLineService"
+          type="Samsara.AlleatoERP.Service.Impl.ProductLineService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="IProductLineDao"/>
+  </object>
+  <object id="IProductSublineService"
+          type="Samsara.AlleatoERP.Service.Impl.ProductSublineService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="IProductSublineDao"/>
+  </object>
+  <object id="ISalesAgentService"
+          type="Samsara.AlleatoERP.Service.Impl.SalesAgentService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="ISalesAgentDao"/>
+  </object>
+  <object id="IAERPCustomerService"
+          type="Samsara.AlleatoERP.Service.Impl.AERPCustomerService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="IAERPCustomerDao"/>
+  </object>
 
 </objects>
 

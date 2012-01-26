@@ -29,38 +29,4 @@
     ]]>
   </sql-query>
 
-  <sql-query name="VerticalIntegrationReport.SearchCustomers" cacheable="false" read-only="true">
-    <return-scalar column="cliente" type="int"/>
-    <return-scalar column="nombre_cliente" type="string"/>
-    <return-scalar column="nombre_comercial" type="string"/>
-    <return-scalar column="agente_cliente" type="int"/>
-    <return-scalar column="nombre_agente_cliente" type="string"/>
-    <![CDATA[
-      SELECT 
-        CAST(c.cliente AS int) cliente, dbo.ALLTRIM(c.nombre_cliente) nombre_cliente, 
-        dbo.ALLTRIM(c.nombre_comercial) nombre_comercial, CAST(c.agente AS int) agente_cliente,
-        dbo.ALLTRIM(LEFT( dbo.Nombre_Persona2( c.agente), 80)) nombre_agente_cliente
-      FROM Clientes c
-      ORDER BY CAST(c.agente AS int), CAST(c.cliente AS int)
-    ]]>
-  </sql-query>
-
-  <sql-query name="VerticalIntegrationReport.SearchProductLinesTree" cacheable="false" read-only="true">
-    <return-scalar column="familia" type="int"/>
-    <return-scalar column="nombre_familia" type="string"/>
-    <return-scalar column="sublinea" type="int"/>
-    <return-scalar column="nombre_sublinea" type="string"/>
-    <return-scalar column="linea" type="int"/>
-    <return-scalar column="nombre_linea" type="string"/>
-    <![CDATA[
-      SELECT
-	      CAST(fam.familia AS int) familia, dbo.ALLTRIM(fam.nombre_familia) nombre_familia, 
-	      CAST(s.sublinea AS int) sublinea, dbo.ALLTRIM(s.nombre_sublinea) nombre_sublinea, 
-	      CAST(l.linea AS int) linea, dbo.ALLTRIM(l.nombre_linea) nombre_linea
-      FROM		    familias_articulos fam	       
-      INNER JOIN	sublineas_articulos s           ON s.sublinea = fam.sublinea
-      INNER JOIN	lineas_articulos l	            ON l.linea = s.linea
-    ]]>
-  </sql-query>
-
 </hibernate-mapping>

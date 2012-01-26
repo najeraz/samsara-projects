@@ -72,11 +72,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\AERPCustomerService.cs" />
     <Compile Include="Impl\AlleatoERPService.cs" />
     <Compile Include="Impl\ProductFamilyService.cs" />
     <Compile Include="Impl\ProductLineService.cs" />
     <Compile Include="Impl\ProductSublineService.cs" />
     <Compile Include="Impl\SalesAgentService.cs" />
+    <Compile Include="Interfaces\IAERPCustomerService.cs" />
     <Compile Include="Interfaces\IAlleatoERPService.cs" />
     <Compile Include="Interfaces\IProductFamilyService.cs" />
     <Compile Include="Interfaces\IProductLineService.cs" />

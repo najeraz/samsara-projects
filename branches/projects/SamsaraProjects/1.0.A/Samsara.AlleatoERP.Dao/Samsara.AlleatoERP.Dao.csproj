@@ -69,11 +69,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\AERPCustomerDao.cs" />
     <Compile Include="Impl\AlleatoERPDao.cs" />
     <Compile Include="Impl\ProductFamilyDao.cs" />
     <Compile Include="Impl\ProductLineDao.cs" />
     <Compile Include="Impl\ProductSublineDao.cs" />
     <Compile Include="Impl\SalesAgentDao.cs" />
+    <Compile Include="Interfaces\IAERPCustomerDao.cs" />
     <Compile Include="Interfaces\IAlleatoERPDao.cs" />
     <Compile Include="Interfaces\IProductFamilyDao.cs" />
     <Compile Include="Interfaces\IProductLineDao.cs" />
