@@ -610,6 +610,7 @@
             this.coberturaVerticalToolStripMenuItem.Name = "coberturaVerticalToolStripMenuItem";
             this.coberturaVerticalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.coberturaVerticalToolStripMenuItem.Text = "Cobertura Vertical";
+            this.coberturaVerticalToolStripMenuItem.Click += new System.EventHandler(this.coberturaVerticalToolStripMenuItem_Click);
             // 
             // MainForm
             // 

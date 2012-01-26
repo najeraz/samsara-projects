@@ -93,7 +93,20 @@ namespace Samsara.Dashboard.Forms.Controller
                 row["CustomerName"] = group.Key.customerName;
                 row["ComercialName"] = group.Key.comercialName;
                 row["Agent"] = group.Key.agent;
+
+                //row["Total"] = group.Sum(x => Convert.ToDecimal(x["total"]));
+
+                
             };
+
+            //Parallel.ForEach(this.dtGridReport.AsEnumerable(), row =>
+            //{
+            //    Parallel.ForEach(this.dtGridReport.Columns.Cast<DataColumn>()
+            //        .Where(x => x.Ordinal >= 4), column =>
+            //    {
+
+            //    });
+            //});
 
             this.dtGridReport.AcceptChanges();
 

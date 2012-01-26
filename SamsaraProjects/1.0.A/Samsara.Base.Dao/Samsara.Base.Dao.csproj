@@ -102,7 +102,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\GenericReadOnlyDao.cs" />
     <Compile Include="Impl\GenericDao.cs" />
+    <Compile Include="Interfaces\IGenericReadOnlyDao.cs" />
     <Compile Include="Interfaces\IGenericDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

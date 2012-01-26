@@ -45,12 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\SalesAgent.cs" />
+    <Compile Include="Entities\ProductFamily.cs" />
+    <Compile Include="Entities\ProductSubline.cs" />
+    <Compile Include="Entities\ProductLine.cs" />
+    <Compile Include="Parameters\SalesAgentParameters.cs" />
+    <Compile Include="Parameters\ProductSublineParameters.cs" />
+    <Compile Include="Parameters\ProductLineParameters.cs" />
+    <Compile Include="Parameters\ProductFamilyParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Parameters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
