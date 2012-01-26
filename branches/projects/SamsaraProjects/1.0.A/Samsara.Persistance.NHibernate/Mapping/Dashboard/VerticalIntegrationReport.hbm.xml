@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.AlleatoERP.Core" 
-  namespace="Samsara.AlleatoERP.Core.Entities">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 
   <sql-query name="VerticalIntegrationReport.SearchReportData" cacheable="false" read-only="true">
     <return-scalar column="familia" type="int"/>

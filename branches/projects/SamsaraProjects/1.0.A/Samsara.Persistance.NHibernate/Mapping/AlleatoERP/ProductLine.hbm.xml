@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+  assembly="Samsara.AlleatoERP.Core"
+  namespace="Samsara.AlleatoERP.Core.Entities">
+  
+  <class name="ProductLine" table="lineas_articulos">
+
+    <id name="ProductLineId" type="int">
+    </id>
+    
+    <property name="Name"/>
+    
+  </class>
+
+  <query name="ProductLine.GetByParameters">
+    <![CDATA[
+        from ProductLine
+    ]]>
+  </query>
+
+  <query name="ProductLine.GetListByParameters">
+    <![CDATA[
+        from ProductLine
+    ]]>
+  </query>
+
+  <query name="ProductLine.SearchByParameters">
+    <![CDATA[
+        from ProductLine 
+        where Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>
