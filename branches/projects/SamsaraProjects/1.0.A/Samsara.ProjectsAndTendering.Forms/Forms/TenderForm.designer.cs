@@ -205,6 +205,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ubtnDetCreateTenderLineExtraCost = new Infragistics.Win.Misc.UltraButton();
             this.upDetSeparator45345 = new Infragistics.Win.Misc.UltraPanel();
             this.upDetPrincipal = new Infragistics.Win.Misc.UltraPanel();
+            this.txtDetComments = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblDetBidder = new System.Windows.Forms.Label();
             this.tscDetTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
             this.dteDetRegistrationDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
@@ -219,6 +220,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblDetClarificationDate = new System.Windows.Forms.Label();
             this.oscDetRelatedOpportunity = new Samsara.ProjectsAndTendering.Controls.Controls.Search.OpportunitySearchControl();
             this.lblDetTenderStatus = new System.Windows.Forms.Label();
+            this.lblDetComments = new System.Windows.Forms.Label();
             this.lblDetTenderSubstatus = new System.Windows.Forms.Label();
             this.gbxDetAcquisitionReason = new System.Windows.Forms.GroupBox();
             this.txtDetAcquisitionReason = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -352,8 +354,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
             this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
             this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
-            this.txtDetComments = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblDetComments = new System.Windows.Forms.Label();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -372,6 +372,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetSeparator45345.SuspendLayout();
             this.upDetPrincipal.ClientArea.SuspendLayout();
             this.upDetPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetRegistrationDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetClarificationDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetDeadline)).BeginInit();
@@ -473,13 +474,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).BeginInit();
             this.ubgxSchFechas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 448);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(829, 25);
             // 
             // gbxSearchParameters
             // 
@@ -823,6 +822,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetPrincipal.Size = new System.Drawing.Size(414, 394);
             this.upDetPrincipal.TabIndex = 97;
             // 
+            // txtDetComments
+            // 
+            this.txtDetComments.Location = new System.Drawing.Point(85, 362);
+            this.txtDetComments.Name = "txtDetComments";
+            this.txtDetComments.Size = new System.Drawing.Size(315, 21);
+            this.txtDetComments.TabIndex = 97;
+            // 
             // lblDetBidder
             // 
             this.lblDetBidder.AutoSize = true;
@@ -980,6 +986,15 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblDetTenderStatus.Size = new System.Drawing.Size(45, 13);
             this.lblDetTenderStatus.TabIndex = 45;
             this.lblDetTenderStatus.Text = "Estatus:";
+            // 
+            // lblDetComments
+            // 
+            this.lblDetComments.AutoSize = true;
+            this.lblDetComments.Location = new System.Drawing.Point(11, 366);
+            this.lblDetComments.Name = "lblDetComments";
+            this.lblDetComments.Size = new System.Drawing.Size(68, 13);
+            this.lblDetComments.TabIndex = 45;
+            this.lblDetComments.Text = "Comentarios:";
             // 
             // lblDetTenderSubstatus
             // 
@@ -2898,22 +2913,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.lblSchTenderSubstatus.TabIndex = 97;
             this.lblSchTenderSubstatus.Text = "Subestatus:";
             // 
-            // txtDetComments
-            // 
-            this.txtDetComments.Location = new System.Drawing.Point(85, 362);
-            this.txtDetComments.Name = "txtDetComments";
-            this.txtDetComments.Size = new System.Drawing.Size(315, 21);
-            this.txtDetComments.TabIndex = 97;
-            // 
-            // lblDetComments
-            // 
-            this.lblDetComments.AutoSize = true;
-            this.lblDetComments.Location = new System.Drawing.Point(11, 366);
-            this.lblDetComments.Name = "lblDetComments";
-            this.lblDetComments.Size = new System.Drawing.Size(68, 13);
-            this.lblDetComments.TabIndex = 45;
-            this.lblDetComments.Text = "Comentarios:";
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2942,6 +2941,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upDetPrincipal.ClientArea.ResumeLayout(false);
             this.upDetPrincipal.ClientArea.PerformLayout();
             this.upDetPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetRegistrationDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetClarificationDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDetDeadline)).EndInit();
@@ -3056,7 +3056,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ubgxSchFechas.ResumeLayout(false);
             this.ubgxSchFechas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).EndInit();
             this.ResumeLayout(false);
 
         }

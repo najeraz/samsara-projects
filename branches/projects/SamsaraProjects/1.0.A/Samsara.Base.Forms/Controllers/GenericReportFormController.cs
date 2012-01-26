@@ -11,16 +11,16 @@ namespace Samsara.Base.Forms.Controllers
     {
         #region Attributes
 
-        protected GenericReportForm frmGenericReport;
+        private GenericReportForm frmGenericReport;
         protected IAlleatoERPService srvAlleatoERP;
 
         #endregion Attributes
 
         #region Constructor
 
-        public GenericReportFormController(GenericReportForm instance)
+        public GenericReportFormController(GenericReportForm frmGenericReport)
         {
-            this.frmGenericReport = instance;
+            this.frmGenericReport = frmGenericReport;
 
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
@@ -47,6 +47,14 @@ namespace Samsara.Base.Forms.Controllers
         }
 
         #endregion Protected
+
+        #region Public
+
+        public virtual void GenerateReport()
+        {
+        }
+
+        #endregion Public
 
         #endregion Methods
     }
