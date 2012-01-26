@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Infragistics.Win;
 using Samsara.Base.Forms.Controllers;
+using System;
 
 namespace Samsara.Base.Forms.Forms
 {
@@ -56,7 +57,10 @@ namespace Samsara.Base.Forms.Forms
                         break;
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             finally
             {
                 this.Cursor = Cursors.Default;
