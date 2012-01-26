@@ -34,6 +34,11 @@
     <Reference Include="NHibernate">
       <HintPath>..\lib\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Base.Core">
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
@@ -65,7 +70,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\AlleatoERPDao.cs" />
+    <Compile Include="Impl\ProductFamilyDao.cs" />
+    <Compile Include="Impl\ProductLineDao.cs" />
+    <Compile Include="Impl\ProductSublineDao.cs" />
+    <Compile Include="Impl\SalesAgentDao.cs" />
     <Compile Include="Interfaces\IAlleatoERPDao.cs" />
+    <Compile Include="Interfaces\IProductFamilyDao.cs" />
+    <Compile Include="Interfaces\IProductLineDao.cs" />
+    <Compile Include="Interfaces\IProductSublineDao.cs" />
+    <Compile Include="Interfaces\ISalesAgentDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
