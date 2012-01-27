@@ -20,5 +20,11 @@ namespace Samsara.AlleatoERP.Core.Parameters
             get;
             set;
         }
+
+        public string AERPCustomerIds
+        {
+            get;
+            set;
+        }
     }
 }

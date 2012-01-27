@@ -2,30 +2,29 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 
   <sql-query name="VerticalIntegrationReport.SearchReportData" cacheable="false" read-only="true">
-    <return-scalar column="familia" type="int"/>
-    <return-scalar column="sublinea" type="int"/>
     <return-scalar column="linea" type="int"/>
     <return-scalar column="cliente" type="int"/>
     <return-scalar column="total" type="decimal"/>
-    <return-scalar column="agente_cliente" type="int"/>
+    <return-scalar column="agente" type="int"/>
     <![CDATA[
       SELECT
-        CAST(fam.familia AS int) familia,  
-        CAST(s.sublinea AS int) sublinea,
         CAST(l.linea AS int) linea, 
         CAST(f.cliente AS int) cliente, 
-        dfc.precio_pactado * dfc.cantidad total,
-        CAST(c.agente AS int) agente_cliente
+        SUM(dfc.precio_pactado * dfc.cantidad) total,
+        CAST(c.agente AS int) agente
       FROM		Facturas_Clientes f
       INNER JOIN	Detalles_Facturas_Clientes dfc 	ON dfc.factura = f.factura
       INNER JOIN	Articulos a			      	        ON a.articulo = dfc.articulo
-      INNER JOIN	familias_articulos fam	        ON fam.familia = a.familia
+      INNER JOIN	Clientes c			      	        ON c.cliente = f.cliente
+      INNER JOIN	familias_articulos fam        	ON fam.familia = a.familia
       INNER JOIN	sublineas_articulos s           ON s.sublinea = fam.sublinea
       INNER JOIN	lineas_articulos l	            ON l.linea = s.linea
-      WHERE f.sucursal = 1
+      INNER JOIN	personal p	                    ON p.persona = c.agente
+      WHERE f.sucursal = 1 AND p.fecha_baja IS NULL
       AND	f.estado_actual != 'Cancelada'
       AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
-      ORDER BY c.agente ASC, CAST(c.cliente AS int) ASC, f.factura ASC
+      GROUP BY l.linea, f.cliente, c.agente
+      ORDER BY c.agente ASC, CAST(f.cliente AS int) ASC
     ]]>
   </sql-query>
 
