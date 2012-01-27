@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <sql-query name="HorizontalIntegrationReport.SearchReportData" cacheable="false" read-only="true">
+    <return-scalar column="mes" type="int"/>
+    <return-scalar column="año" type="int"/>
+    <return-scalar column="cliente" type="int"/>
+    <return-scalar column="total" type="decimal"/>
+    <return-scalar column="agente" type="int"/>
+    <![CDATA[
+      SELECT
+        MONTH(f.fecha_factura) mes, YEAR(f.fecha_factura) año, 
+        CAST(f.cliente AS int) cliente, 
+        SUM(dfc.precio_pactado * dfc.cantidad) total,
+        CAST(c.agente AS int) agente
+      FROM		Facturas_Clientes f
+      INNER JOIN	Detalles_Facturas_Clientes dfc 	ON dfc.factura = f.factura
+      INNER JOIN	Clientes c			      	        ON c.cliente = f.cliente
+      WHERE f.sucursal = 1
+      AND	f.estado_actual != 'Cancelada'
+      AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
+      GROUP BY MONTH(f.fecha_factura), YEAR(f.fecha_factura), f.cliente, c.agente
+      ORDER BY c.agente ASC, CAST(f.cliente AS int) ASC
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>

@@ -336,7 +336,9 @@
     <EmbeddedResource Include="Mapping\AlleatoERP\ProductLine.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Dashboard\VerticalIntegrationReport.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Dashboard\VerticalIntegrationReport.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\AlleatoERP\ProductSubline.hbm.xml" />
@@ -349,6 +351,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\AlleatoERP\AERPCustomer.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Dashboard\HorizontalIntegrationReport.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
