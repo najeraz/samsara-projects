@@ -134,9 +134,8 @@ namespace Samsara.Dashboard.Forms.Controller
                     .Cast<DataColumn>().Where(x => x.Ordinal >= 4).ToList())
                 {
                     row[column.ColumnName] = dtData.AsEnumerable().AsParallel()
-                        .Where(x => Convert.ToInt32(x[1]) == customerId
-                            && Convert.ToInt32(column.ColumnName) == Convert.ToInt32(x[0]))
-                            .FirstOrDefault() != null;
+                        .FirstOrDefault(x => Convert.ToInt32(x[1]) == customerId
+                            && Convert.ToInt32(column.ColumnName) == Convert.ToInt32(x[0])) != null;
                 }
             }
             
