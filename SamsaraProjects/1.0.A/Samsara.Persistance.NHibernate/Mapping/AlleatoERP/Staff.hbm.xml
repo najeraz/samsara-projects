@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+  assembly="Samsara.AlleatoERP.Core"
+  namespace="Samsara.AlleatoERP.Core.Entities">
+  
+  <class name="Staff" table="Personal">
+
+    <id name="StaffId" type="int" column="persona">
+    </id>
+
+    <property name="Names" column="nombres"/>
+    <property name="Lastname" column="apellidos"/>
+    
+  </class>
+
+  <query name="Staff.GetByParameters">
+    <![CDATA[
+        from Staff
+    ]]>
+  </query>
+
+  <query name="Staff.GetListByParameters">
+    <![CDATA[
+        from Staff
+    ]]>
+  </query>
+
+  <query name="Staff.SearchByParameters">
+    <![CDATA[
+        from Staff 
+        where Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>

@@ -5,10 +5,10 @@
   
   <class name="ProductFamily" table="Familias_Aticulos">
 
-    <id name="ProductFamilyId" type="int">
+    <id name="ProductFamilyId" column="familia" type="int">
     </id>
     
-    <property name="Name"/>
+    <property name="Name" column="nombre_familia"/>
     
   </class>
 

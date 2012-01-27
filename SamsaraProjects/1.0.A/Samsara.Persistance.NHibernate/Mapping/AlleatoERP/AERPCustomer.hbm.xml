@@ -11,7 +11,7 @@
     <property name="Name" column="nombre_cliente"/>
     <property name="ComercialName" column="nombre_comercial"/>
 
-    <many-to-one name="Staff" lazy="false"
+    <many-to-one name="Staff" fetch="join"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
                  column="agente"/>
   </class>
