@@ -87,6 +87,10 @@ namespace Samsara.Support.Util
                     monthsRange.Add((Months)((monthIndex + startTime.Month) % 12 + 1));
                 }
             }
+            else
+            {
+                monthsRange.Add((Months)startTime.Month);
+            }
 
             return monthsRange;
         }
