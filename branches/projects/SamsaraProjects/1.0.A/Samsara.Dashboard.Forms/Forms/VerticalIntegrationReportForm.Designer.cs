@@ -42,23 +42,18 @@
             this.dtePrplMaxDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.lblPrplEndDate = new System.Windows.Forms.Label();
             this.ubgxPrplFechas = new Infragistics.Win.Misc.UltraGroupBox();
-            this.samsaraUltraComboEditor1 = new Samsara.Base.Controls.Controls.SamsaraUltraComboEditor();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbxPrplParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtePrplMinDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtePrplMaxDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ubgxPrplFechas)).BeginInit();
             this.ubgxPrplFechas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraComboEditor1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxPrplParameters
             // 
-            this.gbxPrplParameters.Controls.Add(this.label1);
-            this.gbxPrplParameters.Controls.Add(this.samsaraUltraComboEditor1);
             this.gbxPrplParameters.Controls.Add(this.ubgxPrplFechas);
-            this.gbxPrplParameters.Size = new System.Drawing.Size(626, 97);
+            this.gbxPrplParameters.Size = new System.Drawing.Size(626, 68);
             // 
             // grdPrincipal
             // 
@@ -105,13 +100,13 @@
             this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdPrincipal.Location = new System.Drawing.Point(3, 125);
-            this.grdPrincipal.Size = new System.Drawing.Size(626, 289);
+            this.grdPrincipal.Location = new System.Drawing.Point(3, 96);
+            this.grdPrincipal.Size = new System.Drawing.Size(626, 298);
             // 
             // dtePrplMinDate
             // 
             this.dtePrplMinDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dtePrplMinDate.Location = new System.Drawing.Point(62, 19);
+            this.dtePrplMinDate.Location = new System.Drawing.Point(50, 19);
             this.dtePrplMinDate.Name = "dtePrplMinDate";
             this.dtePrplMinDate.Size = new System.Drawing.Size(122, 21);
             this.dtePrplMinDate.TabIndex = 1;
@@ -129,7 +124,7 @@
             // dtePrplMaxDate
             // 
             this.dtePrplMaxDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dtePrplMaxDate.Location = new System.Drawing.Point(62, 45);
+            this.dtePrplMaxDate.Location = new System.Drawing.Point(214, 19);
             this.dtePrplMaxDate.Name = "dtePrplMaxDate";
             this.dtePrplMaxDate.Size = new System.Drawing.Size(122, 21);
             this.dtePrplMaxDate.TabIndex = 2;
@@ -138,7 +133,7 @@
             // lblPrplEndDate
             // 
             this.lblPrplEndDate.AutoSize = true;
-            this.lblPrplEndDate.Location = new System.Drawing.Point(10, 49);
+            this.lblPrplEndDate.Location = new System.Drawing.Point(184, 23);
             this.lblPrplEndDate.Name = "lblPrplEndDate";
             this.lblPrplEndDate.Size = new System.Drawing.Size(24, 13);
             this.lblPrplEndDate.TabIndex = 69;
@@ -152,25 +147,9 @@
             this.ubgxPrplFechas.Controls.Add(this.lblPrplEndDate);
             this.ubgxPrplFechas.Location = new System.Drawing.Point(6, 13);
             this.ubgxPrplFechas.Name = "ubgxPrplFechas";
-            this.ubgxPrplFechas.Size = new System.Drawing.Size(196, 75);
+            this.ubgxPrplFechas.Size = new System.Drawing.Size(346, 49);
             this.ubgxPrplFechas.TabIndex = 72;
             this.ubgxPrplFechas.Text = "Rango de Fechas:";
-            // 
-            // samsaraUltraComboEditor1
-            // 
-            this.samsaraUltraComboEditor1.Location = new System.Drawing.Point(287, 58);
-            this.samsaraUltraComboEditor1.Name = "samsaraUltraComboEditor1";
-            this.samsaraUltraComboEditor1.Size = new System.Drawing.Size(144, 21);
-            this.samsaraUltraComboEditor1.TabIndex = 73;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(230, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 74;
-            this.label1.Text = "Agente:";
             // 
             // VerticalIntegrationReportForm
             // 
@@ -178,16 +157,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 443);
             this.Name = "VerticalIntegrationReportForm";
-            this.Text = "VerticalIntegrationForm";
+            this.Text = "Cobertura Vertical";
             this.gbxPrplParameters.ResumeLayout(false);
-            this.gbxPrplParameters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtePrplMinDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtePrplMaxDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ubgxPrplFechas)).EndInit();
             this.ubgxPrplFechas.ResumeLayout(false);
             this.ubgxPrplFechas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.samsaraUltraComboEditor1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,8 +175,6 @@
         private System.Windows.Forms.Label lblPrplMinDate;
         internal Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dtePrplMaxDate;
         private System.Windows.Forms.Label lblPrplEndDate;
-        private Base.Controls.Controls.SamsaraUltraComboEditor samsaraUltraComboEditor1;
         private Infragistics.Win.Misc.UltraGroupBox ubgxPrplFechas;
-        private System.Windows.Forms.Label label1;
     }
 }

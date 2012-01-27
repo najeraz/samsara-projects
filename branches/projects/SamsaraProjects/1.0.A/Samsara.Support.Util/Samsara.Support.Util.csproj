@@ -93,6 +93,7 @@
     <Compile Include="EntitiesUtil.cs" />
     <Compile Include="ObjectsUtil.cs" />
     <Compile Include="ParameterConstants.cs" />
+    <Compile Include="TimeUtil.cs" />
     <Compile Include="WindowsFormsUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
