@@ -1,0 +1,169 @@
+﻿
+using System;
+using System.Linq;
+using System.Data;
+using Samsara.Base.Forms.Controllers;
+using Samsara.Dashboard.Core.Parameters;
+using Samsara.Dashboard.Forms.Forms;
+using System.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Service.Interfaces;
+using Samsara.Base.Core.Context;
+using NUnit.Framework;
+using Samsara.AlleatoERP.Core.Parameters;
+using Infragistics.Win.UltraWinGrid;
+
+namespace Samsara.Dashboard.Forms.Controller
+{
+    public class VerticalIntegrationReportFormController : GenericReportFormController
+    {
+        #region Attributes
+
+        private VerticalIntegrationReportForm frmVerticalIntegration;
+        private DataTable dtGridReport;
+        private IAERPCustomerService srvAERPCustomer;
+        private IProductLineService srvProductLine;
+        private IProductSublineService srvProductSubline;
+        private IProductFamilyService srvProductFamily;
+        private IList<ProductLine> lstLines;
+
+        #endregion Attributes
+
+        #region Constructor
+
+        public VerticalIntegrationReportFormController(VerticalIntegrationReportForm frmVerticalIntegration)
+            : base(frmVerticalIntegration)
+        {
+            this.frmVerticalIntegration = frmVerticalIntegration;
+
+            this.srvAERPCustomer = SamsaraAppContext.Resolve<IAERPCustomerService>();
+            Assert.IsNotNull(this.srvAERPCustomer);
+            this.srvProductLine = SamsaraAppContext.Resolve<IProductLineService>();
+            Assert.IsNotNull(this.srvProductLine);
+            this.srvProductSubline = SamsaraAppContext.Resolve<IProductSublineService>();
+            Assert.IsNotNull(this.srvProductSubline);
+            this.srvProductFamily = SamsaraAppContext.Resolve<IProductFamilyService>();
+            Assert.IsNotNull(this.srvProductFamily);
+
+            lstLines = this.srvProductLine.GetAll()
+                .AsParallel().OrderBy(x => x.Name).ToList();
+
+            this.InitializeFormControls();
+        }
+
+        #endregion Constructor
+
+        #region Methods
+
+        #region Protected
+
+        protected override void InitializeFormControls()
+        {
+            base.InitializeFormControls();
+
+            this.frmVerticalIntegration.grdPrincipal.InitializeLayout 
+                += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
+
+            //this.frmVerticalIntegration.dtePrplMinDate.DateTime = ne;
+            //this.frmVerticalIntegration.dtePrplMaxDate.DateTime = this.srvAlleatoERP.GetServerDateTime();
+        }
+
+        protected override void ClearPrincipalControls()
+        {
+            base.ClearPrincipalControls();
+        }
+
+        #endregion Protected
+
+        #region Internal
+
+        public override void GenerateReport()
+        {
+            base.GenerateReport();
+            
+            this.dtGridReport = new DataTable();
+            
+            this.dtGridReport.Columns.Add("CustomerId", typeof(int));
+            this.dtGridReport.Columns.Add("CustomerName", typeof(string));
+            this.dtGridReport.Columns.Add("ComercialName", typeof(string));
+            this.dtGridReport.Columns.Add("Agent", typeof(string));
+                        
+            foreach(ProductLine productLine in lstLines)
+            {
+                this.dtGridReport.Columns.Add(productLine.ProductLineId.ToString(), typeof(bool));
+            }
+
+            VerticalIntegrationReportParameters pmtVerticalIntegrationReport
+                = new VerticalIntegrationReportParameters();
+
+            pmtVerticalIntegrationReport.MinDate = this.frmVerticalIntegration.dtePrplMinDate.DateTime;
+            pmtVerticalIntegrationReport.MaxDate = this.frmVerticalIntegration.dtePrplMaxDate.DateTime;
+
+            DataTable dtData = this.srvAlleatoERP.CustomSearchByParameters(
+                "VerticalIntegrationReport.SearchReportData", pmtVerticalIntegrationReport, false);
+
+            IList<int> lstStaffIds = dtData.AsEnumerable().AsParallel()
+                .Select(x => Convert.ToInt32(x[3])).Distinct().ToList();
+
+            IList<AERPCustomer> lstCustomers = this.srvAERPCustomer.GetAll()
+                .AsParallel().Where(x => lstStaffIds.Contains(x.Staff.StaffId))
+                .OrderBy(x => x.Staff.Names).ThenBy(x => x.AERPCustomerId).ToList();
+
+            foreach (AERPCustomer customer in lstCustomers)
+            {
+                DataRow newRow = this.dtGridReport.NewRow();
+                this.dtGridReport.Rows.Add(newRow);
+
+                newRow["CustomerId"] = customer.AERPCustomerId;
+                newRow["CustomerName"] = customer.Name.Trim();
+                if (customer.ComercialName == null)
+                    newRow["ComercialName"] = DBNull.Value;
+                else
+                    newRow["ComercialName"] = customer.ComercialName.Trim();
+                newRow["Agent"] = customer.Staff.Names.Trim() + " " + customer.Staff.Lastname.Trim();
+            }
+
+            foreach (DataRow row in this.dtGridReport.Rows)
+            {
+                int customerId = Convert.ToInt32(row["CustomerId"]);
+
+                foreach (DataColumn column in this.dtGridReport.Columns
+                    .Cast<DataColumn>().Where(x => x.Ordinal >= 4).ToList())
+                {
+                    row[column.ColumnName] = dtData.AsEnumerable().AsParallel()
+                        .Where(x => Convert.ToInt32(x[1]) == customerId
+                            && Convert.ToInt32(column.ColumnName) == Convert.ToInt32(x[0]))
+                            .FirstOrDefault() != null;
+                }
+            }
+            
+            this.dtGridReport.AcceptChanges();
+
+            this.frmVerticalIntegration.grdPrincipal.DataSource = this.dtGridReport;
+        }
+
+        #endregion Internal
+
+        #endregion Methods
+
+        #region Events
+
+        private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+            int index = 0;
+
+            foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
+                .Where(x => x.Index >= 4 && int.TryParse(x.Header.Caption, out index)))
+            {
+                column.Header.Caption = this.lstLines
+                    .Single(x => x.ProductLineId == Convert.ToInt32(column.Header.Caption)).Name.Trim();
+            }
+        }
+
+        #endregion Events
+    }
+}
