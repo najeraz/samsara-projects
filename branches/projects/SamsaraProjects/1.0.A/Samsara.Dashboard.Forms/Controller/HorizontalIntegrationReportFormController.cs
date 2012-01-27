@@ -88,9 +88,15 @@ namespace Samsara.Dashboard.Forms.Controller
             DateTime startTime = this.frmHorizontalIntegration.dtePrplMinDate.DateTime;
             DateTime endTime = this.frmHorizontalIntegration.dtePrplMaxDate.DateTime;
 
+            int currentYear = startTime.Year;
+
             foreach (TimeUtil.Months month in TimeUtil.GetMonthsRange(startTime, endTime))
             {
-                this.dtGridReport.Columns.Add(TimeUtil.MonthName(month), typeof(decimal));
+                int currentMonth = Convert.ToInt32(month);
+
+                this.dtGridReport.Columns.Add(currentMonth.ToString() + " " + currentYear, typeof(decimal));
+
+                currentYear = currentMonth == 12 ? currentMonth + 1 : currentMonth;
             }
 
             HorizontalIntegrationReportParameters pmtHorizontalIntegrationReport
@@ -103,7 +109,7 @@ namespace Samsara.Dashboard.Forms.Controller
                 "HorizontalIntegrationReport.SearchReportData", pmtHorizontalIntegrationReport, false);
 
             IList<int> lstStaffIds = dtData.AsEnumerable().AsParallel()
-                .Select(x => Convert.ToInt32(x[3])).Distinct().ToList();
+                .Select(x => Convert.ToInt32(x[4])).Distinct().ToList();
 
             IList<AERPCustomer> lstCustomers = this.srvAERPCustomer.GetAll()
                 .AsParallel().Where(x => lstStaffIds.Contains(x.Staff.StaffId))
@@ -130,10 +136,14 @@ namespace Samsara.Dashboard.Forms.Controller
                 foreach (DataColumn column in this.dtGridReport.Columns
                     .Cast<DataColumn>().Where(x => x.Ordinal >= 4).ToList())
                 {
+                    IList<string> dateData = column.ColumnName.Split(' ');
+                    string month = dateData.First();
+                    string year = dateData.Last();
+
                     row[column.ColumnName] = dtData.AsEnumerable().AsParallel()
-                        .Where(x => Convert.ToInt32(x[1]) == customerId
-                            && Convert.ToInt32(column.ColumnName) == Convert.ToInt32(x[0]))
-                            .FirstOrDefault() != null;
+                        .Single(x => Convert.ToInt32(x[2]) == customerId
+                            && Convert.ToInt32(month) == Convert.ToInt32(x[0])
+                            && Convert.ToInt32(year) == Convert.ToInt32(x[1]))["total"];
                 }
             }
             

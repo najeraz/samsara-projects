@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Samsara.Base.Forms.Controllers;
+using System.Diagnostics;
 
 namespace Samsara.Base.Forms.Forms
 {
@@ -39,6 +40,7 @@ namespace Samsara.Base.Forms.Forms
             this.Close();
         }
 
+        [DebuggerStepThroughAttribute]
         private void btnClick(object sender, System.EventArgs e)
         {
             Button btn = sender as Button;
