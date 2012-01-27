@@ -27,8 +27,6 @@ namespace Samsara.Base.Forms.Controllers
                 this.srvAlleatoERP = SamsaraAppContext.Resolve<IAlleatoERPService>();
                 Assert.IsNotNull(this.srvAlleatoERP);
             }
-
-            this.InitializeFormControls();
         }
 
         #endregion Constructor
