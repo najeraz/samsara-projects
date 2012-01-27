@@ -1,11 +1,19 @@
 ﻿
 using System;
-using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using Infragistics.Win.UltraWinGrid;
+using NUnit.Framework;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Service.Interfaces;
+using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Dashboard.Core.Parameters;
 using Samsara.Dashboard.Forms.Forms;
-using System.Threading.Tasks;
+using Samsara.Support.Util;
 
 namespace Samsara.Dashboard.Forms.Controller
 {
@@ -14,8 +22,10 @@ namespace Samsara.Dashboard.Forms.Controller
         #region Attributes
 
         private HorizontalIntegrationReportForm frmHorizontalIntegration;
-        private DataTable dtReportData;
         private DataTable dtGridReport;
+        private IAERPCustomerService srvAERPCustomer;
+        private IProductSublineService srvProductSubline;
+        private IProductFamilyService srvProductFamily;
 
         #endregion Attributes
 
@@ -25,6 +35,15 @@ namespace Samsara.Dashboard.Forms.Controller
             : base(frmHorizontalIntegration)
         {
             this.frmHorizontalIntegration = frmHorizontalIntegration;
+
+            this.srvAERPCustomer = SamsaraAppContext.Resolve<IAERPCustomerService>();
+            Assert.IsNotNull(this.srvAERPCustomer);
+            this.srvProductSubline = SamsaraAppContext.Resolve<IProductSublineService>();
+            Assert.IsNotNull(this.srvProductSubline);
+            this.srvProductFamily = SamsaraAppContext.Resolve<IProductFamilyService>();
+            Assert.IsNotNull(this.srvProductFamily);
+
+            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -36,6 +55,14 @@ namespace Samsara.Dashboard.Forms.Controller
         protected override void InitializeFormControls()
         {
             base.InitializeFormControls();
+
+            this.frmHorizontalIntegration.grdPrincipal.InitializeLayout 
+                += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
+
+            DateTime dtNow = this.srvAlleatoERP.GetServerDateTime();
+
+            this.frmHorizontalIntegration.dtePrplMinDate.DateTime = new DateTime(dtNow.Year, dtNow.Month <= 6 ? 1 : 6, 1);
+            this.frmHorizontalIntegration.dtePrplMaxDate.DateTime = new DateTime(dtNow.Year, dtNow.Month, dtNow.Day);
         }
 
         protected override void ClearPrincipalControls()
@@ -50,6 +77,21 @@ namespace Samsara.Dashboard.Forms.Controller
         public override void GenerateReport()
         {
             base.GenerateReport();
+            
+            this.dtGridReport = new DataTable();
+            
+            this.dtGridReport.Columns.Add("CustomerId", typeof(int));
+            this.dtGridReport.Columns.Add("CustomerName", typeof(string));
+            this.dtGridReport.Columns.Add("ComercialName", typeof(string));
+            this.dtGridReport.Columns.Add("Agent", typeof(string));
+                        
+            DateTime startTime = this.frmHorizontalIntegration.dtePrplMinDate.DateTime;
+            DateTime endTime = this.frmHorizontalIntegration.dtePrplMaxDate.DateTime;
+
+            foreach (TimeUtil.Months month in TimeUtil.GetMonthsRange(startTime, endTime))
+            {
+                this.dtGridReport.Columns.Add(TimeUtil.MonthName(month), typeof(decimal));
+            }
 
             HorizontalIntegrationReportParameters pmtHorizontalIntegrationReport
                 = new HorizontalIntegrationReportParameters();
@@ -57,64 +99,86 @@ namespace Samsara.Dashboard.Forms.Controller
             pmtHorizontalIntegrationReport.MinDate = this.frmHorizontalIntegration.dtePrplMinDate.DateTime;
             pmtHorizontalIntegrationReport.MaxDate = this.frmHorizontalIntegration.dtePrplMaxDate.DateTime;
 
-            this.dtReportData = this.srvAlleatoERP.CustomSearchByParameters("SearchHorizontalVerticalSalesReport",
-                pmtHorizontalIntegrationReport, false);
+            DataTable dtData = this.srvAlleatoERP.CustomSearchByParameters(
+                "HorizontalIntegrationReport.SearchReportData", pmtHorizontalIntegrationReport, false);
 
-            this.dtGridReport = new DataTable();
-            
-            this.dtGridReport.Columns.Add("CustomerId", typeof(int));
-            this.dtGridReport.Columns.Add("CustomerName", typeof(string));
-            this.dtGridReport.Columns.Add("ComercialName", typeof(string));
-            this.dtGridReport.Columns.Add("Agent", typeof(string));
+            IList<int> lstStaffIds = dtData.AsEnumerable().AsParallel()
+                .Select(x => Convert.ToInt32(x[3])).Distinct().ToList();
 
-            Parallel.ForEach(this.dtReportData.AsEnumerable().AsParallel().Select(x => new
-                {
-                    lineName = x[5].ToString()
-                }).Distinct().OrderBy(x => x.lineName), line =>
-                {
-                    this.dtGridReport.Columns.Add(line.lineName, typeof(bool));
-                });
+            IList<AERPCustomer> lstCustomers = this.srvAERPCustomer.GetAll()
+                .AsParallel().Where(x => lstStaffIds.Contains(x.Staff.StaffId))
+                .OrderBy(x => x.Staff.Names).ThenBy(x => x.AERPCustomerId).ToList();
 
-            this.dtGridReport.Columns.Add("Total", typeof(decimal));
-
-            foreach(var group in this.dtReportData.AsEnumerable().AsParallel()
-                .GroupBy(x => new
-                {
-                    customerId = x[7],
-                    customerName = x[8],
-                    comercialName = x[9],
-                    agent = x[12],
-                }).OrderBy(x => x.Key.agent).ThenBy(x => x.Key.customerId))
+            foreach (AERPCustomer customer in lstCustomers)
             {
-                DataRow row = this.dtGridReport.NewRow();
-                this.dtGridReport.Rows.Add(row);
+                DataRow newRow = this.dtGridReport.NewRow();
+                this.dtGridReport.Rows.Add(newRow);
 
-                row["CustomerId"] = group.Key.customerId;
-                row["CustomerName"] = group.Key.customerName;
-                row["ComercialName"] = group.Key.comercialName;
-                row["Agent"] = group.Key.agent;
+                newRow["CustomerId"] = customer.AERPCustomerId;
+                newRow["CustomerName"] = customer.Name.Trim();
+                if (customer.ComercialName == null)
+                    newRow["ComercialName"] = DBNull.Value;
+                else
+                    newRow["ComercialName"] = customer.ComercialName.Trim();
+                newRow["Agent"] = customer.Staff.Names.Trim() + " " + customer.Staff.Lastname.Trim();
+            }
 
-                //row["Total"] = group.Sum(x => Convert.ToDecimal(x["total"]));
+            foreach (DataRow row in this.dtGridReport.Rows)
+            {
+                int customerId = Convert.ToInt32(row["CustomerId"]);
 
-                
-            };
-
-            //Parallel.ForEach(this.dtGridReport.AsEnumerable(), row =>
-            //{
-            //    Parallel.ForEach(this.dtGridReport.Columns.Cast<DataColumn>()
-            //        .Where(x => x.Ordinal >= 4), column =>
-            //    {
-
-            //    });
-            //});
-
+                foreach (DataColumn column in this.dtGridReport.Columns
+                    .Cast<DataColumn>().Where(x => x.Ordinal >= 4).ToList())
+                {
+                    row[column.ColumnName] = dtData.AsEnumerable().AsParallel()
+                        .Where(x => Convert.ToInt32(x[1]) == customerId
+                            && Convert.ToInt32(column.ColumnName) == Convert.ToInt32(x[0]))
+                            .FirstOrDefault() != null;
+                }
+            }
+            
             this.dtGridReport.AcceptChanges();
 
+            this.frmHorizontalIntegration.grdPrincipal.DataSource = null;
             this.frmHorizontalIntegration.grdPrincipal.DataSource = this.dtGridReport;
         }
 
         #endregion Internal
 
         #endregion Methods
+
+        #region Events
+
+        private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+            int index = 0;
+
+            //foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
+            //    .Where(x => x.Index >= 4 && int.TryParse(x.Header.Caption, out index)))
+            //{
+            //    column.Header.Caption = this.lstLines
+            //        .Single(x => x.ProductLineId == Convert.ToInt32(column.Header.Caption)).Name.Trim();
+            //}
+
+            foreach (UltraGridRow row in this.frmHorizontalIntegration.grdPrincipal.Rows.Where(x => x.Cells != null))
+            {
+                foreach (UltraGridCell cell in row.Cells.Cast<UltraGridCell>().Where(x => x.Column.Index >= 4))
+                {
+                    if (!Convert.ToBoolean(cell.Value))
+                        cell.Appearance.BackColor = Color.Yellow;
+                }
+            }
+
+            band.Columns["CustomerId"].Header.Caption = "Id Cliente";
+            band.Columns["Agent"].Header.Caption = "Agente";
+            band.Columns["CustomerName"].Header.Caption = "Nombre Cliente";
+            band.Columns["ComercialName"].Header.Caption = "Nombre Comercial";
+
+            band.SortedColumns.Add("Agent", false, true);
+        }
+
+        #endregion Events
     }
 }

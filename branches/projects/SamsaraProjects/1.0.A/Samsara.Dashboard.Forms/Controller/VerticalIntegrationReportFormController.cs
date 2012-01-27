@@ -1,19 +1,18 @@
 ﻿
 using System;
-using System.Linq;
-using System.Data;
-using Samsara.Base.Forms.Controllers;
-using Samsara.Dashboard.Core.Parameters;
-using Samsara.Dashboard.Forms.Forms;
-using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using Infragistics.Win.UltraWinGrid;
+using NUnit.Framework;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
-using NUnit.Framework;
-using Samsara.AlleatoERP.Core.Parameters;
-using Infragistics.Win.UltraWinGrid;
+using Samsara.Base.Forms.Controllers;
+using Samsara.Dashboard.Core.Parameters;
+using Samsara.Dashboard.Forms.Forms;
 
 namespace Samsara.Dashboard.Forms.Controller
 {
@@ -66,8 +65,10 @@ namespace Samsara.Dashboard.Forms.Controller
             this.frmVerticalIntegration.grdPrincipal.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
-            //this.frmVerticalIntegration.dtePrplMinDate.DateTime = ne;
-            //this.frmVerticalIntegration.dtePrplMaxDate.DateTime = this.srvAlleatoERP.GetServerDateTime();
+            DateTime dtNow = this.srvAlleatoERP.GetServerDateTime();
+
+            this.frmVerticalIntegration.dtePrplMinDate.DateTime = new DateTime(dtNow.Year, dtNow.Month <= 6 ? 1 : 6, 1);
+            this.frmVerticalIntegration.dtePrplMaxDate.DateTime = new DateTime(dtNow.Year, dtNow.Month, dtNow.Day);
         }
 
         protected override void ClearPrincipalControls()
@@ -141,6 +142,7 @@ namespace Samsara.Dashboard.Forms.Controller
             
             this.dtGridReport.AcceptChanges();
 
+            this.frmVerticalIntegration.grdPrincipal.DataSource = null;
             this.frmVerticalIntegration.grdPrincipal.DataSource = this.dtGridReport;
         }
 
@@ -162,6 +164,22 @@ namespace Samsara.Dashboard.Forms.Controller
                 column.Header.Caption = this.lstLines
                     .Single(x => x.ProductLineId == Convert.ToInt32(column.Header.Caption)).Name.Trim();
             }
+
+            foreach (UltraGridRow row in this.frmVerticalIntegration.grdPrincipal.Rows.Where(x => x.Cells != null))
+            {
+                foreach (UltraGridCell cell in row.Cells.Cast<UltraGridCell>().Where(x => x.Column.Index >= 4))
+                {
+                    if (!Convert.ToBoolean(cell.Value))
+                        cell.Appearance.BackColor = Color.Yellow;
+                }
+            }
+
+            band.Columns["CustomerId"].Header.Caption = "Id Cliente";
+            band.Columns["Agent"].Header.Caption = "Agente";
+            band.Columns["CustomerName"].Header.Caption = "Nombre Cliente";
+            band.Columns["ComercialName"].Header.Caption = "Nombre Comercial";
+
+            band.SortedColumns.Add("Agent", false, true);
         }
 
         #endregion Events

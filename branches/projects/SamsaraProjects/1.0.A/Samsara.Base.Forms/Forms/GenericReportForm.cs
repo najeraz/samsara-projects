@@ -1,8 +1,8 @@
 ﻿
+using System;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Samsara.Base.Forms.Controllers;
-using System;
 
 namespace Samsara.Base.Forms.Forms
 {
@@ -23,7 +23,6 @@ namespace Samsara.Base.Forms.Forms
         public GenericReportForm()
         {
             InitializeComponent();
-            this.controller = new GenericReportFormController(this);
             this.grdPrincipal.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
         }
 

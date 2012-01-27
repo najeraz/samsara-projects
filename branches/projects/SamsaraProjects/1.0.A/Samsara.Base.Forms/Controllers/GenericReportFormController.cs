@@ -1,5 +1,8 @@
 ﻿
 using System.ComponentModel;
+using System.Data;
+using System.Security.Principal;
+using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
@@ -27,6 +30,11 @@ namespace Samsara.Base.Forms.Controllers
                 this.srvAlleatoERP = SamsaraAppContext.Resolve<IAlleatoERPService>();
                 Assert.IsNotNull(this.srvAlleatoERP);
             }
+
+            this.frmGenericReport.grdPrincipal.InitializeLayout
+                += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
+
+            this.frmGenericReport.ulblPrplUsername.Text = WindowsIdentity.GetCurrent().Name;
         }
 
         #endregion Constructor
@@ -55,5 +63,27 @@ namespace Samsara.Base.Forms.Controllers
         #endregion Public
 
         #endregion Methods
+
+        #region Events
+
+        private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            if (this.frmGenericReport.grdPrincipal.DataSource != null
+                && this.frmGenericReport.grdPrincipal.DataSource is DataTable)
+            {
+                this.frmGenericReport.ulblPrplRowQuantity.Text
+                    = (this.frmGenericReport.grdPrincipal.DataSource as DataTable)
+                    .Rows.Count.ToString();
+            }
+            else if (this.frmGenericReport.grdPrincipal.DataSource != null
+                && this.frmGenericReport.grdPrincipal.DataSource is DataSet)
+            {
+                this.frmGenericReport.ulblPrplRowQuantity.Text
+                    = (this.frmGenericReport.grdPrincipal.DataSource as DataSet).Tables[0]
+                    .Rows.Count.ToString();
+            }
+        }
+
+        #endregion Events
     }
 }
