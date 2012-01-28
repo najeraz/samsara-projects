@@ -96,7 +96,7 @@ namespace Samsara.Dashboard.Forms.Controller
 
                 this.dtGridReport.Columns.Add(currentMonth.ToString() + " " + currentYear, typeof(decimal));
 
-                currentYear = currentMonth == 12 ? currentMonth + 1 : currentMonth;
+                currentYear = currentMonth == 12 ? currentYear + 1 : currentYear;
             }
 
             HorizontalIntegrationReportParameters pmtHorizontalIntegrationReport
@@ -140,10 +140,15 @@ namespace Samsara.Dashboard.Forms.Controller
                     string month = dateData.First();
                     string year = dateData.Last();
 
-                    row[column.ColumnName] = dtData.AsEnumerable().AsParallel()
-                        .Single(x => Convert.ToInt32(x[2]) == customerId
+                    DataRow rowTotal = dtData.AsEnumerable().AsParallel()
+                        .SingleOrDefault(x => Convert.ToInt32(x[2]) == customerId
                             && Convert.ToInt32(month) == Convert.ToInt32(x[0])
-                            && Convert.ToInt32(year) == Convert.ToInt32(x[1]))["total"];
+                            && Convert.ToInt32(year) == Convert.ToInt32(x[1]));
+
+                    if (rowTotal == null)
+                        row[column.ColumnName] = 0M;
+                    else
+                        row[column.ColumnName] = rowTotal[3];
                 }
             }
             
@@ -165,18 +170,27 @@ namespace Samsara.Dashboard.Forms.Controller
             UltraGridBand band = layout.Bands[0];
             int index = 0;
 
-            //foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
-            //    .Where(x => x.Index >= 4 && int.TryParse(x.Header.Caption, out index)))
-            //{
-            //    column.Header.Caption = this.lstLines
-            //        .Single(x => x.ProductLineId == Convert.ToInt32(column.Header.Caption)).Name.Trim();
-            //}
+            foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
+                .Where(x => x.Index >= 4))
+            {
+                if (!int.TryParse(column.Header.Caption.Split(' ').First(), out index))
+                    continue;
+
+                column.Header.Caption = TimeUtil.MonthName((TimeUtil.Months)index);
+            }
+
+            foreach (UltraGridColumn column in band.Columns
+                .Cast<UltraGridColumn>().Where(x => x.Index >= 4))
+            {
+                WindowsFormsUtil.SetUltraColumnFormat(column, TextMaskFormatEnum.Currency);
+                column.Width = 100;
+            }
 
             foreach (UltraGridRow row in this.frmHorizontalIntegration.grdPrincipal.Rows.Where(x => x.Cells != null))
             {
                 foreach (UltraGridCell cell in row.Cells.Cast<UltraGridCell>().Where(x => x.Column.Index >= 4))
                 {
-                    if (!Convert.ToBoolean(cell.Value))
+                    if (Convert.ToDecimal(cell.Value) == 0M)
                         cell.Appearance.BackColor = Color.Yellow;
                 }
             }

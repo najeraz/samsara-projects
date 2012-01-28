@@ -84,7 +84,7 @@ namespace Samsara.Support.Util
             {
                 foreach (int monthIndex in Enumerable.Range(0, monthsInterval))
                 {
-                    monthsRange.Add((Months)((monthIndex + startTime.Month) % 12 + 1));
+                    monthsRange.Add((Months)((monthIndex + startTime.Month - 1) % 12 + 1));
                 }
             }
             else
