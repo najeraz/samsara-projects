@@ -97,11 +97,6 @@ namespace Samsara.Base.Controls.Controls
             this.ValueMember = typeof(T).Name + "Id";
             this.DisplayMember = "Name";
             this.Parameters = new TPmt();
-            
-            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
-            {
-                this.Refresh();
-            }
         }
 
         #endregion Constructor
