@@ -13,6 +13,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Dashboard.Core.Parameters;
 using Samsara.Dashboard.Forms.Forms;
+using Infragistics.Win;
 
 namespace Samsara.Dashboard.Forms.Controller
 {
@@ -156,12 +157,16 @@ namespace Samsara.Dashboard.Forms.Controller
             UltraGridLayout layout = e.Layout;
             UltraGridBand band = layout.Bands[0];
             int index = 0;
-
+            
             foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
                 .Where(x => x.Index >= 4 && int.TryParse(x.Header.Caption, out index)))
             {
                 column.Header.Caption = this.lstLines
                     .Single(x => x.ProductLineId == Convert.ToInt32(column.Header.Caption)).Name.Trim();
+
+                column.Header.TextOrientation = new TextOrientationInfo(65, TextFlowDirection.Horizontal);
+
+                column.PerformAutoResize();
             }
 
             foreach (UltraGridRow row in this.frmVerticalIntegration.grdPrincipal.Rows.Where(x => x.Cells != null))
