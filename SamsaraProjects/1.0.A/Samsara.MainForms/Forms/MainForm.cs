@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Security.Principal;
 using System.Windows.Forms;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.Dashboard.Forms.Forms;
@@ -13,6 +14,12 @@ namespace Samsara.MainForms.Forms
         public MainForm()
         {
             InitializeComponent();
+            PostInitializeComponent();
+        }
+
+        private void PostInitializeComponent()
+        {
+            this.ulblPrplUsername.Text = WindowsIdentity.GetCurrent().Name;
         }
 
         private void licitanteToolStripMenuItem_Click(object sender, System.EventArgs e)

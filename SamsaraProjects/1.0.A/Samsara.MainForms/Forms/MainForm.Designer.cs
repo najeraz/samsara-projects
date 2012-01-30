@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             this.pnlFormBackground = new System.Windows.Forms.Panel();
             this.tsmiMainMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.licitacionesYOprtinidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,7 +94,11 @@
             this.tableroDeControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturaHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturaVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
+            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
             this.menuStrip1.SuspendLayout();
+            this.upnlPrplBottom.ClientArea.SuspendLayout();
+            this.upnlPrplBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFormBackground
@@ -104,7 +109,7 @@
             this.pnlFormBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFormBackground.Location = new System.Drawing.Point(0, 24);
             this.pnlFormBackground.Name = "pnlFormBackground";
-            this.pnlFormBackground.Size = new System.Drawing.Size(811, 351);
+            this.pnlFormBackground.Size = new System.Drawing.Size(811, 335);
             this.pnlFormBackground.TabIndex = 1;
             // 
             // tsmiMainMenu
@@ -612,19 +617,48 @@
             this.coberturaVerticalToolStripMenuItem.Text = "Cobertura Vertical";
             this.coberturaVerticalToolStripMenuItem.Click += new System.EventHandler(this.coberturaVerticalToolStripMenuItem_Click);
             // 
+            // upnlPrplBottom
+            // 
+            // 
+            // upnlPrplBottom.ClientArea
+            // 
+            this.upnlPrplBottom.ClientArea.Controls.Add(this.ulblPrplUsername);
+            this.upnlPrplBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlPrplBottom.Location = new System.Drawing.Point(0, 359);
+            this.upnlPrplBottom.Name = "upnlPrplBottom";
+            this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
+            this.upnlPrplBottom.TabIndex = 2;
+            // 
+            // ulblPrplUsername
+            // 
+            appearance1.ImageHAlign = Infragistics.Win.HAlign.Center;
+            appearance1.ImageVAlign = Infragistics.Win.VAlign.Middle;
+            this.ulblPrplUsername.Appearance = appearance1;
+            this.ulblPrplUsername.AutoSize = true;
+            this.ulblPrplUsername.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblPrplUsername.Location = new System.Drawing.Point(0, 0);
+            this.ulblPrplUsername.Name = "ulblPrplUsername";
+            this.ulblPrplUsername.Size = new System.Drawing.Size(61, 16);
+            this.ulblPrplUsername.TabIndex = 1;
+            this.ulblPrplUsername.Text = "[username]";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 375);
             this.Controls.Add(this.pnlFormBackground);
+            this.Controls.Add(this.upnlPrplBottom);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Licitaciones y Oportunidades";
+            this.Text = "Proyectos Samsara";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.upnlPrplBottom.ClientArea.ResumeLayout(false);
+            this.upnlPrplBottom.ClientArea.PerformLayout();
+            this.upnlPrplBottom.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -696,6 +730,8 @@
         private System.Windows.Forms.ToolStripMenuItem tableroDeControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coberturaHorizontalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coberturaVerticalToolStripMenuItem;
+        private Infragistics.Win.Misc.UltraPanel upnlPrplBottom;
+        private Infragistics.Win.Misc.UltraLabel ulblPrplUsername;
     }
 }
 
