@@ -38,6 +38,12 @@ namespace SamsaraCommissions
         private Dictionary<string, int> dicMeses = new Dictionary<string, int>();
         private SqlTransaction transacction = null;
 
+        private DataTable dtDetalleComisiones;
+        private DataTable dtResumenComisiones;
+        private DataTable dtFacturasPendientes;
+        private DataTable dtFacturasCanceladas;
+        private DataTable dtRefacturaciónAgena;
+
         #endregion Attributes
 
         #region Constructor
@@ -75,7 +81,7 @@ namespace SamsaraCommissions
                 this.tcConfiguracion.Enabled = isConfigurable;
                 this.cbxAgenteMargenes_SelectedIndexChanged(null, null);
 
-                this.Text += "  -  " + WindowsIdentity.GetCurrent().Name.ToUpper();
+                this.Text += "  -  " + WindowsIdentity.GetCurrent().Name;
             }
             catch (SqlException ex)
             {
@@ -354,8 +360,7 @@ namespace SamsaraCommissions
 
         private void CalculaComisionesQ()
         {
-            this.CalculaComisionesQ(((DataTable)this.grdDetalleComisiones.DataSource),
-                ((DataTable)this.grdResumenComisiones.DataSource));
+            this.CalculaComisionesQ(this.dtDetalleComisiones, this.dtResumenComisiones);
         }
 
         private void CalculaComisionesQ(DataTable dtComisiones, DataTable dtResumenComisiones)
@@ -392,7 +397,7 @@ namespace SamsaraCommissions
                     rowResumen["mes"] = this.dicMeses.ElementAt(Convert.ToInt32(lastRow["mes"]) - 1).Key;
                     rowResumen["Q"] = lastRow["Q"];
                     rowResumen["utilidad_general"] = 
-                        Math.Round(((DataTable)this.grdFacturasPendientes.DataSource)
+                        Math.Round(this.dtFacturasPendientes
                         .AsEnumerable().Where(x => this.dicMeses[x["mes"].ToString()] == Convert.ToInt32(group.Key.mes)
                             && Convert.ToInt32(x["anio"]) == Convert.ToInt32(group.Key.año)
                             && x["Q"].ToString().Trim() == group.Key.q.ToString().Trim())
@@ -576,7 +581,7 @@ namespace SamsaraCommissions
                 command.ExecuteNonQuery();
             }
 
-            foreach (DataRow row in ((DataTable)this.grdDetalleComisiones.DataSource).Rows)
+            foreach (DataRow row in this.dtDetalleComisiones.Rows)
             {
                 object[] values = row.ItemArray.ToArray();
 
@@ -682,11 +687,13 @@ namespace SamsaraCommissions
                 da.Fill(data);
 
                 this.FormatGridResumenComisiones();
-                this.grdDetalleComisiones.DataSource = data.Tables[0];
-                this.grdResumenComisiones.DataSource = data.Tables[1];
-                this.grdFacturasPendientes.DataSource = data.Tables[2];
-                this.grdFacturasCanceladas.DataSource = data.Tables[3];
-                this.grdRefacturaciónAgena.DataSource = data.Tables[4];
+                this.dtDetalleComisiones = data.Tables[0];
+                this.dtResumenComisiones = data.Tables[1];
+                this.dtFacturasPendientes = data.Tables[2];
+                this.dtFacturasCanceladas = data.Tables[3];
+                this.dtRefacturaciónAgena = data.Tables[4];
+
+                this.grdResumenComisiones.DataSource = this.dtResumenComisiones;
 
                 this.CreaReporteAnual(data.Tables[1]);
                 this.ProcesaFacturasPendientes(data.Tables[2]);
@@ -972,9 +979,9 @@ namespace SamsaraCommissions
                 form.Mes = (e.ColumnIndex - 1) / 2 + 1;
                 form.Q = ((e.ColumnIndex - 1) % 2) == 0 ? "Q1" : "Q2";
                 form.Title = "Detalle " + this.dicMeses.ElementAt(form.Mes - 1).Key + " " + form.Q;
-                form.DtDetalleComisiones = (DataTable)this.grdDetalleComisiones.DataSource;
-                form.DtFacturasPendientes = (DataTable)this.grdFacturasPendientes.DataSource;
-                form.DtFacturasCanceladas = (DataTable)this.grdFacturasCanceladas.DataSource;
+                form.DtDetalleComisiones = this.dtDetalleComisiones;
+                form.DtFacturasPendientes = this.dtFacturasPendientes;
+                form.DtFacturasCanceladas = this.dtFacturasCanceladas;
                 form.LoadData();
                 form.ShowDialog(this);
             }
