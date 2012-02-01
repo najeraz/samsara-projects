@@ -2866,6 +2866,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         private void ubtnDetDeleteTenderFile_Click(object sender, EventArgs e)
         {
             UltraGridRow activeRow = this.frmTender.grdDetTenderFiles.ActiveRow;
+            TenderFile tenderFile = null;
 
             if (activeRow == null)
                 return;
@@ -2874,8 +2875,12 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
 
-            TenderFile tenderFile = this.tender.TenderFiles.Single(x => x.TenderFileId
-                == Convert.ToInt32(activeRow.Cells[0].Value));
+            if (Convert.ToInt32(activeRow.Cells[0].Value) <= 0)
+                tenderFile = this.tender.TenderFiles
+                    .Single(x => -x.GetHashCode() == Convert.ToInt32(activeRow.Cells[0].Value));
+            else 
+                tenderFile = this.tender.TenderFiles
+                    .Single(x => x.TenderFileId == Convert.ToInt32(activeRow.Cells[0].Value));
 
             this.tender.TenderFiles.Remove(tenderFile);
 
@@ -2902,7 +2907,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             {
                 TenderFile tenderFile = new TenderFile();
 
-                tenderFile.TenderFileId = -tenderFile.GetHashCode();
                 tenderFile.Description = this.frmTender.txtDetFileDescription.Text;
                 tenderFile.Filename = this.frmTender.txtDetFileName.Text;
                 tenderFile.File = FilesUtil.StreamFile(this.frmTender.txtDetFilePath.Text);
@@ -2914,7 +2918,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 DataRow row = this.dtTenderFiles.NewRow();
                 this.dtTenderFiles.Rows.Add(row);
 
-                row[0] = tenderFile.TenderFileId;
+                row[0] = tenderFile.TenderFileId <= 0 ? -tenderFile.GetHashCode() : tenderFile.TenderFileId;
                 row[1] = tenderFile.TenderId;
                 row[3] = tenderFile.Filename;
                 row[4] = tenderFile.Description;

@@ -21,20 +21,12 @@ namespace Samsara.Support.Util
 
                 foreach (Object[] objs in list)
                 {
-                    int i = 0;
-                    DataRow row = table.NewRow();
-
-                    foreach (Object obj in objs)
-                    {
-                        row[i++] = obj == null ? DBNull.Value : obj;
-                    }
-
-                    table.Rows.Add(row);
+                    table.Rows.Add(objs);
                 }
 
                 return table;
             }
-            catch (Exception ex) { ex.ToString(); }
+            catch { }
             return null;
         }
 
@@ -101,8 +93,7 @@ namespace Samsara.Support.Util
                     && entityProperty.PropertyType.GetGenericTypeDefinition()
                         .Equals(typeof(Nullable<>)))
                 {
-                    table.Columns.Add(entityProperty.Name
-                        , Nullable.GetUnderlyingType(entityProperty.PropertyType));
+                    table.Columns.Add(entityProperty.Name, Nullable.GetUnderlyingType(entityProperty.PropertyType));
                 }
                 else
                 {
