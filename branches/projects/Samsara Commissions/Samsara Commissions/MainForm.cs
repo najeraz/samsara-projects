@@ -43,6 +43,7 @@ namespace SamsaraCommissions
         private DataTable dtFacturasPendientes;
         private DataTable dtFacturasCanceladas;
         private DataTable dtRefacturaciónAgena;
+        private DataTable dtEsquemasMulticuota;
 
         #endregion Attributes
 
@@ -517,37 +518,17 @@ namespace SamsaraCommissions
             if (this.cbxAgenteComision.SelectedValue != null
                 && int.TryParse(this.cbxAgenteComision.SelectedValue.ToString(), out idAgente))
             {
-                consulta =
-                    "select mes, '' as nombre_mes, cuota_mes cuota, comision_mes comision "
-                    + "from tabla_comisiones where anio = " + this.dudAños.SelectedItem
-                    + " AND agente = " + idAgente + " order by mes";
+                consulta = string.Format(@"
+                        SELECT 
+                            esquema, nombre, fecha, agente
+                        FROM        Esquemas_Cuotas ec
+                        WHERE agente = {0}
+                    ", idAgente);
+
                 SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
                 ds = new DataSet();
-                da.Fill(ds, "comisiones");
-                this.grdComisionesAgente.DataSource = null;
-                this.grdComisionesAgente.DataSource = ds.Tables["comisiones"];
-
-                foreach (DataRow row in ds.Tables["comisiones"].AsEnumerable())
-                {
-                    row["nombre_mes"] = this.dicMeses.ElementAt(Convert.ToInt32(row["mes"]) - 1).Key;
-                }
-
-                if (ds.Tables["comisiones"].Rows.Count == 0)
-                {
-                    foreach (int mes in Enumerable.Range(1, 12))
-                    {
-                        cnn.Open();
-                        consulta =
-                            "INSERT INTO tabla_comisiones (agente, mes, anio, comision_mes, cuota_mes)"
-                            + "VALUES (" + this.cbxAgenteComision.SelectedValue + ", "
-                            + mes + ", " + this.dudAños.SelectedItem + ", 0, 0)";
-                        SqlCommand command = new SqlCommand(consulta, cnn);
-                        command.ExecuteNonQuery();
-                        cnn.Close();
-                    }
-
-                    this.UpdateGrdAgentesActivos();
-                }
+                da.Fill(ds, "esquemas");
+                this.dtEsquemasMulticuota = ds.Tables["esquemas"];
             }
         }
 
@@ -870,32 +851,32 @@ namespace SamsaraCommissions
             if (e.RowIndex == -1)
                 return;
 
-            ComisionDataDialog dialog = new ComisionDataDialog();
-            dialog.Comision = Convert.ToDecimal(
-                this.grdComisionesAgente.Rows[e.RowIndex].Cells["comision"].Value) * 100M;
-            dialog.Cuota = Convert.ToDecimal(
-                this.grdComisionesAgente.Rows[e.RowIndex].Cells["cuota"].Value);
-            dialog.ShowDialog(this);
-            if (dialog.Tipo != null)
-            {
-                consulta =
-                    "UPDATE tabla_comisiones SET comision_mes = " + dialog.Comision
-                    + ", cuota_mes = " + dialog.Cuota
-                    + " WHERE agente = " + this.cbxAgenteComision.SelectedValue
-                    + " AND anio = " + this.dudAños.SelectedItem;
+            //ComisionDataDialog dialog = new ComisionDataDialog();
+            //dialog.Comision = Convert.ToDecimal(
+            //    this.grdComisionesAgente.Rows[e.RowIndex].Cells["comision"].Value) * 100M;
+            //dialog.Cuota = Convert.ToDecimal(
+            //    this.grdComisionesAgente.Rows[e.RowIndex].Cells["cuota"].Value);
+            //dialog.ShowDialog(this);
+            //if (dialog.Tipo != null)
+            //{
+            //    consulta =
+            //        "UPDATE tabla_comisiones SET comision_mes = " + dialog.Comision
+            //        + ", cuota_mes = " + dialog.Cuota
+            //        + " WHERE agente = " + this.cbxAgenteComision.SelectedValue
+            //        + " AND anio = " + this.dudAños.SelectedItem;
 
-                if (dialog.Tipo == ComisionTypeEnum.Mes)
-                {
-                    consulta += " AND mes = " + this.grdComisionesAgente.Rows[e.RowIndex].Cells["mes"].Value;
-                }
-                cnn.Open();
+            //    if (dialog.Tipo == ComisionTypeEnum.Mes)
+            //    {
+            //        consulta += " AND mes = " + this.grdComisionesAgente.Rows[e.RowIndex].Cells["mes"].Value;
+            //    }
+            //    cnn.Open();
 
-                SqlCommand command = new SqlCommand(consulta, cnn);
-                command.ExecuteNonQuery();
-                cnn.Close();
+            //    SqlCommand command = new SqlCommand(consulta, cnn);
+            //    command.ExecuteNonQuery();
+            //    cnn.Close();
 
-                this.UpdateGrdAgentesActivos();
-            }
+            //    this.UpdateGrdAgentesActivos();
+            //}
         }
 
         private void dudAños_SelectedItemChanged(object sender, EventArgs e)
