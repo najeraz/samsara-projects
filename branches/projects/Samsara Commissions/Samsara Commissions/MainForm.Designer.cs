@@ -29,55 +29,7 @@ namespace SamsaraCommissions
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance25 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance26 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance27 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance28 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance29 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance30 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance31 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance32 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance33 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance34 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance35 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance36 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComisionesForm));
-            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance19 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance21 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance37 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance38 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance39 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance40 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance41 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance42 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance43 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance44 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance45 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance46 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance47 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance48 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
@@ -95,7 +47,6 @@ namespace SamsaraCommissions
             this.label5 = new System.Windows.Forms.Label();
             this.cbxAgentesConfig = new System.Windows.Forms.ComboBox();
             this.SamsaraCommissions = new System.Windows.Forms.TabPage();
-            this.grdComisionesAgente = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dudAños = new System.Windows.Forms.DomainUpDown();
             this.cbxAgenteComision = new System.Windows.Forms.ComboBox();
@@ -146,6 +97,7 @@ namespace SamsaraCommissions
             this.grdSublineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.grdComisionesAgentes = new Infragistics.Win.UltraWinGrid.UltraGrid();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Configuración.SuspendLayout();
             this.tcConfiguracion.SuspendLayout();
@@ -156,7 +108,6 @@ namespace SamsaraCommissions
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SamsaraCommissions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgente)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.Ajustes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAjustes)).BeginInit();
@@ -182,6 +133,7 @@ namespace SamsaraCommissions
             ((System.ComponentModel.ISupportInitialize)(this.grdSublineas)).BeginInit();
             this.gbxLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgentes)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -265,6 +217,7 @@ namespace SamsaraCommissions
             // 
             // AgentesActivos
             // 
+            this.AgentesActivos.BackColor = System.Drawing.Color.Transparent;
             this.AgentesActivos.Controls.Add(this.grdAgentesActivos);
             this.AgentesActivos.Location = new System.Drawing.Point(4, 22);
             this.AgentesActivos.Name = "AgentesActivos";
@@ -272,7 +225,6 @@ namespace SamsaraCommissions
             this.AgentesActivos.Size = new System.Drawing.Size(627, 432);
             this.AgentesActivos.TabIndex = 0;
             this.AgentesActivos.Text = "Agentes Activos";
-            this.AgentesActivos.UseVisualStyleBackColor = true;
             // 
             // grdAgentesActivos
             // 
@@ -289,6 +241,7 @@ namespace SamsaraCommissions
             // 
             // AgentesEquivalentes
             // 
+            this.AgentesEquivalentes.BackColor = System.Drawing.Color.Transparent;
             this.AgentesEquivalentes.Controls.Add(this.panel1);
             this.AgentesEquivalentes.Controls.Add(this.panel2);
             this.AgentesEquivalentes.Location = new System.Drawing.Point(4, 22);
@@ -296,7 +249,6 @@ namespace SamsaraCommissions
             this.AgentesEquivalentes.Size = new System.Drawing.Size(627, 432);
             this.AgentesEquivalentes.TabIndex = 1;
             this.AgentesEquivalentes.Text = "Agentes Equivalentes";
-            this.AgentesEquivalentes.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -358,27 +310,13 @@ namespace SamsaraCommissions
             // 
             // SamsaraCommissions
             // 
-            this.SamsaraCommissions.Controls.Add(this.grdComisionesAgente);
+            this.SamsaraCommissions.BackColor = System.Drawing.Color.Transparent;
             this.SamsaraCommissions.Controls.Add(this.groupBox3);
             this.SamsaraCommissions.Location = new System.Drawing.Point(4, 22);
             this.SamsaraCommissions.Name = "SamsaraCommissions";
             this.SamsaraCommissions.Size = new System.Drawing.Size(627, 432);
             this.SamsaraCommissions.TabIndex = 2;
             this.SamsaraCommissions.Text = "Comisiones Agentes";
-            this.SamsaraCommissions.UseVisualStyleBackColor = true;
-            // 
-            // grdComisionesAgente
-            // 
-            this.grdComisionesAgente.AllowUserToAddRows = false;
-            this.grdComisionesAgente.AllowUserToDeleteRows = false;
-            this.grdComisionesAgente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdComisionesAgente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdComisionesAgente.Location = new System.Drawing.Point(0, 75);
-            this.grdComisionesAgente.Name = "grdComisionesAgente";
-            this.grdComisionesAgente.ReadOnly = true;
-            this.grdComisionesAgente.Size = new System.Drawing.Size(627, 357);
-            this.grdComisionesAgente.TabIndex = 3;
-            this.grdComisionesAgente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdComisionesAgente_CellDoubleClick);
             // 
             // groupBox3
             // 
@@ -432,6 +370,7 @@ namespace SamsaraCommissions
             // 
             // Ajustes
             // 
+            this.Ajustes.BackColor = System.Drawing.Color.Transparent;
             this.Ajustes.Controls.Add(this.grdAjustes);
             this.Ajustes.Controls.Add(this.panel6);
             this.Ajustes.Controls.Add(this.panel5);
@@ -440,7 +379,6 @@ namespace SamsaraCommissions
             this.Ajustes.Size = new System.Drawing.Size(627, 432);
             this.Ajustes.TabIndex = 6;
             this.Ajustes.Text = "Ajustes";
-            this.Ajustes.UseVisualStyleBackColor = true;
             // 
             // grdAjustes
             // 
@@ -602,70 +540,31 @@ namespace SamsaraCommissions
             this.Pagos.Controls.Add(this.pnlAdmin);
             this.Pagos.Location = new System.Drawing.Point(4, 22);
             this.Pagos.Name = "Pagos";
-            this.Pagos.Size = new System.Drawing.Size(499, 244);
+            this.Pagos.Size = new System.Drawing.Size(627, 244);
             this.Pagos.TabIndex = 1;
             this.Pagos.Text = "Pagos";
             // 
             // grdResumenComisiones
             // 
-            appearance25.BackColor = System.Drawing.SystemColors.Window;
-            appearance25.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdResumenComisiones.DisplayLayout.Appearance = appearance25;
             this.grdResumenComisiones.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdResumenComisiones.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance26.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance26.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance26.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance26.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdResumenComisiones.DisplayLayout.GroupByBox.Appearance = appearance26;
-            appearance27.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdResumenComisiones.DisplayLayout.GroupByBox.BandLabelAppearance = appearance27;
             this.grdResumenComisiones.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance28.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance28.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance28.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdResumenComisiones.DisplayLayout.GroupByBox.PromptAppearance = appearance28;
             this.grdResumenComisiones.DisplayLayout.MaxColScrollRegions = 1;
             this.grdResumenComisiones.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance29.BackColor = System.Drawing.SystemColors.Window;
-            appearance29.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdResumenComisiones.DisplayLayout.Override.ActiveCellAppearance = appearance29;
-            appearance30.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance30.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdResumenComisiones.DisplayLayout.Override.ActiveRowAppearance = appearance30;
             this.grdResumenComisiones.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdResumenComisiones.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance31.BackColor = System.Drawing.SystemColors.Window;
-            this.grdResumenComisiones.DisplayLayout.Override.CardAreaAppearance = appearance31;
-            appearance32.BorderColor = System.Drawing.Color.Silver;
-            appearance32.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdResumenComisiones.DisplayLayout.Override.CellAppearance = appearance32;
             this.grdResumenComisiones.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
             this.grdResumenComisiones.DisplayLayout.Override.CellPadding = 0;
-            appearance33.BackColor = System.Drawing.SystemColors.Control;
-            appearance33.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance33.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance33.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance33.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdResumenComisiones.DisplayLayout.Override.GroupByRowAppearance = appearance33;
-            appearance34.TextHAlignAsString = "Left";
-            this.grdResumenComisiones.DisplayLayout.Override.HeaderAppearance = appearance34;
             this.grdResumenComisiones.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
             this.grdResumenComisiones.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance35.BackColor = System.Drawing.SystemColors.Window;
-            appearance35.BorderColor = System.Drawing.Color.Silver;
-            this.grdResumenComisiones.DisplayLayout.Override.RowAppearance = appearance35;
             this.grdResumenComisiones.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance36.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdResumenComisiones.DisplayLayout.Override.TemplateAddRowAppearance = appearance36;
             this.grdResumenComisiones.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdResumenComisiones.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdResumenComisiones.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
             this.grdResumenComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdResumenComisiones.Location = new System.Drawing.Point(0, 0);
             this.grdResumenComisiones.Name = "grdResumenComisiones";
-            this.grdResumenComisiones.Size = new System.Drawing.Size(499, 208);
+            this.grdResumenComisiones.Size = new System.Drawing.Size(627, 208);
             this.grdResumenComisiones.TabIndex = 10;
             this.grdResumenComisiones.Text = "ultraGrid1";
             this.grdResumenComisiones.AfterCellUpdate += new Infragistics.Win.UltraWinGrid.CellEventHandler(this.grdResumenComisiones_AfterCellUpdate);
@@ -684,7 +583,7 @@ namespace SamsaraCommissions
             this.pnlAdmin.Enabled = false;
             this.pnlAdmin.Location = new System.Drawing.Point(0, 208);
             this.pnlAdmin.Name = "pnlAdmin";
-            this.pnlAdmin.Size = new System.Drawing.Size(499, 36);
+            this.pnlAdmin.Size = new System.Drawing.Size(627, 36);
             this.pnlAdmin.TabIndex = 2;
             // 
             // btnRestablecer
@@ -911,57 +810,18 @@ namespace SamsaraCommissions
             // 
             // grdFamilias
             // 
-            appearance13.BackColor = System.Drawing.SystemColors.Window;
-            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdFamilias.DisplayLayout.Appearance = appearance13;
             this.grdFamilias.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdFamilias.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance14.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance14.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdFamilias.DisplayLayout.GroupByBox.Appearance = appearance14;
-            appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdFamilias.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
             this.grdFamilias.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance16.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance16.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdFamilias.DisplayLayout.GroupByBox.PromptAppearance = appearance16;
             this.grdFamilias.DisplayLayout.MaxColScrollRegions = 1;
             this.grdFamilias.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance17.BackColor = System.Drawing.SystemColors.Window;
-            appearance17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdFamilias.DisplayLayout.Override.ActiveCellAppearance = appearance17;
-            appearance18.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance18.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdFamilias.DisplayLayout.Override.ActiveRowAppearance = appearance18;
             this.grdFamilias.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdFamilias.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance19.BackColor = System.Drawing.SystemColors.Window;
-            this.grdFamilias.DisplayLayout.Override.CardAreaAppearance = appearance19;
-            appearance20.BorderColor = System.Drawing.Color.Silver;
-            appearance20.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdFamilias.DisplayLayout.Override.CellAppearance = appearance20;
             this.grdFamilias.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
             this.grdFamilias.DisplayLayout.Override.CellPadding = 0;
-            appearance21.BackColor = System.Drawing.SystemColors.Control;
-            appearance21.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance21.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance21.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance21.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdFamilias.DisplayLayout.Override.GroupByRowAppearance = appearance21;
-            appearance22.TextHAlignAsString = "Left";
-            this.grdFamilias.DisplayLayout.Override.HeaderAppearance = appearance22;
             this.grdFamilias.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
             this.grdFamilias.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance23.BackColor = System.Drawing.SystemColors.Window;
-            appearance23.BorderColor = System.Drawing.Color.Silver;
-            this.grdFamilias.DisplayLayout.Override.RowAppearance = appearance23;
             this.grdFamilias.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdFamilias.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
             this.grdFamilias.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdFamilias.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdFamilias.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
@@ -997,57 +857,18 @@ namespace SamsaraCommissions
             // 
             // grdSublineas
             // 
-            appearance37.BackColor = System.Drawing.SystemColors.Window;
-            appearance37.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdSublineas.DisplayLayout.Appearance = appearance37;
             this.grdSublineas.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdSublineas.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance38.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance38.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance38.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance38.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdSublineas.DisplayLayout.GroupByBox.Appearance = appearance38;
-            appearance39.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdSublineas.DisplayLayout.GroupByBox.BandLabelAppearance = appearance39;
             this.grdSublineas.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance40.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance40.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance40.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance40.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdSublineas.DisplayLayout.GroupByBox.PromptAppearance = appearance40;
             this.grdSublineas.DisplayLayout.MaxColScrollRegions = 1;
             this.grdSublineas.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance41.BackColor = System.Drawing.SystemColors.Window;
-            appearance41.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdSublineas.DisplayLayout.Override.ActiveCellAppearance = appearance41;
-            appearance42.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance42.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdSublineas.DisplayLayout.Override.ActiveRowAppearance = appearance42;
             this.grdSublineas.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdSublineas.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance43.BackColor = System.Drawing.SystemColors.Window;
-            this.grdSublineas.DisplayLayout.Override.CardAreaAppearance = appearance43;
-            appearance44.BorderColor = System.Drawing.Color.Silver;
-            appearance44.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdSublineas.DisplayLayout.Override.CellAppearance = appearance44;
             this.grdSublineas.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
             this.grdSublineas.DisplayLayout.Override.CellPadding = 0;
-            appearance45.BackColor = System.Drawing.SystemColors.Control;
-            appearance45.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance45.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance45.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance45.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdSublineas.DisplayLayout.Override.GroupByRowAppearance = appearance45;
-            appearance46.TextHAlignAsString = "Left";
-            this.grdSublineas.DisplayLayout.Override.HeaderAppearance = appearance46;
             this.grdSublineas.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
             this.grdSublineas.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance47.BackColor = System.Drawing.SystemColors.Window;
-            appearance47.BorderColor = System.Drawing.Color.Silver;
-            this.grdSublineas.DisplayLayout.Override.RowAppearance = appearance47;
             this.grdSublineas.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance48.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdSublineas.DisplayLayout.Override.TemplateAddRowAppearance = appearance48;
             this.grdSublineas.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdSublineas.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdSublineas.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
@@ -1074,57 +895,18 @@ namespace SamsaraCommissions
             // 
             // grdLineas
             // 
-            appearance1.BackColor = System.Drawing.SystemColors.Window;
-            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdLineas.DisplayLayout.Appearance = appearance1;
             this.grdLineas.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdLineas.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance2.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdLineas.DisplayLayout.GroupByBox.Appearance = appearance2;
-            appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdLineas.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
             this.grdLineas.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance4.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdLineas.DisplayLayout.GroupByBox.PromptAppearance = appearance4;
             this.grdLineas.DisplayLayout.MaxColScrollRegions = 1;
             this.grdLineas.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance5.BackColor = System.Drawing.SystemColors.Window;
-            appearance5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdLineas.DisplayLayout.Override.ActiveCellAppearance = appearance5;
-            appearance6.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdLineas.DisplayLayout.Override.ActiveRowAppearance = appearance6;
             this.grdLineas.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdLineas.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance7.BackColor = System.Drawing.SystemColors.Window;
-            this.grdLineas.DisplayLayout.Override.CardAreaAppearance = appearance7;
-            appearance8.BorderColor = System.Drawing.Color.Silver;
-            appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdLineas.DisplayLayout.Override.CellAppearance = appearance8;
             this.grdLineas.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
             this.grdLineas.DisplayLayout.Override.CellPadding = 0;
-            appearance9.BackColor = System.Drawing.SystemColors.Control;
-            appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance9.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdLineas.DisplayLayout.Override.GroupByRowAppearance = appearance9;
-            appearance10.TextHAlignAsString = "Left";
-            this.grdLineas.DisplayLayout.Override.HeaderAppearance = appearance10;
             this.grdLineas.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
             this.grdLineas.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance11.BackColor = System.Drawing.SystemColors.Window;
-            appearance11.BorderColor = System.Drawing.Color.Silver;
-            this.grdLineas.DisplayLayout.Override.RowAppearance = appearance11;
             this.grdLineas.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdLineas.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
             this.grdLineas.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdLineas.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdLineas.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
@@ -1137,6 +919,30 @@ namespace SamsaraCommissions
             this.grdLineas.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdLineas_InitializeLayout);
             this.grdLineas.ClickCell += new Infragistics.Win.UltraWinGrid.ClickCellEventHandler(this.grdLineas_ClickCell);
             this.grdLineas.DoubleClickRow += new Infragistics.Win.UltraWinGrid.DoubleClickRowEventHandler(this.grdLineas_DoubleClickRow);
+            // 
+            // grdComisionesAgentes
+            // 
+            this.grdComisionesAgentes.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdComisionesAgentes.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdComisionesAgentes.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdComisionesAgentes.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdComisionesAgentes.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdComisionesAgentes.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdComisionesAgentes.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdComisionesAgentes.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdComisionesAgentes.DisplayLayout.Override.CellPadding = 0;
+            this.grdComisionesAgentes.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdComisionesAgentes.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdComisionesAgentes.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdComisionesAgentes.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdComisionesAgentes.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdComisionesAgentes.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdComisionesAgentes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdComisionesAgentes.Location = new System.Drawing.Point(3, 16);
+            this.grdComisionesAgentes.Name = "grdComisionesAgentes";
+            this.grdComisionesAgentes.Size = new System.Drawing.Size(286, 338);
+            this.grdComisionesAgentes.TabIndex = 1;
+            this.grdComisionesAgentes.Text = "ultraGrid1";
             // 
             // ComisionesForm
             // 
@@ -1158,7 +964,6 @@ namespace SamsaraCommissions
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.SamsaraCommissions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgente)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.Ajustes.ResumeLayout(false);
@@ -1189,6 +994,7 @@ namespace SamsaraCommissions
             ((System.ComponentModel.ISupportInitialize)(this.grdSublineas)).EndInit();
             this.gbxLineas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgentes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1212,7 +1018,6 @@ namespace SamsaraCommissions
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbxAgentesConfig;
         private System.Windows.Forms.TabPage SamsaraCommissions;
-        private System.Windows.Forms.DataGridView grdComisionesAgente;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DomainUpDown dudAños;
         private System.Windows.Forms.ComboBox cbxAgenteComision;
@@ -1263,6 +1068,7 @@ namespace SamsaraCommissions
         private System.Windows.Forms.GroupBox gbxLineas;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdLineas;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisiones;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdComisionesAgentes;
     }
 }
 
