@@ -60,6 +60,7 @@ namespace SamsaraCommissions
         {
             cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
             InitializeComponent();
+            InitializeControlControls();
         }
 
         #endregion Constructor
@@ -77,6 +78,22 @@ namespace SamsaraCommissions
         #endregion Public
 
         #region Private
+
+        private void InitializeControlControls()
+        {
+            consulta = string.Format(@"
+                    SELECT * FROM Tipo_Comision tc
+                ");
+
+            SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
+            ds = new DataSet();
+            da.Fill(ds, "tipos");
+
+            this.uceComissionType.DataSource = null;
+            this.uceComissionType.DataSource = ds.Tables["tipos"];
+            this.uceComissionType.ValueMember = "id";
+            this.uceComissionType.DisplayMember = "nombre";
+        }
 
         private void LoadSchemesGrid()
         {
@@ -102,10 +119,10 @@ namespace SamsaraCommissions
             {
                 consulta = string.Format(@"
                     SELECT 
-                        id, esquema, cuota, comision * 100 comision
+                        id, tipo_comision, esquema, cuota, comision * 100 comision
                     FROM Esquemas_Cuotas ec
                     WHERE esquema = {0} AND borrado = 0
-                    ORDER BY cuota
+                    ORDER BY cuota, tipo_comision
                 ", this.SelectedSquemeId);
 
                 SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
@@ -162,8 +179,9 @@ namespace SamsaraCommissions
 
         private void ClearNewQuotaFields()
         {
-            this.txtComisionPercent.Value = null;
+            this.txtComissionPercent.Value = null;
             this.txtQuotaAmount.Value = null;
+            this.uceComissionType.Value = (int)ComissionTypeEnum.Producto;
         }
 
         private bool ValidateQuotaFields()
@@ -177,8 +195,8 @@ namespace SamsaraCommissions
                 return false;
             }
 
-            if (this.txtComisionPercent.Value == null
-                || string.IsNullOrEmpty(this.txtComisionPercent.Value.ToString().Trim()))
+            if (this.txtComissionPercent.Value == null
+                || string.IsNullOrEmpty(this.txtComissionPercent.Value.ToString().Trim()))
             {
                 MessageBox.Show("Debe asignar un porcentaje de comsión al esquema del agente.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -346,13 +364,13 @@ namespace SamsaraCommissions
             }
             try
             {
-                decimal quotaPercent = Convert.ToDecimal(this.txtComisionPercent.Value.ToString().Replace("%", "")) / 100;
+                decimal quotaPercent = Convert.ToDecimal(this.txtComissionPercent.Value.ToString().Replace("%", "")) / 100;
                 decimal quotaAmount = Convert.ToDecimal(this.txtQuotaAmount.Value);
 
                 consulta = string.Format(@"
-                    INSERT INTO Esquemas_Cuotas (esquema, cuota, comision, borrado)
-                    VALUES ({0}, {1}, {2}, 0)
-                ", this.SelectedSquemeId, quotaAmount, quotaPercent);
+                    INSERT INTO Esquemas_Cuotas (tipo_comision, esquema, cuota, comision, borrado)
+                    VALUES ({0}, {1}, {2}, {3}, 0)
+                ", this.uceComissionType.Value, this.SelectedSquemeId, quotaAmount, quotaPercent);
 
                 cnn.Open();
                 SqlCommand command = new SqlCommand(consulta, cnn);
@@ -407,6 +425,18 @@ namespace SamsaraCommissions
             band.Columns["cuota"].Header.Caption = "Cuota";
             band.Columns["cuota"].Width = 100;
             band.Columns["comision"].Header.Caption = "Comisión";
+            band.Columns["tipo_comision"].Header.Caption = "Tipo";
+            
+            consulta = string.Format(@"
+                    SELECT * FROM Tipo_Comision tc
+                ");
+
+            SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
+            ds = new DataSet();
+            da.Fill(ds, "tipos");
+
+            WindowsFormsUtil.SetUltraGridValueList(layout, ds.Tables["tipos"],
+                band.Columns["tipo_comision"], "id", "nombre", null);
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota"],
                 WindowsFormsUtil.TextMaskFormatEnum.Currency);

@@ -54,13 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComisionDataDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ComisionDataDialog.designer.cs">
-      <DependentUpon>ComisionDataDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ComisionTypeEnum.cs" />
+    <Compile Include="ComissionTypeEnum.cs" />
     <Compile Include="ConectionStrings.cs" />
     <Compile Include="DetalleFactura.cs">
       <SubType>Form</SubType>
@@ -109,9 +103,6 @@
     </Compile>
     <Compile Include="TextMaskFormatEnum.cs" />
     <Compile Include="WindowsFormsUtil.cs" />
-    <EmbeddedResource Include="ComisionDataDialog.resx">
-      <DependentUpon>ComisionDataDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DetalleFactura.resx">
       <DependentUpon>DetalleFactura.cs</DependentUpon>
     </EmbeddedResource>

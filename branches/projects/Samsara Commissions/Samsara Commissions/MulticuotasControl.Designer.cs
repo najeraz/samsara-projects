@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MulticuotasControl));
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             this.gbxAgentQuotas = new System.Windows.Forms.GroupBox();
             this.grdAgentQuotas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.upnlQuotaButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -38,11 +38,13 @@
             this.upnlSeparatorCreateQuota = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCreateQuota = new Infragistics.Win.Misc.UltraButton();
             this.ugbxNewQuota = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtComissionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtQuotaAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.uplNewQuotaButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnAcceptQuota = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCancelQuota = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCancelQuota = new Infragistics.Win.Misc.UltraButton();
-            this.ulblComisionPercent = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblComissionPercent = new Infragistics.Win.Misc.UltraLabel();
             this.ulblQuotaAmount = new Infragistics.Win.Misc.UltraLabel();
             this.gbxMultiquotaSchemes = new System.Windows.Forms.GroupBox();
             this.grdMultiquotaSchemes = new Infragistics.Win.UltraWinGrid.UltraGrid();
@@ -59,8 +61,8 @@
             this.txtSchemeName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchemeStartDate = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSchemeName = new Infragistics.Win.Misc.UltraLabel();
-            this.txtComisionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.txtQuotaAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.uceComissionType = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ulblComissionType = new Infragistics.Win.Misc.UltraLabel();
             this.gbxAgentQuotas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAgentQuotas)).BeginInit();
             this.upnlQuotaButtons.ClientArea.SuspendLayout();
@@ -83,6 +85,7 @@
             this.upnlSeparatorSchemeCancel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchemeStartDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchemeName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceComissionType)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxAgentQuotas
@@ -120,7 +123,7 @@
             this.grdAgentQuotas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdAgentQuotas.Location = new System.Drawing.Point(3, 16);
             this.grdAgentQuotas.Name = "grdAgentQuotas";
-            this.grdAgentQuotas.Size = new System.Drawing.Size(307, 275);
+            this.grdAgentQuotas.Size = new System.Drawing.Size(307, 247);
             this.grdAgentQuotas.TabIndex = 0;
             this.grdAgentQuotas.Text = "ultraGrid1";
             this.grdAgentQuotas.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdAgentQuotas_InitializeLayout);
@@ -134,7 +137,7 @@
             this.upnlQuotaButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateQuota);
             this.upnlQuotaButtons.ClientArea.Controls.Add(this.ubtnCreateQuota);
             this.upnlQuotaButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlQuotaButtons.Location = new System.Drawing.Point(3, 291);
+            this.upnlQuotaButtons.Location = new System.Drawing.Point(3, 263);
             this.upnlQuotaButtons.Name = "upnlQuotaButtons";
             this.upnlQuotaButtons.Size = new System.Drawing.Size(307, 23);
             this.upnlQuotaButtons.TabIndex = 5;
@@ -169,18 +172,40 @@
             // 
             // ugbxNewQuota
             // 
-            this.ugbxNewQuota.Controls.Add(this.txtComisionPercent);
+            this.ugbxNewQuota.Controls.Add(this.uceComissionType);
+            this.ugbxNewQuota.Controls.Add(this.txtComissionPercent);
             this.ugbxNewQuota.Controls.Add(this.txtQuotaAmount);
             this.ugbxNewQuota.Controls.Add(this.uplNewQuotaButtons);
-            this.ugbxNewQuota.Controls.Add(this.ulblComisionPercent);
+            this.ugbxNewQuota.Controls.Add(this.ulblComissionPercent);
+            this.ugbxNewQuota.Controls.Add(this.ulblComissionType);
             this.ugbxNewQuota.Controls.Add(this.ulblQuotaAmount);
             this.ugbxNewQuota.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ugbxNewQuota.Location = new System.Drawing.Point(3, 314);
+            this.ugbxNewQuota.Location = new System.Drawing.Point(3, 286);
             this.ugbxNewQuota.Name = "ugbxNewQuota";
-            this.ugbxNewQuota.Size = new System.Drawing.Size(307, 70);
+            this.ugbxNewQuota.Size = new System.Drawing.Size(307, 98);
             this.ugbxNewQuota.TabIndex = 4;
             this.ugbxNewQuota.Text = "Nuevo Esquema:";
             this.ugbxNewQuota.Visible = false;
+            // 
+            // txtComissionPercent
+            // 
+            this.txtComissionPercent.Location = new System.Drawing.Point(213, 19);
+            this.txtComissionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
+            this.txtComissionPercent.Name = "txtComissionPercent";
+            this.txtComissionPercent.ReadOnly = false;
+            this.txtComissionPercent.Size = new System.Drawing.Size(78, 20);
+            this.txtComissionPercent.TabIndex = 5;
+            this.txtComissionPercent.Value = ((object)(resources.GetObject("txtComissionPercent.Value")));
+            // 
+            // txtQuotaAmount
+            // 
+            this.txtQuotaAmount.Location = new System.Drawing.Point(50, 19);
+            this.txtQuotaAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtQuotaAmount.Name = "txtQuotaAmount";
+            this.txtQuotaAmount.ReadOnly = false;
+            this.txtQuotaAmount.Size = new System.Drawing.Size(92, 20);
+            this.txtQuotaAmount.TabIndex = 5;
+            this.txtQuotaAmount.Value = ((object)(resources.GetObject("txtQuotaAmount.Value")));
             // 
             // uplNewQuotaButtons
             // 
@@ -191,7 +216,7 @@
             this.uplNewQuotaButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelQuota);
             this.uplNewQuotaButtons.ClientArea.Controls.Add(this.ubtnCancelQuota);
             this.uplNewQuotaButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uplNewQuotaButtons.Location = new System.Drawing.Point(3, 44);
+            this.uplNewQuotaButtons.Location = new System.Drawing.Point(3, 72);
             this.uplNewQuotaButtons.Name = "uplNewQuotaButtons";
             this.uplNewQuotaButtons.Size = new System.Drawing.Size(301, 23);
             this.uplNewQuotaButtons.TabIndex = 4;
@@ -224,14 +249,14 @@
             this.ubtnCancelQuota.Text = "Cancelar";
             this.ubtnCancelQuota.Click += new System.EventHandler(this.ubtnCancelQuota_Click);
             // 
-            // ulblComisionPercent
+            // ulblComissionPercent
             // 
-            this.ulblComisionPercent.AutoSize = true;
-            this.ulblComisionPercent.Location = new System.Drawing.Point(154, 23);
-            this.ulblComisionPercent.Name = "ulblComisionPercent";
-            this.ulblComisionPercent.Size = new System.Drawing.Size(55, 14);
-            this.ulblComisionPercent.TabIndex = 0;
-            this.ulblComisionPercent.Text = "Comision:";
+            this.ulblComissionPercent.AutoSize = true;
+            this.ulblComissionPercent.Location = new System.Drawing.Point(154, 23);
+            this.ulblComissionPercent.Name = "ulblComissionPercent";
+            this.ulblComissionPercent.Size = new System.Drawing.Size(55, 14);
+            this.ulblComissionPercent.TabIndex = 0;
+            this.ulblComissionPercent.Text = "Comission:";
             // 
             // ulblQuotaAmount
             // 
@@ -414,25 +439,21 @@
             this.ulblSchemeName.TabIndex = 0;
             this.ulblSchemeName.Text = "Nombre:";
             // 
-            // txtComisionPercent
+            // uceComissionType
             // 
-            this.txtComisionPercent.Location = new System.Drawing.Point(213, 19);
-            this.txtComisionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
-            this.txtComisionPercent.Name = "txtComisionPercent";
-            this.txtComisionPercent.ReadOnly = false;
-            this.txtComisionPercent.Size = new System.Drawing.Size(78, 20);
-            this.txtComisionPercent.TabIndex = 5;
-            this.txtComisionPercent.Value = ((object)(resources.GetObject("txtComisionPercent.Value")));
+            this.uceComissionType.Location = new System.Drawing.Point(50, 45);
+            this.uceComissionType.Name = "uceComissionType";
+            this.uceComissionType.Size = new System.Drawing.Size(144, 21);
+            this.uceComissionType.TabIndex = 6;
             // 
-            // txtQuotaAmount
+            // ulblComissionType
             // 
-            this.txtQuotaAmount.Location = new System.Drawing.Point(50, 19);
-            this.txtQuotaAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.txtQuotaAmount.Name = "txtQuotaAmount";
-            this.txtQuotaAmount.ReadOnly = false;
-            this.txtQuotaAmount.Size = new System.Drawing.Size(92, 20);
-            this.txtQuotaAmount.TabIndex = 5;
-            this.txtQuotaAmount.Value = ((object)(resources.GetObject("txtQuotaAmount.Value")));
+            this.ulblComissionType.AutoSize = true;
+            this.ulblComissionType.Location = new System.Drawing.Point(6, 49);
+            this.ulblComissionType.Name = "ulblComissionType";
+            this.ulblComissionType.Size = new System.Drawing.Size(29, 14);
+            this.ulblComissionType.TabIndex = 0;
+            this.ulblComissionType.Text = "Tipo:";
             // 
             // MulticuotasControl
             // 
@@ -466,6 +487,7 @@
             this.upnlSeparatorSchemeCancel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dteSchemeStartDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchemeName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uceComissionType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,7 +504,7 @@
         private Infragistics.Win.Misc.UltraButton ubtnAcceptQuota;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelQuota;
         private Infragistics.Win.Misc.UltraButton ubtnCancelQuota;
-        private Infragistics.Win.Misc.UltraLabel ulblComisionPercent;
+        private Infragistics.Win.Misc.UltraLabel ulblComissionPercent;
         private Infragistics.Win.Misc.UltraLabel ulblQuotaAmount;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdAgentQuotas;
         private System.Windows.Forms.GroupBox gbxMultiquotaSchemes;
@@ -500,7 +522,9 @@
         private Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchemeName;
         private Infragistics.Win.Misc.UltraLabel ulblSchemeStartDate;
         private Infragistics.Win.Misc.UltraLabel ulblSchemeName;
-        private Samsara.Base.Controls.Controls.SamsaraTextEditor txtComisionPercent;
+        private Samsara.Base.Controls.Controls.SamsaraTextEditor txtComissionPercent;
         private Samsara.Base.Controls.Controls.SamsaraTextEditor txtQuotaAmount;
+        private Infragistics.Win.UltraWinEditors.UltraComboEditor uceComissionType;
+        private Infragistics.Win.Misc.UltraLabel ulblComissionType;
     }
 }

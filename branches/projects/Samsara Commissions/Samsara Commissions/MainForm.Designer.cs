@@ -53,7 +53,7 @@ namespace SamsaraCommissions
             this.multicuotasControl = new SamsaraCommissions.MulticuotasControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dudAños = new System.Windows.Forms.DomainUpDown();
-            this.cbxAgenteComision = new System.Windows.Forms.ComboBox();
+            this.cbxAgenteComission = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Ajustes = new System.Windows.Forms.TabPage();
@@ -334,7 +334,7 @@ namespace SamsaraCommissions
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dudAños);
-            this.groupBox3.Controls.Add(this.cbxAgenteComision);
+            this.groupBox3.Controls.Add(this.cbxAgenteComission);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -354,14 +354,14 @@ namespace SamsaraCommissions
             this.dudAños.TabIndex = 10;
             this.dudAños.SelectedItemChanged += new System.EventHandler(this.dudAños_SelectedItemChanged);
             // 
-            // cbxAgenteComision
+            // cbxAgenteComission
             // 
-            this.cbxAgenteComision.FormattingEnabled = true;
-            this.cbxAgenteComision.Location = new System.Drawing.Point(76, 19);
-            this.cbxAgenteComision.Name = "cbxAgenteComision";
-            this.cbxAgenteComision.Size = new System.Drawing.Size(286, 21);
-            this.cbxAgenteComision.TabIndex = 9;
-            this.cbxAgenteComision.SelectedIndexChanged += new System.EventHandler(this.cbxAgenteComision_SelectedIndexChanged);
+            this.cbxAgenteComission.FormattingEnabled = true;
+            this.cbxAgenteComission.Location = new System.Drawing.Point(76, 19);
+            this.cbxAgenteComission.Name = "cbxAgenteComission";
+            this.cbxAgenteComission.Size = new System.Drawing.Size(286, 21);
+            this.cbxAgenteComission.TabIndex = 9;
+            this.cbxAgenteComission.SelectedIndexChanged += new System.EventHandler(this.cbxAgenteComission_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -1040,7 +1040,7 @@ namespace SamsaraCommissions
         private System.Windows.Forms.TabPage SamsaraCommissions;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DomainUpDown dudAños;
-        private System.Windows.Forms.ComboBox cbxAgenteComision;
+        private System.Windows.Forms.ComboBox cbxAgenteComission;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage Ajustes;
