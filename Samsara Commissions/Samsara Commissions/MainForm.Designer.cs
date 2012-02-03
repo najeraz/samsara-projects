@@ -98,6 +98,7 @@ namespace SamsaraCommissions
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.grdComisionesAgentes = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.multicuotasControl = new SamsaraCommissions.MulticuotasControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Configuración.SuspendLayout();
             this.tcConfiguracion.SuspendLayout();
@@ -311,6 +312,7 @@ namespace SamsaraCommissions
             // SamsaraCommissions
             // 
             this.SamsaraCommissions.BackColor = System.Drawing.Color.Transparent;
+            this.SamsaraCommissions.Controls.Add(this.multicuotasControl);
             this.SamsaraCommissions.Controls.Add(this.groupBox3);
             this.SamsaraCommissions.Location = new System.Drawing.Point(4, 22);
             this.SamsaraCommissions.Name = "SamsaraCommissions";
@@ -944,6 +946,14 @@ namespace SamsaraCommissions
             this.grdComisionesAgentes.TabIndex = 1;
             this.grdComisionesAgentes.Text = "ultraGrid1";
             // 
+            // multicuotasControl
+            // 
+            this.multicuotasControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.multicuotasControl.Location = new System.Drawing.Point(0, 75);
+            this.multicuotasControl.Name = "multicuotasControl";
+            this.multicuotasControl.Size = new System.Drawing.Size(627, 357);
+            this.multicuotasControl.TabIndex = 3;
+            // 
             // ComisionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1069,6 +1079,7 @@ namespace SamsaraCommissions
         private Infragistics.Win.UltraWinGrid.UltraGrid grdLineas;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisiones;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdComisionesAgentes;
+        private SamsaraCommissions.MulticuotasControl multicuotasControl;
     }
 }
 

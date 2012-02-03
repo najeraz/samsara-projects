@@ -511,24 +511,15 @@ namespace SamsaraCommissions
             return true;
         }
 
-        private void UpdateGrdAgentesActivos()
+        private void UpdateGrdEsquemasMulticuota()
         {
             int idAgente;
 
             if (this.cbxAgenteComision.SelectedValue != null
                 && int.TryParse(this.cbxAgenteComision.SelectedValue.ToString(), out idAgente))
             {
-                consulta = string.Format(@"
-                        SELECT 
-                            esquema, nombre, fecha, agente
-                        FROM        Esquemas_Cuotas ec
-                        WHERE agente = {0}
-                    ", idAgente);
-
-                SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
-                ds = new DataSet();
-                da.Fill(ds, "esquemas");
-                this.dtEsquemasMulticuota = ds.Tables["esquemas"];
+                this.multicuotasControl.AgentId = idAgente;
+                this.multicuotasControl.LoadGrids();
             }
         }
 
@@ -881,12 +872,12 @@ namespace SamsaraCommissions
 
         private void dudAños_SelectedItemChanged(object sender, EventArgs e)
         {
-            this.UpdateGrdAgentesActivos();
+            this.UpdateGrdEsquemasMulticuota();
         }
 
         private void cbxAgenteComision_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.UpdateGrdAgentesActivos();
+            this.UpdateGrdEsquemasMulticuota();
             this.dudAños.SelectedItem = DateTime.Now.Year;
         }
 
@@ -970,10 +961,10 @@ namespace SamsaraCommissions
 
         private void GeneralGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
-            //if (((UltraGrid)sender) == this.grdResumenComisiones && e.Column.Name == "saldo_a_pagar")
-            //    e.Column.ReadOnly = false || !canPay;
-            //else
-            //    e.Column.ReadOnly = true;
+            if (((UltraGrid)sender) == this.grdResumenComisiones && e.Column.Name == "saldo_a_pagar")
+                e.Column.ReadOnly = false || !canPay;
+            else
+                e.Column.ReadOnly = true;
 
             if (GeneralUtils.IsRightAlignment(e.Column.Name))
             {
