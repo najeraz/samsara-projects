@@ -153,16 +153,16 @@ namespace SamsaraCommissions
             this.cbxAgentes.ValueMember = "agente";
             this.cbxAgentes.DisplayMember = "nombre_agente";
 
-            this.cbxAgenteComision.DataSource = null;
-            this.cbxAgenteComision.DataSource = ds.Tables["agentes"].Copy();
-            this.cbxAgenteComision.ValueMember = "agente";
-            this.cbxAgenteComision.DisplayMember = "nombre_agente";
+            this.cbxAgenteComission.DataSource = null;
+            this.cbxAgenteComission.DataSource = ds.Tables["agentes"].Copy();
+            this.cbxAgenteComission.ValueMember = "agente";
+            this.cbxAgenteComission.DisplayMember = "nombre_agente";
         }
 
         private void LoadGridAgentesActivos()
         {
             consulta = @"
-                    SELECT agente, nombre_agente, activo, puede_comisionar, comisiona_servicios
+                    SELECT agente, nombre_agente, activo, puede_comisionar
                     FROM agentes_activos 
                     ORDER BY activo desc, nombre_agente
                 ";
@@ -514,8 +514,8 @@ namespace SamsaraCommissions
         {
             int idAgente;
 
-            if (this.cbxAgenteComision.SelectedValue != null
-                && int.TryParse(this.cbxAgenteComision.SelectedValue.ToString(), out idAgente))
+            if (this.cbxAgenteComission.SelectedValue != null
+                && int.TryParse(this.cbxAgenteComission.SelectedValue.ToString(), out idAgente))
             {
                 this.multicuotasControl.AgentId = idAgente;
                 this.multicuotasControl.LoadGrids();
@@ -540,7 +540,7 @@ namespace SamsaraCommissions
                 .Where(x => !(x["saldo_a_pagar"] is DBNull)))
             {
                 consulta = "INSERT INTO comisiones_pagadas (anio,mes,q,utilidad,monto_comisionable"
-                    + ",comision,monto_comision,fecha_ajuste,agente,ajuste) values("
+                    + ",comission,monto_comision,fecha_ajuste,agente,ajuste) values("
                     + row["anio"] + "," + this.dicMeses[row["mes"].ToString()]
                     + ",'" + row["q"].ToString().Trim() + "'," + row["utilidad_q"]
                     + "," + row["acumulado_comision"] + "," + row["porcentaje_comision"]
@@ -819,30 +819,12 @@ namespace SamsaraCommissions
 
             if (e.ColumnIndex == this.grdAgentesActivos.Columns["puede_comisionar"].Index)
             {
-                bool puedeComisionar = Convert.ToBoolean(
+                bool puedeComissionar = Convert.ToBoolean(
                     this.grdAgentesActivos.Rows[e.RowIndex].Cells["puede_comisionar"].Value);
 
                 cnn.Open();
 
-                consulta = "UPDATE agentes_activos SET puede_comisionar = " + (puedeComisionar ? 0 : 1)
-                    + " WHERE agente = "
-                    + this.grdAgentesActivos.Rows[e.RowIndex].Cells["agente"].Value;
-                SqlCommand command = new SqlCommand(consulta, cnn);
-                command.ExecuteNonQuery();
-
-                this.LoadGridAgentesActivos();
-                this.LoadCombosAgentes(true);
-                cnn.Close();
-            }
-
-            if (e.ColumnIndex == this.grdAgentesActivos.Columns["comisiona_servicios"].Index)
-            {
-                bool puedeComisionar = Convert.ToBoolean(
-                    this.grdAgentesActivos.Rows[e.RowIndex].Cells["comisiona_servicios"].Value);
-
-                cnn.Open();
-
-                consulta = "UPDATE agentes_activos SET comisiona_servicios = " + (puedeComisionar ? 0 : 1)
+                consulta = "UPDATE agentes_activos SET puede_comisionar = " + (puedeComissionar ? 0 : 1)
                     + " WHERE agente = "
                     + this.grdAgentesActivos.Rows[e.RowIndex].Cells["agente"].Value;
                 SqlCommand command = new SqlCommand(consulta, cnn);
@@ -859,7 +841,7 @@ namespace SamsaraCommissions
             this.UpdateGrdEsquemasMulticuota();
         }
 
-        private void cbxAgenteComision_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxAgenteComission_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.UpdateGrdEsquemasMulticuota();
             this.dudAños.SelectedItem = DateTime.Now.Year;
@@ -878,8 +860,8 @@ namespace SamsaraCommissions
                 if (dtReporteAnual != null)
                 {
                     dtReporteAnual.Rows.Clear();
-                    DataRow rowComision = dtReporteAnual.NewRow();
-                    DataRow rowMontoComisionable = dtReporteAnual.NewRow();
+                    DataRow rowComission = dtReporteAnual.NewRow();
+                    DataRow rowMontoComissionable = dtReporteAnual.NewRow();
                     DataRow rowUtilidadPagada = dtReporteAnual.NewRow();
                     DataRow rowUtilidadGeneral = dtReporteAnual.NewRow();
                     DataRow rowCuota = dtReporteAnual.NewRow();
@@ -890,9 +872,9 @@ namespace SamsaraCommissions
                     dtReporteAnual.Rows.Add(rowUtilidadGeneral);
                     dtReporteAnual.Rows.Add(rowUtilidadPagada);
                     dtReporteAnual.Rows.Add(rowCuota);
-                    dtReporteAnual.Rows.Add(rowMontoComisionable);
+                    dtReporteAnual.Rows.Add(rowMontoComissionable);
                     dtReporteAnual.Rows.Add(rowPorcentaje);
-                    dtReporteAnual.Rows.Add(rowComision);
+                    dtReporteAnual.Rows.Add(rowComission);
                     dtReporteAnual.Rows.Add(rowTotalPagado);
                     dtReporteAnual.Rows.Add(rowTotalAPagar);
 
@@ -905,9 +887,9 @@ namespace SamsaraCommissions
                         rowUtilidadGeneral[index] = row["utilidad_general"];
                         rowUtilidadPagada[index] = row["utilidad_Q"];
                         rowCuota[index] = row["cuota"];
-                        rowMontoComisionable[index] = row["acumulado_comision"];
+                        rowMontoComissionable[index] = row["acumulado_comision"];
                         rowPorcentaje[index] = row["porcentaje_comision"];
-                        rowComision[index] = row["monto_comision"];
+                        rowComission[index] = row["monto_comision"];
                         rowTotalAPagar[index] = Convert.ToDecimal(row["saldo_a_pagar"]).ToString("N2");
                         rowTotalPagado[index] = Convert.ToDecimal(row["total_pagado"]).ToString("N2");
                     }
@@ -915,9 +897,9 @@ namespace SamsaraCommissions
                     rowUtilidadGeneral["concepto"] = "Utilidad General";
                     rowUtilidadPagada["concepto"] = "Utilidad Pagada";
                     rowCuota["concepto"] = "Cuota";
-                    rowMontoComisionable["concepto"] = "Utilidad Comisionable";
+                    rowMontoComissionable["concepto"] = "Utilidad Comissionable";
                     rowPorcentaje["concepto"] = "Comisión";
-                    rowComision["concepto"] = "Monto Comisión";
+                    rowComission["concepto"] = "Monto Comisión";
                     rowTotalPagado["concepto"] = "Total Pagado";
                     rowTotalAPagar["concepto"] = "Total a Pagar";
 
