@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MulticuotasControl));
             this.gbxAgentQuotas = new System.Windows.Forms.GroupBox();
             this.grdAgentQuotas = new Infragistics.Win.UltraWinGrid.UltraGrid();
@@ -103,6 +105,8 @@
             this.grdAgentQuotas.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdAgentQuotas.DisplayLayout.MaxColScrollRegions = 1;
             this.grdAgentQuotas.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.grdAgentQuotas.DisplayLayout.Override.ActiveRowAppearance = appearance2;
             this.grdAgentQuotas.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdAgentQuotas.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdAgentQuotas.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
@@ -258,6 +262,8 @@
             this.grdMultiquotaSchemes.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdMultiquotaSchemes.DisplayLayout.MaxColScrollRegions = 1;
             this.grdMultiquotaSchemes.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.ActiveRowAppearance = appearance1;
             this.grdMultiquotaSchemes.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdMultiquotaSchemes.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdMultiquotaSchemes.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;

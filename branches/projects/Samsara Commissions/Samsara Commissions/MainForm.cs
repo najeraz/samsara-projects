@@ -43,7 +43,6 @@ namespace SamsaraCommissions
         private DataTable dtFacturasPendientes;
         private DataTable dtFacturasCanceladas;
         private DataTable dtRefacturaciónAgena;
-        private DataTable dtEsquemasMulticuota;
 
         #endregion Attributes
 
@@ -163,7 +162,7 @@ namespace SamsaraCommissions
         private void LoadGridAgentesActivos()
         {
             consulta = @"
-                    SELECT agente, nombre_agente, activo, puede_comisionar
+                    SELECT agente, nombre_agente, activo, puede_comisionar, comisiona_servicios
                     FROM agentes_activos 
                     ORDER BY activo desc, nombre_agente
                 ";
@@ -835,39 +834,24 @@ namespace SamsaraCommissions
                 this.LoadCombosAgentes(true);
                 cnn.Close();
             }
-        }
 
-        private void grdComisionesAgente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == -1)
-                return;
+            if (e.ColumnIndex == this.grdAgentesActivos.Columns["comisiona_servicios"].Index)
+            {
+                bool puedeComisionar = Convert.ToBoolean(
+                    this.grdAgentesActivos.Rows[e.RowIndex].Cells["comisiona_servicios"].Value);
 
-            //ComisionDataDialog dialog = new ComisionDataDialog();
-            //dialog.Comision = Convert.ToDecimal(
-            //    this.grdComisionesAgente.Rows[e.RowIndex].Cells["comision"].Value) * 100M;
-            //dialog.Cuota = Convert.ToDecimal(
-            //    this.grdComisionesAgente.Rows[e.RowIndex].Cells["cuota"].Value);
-            //dialog.ShowDialog(this);
-            //if (dialog.Tipo != null)
-            //{
-            //    consulta =
-            //        "UPDATE tabla_comisiones SET comision_mes = " + dialog.Comision
-            //        + ", cuota_mes = " + dialog.Cuota
-            //        + " WHERE agente = " + this.cbxAgenteComision.SelectedValue
-            //        + " AND anio = " + this.dudAños.SelectedItem;
+                cnn.Open();
 
-            //    if (dialog.Tipo == ComisionTypeEnum.Mes)
-            //    {
-            //        consulta += " AND mes = " + this.grdComisionesAgente.Rows[e.RowIndex].Cells["mes"].Value;
-            //    }
-            //    cnn.Open();
+                consulta = "UPDATE agentes_activos SET comisiona_servicios = " + (puedeComisionar ? 0 : 1)
+                    + " WHERE agente = "
+                    + this.grdAgentesActivos.Rows[e.RowIndex].Cells["agente"].Value;
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.ExecuteNonQuery();
 
-            //    SqlCommand command = new SqlCommand(consulta, cnn);
-            //    command.ExecuteNonQuery();
-            //    cnn.Close();
-
-            //    this.UpdateGrdAgentesActivos();
-            //}
+                this.LoadGridAgentesActivos();
+                this.LoadCombosAgentes(true);
+                cnn.Close();
+            }
         }
 
         private void dudAños_SelectedItemChanged(object sender, EventArgs e)
@@ -961,11 +945,6 @@ namespace SamsaraCommissions
 
         private void GeneralGrid_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
-            if (((UltraGrid)sender) == this.grdResumenComisiones && e.Column.Name == "saldo_a_pagar")
-                e.Column.ReadOnly = false || !canPay;
-            else
-                e.Column.ReadOnly = true;
-
             if (GeneralUtils.IsRightAlignment(e.Column.Name))
             {
                 e.Column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
