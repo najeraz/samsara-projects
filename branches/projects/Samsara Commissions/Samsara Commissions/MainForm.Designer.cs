@@ -30,6 +30,9 @@ namespace SamsaraCommissions
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComisionesForm));
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,6 +50,7 @@ namespace SamsaraCommissions
             this.label5 = new System.Windows.Forms.Label();
             this.cbxAgentesConfig = new System.Windows.Forms.ComboBox();
             this.SamsaraCommissions = new System.Windows.Forms.TabPage();
+            this.multicuotasControl = new SamsaraCommissions.MulticuotasControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dudAños = new System.Windows.Forms.DomainUpDown();
             this.cbxAgenteComision = new System.Windows.Forms.ComboBox();
@@ -98,7 +102,6 @@ namespace SamsaraCommissions
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.grdComisionesAgentes = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.multicuotasControl = new SamsaraCommissions.MulticuotasControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Configuración.SuspendLayout();
             this.tcConfiguracion.SuspendLayout();
@@ -319,6 +322,14 @@ namespace SamsaraCommissions
             this.SamsaraCommissions.Size = new System.Drawing.Size(627, 432);
             this.SamsaraCommissions.TabIndex = 2;
             this.SamsaraCommissions.Text = "Comisiones Agentes";
+            // 
+            // multicuotasControl
+            // 
+            this.multicuotasControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.multicuotasControl.Location = new System.Drawing.Point(0, 75);
+            this.multicuotasControl.Name = "multicuotasControl";
+            this.multicuotasControl.Size = new System.Drawing.Size(627, 357);
+            this.multicuotasControl.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -817,6 +828,8 @@ namespace SamsaraCommissions
             this.grdFamilias.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdFamilias.DisplayLayout.MaxColScrollRegions = 1;
             this.grdFamilias.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.grdFamilias.DisplayLayout.Override.ActiveRowAppearance = appearance2;
             this.grdFamilias.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdFamilias.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdFamilias.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
@@ -864,6 +877,8 @@ namespace SamsaraCommissions
             this.grdSublineas.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdSublineas.DisplayLayout.MaxColScrollRegions = 1;
             this.grdSublineas.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance3.BackColor = System.Drawing.SystemColors.Highlight;
+            this.grdSublineas.DisplayLayout.Override.ActiveRowAppearance = appearance3;
             this.grdSublineas.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdSublineas.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdSublineas.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
@@ -902,6 +917,8 @@ namespace SamsaraCommissions
             this.grdLineas.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdLineas.DisplayLayout.MaxColScrollRegions = 1;
             this.grdLineas.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.grdLineas.DisplayLayout.Override.ActiveRowAppearance = appearance1;
             this.grdLineas.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdLineas.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             this.grdLineas.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
@@ -946,20 +963,13 @@ namespace SamsaraCommissions
             this.grdComisionesAgentes.TabIndex = 1;
             this.grdComisionesAgentes.Text = "ultraGrid1";
             // 
-            // multicuotasControl
-            // 
-            this.multicuotasControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.multicuotasControl.Location = new System.Drawing.Point(0, 75);
-            this.multicuotasControl.Name = "multicuotasControl";
-            this.multicuotasControl.Size = new System.Drawing.Size(627, 357);
-            this.multicuotasControl.TabIndex = 3;
-            // 
             // ComisionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 490);
             this.Controls.Add(this.tcPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ComisionesForm";
             this.Text = "Comisiones Samsara";
             this.SizeChanged += new System.EventHandler(this.ComisionesForm_SizeChanged);
