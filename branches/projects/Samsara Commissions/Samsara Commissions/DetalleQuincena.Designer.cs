@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
@@ -48,10 +47,10 @@
             this.grdDetalleQuincena = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tcComplemento = new System.Windows.Forms.TabControl();
-            this.FacturasCanceladas = new System.Windows.Forms.TabPage();
-            this.grdFacturasCanceladas = new System.Windows.Forms.DataGridView();
             this.FacturasPendientes = new System.Windows.Forms.TabPage();
             this.grdFacturasPendientes = new System.Windows.Forms.DataGridView();
+            this.FacturasCanceladas = new System.Windows.Forms.TabPage();
+            this.grdFacturasCanceladas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.clbColumnas = new System.Windows.Forms.CheckedListBox();
             this.tcDetalle.SuspendLayout();
@@ -62,10 +61,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalleQuincena)).BeginInit();
             this.panel2.SuspendLayout();
             this.tcComplemento.SuspendLayout();
-            this.FacturasCanceladas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdFacturasCanceladas)).BeginInit();
             this.FacturasPendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasPendientes)).BeginInit();
+            this.FacturasCanceladas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdFacturasCanceladas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,9 +123,6 @@
             // 
             // grdDetalleQuincena
             // 
-            appearance13.BackColor = System.Drawing.SystemColors.Window;
-            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdDetalleQuincena.DisplayLayout.Appearance = appearance13;
             this.grdDetalleQuincena.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdDetalleQuincena.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -207,6 +203,30 @@
             this.tcComplemento.Size = new System.Drawing.Size(542, 176);
             this.tcComplemento.TabIndex = 8;
             // 
+            // FacturasPendientes
+            // 
+            this.FacturasPendientes.Controls.Add(this.grdFacturasPendientes);
+            this.FacturasPendientes.Location = new System.Drawing.Point(4, 22);
+            this.FacturasPendientes.Name = "FacturasPendientes";
+            this.FacturasPendientes.Padding = new System.Windows.Forms.Padding(3);
+            this.FacturasPendientes.Size = new System.Drawing.Size(534, 150);
+            this.FacturasPendientes.TabIndex = 1;
+            this.FacturasPendientes.Text = "Facturas Pendientes";
+            this.FacturasPendientes.UseVisualStyleBackColor = true;
+            // 
+            // grdFacturasPendientes
+            // 
+            this.grdFacturasPendientes.AllowUserToAddRows = false;
+            this.grdFacturasPendientes.AllowUserToDeleteRows = false;
+            this.grdFacturasPendientes.AllowUserToResizeRows = false;
+            this.grdFacturasPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdFacturasPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdFacturasPendientes.Location = new System.Drawing.Point(3, 3);
+            this.grdFacturasPendientes.Name = "grdFacturasPendientes";
+            this.grdFacturasPendientes.Size = new System.Drawing.Size(528, 144);
+            this.grdFacturasPendientes.TabIndex = 6;
+            this.grdFacturasPendientes.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            // 
             // FacturasCanceladas
             // 
             this.FacturasCanceladas.Controls.Add(this.grdFacturasCanceladas);
@@ -231,30 +251,6 @@
             this.grdFacturasCanceladas.TabIndex = 6;
             this.grdFacturasCanceladas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdFacturasCanceladas_CellFormatting);
             this.grdFacturasCanceladas.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
-            // 
-            // FacturasPendientes
-            // 
-            this.FacturasPendientes.Controls.Add(this.grdFacturasPendientes);
-            this.FacturasPendientes.Location = new System.Drawing.Point(4, 22);
-            this.FacturasPendientes.Name = "FacturasPendientes";
-            this.FacturasPendientes.Padding = new System.Windows.Forms.Padding(3);
-            this.FacturasPendientes.Size = new System.Drawing.Size(534, 150);
-            this.FacturasPendientes.TabIndex = 1;
-            this.FacturasPendientes.Text = "Facturas Pendientes";
-            this.FacturasPendientes.UseVisualStyleBackColor = true;
-            // 
-            // grdFacturasPendientes
-            // 
-            this.grdFacturasPendientes.AllowUserToAddRows = false;
-            this.grdFacturasPendientes.AllowUserToDeleteRows = false;
-            this.grdFacturasPendientes.AllowUserToResizeRows = false;
-            this.grdFacturasPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdFacturasPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdFacturasPendientes.Location = new System.Drawing.Point(3, 3);
-            this.grdFacturasPendientes.Name = "grdFacturasPendientes";
-            this.grdFacturasPendientes.Size = new System.Drawing.Size(528, 144);
-            this.grdFacturasPendientes.TabIndex = 6;
-            this.grdFacturasPendientes.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
             // 
             // groupBox1
             // 
@@ -294,10 +290,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDetalleQuincena)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tcComplemento.ResumeLayout(false);
-            this.FacturasCanceladas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdFacturasCanceladas)).EndInit();
             this.FacturasPendientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdFacturasPendientes)).EndInit();
+            this.FacturasCanceladas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdFacturasCanceladas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
