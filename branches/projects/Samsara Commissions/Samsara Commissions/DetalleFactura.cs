@@ -29,7 +29,7 @@ namespace SamsaraCommissions
         public void LoadGrids()
         {
             consulta = string.Format(@"
-                    SELECT numero_linea, a.nombre_articulo, dfc.precio_pactado, dfc.costo_promedio, dfc.cantidad
+                    SELECT numero_linea, a.nombre_articulo, dfc.cantidad, dfc.precio_pactado, dfc.costo_promedio
                     FROM erp_cie.dbo.detalles_facturas_clientes dfc
                     INNER JOIN erp_cie.dbo.articulos a ON a.articulo = dfc.articulo
                     WHERE factura = {0}
