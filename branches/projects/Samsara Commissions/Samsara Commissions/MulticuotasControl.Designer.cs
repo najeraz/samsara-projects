@@ -1,4 +1,4 @@
-﻿namespace Samsara_Commissions
+﻿namespace SamsaraCommissions
 {
     partial class MulticuotasControl
     {
@@ -29,459 +29,472 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MulticuotasControl));
-            this.gbxCuotasAgente = new System.Windows.Forms.GroupBox();
-            this.grdCuotasAgente = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.ultraPanel5 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton5 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel6 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton6 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraGroupBox2 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.samsaraTextEditor2 = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.samsaraTextEditor1 = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.ultraPanel7 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton7 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel8 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton8 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxEsquemasMulticuota = new System.Windows.Forms.GroupBox();
-            this.grdEsquemasMulticuota = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton3 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel3 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton4 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraPanel2 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton1 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraPanel4 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraButton2 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraDateTimeEditor1 = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxCuotasAgente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCuotasAgente)).BeginInit();
-            this.ultraPanel5.ClientArea.SuspendLayout();
-            this.ultraPanel5.SuspendLayout();
-            this.ultraPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox2)).BeginInit();
-            this.ultraGroupBox2.SuspendLayout();
-            this.ultraPanel7.ClientArea.SuspendLayout();
-            this.ultraPanel7.SuspendLayout();
-            this.ultraPanel8.SuspendLayout();
-            this.gbxEsquemasMulticuota.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdEsquemasMulticuota)).BeginInit();
-            this.ultraPanel1.ClientArea.SuspendLayout();
-            this.ultraPanel1.SuspendLayout();
-            this.ultraPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
-            this.ultraGroupBox1.SuspendLayout();
-            this.ultraPanel2.ClientArea.SuspendLayout();
-            this.ultraPanel2.SuspendLayout();
-            this.ultraPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraDateTimeEditor1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
+            this.gbxAgentQuotas = new System.Windows.Forms.GroupBox();
+            this.grdAgentQuotas = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.upnlQuotaButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDeleteQuota = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorCreateQuota = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCreateQuota = new Infragistics.Win.Misc.UltraButton();
+            this.ugbxNewQuota = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uplNewQuotaButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnAcceptQuota = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorCancelQuota = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCancelQuota = new Infragistics.Win.Misc.UltraButton();
+            this.ulblComisionPercent = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblQuotaAmount = new Infragistics.Win.Misc.UltraLabel();
+            this.gbxMultiquotaSchemes = new System.Windows.Forms.GroupBox();
+            this.grdMultiquotaSchemes = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.uplSchemesButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDeleteScheme = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorCreateScheme = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCreateScheme = new Infragistics.Win.Misc.UltraButton();
+            this.ugbxNewScheme = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uplNewSchemeButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnAcceptScheme = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorSchemeCancel = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCancelScheme = new Infragistics.Win.Misc.UltraButton();
+            this.dteSchemeStartDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
+            this.txtSchemeName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblSchemeStartDate = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchemeName = new Infragistics.Win.Misc.UltraLabel();
+            this.txtComisionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtQuotaAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.gbxAgentQuotas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAgentQuotas)).BeginInit();
+            this.upnlQuotaButtons.ClientArea.SuspendLayout();
+            this.upnlQuotaButtons.SuspendLayout();
+            this.upnlSeparatorCreateQuota.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxNewQuota)).BeginInit();
+            this.ugbxNewQuota.SuspendLayout();
+            this.uplNewQuotaButtons.ClientArea.SuspendLayout();
+            this.uplNewQuotaButtons.SuspendLayout();
+            this.upnlSeparatorCancelQuota.SuspendLayout();
+            this.gbxMultiquotaSchemes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMultiquotaSchemes)).BeginInit();
+            this.uplSchemesButtons.ClientArea.SuspendLayout();
+            this.uplSchemesButtons.SuspendLayout();
+            this.upnlSeparatorCreateScheme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxNewScheme)).BeginInit();
+            this.ugbxNewScheme.SuspendLayout();
+            this.uplNewSchemeButtons.ClientArea.SuspendLayout();
+            this.uplNewSchemeButtons.SuspendLayout();
+            this.upnlSeparatorSchemeCancel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dteSchemeStartDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchemeName)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbxCuotasAgente
-            // 
-            this.gbxCuotasAgente.Controls.Add(this.grdCuotasAgente);
-            this.gbxCuotasAgente.Controls.Add(this.ultraPanel5);
-            this.gbxCuotasAgente.Controls.Add(this.ultraGroupBox2);
-            this.gbxCuotasAgente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxCuotasAgente.Location = new System.Drawing.Point(307, 0);
-            this.gbxCuotasAgente.Name = "gbxCuotasAgente";
-            this.gbxCuotasAgente.Size = new System.Drawing.Size(313, 387);
-            this.gbxCuotasAgente.TabIndex = 7;
-            this.gbxCuotasAgente.TabStop = false;
-            this.gbxCuotasAgente.Text = "Cuotas:";
-            // 
-            // grdCuotasAgente
-            // 
-            this.grdCuotasAgente.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdCuotasAgente.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.grdCuotasAgente.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdCuotasAgente.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdCuotasAgente.DisplayLayout.MaxRowScrollRegions = 1;
-            this.grdCuotasAgente.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdCuotasAgente.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdCuotasAgente.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdCuotasAgente.DisplayLayout.Override.CellPadding = 0;
-            this.grdCuotasAgente.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdCuotasAgente.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            this.grdCuotasAgente.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            this.grdCuotasAgente.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdCuotasAgente.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdCuotasAgente.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
-            this.grdCuotasAgente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCuotasAgente.Location = new System.Drawing.Point(3, 16);
-            this.grdCuotasAgente.Name = "grdCuotasAgente";
-            this.grdCuotasAgente.Size = new System.Drawing.Size(307, 275);
-            this.grdCuotasAgente.TabIndex = 0;
-            this.grdCuotasAgente.Text = "ultraGrid1";
-            // 
-            // ultraPanel5
-            // 
-            // 
-            // ultraPanel5.ClientArea
-            // 
-            this.ultraPanel5.ClientArea.Controls.Add(this.ultraButton5);
-            this.ultraPanel5.ClientArea.Controls.Add(this.ultraPanel6);
-            this.ultraPanel5.ClientArea.Controls.Add(this.ultraButton6);
-            this.ultraPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel5.Location = new System.Drawing.Point(3, 291);
-            this.ultraPanel5.Name = "ultraPanel5";
-            this.ultraPanel5.Size = new System.Drawing.Size(307, 23);
-            this.ultraPanel5.TabIndex = 5;
-            // 
-            // ultraButton5
-            // 
-            this.ultraButton5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton5.Location = new System.Drawing.Point(138, 0);
-            this.ultraButton5.Name = "ultraButton5";
-            this.ultraButton5.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton5.TabIndex = 6;
-            this.ultraButton5.Text = "Borrar";
-            // 
-            // ultraPanel6
-            // 
-            this.ultraPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel6.Location = new System.Drawing.Point(213, 0);
-            this.ultraPanel6.Name = "ultraPanel6";
-            this.ultraPanel6.Size = new System.Drawing.Size(19, 23);
-            this.ultraPanel6.TabIndex = 8;
-            // 
-            // ultraButton6
-            // 
-            this.ultraButton6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton6.Location = new System.Drawing.Point(232, 0);
-            this.ultraButton6.Name = "ultraButton6";
-            this.ultraButton6.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton6.TabIndex = 5;
-            this.ultraButton6.Text = "Nueva";
-            // 
-            // ultraGroupBox2
-            // 
-            this.ultraGroupBox2.Controls.Add(this.samsaraTextEditor2);
-            this.ultraGroupBox2.Controls.Add(this.samsaraTextEditor1);
-            this.ultraGroupBox2.Controls.Add(this.ultraPanel7);
-            this.ultraGroupBox2.Controls.Add(this.ultraLabel3);
-            this.ultraGroupBox2.Controls.Add(this.ultraLabel4);
-            this.ultraGroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraGroupBox2.Location = new System.Drawing.Point(3, 314);
-            this.ultraGroupBox2.Name = "ultraGroupBox2";
-            this.ultraGroupBox2.Size = new System.Drawing.Size(307, 70);
-            this.ultraGroupBox2.TabIndex = 4;
-            this.ultraGroupBox2.Text = "Nuevo Esquema:";
-            // 
-            // samsaraTextEditor2
-            // 
-            this.samsaraTextEditor2.Location = new System.Drawing.Point(199, 20);
-            this.samsaraTextEditor2.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.samsaraTextEditor2.Name = "samsaraTextEditor2";
-            this.samsaraTextEditor2.ReadOnly = false;
-            this.samsaraTextEditor2.Size = new System.Drawing.Size(92, 20);
-            this.samsaraTextEditor2.TabIndex = 5;
-            this.samsaraTextEditor2.Value = ((object)(resources.GetObject("samsaraTextEditor2.Value")));
-            // 
-            // samsaraTextEditor1
-            // 
-            this.samsaraTextEditor1.Location = new System.Drawing.Point(50, 19);
-            this.samsaraTextEditor1.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.samsaraTextEditor1.Name = "samsaraTextEditor1";
-            this.samsaraTextEditor1.ReadOnly = false;
-            this.samsaraTextEditor1.Size = new System.Drawing.Size(92, 20);
-            this.samsaraTextEditor1.TabIndex = 5;
-            this.samsaraTextEditor1.Value = ((object)(resources.GetObject("samsaraTextEditor1.Value")));
-            // 
-            // ultraPanel7
-            // 
-            // 
-            // ultraPanel7.ClientArea
-            // 
-            this.ultraPanel7.ClientArea.Controls.Add(this.ultraButton7);
-            this.ultraPanel7.ClientArea.Controls.Add(this.ultraPanel8);
-            this.ultraPanel7.ClientArea.Controls.Add(this.ultraButton8);
-            this.ultraPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel7.Location = new System.Drawing.Point(3, 44);
-            this.ultraPanel7.Name = "ultraPanel7";
-            this.ultraPanel7.Size = new System.Drawing.Size(301, 23);
-            this.ultraPanel7.TabIndex = 4;
-            // 
-            // ultraButton7
-            // 
-            this.ultraButton7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton7.Location = new System.Drawing.Point(132, 0);
-            this.ultraButton7.Name = "ultraButton7";
-            this.ultraButton7.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton7.TabIndex = 6;
-            this.ultraButton7.Text = "Aceptar";
-            // 
-            // ultraPanel8
-            // 
-            this.ultraPanel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel8.Location = new System.Drawing.Point(207, 0);
-            this.ultraPanel8.Name = "ultraPanel8";
-            this.ultraPanel8.Size = new System.Drawing.Size(19, 23);
-            this.ultraPanel8.TabIndex = 8;
-            // 
-            // ultraButton8
-            // 
-            this.ultraButton8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton8.Location = new System.Drawing.Point(226, 0);
-            this.ultraButton8.Name = "ultraButton8";
-            this.ultraButton8.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton8.TabIndex = 5;
-            this.ultraButton8.Text = "Cancelar";
-            // 
-            // ultraLabel3
-            // 
-            this.ultraLabel3.AutoSize = true;
-            this.ultraLabel3.Location = new System.Drawing.Point(154, 23);
-            this.ultraLabel3.Name = "ultraLabel3";
-            this.ultraLabel3.Size = new System.Drawing.Size(39, 14);
-            this.ultraLabel3.TabIndex = 0;
-            this.ultraLabel3.Text = "Fecha:";
-            // 
-            // ultraLabel4
-            // 
-            this.ultraLabel4.AutoSize = true;
-            this.ultraLabel4.Location = new System.Drawing.Point(6, 23);
-            this.ultraLabel4.Name = "ultraLabel4";
-            this.ultraLabel4.Size = new System.Drawing.Size(38, 14);
-            this.ultraLabel4.TabIndex = 0;
-            this.ultraLabel4.Text = "Cuota:";
-            // 
-            // gbxEsquemasMulticuota
-            // 
-            this.gbxEsquemasMulticuota.Controls.Add(this.grdEsquemasMulticuota);
-            this.gbxEsquemasMulticuota.Controls.Add(this.ultraPanel1);
-            this.gbxEsquemasMulticuota.Controls.Add(this.ultraGroupBox1);
-            this.gbxEsquemasMulticuota.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbxEsquemasMulticuota.Location = new System.Drawing.Point(0, 0);
-            this.gbxEsquemasMulticuota.Name = "gbxEsquemasMulticuota";
-            this.gbxEsquemasMulticuota.Size = new System.Drawing.Size(307, 387);
-            this.gbxEsquemasMulticuota.TabIndex = 6;
-            this.gbxEsquemasMulticuota.TabStop = false;
-            this.gbxEsquemasMulticuota.Text = "Esquemas Multicuota:";
-            // 
-            // grdEsquemasMulticuota
-            // 
-            this.grdEsquemasMulticuota.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdEsquemasMulticuota.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.grdEsquemasMulticuota.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdEsquemasMulticuota.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdEsquemasMulticuota.DisplayLayout.MaxRowScrollRegions = 1;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.CellPadding = 0;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            this.grdEsquemasMulticuota.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            this.grdEsquemasMulticuota.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdEsquemasMulticuota.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdEsquemasMulticuota.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
-            this.grdEsquemasMulticuota.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdEsquemasMulticuota.Location = new System.Drawing.Point(3, 16);
-            this.grdEsquemasMulticuota.Name = "grdEsquemasMulticuota";
-            this.grdEsquemasMulticuota.Size = new System.Drawing.Size(301, 251);
-            this.grdEsquemasMulticuota.TabIndex = 1;
-            this.grdEsquemasMulticuota.Text = "ultraGrid1";
-            // 
-            // ultraPanel1
-            // 
-            // 
-            // ultraPanel1.ClientArea
-            // 
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraButton3);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraPanel3);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraButton4);
-            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel1.Location = new System.Drawing.Point(3, 267);
-            this.ultraPanel1.Name = "ultraPanel1";
-            this.ultraPanel1.Size = new System.Drawing.Size(301, 23);
-            this.ultraPanel1.TabIndex = 3;
-            // 
-            // ultraButton3
-            // 
-            this.ultraButton3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton3.Location = new System.Drawing.Point(132, 0);
-            this.ultraButton3.Name = "ultraButton3";
-            this.ultraButton3.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton3.TabIndex = 6;
-            this.ultraButton3.Text = "Borrar";
-            // 
-            // ultraPanel3
-            // 
-            this.ultraPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel3.Location = new System.Drawing.Point(207, 0);
-            this.ultraPanel3.Name = "ultraPanel3";
-            this.ultraPanel3.Size = new System.Drawing.Size(19, 23);
-            this.ultraPanel3.TabIndex = 8;
-            // 
-            // ultraButton4
-            // 
-            this.ultraButton4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton4.Location = new System.Drawing.Point(226, 0);
-            this.ultraButton4.Name = "ultraButton4";
-            this.ultraButton4.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton4.TabIndex = 5;
-            this.ultraButton4.Text = "Nuevo";
-            // 
-            // ultraGroupBox1
-            // 
-            this.ultraGroupBox1.Controls.Add(this.ultraPanel2);
-            this.ultraGroupBox1.Controls.Add(this.ultraDateTimeEditor1);
-            this.ultraGroupBox1.Controls.Add(this.ultraTextEditor1);
-            this.ultraGroupBox1.Controls.Add(this.ultraLabel2);
-            this.ultraGroupBox1.Controls.Add(this.ultraLabel1);
-            this.ultraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraGroupBox1.Location = new System.Drawing.Point(3, 290);
-            this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(301, 94);
-            this.ultraGroupBox1.TabIndex = 2;
-            this.ultraGroupBox1.Text = "Nuevo Esquema:";
-            // 
-            // ultraPanel2
-            // 
-            // 
-            // ultraPanel2.ClientArea
-            // 
-            this.ultraPanel2.ClientArea.Controls.Add(this.ultraButton1);
-            this.ultraPanel2.ClientArea.Controls.Add(this.ultraPanel4);
-            this.ultraPanel2.ClientArea.Controls.Add(this.ultraButton2);
-            this.ultraPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel2.Location = new System.Drawing.Point(3, 68);
-            this.ultraPanel2.Name = "ultraPanel2";
-            this.ultraPanel2.Size = new System.Drawing.Size(295, 23);
-            this.ultraPanel2.TabIndex = 4;
-            // 
-            // ultraButton1
-            // 
-            this.ultraButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton1.Location = new System.Drawing.Point(126, 0);
-            this.ultraButton1.Name = "ultraButton1";
-            this.ultraButton1.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton1.TabIndex = 6;
-            this.ultraButton1.Text = "Aceptar";
-            // 
-            // ultraPanel4
-            // 
-            this.ultraPanel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraPanel4.Location = new System.Drawing.Point(201, 0);
-            this.ultraPanel4.Name = "ultraPanel4";
-            this.ultraPanel4.Size = new System.Drawing.Size(19, 23);
-            this.ultraPanel4.TabIndex = 8;
-            // 
-            // ultraButton2
-            // 
-            this.ultraButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ultraButton2.Location = new System.Drawing.Point(220, 0);
-            this.ultraButton2.Name = "ultraButton2";
-            this.ultraButton2.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton2.TabIndex = 5;
-            this.ultraButton2.Text = "Cancelar";
-            // 
-            // ultraDateTimeEditor1
-            // 
-            this.ultraDateTimeEditor1.Location = new System.Drawing.Point(60, 43);
-            this.ultraDateTimeEditor1.Name = "ultraDateTimeEditor1";
-            this.ultraDateTimeEditor1.Size = new System.Drawing.Size(144, 21);
-            this.ultraDateTimeEditor1.TabIndex = 2;
-            // 
-            // ultraTextEditor1
-            // 
-            this.ultraTextEditor1.Location = new System.Drawing.Point(60, 15);
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(235, 21);
-            this.ultraTextEditor1.TabIndex = 1;
-            // 
-            // ultraLabel2
-            // 
-            this.ultraLabel2.AutoSize = true;
-            this.ultraLabel2.Location = new System.Drawing.Point(7, 47);
-            this.ultraLabel2.Name = "ultraLabel2";
-            this.ultraLabel2.Size = new System.Drawing.Size(39, 14);
-            this.ultraLabel2.TabIndex = 0;
-            this.ultraLabel2.Text = "Fecha:";
-            // 
-            // ultraLabel1
-            // 
-            this.ultraLabel1.AutoSize = true;
-            this.ultraLabel1.Location = new System.Drawing.Point(6, 19);
-            this.ultraLabel1.Name = "ultraLabel1";
-            this.ultraLabel1.Size = new System.Drawing.Size(48, 14);
-            this.ultraLabel1.TabIndex = 0;
-            this.ultraLabel1.Text = "Nombre:";
+            // gbxAgentQuotas
+            // 
+            this.gbxAgentQuotas.Controls.Add(this.grdAgentQuotas);
+            this.gbxAgentQuotas.Controls.Add(this.upnlQuotaButtons);
+            this.gbxAgentQuotas.Controls.Add(this.ugbxNewQuota);
+            this.gbxAgentQuotas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxAgentQuotas.Location = new System.Drawing.Point(307, 0);
+            this.gbxAgentQuotas.Name = "gbxAgentQuotas";
+            this.gbxAgentQuotas.Size = new System.Drawing.Size(313, 387);
+            this.gbxAgentQuotas.TabIndex = 7;
+            this.gbxAgentQuotas.TabStop = false;
+            this.gbxAgentQuotas.Text = "Cuotas:";
+            // 
+            // grdAgentQuotas
+            // 
+            this.grdAgentQuotas.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdAgentQuotas.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdAgentQuotas.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdAgentQuotas.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdAgentQuotas.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdAgentQuotas.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdAgentQuotas.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdAgentQuotas.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdAgentQuotas.DisplayLayout.Override.CellPadding = 0;
+            this.grdAgentQuotas.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdAgentQuotas.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdAgentQuotas.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdAgentQuotas.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdAgentQuotas.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdAgentQuotas.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdAgentQuotas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdAgentQuotas.Location = new System.Drawing.Point(3, 16);
+            this.grdAgentQuotas.Name = "grdAgentQuotas";
+            this.grdAgentQuotas.Size = new System.Drawing.Size(307, 275);
+            this.grdAgentQuotas.TabIndex = 0;
+            this.grdAgentQuotas.Text = "ultraGrid1";
+            this.grdAgentQuotas.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdAgentQuotas_InitializeLayout);
+            // 
+            // upnlQuotaButtons
+            // 
+            // 
+            // upnlQuotaButtons.ClientArea
+            // 
+            this.upnlQuotaButtons.ClientArea.Controls.Add(this.ubtnDeleteQuota);
+            this.upnlQuotaButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateQuota);
+            this.upnlQuotaButtons.ClientArea.Controls.Add(this.ubtnCreateQuota);
+            this.upnlQuotaButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlQuotaButtons.Location = new System.Drawing.Point(3, 291);
+            this.upnlQuotaButtons.Name = "upnlQuotaButtons";
+            this.upnlQuotaButtons.Size = new System.Drawing.Size(307, 23);
+            this.upnlQuotaButtons.TabIndex = 5;
+            // 
+            // ubtnDeleteQuota
+            // 
+            this.ubtnDeleteQuota.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDeleteQuota.Location = new System.Drawing.Point(138, 0);
+            this.ubtnDeleteQuota.Name = "ubtnDeleteQuota";
+            this.ubtnDeleteQuota.Size = new System.Drawing.Size(75, 23);
+            this.ubtnDeleteQuota.TabIndex = 6;
+            this.ubtnDeleteQuota.Text = "Borrar";
+            this.ubtnDeleteQuota.Click += new System.EventHandler(this.ubtnDeleteQuota_Click);
+            // 
+            // upnlSeparatorCreateQuota
+            // 
+            this.upnlSeparatorCreateQuota.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCreateQuota.Location = new System.Drawing.Point(213, 0);
+            this.upnlSeparatorCreateQuota.Name = "upnlSeparatorCreateQuota";
+            this.upnlSeparatorCreateQuota.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorCreateQuota.TabIndex = 8;
+            // 
+            // ubtnCreateQuota
+            // 
+            this.ubtnCreateQuota.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCreateQuota.Location = new System.Drawing.Point(232, 0);
+            this.ubtnCreateQuota.Name = "ubtnCreateQuota";
+            this.ubtnCreateQuota.Size = new System.Drawing.Size(75, 23);
+            this.ubtnCreateQuota.TabIndex = 5;
+            this.ubtnCreateQuota.Text = "Nueva";
+            this.ubtnCreateQuota.Click += new System.EventHandler(this.ubtnCreateQuota_Click);
+            // 
+            // ugbxNewQuota
+            // 
+            this.ugbxNewQuota.Controls.Add(this.txtComisionPercent);
+            this.ugbxNewQuota.Controls.Add(this.txtQuotaAmount);
+            this.ugbxNewQuota.Controls.Add(this.uplNewQuotaButtons);
+            this.ugbxNewQuota.Controls.Add(this.ulblComisionPercent);
+            this.ugbxNewQuota.Controls.Add(this.ulblQuotaAmount);
+            this.ugbxNewQuota.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ugbxNewQuota.Location = new System.Drawing.Point(3, 314);
+            this.ugbxNewQuota.Name = "ugbxNewQuota";
+            this.ugbxNewQuota.Size = new System.Drawing.Size(307, 70);
+            this.ugbxNewQuota.TabIndex = 4;
+            this.ugbxNewQuota.Text = "Nuevo Esquema:";
+            this.ugbxNewQuota.Visible = false;
+            // 
+            // uplNewQuotaButtons
+            // 
+            // 
+            // uplNewQuotaButtons.ClientArea
+            // 
+            this.uplNewQuotaButtons.ClientArea.Controls.Add(this.ubtnAcceptQuota);
+            this.uplNewQuotaButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelQuota);
+            this.uplNewQuotaButtons.ClientArea.Controls.Add(this.ubtnCancelQuota);
+            this.uplNewQuotaButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uplNewQuotaButtons.Location = new System.Drawing.Point(3, 44);
+            this.uplNewQuotaButtons.Name = "uplNewQuotaButtons";
+            this.uplNewQuotaButtons.Size = new System.Drawing.Size(301, 23);
+            this.uplNewQuotaButtons.TabIndex = 4;
+            // 
+            // ubtnAcceptQuota
+            // 
+            this.ubtnAcceptQuota.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnAcceptQuota.Location = new System.Drawing.Point(132, 0);
+            this.ubtnAcceptQuota.Name = "ubtnAcceptQuota";
+            this.ubtnAcceptQuota.Size = new System.Drawing.Size(75, 23);
+            this.ubtnAcceptQuota.TabIndex = 6;
+            this.ubtnAcceptQuota.Text = "Aceptar";
+            this.ubtnAcceptQuota.Click += new System.EventHandler(this.ubtnAcceptQuota_Click);
+            // 
+            // upnlSeparatorCancelQuota
+            // 
+            this.upnlSeparatorCancelQuota.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCancelQuota.Location = new System.Drawing.Point(207, 0);
+            this.upnlSeparatorCancelQuota.Name = "upnlSeparatorCancelQuota";
+            this.upnlSeparatorCancelQuota.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorCancelQuota.TabIndex = 8;
+            // 
+            // ubtnCancelQuota
+            // 
+            this.ubtnCancelQuota.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCancelQuota.Location = new System.Drawing.Point(226, 0);
+            this.ubtnCancelQuota.Name = "ubtnCancelQuota";
+            this.ubtnCancelQuota.Size = new System.Drawing.Size(75, 23);
+            this.ubtnCancelQuota.TabIndex = 5;
+            this.ubtnCancelQuota.Text = "Cancelar";
+            this.ubtnCancelQuota.Click += new System.EventHandler(this.ubtnCancelQuota_Click);
+            // 
+            // ulblComisionPercent
+            // 
+            this.ulblComisionPercent.AutoSize = true;
+            this.ulblComisionPercent.Location = new System.Drawing.Point(154, 23);
+            this.ulblComisionPercent.Name = "ulblComisionPercent";
+            this.ulblComisionPercent.Size = new System.Drawing.Size(55, 14);
+            this.ulblComisionPercent.TabIndex = 0;
+            this.ulblComisionPercent.Text = "Comision:";
+            // 
+            // ulblQuotaAmount
+            // 
+            this.ulblQuotaAmount.AutoSize = true;
+            this.ulblQuotaAmount.Location = new System.Drawing.Point(6, 23);
+            this.ulblQuotaAmount.Name = "ulblQuotaAmount";
+            this.ulblQuotaAmount.Size = new System.Drawing.Size(38, 14);
+            this.ulblQuotaAmount.TabIndex = 0;
+            this.ulblQuotaAmount.Text = "Cuota:";
+            // 
+            // gbxMultiquotaSchemes
+            // 
+            this.gbxMultiquotaSchemes.Controls.Add(this.grdMultiquotaSchemes);
+            this.gbxMultiquotaSchemes.Controls.Add(this.uplSchemesButtons);
+            this.gbxMultiquotaSchemes.Controls.Add(this.ugbxNewScheme);
+            this.gbxMultiquotaSchemes.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbxMultiquotaSchemes.Location = new System.Drawing.Point(0, 0);
+            this.gbxMultiquotaSchemes.Name = "gbxMultiquotaSchemes";
+            this.gbxMultiquotaSchemes.Size = new System.Drawing.Size(307, 387);
+            this.gbxMultiquotaSchemes.TabIndex = 6;
+            this.gbxMultiquotaSchemes.TabStop = false;
+            this.gbxMultiquotaSchemes.Text = "Esquemas Multicuota:";
+            // 
+            // grdMultiquotaSchemes
+            // 
+            this.grdMultiquotaSchemes.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdMultiquotaSchemes.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdMultiquotaSchemes.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdMultiquotaSchemes.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdMultiquotaSchemes.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.CellPadding = 0;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdMultiquotaSchemes.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdMultiquotaSchemes.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdMultiquotaSchemes.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdMultiquotaSchemes.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdMultiquotaSchemes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdMultiquotaSchemes.Location = new System.Drawing.Point(3, 16);
+            this.grdMultiquotaSchemes.Name = "grdMultiquotaSchemes";
+            this.grdMultiquotaSchemes.Size = new System.Drawing.Size(301, 251);
+            this.grdMultiquotaSchemes.TabIndex = 1;
+            this.grdMultiquotaSchemes.Text = "ultraGrid1";
+            this.grdMultiquotaSchemes.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdMultiquotaSchemes_InitializeLayout);
+            this.grdMultiquotaSchemes.ClickCell += new Infragistics.Win.UltraWinGrid.ClickCellEventHandler(this.grdMultiquotaSchemes_ClickCell);
+            // 
+            // uplSchemesButtons
+            // 
+            // 
+            // uplSchemesButtons.ClientArea
+            // 
+            this.uplSchemesButtons.ClientArea.Controls.Add(this.ubtnDeleteScheme);
+            this.uplSchemesButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateScheme);
+            this.uplSchemesButtons.ClientArea.Controls.Add(this.ubtnCreateScheme);
+            this.uplSchemesButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uplSchemesButtons.Location = new System.Drawing.Point(3, 267);
+            this.uplSchemesButtons.Name = "uplSchemesButtons";
+            this.uplSchemesButtons.Size = new System.Drawing.Size(301, 23);
+            this.uplSchemesButtons.TabIndex = 3;
+            // 
+            // ubtnDeleteScheme
+            // 
+            this.ubtnDeleteScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDeleteScheme.Location = new System.Drawing.Point(132, 0);
+            this.ubtnDeleteScheme.Name = "ubtnDeleteScheme";
+            this.ubtnDeleteScheme.Size = new System.Drawing.Size(75, 23);
+            this.ubtnDeleteScheme.TabIndex = 6;
+            this.ubtnDeleteScheme.Text = "Borrar";
+            this.ubtnDeleteScheme.Click += new System.EventHandler(this.ubtnDeleteScheme_Click);
+            // 
+            // upnlSeparatorCreateScheme
+            // 
+            this.upnlSeparatorCreateScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCreateScheme.Location = new System.Drawing.Point(207, 0);
+            this.upnlSeparatorCreateScheme.Name = "upnlSeparatorCreateScheme";
+            this.upnlSeparatorCreateScheme.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorCreateScheme.TabIndex = 8;
+            // 
+            // ubtnCreateScheme
+            // 
+            this.ubtnCreateScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCreateScheme.Location = new System.Drawing.Point(226, 0);
+            this.ubtnCreateScheme.Name = "ubtnCreateScheme";
+            this.ubtnCreateScheme.Size = new System.Drawing.Size(75, 23);
+            this.ubtnCreateScheme.TabIndex = 5;
+            this.ubtnCreateScheme.Text = "Nuevo";
+            this.ubtnCreateScheme.Click += new System.EventHandler(this.ubtnCreateScheme_Click);
+            // 
+            // ugbxNewScheme
+            // 
+            this.ugbxNewScheme.Controls.Add(this.uplNewSchemeButtons);
+            this.ugbxNewScheme.Controls.Add(this.dteSchemeStartDate);
+            this.ugbxNewScheme.Controls.Add(this.txtSchemeName);
+            this.ugbxNewScheme.Controls.Add(this.ulblSchemeStartDate);
+            this.ugbxNewScheme.Controls.Add(this.ulblSchemeName);
+            this.ugbxNewScheme.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ugbxNewScheme.Location = new System.Drawing.Point(3, 290);
+            this.ugbxNewScheme.Name = "ugbxNewScheme";
+            this.ugbxNewScheme.Size = new System.Drawing.Size(301, 94);
+            this.ugbxNewScheme.TabIndex = 2;
+            this.ugbxNewScheme.Text = "Nuevo Esquema:";
+            this.ugbxNewScheme.Visible = false;
+            // 
+            // uplNewSchemeButtons
+            // 
+            // 
+            // uplNewSchemeButtons.ClientArea
+            // 
+            this.uplNewSchemeButtons.ClientArea.Controls.Add(this.ubtnAcceptScheme);
+            this.uplNewSchemeButtons.ClientArea.Controls.Add(this.upnlSeparatorSchemeCancel);
+            this.uplNewSchemeButtons.ClientArea.Controls.Add(this.ubtnCancelScheme);
+            this.uplNewSchemeButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uplNewSchemeButtons.Location = new System.Drawing.Point(3, 68);
+            this.uplNewSchemeButtons.Name = "uplNewSchemeButtons";
+            this.uplNewSchemeButtons.Size = new System.Drawing.Size(295, 23);
+            this.uplNewSchemeButtons.TabIndex = 4;
+            // 
+            // ubtnAcceptScheme
+            // 
+            this.ubtnAcceptScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnAcceptScheme.Location = new System.Drawing.Point(126, 0);
+            this.ubtnAcceptScheme.Name = "ubtnAcceptScheme";
+            this.ubtnAcceptScheme.Size = new System.Drawing.Size(75, 23);
+            this.ubtnAcceptScheme.TabIndex = 6;
+            this.ubtnAcceptScheme.Text = "Aceptar";
+            this.ubtnAcceptScheme.Click += new System.EventHandler(this.ubtnAcceptScheme_Click);
+            // 
+            // upnlSeparatorSchemeCancel
+            // 
+            this.upnlSeparatorSchemeCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorSchemeCancel.Location = new System.Drawing.Point(201, 0);
+            this.upnlSeparatorSchemeCancel.Name = "upnlSeparatorSchemeCancel";
+            this.upnlSeparatorSchemeCancel.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorSchemeCancel.TabIndex = 8;
+            // 
+            // ubtnCancelScheme
+            // 
+            this.ubtnCancelScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCancelScheme.Location = new System.Drawing.Point(220, 0);
+            this.ubtnCancelScheme.Name = "ubtnCancelScheme";
+            this.ubtnCancelScheme.Size = new System.Drawing.Size(75, 23);
+            this.ubtnCancelScheme.TabIndex = 5;
+            this.ubtnCancelScheme.Text = "Cancelar";
+            this.ubtnCancelScheme.Click += new System.EventHandler(this.ubtnCancelScheme_Click);
+            // 
+            // dteSchemeStartDate
+            // 
+            this.dteSchemeStartDate.Location = new System.Drawing.Point(60, 43);
+            this.dteSchemeStartDate.Name = "dteSchemeStartDate";
+            this.dteSchemeStartDate.Size = new System.Drawing.Size(144, 21);
+            this.dteSchemeStartDate.TabIndex = 2;
+            // 
+            // txtSchemeName
+            // 
+            this.txtSchemeName.Location = new System.Drawing.Point(60, 15);
+            this.txtSchemeName.Name = "txtSchemeName";
+            this.txtSchemeName.Size = new System.Drawing.Size(235, 21);
+            this.txtSchemeName.TabIndex = 1;
+            // 
+            // ulblSchemeStartDate
+            // 
+            this.ulblSchemeStartDate.AutoSize = true;
+            this.ulblSchemeStartDate.Location = new System.Drawing.Point(7, 47);
+            this.ulblSchemeStartDate.Name = "ulblSchemeStartDate";
+            this.ulblSchemeStartDate.Size = new System.Drawing.Size(39, 14);
+            this.ulblSchemeStartDate.TabIndex = 0;
+            this.ulblSchemeStartDate.Text = "Fecha:";
+            // 
+            // ulblSchemeName
+            // 
+            this.ulblSchemeName.AutoSize = true;
+            this.ulblSchemeName.Location = new System.Drawing.Point(6, 19);
+            this.ulblSchemeName.Name = "ulblSchemeName";
+            this.ulblSchemeName.Size = new System.Drawing.Size(48, 14);
+            this.ulblSchemeName.TabIndex = 0;
+            this.ulblSchemeName.Text = "Nombre:";
+            // 
+            // txtComisionPercent
+            // 
+            this.txtComisionPercent.Location = new System.Drawing.Point(213, 19);
+            this.txtComisionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
+            this.txtComisionPercent.Name = "txtComisionPercent";
+            this.txtComisionPercent.ReadOnly = false;
+            this.txtComisionPercent.Size = new System.Drawing.Size(78, 20);
+            this.txtComisionPercent.TabIndex = 5;
+            this.txtComisionPercent.Value = ((object)(resources.GetObject("txtComisionPercent.Value")));
+            // 
+            // txtQuotaAmount
+            // 
+            this.txtQuotaAmount.Location = new System.Drawing.Point(50, 19);
+            this.txtQuotaAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtQuotaAmount.Name = "txtQuotaAmount";
+            this.txtQuotaAmount.ReadOnly = false;
+            this.txtQuotaAmount.Size = new System.Drawing.Size(92, 20);
+            this.txtQuotaAmount.TabIndex = 5;
+            this.txtQuotaAmount.Value = ((object)(resources.GetObject("txtQuotaAmount.Value")));
             // 
             // MulticuotasControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gbxCuotasAgente);
-            this.Controls.Add(this.gbxEsquemasMulticuota);
+            this.Controls.Add(this.gbxAgentQuotas);
+            this.Controls.Add(this.gbxMultiquotaSchemes);
             this.Name = "MulticuotasControl";
             this.Size = new System.Drawing.Size(620, 387);
-            this.gbxCuotasAgente.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdCuotasAgente)).EndInit();
-            this.ultraPanel5.ClientArea.ResumeLayout(false);
-            this.ultraPanel5.ResumeLayout(false);
-            this.ultraPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox2)).EndInit();
-            this.ultraGroupBox2.ResumeLayout(false);
-            this.ultraGroupBox2.PerformLayout();
-            this.ultraPanel7.ClientArea.ResumeLayout(false);
-            this.ultraPanel7.ResumeLayout(false);
-            this.ultraPanel8.ResumeLayout(false);
-            this.gbxEsquemasMulticuota.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdEsquemasMulticuota)).EndInit();
-            this.ultraPanel1.ClientArea.ResumeLayout(false);
-            this.ultraPanel1.ResumeLayout(false);
-            this.ultraPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
-            this.ultraGroupBox1.ResumeLayout(false);
-            this.ultraGroupBox1.PerformLayout();
-            this.ultraPanel2.ClientArea.ResumeLayout(false);
-            this.ultraPanel2.ResumeLayout(false);
-            this.ultraPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraDateTimeEditor1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
+            this.gbxAgentQuotas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdAgentQuotas)).EndInit();
+            this.upnlQuotaButtons.ClientArea.ResumeLayout(false);
+            this.upnlQuotaButtons.ResumeLayout(false);
+            this.upnlSeparatorCreateQuota.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxNewQuota)).EndInit();
+            this.ugbxNewQuota.ResumeLayout(false);
+            this.ugbxNewQuota.PerformLayout();
+            this.uplNewQuotaButtons.ClientArea.ResumeLayout(false);
+            this.uplNewQuotaButtons.ResumeLayout(false);
+            this.upnlSeparatorCancelQuota.ResumeLayout(false);
+            this.gbxMultiquotaSchemes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdMultiquotaSchemes)).EndInit();
+            this.uplSchemesButtons.ClientArea.ResumeLayout(false);
+            this.uplSchemesButtons.ResumeLayout(false);
+            this.upnlSeparatorCreateScheme.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxNewScheme)).EndInit();
+            this.ugbxNewScheme.ResumeLayout(false);
+            this.ugbxNewScheme.PerformLayout();
+            this.uplNewSchemeButtons.ClientArea.ResumeLayout(false);
+            this.uplNewSchemeButtons.ResumeLayout(false);
+            this.upnlSeparatorSchemeCancel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dteSchemeStartDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchemeName)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbxCuotasAgente;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel5;
-        private Infragistics.Win.Misc.UltraButton ultraButton5;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel6;
-        private Infragistics.Win.Misc.UltraButton ultraButton6;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox2;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel7;
-        private Infragistics.Win.Misc.UltraButton ultraButton7;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel8;
-        private Infragistics.Win.Misc.UltraButton ultraButton8;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel3;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel4;
-        private Infragistics.Win.UltraWinGrid.UltraGrid grdCuotasAgente;
-        private System.Windows.Forms.GroupBox gbxEsquemasMulticuota;
-        private Infragistics.Win.UltraWinGrid.UltraGrid grdEsquemasMulticuota;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
-        private Infragistics.Win.Misc.UltraButton ultraButton3;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel3;
-        private Infragistics.Win.Misc.UltraButton ultraButton4;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel2;
-        private Infragistics.Win.Misc.UltraButton ultraButton1;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel4;
-        private Infragistics.Win.Misc.UltraButton ultraButton2;
-        private Infragistics.Win.UltraWinEditors.UltraDateTimeEditor ultraDateTimeEditor1;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel2;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel1;
-        private Samsara.Base.Controls.Controls.SamsaraTextEditor samsaraTextEditor2;
-        private Samsara.Base.Controls.Controls.SamsaraTextEditor samsaraTextEditor1;
+        private System.Windows.Forms.GroupBox gbxAgentQuotas;
+        private Infragistics.Win.Misc.UltraPanel upnlQuotaButtons;
+        private Infragistics.Win.Misc.UltraButton ubtnDeleteQuota;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorCreateQuota;
+        private Infragistics.Win.Misc.UltraButton ubtnCreateQuota;
+        private Infragistics.Win.Misc.UltraGroupBox ugbxNewQuota;
+        private Infragistics.Win.Misc.UltraPanel uplNewQuotaButtons;
+        private Infragistics.Win.Misc.UltraButton ubtnAcceptQuota;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorCancelQuota;
+        private Infragistics.Win.Misc.UltraButton ubtnCancelQuota;
+        private Infragistics.Win.Misc.UltraLabel ulblComisionPercent;
+        private Infragistics.Win.Misc.UltraLabel ulblQuotaAmount;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdAgentQuotas;
+        private System.Windows.Forms.GroupBox gbxMultiquotaSchemes;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdMultiquotaSchemes;
+        private Infragistics.Win.Misc.UltraPanel uplSchemesButtons;
+        private Infragistics.Win.Misc.UltraButton ubtnDeleteScheme;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorCreateScheme;
+        private Infragistics.Win.Misc.UltraButton ubtnCreateScheme;
+        private Infragistics.Win.Misc.UltraGroupBox ugbxNewScheme;
+        private Infragistics.Win.Misc.UltraPanel uplNewSchemeButtons;
+        private Infragistics.Win.Misc.UltraButton ubtnAcceptScheme;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorSchemeCancel;
+        private Infragistics.Win.Misc.UltraButton ubtnCancelScheme;
+        private Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dteSchemeStartDate;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchemeName;
+        private Infragistics.Win.Misc.UltraLabel ulblSchemeStartDate;
+        private Infragistics.Win.Misc.UltraLabel ulblSchemeName;
+        private Samsara.Base.Controls.Controls.SamsaraTextEditor txtComisionPercent;
+        private Samsara.Base.Controls.Controls.SamsaraTextEditor txtQuotaAmount;
     }
 }
