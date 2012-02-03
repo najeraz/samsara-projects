@@ -118,6 +118,7 @@ namespace SamsaraCommissions
         private void ShowNewSchemeControls(bool visible)
         {
             this.ugbxNewScheme.Visible = visible;
+            this.uplSchemesButtons.Visible = !visible;
         }
 
         private bool ValidateSchemeFields()
@@ -150,12 +151,13 @@ namespace SamsaraCommissions
         private void ClearNewSchemeFields()
         {
             this.txtSchemeName.Value = null;
-            this.dteSchemeStartDate.Value = DateTime.Now;
+            this.dteSchemeStartDate.DateTime = new DateTime(DateTime.Now.Year, 01, 01);
         }
 
         private void ShowNewQuotaControls(bool visible)
         {
             this.ugbxNewQuota.Visible = visible;
+            this.upnlQuotaButtons.Visible = !visible;
         }
 
         private void ClearNewQuotaFields()
@@ -342,19 +344,33 @@ namespace SamsaraCommissions
             {
                 return;
             }
+            try
+            {
+                decimal quotaPercent = Convert.ToDecimal(this.txtComisionPercent.Value.ToString().Replace("%", "")) / 100;
+                decimal quotaAmount = Convert.ToDecimal(this.txtQuotaAmount.Value);
 
-            decimal quotaPercent = Convert.ToDecimal(this.txtComisionPercent.Value.ToString().Replace("%", "")) / 100;
-            decimal quotaAmount = Convert.ToDecimal(this.txtQuotaAmount.Value);
-
-            consulta = string.Format(@"
+                consulta = string.Format(@"
                     INSERT INTO Esquemas_Cuotas (esquema, cuota, comision, borrado)
                     VALUES ({0}, {1}, {2}, 0)
                 ", this.SelectedSquemeId, quotaAmount, quotaPercent);
 
-            cnn.Open();
-            SqlCommand command = new SqlCommand(consulta, cnn);
-            command.ExecuteNonQuery();
-            cnn.Close();
+                cnn.Open();
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.ExecuteNonQuery();
+                cnn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Ya existe una cuota con ese monto.\n", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                if (cnn.State != ConnectionState.Closed)
+                {
+                    cnn.Close();
+                }
+            }
 
             this.ShowNewQuotaControls(false);
             this.LoadQuotasGrid();
@@ -389,6 +405,7 @@ namespace SamsaraCommissions
             band.Columns["id"].Hidden = true;
             band.Columns["esquema"].Hidden = true;
             band.Columns["cuota"].Header.Caption = "Cuota";
+            band.Columns["cuota"].Width = 100;
             band.Columns["comision"].Header.Caption = "Comisión";
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota"],
