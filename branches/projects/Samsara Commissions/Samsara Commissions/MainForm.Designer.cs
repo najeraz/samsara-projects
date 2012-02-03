@@ -50,14 +50,12 @@ namespace SamsaraCommissions
             this.label5 = new System.Windows.Forms.Label();
             this.cbxAgentesConfig = new System.Windows.Forms.ComboBox();
             this.SamsaraCommissions = new System.Windows.Forms.TabPage();
-            this.multicuotasControl = new SamsaraCommissions.MulticuotasControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dudAños = new System.Windows.Forms.DomainUpDown();
             this.cbxAgenteComission = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Ajustes = new System.Windows.Forms.TabPage();
-            this.grdAjustes = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.cbxAgenteAjustes = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -102,6 +100,8 @@ namespace SamsaraCommissions
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.grdComisionesAgentes = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.grdAjustes = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.multicuotasControl = new SamsaraCommissions.MulticuotasControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Configuración.SuspendLayout();
             this.tcConfiguracion.SuspendLayout();
@@ -114,7 +114,6 @@ namespace SamsaraCommissions
             this.SamsaraCommissions.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Ajustes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdAjustes)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.Comiciones.SuspendLayout();
@@ -138,6 +137,7 @@ namespace SamsaraCommissions
             this.gbxLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAjustes)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -323,14 +323,6 @@ namespace SamsaraCommissions
             this.SamsaraCommissions.TabIndex = 2;
             this.SamsaraCommissions.Text = "Comisiones Agentes";
             // 
-            // multicuotasControl
-            // 
-            this.multicuotasControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.multicuotasControl.Location = new System.Drawing.Point(0, 75);
-            this.multicuotasControl.Name = "multicuotasControl";
-            this.multicuotasControl.Size = new System.Drawing.Size(627, 357);
-            this.multicuotasControl.TabIndex = 3;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dudAños);
@@ -391,20 +383,7 @@ namespace SamsaraCommissions
             this.Ajustes.Name = "Ajustes";
             this.Ajustes.Size = new System.Drawing.Size(627, 432);
             this.Ajustes.TabIndex = 6;
-            this.Ajustes.Text = "Ajustes";
-            // 
-            // grdAjustes
-            // 
-            this.grdAjustes.AllowUserToAddRows = false;
-            this.grdAjustes.AllowUserToDeleteRows = false;
-            this.grdAjustes.AllowUserToResizeRows = false;
-            this.grdAjustes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdAjustes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdAjustes.Location = new System.Drawing.Point(0, 37);
-            this.grdAjustes.Name = "grdAjustes";
-            this.grdAjustes.ReadOnly = true;
-            this.grdAjustes.Size = new System.Drawing.Size(627, 359);
-            this.grdAjustes.TabIndex = 4;
+            this.Ajustes.Text = "Pagos";
             // 
             // panel6
             // 
@@ -963,6 +942,23 @@ namespace SamsaraCommissions
             this.grdComisionesAgentes.TabIndex = 1;
             this.grdComisionesAgentes.Text = "ultraGrid1";
             // 
+            // grdAjustes
+            // 
+            this.grdAjustes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdAjustes.Location = new System.Drawing.Point(0, 37);
+            this.grdAjustes.Name = "grdAjustes";
+            this.grdAjustes.Size = new System.Drawing.Size(627, 359);
+            this.grdAjustes.TabIndex = 6;
+            this.grdAjustes.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdAjustes_InitializeLayout);
+            // 
+            // multicuotasControl
+            // 
+            this.multicuotasControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.multicuotasControl.Location = new System.Drawing.Point(0, 75);
+            this.multicuotasControl.Name = "multicuotasControl";
+            this.multicuotasControl.Size = new System.Drawing.Size(627, 357);
+            this.multicuotasControl.TabIndex = 3;
+            // 
             // ComisionesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -987,7 +983,6 @@ namespace SamsaraCommissions
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.Ajustes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdAjustes)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1015,6 +1010,7 @@ namespace SamsaraCommissions
             this.gbxLineas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAjustes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1044,7 +1040,6 @@ namespace SamsaraCommissions
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage Ajustes;
-        private System.Windows.Forms.DataGridView grdAjustes;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cbxAgenteAjustes;
         private System.Windows.Forms.Label label13;
@@ -1090,6 +1085,7 @@ namespace SamsaraCommissions
         private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisiones;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdComisionesAgentes;
         private SamsaraCommissions.MulticuotasControl multicuotasControl;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdAjustes;
     }
 }
 

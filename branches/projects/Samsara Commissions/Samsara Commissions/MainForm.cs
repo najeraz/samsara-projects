@@ -976,8 +976,8 @@ namespace SamsaraCommissions
 
         private void btnEliminarAjuste_Click(object sender, EventArgs e)
         {
-            string[] ajusteIds = this.grdAjustes.SelectedRows.Cast<DataGridViewRow>()
-                .Select(x => (x.DataBoundItem as DataRowView).Row["ajuste"].ToString()).ToArray();
+            string[] ajusteIds = this.grdAjustes.Selected.Rows.Cast<UltraGridRow>()
+                .Select(x => x.Cells["ajuste"].Value.ToString()).ToArray();
 
             string pregunta = ajusteIds.Count() > 1 ? "¿Esta seguro de borrar los ajustes "
                 : "¿Esta seguro de borrar el ajuste ";
@@ -1268,6 +1268,19 @@ namespace SamsaraCommissions
                 activeRow.Cells["monto_comision"].Value
                     = Convert.ToDecimal(activeRow.Cells["total_pagado"].Value)
                     + Convert.ToDecimal(activeRow.Cells["saldo_a_pagar"].Value);
+        }
+
+        private void grdAjustes_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.Override.AllowUpdate = DefaultableBoolean.False;
+
+            band.Columns["ajuste"].Header.Caption = "Pago";
+            band.Columns["agente"].Hidden = true;
+            band.Columns["nombre_agente"].Hidden = true;
+            band.Columns["fecha_ajuste"].Header.Caption = "Fecha de Pago";
         }
 
         #endregion Events
