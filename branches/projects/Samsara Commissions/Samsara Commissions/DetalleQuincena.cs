@@ -256,9 +256,9 @@ namespace SamsaraCommissions
                 }
 
                 decimal utilidad = Convert.ToDecimal(row.Cells["utilidad_comisionable"].Value);
-                decimal utilidadComisionable = Convert.ToDecimal(row.Cells["utilidad_comisionable"].Value);
+                decimal utilidadComissionable = Convert.ToDecimal(row.Cells["utilidad_comisionable"].Value);
 
-                if (utilidad - utilidadComisionable > 0.01M || utilidadComisionable <= 0)
+                if (utilidad - utilidadComissionable > 0.01M || utilidadComissionable <= 0)
                 {
                     if (row.CellAppearance.BackColor == Color.LightGreen)
                         row.CellAppearance.BackColor = Color.YellowGreen;
