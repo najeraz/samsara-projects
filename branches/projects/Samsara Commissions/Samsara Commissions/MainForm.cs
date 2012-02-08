@@ -371,7 +371,7 @@ namespace SamsaraCommissions
             foreach (var group in dtComisiones.AsEnumerable().GroupBy(x =>
                 new { año = x["anio"], mes = x["mes"], q = x["Q"], esServicio = x["es_servicio"] == "Si"}))
             {
-                if (group.Key.esServicio)
+                if (!group.Key.esServicio)
                 {
                     decimal acumulado = decimal.Zero;
                     decimal sumatoria_cuotas = decimal.Zero;
