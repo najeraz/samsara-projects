@@ -41,14 +41,14 @@ namespace SamsaraCommissions
             }
         }
 
-        public Nullable<int> SelectedQuotaId
+        public Nullable<int> SelectedSegmentId
         {
             get
             {
-                if (this.grdAgentQuotas.ActiveRow == null)
+                if (this.grdAgentSegments.ActiveRow == null)
                     return null;
 
-                return Convert.ToInt32(this.grdAgentQuotas.ActiveRow.Cells["id"].Value);
+                return Convert.ToInt32(this.grdAgentSegments.ActiveRow.Cells["id"].Value);
             }
         }
 
@@ -72,7 +72,7 @@ namespace SamsaraCommissions
         public void LoadGrids()
         {
             this.LoadSchemesGrid();
-            this.LoadQuotasGrid();
+            this.LoadSegmentsGrid();
         }
 
         #endregion Public
@@ -81,25 +81,14 @@ namespace SamsaraCommissions
 
         private void InitializeControlControls()
         {
-            consulta = string.Format(@"
-                    SELECT * FROM Tipo_Comision tc
-                ");
-
-            SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
-            ds = new DataSet();
-            da.Fill(ds, "tipos");
-
-            this.uceComissionType.DataSource = null;
-            this.uceComissionType.DataSource = ds.Tables["tipos"];
-            this.uceComissionType.ValueMember = "id";
-            this.uceComissionType.DisplayMember = "nombre";
         }
 
         private void LoadSchemesGrid()
         {
             consulta = string.Format(@"
                     SELECT 
-                        esquema, nombre, fecha, agente
+                        esquema, nombre, fecha, agente, cuota_productos, 
+                        comisiona_servicios, cuota_servicios
                     FROM        Esquemas_Agentes ea
                     WHERE agente = {0} AND borrado = 0
                 ", this.agentId);
@@ -111,24 +100,24 @@ namespace SamsaraCommissions
             this.grdMultiquotaSchemes.DataSource = ds.Tables["esquemas"];
         }
 
-        private void LoadQuotasGrid()
+        private void LoadSegmentsGrid()
         {
-            this.grdAgentQuotas.DataSource = null;
+            this.grdAgentSegments.DataSource = null;
 
             if (this.SelectedSquemeId != null)
             {
                 consulta = string.Format(@"
                     SELECT 
-                        id, tipo_comision, esquema, cuota, comision * 100 comision
+                        id, esquema, utilidad_inicial, comision * 100 comision
                     FROM Esquemas_Cuotas ec
                     WHERE esquema = {0} AND borrado = 0
-                    ORDER BY cuota, tipo_comision
+                    ORDER BY utilidad_inicial
                 ", this.SelectedSquemeId);
 
                 SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
                 ds = new DataSet();
                 da.Fill(ds, "quotas");
-                this.grdAgentQuotas.DataSource = ds.Tables["quotas"];
+                this.grdAgentSegments.DataSource = ds.Tables["quotas"];
             }
         }
 
@@ -171,25 +160,24 @@ namespace SamsaraCommissions
             this.dteSchemeStartDate.DateTime = new DateTime(DateTime.Now.Year, 01, 01);
         }
 
-        private void ShowNewQuotaControls(bool visible)
+        private void ShowNewSegmentControls(bool visible)
         {
-            this.ugbxNewQuota.Visible = visible;
-            this.upnlQuotaButtons.Visible = !visible;
+            this.ugbxNewSegment.Visible = visible;
+            this.upnlSegmentButtons.Visible = !visible;
         }
 
-        private void ClearNewQuotaFields()
+        private void ClearNewSegmentFields()
         {
             this.txtComissionPercent.Value = null;
-            this.txtQuotaAmount.Value = null;
-            this.uceComissionType.Value = (int)ComissionTypeEnum.Producto;
+            this.txtSegmentAmount.Value = null;
         }
 
-        private bool ValidateQuotaFields()
+        private bool ValidateSegmentFields()
         {
-            if (this.txtQuotaAmount.Value == null
-                || string.IsNullOrEmpty(this.txtQuotaAmount.Value.ToString().Trim()))
+            if (this.txtSegmentAmount.Value == null
+                || string.IsNullOrEmpty(this.txtSegmentAmount.Value.ToString().Trim()))
             {
-                MessageBox.Show("Debe asignar una cuota al esquema del agente.", "Aviso",
+                MessageBox.Show("Debe asignar una utilidad inicial al esquema del agente.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return false;
@@ -324,53 +312,53 @@ namespace SamsaraCommissions
             this.LoadGrids();
         }
 
-        private void ubtnDeleteQuota_Click(object sender, EventArgs e)
+        private void ubtnDeleteSegment_Click(object sender, EventArgs e)
         {
-            if (this.SelectedQuotaId == null || this.IsUsedSelectedScheme())
+            if (this.SelectedSegmentId == null || this.IsUsedSelectedScheme())
                 return;
 
             if (MessageBox.Show(string.Format("¿Esta seguro de borrar la cuota de monto \"{0}\"?",
-                Convert.ToDecimal(this.grdAgentQuotas.ActiveRow.Cells["cuota"].Value).ToString("N2")),
+                Convert.ToDecimal(this.grdAgentSegments.ActiveRow.Cells["cuota"].Value).ToString("N2")),
                 "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 return;
 
             consulta = string.Format(@"
                     UPDATE Esquemas_Cuotas SET borrado = 1
                     WHERE id = {0};
-                ", this.SelectedQuotaId);
+                ", this.SelectedSegmentId);
 
             cnn.Open();
             SqlCommand command = new SqlCommand(consulta, cnn);
             command.ExecuteNonQuery();
             cnn.Close();
 
-            this.LoadQuotasGrid();
+            this.LoadSegmentsGrid();
         }
 
-        private void ubtnCreateQuota_Click(object sender, EventArgs e)
+        private void ubtnCreateSegment_Click(object sender, EventArgs e)
         {
             if (this.SelectedSquemeId != null)
             {
-                this.ClearNewQuotaFields();
-                this.ShowNewQuotaControls(true);
+                this.ClearNewSegmentFields();
+                this.ShowNewSegmentControls(true);
             }
         }
 
-        private void ubtnAcceptQuota_Click(object sender, EventArgs e)
+        private void ubtnAcceptSegment_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateQuotaFields())
+            if (!this.ValidateSegmentFields())
             {
                 return;
             }
             try
             {
                 decimal quotaPercent = Convert.ToDecimal(this.txtComissionPercent.Value.ToString().Replace("%", "")) / 100;
-                decimal quotaAmount = Convert.ToDecimal(this.txtQuotaAmount.Value);
+                decimal quotaAmount = Convert.ToDecimal(this.txtSegmentAmount.Value);
 
                 consulta = string.Format(@"
-                    INSERT INTO Esquemas_Cuotas (tipo_comision, esquema, cuota, comision, borrado)
-                    VALUES ({0}, {1}, {2}, {3}, 0)
-                ", this.uceComissionType.Value, this.SelectedSquemeId, quotaAmount, quotaPercent);
+                    INSERT INTO Esquemas_Cuotas (esquema, utilidad_inicial, comision, borrado)
+                    VALUES ({0}, {1}, {2}, 0)
+                ", this.SelectedSquemeId, quotaAmount, quotaPercent);
 
                 cnn.Open();
                 SqlCommand command = new SqlCommand(consulta, cnn);
@@ -390,13 +378,13 @@ namespace SamsaraCommissions
                 }
             }
 
-            this.ShowNewQuotaControls(false);
-            this.LoadQuotasGrid();
+            this.ShowNewSegmentControls(false);
+            this.LoadSegmentsGrid();
         }
 
-        private void ubtnCancelQuota_Click(object sender, EventArgs e)
+        private void ubtnCancelSegment_Click(object sender, EventArgs e)
         {
-            this.ShowNewQuotaControls(false);
+            this.ShowNewSegmentControls(false);
         }
 
         private void grdMultiquotaSchemes_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -411,9 +399,12 @@ namespace SamsaraCommissions
             band.Columns["nombre"].Header.Caption = "Esquema";
             band.Columns["nombre"].Width = 200;
             band.Columns["fecha"].Header.Caption = "Fecha de inicio";
+            band.Columns["cuota_servicios"].Header.Caption = "Cuota de servicios";
+            band.Columns["cuota_productos"].Header.Caption = "Cuota de productos";
+            band.Columns["comisiona_servicios"].Hidden = true;
         }
 
-        private void grdAgentQuotas_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        private void grdAgentSegments_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             UltraGridLayout layout = e.Layout;
             UltraGridBand band = layout.Bands[0];
@@ -422,23 +413,10 @@ namespace SamsaraCommissions
 
             band.Columns["id"].Hidden = true;
             band.Columns["esquema"].Hidden = true;
-            band.Columns["cuota"].Header.Caption = "Cuota";
-            band.Columns["cuota"].Width = 100;
+            band.Columns["utilidad_inicial"].Header.Caption = "Utilidad inicial";
             band.Columns["comision"].Header.Caption = "Comisión";
-            band.Columns["tipo_comision"].Header.Caption = "Tipo";
-            
-            consulta = string.Format(@"
-                    SELECT * FROM Tipo_Comision tc
-                ");
 
-            SqlDataAdapter da = new SqlDataAdapter(consulta, cnn);
-            ds = new DataSet();
-            da.Fill(ds, "tipos");
-
-            WindowsFormsUtil.SetUltraGridValueList(layout, ds.Tables["tipos"],
-                band.Columns["tipo_comision"], "id", "nombre", null);
-
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota"],
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_inicial"],
                 WindowsFormsUtil.TextMaskFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["comision"],
                 WindowsFormsUtil.TextMaskFormatEnum.Percentage);
@@ -446,7 +424,7 @@ namespace SamsaraCommissions
 
         private void grdMultiquotaSchemes_ClickCell(object sender, ClickCellEventArgs e)
         {
-            this.LoadQuotasGrid();
+            this.LoadSegmentsGrid();
         }
 
         #endregion Events
