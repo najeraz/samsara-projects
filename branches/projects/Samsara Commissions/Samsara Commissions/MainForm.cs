@@ -369,55 +369,58 @@ namespace SamsaraCommissions
 
             dtResumenComisiones.Rows.Clear();
             foreach (var group in dtComisiones.AsEnumerable().GroupBy(x =>
-                new { año = x["anio"], mes = x["mes"], q = x["Q"] }))
+                new { año = x["anio"], mes = x["mes"], q = x["Q"], esServicio = x["es_servicio"] == "Si"}))
             {
-                decimal acumulado = decimal.Zero;
-                decimal sumatoria_cuotas = decimal.Zero;
-                DataRow rowResumen = dtResumenComisiones.NewRow();
-
-                foreach (DataRow row in group)
+                if (group.Key.esServicio)
                 {
-                    decimal cuota = Convert.ToDecimal(row["cuota"]);
-                    sumatoria_cuotas += cuota;
-                    acumulado += Convert.ToDecimal(row["utilidad_comisionable"]);
-                    row["total_acumulado"] = acumulado;
-                    row["acumulado_cuota"]
-                        = (acumulado < cuota ? acumulado : cuota).ToString("N4");
-                    row["acumulado_comision"]
-                        = (acumulado > cuota ? acumulado - cuota : decimal.Zero).ToString("N4");
-                    row["acumulado_comision_agente"]
-                        = (Convert.ToDecimal(row["acumulado_comision"])
-                        * Convert.ToDecimal(row["porcentaje_comision"])).ToString("N4");
-                    lastRow = row;
-                }
+                    decimal acumulado = decimal.Zero;
+                    decimal sumatoria_cuotas = decimal.Zero;
+                    DataRow rowResumen = dtResumenComisiones.NewRow();
 
-                if (lastRow != null)
-                {
-                    rowResumen["anio"] = lastRow["anio"];
-                    rowResumen["mes"] = this.dicMeses.ElementAt(Convert.ToInt32(lastRow["mes"]) - 1).Key;
-                    rowResumen["Q"] = lastRow["Q"];
-                    rowResumen["utilidad_general"] = 
-                        Math.Round(this.dtFacturasPendientes
-                        .AsEnumerable().Where(x => this.dicMeses[x["mes"].ToString()] == Convert.ToInt32(group.Key.mes)
-                            && Convert.ToInt32(x["anio"]) == Convert.ToInt32(group.Key.año)
-                            && x["Q"].ToString().Trim() == group.Key.q.ToString().Trim())
-                            .Sum(x => Convert.ToDecimal(x["utilidad"])) + acumulado, 2);
-                    rowResumen["utilidad_Q"] = Math.Round(acumulado, 2);
-                    rowResumen["acumulado_comision"]
-                        = Math.Round(Convert.ToDecimal(lastRow["acumulado_comision"]), 2);
-                    rowResumen["porcentaje_comision"] = Convert.ToDecimal(lastRow["acumulado_comision_agente"]) == decimal.Zero ?
-                        decimal.Zero.ToString("N2") : Math.Round(Convert.ToDecimal(lastRow["acumulado_comision_agente"])
-                        / Convert.ToDecimal(lastRow["acumulado_comision"]), 2).ToString("N2");
-                    rowResumen["cuota"]
-                        = Math.Round(sumatoria_cuotas / group.Count(), 2);
-                    rowResumen["monto_comision"]
-                        = Math.Round(Convert.ToDecimal(lastRow["acumulado_comision_agente"]), 2);
-                    rowResumen["saldo_a_pagar"] = "0.00";
-                    rowResumen["total_pagado"] = "0.00";
-                    rowResumen["fecha_ultimo_ajuste"] = "Nunca";
-                }
+                    foreach (DataRow row in group)
+                    {
+                        decimal cuota = Convert.ToDecimal(row["cuota"]);
+                        sumatoria_cuotas += cuota;
+                        acumulado += Convert.ToDecimal(row["utilidad_comisionable"]);
+                        row["total_acumulado"] = acumulado;
+                        row["acumulado_cuota"]
+                            = (acumulado < cuota ? acumulado : cuota).ToString("N4");
+                        row["acumulado_comision"]
+                            = (acumulado > cuota ? acumulado - cuota : decimal.Zero).ToString("N4");
+                        row["acumulado_comision_agente"]
+                            = (Convert.ToDecimal(row["acumulado_comision"])
+                            * Convert.ToDecimal(row["porcentaje_comision"])).ToString("N4");
+                        lastRow = row;
+                    }
 
-                dtResumenComisiones.Rows.Add(rowResumen);
+                    if (lastRow != null)
+                    {
+                        rowResumen["anio"] = lastRow["anio"];
+                        rowResumen["mes"] = this.dicMeses.ElementAt(Convert.ToInt32(lastRow["mes"]) - 1).Key;
+                        rowResumen["Q"] = lastRow["Q"];
+                        rowResumen["utilidad_general"] =
+                            Math.Round(this.dtFacturasPendientes
+                            .AsEnumerable().Where(x => this.dicMeses[x["mes"].ToString()] == Convert.ToInt32(group.Key.mes)
+                                && Convert.ToInt32(x["anio"]) == Convert.ToInt32(group.Key.año)
+                                && x["Q"].ToString().Trim() == group.Key.q.ToString().Trim())
+                                .Sum(x => Convert.ToDecimal(x["utilidad"])) + acumulado, 2);
+                        rowResumen["utilidad_Q"] = Math.Round(acumulado, 2);
+                        rowResumen["acumulado_comision"]
+                            = Math.Round(Convert.ToDecimal(lastRow["acumulado_comision"]), 2);
+                        rowResumen["porcentaje_comision"] = Convert.ToDecimal(lastRow["acumulado_comision_agente"]) == decimal.Zero ?
+                            decimal.Zero.ToString("N2") : Math.Round(Convert.ToDecimal(lastRow["acumulado_comision_agente"])
+                            / Convert.ToDecimal(lastRow["acumulado_comision"]), 2).ToString("N2");
+                        rowResumen["cuota"]
+                            = Math.Round(sumatoria_cuotas / group.Count(), 2);
+                        rowResumen["monto_comision"]
+                            = Math.Round(Convert.ToDecimal(lastRow["acumulado_comision_agente"]), 2);
+                        rowResumen["saldo_a_pagar"] = "0.00";
+                        rowResumen["total_pagado"] = "0.00";
+                        rowResumen["fecha_ultimo_ajuste"] = "Nunca";
+                    }
+
+                    dtResumenComisiones.Rows.Add(rowResumen);
+                }
             }
 
             consulta = string.Format(@"
@@ -666,11 +669,11 @@ namespace SamsaraCommissions
 
                 this.grdResumenComisiones.DataSource = this.dtResumenComisiones;
 
-                this.CreaReporteAnual(data.Tables[1]);
-                this.ProcesaFacturasPendientes(data.Tables[2]);
-                this.CalculaComisionesQ(data.Tables[0], data.Tables[1]);
-                this.ProcesaFacturasCanceladas(data.Tables[3]);
-                this.ProcesaFacturasRefacturaciónAgena(data.Tables[4]);
+                this.CreaReporteAnual(this.dtResumenComisiones);
+                this.ProcesaFacturasPendientes(this.dtFacturasPendientes);
+                this.CalculaComisionesQ(this.dtDetalleComisiones, this.dtResumenComisiones);
+                this.ProcesaFacturasCanceladas(this.dtFacturasCanceladas);
+                this.ProcesaFacturasRefacturaciónAgena(this.dtRefacturaciónAgena);
             }
             catch (Exception ex)
             {
