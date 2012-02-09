@@ -123,7 +123,7 @@ namespace SamsaraCommissions
                     this.grdFacturasCanceladas.DataSource = this.DtFacturasCanceladas.AsEnumerable()
                         .AsParallel().Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
-                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["es_servicio"]).ThenBy(x => x["factura"]).CopyToDataTable();
+                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcComplemento.TabPages["FacturasCanceladas"].Text = "Facturas Canceladas [" +
                         this.grdFacturasCanceladas.Rows.Count + "]";
@@ -138,7 +138,7 @@ namespace SamsaraCommissions
                     this.grdFacturasPendientes.DataSource = this.DtFacturasPendientes.AsEnumerable()
                         .AsParallel().Where(x => this.dicMeses[x["mes"].ToString()] == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
-                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["es_servicio"]).ThenBy(x => x["factura"]).CopyToDataTable();
+                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcComplemento.TabPages["FacturasPendientes"].Text = "Facturas Pendientes [" +
                         this.grdFacturasPendientes.Rows.Count + "]";
