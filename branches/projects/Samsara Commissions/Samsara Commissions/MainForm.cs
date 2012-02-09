@@ -659,8 +659,6 @@ namespace SamsaraCommissions
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                this.cbxAgentes.SelectedValue = 20;
-
                 List<string> lstAgents = this.lbAgentesEquivalentes.Items.Cast<DataRowView>()
                     .Select(x => x["agente"].ToString()).ToList();
 
