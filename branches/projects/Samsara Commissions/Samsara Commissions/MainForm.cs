@@ -395,25 +395,35 @@ namespace SamsaraCommissions
                 {
                     rowResumen = this.dtResumenComisiones.NewRow();
                     dtResumenComisiones.Rows.Add(rowResumen);
+
+                    rowResumen["anio"] = lastRow["anio"];
+                    rowResumen["mes"] = this.dicMeses.ElementAt(Convert.ToInt32(lastRow["mes"]) - 1).Key;
+                    rowResumen["Q"] = lastRow["Q"];
+                    rowResumen["saldo_a_pagar"] = "0.00";
+                    rowResumen["total_pagado"] = "0.00";
+                    rowResumen["fecha_ultimo_ajuste"] = "Nunca";
+                    rowResumen["porcentaje_comision_servicios"] = 0M;
+                    rowResumen["porcentaje_comision_productos"] = 0M;
+                    rowResumen["cuota_de_servicios"] = 0M;
+                    rowResumen["cuota_de_productos"] = 0M;
+                    rowResumen["utilidad_general"] = 0M;
+                    rowResumen["utilidad_Q"] = 0M;
+                    rowResumen["monto_comision"] = 0M;
+                    rowResumen["acumulado_comision"] = 0M;
                 }
 
                 if (lastRow != null)
                 {
-                    rowResumen["anio"] = lastRow["anio"];
-                    rowResumen["mes"] = this.dicMeses.ElementAt(Convert.ToInt32(lastRow["mes"]) - 1).Key;
-                    rowResumen["Q"] = lastRow["Q"];
                     rowResumen["utilidad_general"] = 
-                        (rowResumen["utilidad_general"] == DBNull.Value ? 0 : Convert.ToDecimal(rowResumen["utilidad_general"]))
-                        + Math.Round(this.dtFacturasPendientes
+                        Convert.ToDecimal(rowResumen["utilidad_general"]) + Math.Round(this.dtFacturasPendientes
                         .AsEnumerable().Where(x => this.dicMeses[x["mes"].ToString()] == Convert.ToInt32(group.Key.mes)
                             && Convert.ToInt32(x["anio"]) == Convert.ToInt32(group.Key.año)
                             && x["Q"].ToString().Trim() == group.Key.q.ToString().Trim())
                             .Sum(x => Convert.ToDecimal(x["utilidad"])) + acumulado, 2);
                     rowResumen["utilidad_Q"] =
-                        (rowResumen["utilidad_Q"] == DBNull.Value ? 0 : Convert.ToDecimal(rowResumen["utilidad_Q"])) 
-                        + Math.Round(acumulado, 2);
+                        Convert.ToDecimal(rowResumen["utilidad_Q"]) + Math.Round(acumulado, 2);
                     rowResumen["acumulado_comision"]
-                        = (rowResumen["acumulado_comision"] == DBNull.Value ? 0 : Convert.ToDecimal(rowResumen["acumulado_comision"]))
+                        = Convert.ToDecimal(rowResumen["acumulado_comision"])
                         + Math.Round(Convert.ToDecimal(lastRow["acumulado_comision"]), 2);
 
                     if (group.Key.esServicio)
@@ -432,13 +442,8 @@ namespace SamsaraCommissions
                             / Convert.ToDecimal(lastRow["acumulado_comision"]), 2).ToString("N2");
                         rowResumen["cuota_de_productos"] = Math.Round(sumatoria_cuotas / group.Count(), 2);
                     }
-                    rowResumen["monto_comision"]
-                        = (rowResumen["monto_comision"] == DBNull.Value ? 0 : Convert.ToDecimal(rowResumen["monto_comision"]))
+                    rowResumen["monto_comision"] = Convert.ToDecimal(rowResumen["monto_comision"]) 
                         + Math.Round(Convert.ToDecimal(lastRow["acumulado_comision_agente"]), 2);
-
-                    rowResumen["saldo_a_pagar"] = "0.00";
-                    rowResumen["total_pagado"] = "0.00";
-                    rowResumen["fecha_ultimo_ajuste"] = "Nunca";
                 }
             }
 
@@ -913,7 +918,7 @@ namespace SamsaraCommissions
 
                         rowUtilidadGeneral[index] = row["utilidad_general"];
                         rowUtilidadPagada[index] = row["utilidad_Q"];
-                        rowCuotaProductos[index] = row["cuota_de_produtos"];
+                        rowCuotaProductos[index] = row["cuota_de_productos"];
                         rowCuotaServicios[index] = row["cuota_de_servicios"];
                         rowMontoComisionable[index] = row["acumulado_comision"];
                         rowPorcentajeProductos[index] = row["porcentaje_comision_productos"];
