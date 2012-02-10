@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
@@ -10,6 +11,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
+using Infragistics.Win.UltraWinGrid.DocumentExport;
 
 namespace Samsara.Base.Controls.Controls
 {
@@ -132,7 +134,41 @@ namespace Samsara.Base.Controls.Controls
             }
         }
 
-        public void GetCustomControlsNames(Control control, IList<string> controlsNames)
+        [DebuggerStepThrough]
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    this.PerformAction(UltraGridAction.ExitEditMode, false, false);
+                    this.PerformAction(UltraGridAction.AboveCell, false, false);
+                    e.Handled = true;
+                    this.PerformAction(UltraGridAction.EnterEditMode, false, false);
+                    break;
+                case Keys.Down:
+                    this.PerformAction(UltraGridAction.ExitEditMode, false, false);
+                    this.PerformAction(UltraGridAction.BelowCell, false, false);
+                    e.Handled = true;
+                    this.PerformAction(UltraGridAction.EnterEditMode, false, false);
+                    break;
+                case Keys.Right:
+                    this.PerformAction(UltraGridAction.ExitEditMode, false, false);
+                    this.PerformAction(UltraGridAction.NextCellByTab, false, false);
+                    e.Handled = true;
+                    this.PerformAction(UltraGridAction.EnterEditMode, false, false);
+                    break;
+                case Keys.Left:
+                    this.PerformAction(UltraGridAction.ExitEditMode, false, false);
+                    this.PerformAction(UltraGridAction.PrevCellByTab, false, false);
+                    e.Handled = true;
+                    this.PerformAction(UltraGridAction.EnterEditMode, false, false);
+                    break;
+            }
+        }
+
+        private void GetCustomControlsNames(Control control, IList<string> controlsNames)
         {
             if (control == null)
                 return;
