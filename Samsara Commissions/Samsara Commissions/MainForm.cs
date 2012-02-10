@@ -568,10 +568,10 @@ namespace SamsaraCommissions
                 .Where(x => !(x["saldo_a_pagar"] is DBNull)))
             {
                 consulta = "INSERT INTO comisiones_pagadas (anio,mes,q,utilidad,monto_comisionable"
-                    + ",comission,monto_comision,fecha_ajuste,agente,ajuste) values("
+                    + ",comision,monto_comision,fecha_ajuste,agente,ajuste) values("
                     + row["anio"] + "," + this.dicMeses[row["mes"].ToString()]
                     + ",'" + row["q"].ToString().Trim() + "'," + row["utilidad_q"]
-                    + "," + row["acumulado_comision"] + "," + row["porcentaje_comision"]
+                    + "," + row["acumulado_comision"] + "," + row["porcentaje_comision_productos"]
                     + "," + row["monto_comision"] + ", getdate(), " + this.lblAgente.Text
                     + "," + idAjuste + ")";
 
