@@ -31,14 +31,9 @@ namespace Samsara.Base.Dao.Impl
 
         public DateTime GetServerDateTime()
         {
-            DateTime result;
+            DetachedNamedQuery dnq = new DetachedNamedQuery("GenericBaseDao.GetServerDateTime");
 
-            object resultFromServerDateCall = Session.CreateSQLQuery("SELECT GETDATE()").UniqueResult();
-
-            if (resultFromServerDateCall is string)
-                result = DateTime.Parse((string)resultFromServerDateCall);
-            else
-                result = (DateTime)resultFromServerDateCall;
+            DateTime result = dnq.GetExecutableQuery(Session).UniqueResult<DateTime>();
 
             return result;
         }
