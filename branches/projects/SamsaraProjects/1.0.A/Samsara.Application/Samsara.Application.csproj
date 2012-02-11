@@ -72,10 +72,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Samsara.MainForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Main.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.MainForms.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\bin\Samsara.Main.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Aop">
       <HintPath>..\lib\Spring.Aop.dll</HintPath>
