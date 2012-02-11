@@ -1,4 +1,4 @@
-﻿namespace Samsara.MainForms.Forms
+﻿namespace Samsara.Main.Forms.Forms
 {
     partial class MainForm
     {

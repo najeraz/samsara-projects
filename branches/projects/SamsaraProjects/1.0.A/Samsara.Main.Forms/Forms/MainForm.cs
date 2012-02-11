@@ -7,7 +7,7 @@ using Samsara.Dashboard.Forms.Forms;
 using Samsara.Operation.Forms.Forms;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 
-namespace Samsara.MainForms.Forms
+namespace Samsara.Main.Forms.Forms
 {
     public partial class MainForm : Form
     {
