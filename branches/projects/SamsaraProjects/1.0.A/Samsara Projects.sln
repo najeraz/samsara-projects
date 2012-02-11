@@ -333,6 +333,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Main.Service", "Sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Main.Controls", "Samsara.Main.Controls\Samsara.Main.Controls.csproj", "{663FF48E-5E73-4FEA-BE15-6B116DD462F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Main.Forms", "Samsara.Main.Forms\Samsara.Main.Forms.csproj", "{36601CD9-D95C-4CDA-A640-446AD7A367B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -491,6 +493,10 @@ Global
 		{663FF48E-5E73-4FEA-BE15-6B116DD462F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{663FF48E-5E73-4FEA-BE15-6B116DD462F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{663FF48E-5E73-4FEA-BE15-6B116DD462F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36601CD9-D95C-4CDA-A640-446AD7A367B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36601CD9-D95C-4CDA-A640-446AD7A367B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36601CD9-D95C-4CDA-A640-446AD7A367B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36601CD9-D95C-4CDA-A640-446AD7A367B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -530,5 +536,6 @@ Global
 		{CE1A147A-FCA3-4737-9C34-67CE143D6CE9} = {E00A0978-19AE-4144-8D09-4284EF200A55}
 		{0648BB4C-3FD6-4056-81EF-CF1A258F87E1} = {E00A0978-19AE-4144-8D09-4284EF200A55}
 		{663FF48E-5E73-4FEA-BE15-6B116DD462F4} = {E00A0978-19AE-4144-8D09-4284EF200A55}
+		{36601CD9-D95C-4CDA-A640-446AD7A367B9} = {E00A0978-19AE-4144-8D09-4284EF200A55}
 	EndGlobalSection
 EndGlobal
