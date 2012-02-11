@@ -1,7 +1,7 @@
 ﻿
 using System;
 using System.Diagnostics;
-using Samsara.MainForms.Forms;
+using Samsara.Main.Forms.Forms;
 
 namespace Samsara.Application
 {
