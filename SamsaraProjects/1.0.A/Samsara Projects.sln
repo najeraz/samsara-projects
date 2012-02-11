@@ -43,6 +43,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.ProjectsAndTenderin
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Application", "Samsara.Application\Samsara.Application.csproj", "{E957E14E-11A8-4109-AEC0-1608C8554048}"
+	ProjectSection(ProjectDependencies) = postProject
+		{36601CD9-D95C-4CDA-A640-446AD7A367B9} = {36601CD9-D95C-4CDA-A640-446AD7A367B9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Support.Util", "Samsara.Support.Util\Samsara.Support.Util.csproj", "{D4BB7166-F77E-420B-AE66-EA341BB104C4}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -321,6 +324,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Main.Controls", "Samsara.Main.Controls\Samsara.Main.Controls.csproj", "{663FF48E-5E73-4FEA-BE15-6B116DD462F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Main.Forms", "Samsara.Main.Forms\Samsara.Main.Forms.csproj", "{36601CD9-D95C-4CDA-A640-446AD7A367B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A7F1100-1077-4319-AB51-4FD8302AF79B} = {8A7F1100-1077-4319-AB51-4FD8302AF79B}
+		{BD4CCF20-F278-4733-AF00-3C4D2AB43024} = {BD4CCF20-F278-4733-AF00-3C4D2AB43024}
+		{8FDE862D-54A8-4B3F-AB40-9DCCF52D8606} = {8FDE862D-54A8-4B3F-AB40-9DCCF52D8606}
+		{C60ECD8E-4E51-43EA-89C4-FD2812EFA364} = {C60ECD8E-4E51-43EA-89C4-FD2812EFA364}
+		{D7561BA8-053E-400C-A69E-8446943145B0} = {D7561BA8-053E-400C-A69E-8446943145B0}
+		{FD9E96DB-264C-4FB5-A570-D3955C15DE67} = {FD9E96DB-264C-4FB5-A570-D3955C15DE67}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
