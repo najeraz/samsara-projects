@@ -1,5 +1,4 @@
 ﻿
-using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -20,7 +19,7 @@ namespace Samsara.Main.Core.Entities
             set;
         }
 
-        public virtual string Schemename
+        public virtual string Name
         {
             get;
             set;

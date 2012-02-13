@@ -52,6 +52,8 @@
     <property name="CacheQueries" value="true"/>
   </object>
 
+  <!-- ====================================== ProjectsAndTendering ====================================== -->
+  
   <object id="IAsesorDao"
           type="Samsara.ProjectsAndTendering.Dao.Impl.AsesorDao, Samsara.ProjectsAndTendering.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
@@ -173,6 +175,8 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <!-- ====================================== Configuration ====================================== -->
+
   <object id="IFormConfigurationDao"
           type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
@@ -199,6 +203,8 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <!-- ====================================== CustomerContext ====================================== -->
+  
   <object id="ICCTVBrandDao"
           type="Samsara.CustomerContext.Dao.Impl.CCTVBrandDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
@@ -405,6 +411,29 @@
   </object>
   <object id="ICustomerInfrastructurePrinterClassificationDao"
           type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePrinterClassificationDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+  <!-- ====================================== Main ====================================== -->
+  
+  <object id="IUserDao"
+          type="Samsara.Main.Dao.Impl.UserDao, Samsara.Main.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ISamsaraFormDao"
+          type="Samsara.Main.Dao.Impl.SamsaraFormDao, Samsara.Main.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ISchemeDao"
+          type="Samsara.Main.Dao.Impl.SchemeDao, Samsara.Main.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUserGroupDao"
+          type="Samsara.Main.Dao.Impl.UserGroupDao, Samsara.Main.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUserPermissionsDao"
+          type="Samsara.Main.Dao.Impl.UserPermissionsDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
