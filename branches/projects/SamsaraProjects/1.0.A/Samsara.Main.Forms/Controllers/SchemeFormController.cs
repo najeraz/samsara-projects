@@ -64,7 +64,7 @@ namespace Samsara.Main.Forms.Controller
             if (this.frmScheme.txtDetName.Text == null || 
                 this.frmScheme.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Esquema.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmScheme.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.Main.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el Scheme?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Esquema?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.Main.Forms.Controller
 
         private void DeleteEntity(int SchemeId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Esquema?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.Scheme = this.srvScheme.GetById(SchemeId);
