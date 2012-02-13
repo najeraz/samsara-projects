@@ -1,8 +1,8 @@
 ﻿
 namespace Samsara.Main.Core.Enums
 {
-    public enum TaxEnum
+    public enum MainFormsEnum
     {
-        IVA
+        MainForm = 1
     }
 }

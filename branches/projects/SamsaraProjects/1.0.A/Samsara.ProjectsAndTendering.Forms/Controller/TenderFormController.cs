@@ -12,7 +12,7 @@ using NUnit.Framework;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
-using Samsara.Base.Core.Enums;
+using Samsara.Main.Core.Enums;
 using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Core.Parameters;
 using Samsara.Operation.Service.Interfaces;
