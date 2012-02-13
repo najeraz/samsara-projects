@@ -360,6 +360,27 @@
           type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructurePrinterClassificationService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ICustomerInfrastructurePrinterClassificationDao"/>
   </object>
+
+  <object id="IUserService"
+          type="Samsara.Main.Service.Impl.UserService, Samsara.Main.Service">
+    <property name="Dao" ref="IUserDao"/>
+  </object>
+  <object id="ISamsaraFormService"
+          type="Samsara.Main.Service.Impl.SamsaraFormService, Samsara.Main.Service">
+    <property name="Dao" ref="ISamsaraFormDao"/>
+  </object>
+  <object id="ISchemeService"
+          type="Samsara.Main.Service.Impl.SchemeService, Samsara.Main.Service">
+    <property name="Dao" ref="ISchemeDao"/>
+  </object>
+  <object id="IUserGroupService"
+          type="Samsara.Main.Service.Impl.UserGroupService, Samsara.Main.Service">
+    <property name="Dao" ref="IUserGroupDao"/>
+  </object>
+  <object id="IUserPermissionsService"
+          type="Samsara.Main.Service.Impl.UserPermissionsService, Samsara.Main.Service">
+    <property name="Dao" ref="IUserPermissionsDao"/>
+  </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 

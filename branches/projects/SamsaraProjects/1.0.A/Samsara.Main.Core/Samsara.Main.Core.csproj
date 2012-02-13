@@ -34,10 +34,12 @@
     <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -58,13 +60,19 @@
   <ItemGroup>
     <Compile Include="Entities\Scheme.cs" />
     <Compile Include="Entities\UserPermissions.cs" />
-    <Compile Include="Entities\Form.cs" />
+    <Compile Include="Entities\SamsaraForm.cs" />
     <Compile Include="Entities\UserGroup.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\UserPermissionsEnum.cs" />
     <Compile Include="Enums\MainFormsEnum.cs" />
     <Compile Include="Enums\TaxEnum.cs" />
+    <Compile Include="Parameters\SamsaraFormParameters.cs" />
+    <Compile Include="Parameters\UserPermissionsParameters.cs" />
+    <Compile Include="Parameters\UserGroupParameters.cs" />
+    <Compile Include="Parameters\SchemeParameters.cs" />
+    <Compile Include="Parameters\UserParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\Session.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

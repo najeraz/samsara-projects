@@ -1,5 +1,4 @@
 ﻿
-using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -26,13 +25,19 @@ namespace Samsara.Main.Core.Entities
             set;
         }
 
-        public virtual Form Form
+        public virtual SamsaraForm Form
         {
             get;
             set;
         }
 
         public virtual User User
+        {
+            get;
+            set;
+        }
+
+        public virtual string Description
         {
             get;
             set;

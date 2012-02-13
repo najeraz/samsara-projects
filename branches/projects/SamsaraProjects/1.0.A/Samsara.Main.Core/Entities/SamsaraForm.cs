@@ -1,20 +1,19 @@
 ﻿
-using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
 namespace Samsara.Main.Core.Entities
 {
-    public class Form : GenericEntity
+    public class SamsaraForm : GenericEntity
     {
 
-        public Form()
+        public SamsaraForm()
         {
-            FormId = -1;
+            SamsaraFormId = -1;
         }
 
         [PrimaryKey]
-        public virtual int FormId
+        public virtual int SamsaraFormId
         {
             get;
             set;
