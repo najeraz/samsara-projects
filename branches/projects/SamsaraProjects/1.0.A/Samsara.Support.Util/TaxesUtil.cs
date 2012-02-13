@@ -1,6 +1,6 @@
 ﻿
 using System;
-using Samsara.Base.Core.Enums;
+using Samsara.Main.Core.Enums;
 
 namespace Samsara.Support.Util
 {
