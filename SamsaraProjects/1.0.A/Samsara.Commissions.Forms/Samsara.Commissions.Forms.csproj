@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DFDA38BC-5DFB-4E29-9388-D21F71D0C08D}</ProjectGuid>
+    <ProjectGuid>{337E87FC-1870-4AC8-98B6-2F3B5D503F32}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.Main.Core</RootNamespace>
-    <AssemblyName>Samsara.Main.Core</AssemblyName>
+    <RootNamespace>Samsara.Commissions.Forms</RootNamespace>
+    <AssemblyName>Samsara.Commissions.Forms</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,22 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Spring.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Spring.Data, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Spring.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,17 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Scheme.cs" />
-    <Compile Include="Entities\UserPermissions.cs" />
-    <Compile Include="Entities\Form.cs" />
-    <Compile Include="Entities\UserGroup.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Enums\UserPermissionsEnum.cs" />
-    <Compile Include="Enums\MainFormsEnum.cs" />
-    <Compile Include="Enums\TaxEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
