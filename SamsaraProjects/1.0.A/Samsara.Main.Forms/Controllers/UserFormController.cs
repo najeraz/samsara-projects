@@ -64,7 +64,7 @@ namespace Samsara.Main.Forms.Controller
             if (this.frmUser.txtDetUsername.Text == null || 
                 this.frmUser.txtDetUsername.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Usuario.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmUser.txtDetUsername.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.Main.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el User?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Usuario?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.Main.Forms.Controller
 
         private void DeleteEntity(int UserId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Usuario?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.User = this.srvUser.GetById(UserId);

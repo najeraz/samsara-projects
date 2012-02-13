@@ -64,7 +64,7 @@ namespace Samsara.Main.Forms.Controller
             if (this.frmUserGroup.txtDetName.Text == null || 
                 this.frmUserGroup.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Grupo de Usuarios.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmUserGroup.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.Main.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el UserGroup?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Grupo de Usuarios?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.Main.Forms.Controller
 
         private void DeleteEntity(int UserGroupId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Grupo de Usuarios?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.UserGroup = this.srvUserGroup.GetById(UserGroupId);
