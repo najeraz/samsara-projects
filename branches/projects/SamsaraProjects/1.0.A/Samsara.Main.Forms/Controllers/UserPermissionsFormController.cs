@@ -64,7 +64,7 @@ namespace Samsara.Main.Forms.Controller
             if (this.frmUserPermissions.txtDetName.Text == null || 
                 this.frmUserPermissions.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para el Permiso de Usuario.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmUserPermissions.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.Main.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el UserPermissions?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar el Permiso de Usuario?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.Main.Forms.Controller
 
         private void DeleteEntity(int UserPermissionsId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar el Permiso de Usuario?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.UserPermissions = this.srvUserPermissions.GetById(UserPermissionsId);

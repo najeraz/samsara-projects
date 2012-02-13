@@ -64,7 +64,7 @@ namespace Samsara.Main.Forms.Controller
             if (this.frmSamsaraForm.txtDetName.Text == null || 
                 this.frmSamsaraForm.txtDetName.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("Favor de elegir un nombre para la Competencia.",
+                MessageBox.Show("Favor de elegir un nombre para la Ventana.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmSamsaraForm.txtDetName.Focus();
                 return false;
@@ -97,7 +97,7 @@ namespace Samsara.Main.Forms.Controller
         {
             if (this.ValidateFormInformation())
             {
-                if (MessageBox.Show("¿Esta seguro de guardar el SamsaraForm?", "Advertencia",
+                if (MessageBox.Show("¿Esta seguro de guardar la Ventana?", "Advertencia",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
@@ -125,7 +125,7 @@ namespace Samsara.Main.Forms.Controller
 
         private void DeleteEntity(int SamsaraFormId)
         {
-            if (MessageBox.Show("¿Esta seguro de eliminar la Organización?", "Advertencia",
+            if (MessageBox.Show("¿Esta seguro de eliminar la Ventana?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this.SamsaraForm = this.srvSamsaraForm.GetById(SamsaraFormId);
