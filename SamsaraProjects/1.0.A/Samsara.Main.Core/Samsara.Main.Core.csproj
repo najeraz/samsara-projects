@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Scheme.cs" />
-    <Compile Include="Entities\UserPermissions.cs" />
+    <Compile Include="Entities\UserPermission.cs" />
     <Compile Include="Entities\SamsaraForm.cs" />
     <Compile Include="Entities\UserGroup.cs" />
     <Compile Include="Entities\User.cs" />
