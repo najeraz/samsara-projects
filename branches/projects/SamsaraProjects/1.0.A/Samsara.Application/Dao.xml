@@ -432,8 +432,8 @@
           type="Samsara.Main.Dao.Impl.UserGroupDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IUserPermissionsDao"
-          type="Samsara.Main.Dao.Impl.UserPermissionsDao, Samsara.Main.Dao">
+  <object id="IUserPermissionDao"
+          type="Samsara.Main.Dao.Impl.UserPermissionDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 

@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.Main.Forms.Templates
 {
-    public partial class UserPermissionsSearchForm
+    public partial class UserPermissionSearchForm
     {
         /// <summary>
         /// Required designer variable.

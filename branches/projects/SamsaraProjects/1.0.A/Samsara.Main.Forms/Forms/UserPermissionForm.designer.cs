@@ -1,6 +1,6 @@
 ﻿namespace Samsara.Main.Forms.Forms
 {
-    partial class UserPermissionsForm
+    partial class UserPermissionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -135,12 +135,12 @@
             this.txtDetDescription.Size = new System.Drawing.Size(341, 56);
             this.txtDetDescription.TabIndex = 26;
             // 
-            // UserPermissionsForm
+            // UserPermissionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 313);
-            this.Name = "UserPermissionsForm";
+            this.Name = "UserPermissionForm";
             this.Text = "Catálogo de Competencia";
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxSearchParameters.PerformLayout();

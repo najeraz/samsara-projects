@@ -122,7 +122,7 @@
     <Compile Include="Controllers\SchemeFormController.cs" />
     <Compile Include="Controllers\UserFormController.cs" />
     <Compile Include="Controllers\UserGroupFormController.cs" />
-    <Compile Include="Controllers\UserPermissionsFormController.cs" />
+    <Compile Include="Controllers\UserPermissionFormController.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,18 +159,13 @@
     <Compile Include="Forms\UserGroupForm.designer.cs">
       <DependentUpon>UserGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserPermissionsForm.cs">
+    <Compile Include="Forms\UserPermissionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserPermissionsForm.designer.cs">
-      <DependentUpon>UserPermissionsForm.cs</DependentUpon>
+    <Compile Include="Forms\UserPermissionForm.designer.cs">
+      <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Templates\SamsaraFormSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,11 +184,11 @@
     <Compile Include="Templates\UserGroupSearchForm.designer.cs">
       <DependentUpon>UserGroupSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserPermissionsSearchForm.cs">
+    <Compile Include="Templates\UserPermissionSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Templates\UserPermissionsSearchForm.designer.cs">
-      <DependentUpon>UserPermissionsSearchForm.cs</DependentUpon>
+    <Compile Include="Templates\UserPermissionSearchForm.designer.cs">
+      <DependentUpon>UserPermissionSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Templates\UserSearchForm.cs">
       <SubType>Form</SubType>
@@ -222,14 +217,10 @@
     <EmbeddedResource Include="Forms\UserGroupForm.resx">
       <DependentUpon>UserGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserPermissionsForm.resx">
-      <DependentUpon>UserPermissionsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UserPermissionForm.resx">
+      <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

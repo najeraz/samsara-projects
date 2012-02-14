@@ -4,14 +4,14 @@ using Samsara.Main.Core.Entities;
 
 namespace Samsara.Main.Forms.Templates
 {
-    public partial class UserPermissionsSearchForm : GenericSearchForm<UserPermissions>
+    public partial class UserPermissionSearchForm : GenericSearchForm<UserPermission>
     {
-        public UserPermissionsSearchForm()
+        public UserPermissionSearchForm()
         {
             InitializeComponent();
         }
 
-        public override UserPermissions GetSearchResult()
+        public override UserPermission GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

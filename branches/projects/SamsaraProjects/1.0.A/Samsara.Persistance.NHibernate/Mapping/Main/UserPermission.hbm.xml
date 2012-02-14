@@ -3,7 +3,7 @@
   assembly="Samsara.Main.Core" 
   namespace="Samsara.Main.Core.Entities">
   
-  <class name="UserPermission" table="Main.UserPermissions">
+  <class name="UserPermission" table="Main.UserPermission">
     
     <id name="UserPermissionId" type="int">
       <generator class="native"/>
