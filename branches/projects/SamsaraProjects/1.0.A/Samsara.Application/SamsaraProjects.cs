@@ -5,7 +5,7 @@ using Samsara.Main.Forms.Forms;
 
 namespace Samsara.Application
 {
-    static class Program
+    static class SamsaraProjects
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -16,7 +16,7 @@ namespace Samsara.Application
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new MainForm());
+            System.Windows.Forms.Application.Run(new LoginForm());
         }
     }
 }

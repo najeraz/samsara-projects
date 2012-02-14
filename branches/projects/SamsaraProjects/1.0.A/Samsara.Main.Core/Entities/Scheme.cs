@@ -25,5 +25,11 @@ namespace Samsara.Main.Core.Entities
             set;
         }
 
+        public virtual string Description
+        {
+            get;
+            set;
+        }
+
     }
 }

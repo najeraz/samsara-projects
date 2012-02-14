@@ -4,6 +4,7 @@ using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Service.Impl;
+using Samsara.Main.Core.Parameters;
 
 namespace Samsara.Main.Session.Session
 {
@@ -21,18 +22,20 @@ namespace Samsara.Main.Session.Session
         {
             get
             {
-                if (user == null)
-                {
-                    user = new User();
-                }
-
                 return user;
             }
         }
 
-        static Session()
+        public static bool Login(string username, string password)
         {
+            UserParameters pmtUser = new UserParameters();
             Assert.IsNotNull(srvUser);
+
+            pmtUser.Username = username;
+            pmtUser.Password = password;
+            user = srvUser.GetByParameters(pmtUser);
+
+            return user != null;
         }
     }
 }
