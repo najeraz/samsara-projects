@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Diagnostics;
 using Spring.Context;
 using Spring.Context.Support;
 
@@ -22,7 +23,7 @@ namespace Samsara.Base.Core.Context
         /// </summary>
         private IApplicationContext _SpringContext = null;
 
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         private SamsaraAppContext()
         {
             try
@@ -70,7 +71,7 @@ namespace Samsara.Base.Core.Context
         /// Return a instance that correspond with the interface
         /// </summary>
         /// <returns></returns>
-        [System.Diagnostics.DebuggerStepThrough]
+        [DebuggerStepThrough]
         public static T Resolve<T>()
         {
             //Console.Out.WriteLine("type to resolve: " + typeof(T).Name);

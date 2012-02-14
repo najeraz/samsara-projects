@@ -7,6 +7,7 @@ using NUnit.Framework;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
+using Samsara.Main.Session.Session;
 
 namespace Samsara.Base.Forms.Controllers
 {
@@ -34,7 +35,7 @@ namespace Samsara.Base.Forms.Controllers
             this.frmGenericReport.grdPrincipal.InitializeLayout
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
-            this.frmGenericReport.ulblPrplUsername.Text = WindowsIdentity.GetCurrent().Name;
+            this.frmGenericReport.ulblPrplUsername.Text = Session.WindowsIdentityName;
         }
 
         #endregion Constructor
