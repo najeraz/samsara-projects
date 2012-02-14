@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.Main.Controls.Controls
 {
-    partial class UserPermissionsChooserControl
+    partial class UserPermissionChooserControl
     {
         /// <summary> 
         /// Required designer variable.

@@ -10,37 +10,37 @@ using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Main.Forms.Forms
 {
-    public partial class UserPermissionsForm : UserPermissionsSearchForm
+    public partial class UserPermissionForm : UserPermissionSearchForm
     {
         #region Attributes
 
-        private UserPermissionsFormController ctrlUserPermissionsForm;
-        private IUserPermissionsService srvUserPermissions;
+        private UserPermissionFormController ctrlUserPermissionForm;
+        private IUserPermissionService srvUserPermission;
 
         #endregion Attributes
 
-        public UserPermissionsForm()
+        public UserPermissionForm()
         {
             InitializeComponent();
-            this.ctrlUserPermissionsForm = new UserPermissionsFormController(this);
-            this.srvUserPermissions = SamsaraAppContext.Resolve<IUserPermissionsService>();
-            Assert.IsNotNull(this.srvUserPermissions);
+            this.ctrlUserPermissionForm = new UserPermissionFormController(this);
+            this.srvUserPermission = SamsaraAppContext.Resolve<IUserPermissionService>();
+            Assert.IsNotNull(this.srvUserPermission);
         }
 
         #region Methods
 
-        public override UserPermissions GetSearchResult()
+        public override UserPermission GetSearchResult()
         {
-            UserPermissions UserPermissions = null;
+            UserPermission UserPermission = null;
             UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
             {
-                int UserPermissionsId = Convert.ToInt32(activeRow.Cells[0].Value);
-                UserPermissions = this.srvUserPermissions.GetById(UserPermissionsId);
+                int UserPermissionId = Convert.ToInt32(activeRow.Cells[0].Value);
+                UserPermission = this.srvUserPermission.GetById(UserPermissionId);
             }
 
-            return UserPermissions;
+            return UserPermission;
         }
 
         #endregion Methods

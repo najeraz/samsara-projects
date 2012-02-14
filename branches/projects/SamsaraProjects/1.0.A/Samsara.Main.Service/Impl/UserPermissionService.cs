@@ -7,7 +7,7 @@ using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Main.Service.Impl
 {
-    public class UserPermissionsService : GenericService<UserPermissions, int, IUserPermissionsDao, UserPermissionsParameters>, IUserPermissionsService
+    public class UserPermissionService : GenericService<UserPermission, int, IUserPermissionDao, UserPermissionParameters>, IUserPermissionService
     {
     }
 }

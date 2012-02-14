@@ -71,10 +71,10 @@
     <Compile Include="Enums\MainFormsEnum.cs" />
     <Compile Include="Enums\TaxEnum.cs" />
     <Compile Include="Parameters\SamsaraFormParameters.cs" />
-    <Compile Include="Parameters\UserPermissionsParameters.cs" />
     <Compile Include="Parameters\UserGroupParameters.cs" />
     <Compile Include="Parameters\SchemeParameters.cs" />
     <Compile Include="Parameters\UserParameters.cs" />
+    <Compile Include="Parameters\UserPermissionParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
