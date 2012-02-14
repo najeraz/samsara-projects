@@ -95,11 +95,11 @@
     <Compile Include="Controls\Choosers\UserGroupChooserControl.designer.cs">
       <DependentUpon>UserGroupChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UserPermissionsChooserControl.cs">
+    <Compile Include="Controls\Choosers\UserPermissionChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\UserPermissionsChooserControl.designer.cs">
-      <DependentUpon>UserPermissionsChooserControl.cs</DependentUpon>
+    <Compile Include="Controls\Choosers\UserPermissionChooserControl.designer.cs">
+      <DependentUpon>UserPermissionChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

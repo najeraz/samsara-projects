@@ -377,9 +377,9 @@
           type="Samsara.Main.Service.Impl.UserGroupService, Samsara.Main.Service">
     <property name="Dao" ref="IUserGroupDao"/>
   </object>
-  <object id="IUserPermissionsService"
-          type="Samsara.Main.Service.Impl.UserPermissionsService, Samsara.Main.Service">
-    <property name="Dao" ref="IUserPermissionsDao"/>
+  <object id="IUserPermissionService"
+          type="Samsara.Main.Service.Impl.UserPermissionService, Samsara.Main.Service">
+    <property name="Dao" ref="IUserPermissionDao"/>
   </object>
   
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>

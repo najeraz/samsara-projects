@@ -68,12 +68,12 @@
     <Compile Include="Impl\SamsaraFormService.cs" />
     <Compile Include="Impl\SchemeService.cs" />
     <Compile Include="Impl\UserGroupService.cs" />
-    <Compile Include="Impl\UserPermissionsService.cs" />
+    <Compile Include="Impl\UserPermissionService.cs" />
     <Compile Include="Impl\UserService.cs" />
     <Compile Include="Interfaces\ISamsaraFormService.cs" />
     <Compile Include="Interfaces\ISchemeService.cs" />
     <Compile Include="Interfaces\IUserGroupService.cs" />
-    <Compile Include="Interfaces\IUserPermissionsService.cs" />
+    <Compile Include="Interfaces\IUserPermissionService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

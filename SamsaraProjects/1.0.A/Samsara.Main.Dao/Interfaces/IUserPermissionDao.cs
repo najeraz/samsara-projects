@@ -5,7 +5,7 @@ using Samsara.Main.Core.Parameters;
 
 namespace Samsara.Main.Dao.Interfaces
 {
-    public interface IUserPermissionsDao : IGenericDao<UserPermissions, int, UserPermissionsParameters>
+    public interface IUserPermissionDao : IGenericDao<UserPermission, int, UserPermissionParameters>
     {
     }
 }

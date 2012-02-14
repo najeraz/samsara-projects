@@ -8,9 +8,9 @@ using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Main.Controls.Controls
 {
-    public partial class UserPermissionsChooserControl : SamsaraEntityChooserControl<UserPermissions, int, IUserPermissionsService, IUserPermissionsDao, UserPermissionsParameters>
+    public partial class UserPermissionChooserControl : SamsaraEntityChooserControl<UserPermission, int, IUserPermissionService, IUserPermissionDao, UserPermissionParameters>
     {
-        public UserPermissionsChooserControl()
+        public UserPermissionChooserControl()
         {
             string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
                 Assembly.GetExecutingAssembly().FullName.IndexOf(","));
@@ -19,7 +19,7 @@ namespace Samsara.Main.Controls.Controls
                 .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
 
             assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.UserPermissionsForm";
+            assemblyFormClassName = schemaNamespace + ".Forms.Forms.UserPermissionForm";
             InitializeComponent();
         }
     }

@@ -12,23 +12,23 @@ using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Main.Forms.Controller
 {
-    public class UserPermissionsFormController
+    public class UserPermissionFormController
     {
         #region Attributes
 
-        private UserPermissionsForm frmUserPermissions;
-        private UserPermissions UserPermissions;
-        private IUserPermissionsService srvUserPermissions;
+        private UserPermissionForm frmUserPermission;
+        private UserPermission UserPermission;
+        private IUserPermissionService srvUserPermission;
 
         #endregion Attributes
 
         #region Constructor
 
-        public UserPermissionsFormController(UserPermissionsForm instance)
+        public UserPermissionFormController(UserPermissionForm instance)
         {
-            this.frmUserPermissions = instance;
-            this.srvUserPermissions = SamsaraAppContext.Resolve<IUserPermissionsService>();
-            Assert.IsNotNull(this.srvUserPermissions);
+            this.frmUserPermission = instance;
+            this.srvUserPermission = SamsaraAppContext.Resolve<IUserPermissionService>();
+            Assert.IsNotNull(this.srvUserPermission);
             this.InitializeFormControls();
         }
 
@@ -38,35 +38,35 @@ namespace Samsara.Main.Forms.Controller
 
         private void InitializeFormControls()
         {
-            this.frmUserPermissions.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
-            this.frmUserPermissions.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
-            this.frmUserPermissions.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
-            this.frmUserPermissions.btnDetSave.Click += new EventHandler(btnDetSave_Click);
-            this.frmUserPermissions.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
-            this.frmUserPermissions.btnSchClear.Click += new EventHandler(btnSchClear_Click);
-            this.frmUserPermissions.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
+            this.frmUserPermission.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
+            this.frmUserPermission.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);
+            this.frmUserPermission.btnSchCreate.Click += new EventHandler(btnSchCreate_Click);
+            this.frmUserPermission.btnDetSave.Click += new EventHandler(btnDetSave_Click);
+            this.frmUserPermission.btnDetCancel.Click += new EventHandler(btnDetCancel_Click);
+            this.frmUserPermission.btnSchClear.Click += new EventHandler(btnSchClear_Click);
+            this.frmUserPermission.btnSchDelete.Click += new EventHandler(this.btnSchDelete_Click);
 
-            this.frmUserPermissions.HiddenDetail(true);
+            this.frmUserPermission.HiddenDetail(true);
             this.ClearSearchControls();
         }
 
         private void ShowDetail(bool show)
         {
-            this.frmUserPermissions.HiddenDetail(!show);
+            this.frmUserPermission.HiddenDetail(!show);
             if (show)
-                this.frmUserPermissions.tabPrincipal.SelectedTab = this.frmUserPermissions.tabPrincipal.TabPages["New"];
+                this.frmUserPermission.tabPrincipal.SelectedTab = this.frmUserPermission.tabPrincipal.TabPages["New"];
             else
-                this.frmUserPermissions.tabPrincipal.SelectedTab = this.frmUserPermissions.tabPrincipal.TabPages["Search"];
+                this.frmUserPermission.tabPrincipal.SelectedTab = this.frmUserPermission.tabPrincipal.TabPages["Search"];
         }
 
         private bool ValidateFormInformation()
         {
-            if (this.frmUserPermissions.txtDetName.Text == null || 
-                this.frmUserPermissions.txtDetName.Text.Trim() == string.Empty)
+            if (this.frmUserPermission.txtDetName.Text == null || 
+                this.frmUserPermission.txtDetName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Favor de elegir un nombre para el Permiso de Usuario.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmUserPermissions.txtDetName.Focus();
+                this.frmUserPermission.txtDetName.Focus();
                 return false;
             }
 
@@ -75,25 +75,25 @@ namespace Samsara.Main.Forms.Controller
 
         private void LoadEntity()
         {
-            this.UserPermissions.Name = this.frmUserPermissions.txtDetName.Text;
-            this.UserPermissions.Description = this.frmUserPermissions.txtDetDescription.Text;
+            this.UserPermission.Name = this.frmUserPermission.txtDetName.Text;
+            this.UserPermission.Description = this.frmUserPermission.txtDetDescription.Text;
 
-            this.UserPermissions.Activated = true;
-            this.UserPermissions.Deleted = false;
+            this.UserPermission.Activated = true;
+            this.UserPermission.Deleted = false;
         }
 
         private void ClearDetailControls()
         {
-            this.frmUserPermissions.txtDetName.Text = string.Empty;
-            this.frmUserPermissions.txtDetDescription.Text = string.Empty;
+            this.frmUserPermission.txtDetName.Text = string.Empty;
+            this.frmUserPermission.txtDetDescription.Text = string.Empty;
         }
 
         private void ClearSearchControls()
         {
-            this.frmUserPermissions.txtSchName.Text = string.Empty;
+            this.frmUserPermission.txtSchName.Text = string.Empty;
         }
 
-        private void SaveUserPermissions()
+        private void SaveUserPermission()
         {
             if (this.ValidateFormInformation())
             {
@@ -101,50 +101,50 @@ namespace Samsara.Main.Forms.Controller
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
-                this.srvUserPermissions.SaveOrUpdate(this.UserPermissions);
-                this.frmUserPermissions.HiddenDetail(true);
+                this.srvUserPermission.SaveOrUpdate(this.UserPermission);
+                this.frmUserPermission.HiddenDetail(true);
                 this.Search();
             }
         }
 
-        private void EditUserPermissions(int UserPermissionsId)
+        private void EditUserPermission(int UserPermissionId)
         {
-            this.UserPermissions = this.srvUserPermissions.GetById(UserPermissionsId);
+            this.UserPermission = this.srvUserPermission.GetById(UserPermissionId);
 
             this.ClearDetailControls();
             this.LoadFormFromEntity();
-            this.frmUserPermissions.HiddenDetail(false);
+            this.frmUserPermission.HiddenDetail(false);
             this.ShowDetail(true);
         }
 
         private void LoadFormFromEntity()
         {
-            this.frmUserPermissions.txtDetName.Text = this.UserPermissions.Name;
-            this.frmUserPermissions.txtDetDescription.Text = this.UserPermissions.Description;
+            this.frmUserPermission.txtDetName.Text = this.UserPermission.Name;
+            this.frmUserPermission.txtDetDescription.Text = this.UserPermission.Description;
         }
 
-        private void DeleteEntity(int UserPermissionsId)
+        private void DeleteEntity(int UserPermissionId)
         {
             if (MessageBox.Show("¿Esta seguro de eliminar el Permiso de Usuario?", "Advertencia",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
-            this.UserPermissions = this.srvUserPermissions.GetById(UserPermissionsId);
-            this.UserPermissions.Activated = false;
-            this.UserPermissions.Deleted = true;
-            this.srvUserPermissions.SaveOrUpdate(this.UserPermissions);
+            this.UserPermission = this.srvUserPermission.GetById(UserPermissionId);
+            this.UserPermission.Activated = false;
+            this.UserPermission.Deleted = true;
+            this.srvUserPermission.SaveOrUpdate(this.UserPermission);
             this.Search();
         }
 
         private void Search()
         {
-            UserPermissionsParameters pmtUserPermissions = new UserPermissionsParameters();
+            UserPermissionParameters pmtUserPermission = new UserPermissionParameters();
 
-            pmtUserPermissions.Name = "%" + this.frmUserPermissions.txtSchName.Text + "%";
+            pmtUserPermission.Name = "%" + this.frmUserPermission.txtSchName.Text + "%";
 
-            DataTable dtUserPermissionss = srvUserPermissions.SearchByParameters(pmtUserPermissions);
+            DataTable dtUserPermissions = srvUserPermission.SearchByParameters(pmtUserPermission);
 
-            this.frmUserPermissions.grdSchSearch.DataSource = null;
-            this.frmUserPermissions.grdSchSearch.DataSource = dtUserPermissionss;
+            this.frmUserPermission.grdSchSearch.DataSource = null;
+            this.frmUserPermission.grdSchSearch.DataSource = dtUserPermissions;
         }
 
         #endregion Methods
@@ -158,27 +158,27 @@ namespace Samsara.Main.Forms.Controller
 
         private void btnSchCreate_Click(object sender, EventArgs e)
         {
-            this.UserPermissions = new UserPermissions();
+            this.UserPermission = new UserPermission();
             this.ClearDetailControls();
             this.ShowDetail(true);
         }
 
         private void btnDetSave_Click(object sender, EventArgs e)
         {
-            this.SaveUserPermissions();
+            this.SaveUserPermission();
         }
         
         private void btnSchEdit_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmUserPermissions.grdSchSearch.ActiveRow;
+            UltraGridRow activeRow = this.frmUserPermission.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
-                this.EditUserPermissions(Convert.ToInt32(activeRow.Cells[0].Value));
+                this.EditUserPermission(Convert.ToInt32(activeRow.Cells[0].Value));
         }
 
         private void btnDetCancel_Click(object sender, EventArgs e)
         {
-            this.frmUserPermissions.HiddenDetail(true);
+            this.frmUserPermission.HiddenDetail(true);
         }
 
         private void btnSchClear_Click(object sender, EventArgs e)
@@ -188,7 +188,7 @@ namespace Samsara.Main.Forms.Controller
 
         private void btnSchDelete_Click(object sender, EventArgs e)
         {
-            UltraGridRow activeRow = this.frmUserPermissions.grdSchSearch.ActiveRow;
+            UltraGridRow activeRow = this.frmUserPermission.grdSchSearch.ActiveRow;
 
             if (activeRow != null)
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
