@@ -72,7 +72,6 @@
     <Compile Include="Parameters\SchemeParameters.cs" />
     <Compile Include="Parameters\UserParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Session\Session.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
