@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{968F4740-8FC1-4994-8157-1EE39FF9B92C}</ProjectGuid>
+    <ProjectGuid>{FFCAAECA-89A7-4685-ADF8-D90534395CA9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.Base.Core</RootNamespace>
-    <AssemblyName>Samsara.Base.Core</AssemblyName>
+    <RootNamespace>Samsara.Main.Session</RootNamespace>
+    <AssemblyName>Samsara.Main.Session</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -25,26 +25,39 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Iesi.Collections">
-      <HintPath>..\lib\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="Samsara.Main.Session, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Main.Session.dll</HintPath>
+      <HintPath>..\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Spring.Core.dll</HintPath>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Spring.Data, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Spring.Data.dll</HintPath>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Main.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Main.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Main.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Main.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Main.Service.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,11 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\PrimaryKey.cs" />
-    <Compile Include="Context\SamsaraAppContext.cs" />
-    <Compile Include="Entities\GenericEntity.cs" />
-    <Compile Include="Parameters\GenericParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\Session.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
