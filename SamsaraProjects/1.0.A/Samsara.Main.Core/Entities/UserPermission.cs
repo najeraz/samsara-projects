@@ -4,28 +4,34 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Main.Core.Entities
 {
-    public class SamsaraForm : GenericEntity
+    public class UserPermission : GenericEntity
     {
 
-        public SamsaraForm()
+        public UserPermission()
         {
-            SamsaraFormId = -1;
+            UserPermissionId = -1;
         }
 
         [PrimaryKey]
-        public virtual int SamsaraFormId
-        {
-            get;
-            set;
-        }
-
-        public virtual Scheme Scheme
+        public virtual int UserPermissionId
         {
             get;
             set;
         }
 
         public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual SamsaraForm Form
+        {
+            get;
+            set;
+        }
+
+        public virtual User User
         {
             get;
             set;

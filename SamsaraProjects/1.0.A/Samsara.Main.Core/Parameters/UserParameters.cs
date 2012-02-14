@@ -21,5 +21,11 @@ namespace Samsara.Main.Core.Parameters
             set;
         }
 
+        public string Password
+        {
+            get;
+            set;
+        }
+
     }
 }

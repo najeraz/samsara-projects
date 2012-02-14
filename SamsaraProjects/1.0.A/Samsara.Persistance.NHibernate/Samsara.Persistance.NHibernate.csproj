@@ -308,7 +308,7 @@
     <EmbeddedResource Include="Mapping\CustomerContext\UPSBrand.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\CustomerContext\UPSType.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Main\User.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Operation\Currency.hbm.xml" />
@@ -363,6 +363,15 @@
     <EmbeddedResource Include="Mapping\Base\GenericBaseDao.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\CustomerContext\UPSType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Main\SamsaraForm.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Main\Scheme.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
