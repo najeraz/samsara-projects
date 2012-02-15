@@ -26,15 +26,22 @@ namespace Samsara.Main.Forms.Forms
                 if (Session.Session.Login(this.txtUsername.Text, this.txtPassword.Text))
                 {
                     this.Hide();
-                    (new MainForm()).ShowDialog();
+                    this.ClearFields();
+
+                    MainForm frmMain = new MainForm();
+                    frmMain.ShowDialog();
+
+                    if (frmMain.ClosedSession)
+                    {
+                        this.Show();
+                        return;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("El usuario y/o contraseña son incorrectos", 
                         "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.txtUsername.Text = string.Empty;
-                    this.txtPassword.Text = string.Empty;
-                    this.txtUsername.Focus();
+                    this.ClearFields();
                     return;
                 }
             }
@@ -45,10 +52,17 @@ namespace Samsara.Main.Forms.Forms
             this.Close();
         }
 
-        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        private void ClearFields()
         {
-            if (e.KeyCode == Keys.Escape)
-                Application.Exit();
+            this.txtUsername.Text = string.Empty;
+            this.txtPassword.Text = string.Empty;
+            this.txtUsername.Focus();
+            this.txtUsername.Select();
+        }
+
+        private void ubtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
