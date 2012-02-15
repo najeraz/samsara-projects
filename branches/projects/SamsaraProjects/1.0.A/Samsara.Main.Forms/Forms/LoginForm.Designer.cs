@@ -34,12 +34,12 @@
             this.ulblUsername = new Infragistics.Win.Misc.UltraLabel();
             this.txtPassword = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblPassword = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
+            this.ugbxLoginData = new Infragistics.Win.Misc.UltraGroupBox();
             this.ubtnLogin = new Samsara.Base.Controls.Controls.SamsaraUltraButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
-            this.ultraGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxLoginData)).BeginInit();
+            this.ugbxLoginData.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -79,23 +79,23 @@
             this.ulblPassword.TabIndex = 1;
             this.ulblPassword.Text = "Contraseña:";
             // 
-            // ultraGroupBox1
+            // ugbxLoginData
             // 
             appearance1.AlphaLevel = ((short)(80));
             appearance1.BackColor = System.Drawing.Color.White;
-            this.ultraGroupBox1.Appearance = appearance1;
-            this.ultraGroupBox1.Controls.Add(this.txtUsername);
-            this.ultraGroupBox1.Controls.Add(this.txtPassword);
-            this.ultraGroupBox1.Controls.Add(this.ulblUsername);
-            this.ultraGroupBox1.Controls.Add(this.ulblPassword);
-            this.ultraGroupBox1.Location = new System.Drawing.Point(107, 54);
-            this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(227, 63);
-            this.ultraGroupBox1.TabIndex = 3;
+            this.ugbxLoginData.Appearance = appearance1;
+            this.ugbxLoginData.Controls.Add(this.txtUsername);
+            this.ugbxLoginData.Controls.Add(this.txtPassword);
+            this.ugbxLoginData.Controls.Add(this.ulblUsername);
+            this.ugbxLoginData.Controls.Add(this.ulblPassword);
+            this.ugbxLoginData.Location = new System.Drawing.Point(106, 45);
+            this.ugbxLoginData.Name = "ugbxLoginData";
+            this.ugbxLoginData.Size = new System.Drawing.Size(227, 63);
+            this.ugbxLoginData.TabIndex = 3;
             // 
             // ubtnLogin
             // 
-            this.ubtnLogin.Location = new System.Drawing.Point(199, 137);
+            this.ubtnLogin.Location = new System.Drawing.Point(198, 132);
             this.ubtnLogin.Name = "ubtnLogin";
             this.ubtnLogin.Size = new System.Drawing.Size(135, 23);
             this.ubtnLogin.TabIndex = 4;
@@ -104,22 +104,24 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.ubtnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(355, 182);
+            this.ClientSize = new System.Drawing.Size(355, 167);
             this.Controls.Add(this.ubtnLogin);
-            this.Controls.Add(this.ultraGroupBox1);
+            this.Controls.Add(this.ugbxLoginData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Samsara Projects - Iniciar sesión";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
-            this.ultraGroupBox1.ResumeLayout(false);
-            this.ultraGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxLoginData)).EndInit();
+            this.ugbxLoginData.ResumeLayout(false);
+            this.ugbxLoginData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -130,7 +132,7 @@
         private Infragistics.Win.Misc.UltraLabel ulblUsername;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor txtPassword;
         private Infragistics.Win.Misc.UltraLabel ulblPassword;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
+        private Infragistics.Win.Misc.UltraGroupBox ugbxLoginData;
         private Base.Controls.Controls.SamsaraUltraButton ubtnLogin;
     }
 }

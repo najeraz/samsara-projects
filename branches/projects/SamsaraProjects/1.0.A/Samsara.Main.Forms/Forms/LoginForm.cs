@@ -30,6 +30,12 @@ namespace Samsara.Main.Forms.Forms
                 }
                 else
                 {
+                    MessageBox.Show("El usuario y/o contraseña son incorrectos", 
+                        "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.txtUsername.Text = string.Empty;
+                    this.txtPassword.Text = string.Empty;
+                    this.txtUsername.Focus();
+                    return;
                 }
             }
             finally
@@ -37,6 +43,12 @@ namespace Samsara.Main.Forms.Forms
                 this.Cursor = Cursors.Default;
             }
             this.Close();
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                Application.Exit();
         }
     }
 }
