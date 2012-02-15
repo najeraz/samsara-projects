@@ -1,7 +1,6 @@
 ﻿
 using System.ComponentModel;
 using System.Data;
-using System.Security.Principal;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.AlleatoERP.Service.Interfaces;

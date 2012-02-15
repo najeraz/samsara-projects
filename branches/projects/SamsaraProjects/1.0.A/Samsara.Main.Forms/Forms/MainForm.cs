@@ -1,12 +1,12 @@
 ﻿
 using System;
 using System.Linq;
-using System.Security.Principal;
 using System.Windows.Forms;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.Dashboard.Forms.Forms;
 using Samsara.Operation.Forms.Forms;
 using Samsara.ProjectsAndTendering.Forms.Forms;
+using Samsara.Support.Util;
 
 namespace Samsara.Main.Forms.Forms
 {
@@ -680,7 +680,7 @@ namespace Samsara.Main.Forms.Forms
             foreach (Form form in Application.OpenForms.Cast<Form>().ToArray())
             {
                 if (!(form is LoginForm))
-                    form.Close();
+                    WindowsFormsUtil.CloseForm(form);
             }
         }
     }
