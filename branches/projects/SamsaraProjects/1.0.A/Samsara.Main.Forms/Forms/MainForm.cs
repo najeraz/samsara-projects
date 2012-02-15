@@ -26,7 +26,7 @@ namespace Samsara.Main.Forms.Forms
 
         private void PostInitializeComponent()
         {
-            this.ulblPrplUsername.Text = WindowsIdentity.GetCurrent().Name;
+            this.ulblPrplUsername.Text = Session.Session.User.Username;
         }
 
         private void licitanteToolStripMenuItem_Click(object sender, System.EventArgs e)

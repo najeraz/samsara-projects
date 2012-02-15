@@ -79,6 +79,10 @@
     <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Main.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.Main.Session, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Main.Session.dll</HintPath>
@@ -99,7 +103,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GenericDocumentFormController.cs" />
     <Compile Include="Controllers\GenericReportFormController.cs" />
+    <Compile Include="Forms\GenericDocumentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GenericDocumentForm.designer.cs">
+      <DependentUpon>GenericDocumentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GenericReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +134,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\CatalogForm.resx">
       <DependentUpon>CatalogForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GenericDocumentForm.resx">
+      <DependentUpon>GenericDocumentForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GenericReportForm.resx">
