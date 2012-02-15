@@ -25,7 +25,7 @@ namespace Samsara.Main.Core.Entities
             set;
         }
 
-        public virtual SamsaraForm Form
+        public virtual SamsaraForm SamsaraForm
         {
             get;
             set;
