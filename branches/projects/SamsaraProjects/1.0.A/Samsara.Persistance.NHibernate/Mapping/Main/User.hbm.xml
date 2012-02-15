@@ -9,13 +9,13 @@
       <generator class="native"/>
     </id>
 
-    <property name="Name"/>
-    <property name="Password"/>
+    <property name="Username"/>
+    <property name="Password" access="readonly"/>
     <property name="Deleted"/>
     <property name="Activated"/>
 
     <many-to-one name="Staff"
-                 class="Samsara.Main.Core.Entities.Staff, Samsara.Main.Core"
+                 class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
                  column="StaffId"/>
 
   </class>

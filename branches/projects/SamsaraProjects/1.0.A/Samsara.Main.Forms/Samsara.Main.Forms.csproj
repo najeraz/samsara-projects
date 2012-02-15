@@ -96,6 +96,11 @@
       <HintPath>..\bin\Samsara.Main.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Main.Session, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Main.Session.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Operation.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Operation.Forms.dll</HintPath>
@@ -104,6 +109,11 @@
     <Reference Include="Samsara.ProjectsAndTendering.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.ProjectsAndTendering.Forms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Support.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Support.Util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -123,6 +133,12 @@
     <Compile Include="Controllers\UserFormController.cs" />
     <Compile Include="Controllers\UserGroupFormController.cs" />
     <Compile Include="Controllers\UserPermissionFormController.cs" />
+    <Compile Include="Forms\LoadingApplicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadingApplicationForm.Designer.cs">
+      <DependentUpon>LoadingApplicationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +182,11 @@
       <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\SamsaraFormSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +219,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\LoadingApplicationForm.resx">
+      <DependentUpon>LoadingApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +245,10 @@
       <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

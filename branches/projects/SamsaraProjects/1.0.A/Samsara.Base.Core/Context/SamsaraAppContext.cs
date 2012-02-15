@@ -16,19 +16,19 @@ namespace Samsara.Base.Core.Context
         /// <summary>
         /// Needed recursive declaration to implement a singleton
         /// </summary>
-        private static SamsaraAppContext _AppContext;
+        private static SamsaraAppContext context;
 
         /// <summary>
         /// Object that gonna content the context of the app
         /// </summary>
-        private IApplicationContext _SpringContext = null;
+        private IApplicationContext springContext = null;
 
         [DebuggerStepThrough]
         private SamsaraAppContext()
         {
             try
             {
-                _SpringContext = ContextRegistry.GetContext();
+                springContext = ContextRegistry.GetContext();
             }
             catch (Exception ex)
             {
@@ -41,16 +41,10 @@ namespace Samsara.Base.Core.Context
         /// </summary>
         private static SamsaraAppContext Instance
         {
-            [System.Diagnostics.DebuggerStepThrough]
+            [DebuggerStepThrough]
             get
             {
-                //return _AppContext = _AppContext ?? new AppContext();
-                if (_AppContext == null)
-                {
-                    _AppContext = new SamsaraAppContext();
-                }
-
-                return _AppContext;
+                return context = context ?? new SamsaraAppContext();
             }
         }
 
@@ -59,12 +53,14 @@ namespace Samsara.Base.Core.Context
         /// </summary>
         /// <param name="objectName">Name of the solicited object</param>
         /// <returns>A instance of the object, in other case an exception</returns>
-        public static object Resolve(string objectName) {
-            return Instance._SpringContext.GetObject(objectName);
+        public static object Resolve(string objectName)
+        {
+            return Instance.springContext.GetObject(objectName);
         }
 
-        public static T Resolve<T>(string objectName) {
-            return (T) Instance._SpringContext.GetObject(objectName);
+        public static T Resolve<T>(string objectName)
+        {
+            return (T)Instance.springContext.GetObject(objectName);
         }
 
         /// <summary>
@@ -75,7 +71,7 @@ namespace Samsara.Base.Core.Context
         public static T Resolve<T>()
         {
             //Console.Out.WriteLine("type to resolve: " + typeof(T).Name);
-            return (T) Instance._SpringContext.GetObject(typeof (T).Name);
+            return (T)Instance.springContext.GetObject(typeof(T).Name);
         }
     }
 }
