@@ -411,7 +411,7 @@
             this.pnlDetCtgButtons.MaximumSize = new System.Drawing.Size(0, 25);
             this.pnlDetCtgButtons.MinimumSize = new System.Drawing.Size(0, 25);
             this.pnlDetCtgButtons.Name = "pnlDetCtgButtons";
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(0, 25);
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(626, 25);
             this.pnlDetCtgButtons.TabIndex = 0;
             // 
             // upDetSeparator3

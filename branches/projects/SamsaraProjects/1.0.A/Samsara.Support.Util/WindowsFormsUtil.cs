@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinEditors;
 using Infragistics.Win.UltraWinGrid;
@@ -170,6 +171,23 @@ namespace Samsara.Support.Util
 
             vl.SelectedItem = -1;
             column.ValueList = layout.ValueLists[dataTable.TableName + valueMember + displayMember];
+        }
+
+        delegate void CloseMethod(Form form);
+        static public void CloseForm(Form form)
+        {
+            if (!form.IsDisposed)
+            {
+                if (form.InvokeRequired)
+                {
+                    CloseMethod method = new CloseMethod(CloseForm);
+                    form.Invoke(method, new object[] { form });
+                }
+                else
+                {
+                    form.Close();
+                }
+            }
         }
     }
 }
