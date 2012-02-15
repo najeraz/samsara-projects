@@ -40,13 +40,17 @@
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenericDocumentForm));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.grdPrincipal = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
+            this.upnlPrplBottonControls = new Infragistics.Win.Misc.UltraPanel();
+            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblPrplNumRows = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblPrplRowQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.upPrplSearchButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upPrplSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
             this.btnPrplClear = new System.Windows.Forms.Button();
@@ -54,25 +58,35 @@
             this.btnPrplGenerate = new System.Windows.Forms.Button();
             this.upPrplSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
             this.gbxPrplParameters = new System.Windows.Forms.GroupBox();
-            this.upnlPrplBottonControls = new Infragistics.Win.Misc.UltraPanel();
-            this.ulblPrplNumRows = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblPrplRowQuantity = new Infragistics.Win.Misc.UltraLabel();
+            this.New = new System.Windows.Forms.TabPage();
+            this.gbxDetDetail = new System.Windows.Forms.GroupBox();
+            this.pnlDetCtgButtons = new System.Windows.Forms.Panel();
+            this.upDetSeparator3 = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetSave = new System.Windows.Forms.Button();
+            this.upDetSeparator2 = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetCancel = new System.Windows.Forms.Button();
+            this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.tabPrincipal.SuspendLayout();
             this.Principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
+            this.upnlPrplBottonControls.ClientArea.SuspendLayout();
+            this.upnlPrplBottonControls.SuspendLayout();
             this.upPrplSearchButtons.ClientArea.SuspendLayout();
             this.upPrplSearchButtons.SuspendLayout();
             this.upPrplSeparatorClean.SuspendLayout();
             this.upPrplSeparatorSearch.SuspendLayout();
             this.upPrplSeparatorBottonSearch.SuspendLayout();
-            this.upnlPrplBottonControls.ClientArea.SuspendLayout();
-            this.upnlPrplBottonControls.SuspendLayout();
+            this.New.SuspendLayout();
+            this.pnlDetCtgButtons.SuspendLayout();
+            this.upDetSeparator3.SuspendLayout();
+            this.upDetSeparator2.SuspendLayout();
+            this.upDetSeparator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPrincipal
             // 
             this.tabPrincipal.Controls.Add(this.Principal);
+            this.tabPrincipal.Controls.Add(this.New);
             this.tabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tabPrincipal.Name = "tabPrincipal";
@@ -157,6 +171,56 @@
             this.grdPrincipal.TabIndex = 22;
             this.grdPrincipal.Text = "samsaraUltraGrid1";
             // 
+            // upnlPrplBottonControls
+            // 
+            // 
+            // upnlPrplBottonControls.ClientArea
+            // 
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplUsername);
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplNumRows);
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplRowQuantity);
+            this.upnlPrplBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlPrplBottonControls.Location = new System.Drawing.Point(3, 394);
+            this.upnlPrplBottonControls.Name = "upnlPrplBottonControls";
+            this.upnlPrplBottonControls.Size = new System.Drawing.Size(626, 20);
+            this.upnlPrplBottonControls.TabIndex = 24;
+            // 
+            // ulblPrplUsername
+            // 
+            appearance5.TextVAlignAsString = "Middle";
+            this.ulblPrplUsername.Appearance = appearance5;
+            this.ulblPrplUsername.AutoSize = true;
+            this.ulblPrplUsername.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblPrplUsername.Location = new System.Drawing.Point(0, 0);
+            this.ulblPrplUsername.Name = "ulblPrplUsername";
+            this.ulblPrplUsername.Size = new System.Drawing.Size(61, 20);
+            this.ulblPrplUsername.TabIndex = 4;
+            this.ulblPrplUsername.Text = "[username]";
+            // 
+            // ulblPrplNumRows
+            // 
+            appearance2.TextVAlignAsString = "Middle";
+            this.ulblPrplNumRows.Appearance = appearance2;
+            this.ulblPrplNumRows.AutoSize = true;
+            this.ulblPrplNumRows.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ulblPrplNumRows.Location = new System.Drawing.Point(523, 0);
+            this.ulblPrplNumRows.Name = "ulblPrplNumRows";
+            this.ulblPrplNumRows.Size = new System.Drawing.Size(93, 20);
+            this.ulblPrplNumRows.TabIndex = 0;
+            this.ulblPrplNumRows.Text = "Num de registros:";
+            // 
+            // ulblPrplRowQuantity
+            // 
+            appearance4.TextVAlignAsString = "Middle";
+            this.ulblPrplRowQuantity.Appearance = appearance4;
+            this.ulblPrplRowQuantity.AutoSize = true;
+            this.ulblPrplRowQuantity.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ulblPrplRowQuantity.Location = new System.Drawing.Point(616, 0);
+            this.ulblPrplRowQuantity.Name = "ulblPrplRowQuantity";
+            this.ulblPrplRowQuantity.Size = new System.Drawing.Size(10, 20);
+            this.ulblPrplRowQuantity.TabIndex = 2;
+            this.ulblPrplRowQuantity.Text = "0";
+            // 
             // upPrplSearchButtons
             // 
             // 
@@ -228,55 +292,85 @@
             this.gbxPrplParameters.TabStop = false;
             this.gbxPrplParameters.Text = "Parámetros de búsqueda:";
             // 
-            // upnlPrplBottonControls
+            // New
             // 
+            this.New.BackColor = System.Drawing.Color.Transparent;
+            this.New.Controls.Add(this.gbxDetDetail);
+            this.New.Controls.Add(this.pnlDetCtgButtons);
+            this.New.Location = new System.Drawing.Point(4, 22);
+            this.New.Name = "New";
+            this.New.Size = new System.Drawing.Size(632, 417);
+            this.New.TabIndex = 1;
+            this.New.Text = "Nuevo";
             // 
-            // upnlPrplBottonControls.ClientArea
+            // gbxDetDetail
             // 
-            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplUsername);
-            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplNumRows);
-            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplRowQuantity);
-            this.upnlPrplBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlPrplBottonControls.Location = new System.Drawing.Point(3, 394);
-            this.upnlPrplBottonControls.Name = "upnlPrplBottonControls";
-            this.upnlPrplBottonControls.Size = new System.Drawing.Size(626, 20);
-            this.upnlPrplBottonControls.TabIndex = 24;
+            this.gbxDetDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 0);
+            this.gbxDetDetail.Name = "gbxDetDetail";
+            this.gbxDetDetail.Size = new System.Drawing.Size(632, 392);
+            this.gbxDetDetail.TabIndex = 20;
+            this.gbxDetDetail.TabStop = false;
+            this.gbxDetDetail.Text = "Datos del Registro:";
             // 
-            // ulblPrplNumRows
+            // pnlDetCtgButtons
             // 
-            appearance2.TextVAlignAsString = "Middle";
-            this.ulblPrplNumRows.Appearance = appearance2;
-            this.ulblPrplNumRows.AutoSize = true;
-            this.ulblPrplNumRows.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ulblPrplNumRows.Location = new System.Drawing.Point(523, 0);
-            this.ulblPrplNumRows.Name = "ulblPrplNumRows";
-            this.ulblPrplNumRows.Size = new System.Drawing.Size(93, 20);
-            this.ulblPrplNumRows.TabIndex = 0;
-            this.ulblPrplNumRows.Text = "Num de registros:";
+            this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator3);
+            this.pnlDetCtgButtons.Controls.Add(this.btnDetSave);
+            this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator2);
+            this.pnlDetCtgButtons.Controls.Add(this.btnDetCancel);
+            this.pnlDetCtgButtons.Controls.Add(this.upDetSeparator1);
+            this.pnlDetCtgButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDetCtgButtons.Location = new System.Drawing.Point(0, 392);
+            this.pnlDetCtgButtons.MaximumSize = new System.Drawing.Size(0, 25);
+            this.pnlDetCtgButtons.MinimumSize = new System.Drawing.Size(0, 25);
+            this.pnlDetCtgButtons.Name = "pnlDetCtgButtons";
+            this.pnlDetCtgButtons.Size = new System.Drawing.Size(632, 25);
+            this.pnlDetCtgButtons.TabIndex = 19;
             // 
-            // ulblPrplUsername
+            // upDetSeparator3
             // 
-            appearance5.TextVAlignAsString = "Middle";
-            this.ulblPrplUsername.Appearance = appearance5;
-            this.ulblPrplUsername.AutoSize = true;
-            this.ulblPrplUsername.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ulblPrplUsername.Location = new System.Drawing.Point(0, 0);
-            this.ulblPrplUsername.Name = "ulblPrplUsername";
-            this.ulblPrplUsername.Size = new System.Drawing.Size(61, 20);
-            this.ulblPrplUsername.TabIndex = 4;
-            this.ulblPrplUsername.Text = "[username]";
+            this.upDetSeparator3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator3.Location = new System.Drawing.Point(434, 0);
+            this.upDetSeparator3.Name = "upDetSeparator3";
+            this.upDetSeparator3.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator3.TabIndex = 9;
             // 
-            // ulblPrplRowQuantity
+            // btnDetSave
             // 
-            appearance4.TextVAlignAsString = "Middle";
-            this.ulblPrplRowQuantity.Appearance = appearance4;
-            this.ulblPrplRowQuantity.AutoSize = true;
-            this.ulblPrplRowQuantity.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ulblPrplRowQuantity.Location = new System.Drawing.Point(616, 0);
-            this.ulblPrplRowQuantity.Name = "ulblPrplRowQuantity";
-            this.ulblPrplRowQuantity.Size = new System.Drawing.Size(10, 20);
-            this.ulblPrplRowQuantity.TabIndex = 2;
-            this.ulblPrplRowQuantity.Text = "0";
+            this.btnDetSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetSave.Location = new System.Drawing.Point(450, 0);
+            this.btnDetSave.Name = "btnDetSave";
+            this.btnDetSave.Size = new System.Drawing.Size(75, 25);
+            this.btnDetSave.TabIndex = 0;
+            this.btnDetSave.Text = "Guardar";
+            this.btnDetSave.UseVisualStyleBackColor = true;
+            // 
+            // upDetSeparator2
+            // 
+            this.upDetSeparator2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator2.Location = new System.Drawing.Point(525, 0);
+            this.upDetSeparator2.Name = "upDetSeparator2";
+            this.upDetSeparator2.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator2.TabIndex = 8;
+            // 
+            // btnDetCancel
+            // 
+            this.btnDetCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetCancel.Location = new System.Drawing.Point(541, 0);
+            this.btnDetCancel.Name = "btnDetCancel";
+            this.btnDetCancel.Size = new System.Drawing.Size(75, 25);
+            this.btnDetCancel.TabIndex = 0;
+            this.btnDetCancel.Text = "Cancelar";
+            this.btnDetCancel.UseVisualStyleBackColor = true;
+            // 
+            // upDetSeparator1
+            // 
+            this.upDetSeparator1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator1.Location = new System.Drawing.Point(616, 0);
+            this.upDetSeparator1.Name = "upDetSeparator1";
+            this.upDetSeparator1.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator1.TabIndex = 7;
             // 
             // GenericDocumentForm
             // 
@@ -290,14 +384,19 @@
             this.tabPrincipal.ResumeLayout(false);
             this.Principal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
+            this.upnlPrplBottonControls.ClientArea.ResumeLayout(false);
+            this.upnlPrplBottonControls.ClientArea.PerformLayout();
+            this.upnlPrplBottonControls.ResumeLayout(false);
             this.upPrplSearchButtons.ClientArea.ResumeLayout(false);
             this.upPrplSearchButtons.ResumeLayout(false);
             this.upPrplSeparatorClean.ResumeLayout(false);
             this.upPrplSeparatorSearch.ResumeLayout(false);
             this.upPrplSeparatorBottonSearch.ResumeLayout(false);
-            this.upnlPrplBottonControls.ClientArea.ResumeLayout(false);
-            this.upnlPrplBottonControls.ClientArea.PerformLayout();
-            this.upnlPrplBottonControls.ResumeLayout(false);
+            this.New.ResumeLayout(false);
+            this.pnlDetCtgButtons.ResumeLayout(false);
+            this.upDetSeparator3.ResumeLayout(false);
+            this.upDetSeparator2.ResumeLayout(false);
+            this.upDetSeparator1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -318,5 +417,13 @@
         private Infragistics.Win.Misc.UltraLabel ulblPrplNumRows;
         internal Infragistics.Win.Misc.UltraLabel ulblPrplUsername;
         internal Infragistics.Win.Misc.UltraLabel ulblPrplRowQuantity;
+        private System.Windows.Forms.TabPage New;
+        protected System.Windows.Forms.GroupBox gbxDetDetail;
+        protected System.Windows.Forms.Panel pnlDetCtgButtons;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator3;
+        public System.Windows.Forms.Button btnDetSave;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator2;
+        public System.Windows.Forms.Button btnDetCancel;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
     }
 }

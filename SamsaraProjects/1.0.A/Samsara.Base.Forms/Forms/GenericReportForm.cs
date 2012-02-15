@@ -1,9 +1,9 @@
 ﻿
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Samsara.Base.Forms.Controllers;
-using System.Diagnostics;
 
 namespace Samsara.Base.Forms.Forms
 {
