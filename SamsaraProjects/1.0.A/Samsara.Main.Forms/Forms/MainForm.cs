@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Linq;
 using System.Security.Principal;
 using System.Windows.Forms;
 using Samsara.CustomerContext.Forms.Forms;
@@ -11,6 +12,12 @@ namespace Samsara.Main.Forms.Forms
 {
     public partial class MainForm : Form
     {
+        public bool ClosedSession
+        {
+            get;
+            private set;
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -663,6 +670,17 @@ namespace Samsara.Main.Forms.Forms
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.Session.Logout();
+            this.ClosedSession = true;
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToArray())
+            {
+                if (!(form is LoginForm))
+                    form.Close();
             }
         }
     }

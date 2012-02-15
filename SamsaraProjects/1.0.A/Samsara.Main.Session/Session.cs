@@ -40,6 +40,11 @@ namespace Samsara.Main.Session
             return user != null;
         }
 
+        public static void Logout()
+        {
+            user = null;
+        }
+
         private void LoadSession(string username, string password)
         {
             UserParameters pmtUser = new UserParameters();

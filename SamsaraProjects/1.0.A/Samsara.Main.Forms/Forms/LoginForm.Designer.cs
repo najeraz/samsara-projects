@@ -36,6 +36,7 @@
             this.ulblPassword = new Infragistics.Win.Misc.UltraLabel();
             this.ugbxLoginData = new Infragistics.Win.Misc.UltraGroupBox();
             this.ubtnLogin = new Samsara.Base.Controls.Controls.SamsaraUltraButton();
+            this.ubtnClose = new Samsara.Base.Controls.Controls.SamsaraUltraButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxLoginData)).BeginInit();
@@ -102,13 +103,26 @@
             this.ubtnLogin.Text = "Iniciar sesión";
             this.ubtnLogin.Click += new System.EventHandler(this.ubtnLogin_Click);
             // 
+            // ubtnClose
+            // 
+            this.ubtnClose.AutoSize = true;
+            this.ubtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ubtnClose.Location = new System.Drawing.Point(146, 131);
+            this.ubtnClose.Name = "ubtnClose";
+            this.ubtnClose.Size = new System.Drawing.Size(46, 24);
+            this.ubtnClose.TabIndex = 5;
+            this.ubtnClose.Text = "Cerrar";
+            this.ubtnClose.Click += new System.EventHandler(this.ubtnClose_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.ubtnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.CancelButton = this.ubtnClose;
             this.ClientSize = new System.Drawing.Size(355, 167);
+            this.Controls.Add(this.ubtnClose);
             this.Controls.Add(this.ubtnLogin);
             this.Controls.Add(this.ugbxLoginData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -116,13 +130,13 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Samsara Projects - Iniciar sesión";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.txtUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxLoginData)).EndInit();
             this.ugbxLoginData.ResumeLayout(false);
             this.ugbxLoginData.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,5 +148,6 @@
         private Infragistics.Win.Misc.UltraLabel ulblPassword;
         private Infragistics.Win.Misc.UltraGroupBox ugbxLoginData;
         private Base.Controls.Controls.SamsaraUltraButton ubtnLogin;
+        private Base.Controls.Controls.SamsaraUltraButton ubtnClose;
     }
 }
