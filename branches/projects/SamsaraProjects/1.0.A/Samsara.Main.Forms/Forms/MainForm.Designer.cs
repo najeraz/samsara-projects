@@ -94,9 +94,9 @@
             this.tableroDeControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturaHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturaVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
-            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
             this.menuStrip1.SuspendLayout();
             this.upnlPrplBottom.ClientArea.SuspendLayout();
             this.upnlPrplBottom.SuspendLayout();
@@ -619,17 +619,13 @@
             this.coberturaVerticalToolStripMenuItem.Text = "Cobertura Vertical";
             this.coberturaVerticalToolStripMenuItem.Click += new System.EventHandler(this.coberturaVerticalToolStripMenuItem_Click);
             // 
-            // upnlPrplBottom
+            // cerrarSesiónToolStripMenuItem
             // 
-            // 
-            // upnlPrplBottom.ClientArea
-            // 
-            this.upnlPrplBottom.ClientArea.Controls.Add(this.ulblPrplUsername);
-            this.upnlPrplBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlPrplBottom.Location = new System.Drawing.Point(0, 359);
-            this.upnlPrplBottom.Name = "upnlPrplBottom";
-            this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
-            this.upnlPrplBottom.TabIndex = 2;
+            this.cerrarSesiónToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.cerrarSesiónToolStripMenuItem.Text = "[Cerrar sesión]";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // ulblPrplUsername
             // 
@@ -644,13 +640,17 @@
             this.ulblPrplUsername.TabIndex = 1;
             this.ulblPrplUsername.Text = "[username]";
             // 
-            // cerrarSesiónToolStripMenuItem
+            // upnlPrplBottom
             // 
-            this.cerrarSesiónToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.cerrarSesiónToolStripMenuItem.Text = "[Cerrar sesión]";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            // 
+            // upnlPrplBottom.ClientArea
+            // 
+            this.upnlPrplBottom.ClientArea.Controls.Add(this.ulblPrplUsername);
+            this.upnlPrplBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlPrplBottom.Location = new System.Drawing.Point(0, 359);
+            this.upnlPrplBottom.Name = "upnlPrplBottom";
+            this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
+            this.upnlPrplBottom.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -663,7 +663,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Proyectos Samsara";
+            this.Text = "Samsara Projects";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.upnlPrplBottom.ClientArea.ResumeLayout(false);
@@ -740,9 +740,9 @@
         private System.Windows.Forms.ToolStripMenuItem tableroDeControlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coberturaHorizontalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coberturaVerticalToolStripMenuItem;
-        private Infragistics.Win.Misc.UltraPanel upnlPrplBottom;
-        private Infragistics.Win.Misc.UltraLabel ulblPrplUsername;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private Infragistics.Win.Misc.UltraLabel ulblPrplUsername;
+        private Infragistics.Win.Misc.UltraPanel upnlPrplBottom;
     }
 }
 
