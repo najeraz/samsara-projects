@@ -11,20 +11,20 @@ using Samsara.Main.Session;
 
 namespace Samsara.Base.Forms.Controllers
 {
-    public class GenericReportFormController
+    public class GenericDocumentFormController
     {
         #region Attributes
 
-        private GenericReportForm frmGenericReport;
+        private GenericDocumentForm frmGenericDocument;
         protected IAlleatoERPService srvAlleatoERP;
 
         #endregion Attributes
 
         #region Constructor
 
-        public GenericReportFormController(GenericReportForm frmGenericReport)
+        public GenericDocumentFormController(GenericDocumentForm frmGenericDocument)
         {
-            this.frmGenericReport = frmGenericReport;
+            this.frmGenericDocument = frmGenericDocument;
 
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
@@ -32,10 +32,10 @@ namespace Samsara.Base.Forms.Controllers
                 Assert.IsNotNull(this.srvAlleatoERP);
             }
 
-            this.frmGenericReport.grdPrincipal.InitializeLayout
+            this.frmGenericDocument.grdPrincipal.InitializeLayout
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
-            this.frmGenericReport.ulblPrplUsername.Text = Session.User.Username;
+            this.frmGenericDocument.ulblPrplUsername.Text = Session.User.Username;
         }
 
         #endregion Constructor
@@ -57,7 +57,7 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Public
 
-        public virtual void GenerateReport()
+        public virtual void GenerateDocument()
         {
         }
 
@@ -69,18 +69,18 @@ namespace Samsara.Base.Forms.Controllers
 
         private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
-            if (this.frmGenericReport.grdPrincipal.DataSource != null
-                && this.frmGenericReport.grdPrincipal.DataSource is DataTable)
+            if (this.frmGenericDocument.grdPrincipal.DataSource != null
+                && this.frmGenericDocument.grdPrincipal.DataSource is DataTable)
             {
-                this.frmGenericReport.ulblPrplRowQuantity.Text
-                    = (this.frmGenericReport.grdPrincipal.DataSource as DataTable)
+                this.frmGenericDocument.ulblPrplRowQuantity.Text
+                    = (this.frmGenericDocument.grdPrincipal.DataSource as DataTable)
                     .Rows.Count.ToString();
             }
-            else if (this.frmGenericReport.grdPrincipal.DataSource != null
-                && this.frmGenericReport.grdPrincipal.DataSource is DataSet)
+            else if (this.frmGenericDocument.grdPrincipal.DataSource != null
+                && this.frmGenericDocument.grdPrincipal.DataSource is DataSet)
             {
-                this.frmGenericReport.ulblPrplRowQuantity.Text
-                    = (this.frmGenericReport.grdPrincipal.DataSource as DataSet).Tables[0]
+                this.frmGenericDocument.ulblPrplRowQuantity.Text
+                    = (this.frmGenericDocument.grdPrincipal.DataSource as DataSet).Tables[0]
                     .Rows.Count.ToString();
             }
         }
