@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
@@ -7,20 +8,36 @@ namespace Samsara.Support.Util
 {
     public class CryptoUtil
     {
+        /// <summary>
+        /// Usually a salted hash of the password is stored and compared. 
+        /// If you encrypt/decrypt the password you have the password as plain text again and this is dangerous. 
+        /// The hash should be salted to avoid duplicated hash if the some users have the same passwords. For the salt you can take the user name
+        /// </summary>
+        /// <param name="username">Username</param>
+        /// <param name="password">Password</param>
+        /// <returns>Hashed password</returns>
         [DebuggerStepThrough]
-        public static string MD5Hash(string value)
+        public static string PasswordHash(string username, string password)
         {
-            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
+            HashAlgorithm hash = new SHA256Managed();
 
-            byte[] data = Encoding.ASCII.GetBytes(value);
-            data = provider.ComputeHash(data);
+            // compute hash of the password
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(password);
+            byte[] hashBytes = hash.ComputeHash(plainTextBytes);
 
-            string md5 = string.Empty;
+            // create salted byte array
+            byte[] saltBytes = Encoding.UTF8.GetBytes(username.ToLower());
+            byte[] plainTextWithSaltBytes = new byte[plainTextBytes.Length + saltBytes.Length];
 
-            foreach (byte byteValue in data)
-                md5 += byteValue.ToString("x2").ToLower();
+            for (int i = 0; i < plainTextBytes.Length; i++)
+            {
+                plainTextWithSaltBytes[i] = plainTextBytes[i];
+            }
 
-            return md5;
+            // compute salted hash
+            byte[] saltedHashBytes = hash.ComputeHash(plainTextWithSaltBytes);
+
+            return Convert.ToBase64String(saltedHashBytes);
         }
     }
 }
