@@ -47,7 +47,7 @@ namespace Samsara.Main.Session
             Assert.IsNotNull(srvUser);
 
             pmtUser.Username = username;
-            pmtUser.Password = CryptoUtil.MD5Hash(password);
+            pmtUser.Password = CryptoUtil.PasswordHash(username, password);
             user = srvUser.GetByParameters(pmtUser);
         }
     }
