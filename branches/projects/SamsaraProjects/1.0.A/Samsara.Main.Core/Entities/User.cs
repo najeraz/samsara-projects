@@ -29,7 +29,7 @@ namespace Samsara.Main.Core.Entities
         public virtual string Password
         {
             set;
-            private get;
+            protected internal get;
         }
 
         public virtual Staff Staff
