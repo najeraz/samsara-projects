@@ -96,6 +96,7 @@
             this.coberturaVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
             this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.upnlPrplBottom.ClientArea.SuspendLayout();
             this.upnlPrplBottom.SuspendLayout();
@@ -587,7 +588,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiMainMenu,
             this.licitacionesToolStripMenuItem,
-            this.tableroDeControlToolStripMenuItem});
+            this.tableroDeControlToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(811, 24);
@@ -641,6 +643,14 @@
             this.ulblPrplUsername.Size = new System.Drawing.Size(61, 16);
             this.ulblPrplUsername.TabIndex = 1;
             this.ulblPrplUsername.Text = "[username]";
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.cerrarSesiónToolStripMenuItem.Text = "[Cerrar sesión]";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -732,6 +742,7 @@
         private System.Windows.Forms.ToolStripMenuItem coberturaVerticalToolStripMenuItem;
         private Infragistics.Win.Misc.UltraPanel upnlPrplBottom;
         private Infragistics.Win.Misc.UltraLabel ulblPrplUsername;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
     }
 }
 
