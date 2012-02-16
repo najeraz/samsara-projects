@@ -35,11 +35,6 @@ namespace Samsara.Base.Forms.Forms
 
         #region Events
 
-        private void btnPrplClose_Click(object sender, System.EventArgs e)
-        {
-            this.Close();
-        }
-
         [DebuggerStepThroughAttribute]
         private void btnClick(object sender, System.EventArgs e)
         {
@@ -51,16 +46,36 @@ namespace Samsara.Base.Forms.Forms
 
                 switch (btn.Name)
                 {
-                    case "btnPrplGenerate":
-                        this.controller.GenerateDocument();
+                    case "btnSchSearch":
+                        this.controller.Search();
+                        break;
+                    case "btnSchClear":
+                        this.controller.ClearSearchFields();
+                        break;
+                    case "btnSchAccept":
+                        this.controller.ReturnSelectedEntity();
+                        break;
+                    case "btnSchClose":
+                        this.controller.CloseForm();
+                        break;
+                    case "btnSchDelete":
+                        this.controller.DeleteSelectedEntity();
+                        break;
+                    case "btnSchEdit":
+                        this.controller.EditSelectedEntity();
+                        break;
+                    case "btnSchCreate":
+                        this.controller.CreateEntity();
+                        break;
+                    case "btnDetSave":
+                        this.controller.SaveEntity();
+                        break;
+                    case "btnDetCancel":
+                        this.controller.CancelSaveOrUpdate();
                         break;
                     default:
                         break;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
             finally
             {

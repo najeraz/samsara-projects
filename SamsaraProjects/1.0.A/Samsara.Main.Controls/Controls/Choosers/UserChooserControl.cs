@@ -12,14 +12,8 @@ namespace Samsara.Main.Controls.Controls
     {
         public UserChooserControl()
         {
-            string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
-                Assembly.GetExecutingAssembly().FullName.IndexOf(","));
-
-            string schemaNamespace = controlsSchemaNamespace
-                .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
-
-            assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.UserForm";
+            assemblyName = "Samsara.Main.Forms.dll";
+            assemblyFormClassName = "Samsara.Main.Forms.Forms.UserForm";
             InitializeComponent();
         }
     }

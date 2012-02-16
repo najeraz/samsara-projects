@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using Infragistics.Win;
+using Samsara.Base.Forms.Enums;
 
 namespace Samsara.Base.Forms.Forms
 {
@@ -9,14 +10,8 @@ namespace Samsara.Base.Forms.Forms
     {
         #region Attributes
 
-        private enum FormStatus
-        {
-            Creation,
-            Edition
-        }
-
         private TabPage hiddenTabPage = null;
-        private FormStatus status;
+        private FormStatusEnum formStatus;
          
         #endregion Attributes
 
@@ -31,7 +26,7 @@ namespace Samsara.Base.Forms.Forms
             InitializeComponent();
             this.grdSchSearch.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
             this.hiddenTabPage = this.tabPrincipal.TabPages["New"];
-            this.status = FormStatus.Creation;
+            this.formStatus = FormStatusEnum.Creation;
         }
 
         #endregion Constructor
@@ -45,12 +40,12 @@ namespace Samsara.Base.Forms.Forms
             else if (!this.tabPrincipal.TabPages.ContainsKey("New"))
                 this.tabPrincipal.TabPages.Add(hiddenTabPage);
 
-            switch (this.status)
+            switch (this.formStatus)
             {
-                case FormStatus.Creation:
+                case FormStatusEnum.Creation:
                     hiddenTabPage.Text = "Nuevo";
                     break;
-                case FormStatus.Edition:
+                case FormStatusEnum.Edition:
                     hiddenTabPage.Text = "Edición";
                     break;
                 default:
@@ -69,12 +64,12 @@ namespace Samsara.Base.Forms.Forms
 
         private void btnSchCreate_Click(object sender, System.EventArgs e)
         {
-            this.status = FormStatus.Creation;
+            this.formStatus = FormStatusEnum.Creation;
         }
 
         private void btnSchEdit_Click(object sender, System.EventArgs e)
         {
-            this.status = FormStatus.Edition;
+            this.formStatus = FormStatusEnum.Edition;
         }
 
         #endregion Events

@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="Controllers\GenericDocumentFormController.cs" />
     <Compile Include="Controllers\GenericReportFormController.cs" />
+    <Compile Include="Enums\FormStatusEnum.cs" />
     <Compile Include="Forms\GenericDocumentForm.cs">
       <SubType>Form</SubType>
     </Compile>
