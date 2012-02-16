@@ -71,7 +71,7 @@ namespace Samsara.Base.Forms.Forms
                         this.controller.SaveEntity();
                         break;
                     case "btnDetCancel":
-                        this.controller.CancelSaveOrUpdate();
+                        this.controller.BackToSearch();
                         break;
                     default:
                         break;
