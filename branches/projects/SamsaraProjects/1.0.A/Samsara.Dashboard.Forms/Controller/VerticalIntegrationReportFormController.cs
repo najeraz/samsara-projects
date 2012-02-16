@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.AlleatoERP.Core.Entities;
@@ -13,7 +14,6 @@ using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Dashboard.Core.Parameters;
 using Samsara.Dashboard.Forms.Forms;
-using Infragistics.Win;
 
 namespace Samsara.Dashboard.Forms.Controller
 {
