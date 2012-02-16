@@ -1,13 +1,13 @@
 ﻿
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
-using System.Diagnostics;
 
 namespace Samsara.Base.Forms.Controllers
 {
@@ -16,7 +16,6 @@ namespace Samsara.Base.Forms.Controllers
         #region Attributes
 
         private GenericDocumentForm frmGenericDocument;
-        protected IAlleatoERPService srvAlleatoERP;
 
         #endregion Attributes
 
@@ -25,12 +24,6 @@ namespace Samsara.Base.Forms.Controllers
         public GenericDocumentFormController(GenericDocumentForm frmGenericDocument)
         {
             this.frmGenericDocument = frmGenericDocument;
-
-            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
-            {
-                this.srvAlleatoERP = SamsaraAppContext.Resolve<IAlleatoERPService>();
-                Assert.IsNotNull(this.srvAlleatoERP);
-            }
 
             this.frmGenericDocument.grdPrincipal.InitializeLayout
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
@@ -46,50 +39,45 @@ namespace Samsara.Base.Forms.Controllers
 
         protected virtual void InitializeFormControls()
         {
-            this.ClearPrincipalControls();
-        }
-
-        protected virtual void ClearPrincipalControls()
-        {
         }
 
         #endregion Protected
 
         #region Public
 
-        internal virtual void Search()
+        public virtual void Search()
         {
         }
 
-        internal virtual void ClearSearchFields()
+        public virtual void ClearSearchFields()
         {
         }
 
-        internal virtual void ReturnSelectedEntity()
+        public virtual void ReturnSelectedEntity()
         {
         }
 
-        internal virtual void CloseForm()
+        public virtual void CloseForm()
         {
         }
 
-        internal virtual void DeleteSelectedEntity()
+        public virtual void DeleteSelectedEntity()
         {
         }
 
-        internal virtual void EditSelectedEntity()
+        public virtual void EditSelectedEntity()
         {
         }
 
-        internal virtual void CreateEntity()
+        public virtual void CreateEntity()
         {
         }
 
-        internal virtual void CancelSaveOrUpdate()
+        public virtual void BackToSearch()
         {
         }
 
-        internal virtual void SaveEntity()
+        public virtual void SaveEntity()
         {
         }
 
