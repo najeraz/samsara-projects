@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,31 +10,31 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructureTelephonyId
+        public Nullable<int> CustomerInfrastructureTelephonyId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureId
+        public Nullable<int> CustomerInfrastructureId
         {
             get;
             set;
         }
 
-        public int? NumberOfLines
+        public Nullable<int> NumberOfLines
         {
             get;
             set;
         }
 
-        public int? TelephonyProviderId
+        public Nullable<int> TelephonyProviderId
         {
             get;
             set;
         }
 
-        public int? TelephonyLineTypeId
+        public Nullable<int> TelephonyLineTypeId
         {
             get;
             set;

@@ -1,11 +1,7 @@
 ﻿
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
-using Samsara.AlleatoERP.Service.Interfaces;
-using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
 
@@ -16,6 +12,7 @@ namespace Samsara.Base.Forms.Controllers
         #region Attributes
 
         private GenericDocumentForm frmGenericDocument;
+        private DataTable dtSearchGrid;
 
         #endregion Attributes
 
@@ -29,6 +26,8 @@ namespace Samsara.Base.Forms.Controllers
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
             this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
+
+            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -96,6 +95,8 @@ namespace Samsara.Base.Forms.Controllers
                 this.frmGenericDocument.ulblSchRowQuantity.Text
                     = (this.frmGenericDocument.grdPrincipal.DataSource as DataTable)
                     .Rows.Count.ToString();
+
+                this.dtSearchGrid = this.frmGenericDocument.grdPrincipal.DataSource as DataTable;
             }
             else if (this.frmGenericDocument.grdPrincipal.DataSource != null
                 && this.frmGenericDocument.grdPrincipal.DataSource is DataSet)
@@ -103,6 +104,8 @@ namespace Samsara.Base.Forms.Controllers
                 this.frmGenericDocument.ulblSchRowQuantity.Text
                     = (this.frmGenericDocument.grdPrincipal.DataSource as DataSet).Tables[0]
                     .Rows.Count.ToString();
+
+                this.dtSearchGrid = (this.frmGenericDocument.grdPrincipal.DataSource as DataSet).Tables[0];
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,7 +10,7 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? BusinessTypeId
+        public Nullable<int> BusinessTypeId
         {
             get;
             set;

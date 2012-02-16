@@ -11,7 +11,6 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
-using Infragistics.Win.UltraWinGrid.DocumentExport;
 
 namespace Samsara.Base.Controls.Controls
 {

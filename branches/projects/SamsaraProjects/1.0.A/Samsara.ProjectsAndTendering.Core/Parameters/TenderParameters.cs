@@ -7,37 +7,37 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
     public class TenderParameters : GenericParameters
     {
-        public int? AsesorId
+        public Nullable<int> AsesorId
         {
             get;
             set;
         }
 
-        public int? OpportunityId
+        public Nullable<int> OpportunityId
         {
             get;
             set;
         }
 
-        public int? BidderId
+        public Nullable<int> BidderId
         {
             get;
             set;
         }
 
-        public int? DependencyId
+        public Nullable<int> DependencyId
         {
             get;
             set;
         }
 
-        public int? EndUserId
+        public Nullable<int> EndUserId
         {
             get;
             set;
         }
 
-        public int? TenderStatusId
+        public Nullable<int> TenderStatusId
         {
             get;
             set;
@@ -55,13 +55,13 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
-        public DateTime? MinDate
+        public Nullable<DateTime> MinDate
         {
             get;
             set;
         }
 
-        public DateTime? MaxDate
+        public Nullable<DateTime> MaxDate
         {
             get;
             set;

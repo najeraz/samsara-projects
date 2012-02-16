@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -10,13 +11,13 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructureId
+        public Nullable<int> CustomerInfrastructureId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureNetwork
+        public Nullable<int> CustomerInfrastructureNetwork
         {
             get;
             set;

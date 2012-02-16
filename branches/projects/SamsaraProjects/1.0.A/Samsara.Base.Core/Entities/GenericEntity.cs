@@ -1,4 +1,5 @@
 ﻿
+using System;
 
 namespace Samsara.Base.Core.Entities
 {
@@ -15,6 +16,30 @@ namespace Samsara.Base.Core.Entities
         }
 
         public virtual bool Activated
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<int> UpdatedBy
+        {
+            get;
+            set;
+        }
+
+        public virtual int CreatedBy
+        {
+            get;
+            set;
+        }
+
+        public virtual DateTime CreationDate
+        {
+            get;
+            set;
+        }
+
+        public virtual DateTime UpdatedDate
         {
             get;
             set;

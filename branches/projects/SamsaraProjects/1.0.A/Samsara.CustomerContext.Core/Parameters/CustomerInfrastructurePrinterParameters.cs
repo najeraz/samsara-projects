@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,13 +10,13 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructurePrinterId
+        public Nullable<int> CustomerInfrastructurePrinterId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureId
+        public Nullable<int> CustomerInfrastructureId
         {
             get;
             set;
@@ -27,13 +28,13 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public int? PrinterTypeId
+        public Nullable<int> PrinterTypeId
         {
             get;
             set;
         }
 
-        public int? PrinterBrandId
+        public Nullable<int> PrinterBrandId
         {
             get;
             set;

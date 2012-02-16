@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Operation.Core.Parameters
@@ -11,7 +12,7 @@ namespace Samsara.Operation.Core.Parameters
             set;
         }
 
-        public int? ExchangeRateId
+        public Nullable<int> ExchangeRateId
         {
             get;
             set;

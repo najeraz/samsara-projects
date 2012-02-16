@@ -1,5 +1,4 @@
 ﻿
-using System.Reflection;
 using Samsara.Base.Controls.Controls;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Core.Parameters;
@@ -12,14 +11,8 @@ namespace Samsara.Main.Controls.Controls
     {
         public UserPermissionChooserControl()
         {
-            string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
-                Assembly.GetExecutingAssembly().FullName.IndexOf(","));
-
-            string schemaNamespace = controlsSchemaNamespace
-                .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
-
-            assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.UserPermissionForm";
+            assemblyName = "Samsara.Main.Forms.dll";
+            assemblyFormClassName = "Samsara.Main.Forms.Forms.UserPermissionForm";
             InitializeComponent();
         }
     }
