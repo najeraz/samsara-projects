@@ -35,11 +35,6 @@ namespace Samsara.Base.Forms.Forms
 
         #region Events
 
-        private void btnPrplClose_Click(object sender, System.EventArgs e)
-        {
-            this.Close();
-        }
-
         [DebuggerStepThroughAttribute]
         private void btnClick(object sender, System.EventArgs e)
         {

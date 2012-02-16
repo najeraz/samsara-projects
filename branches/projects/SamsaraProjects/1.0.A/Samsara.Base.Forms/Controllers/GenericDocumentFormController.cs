@@ -7,6 +7,7 @@ using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
+using System.Diagnostics;
 
 namespace Samsara.Base.Forms.Controllers
 {
@@ -34,7 +35,7 @@ namespace Samsara.Base.Forms.Controllers
             this.frmGenericDocument.grdPrincipal.InitializeLayout
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
-            this.frmGenericDocument.ulblPrplUsername.Text = Session.User.Username;
+            this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
         }
 
         #endregion Constructor
@@ -56,7 +57,39 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Public
 
-        public virtual void GenerateDocument()
+        internal virtual void Search()
+        {
+        }
+
+        internal virtual void ClearSearchFields()
+        {
+        }
+
+        internal virtual void ReturnSelectedEntity()
+        {
+        }
+
+        internal virtual void CloseForm()
+        {
+        }
+
+        internal virtual void DeleteSelectedEntity()
+        {
+        }
+
+        internal virtual void EditSelectedEntity()
+        {
+        }
+
+        internal virtual void CreateEntity()
+        {
+        }
+
+        internal virtual void CancelSaveOrUpdate()
+        {
+        }
+
+        internal virtual void SaveEntity()
         {
         }
 
@@ -66,19 +99,20 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Events
 
+        [DebuggerStepThrough]
         private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             if (this.frmGenericDocument.grdPrincipal.DataSource != null
                 && this.frmGenericDocument.grdPrincipal.DataSource is DataTable)
             {
-                this.frmGenericDocument.ulblPrplRowQuantity.Text
+                this.frmGenericDocument.ulblSchRowQuantity.Text
                     = (this.frmGenericDocument.grdPrincipal.DataSource as DataTable)
                     .Rows.Count.ToString();
             }
             else if (this.frmGenericDocument.grdPrincipal.DataSource != null
                 && this.frmGenericDocument.grdPrincipal.DataSource is DataSet)
             {
-                this.frmGenericDocument.ulblPrplRowQuantity.Text
+                this.frmGenericDocument.ulblSchRowQuantity.Text
                     = (this.frmGenericDocument.grdPrincipal.DataSource as DataSet).Tables[0]
                     .Rows.Count.ToString();
             }
