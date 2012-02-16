@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,25 +10,25 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructureNetworkWifiAccessPointId
+        public Nullable<int> CustomerInfrastructureNetworkWifiAccessPointId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureNetworkWifiId
+        public Nullable<int> CustomerInfrastructureNetworkWifiId
         {
             get;
             set;
         }
 
-        public int? AccessPointBrandId
+        public Nullable<int> AccessPointBrandId
         {
             get;
             set;
         }
 
-        public int? AccessPointTypeId
+        public Nullable<int> AccessPointTypeId
         {
             get;
             set;

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,25 +10,25 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructureCCTVId
+        public Nullable<int> CustomerInfrastructureCCTVId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureId
+        public Nullable<int> CustomerInfrastructureId
         {
             get;
             set;
         }
 
-        public int? CCTVTypeId
+        public Nullable<int> CCTVTypeId
         {
             get;
             set;
         }
 
-        public int? CCTVBrandId
+        public Nullable<int> CCTVBrandId
         {
             get;
             set;

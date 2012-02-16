@@ -382,6 +382,15 @@
     <property name="Dao" ref="IUserPermissionDao"/>
   </object>
   
+  <object id="IServicesService"
+          type="Samsara.Commissions.Service.Impl.ServicesService, Samsara.Commissions.Service">
+    <property name="Dao" ref="IServicesDao"/>
+  </object>
+  <object id="IServiceStaffService"
+          type="Samsara.Commissions.Service.Impl.ServiceStaffService, Samsara.Commissions.Service">
+    <property name="Dao" ref="IServiceStaffDao"/>
+  </object>
+  
   <import resource="DeclarativeServicesTxProxyFactoryDriven.xml"/>
 
 </objects>

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -10,13 +11,13 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructureServerComputerId
+        public Nullable<int> CustomerInfrastructureServerComputerId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureId
+        public Nullable<int> CustomerInfrastructureId
         {
             get;
             set;
@@ -64,7 +65,7 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public int? ComputerBrandId
+        public Nullable<int> ComputerBrandId
         {
             get;
             set;
@@ -76,7 +77,7 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public int? OperativeSystemId
+        public Nullable<int> OperativeSystemId
         {
             get;
             set;

@@ -43,7 +43,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual DateTime? ExpirationDate
+        public virtual Nullable<DateTime> ExpirationDate
         {
             get;
             set;

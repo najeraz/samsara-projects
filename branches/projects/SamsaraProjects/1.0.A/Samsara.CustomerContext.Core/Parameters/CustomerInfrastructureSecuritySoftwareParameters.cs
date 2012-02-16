@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,19 +10,19 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? CustomerInfrastructureSecuritySoftwareId
+        public Nullable<int> CustomerInfrastructureSecuritySoftwareId
         {
             get;
             set;
         }
 
-        public int? CustomerInfrastructureId
+        public Nullable<int> CustomerInfrastructureId
         {
             get;
             set;
         }
 
-        public int? SecuritySoftwareBrandId
+        public Nullable<int> SecuritySoftwareBrandId
         {
             get;
             set;
@@ -33,7 +34,7 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public int? NumberOfClients
+        public Nullable<int> NumberOfClients
         {
             get;
             set;

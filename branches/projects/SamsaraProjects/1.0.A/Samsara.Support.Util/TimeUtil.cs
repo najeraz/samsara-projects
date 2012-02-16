@@ -1,8 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic;
 using System.Linq;
+using Microsoft.VisualBasic;
 
 namespace Samsara.Support.Util
 {

@@ -29,7 +29,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual DateTime? RegistrationDate
+        public virtual Nullable<DateTime> RegistrationDate
         {
             get;
             set;
@@ -77,19 +77,19 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual DateTime? ClarificationDate
+        public virtual Nullable<DateTime> ClarificationDate
         {
             get;
             set;
         }
 
-        public virtual DateTime? PreRevisionDate
+        public virtual Nullable<DateTime> PreRevisionDate
         {
             get;
             set;
         }
 
-        public virtual DateTime? Deadline
+        public virtual Nullable<DateTime> Deadline
         {
             get;
             set;
@@ -125,7 +125,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual DateTime? VerdictDate
+        public virtual Nullable<DateTime> VerdictDate
         {
             get;
             set;

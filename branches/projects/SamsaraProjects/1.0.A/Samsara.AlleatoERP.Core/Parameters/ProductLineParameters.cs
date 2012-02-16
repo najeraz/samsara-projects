@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Core.Parameters
@@ -9,7 +10,7 @@ namespace Samsara.AlleatoERP.Core.Parameters
         {
         }
 
-        public int? ProductLineId
+        public Nullable<int> ProductLineId
         {
             get;
             set;
