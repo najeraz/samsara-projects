@@ -436,6 +436,17 @@
           type="Samsara.Main.Dao.Impl.UserPermissionDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  
+  <!-- ====================================== Commissions ====================================== -->
+
+  <object id="IServicesDao"
+          type="Samsara.Commissions.Dao.Impl.ServicesDao, Samsara.Commissions.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IServiceStaffDao"
+          type="Samsara.Commissions.Dao.Impl.ServiceStaffDao, Samsara.Commissions.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
 </objects>
 

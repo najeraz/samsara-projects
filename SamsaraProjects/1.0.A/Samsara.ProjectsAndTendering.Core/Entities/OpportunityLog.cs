@@ -31,7 +31,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        public virtual DateTime? LogDate
+        public virtual Nullable<DateTime> LogDate
         {
             get;
             set;

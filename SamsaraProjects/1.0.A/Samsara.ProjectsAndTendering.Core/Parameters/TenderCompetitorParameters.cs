@@ -1,11 +1,12 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
     public class TenderCompetitorParameters : GenericParameters
     {
-        public int? TenderId
+        public Nullable<int> TenderId
         {
             get;
             set;

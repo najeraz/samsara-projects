@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
@@ -9,13 +10,13 @@ namespace Samsara.CustomerContext.Core.Parameters
         {
         }
 
-        public int? OperativeSystemId
+        public Nullable<int> OperativeSystemId
         {
             get;
             set;
         }
 
-        public int? OperativeSystemTypeId
+        public Nullable<int> OperativeSystemTypeId
         {
             get;
             set;
