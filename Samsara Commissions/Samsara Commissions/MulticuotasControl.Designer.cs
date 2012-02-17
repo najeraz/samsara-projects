@@ -35,42 +35,44 @@
             this.grdMultiquotaSchemes = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.uplSchemesButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDeleteScheme = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorEditScheme = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnEditScheme = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCreateScheme = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCreateScheme = new Infragistics.Win.Misc.UltraButton();
             this.ugbxNewScheme = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtProductsQuota = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.uplNewSchemeButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnAcceptScheme = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorSchemeCancel = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCancelScheme = new Infragistics.Win.Misc.UltraButton();
+            this.ulblProductsQuota = new Infragistics.Win.Misc.UltraLabel();
             this.dteSchemeStartDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
+            this.txtServicesQuota = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.ulblServicesQuota = new Infragistics.Win.Misc.UltraLabel();
             this.txtSchemeName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchemeStartDate = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSchemeName = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblProductsQuota = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblServicesQuota = new Infragistics.Win.Misc.UltraLabel();
-            this.uchkServicesComissioner = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.txtProductsQuota = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.txtServicesQuota = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.upnlDetailScheme = new Infragistics.Win.Misc.UltraPanel();
-            this.ugbxNewSegment = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ulblSegmentAmount = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblComissionPercent = new Infragistics.Win.Misc.UltraLabel();
-            this.uplNewSegmentButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnCancelSegment = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorCancelSegment = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnAcceptSegment = new Infragistics.Win.Misc.UltraButton();
-            this.txtSegmentAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.txtComissionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.upnlSegmentButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnCreateSegment = new Infragistics.Win.Misc.UltraButton();
-            this.upnlSeparatorCreateSegment = new Infragistics.Win.Misc.UltraPanel();
-            this.ubtnDeleteSegment = new Infragistics.Win.Misc.UltraButton();
-            this.grdAgentSegments = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.gbxAgentSegments = new System.Windows.Forms.GroupBox();
+            this.grdAgentSegments = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.upnlSegmentButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnDeleteSegment = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorCreateSegment = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCreateSegment = new Infragistics.Win.Misc.UltraButton();
+            this.ugbxNewSegment = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtComissionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtSegmentAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.uplNewSegmentButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnAcceptSegment = new Infragistics.Win.Misc.UltraButton();
+            this.upnlSeparatorCancelSegment = new Infragistics.Win.Misc.UltraPanel();
+            this.ubtnCancelSegment = new Infragistics.Win.Misc.UltraButton();
+            this.ulblComissionPercent = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSegmentAmount = new Infragistics.Win.Misc.UltraLabel();
             this.gbxMultiquotaSchemes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMultiquotaSchemes)).BeginInit();
             this.uplSchemesButtons.ClientArea.SuspendLayout();
             this.uplSchemesButtons.SuspendLayout();
+            this.upnlSeparatorEditScheme.SuspendLayout();
             this.upnlSeparatorCreateScheme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxNewScheme)).BeginInit();
             this.ugbxNewScheme.SuspendLayout();
@@ -79,19 +81,18 @@
             this.upnlSeparatorSchemeCancel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dteSchemeStartDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchemeName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkServicesComissioner)).BeginInit();
             this.upnlDetailScheme.ClientArea.SuspendLayout();
             this.upnlDetailScheme.SuspendLayout();
+            this.gbxAgentSegments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAgentSegments)).BeginInit();
+            this.upnlSegmentButtons.ClientArea.SuspendLayout();
+            this.upnlSegmentButtons.SuspendLayout();
+            this.upnlSeparatorCreateSegment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxNewSegment)).BeginInit();
             this.ugbxNewSegment.SuspendLayout();
             this.uplNewSegmentButtons.ClientArea.SuspendLayout();
             this.uplNewSegmentButtons.SuspendLayout();
             this.upnlSeparatorCancelSegment.SuspendLayout();
-            this.upnlSegmentButtons.ClientArea.SuspendLayout();
-            this.upnlSegmentButtons.SuspendLayout();
-            this.upnlSeparatorCreateSegment.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdAgentSegments)).BeginInit();
-            this.gbxAgentSegments.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxMultiquotaSchemes
@@ -141,6 +142,8 @@
             // uplSchemesButtons.ClientArea
             // 
             this.uplSchemesButtons.ClientArea.Controls.Add(this.ubtnDeleteScheme);
+            this.uplSchemesButtons.ClientArea.Controls.Add(this.upnlSeparatorEditScheme);
+            this.uplSchemesButtons.ClientArea.Controls.Add(this.ubtnEditScheme);
             this.uplSchemesButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateScheme);
             this.uplSchemesButtons.ClientArea.Controls.Add(this.ubtnCreateScheme);
             this.uplSchemesButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -152,12 +155,29 @@
             // ubtnDeleteScheme
             // 
             this.ubtnDeleteScheme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDeleteScheme.Location = new System.Drawing.Point(445, 0);
+            this.ubtnDeleteScheme.Location = new System.Drawing.Point(351, 0);
             this.ubtnDeleteScheme.Name = "ubtnDeleteScheme";
             this.ubtnDeleteScheme.Size = new System.Drawing.Size(75, 23);
             this.ubtnDeleteScheme.TabIndex = 6;
             this.ubtnDeleteScheme.Text = "Borrar";
             this.ubtnDeleteScheme.Click += new System.EventHandler(this.ubtnDeleteScheme_Click);
+            // 
+            // upnlSeparatorEditScheme
+            // 
+            this.upnlSeparatorEditScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorEditScheme.Location = new System.Drawing.Point(426, 0);
+            this.upnlSeparatorEditScheme.Name = "upnlSeparatorEditScheme";
+            this.upnlSeparatorEditScheme.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorEditScheme.TabIndex = 9;
+            // 
+            // ubtnEditScheme
+            // 
+            this.ubtnEditScheme.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnEditScheme.Location = new System.Drawing.Point(445, 0);
+            this.ubtnEditScheme.Name = "ubtnEditScheme";
+            this.ubtnEditScheme.Size = new System.Drawing.Size(75, 23);
+            this.ubtnEditScheme.TabIndex = 10;
+            this.ubtnEditScheme.Text = "Modificar";
             // 
             // upnlSeparatorCreateScheme
             // 
@@ -179,7 +199,6 @@
             // 
             // ugbxNewScheme
             // 
-            this.ugbxNewScheme.Controls.Add(this.uchkServicesComissioner);
             this.ugbxNewScheme.Controls.Add(this.txtProductsQuota);
             this.ugbxNewScheme.Controls.Add(this.uplNewSchemeButtons);
             this.ugbxNewScheme.Controls.Add(this.ulblProductsQuota);
@@ -196,6 +215,16 @@
             this.ugbxNewScheme.TabIndex = 2;
             this.ugbxNewScheme.Text = "Nuevo Esquema:";
             this.ugbxNewScheme.Visible = false;
+            // 
+            // txtProductsQuota
+            // 
+            this.txtProductsQuota.Location = new System.Drawing.Point(482, 16);
+            this.txtProductsQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtProductsQuota.Name = "txtProductsQuota";
+            this.txtProductsQuota.ReadOnly = false;
+            this.txtProductsQuota.Size = new System.Drawing.Size(94, 20);
+            this.txtProductsQuota.TabIndex = 9;
+            this.txtProductsQuota.Value = ((object)(resources.GetObject("txtProductsQuota.Value")));
             // 
             // uplNewSchemeButtons
             // 
@@ -239,12 +268,40 @@
             this.ubtnCancelScheme.Text = "Cancelar";
             this.ubtnCancelScheme.Click += new System.EventHandler(this.ubtnCancelScheme_Click);
             // 
+            // ulblProductsQuota
+            // 
+            this.ulblProductsQuota.AutoSize = true;
+            this.ulblProductsQuota.Location = new System.Drawing.Point(370, 19);
+            this.ulblProductsQuota.Name = "ulblProductsQuota";
+            this.ulblProductsQuota.Size = new System.Drawing.Size(106, 14);
+            this.ulblProductsQuota.TabIndex = 8;
+            this.ulblProductsQuota.Text = "Cuota de productos:";
+            // 
             // dteSchemeStartDate
             // 
             this.dteSchemeStartDate.Location = new System.Drawing.Point(60, 43);
             this.dteSchemeStartDate.Name = "dteSchemeStartDate";
             this.dteSchemeStartDate.Size = new System.Drawing.Size(144, 21);
             this.dteSchemeStartDate.TabIndex = 2;
+            // 
+            // txtServicesQuota
+            // 
+            this.txtServicesQuota.Location = new System.Drawing.Point(481, 42);
+            this.txtServicesQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtServicesQuota.Name = "txtServicesQuota";
+            this.txtServicesQuota.ReadOnly = false;
+            this.txtServicesQuota.Size = new System.Drawing.Size(94, 20);
+            this.txtServicesQuota.TabIndex = 7;
+            this.txtServicesQuota.Value = ((object)(resources.GetObject("txtServicesQuota.Value")));
+            // 
+            // ulblServicesQuota
+            // 
+            this.ulblServicesQuota.AutoSize = true;
+            this.ulblServicesQuota.Location = new System.Drawing.Point(369, 45);
+            this.ulblServicesQuota.Name = "ulblServicesQuota";
+            this.ulblServicesQuota.Size = new System.Drawing.Size(100, 14);
+            this.ulblServicesQuota.TabIndex = 6;
+            this.ulblServicesQuota.Text = "Cuota de servicios:";
             // 
             // txtSchemeName
             // 
@@ -271,53 +328,6 @@
             this.ulblSchemeName.TabIndex = 0;
             this.ulblSchemeName.Text = "Nombre:";
             // 
-            // ulblProductsQuota
-            // 
-            this.ulblProductsQuota.AutoSize = true;
-            this.ulblProductsQuota.Location = new System.Drawing.Point(370, 19);
-            this.ulblProductsQuota.Name = "ulblProductsQuota";
-            this.ulblProductsQuota.Size = new System.Drawing.Size(106, 14);
-            this.ulblProductsQuota.TabIndex = 8;
-            this.ulblProductsQuota.Text = "Cuota de productos:";
-            // 
-            // ulblServicesQuota
-            // 
-            this.ulblServicesQuota.AutoSize = true;
-            this.ulblServicesQuota.Location = new System.Drawing.Point(369, 45);
-            this.ulblServicesQuota.Name = "ulblServicesQuota";
-            this.ulblServicesQuota.Size = new System.Drawing.Size(100, 14);
-            this.ulblServicesQuota.TabIndex = 6;
-            this.ulblServicesQuota.Text = "Cuota de servicios:";
-            // 
-            // uchkServicesComissioner
-            // 
-            this.uchkServicesComissioner.AutoSize = true;
-            this.uchkServicesComissioner.Location = new System.Drawing.Point(234, 44);
-            this.uchkServicesComissioner.Name = "uchkServicesComissioner";
-            this.uchkServicesComissioner.Size = new System.Drawing.Size(122, 17);
-            this.uchkServicesComissioner.TabIndex = 10;
-            this.uchkServicesComissioner.Text = "Comisiona servicios";
-            // 
-            // txtProductsQuota
-            // 
-            this.txtProductsQuota.Location = new System.Drawing.Point(482, 16);
-            this.txtProductsQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.txtProductsQuota.Name = "txtProductsQuota";
-            this.txtProductsQuota.ReadOnly = false;
-            this.txtProductsQuota.Size = new System.Drawing.Size(94, 20);
-            this.txtProductsQuota.TabIndex = 9;
-            this.txtProductsQuota.Value = ((object)(resources.GetObject("txtProductsQuota.Value")));
-            // 
-            // txtServicesQuota
-            // 
-            this.txtServicesQuota.Location = new System.Drawing.Point(481, 42);
-            this.txtServicesQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.txtServicesQuota.Name = "txtServicesQuota";
-            this.txtServicesQuota.ReadOnly = false;
-            this.txtServicesQuota.Size = new System.Drawing.Size(94, 20);
-            this.txtServicesQuota.TabIndex = 7;
-            this.txtServicesQuota.Value = ((object)(resources.GetObject("txtServicesQuota.Value")));
-            // 
             // upnlDetailScheme
             // 
             // 
@@ -330,142 +340,18 @@
             this.upnlDetailScheme.Size = new System.Drawing.Size(620, 161);
             this.upnlDetailScheme.TabIndex = 8;
             // 
-            // ugbxNewSegment
+            // gbxAgentSegments
             // 
-            this.ugbxNewSegment.Controls.Add(this.txtComissionPercent);
-            this.ugbxNewSegment.Controls.Add(this.txtSegmentAmount);
-            this.ugbxNewSegment.Controls.Add(this.uplNewSegmentButtons);
-            this.ugbxNewSegment.Controls.Add(this.ulblComissionPercent);
-            this.ugbxNewSegment.Controls.Add(this.ulblSegmentAmount);
-            this.ugbxNewSegment.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ugbxNewSegment.Location = new System.Drawing.Point(3, 88);
-            this.ugbxNewSegment.Name = "ugbxNewSegment";
-            this.ugbxNewSegment.Size = new System.Drawing.Size(614, 70);
-            this.ugbxNewSegment.TabIndex = 4;
-            this.ugbxNewSegment.Text = "Nuevo Segmento:";
-            this.ugbxNewSegment.Visible = false;
-            // 
-            // ulblSegmentAmount
-            // 
-            this.ulblSegmentAmount.AutoSize = true;
-            this.ulblSegmentAmount.Location = new System.Drawing.Point(6, 23);
-            this.ulblSegmentAmount.Name = "ulblSegmentAmount";
-            this.ulblSegmentAmount.Size = new System.Drawing.Size(77, 14);
-            this.ulblSegmentAmount.TabIndex = 0;
-            this.ulblSegmentAmount.Text = "Utilidad inicial:";
-            // 
-            // ulblComissionPercent
-            // 
-            this.ulblComissionPercent.AutoSize = true;
-            this.ulblComissionPercent.Location = new System.Drawing.Point(205, 23);
-            this.ulblComissionPercent.Name = "ulblComissionPercent";
-            this.ulblComissionPercent.Size = new System.Drawing.Size(55, 14);
-            this.ulblComissionPercent.TabIndex = 0;
-            this.ulblComissionPercent.Text = "Comision:";
-            // 
-            // uplNewSegmentButtons
-            // 
-            // 
-            // uplNewSegmentButtons.ClientArea
-            // 
-            this.uplNewSegmentButtons.ClientArea.Controls.Add(this.ubtnAcceptSegment);
-            this.uplNewSegmentButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelSegment);
-            this.uplNewSegmentButtons.ClientArea.Controls.Add(this.ubtnCancelSegment);
-            this.uplNewSegmentButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uplNewSegmentButtons.Location = new System.Drawing.Point(3, 44);
-            this.uplNewSegmentButtons.Name = "uplNewSegmentButtons";
-            this.uplNewSegmentButtons.Size = new System.Drawing.Size(608, 23);
-            this.uplNewSegmentButtons.TabIndex = 4;
-            // 
-            // ubtnCancelSegment
-            // 
-            this.ubtnCancelSegment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnCancelSegment.Location = new System.Drawing.Point(533, 0);
-            this.ubtnCancelSegment.Name = "ubtnCancelSegment";
-            this.ubtnCancelSegment.Size = new System.Drawing.Size(75, 23);
-            this.ubtnCancelSegment.TabIndex = 5;
-            this.ubtnCancelSegment.Text = "Cancelar";
-            this.ubtnCancelSegment.Click += new System.EventHandler(this.ubtnCancelSegment_Click);
-            // 
-            // upnlSeparatorCancelSegment
-            // 
-            this.upnlSeparatorCancelSegment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorCancelSegment.Location = new System.Drawing.Point(514, 0);
-            this.upnlSeparatorCancelSegment.Name = "upnlSeparatorCancelSegment";
-            this.upnlSeparatorCancelSegment.Size = new System.Drawing.Size(19, 23);
-            this.upnlSeparatorCancelSegment.TabIndex = 8;
-            // 
-            // ubtnAcceptSegment
-            // 
-            this.ubtnAcceptSegment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnAcceptSegment.Location = new System.Drawing.Point(439, 0);
-            this.ubtnAcceptSegment.Name = "ubtnAcceptSegment";
-            this.ubtnAcceptSegment.Size = new System.Drawing.Size(75, 23);
-            this.ubtnAcceptSegment.TabIndex = 6;
-            this.ubtnAcceptSegment.Text = "Aceptar";
-            this.ubtnAcceptSegment.Click += new System.EventHandler(this.ubtnAcceptSegment_Click);
-            // 
-            // txtSegmentAmount
-            // 
-            this.txtSegmentAmount.Location = new System.Drawing.Point(89, 20);
-            this.txtSegmentAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.txtSegmentAmount.Name = "txtSegmentAmount";
-            this.txtSegmentAmount.ReadOnly = false;
-            this.txtSegmentAmount.Size = new System.Drawing.Size(94, 20);
-            this.txtSegmentAmount.TabIndex = 5;
-            this.txtSegmentAmount.Value = ((object)(resources.GetObject("txtSegmentAmount.Value")));
-            // 
-            // txtComissionPercent
-            // 
-            this.txtComissionPercent.Location = new System.Drawing.Point(266, 20);
-            this.txtComissionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
-            this.txtComissionPercent.Name = "txtComissionPercent";
-            this.txtComissionPercent.ReadOnly = false;
-            this.txtComissionPercent.Size = new System.Drawing.Size(78, 20);
-            this.txtComissionPercent.TabIndex = 5;
-            this.txtComissionPercent.Value = ((object)(resources.GetObject("txtComissionPercent.Value")));
-            // 
-            // upnlSegmentButtons
-            // 
-            // 
-            // upnlSegmentButtons.ClientArea
-            // 
-            this.upnlSegmentButtons.ClientArea.Controls.Add(this.ubtnDeleteSegment);
-            this.upnlSegmentButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateSegment);
-            this.upnlSegmentButtons.ClientArea.Controls.Add(this.ubtnCreateSegment);
-            this.upnlSegmentButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlSegmentButtons.Location = new System.Drawing.Point(3, 65);
-            this.upnlSegmentButtons.Name = "upnlSegmentButtons";
-            this.upnlSegmentButtons.Size = new System.Drawing.Size(614, 23);
-            this.upnlSegmentButtons.TabIndex = 5;
-            // 
-            // ubtnCreateSegment
-            // 
-            this.ubtnCreateSegment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnCreateSegment.Location = new System.Drawing.Point(539, 0);
-            this.ubtnCreateSegment.Name = "ubtnCreateSegment";
-            this.ubtnCreateSegment.Size = new System.Drawing.Size(75, 23);
-            this.ubtnCreateSegment.TabIndex = 5;
-            this.ubtnCreateSegment.Text = "Nueva";
-            this.ubtnCreateSegment.Click += new System.EventHandler(this.ubtnCreateSegment_Click);
-            // 
-            // upnlSeparatorCreateSegment
-            // 
-            this.upnlSeparatorCreateSegment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upnlSeparatorCreateSegment.Location = new System.Drawing.Point(520, 0);
-            this.upnlSeparatorCreateSegment.Name = "upnlSeparatorCreateSegment";
-            this.upnlSeparatorCreateSegment.Size = new System.Drawing.Size(19, 23);
-            this.upnlSeparatorCreateSegment.TabIndex = 8;
-            // 
-            // ubtnDeleteSegment
-            // 
-            this.ubtnDeleteSegment.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubtnDeleteSegment.Location = new System.Drawing.Point(445, 0);
-            this.ubtnDeleteSegment.Name = "ubtnDeleteSegment";
-            this.ubtnDeleteSegment.Size = new System.Drawing.Size(75, 23);
-            this.ubtnDeleteSegment.TabIndex = 6;
-            this.ubtnDeleteSegment.Text = "Borrar";
-            this.ubtnDeleteSegment.Click += new System.EventHandler(this.ubtnDeleteSegment_Click);
+            this.gbxAgentSegments.Controls.Add(this.grdAgentSegments);
+            this.gbxAgentSegments.Controls.Add(this.upnlSegmentButtons);
+            this.gbxAgentSegments.Controls.Add(this.ugbxNewSegment);
+            this.gbxAgentSegments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxAgentSegments.Location = new System.Drawing.Point(0, 0);
+            this.gbxAgentSegments.Name = "gbxAgentSegments";
+            this.gbxAgentSegments.Size = new System.Drawing.Size(620, 161);
+            this.gbxAgentSegments.TabIndex = 7;
+            this.gbxAgentSegments.TabStop = false;
+            this.gbxAgentSegments.Text = "Segmentos de porcentajes de comisión:";
             // 
             // grdAgentSegments
             // 
@@ -494,18 +380,142 @@
             this.grdAgentSegments.Text = "ultraGrid1";
             this.grdAgentSegments.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdAgentSegments_InitializeLayout);
             // 
-            // gbxAgentSegments
+            // upnlSegmentButtons
             // 
-            this.gbxAgentSegments.Controls.Add(this.grdAgentSegments);
-            this.gbxAgentSegments.Controls.Add(this.upnlSegmentButtons);
-            this.gbxAgentSegments.Controls.Add(this.ugbxNewSegment);
-            this.gbxAgentSegments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxAgentSegments.Location = new System.Drawing.Point(0, 0);
-            this.gbxAgentSegments.Name = "gbxAgentSegments";
-            this.gbxAgentSegments.Size = new System.Drawing.Size(620, 161);
-            this.gbxAgentSegments.TabIndex = 7;
-            this.gbxAgentSegments.TabStop = false;
-            this.gbxAgentSegments.Text = "Segmentos de porcentajes de comisión:";
+            // 
+            // upnlSegmentButtons.ClientArea
+            // 
+            this.upnlSegmentButtons.ClientArea.Controls.Add(this.ubtnDeleteSegment);
+            this.upnlSegmentButtons.ClientArea.Controls.Add(this.upnlSeparatorCreateSegment);
+            this.upnlSegmentButtons.ClientArea.Controls.Add(this.ubtnCreateSegment);
+            this.upnlSegmentButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlSegmentButtons.Location = new System.Drawing.Point(3, 65);
+            this.upnlSegmentButtons.Name = "upnlSegmentButtons";
+            this.upnlSegmentButtons.Size = new System.Drawing.Size(614, 23);
+            this.upnlSegmentButtons.TabIndex = 5;
+            // 
+            // ubtnDeleteSegment
+            // 
+            this.ubtnDeleteSegment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnDeleteSegment.Location = new System.Drawing.Point(445, 0);
+            this.ubtnDeleteSegment.Name = "ubtnDeleteSegment";
+            this.ubtnDeleteSegment.Size = new System.Drawing.Size(75, 23);
+            this.ubtnDeleteSegment.TabIndex = 6;
+            this.ubtnDeleteSegment.Text = "Borrar";
+            this.ubtnDeleteSegment.Click += new System.EventHandler(this.ubtnDeleteSegment_Click);
+            // 
+            // upnlSeparatorCreateSegment
+            // 
+            this.upnlSeparatorCreateSegment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCreateSegment.Location = new System.Drawing.Point(520, 0);
+            this.upnlSeparatorCreateSegment.Name = "upnlSeparatorCreateSegment";
+            this.upnlSeparatorCreateSegment.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorCreateSegment.TabIndex = 8;
+            // 
+            // ubtnCreateSegment
+            // 
+            this.ubtnCreateSegment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCreateSegment.Location = new System.Drawing.Point(539, 0);
+            this.ubtnCreateSegment.Name = "ubtnCreateSegment";
+            this.ubtnCreateSegment.Size = new System.Drawing.Size(75, 23);
+            this.ubtnCreateSegment.TabIndex = 5;
+            this.ubtnCreateSegment.Text = "Nueva";
+            this.ubtnCreateSegment.Click += new System.EventHandler(this.ubtnCreateSegment_Click);
+            // 
+            // ugbxNewSegment
+            // 
+            this.ugbxNewSegment.Controls.Add(this.txtComissionPercent);
+            this.ugbxNewSegment.Controls.Add(this.txtSegmentAmount);
+            this.ugbxNewSegment.Controls.Add(this.uplNewSegmentButtons);
+            this.ugbxNewSegment.Controls.Add(this.ulblComissionPercent);
+            this.ugbxNewSegment.Controls.Add(this.ulblSegmentAmount);
+            this.ugbxNewSegment.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ugbxNewSegment.Location = new System.Drawing.Point(3, 88);
+            this.ugbxNewSegment.Name = "ugbxNewSegment";
+            this.ugbxNewSegment.Size = new System.Drawing.Size(614, 70);
+            this.ugbxNewSegment.TabIndex = 4;
+            this.ugbxNewSegment.Text = "Nuevo Segmento:";
+            this.ugbxNewSegment.Visible = false;
+            // 
+            // txtComissionPercent
+            // 
+            this.txtComissionPercent.Location = new System.Drawing.Point(266, 20);
+            this.txtComissionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
+            this.txtComissionPercent.Name = "txtComissionPercent";
+            this.txtComissionPercent.ReadOnly = false;
+            this.txtComissionPercent.Size = new System.Drawing.Size(78, 20);
+            this.txtComissionPercent.TabIndex = 5;
+            this.txtComissionPercent.Value = ((object)(resources.GetObject("txtComissionPercent.Value")));
+            // 
+            // txtSegmentAmount
+            // 
+            this.txtSegmentAmount.Location = new System.Drawing.Point(89, 20);
+            this.txtSegmentAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtSegmentAmount.Name = "txtSegmentAmount";
+            this.txtSegmentAmount.ReadOnly = false;
+            this.txtSegmentAmount.Size = new System.Drawing.Size(94, 20);
+            this.txtSegmentAmount.TabIndex = 5;
+            this.txtSegmentAmount.Value = ((object)(resources.GetObject("txtSegmentAmount.Value")));
+            // 
+            // uplNewSegmentButtons
+            // 
+            // 
+            // uplNewSegmentButtons.ClientArea
+            // 
+            this.uplNewSegmentButtons.ClientArea.Controls.Add(this.ubtnAcceptSegment);
+            this.uplNewSegmentButtons.ClientArea.Controls.Add(this.upnlSeparatorCancelSegment);
+            this.uplNewSegmentButtons.ClientArea.Controls.Add(this.ubtnCancelSegment);
+            this.uplNewSegmentButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uplNewSegmentButtons.Location = new System.Drawing.Point(3, 44);
+            this.uplNewSegmentButtons.Name = "uplNewSegmentButtons";
+            this.uplNewSegmentButtons.Size = new System.Drawing.Size(608, 23);
+            this.uplNewSegmentButtons.TabIndex = 4;
+            // 
+            // ubtnAcceptSegment
+            // 
+            this.ubtnAcceptSegment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnAcceptSegment.Location = new System.Drawing.Point(439, 0);
+            this.ubtnAcceptSegment.Name = "ubtnAcceptSegment";
+            this.ubtnAcceptSegment.Size = new System.Drawing.Size(75, 23);
+            this.ubtnAcceptSegment.TabIndex = 6;
+            this.ubtnAcceptSegment.Text = "Aceptar";
+            this.ubtnAcceptSegment.Click += new System.EventHandler(this.ubtnAcceptSegment_Click);
+            // 
+            // upnlSeparatorCancelSegment
+            // 
+            this.upnlSeparatorCancelSegment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upnlSeparatorCancelSegment.Location = new System.Drawing.Point(514, 0);
+            this.upnlSeparatorCancelSegment.Name = "upnlSeparatorCancelSegment";
+            this.upnlSeparatorCancelSegment.Size = new System.Drawing.Size(19, 23);
+            this.upnlSeparatorCancelSegment.TabIndex = 8;
+            // 
+            // ubtnCancelSegment
+            // 
+            this.ubtnCancelSegment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubtnCancelSegment.Location = new System.Drawing.Point(533, 0);
+            this.ubtnCancelSegment.Name = "ubtnCancelSegment";
+            this.ubtnCancelSegment.Size = new System.Drawing.Size(75, 23);
+            this.ubtnCancelSegment.TabIndex = 5;
+            this.ubtnCancelSegment.Text = "Cancelar";
+            this.ubtnCancelSegment.Click += new System.EventHandler(this.ubtnCancelSegment_Click);
+            // 
+            // ulblComissionPercent
+            // 
+            this.ulblComissionPercent.AutoSize = true;
+            this.ulblComissionPercent.Location = new System.Drawing.Point(205, 23);
+            this.ulblComissionPercent.Name = "ulblComissionPercent";
+            this.ulblComissionPercent.Size = new System.Drawing.Size(55, 14);
+            this.ulblComissionPercent.TabIndex = 0;
+            this.ulblComissionPercent.Text = "Comision:";
+            // 
+            // ulblSegmentAmount
+            // 
+            this.ulblSegmentAmount.AutoSize = true;
+            this.ulblSegmentAmount.Location = new System.Drawing.Point(6, 23);
+            this.ulblSegmentAmount.Name = "ulblSegmentAmount";
+            this.ulblSegmentAmount.Size = new System.Drawing.Size(77, 14);
+            this.ulblSegmentAmount.TabIndex = 0;
+            this.ulblSegmentAmount.Text = "Utilidad inicial:";
             // 
             // MulticuotasControl
             // 
@@ -519,6 +529,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdMultiquotaSchemes)).EndInit();
             this.uplSchemesButtons.ClientArea.ResumeLayout(false);
             this.uplSchemesButtons.ResumeLayout(false);
+            this.upnlSeparatorEditScheme.ResumeLayout(false);
             this.upnlSeparatorCreateScheme.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxNewScheme)).EndInit();
             this.ugbxNewScheme.ResumeLayout(false);
@@ -528,20 +539,19 @@
             this.upnlSeparatorSchemeCancel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dteSchemeStartDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchemeName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkServicesComissioner)).EndInit();
             this.upnlDetailScheme.ClientArea.ResumeLayout(false);
             this.upnlDetailScheme.ResumeLayout(false);
+            this.gbxAgentSegments.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdAgentSegments)).EndInit();
+            this.upnlSegmentButtons.ClientArea.ResumeLayout(false);
+            this.upnlSegmentButtons.ResumeLayout(false);
+            this.upnlSeparatorCreateSegment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxNewSegment)).EndInit();
             this.ugbxNewSegment.ResumeLayout(false);
             this.ugbxNewSegment.PerformLayout();
             this.uplNewSegmentButtons.ClientArea.ResumeLayout(false);
             this.uplNewSegmentButtons.ResumeLayout(false);
             this.upnlSeparatorCancelSegment.ResumeLayout(false);
-            this.upnlSegmentButtons.ClientArea.ResumeLayout(false);
-            this.upnlSegmentButtons.ResumeLayout(false);
-            this.upnlSeparatorCreateSegment.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdAgentSegments)).EndInit();
-            this.gbxAgentSegments.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -567,7 +577,6 @@
         private Infragistics.Win.Misc.UltraLabel ulblProductsQuota;
         private Samsara.Base.Controls.Controls.SamsaraTextEditor txtServicesQuota;
         private Infragistics.Win.Misc.UltraLabel ulblServicesQuota;
-        private Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkServicesComissioner;
         private Infragistics.Win.Misc.UltraPanel upnlDetailScheme;
         private System.Windows.Forms.GroupBox gbxAgentSegments;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdAgentSegments;
@@ -584,5 +593,7 @@
         private Infragistics.Win.Misc.UltraButton ubtnCancelSegment;
         private Infragistics.Win.Misc.UltraLabel ulblComissionPercent;
         private Infragistics.Win.Misc.UltraLabel ulblSegmentAmount;
+        private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditScheme;
+        private Infragistics.Win.Misc.UltraButton ubtnEditScheme;
     }
 }

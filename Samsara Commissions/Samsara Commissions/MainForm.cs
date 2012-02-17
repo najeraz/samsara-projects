@@ -703,8 +703,7 @@ namespace SamsaraCommissions
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo generar el reporte, consulte al administrador del sistema.\n"
-                    + ex.Message, "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
