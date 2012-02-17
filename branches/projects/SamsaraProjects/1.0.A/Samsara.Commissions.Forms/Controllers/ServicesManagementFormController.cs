@@ -36,7 +36,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void Search()
         {
-
         }
 
         public override void ClearSearchFields()

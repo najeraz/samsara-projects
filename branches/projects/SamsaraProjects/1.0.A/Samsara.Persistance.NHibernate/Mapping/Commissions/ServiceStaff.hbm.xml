@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Commissions.Core" 
+  namespace="Samsara.Commissions.Core.Entities">
+  
+  <class name="ServiceStaff" table="Commissions.ServiceStaffs">
+    
+    <id name="ServiceStaffId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="ServiceId"/>
+    <property name="StaffId"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+  </class>
+
+  <query name="ServiceStaff.GetByParameters">
+    <![CDATA[
+        from ServiceStaff where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ServiceStaff.GetListByParameters">
+    <![CDATA[
+        from ServiceStaff where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ServiceStaff.SearchByParameters">
+    <![CDATA[
+        from ServiceStaff where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>
