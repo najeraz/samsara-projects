@@ -1,11 +1,14 @@
 ﻿
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Iesi.Collections.Generic;
 
 namespace Samsara.Commissions.Core.Entities
 {
     public class Service : GenericEntity
     {
+        private ISet<ServiceStaff> serviceStaff;
+
         public Service()
         {
             ServiceId = -1;
@@ -28,6 +31,21 @@ namespace Samsara.Commissions.Core.Entities
         {
             get;
             set;
+        }
+
+        public virtual ISet<ServiceStaff> ServiceStaff
+        {
+            get
+            {
+                if (this.serviceStaff == null)
+                    this.serviceStaff = new HashedSet<ServiceStaff>();
+
+                return this.serviceStaff;
+            }
+            set
+            {
+                this.serviceStaff = value;
+            }
         }
     }
 }
