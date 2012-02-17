@@ -72,6 +72,8 @@ namespace Chafimex.CodeGenerator
             chooserControlDes = File.ReadAllText(tControlsPath + "ChooserControl.designer.txt");
             daoXMLTemplate = File.ReadAllText(tXMLPath + "Dao.txt");
             serviceXMLTemplate = File.ReadAllText(tXMLPath + "Service.txt");
+
+            this.txtFile.Text = "..\\entities.txt";
         }
 
         private void ubtnGenerate_Click(object sender, EventArgs e)
