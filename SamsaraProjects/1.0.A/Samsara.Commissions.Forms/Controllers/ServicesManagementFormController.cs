@@ -1,6 +1,11 @@
 ﻿
+using NUnit.Framework;
+using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
+using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
+using Samsara.Commissions.Service.Interfaces;
+using System.ComponentModel;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -9,6 +14,7 @@ namespace Samsara.Commissions.Forms.Controllers
         #region Attributes
 
         private ServicesManagementForm frmServicesManagement;
+        private IServiceService srvService;
 
         #endregion Attributes
 
@@ -18,6 +24,12 @@ namespace Samsara.Commissions.Forms.Controllers
             : base(frmServicesManagement)
         {
             this.frmServicesManagement = frmServicesManagement;
+
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.srvService = SamsaraAppContext.Resolve<IServiceService>();
+                Assert.IsNotNull(this.srvService);
+            }
         }
 
         #endregion Constructor
@@ -36,6 +48,9 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void Search()
         {
+            ServiceParameters pmtService = new ServiceParameters();
+
+            
         }
 
         public override void ClearSearchFields()

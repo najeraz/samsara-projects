@@ -19,6 +19,13 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
+    <set name="ServiceStaff" table="Commissions.ServiceStaff" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="ServiceId"/>
+      <one-to-many
+        class="Samsara.Commissions.Core.Entities.ServiceStaff, Samsara.Commissions.Core"/>
+    </set>
+
   </class>
 
   <query name="Service.GetByParameters">
@@ -32,12 +39,27 @@
         from Service where Deleted = 0 and Activated = 1
     ]]>
   </query>
-
-  <query name="Service.SearchByParameters">
+  
+  <sql-query name="Service.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="ServiceId" type="int"/>
+    <return-scalar column="ServiceNumber" type="string"/>
+    <return-scalar column="ServiceStaff" type="string"/>
+    <return-scalar column="CreatedBy" type="string"/>
+    <return-scalar column="CreatedOn" type="DateTime"/>
+    <return-scalar column="UpdatedBy" type="string"/>
+    <return-scalar column="UpdatedOn" type="DateTime"/>
     <![CDATA[
-        from Service where Deleted = 0 and Activated = 1
-        and Name like :Name
+      DECLARE @MakeStr VARCHAR(MAX)
+      SELECT @MakeStr = COALESCE(@MakeStr+',' ,'') + cs.
+      FROM Commissions.ServiceStaff cs
+
+      SELECT @MakeStr as SingleString
+
+    
+      SELECT s.ServiceId, s.ServiceNumber, --(Commissions.ServiceStaff)
+      FROM Commissions.Services s
+      WHERE s.Deleted = 0 and s.Activated = 1
     ]]>
-  </query>
+  </sql-query>
 
 </hibernate-mapping>

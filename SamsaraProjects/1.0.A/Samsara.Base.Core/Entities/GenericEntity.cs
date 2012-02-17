@@ -33,13 +33,13 @@ namespace Samsara.Base.Core.Entities
             set;
         }
 
-        public virtual DateTime CreationDate
+        public virtual DateTime CreatedOn
         {
             get;
             set;
         }
 
-        public virtual DateTime UpdatedDate
+        public virtual DateTime UpdatedOn
         {
             get;
             set;

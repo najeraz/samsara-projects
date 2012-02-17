@@ -6,7 +6,7 @@ using Samsara.Commissions.Service.Interfaces;
 
 namespace Samsara.Commissions.Service.Impl
 {
-    public class ServicesService : GenericService<Samsara.Commissions.Core.Entities.Service, int, IServiceDao, ServiceParameters>, IServiceService
+    public class ServiceService : GenericService<Samsara.Commissions.Core.Entities.Service, int, IServiceDao, ServiceParameters>, IServiceService
     {
     }
 }
