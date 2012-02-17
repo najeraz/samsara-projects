@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Samsara.Base.Controls")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("Samsara")]
 [assembly: AssemblyProduct("Samsara.Base.Controls")]
 [assembly: AssemblyCopyright("Copyright © Samsara 2011")]
 [assembly: AssemblyTrademark("")]
