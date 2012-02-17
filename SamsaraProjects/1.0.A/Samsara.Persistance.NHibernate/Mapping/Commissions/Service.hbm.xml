@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Commissions.Core" 
+  namespace="Samsara.Commissions.Core.Entities">
+  
+  <class name="Service" table="Commissions.Services">
+    
+    <id name="ServiceId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="ServiceNumber"/>
+    <property name="ServiceAmount"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+  </class>
+
+  <query name="Service.GetByParameters">
+    <![CDATA[
+        from Service where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="Service.GetListByParameters">
+    <![CDATA[
+        from Service where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="Service.SearchByParameters">
+    <![CDATA[
+        from Service where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>
