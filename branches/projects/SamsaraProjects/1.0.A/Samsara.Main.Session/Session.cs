@@ -49,7 +49,7 @@ namespace Samsara.Main.Session
             IUserService srvUser = SamsaraAppContext.Resolve<IUserService>();
             Assert.IsNotNull(srvUser);
 
-            pmtUser.Username = username;
+            pmtUser.Username = username.ToLower();
             pmtUser.Password = CryptoUtil.PasswordHash(username, password);
             user = srvUser.GetByParameters(pmtUser);
         }

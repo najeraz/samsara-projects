@@ -66,6 +66,11 @@
       <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Commissions.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Commissions.Forms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Controls.dll</HintPath>

@@ -50,9 +50,9 @@ namespace Samsara.CustomerContext.Forms.Controller
                 srvOperativeSystemType.GetListByParameters(pmtOperativeSystemType);
 
             WindowsFormsUtil.LoadCombo<OperativeSystemType>(this.frmOperativeSystem.uceSchOperativeSystemType,
-                lstDependencies, "OperativeSystemTypeId", "Name", "Seleccione");
+                lstDependencies, "OperativeSystemTypeId", "Name", "Seleccione", false);
             WindowsFormsUtil.LoadCombo<OperativeSystemType>(this.frmOperativeSystem.uceDetOperativeSystemType,
-                lstDependencies, "OperativeSystemTypeId", "Name", "Seleccione");
+                lstDependencies, "OperativeSystemTypeId", "Name", "Seleccione", false);
 
             this.frmOperativeSystem.btnSchEdit.Click += new EventHandler(btnSchEdit_Click);
             this.frmOperativeSystem.btnSchSearch.Click += new EventHandler(btnSchSearch_Click);

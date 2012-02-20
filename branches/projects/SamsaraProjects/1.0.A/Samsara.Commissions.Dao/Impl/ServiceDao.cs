@@ -6,7 +6,7 @@ using Samsara.Commissions.Dao.Interfaces;
 
 namespace Samsara.Commissions.Dao.Impl
 {
-    public class ServicesDao : GenericDao<Service, int, ServiceParameters>, IServiceDao
+    public class ServiceDao : GenericDao<Service, int, ServiceParameters>, IServiceDao
     {
     }
 }

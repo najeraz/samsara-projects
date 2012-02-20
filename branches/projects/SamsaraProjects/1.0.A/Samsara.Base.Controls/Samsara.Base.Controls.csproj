@@ -124,8 +124,11 @@
     <Compile Include="Controls\SamsaraUserControl.Designer.cs">
       <DependentUpon>SamsaraUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums\SamsaraEntityChooserControlTypeEnum.cs" />
+    <Compile Include="EventsArgs\SamsaraEntityChooserValuesChangedEventArgs.cs" />
     <Compile Include="EventsArgs\ManyToOneLevel1EntityChangedEventArgs.cs" />
     <Compile Include="EventsArgs\SamsaraEntityChooserValueChangedEventArgs.cs" />
+    <Compile Include="EventsHandlers\SamsaraEntityChooserValuesChangedEventHandler.cs" />
     <Compile Include="EventsHandlers\ManyToOneLevel1EntityChangedEventHandler.cs" />
     <Compile Include="EventsHandlers\SamsaraEntityChooserValueChangedEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

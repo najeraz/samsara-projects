@@ -238,7 +238,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             CurrencyParameters pmtCurrency = new CurrencyParameters();
             IList<Currency> lstCurrencies = this.srvCurrency.GetListByParameters(pmtCurrency);
             WindowsFormsUtil.LoadCombo<Currency>(this.frmTender.uceDetPreresultCurrency,
-                lstCurrencies, "CurrencyId", "Code", null);
+                lstCurrencies, "CurrencyId", "Code", null, false);
 
             //grdDetTenderCompetitors
             this.frmTender.grdDetExchangeRates.InitializeLayout

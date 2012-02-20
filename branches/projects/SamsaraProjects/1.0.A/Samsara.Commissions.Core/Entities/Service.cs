@@ -33,6 +33,12 @@ namespace Samsara.Commissions.Core.Entities
             set;
         }
 
+        public virtual string StaffNames
+        {
+            get;
+            set;
+        }
+
         public virtual ISet<ServiceStaff> ServiceStaff
         {
             get

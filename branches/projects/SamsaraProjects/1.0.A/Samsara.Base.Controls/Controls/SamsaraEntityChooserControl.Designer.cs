@@ -31,7 +31,7 @@ namespace Samsara.Base.Controls.Controls
         private void InitializeComponent()
         {
             Infragistics.Win.UltraWinEditors.EditorButton editorButton1 = new Infragistics.Win.UltraWinEditors.EditorButton("Add");
-            this.suceEntities = new SamsaraUltraComboEditor();
+            this.suceEntities = new Samsara.Base.Controls.Controls.SamsaraUltraComboEditor();
             ((System.ComponentModel.ISupportInitialize)(this.suceEntities)).BeginInit();
             this.SuspendLayout();
             // 
