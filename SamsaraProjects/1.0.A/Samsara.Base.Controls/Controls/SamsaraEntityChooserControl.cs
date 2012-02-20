@@ -1,10 +1,13 @@
 ﻿
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Forms;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinEditors;
 using NUnit.Framework;
+using Samsara.Base.Controls.Enums;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
@@ -20,7 +23,9 @@ namespace Samsara.Base.Controls.Controls
         #region Attributes
 
         private T value;
+        private IList<T> values;
         private TService service;
+        private SamsaraEntityChooserControlTypeEnum controlType;
         protected static string assemblyName = null;
         protected static string assemblyFormClassName = null;
 
@@ -29,10 +34,28 @@ namespace Samsara.Base.Controls.Controls
         #region EventHandlers
 
         public event SamsaraEntityChooserValueChangedEventHandler<T> ValueChanged;
+        public event SamsaraEntityChooserValuesChangedEventHandler<T> ValuesChanged;
 
         #endregion EventHandlers
 
         #region Properties
+
+        public SamsaraEntityChooserControlTypeEnum ControlType
+        {
+            get
+            {
+                return controlType;
+            }
+            set
+            {
+                this.controlType = value;
+                this.ControlTypeChanged();
+                if (this.service != null)
+                {
+                    this.RefreshCombo();
+                }
+            }
+        }
 
         public bool ReadOnly
         {
@@ -67,9 +90,25 @@ namespace Samsara.Base.Controls.Controls
             {
                 if (!EqualityComparer<T>.Default.Equals(this.value, value))
                 {
-                    OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value)); 
+                    OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value));
                 }
                 this.value = value;
+            }
+        }
+
+        public IList<T> Values
+        {
+            get
+            {
+                return values;
+            }
+            set
+            {
+                if (!EqualityComparer<IList<T>>.Default.Equals(this.values, value))
+                {
+                    OnValuesChanged(new SamsaraEntityChooserValuesChangedEventArgs<T>(value));
+                }
+                this.values = value;
             }
         }
 
@@ -117,19 +156,63 @@ namespace Samsara.Base.Controls.Controls
             editorButtonAdd.Click += new EditorButtonEventHandler(editorButtonAdd_Click);
         }
 
+        public void Clear()
+        {
+            this.values.Clear();
+        }
+
         #endregion Public
 
         #region Protected
 
         protected virtual void OnValueChanged(SamsaraEntityChooserValueChangedEventArgs<T> e)
         {
-            if (e.NewValue != null)
-                this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValue(typeof(T), e.NewValue);
-            else
-                this.suceEntities.Value = -1;
+            switch (this.controlType)
+            {
+                case SamsaraEntityChooserControlTypeEnum.Single:
+                    if (e.NewValue != null)
+                    {
+                        this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValue<T>(e.NewValue);
+                    }
+                    else
+                    {
+                        this.suceEntities.Value = -1;
+                    }
+                    break;
+                case SamsaraEntityChooserControlTypeEnum.Multiple:
+                    this.suceEntities.Value = null;
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
 
             if (ValueChanged != null)
                 ValueChanged(this, e);
+        }
+
+        protected virtual void OnValuesChanged(SamsaraEntityChooserValuesChangedEventArgs<T> e)
+        {
+            switch (this.controlType)
+            {
+                case SamsaraEntityChooserControlTypeEnum.Single:
+                    this.suceEntities.Value = null;
+                    break;
+                case SamsaraEntityChooserControlTypeEnum.Multiple:
+                    if (e.NewValues != null)
+                    {
+                        this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValues<T>(e.NewValues);
+                    }
+                    else
+                    {
+                        this.suceEntities.Value = new object[] { -1 };
+                    }
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            if (ValueChanged != null)
+                ValuesChanged(this, e);
         }
 
         #endregion Protected
@@ -152,7 +235,28 @@ namespace Samsara.Base.Controls.Controls
 
             this.suceEntities.DataSource = null;
             WindowsFormsUtil.LoadCombo<T>(this.suceEntities, entityList, this.ValueMember,
-                this.DisplayMember, "Seleccione");
+                this.DisplayMember, "Seleccione", this.controlType == SamsaraEntityChooserControlTypeEnum.Multiple);
+        }
+
+        private void ControlTypeChanged()
+        {
+            switch (this.controlType)
+            {
+                case SamsaraEntityChooserControlTypeEnum.Single:
+                    this.suceEntities.CheckedListSettings.EditorValueSource = EditorWithComboValueSource.SelectedItem;
+                    this.suceEntities.CheckedListSettings.ItemCheckArea = ItemCheckArea.CheckBox;
+                    this.suceEntities.CheckedListSettings.ListSeparator = string.Empty;
+                    this.suceEntities.CheckedListSettings.CheckBoxStyle = CheckStyle.None;
+                    break;
+                case SamsaraEntityChooserControlTypeEnum.Multiple:
+                    this.suceEntities.CheckedListSettings.EditorValueSource = EditorWithComboValueSource.CheckedItems;
+                    this.suceEntities.CheckedListSettings.ItemCheckArea = ItemCheckArea.CheckBox;
+                    this.suceEntities.CheckedListSettings.ListSeparator = ", ";
+                    this.suceEntities.CheckedListSettings.CheckBoxStyle = CheckStyle.CheckBox;
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         #endregion Private
@@ -175,10 +279,36 @@ namespace Samsara.Base.Controls.Controls
 
         private void suceEntities_ValueChanged(object sender, EventArgs e)
         {
-            this.value = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
-                .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
+            switch (this.controlType)
+            {
+                case SamsaraEntityChooserControlTypeEnum.Single:
+                    this.value = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
+                        .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
+                        
+                    this.OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(this.value)); 
+                    break;
+                case SamsaraEntityChooserControlTypeEnum.Multiple:
 
-            OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(this.value)); 
+                    this.values = new List<T>();
+
+                    foreach (ValueListItem checkedItem in this.suceEntities.Items.ValueList.CheckedItems
+                        .All.Cast<ValueListItem>().Where(x => Convert.ToInt32(x.DataValue) != -1))
+                    {
+                        T entityItem = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
+                            .GetById((TId)(Convert.ToInt32(checkedItem.DataValue) as object));
+
+                        if (entityItem != null)
+                        {
+                            this.values.Add(entityItem);
+                        }
+                    }
+
+                    this.OnValuesChanged(new SamsaraEntityChooserValuesChangedEventArgs<T>(this.values)); 
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
         }
 
         #endregion Events

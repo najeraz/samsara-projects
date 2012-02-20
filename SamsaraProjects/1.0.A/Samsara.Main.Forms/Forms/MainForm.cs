@@ -7,6 +7,7 @@ using Samsara.Dashboard.Forms.Forms;
 using Samsara.Operation.Forms.Forms;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.Support.Util;
+using Samsara.Commissions.Forms.Forms;
 
 namespace Samsara.Main.Forms.Forms
 {
@@ -681,6 +682,21 @@ namespace Samsara.Main.Forms.Forms
             {
                 if (!(form is LoginForm))
                     WindowsFormsUtil.CloseForm(form);
+            }
+        }
+
+        private void comisionesDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                ServicesManagementForm frmServicesManagement = new ServicesManagementForm();
+                frmServicesManagement.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
             }
         }
     }

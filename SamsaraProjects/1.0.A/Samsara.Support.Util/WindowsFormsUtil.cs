@@ -34,7 +34,7 @@ namespace Samsara.Support.Util
         }
 
         public static void LoadCombo<T>(UltraComboEditor combo, IEnumerable<T> collection,
-            string valueMember, string displayMember, string defaultValue)
+            string valueMember, string displayMember, string defaultValue, bool multiple)
         {
             T blankEntity = (T)Activator.CreateInstance(typeof(T));
             IList<T> list = collection.ToList();
@@ -52,7 +52,16 @@ namespace Samsara.Support.Util
             combo.DisplayMember = displayMember;
 
             if (defaultValue != null)
-                combo.Value = -1;
+            {
+                if (multiple)
+                {
+                    combo.Value = new object[] { -1 };
+                }
+                else
+                {
+                    combo.Value = -1;
+                }
+            }
         }
 
         public static void LoadCombo(UltraComboEditor combo, DataTable dataTable,
