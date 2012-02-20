@@ -439,8 +439,8 @@
   
   <!-- ====================================== Commissions ====================================== -->
 
-  <object id="IServicesDao"
-          type="Samsara.Commissions.Dao.Impl.ServicesDao, Samsara.Commissions.Dao">
+  <object id="IServiceDao"
+          type="Samsara.Commissions.Dao.Impl.ServiceDao, Samsara.Commissions.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="IServiceStaffDao"

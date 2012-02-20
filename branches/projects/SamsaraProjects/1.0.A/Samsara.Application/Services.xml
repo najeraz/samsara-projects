@@ -382,9 +382,9 @@
     <property name="Dao" ref="IUserPermissionDao"/>
   </object>
   
-  <object id="IServicesService"
-          type="Samsara.Commissions.Service.Impl.ServicesService, Samsara.Commissions.Service">
-    <property name="Dao" ref="IServicesDao"/>
+  <object id="IServiceService"
+          type="Samsara.Commissions.Service.Impl.ServiceService, Samsara.Commissions.Service">
+    <property name="Dao" ref="IServiceDao"/>
   </object>
   <object id="IServiceStaffService"
           type="Samsara.Commissions.Service.Impl.ServiceStaffService, Samsara.Commissions.Service">

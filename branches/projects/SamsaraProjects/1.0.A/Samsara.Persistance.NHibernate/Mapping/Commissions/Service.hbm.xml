@@ -11,6 +11,7 @@
 
     <property name="ServiceNumber"/>
     <property name="ServiceAmount"/>
+    <property name="StaffNames"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
@@ -48,15 +49,8 @@
     <return-scalar column="CreatedOn" type="DateTime"/>
     <return-scalar column="UpdatedBy" type="string"/>
     <return-scalar column="UpdatedOn" type="DateTime"/>
-    <![CDATA[
-      DECLARE @MakeStr VARCHAR(MAX)
-      SELECT @MakeStr = COALESCE(@MakeStr+',' ,'') + cs.
-      FROM Commissions.ServiceStaff cs
-
-      SELECT @MakeStr as SingleString
-
-    
-      SELECT s.ServiceId, s.ServiceNumber, --(Commissions.ServiceStaff)
+    <![CDATA[    
+      SELECT s.ServiceId, s.ServiceNumber, s.StaffNames
       FROM Commissions.Services s
       WHERE s.Deleted = 0 and s.Activated = 1
     ]]>

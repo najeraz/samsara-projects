@@ -15,5 +15,17 @@ namespace Samsara.Commissions.Core.Parameters
             get;
             set;
         }
+
+        public Nullable<int> ServiceNumber
+        {
+            get;
+            set;
+        }
+
+        public string StaffIds
+        {
+            get;
+            set;
+        }
     }
 }

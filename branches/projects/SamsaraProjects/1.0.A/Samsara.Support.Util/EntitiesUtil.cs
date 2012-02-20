@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using Samsara.Base.Core.Attributes;
+using System.Collections.Generic;
 
 namespace Samsara.Support.Util
 {
@@ -70,14 +71,34 @@ namespace Samsara.Support.Util
             return null;
         }
 
-        public static object GetPrimaryKeyPropertyValue(Type entityType, object entity)
+        public static object GetPrimaryKeyPropertyValue<T>(object entity)
         {
+            Type entityType = typeof(T);
+
             if (entity == null)
                 return null;
 
             PropertyInfo primaryKeyPropertyInfo = GetPrimaryKeyPropertyInfo(entityType);
 
             return entityType.GetProperty(primaryKeyPropertyInfo.Name).GetValue(entity, null);
+        }
+
+        public static IList<object> GetPrimaryKeyPropertyValues<T>(IList<T> entityList)
+        {
+            Type entityType = typeof(T);
+            IList<object> resultList = new List<object>();
+
+            foreach (T entity in entityList)
+            {
+                if (entity == null)
+                    continue;
+
+                PropertyInfo primaryKeyPropertyInfo = GetPrimaryKeyPropertyInfo(entityType);
+                
+                resultList.Add(entityType.GetProperty(primaryKeyPropertyInfo.Name).GetValue(entity, null));
+            }
+
+            return resultList;
         }
     }
 }
