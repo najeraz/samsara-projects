@@ -1,7 +1,7 @@
 ﻿
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win;
@@ -90,7 +90,7 @@ namespace Samsara.Base.Controls.Controls
             {
                 if (!EqualityComparer<T>.Default.Equals(this.value, value))
                 {
-                    OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value));
+                    this.OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(value));
                 }
                 this.value = value;
             }
@@ -106,7 +106,7 @@ namespace Samsara.Base.Controls.Controls
             {
                 if (!EqualityComparer<IList<T>>.Default.Equals(this.values, value))
                 {
-                    OnValuesChanged(new SamsaraEntityChooserValuesChangedEventArgs<T>(value));
+                    this.OnValuesChanged(new SamsaraEntityChooserValuesChangedEventArgs<T>(value));
                 }
                 this.values = value;
             }
@@ -186,8 +186,8 @@ namespace Samsara.Base.Controls.Controls
                     throw new NotImplementedException();
             }
 
-            if (ValueChanged != null)
-                ValueChanged(this, e);
+            if (this.ValueChanged != null)
+                this.ValueChanged(this, e);
         }
 
         protected virtual void OnValuesChanged(SamsaraEntityChooserValuesChangedEventArgs<T> e)
@@ -211,8 +211,8 @@ namespace Samsara.Base.Controls.Controls
                     throw new NotImplementedException();
             }
 
-            if (ValueChanged != null)
-                ValuesChanged(this, e);
+            if (this.ValueChanged != null)
+                this.ValuesChanged(this, e);
         }
 
         #endregion Protected
@@ -288,7 +288,6 @@ namespace Samsara.Base.Controls.Controls
                     this.OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(this.value)); 
                     break;
                 case SamsaraEntityChooserControlTypeEnum.Multiple:
-
                     this.values = new List<T>();
 
                     foreach (ValueListItem checkedItem in this.suceEntities.Items.ValueList.CheckedItems

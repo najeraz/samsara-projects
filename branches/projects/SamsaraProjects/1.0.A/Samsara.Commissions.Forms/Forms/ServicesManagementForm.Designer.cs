@@ -38,10 +38,13 @@ namespace Samsara.Commissions.Forms.Forms
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters2 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
-            this.ultraButton1 = new Infragistics.Win.Misc.UltraButton();
-            this.ultraButton2 = new Infragistics.Win.Misc.UltraButton();
-            this.asesorChooserControl1 = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
+            Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters1 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesManagementForm));
+            this.staffChooserControl1 = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
+            this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
+            this.samsaraTextEditor1 = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.samsaraTextEditor2 = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetCtgButtons.SuspendLayout();
@@ -95,49 +98,72 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Controls.Add(this.asesorChooserControl1);
-            this.gbxDetDetail.Controls.Add(this.ultraButton2);
-            this.gbxDetDetail.Controls.Add(this.ultraButton1);
+            this.gbxDetDetail.Controls.Add(this.samsaraTextEditor2);
+            this.gbxDetDetail.Controls.Add(this.samsaraTextEditor1);
+            this.gbxDetDetail.Controls.Add(this.ultraLabel2);
+            this.gbxDetDetail.Controls.Add(this.ultraLabel1);
+            this.gbxDetDetail.Controls.Add(this.staffChooserControl1);
             // 
-            // ultraButton1
+            // staffChooserControl1
             // 
-            this.ultraButton1.Location = new System.Drawing.Point(229, 126);
-            this.ultraButton1.Name = "ultraButton1";
-            this.ultraButton1.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton1.TabIndex = 1;
-            this.ultraButton1.Text = "Multiple";
-            this.ultraButton1.Click += new System.EventHandler(this.ultraButton1_Click);
+            this.staffChooserControl1.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Multiple;
+            this.staffChooserControl1.CustomParent = null;
+            this.staffChooserControl1.DisplayMember = "Name";
+            this.staffChooserControl1.Location = new System.Drawing.Point(89, 71);
+            this.staffChooserControl1.Name = "staffChooserControl1";
+            staffParameters1.CreatedBy = null;
+            staffParameters1.CreationDate = null;
+            staffParameters1.Names = null;
+            staffParameters1.StaffId = null;
+            staffParameters1.UpdatedBy = null;
+            staffParameters1.UpdatedDate = null;
+            this.staffChooserControl1.Parameters = staffParameters1;
+            this.staffChooserControl1.ReadOnly = false;
+            this.staffChooserControl1.Size = new System.Drawing.Size(226, 22);
+            this.staffChooserControl1.TabIndex = 0;
+            this.staffChooserControl1.Value = null;
+            this.staffChooserControl1.ValueMember = "StaffId";
+            this.staffChooserControl1.Values = null;
             // 
-            // ultraButton2
+            // ultraLabel1
             // 
-            this.ultraButton2.Location = new System.Drawing.Point(375, 126);
-            this.ultraButton2.Name = "ultraButton2";
-            this.ultraButton2.Size = new System.Drawing.Size(75, 23);
-            this.ultraButton2.TabIndex = 1;
-            this.ultraButton2.Text = "Single";
-            this.ultraButton2.Click += new System.EventHandler(this.ultraButton2_Click);
+            this.ultraLabel1.AutoSize = true;
+            this.ultraLabel1.Location = new System.Drawing.Point(8, 25);
+            this.ultraLabel1.Name = "ultraLabel1";
+            this.ultraLabel1.Size = new System.Drawing.Size(53, 14);
+            this.ultraLabel1.TabIndex = 1;
+            this.ultraLabel1.Text = "Tecnicos:";
             // 
-            // asesorChooserControl1
+            // ultraLabel2
             // 
-            this.asesorChooserControl1.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.asesorChooserControl1.CustomParent = null;
-            this.asesorChooserControl1.DisplayMember = "Name";
-            this.asesorChooserControl1.Location = new System.Drawing.Point(244, 48);
-            this.asesorChooserControl1.Name = "asesorChooserControl1";
-            asesorParameters2.CreatedBy = null;
-            asesorParameters2.CreationDate = null;
-            asesorParameters2.FullName = null;
-            asesorParameters2.Name = null;
-            asesorParameters2.ShowAll = null;
-            asesorParameters2.ShowApprovers = null;
-            asesorParameters2.UpdatedBy = null;
-            asesorParameters2.UpdatedDate = null;
-            this.asesorChooserControl1.Parameters = asesorParameters2;
-            this.asesorChooserControl1.ReadOnly = false;
-            this.asesorChooserControl1.Size = new System.Drawing.Size(226, 22);
-            this.asesorChooserControl1.TabIndex = 2;
-            this.asesorChooserControl1.Value = null;
-            this.asesorChooserControl1.ValueMember = "AsesorId";
+            this.ultraLabel2.AutoSize = true;
+            this.ultraLabel2.Location = new System.Drawing.Point(8, 84);
+            this.ultraLabel2.Name = "ultraLabel2";
+            this.ultraLabel2.Size = new System.Drawing.Size(53, 14);
+            this.ultraLabel2.TabIndex = 1;
+            this.ultraLabel2.Text = "Tecnicos:";
+            // 
+            // samsaraTextEditor1
+            // 
+            this.samsaraTextEditor1.CustomParent = null;
+            this.samsaraTextEditor1.Location = new System.Drawing.Point(89, 19);
+            this.samsaraTextEditor1.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.samsaraTextEditor1.Name = "samsaraTextEditor1";
+            this.samsaraTextEditor1.ReadOnly = false;
+            this.samsaraTextEditor1.Size = new System.Drawing.Size(150, 20);
+            this.samsaraTextEditor1.TabIndex = 2;
+            this.samsaraTextEditor1.Value = ((object)(resources.GetObject("samsaraTextEditor1.Value")));
+            // 
+            // samsaraTextEditor2
+            // 
+            this.samsaraTextEditor2.CustomParent = null;
+            this.samsaraTextEditor2.Location = new System.Drawing.Point(89, 45);
+            this.samsaraTextEditor2.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.samsaraTextEditor2.Name = "samsaraTextEditor2";
+            this.samsaraTextEditor2.ReadOnly = false;
+            this.samsaraTextEditor2.Size = new System.Drawing.Size(150, 20);
+            this.samsaraTextEditor2.TabIndex = 2;
+            this.samsaraTextEditor2.Value = ((object)(resources.GetObject("samsaraTextEditor2.Value")));
             // 
             // ServicesManagementForm
             // 
@@ -148,6 +174,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.Text = "ServicesManagement";
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxDetDetail.ResumeLayout(false);
+            this.gbxDetDetail.PerformLayout();
             this.pnlDetCtgButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -155,8 +182,11 @@ namespace Samsara.Commissions.Forms.Forms
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraButton ultraButton2;
-        private Infragistics.Win.Misc.UltraButton ultraButton1;
-        private ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl asesorChooserControl1;
+        private AlleatoERP.Controls.Controls.StaffChooserControl staffChooserControl1;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel1;
+        private Base.Controls.Controls.SamsaraTextEditor samsaraTextEditor2;
+        private Base.Controls.Controls.SamsaraTextEditor samsaraTextEditor1;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel2;
+
     }
 }
