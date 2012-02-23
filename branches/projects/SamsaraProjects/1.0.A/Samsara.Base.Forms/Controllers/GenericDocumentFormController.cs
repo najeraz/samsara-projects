@@ -27,7 +27,7 @@ namespace Samsara.Base.Forms.Controllers
 
             this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
 
-            this.InitializeFormControls();
+            //this.InitializeFormControls();
         }
 
         #endregion Constructor

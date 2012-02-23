@@ -6,6 +6,7 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using System.ComponentModel;
+using Samsara.AlleatoERP.Core.Parameters;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -30,6 +31,8 @@ namespace Samsara.Commissions.Forms.Controllers
                 this.srvService = SamsaraAppContext.Resolve<IServiceService>();
                 Assert.IsNotNull(this.srvService);
             }
+
+            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -40,6 +43,13 @@ namespace Samsara.Commissions.Forms.Controllers
 
         protected override void InitializeFormControls()
         {
+            base.InitializeFormControls();
+
+            StaffParameters pmtStaff = new StaffParameters();
+
+            this.frmServicesManagement.sccDetStaff.DisplayMember = "Names";
+            this.frmServicesManagement.sccDetStaff.Parameters = pmtStaff;
+            this.frmServicesManagement.sccDetStaff.Refresh();
         }
 
         #endregion Protected
