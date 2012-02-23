@@ -29,7 +29,7 @@ namespace Samsara.Base.Dao.Impl
             return HibernateTemplate.Get<T>(Id);
         }
 
-        public DateTime GetServerDateTime()
+        public virtual DateTime GetServerDateTime()
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery("GenericBaseDao.GetServerDateTime");
 
@@ -38,73 +38,73 @@ namespace Samsara.Base.Dao.Impl
             return result;
         }
 
-        public T GetByParameters(Tpmt parameters)
+        public virtual T GetByParameters(Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
                 typeof(T).Name + ".GetByParameters", parameters);
             return dnq.GetExecutableQuery(Session).UniqueResult<T>();
         }
 
-        public DataTable SearchByParameters(Tpmt parameters)
+        public virtual DataTable SearchByParameters(Tpmt parameters)
         {
             return this.DataTableByParameters(
                 typeof(T).Name + ".SearchByParameters", parameters, false);
         }
 
-        public DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        public virtual DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
         {
             return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
         }
 
-        public IList<T> GetListByParameters(Tpmt parameters)
+        public virtual IList<T> GetListByParameters(Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
                 typeof(T).Name + ".GetListByParameters", parameters);
             return this.GetList(dnq);
         }
 
-        public IList<T> GetList(DetachedQuery dq)
+        public virtual IList<T> GetList(DetachedQuery dq)
         {
             return dq.GetExecutableQuery(Session).List<T>();
         }
 
-        public IList<TType> GetList<TType>(DetachedQuery dq)
+        public virtual IList<TType> GetList<TType>(DetachedQuery dq)
         {
             return dq.GetExecutableQuery(Session).List<TType>();
         }
 
-        public IList GetObjectList(DetachedNamedQuery dnq)
+        public virtual IList GetObjectList(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List();
         }
 
-        public IList<T> GetList(DetachedNamedQuery dnq)
+        public virtual IList<T> GetList(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List<T>();
         }
 
-        public IList<TType> GetList<TType>(DetachedNamedQuery dnq)
+        public virtual IList<TType> GetList<TType>(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List<TType>();
         }
 
-        public IList<T> GetList(DetachedCriteria detachedCriteria)
+        public virtual IList<T> GetList(DetachedCriteria detachedCriteria)
         {
             return detachedCriteria.GetExecutableCriteria(Session).List<T>();
         }
 
-        public IList<TType> GetList<TType>(DetachedCriteria detachedCriteria)
+        public virtual IList<TType> GetList<TType>(DetachedCriteria detachedCriteria)
         {
             return detachedCriteria.GetExecutableCriteria(Session).List<TType>();
         }
 
-        public IList GetGenericListByParameters(string queryName, Tpmt parameters)
+        public virtual IList GetGenericListByParameters(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetObjectList(dnq);
         }
 
-        public DataTable DataTableByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        public virtual DataTable DataTableByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
         {
             DataTable dtResult = null;
 
@@ -127,7 +127,7 @@ namespace Samsara.Base.Dao.Impl
             return dtResult;
         }
 
-        public DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
+        public virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
             object parameterValue;
