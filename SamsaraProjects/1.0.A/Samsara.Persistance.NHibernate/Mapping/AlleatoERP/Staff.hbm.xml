@@ -7,7 +7,8 @@
 
     <id name="StaffId" type="int" column="persona">
     </id>
-
+    
+    <property name="DeletedOn" column="fecha_baja"/>
     <property name="Names" column="nombres"/>
     <property name="Lastname" column="apellidos"/>
     
@@ -21,7 +22,8 @@
 
   <query name="Staff.GetListByParameters">
     <![CDATA[
-        from Staff
+        from Staff where DeletedOn is not null
+        order by Names
     ]]>
   </query>
 

@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Attributes;
 
 namespace Samsara.AlleatoERP.Core.Entities
@@ -24,6 +25,12 @@ namespace Samsara.AlleatoERP.Core.Entities
         }
 
         public virtual string Lastname
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<DateTime> DeletedOn
         {
             get;
             set;

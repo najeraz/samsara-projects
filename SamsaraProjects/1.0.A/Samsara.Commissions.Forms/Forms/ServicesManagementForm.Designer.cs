@@ -40,16 +40,25 @@ namespace Samsara.Commissions.Forms.Forms
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters2 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesManagementForm));
-            this.staffChooserControl1 = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
+            Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters1 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
+            this.sccDetStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
-            this.samsaraTextEditor1 = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.samsaraTextEditor2 = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtDetServiceNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtDetServiceAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
+            this.sccSchStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
+            this.gbxSchParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetCtgButtons.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // gbxSchParameters
+            // 
+            this.gbxSchParameters.Controls.Add(this.ultraLabel4);
+            this.gbxSchParameters.Controls.Add(this.sccSchStaff);
             // 
             // grdPrincipal
             // 
@@ -99,33 +108,33 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Controls.Add(this.samsaraTextEditor2);
-            this.gbxDetDetail.Controls.Add(this.samsaraTextEditor1);
+            this.gbxDetDetail.Controls.Add(this.txtDetServiceAmount);
+            this.gbxDetDetail.Controls.Add(this.txtDetServiceNumber);
             this.gbxDetDetail.Controls.Add(this.ultraLabel3);
             this.gbxDetDetail.Controls.Add(this.ultraLabel2);
             this.gbxDetDetail.Controls.Add(this.ultraLabel1);
-            this.gbxDetDetail.Controls.Add(this.staffChooserControl1);
+            this.gbxDetDetail.Controls.Add(this.sccDetStaff);
             // 
-            // staffChooserControl1
+            // sccDetStaff
             // 
-            this.staffChooserControl1.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Multiple;
-            this.staffChooserControl1.CustomParent = null;
-            this.staffChooserControl1.DisplayMember = "Name";
-            this.staffChooserControl1.Location = new System.Drawing.Point(89, 71);
-            this.staffChooserControl1.Name = "staffChooserControl1";
+            this.sccDetStaff.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Multiple;
+            this.sccDetStaff.CustomParent = null;
+            this.sccDetStaff.DisplayMember = "Name";
+            this.sccDetStaff.Location = new System.Drawing.Point(89, 71);
+            this.sccDetStaff.Name = "sccDetStaff";
             staffParameters2.CreatedBy = null;
             staffParameters2.CreationDate = null;
             staffParameters2.Names = null;
             staffParameters2.StaffId = null;
             staffParameters2.UpdatedBy = null;
             staffParameters2.UpdatedDate = null;
-            this.staffChooserControl1.Parameters = staffParameters2;
-            this.staffChooserControl1.ReadOnly = false;
-            this.staffChooserControl1.Size = new System.Drawing.Size(226, 22);
-            this.staffChooserControl1.TabIndex = 0;
-            this.staffChooserControl1.Value = null;
-            this.staffChooserControl1.ValueMember = "StaffId";
-            this.staffChooserControl1.Values = null;
+            this.sccDetStaff.Parameters = staffParameters2;
+            this.sccDetStaff.ReadOnly = false;
+            this.sccDetStaff.Size = new System.Drawing.Size(226, 22);
+            this.sccDetStaff.TabIndex = 0;
+            this.sccDetStaff.Value = null;
+            this.sccDetStaff.ValueMember = "StaffId";
+            this.sccDetStaff.Values = null;
             // 
             // ultraLabel1
             // 
@@ -145,27 +154,27 @@ namespace Samsara.Commissions.Forms.Forms
             this.ultraLabel2.TabIndex = 1;
             this.ultraLabel2.Text = "Monto:";
             // 
-            // samsaraTextEditor1
+            // txtDetServiceNumber
             // 
-            this.samsaraTextEditor1.CustomParent = null;
-            this.samsaraTextEditor1.Location = new System.Drawing.Point(89, 19);
-            this.samsaraTextEditor1.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
-            this.samsaraTextEditor1.Name = "samsaraTextEditor1";
-            this.samsaraTextEditor1.ReadOnly = false;
-            this.samsaraTextEditor1.Size = new System.Drawing.Size(150, 20);
-            this.samsaraTextEditor1.TabIndex = 2;
-            this.samsaraTextEditor1.Value = ((object)(resources.GetObject("samsaraTextEditor1.Value")));
+            this.txtDetServiceNumber.CustomParent = null;
+            this.txtDetServiceNumber.Location = new System.Drawing.Point(89, 19);
+            this.txtDetServiceNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetServiceNumber.Name = "txtDetServiceNumber";
+            this.txtDetServiceNumber.ReadOnly = false;
+            this.txtDetServiceNumber.Size = new System.Drawing.Size(150, 20);
+            this.txtDetServiceNumber.TabIndex = 2;
+            this.txtDetServiceNumber.Value = ((object)(resources.GetObject("txtDetServiceNumber.Value")));
             // 
-            // samsaraTextEditor2
+            // txtDetServiceAmount
             // 
-            this.samsaraTextEditor2.CustomParent = null;
-            this.samsaraTextEditor2.Location = new System.Drawing.Point(89, 45);
-            this.samsaraTextEditor2.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
-            this.samsaraTextEditor2.Name = "samsaraTextEditor2";
-            this.samsaraTextEditor2.ReadOnly = false;
-            this.samsaraTextEditor2.Size = new System.Drawing.Size(150, 20);
-            this.samsaraTextEditor2.TabIndex = 2;
-            this.samsaraTextEditor2.Value = ((object)(resources.GetObject("samsaraTextEditor2.Value")));
+            this.txtDetServiceAmount.CustomParent = null;
+            this.txtDetServiceAmount.Location = new System.Drawing.Point(89, 45);
+            this.txtDetServiceAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetServiceAmount.Name = "txtDetServiceAmount";
+            this.txtDetServiceAmount.ReadOnly = false;
+            this.txtDetServiceAmount.Size = new System.Drawing.Size(150, 20);
+            this.txtDetServiceAmount.TabIndex = 2;
+            this.txtDetServiceAmount.Value = ((object)(resources.GetObject("txtDetServiceAmount.Value")));
             // 
             // ultraLabel3
             // 
@@ -174,7 +183,37 @@ namespace Samsara.Commissions.Forms.Forms
             this.ultraLabel3.Name = "ultraLabel3";
             this.ultraLabel3.Size = new System.Drawing.Size(53, 14);
             this.ultraLabel3.TabIndex = 1;
-            this.ultraLabel3.Text = "Tecnicos:";
+            this.ultraLabel3.Text = "Técnicos:";
+            // 
+            // ultraLabel4
+            // 
+            this.ultraLabel4.AutoSize = true;
+            this.ultraLabel4.Location = new System.Drawing.Point(8, 22);
+            this.ultraLabel4.Name = "ultraLabel4";
+            this.ultraLabel4.Size = new System.Drawing.Size(47, 14);
+            this.ultraLabel4.TabIndex = 3;
+            this.ultraLabel4.Text = "Técnico:";
+            // 
+            // sccSchStaff
+            // 
+            this.sccSchStaff.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.sccSchStaff.CustomParent = null;
+            this.sccSchStaff.DisplayMember = "Name";
+            this.sccSchStaff.Location = new System.Drawing.Point(67, 19);
+            this.sccSchStaff.Name = "sccSchStaff";
+            staffParameters1.CreatedBy = null;
+            staffParameters1.CreationDate = null;
+            staffParameters1.Names = null;
+            staffParameters1.StaffId = null;
+            staffParameters1.UpdatedBy = null;
+            staffParameters1.UpdatedDate = null;
+            this.sccSchStaff.Parameters = staffParameters1;
+            this.sccSchStaff.ReadOnly = false;
+            this.sccSchStaff.Size = new System.Drawing.Size(226, 22);
+            this.sccSchStaff.TabIndex = 2;
+            this.sccSchStaff.Value = null;
+            this.sccSchStaff.ValueMember = "StaffId";
+            this.sccSchStaff.Values = null;
             // 
             // ServicesManagementForm
             // 
@@ -183,6 +222,8 @@ namespace Samsara.Commissions.Forms.Forms
             this.ClientSize = new System.Drawing.Size(640, 443);
             this.Name = "ServicesManagementForm";
             this.Text = "ServicesManagement";
+            this.gbxSchParameters.ResumeLayout(false);
+            this.gbxSchParameters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
@@ -193,12 +234,14 @@ namespace Samsara.Commissions.Forms.Forms
 
         #endregion
 
-        private AlleatoERP.Controls.Controls.StaffChooserControl staffChooserControl1;
         private Infragistics.Win.Misc.UltraLabel ultraLabel1;
-        private Base.Controls.Controls.SamsaraTextEditor samsaraTextEditor2;
-        private Base.Controls.Controls.SamsaraTextEditor samsaraTextEditor1;
         private Infragistics.Win.Misc.UltraLabel ultraLabel2;
         private Infragistics.Win.Misc.UltraLabel ultraLabel3;
+        internal AlleatoERP.Controls.Controls.StaffChooserControl sccDetStaff;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetServiceAmount;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetServiceNumber;
+        private Infragistics.Win.Misc.UltraLabel ultraLabel4;
+        internal AlleatoERP.Controls.Controls.StaffChooserControl sccSchStaff;
 
     }
 }
