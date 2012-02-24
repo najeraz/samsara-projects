@@ -1,5 +1,4 @@
 ﻿
-using System.Reflection;
 using Samsara.Base.Controls.Controls;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
@@ -13,14 +12,8 @@ namespace Samsara.CustomerContext.Controls.Controls.Choosers
     {
         public AccessPointBrandChooserControl()
         {
-            string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
-                Assembly.GetExecutingAssembly().FullName.IndexOf(","));
-
-            string schemaNamespace = controlsSchemaNamespace
-                .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
-
-            assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.AccessPointBrandForm";
+            assemblyName = "Samsara.CustomerContext.Forms.dll";
+            assemblyFormClassName = "Samsara.CustomerContext.Forms.Forms.AccessPointBrandForm";
             InitializeComponent();
         }
     }

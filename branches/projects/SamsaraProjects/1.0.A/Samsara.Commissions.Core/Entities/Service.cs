@@ -1,7 +1,7 @@
 ﻿
+using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
-using Iesi.Collections.Generic;
 
 namespace Samsara.Commissions.Core.Entities
 {

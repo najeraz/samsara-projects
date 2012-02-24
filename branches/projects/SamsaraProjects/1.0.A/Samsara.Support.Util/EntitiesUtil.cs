@@ -1,10 +1,10 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using Samsara.Base.Core.Attributes;
-using System.Collections.Generic;
 
 namespace Samsara.Support.Util
 {
