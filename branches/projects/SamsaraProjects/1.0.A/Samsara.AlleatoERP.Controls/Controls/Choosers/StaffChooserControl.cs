@@ -1,5 +1,4 @@
 ﻿
-using System.Reflection;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Core.Parameters;
 using Samsara.AlleatoERP.Dao.Interfaces;

@@ -1,5 +1,4 @@
 ﻿
-using System.Reflection;
 using Samsara.Base.Controls.Controls;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
@@ -12,14 +11,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.Choosers
     {
         public TenderWarrantyChooserControl()
         {
-            string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
-                Assembly.GetExecutingAssembly().FullName.IndexOf(","));
-
-            string schemaNamespace = controlsSchemaNamespace
-                .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
-
-            assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.TenderWarrantyForm";
+            assemblyName = "Samsara.ProjectsAndTendering.Forms.dll";
+            assemblyFormClassName = "Samsara.ProjectsAndTendering.Forms.Forms.TenderWarrantyForm";
             InitializeComponent();
         }
     }
