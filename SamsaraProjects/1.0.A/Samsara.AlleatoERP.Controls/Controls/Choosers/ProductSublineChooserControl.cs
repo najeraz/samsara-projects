@@ -1,5 +1,4 @@
 ﻿
-using System.Reflection;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Core.Parameters;
 using Samsara.AlleatoERP.Dao.Interfaces;
@@ -12,14 +11,8 @@ namespace Samsara.AlleatoERP.Controls.Controls
     {
         public ProductSublineChooserControl()
         {
-            string controlsSchemaNamespace = Assembly.GetExecutingAssembly().FullName.Substring(0,
-                Assembly.GetExecutingAssembly().FullName.IndexOf(","));
-
-            string schemaNamespace = controlsSchemaNamespace
-                .Substring(0, controlsSchemaNamespace.LastIndexOf("."));
-
-            assemblyName = schemaNamespace + ".Forms.dll";
-            assemblyFormClassName = schemaNamespace + ".Forms.Forms.ProductSublineForm";
+            assemblyName = "Samsara.AlleatoERP.Forms.dll";
+            assemblyFormClassName = "Samsara.AlleatoERP.Forms.Forms.ProductSublineForm";
             InitializeComponent();
         }
     }
