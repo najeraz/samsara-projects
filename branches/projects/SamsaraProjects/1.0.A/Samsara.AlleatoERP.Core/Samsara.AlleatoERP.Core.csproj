@@ -45,12 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AERPCustomer.cs" />
+    <Compile Include="Entities\ERPCustomer.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProductBrand.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Entities\ProductFamily.cs" />
     <Compile Include="Entities\ProductSubline.cs" />
     <Compile Include="Entities\ProductLine.cs" />
-    <Compile Include="Parameters\AERPCustomerParameters.cs" />
+    <Compile Include="Parameters\ERPCustomerParameters.cs" />
+    <Compile Include="Parameters\ProductBrandParameters.cs" />
+    <Compile Include="Parameters\ProductParameters.cs" />
     <Compile Include="Parameters\StaffParameters.cs" />
     <Compile Include="Parameters\ProductSublineParameters.cs" />
     <Compile Include="Parameters\ProductLineParameters.cs" />

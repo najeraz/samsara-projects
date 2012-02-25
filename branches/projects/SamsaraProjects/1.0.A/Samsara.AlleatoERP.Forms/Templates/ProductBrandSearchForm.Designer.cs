@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.Operation.Forms.Templates
+namespace Samsara.AlleatoERP.Forms.Templates
 {
     public partial class ProductBrandSearchForm
     {

@@ -1,11 +1,11 @@
 ﻿
 using Samsara.Base.Service.Impl;
-using Samsara.Operation.Core.Entities;
-using Samsara.Operation.Core.Parameters;
-using Samsara.Operation.Dao.Interfaces;
-using Samsara.Operation.Service.Interfaces;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Core.Parameters;
+using Samsara.AlleatoERP.Dao.Interfaces;
+using Samsara.AlleatoERP.Service.Interfaces;
 
-namespace Samsara.Operation.Service.Impl
+namespace Samsara.AlleatoERP.Service.Impl
 {
     public class ProductService : GenericService<Product, int, IProductDao, ProductParameters>, IProductService
     {

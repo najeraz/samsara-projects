@@ -1,8 +1,8 @@
 ﻿
 using Samsara.Base.Forms.Forms;
-using Samsara.Operation.Core.Entities;
+using Samsara.AlleatoERP.Core.Entities;
 
-namespace Samsara.Operation.Forms.Templates
+namespace Samsara.AlleatoERP.Forms.Templates
 {
     public partial class ProductBrandSearchForm : GenericSearchForm<ProductBrand>
     {

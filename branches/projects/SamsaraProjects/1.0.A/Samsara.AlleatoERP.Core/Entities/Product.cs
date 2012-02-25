@@ -2,7 +2,7 @@
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
-namespace Samsara.Operation.Core.Entities
+namespace Samsara.AlleatoERP.Core.Entities
 {
     public class Product : GenericEntity
     {
