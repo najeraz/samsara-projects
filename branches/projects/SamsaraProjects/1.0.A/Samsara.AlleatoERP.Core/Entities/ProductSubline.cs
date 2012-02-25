@@ -1,9 +1,10 @@
 ﻿
 using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class ProductSubline
+    public class ProductSubline : GenericEntity
     {
         public ProductSubline()
         {
@@ -18,6 +19,12 @@ namespace Samsara.AlleatoERP.Core.Entities
         }
 
         public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual string Description
         {
             get;
             set;

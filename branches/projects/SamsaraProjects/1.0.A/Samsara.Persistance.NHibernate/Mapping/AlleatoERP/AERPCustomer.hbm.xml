@@ -3,13 +3,20 @@
   assembly="Samsara.AlleatoERP.Core"
   namespace="Samsara.AlleatoERP.Core.Entities">
   
-  <class name="ERPCustomer" table="Clientes">
+  <class name="ERPCustomer" table="AlleatoERP.ERPCustomer">
 
-    <id name="ERPCustomerId" column="cliente" type="int">
+    <id name="ERPCustomerId">
     </id>
 
-    <property name="Name" column="nombre_cliente"/>
-    <property name="ComercialName" column="nombre_comercial"/>
+    <property name="Name"/>
+    <property name="ComercialName"/>
+
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
 
     <many-to-one name="Staff" fetch="join"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"

@@ -3,12 +3,20 @@
   assembly="Samsara.AlleatoERP.Core"
   namespace="Samsara.AlleatoERP.Core.Entities">
   
-  <class name="ProductLine" table="Lineas_Articulos">
+  <class name="ProductLine" table="AlleatoERP.ProductLines">
 
-    <id name="ProductLineId" column="linea" type="int">
+    <id name="ProductLineId">
     </id>
     
-    <property name="Name" column="nombre_linea"/>
+    <property name="Name"/>
+    <property name="Description"/>
+
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     
   </class>
 
