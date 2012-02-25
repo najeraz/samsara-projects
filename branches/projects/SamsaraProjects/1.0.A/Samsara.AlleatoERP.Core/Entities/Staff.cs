@@ -1,10 +1,11 @@
 ﻿
 using System;
 using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class Staff
+    public class Staff : GenericEntity
     {
         public Staff()
         {
@@ -30,7 +31,7 @@ namespace Samsara.AlleatoERP.Core.Entities
             set;
         }
 
-        public virtual Nullable<DateTime> DeletedOn
+        public virtual string Fullname
         {
             get;
             set;

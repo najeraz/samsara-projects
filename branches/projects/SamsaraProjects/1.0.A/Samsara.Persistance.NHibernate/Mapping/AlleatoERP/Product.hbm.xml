@@ -12,8 +12,13 @@
     <property name="Name"/>
     <property name="Code"/>
     <property name="Description"/>
-    <property name="Deleted"/>
+
     <property name="Activated"/>
+    <property name="Deleted"/>
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
 
     <many-to-one name="ProductBrand" lazy="false"
                  class="Samsara.Operation.Core.Entities.ProductBrand, Samsara.Operation.Core"
