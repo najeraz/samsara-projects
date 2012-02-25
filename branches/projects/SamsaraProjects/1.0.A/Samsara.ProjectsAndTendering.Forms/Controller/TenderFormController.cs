@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
+using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
