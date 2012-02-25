@@ -4,13 +4,13 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Core.Parameters
 {
-    public class AERPCustomerParameters : GenericParameters
+    public class ERPCustomerParameters : GenericParameters
     {
-        public AERPCustomerParameters()
+        public ERPCustomerParameters()
         {
         }
 
-        public Nullable<int> AERPCustomerId
+        public Nullable<int> ERPCustomerId
         {
             get;
             set;
@@ -22,7 +22,7 @@ namespace Samsara.AlleatoERP.Core.Parameters
             set;
         }
 
-        public string AERPCustomerIds
+        public string ERPCustomerIds
         {
             get;
             set;

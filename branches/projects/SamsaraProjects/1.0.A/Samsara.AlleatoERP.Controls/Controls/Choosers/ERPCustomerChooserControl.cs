@@ -7,12 +7,12 @@ using Samsara.Base.Controls.Controls;
 
 namespace Samsara.AlleatoERP.Controls.Controls
 {
-    public partial class AERPCustomerChooserControl : SamsaraEntityChooserControl<AERPCustomer, int, IAERPCustomerService, IAERPCustomerDao, AERPCustomerParameters>
+    public partial class ERPCustomerChooserControl : SamsaraEntityChooserControl<ERPCustomer, int, IERPCustomerService, IERPCustomerDao, ERPCustomerParameters>
     {
-        public AERPCustomerChooserControl()
+        public ERPCustomerChooserControl()
         {
             assemblyName = "Samsara.AlleatoERP.Forms.dll";
-            assemblyFormClassName = "Samsara.AlleatoERP.Forms.Forms.AERPCustomerForm";
+            assemblyFormClassName = "Samsara.AlleatoERP.Forms.Forms.ERPCustomerForm";
             InitializeComponent();
         }
     }

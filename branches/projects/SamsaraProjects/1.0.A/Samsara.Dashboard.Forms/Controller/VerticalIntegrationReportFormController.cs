@@ -23,7 +23,7 @@ namespace Samsara.Dashboard.Forms.Controller
 
         private VerticalIntegrationReportForm frmVerticalIntegration;
         private DataTable dtGridReport;
-        private IAERPCustomerService srvAERPCustomer;
+        private IERPCustomerService srvERPCustomer;
         private IProductLineService srvProductLine;
         private IProductSublineService srvProductSubline;
         private IProductFamilyService srvProductFamily;
@@ -38,8 +38,8 @@ namespace Samsara.Dashboard.Forms.Controller
         {
             this.frmVerticalIntegration = frmVerticalIntegration;
 
-            this.srvAERPCustomer = SamsaraAppContext.Resolve<IAERPCustomerService>();
-            Assert.IsNotNull(this.srvAERPCustomer);
+            this.srvERPCustomer = SamsaraAppContext.Resolve<IERPCustomerService>();
+            Assert.IsNotNull(this.srvERPCustomer);
             this.srvProductLine = SamsaraAppContext.Resolve<IProductLineService>();
             Assert.IsNotNull(this.srvProductLine);
             this.srvProductSubline = SamsaraAppContext.Resolve<IProductSublineService>();
@@ -109,16 +109,16 @@ namespace Samsara.Dashboard.Forms.Controller
             IList<int> lstStaffIds = dtData.AsEnumerable().AsParallel()
                 .Select(x => Convert.ToInt32(x[3])).Distinct().ToList();
 
-            IList<AERPCustomer> lstCustomers = this.srvAERPCustomer.GetAll()
+            IList<ERPCustomer> lstCustomers = this.srvERPCustomer.GetAll()
                 .AsParallel().Where(x => lstStaffIds.Contains(x.Staff.StaffId))
-                .OrderBy(x => x.Staff.Names).ThenBy(x => x.AERPCustomerId).ToList();
+                .OrderBy(x => x.Staff.Names).ThenBy(x => x.ERPCustomerId).ToList();
 
-            foreach (AERPCustomer customer in lstCustomers)
+            foreach (ERPCustomer customer in lstCustomers)
             {
                 DataRow newRow = this.dtGridReport.NewRow();
                 this.dtGridReport.Rows.Add(newRow);
 
-                newRow["CustomerId"] = customer.AERPCustomerId;
+                newRow["CustomerId"] = customer.ERPCustomerId;
                 newRow["CustomerName"] = customer.Name.Trim();
                 if (customer.ComercialName == null)
                     newRow["ComercialName"] = DBNull.Value;

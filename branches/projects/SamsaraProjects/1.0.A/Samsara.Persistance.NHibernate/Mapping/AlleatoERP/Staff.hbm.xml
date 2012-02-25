@@ -22,7 +22,7 @@
 
   <query name="Staff.GetListByParameters">
     <![CDATA[
-        from Staff where DeletedOn is not null
+        from Staff where DeletedOn is null
         order by Names
     ]]>
   </query>

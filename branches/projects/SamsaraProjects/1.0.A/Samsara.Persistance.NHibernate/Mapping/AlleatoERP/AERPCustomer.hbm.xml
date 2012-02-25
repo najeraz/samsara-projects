@@ -3,9 +3,9 @@
   assembly="Samsara.AlleatoERP.Core"
   namespace="Samsara.AlleatoERP.Core.Entities">
   
-  <class name="AERPCustomer" table="Clientes">
+  <class name="ERPCustomer" table="Clientes">
 
-    <id name="AERPCustomerId" column="cliente" type="int">
+    <id name="ERPCustomerId" column="cliente" type="int">
     </id>
 
     <property name="Name" column="nombre_cliente"/>
@@ -16,21 +16,21 @@
                  column="agente"/>
   </class>
 
-  <query name="AERPCustomer.GetByParameters">
+  <query name="ERPCustomer.GetByParameters">
     <![CDATA[
-        from AERPCustomer
+        from ERPCustomer
     ]]>
   </query>
 
-  <query name="AERPCustomer.GetListByParameters">
+  <query name="ERPCustomer.GetListByParameters">
     <![CDATA[
-        from AERPCustomer
+        from ERPCustomer
     ]]>
   </query>
 
-  <query name="AERPCustomer.SearchByParameters">
+  <query name="ERPCustomer.SearchByParameters">
     <![CDATA[
-        from AERPCustomer 
+        from ERPCustomer 
         where Name like :Name
     ]]>
   </query>
