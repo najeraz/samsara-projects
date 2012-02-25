@@ -1,9 +1,9 @@
 ﻿
 using Samsara.Base.Dao.Interfaces;
-using Samsara.Operation.Core.Entities;
-using Samsara.Operation.Core.Parameters;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Core.Parameters;
 
-namespace Samsara.Operation.Dao.Interfaces
+namespace Samsara.AlleatoERP.Dao.Interfaces
 {
     public interface IProductDao : IGenericDao<Product, int, ProductParameters>
     {

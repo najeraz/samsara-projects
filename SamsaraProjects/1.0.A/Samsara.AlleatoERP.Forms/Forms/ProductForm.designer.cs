@@ -1,4 +1,4 @@
-﻿namespace Samsara.Operation.Forms.Forms
+﻿namespace Samsara.AlleatoERP.Forms.Forms
 {
     partial class ProductForm
     {
@@ -37,17 +37,17 @@
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            Samsara.Operation.Core.Parameters.ProductBrandParameters productBrandParameters1 = new Samsara.Operation.Core.Parameters.ProductBrandParameters();
-            Samsara.Operation.Core.Parameters.ProductBrandParameters productBrandParameters2 = new Samsara.Operation.Core.Parameters.ProductBrandParameters();
+            Samsara.AlleatoERP.Core.Parameters.ProductBrandParameters productBrandParameters1 = new Samsara.AlleatoERP.Core.Parameters.ProductBrandParameters();
+            Samsara.AlleatoERP.Core.Parameters.ProductBrandParameters productBrandParameters2 = new Samsara.AlleatoERP.Core.Parameters.ProductBrandParameters();
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetName = new System.Windows.Forms.Label();
             this.txtSchName = new System.Windows.Forms.TextBox();
             this.lblSchName = new System.Windows.Forms.Label();
             this.lblDetFullName = new System.Windows.Forms.Label();
             this.txtDetDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.pbcSchProductBrand = new Samsara.Operation.Controls.Controls.ProductBrandChooserControl();
+            this.pbcSchProductBrand = new Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl();
             this.lblSchProductBrand = new System.Windows.Forms.Label();
-            this.pbcDetProductBrand = new Samsara.Operation.Controls.Controls.ProductBrandChooserControl();
+            this.pbcDetProductBrand = new Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl();
             this.lblDetProductBrand = new System.Windows.Forms.Label();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
@@ -288,9 +288,9 @@
         private System.Windows.Forms.Label lblDetFullName;
         internal System.Windows.Forms.TextBox txtSchName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetDescription;
-        internal Controls.Controls.ProductBrandChooserControl pbcSchProductBrand;
+        internal Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl pbcSchProductBrand;
         private System.Windows.Forms.Label lblSchProductBrand;
-        internal Controls.Controls.ProductBrandChooserControl pbcDetProductBrand;
+        internal Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl pbcDetProductBrand;
         private System.Windows.Forms.Label lblDetProductBrand;
     }
 }
