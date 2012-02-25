@@ -3,7 +3,7 @@
   assembly="Samsara.Operation.Core" 
   namespace="Samsara.Operation.Core.Entities">
   
-  <class name="ProductBrand" table="Operation.ProductBrands">
+  <class name="ProductBrand" table="AlleatoERP.ProductBrands">
     
     <id name="ProductBrandId" type="int">
       <generator class="native"/>

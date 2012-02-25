@@ -3,7 +3,7 @@
   assembly="Samsara.Operation.Core" 
   namespace="Samsara.Operation.Core.Entities">
   
-  <class name="Product" table="Operation.Products">
+  <class name="Product" table="AlleatoERP.Products">
     
     <id name="ProductId" type="int">
       <generator class="native"/>
@@ -40,8 +40,8 @@
     <![CDATA[
         SELECT
             p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName, pb.Name BrandName
-        FROM        Operation.Products p
-        LEFT JOIN   Operation.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
+        FROM        AlleatoERP.Products p
+        LEFT JOIN   AlleatoERP.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
         WHERE       p.Deleted = 0 AND p.Activated = 1
         AND         (CONTAINS(p.Name, :Name) OR :Name = '*')
         AND         (p.ProductBrandId = :ProductBrandId OR :ProductBrandId = -1)
@@ -54,7 +54,7 @@
     <![CDATA[
         SELECT TOP 100
             p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName
-        FROM        Operation.Products p
+        FROM        AlleatoERP.Products p
         WHERE       p.Deleted = 0 AND p.Activated = 1
         AND         p.Name LIKE :Name
         ORDER BY p.Name
