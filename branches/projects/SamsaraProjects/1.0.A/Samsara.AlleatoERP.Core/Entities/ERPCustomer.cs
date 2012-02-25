@@ -3,15 +3,15 @@ using Samsara.Base.Core.Attributes;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class AERPCustomer
+    public class ERPCustomer
     {
-        public AERPCustomer()
+        public ERPCustomer()
         {
-            AERPCustomerId = -1;
+            ERPCustomerId = -1;
         }
 
         [PrimaryKey]
-        public virtual int AERPCustomerId
+        public virtual int ERPCustomerId
         {
             get;
             set;

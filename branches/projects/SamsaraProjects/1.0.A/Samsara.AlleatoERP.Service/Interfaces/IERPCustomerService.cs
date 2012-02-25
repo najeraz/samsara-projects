@@ -5,7 +5,7 @@ using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Service.Interfaces
 {
-    public interface IAERPCustomerService : IGenericReadOnlyService<AERPCustomer, int, AERPCustomerParameters>
+    public interface IERPCustomerService : IGenericReadOnlyService<ERPCustomer, int, ERPCustomerParameters>
     {
 	}
 }

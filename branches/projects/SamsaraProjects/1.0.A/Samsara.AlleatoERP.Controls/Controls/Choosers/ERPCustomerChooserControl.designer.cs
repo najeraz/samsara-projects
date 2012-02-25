@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.AlleatoERP.Controls.Controls
 {
-    partial class AERPCustomerChooserControl
+    partial class ERPCustomerChooserControl
     {
         /// <summary> 
         /// Required designer variable.
