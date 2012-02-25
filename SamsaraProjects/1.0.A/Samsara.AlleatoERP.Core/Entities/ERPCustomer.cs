@@ -1,9 +1,10 @@
 ﻿
 using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class ERPCustomer
+    public class ERPCustomer : GenericEntity
     {
         public ERPCustomer()
         {

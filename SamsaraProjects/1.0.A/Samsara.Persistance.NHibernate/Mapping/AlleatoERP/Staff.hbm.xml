@@ -3,14 +3,21 @@
   assembly="Samsara.AlleatoERP.Core"
   namespace="Samsara.AlleatoERP.Core.Entities">
   
-  <class name="Staff" table="Personal">
+  <class name="Staff" table="AlleatoERP.Staffs">
 
-    <id name="StaffId" type="int" column="persona">
+    <id name="StaffId">
     </id>
     
-    <property name="DeletedOn" column="fecha_baja"/>
-    <property name="Names" column="nombres"/>
-    <property name="Lastname" column="apellidos"/>
+    <property name="Names"/>
+    <property name="Lastname"/>
+    <property name="Fullname"/>
+
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     
   </class>
 
