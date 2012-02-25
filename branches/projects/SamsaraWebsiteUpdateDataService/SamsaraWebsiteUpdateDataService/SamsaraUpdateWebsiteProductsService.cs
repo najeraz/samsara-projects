@@ -468,6 +468,7 @@ namespace SamsaraWebsiteUpdateDataService
                     ds = new DataSet();
                     sqlServerDataAdapter.Fill(ds, "Familias");
 
+                    insertQuery = string.Empty;
                     foreach (DataRow row in ds.Tables["Familias"].AsEnumerable())
                     {
                         insertQuery += string.Format(
@@ -491,6 +492,7 @@ namespace SamsaraWebsiteUpdateDataService
                     ds = new DataSet();
                     sqlServerDataAdapter.Fill(ds, "Sublineas");
 
+                    insertQuery = string.Empty;
                     foreach (DataRow row in ds.Tables["Sublineas"].AsEnumerable())
                     {
                         insertQuery += string.Format(
