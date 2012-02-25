@@ -7,7 +7,7 @@ using Samsara.Base.Service.Impl;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class AERPCustomerService : GenericReadOnlyService<AERPCustomer, int, IAERPCustomerDao, AERPCustomerParameters>, IAERPCustomerService
+    public class ERPCustomerService : GenericReadOnlyService<ERPCustomer, int, IERPCustomerDao, ERPCustomerParameters>, IERPCustomerService
     {
     }
 }

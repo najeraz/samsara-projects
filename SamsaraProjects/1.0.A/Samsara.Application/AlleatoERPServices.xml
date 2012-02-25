@@ -25,9 +25,9 @@
           type="Samsara.AlleatoERP.Service.Impl.StaffService, Samsara.AlleatoERP.Service">
     <property name="Dao" ref="IStaffDao"/>
   </object>
-  <object id="IAERPCustomerService"
-          type="Samsara.AlleatoERP.Service.Impl.AERPCustomerService, Samsara.AlleatoERP.Service">
-    <property name="Dao" ref="IAERPCustomerDao"/>
+  <object id="IERPCustomerService"
+          type="Samsara.AlleatoERP.Service.Impl.ERPCustomerService, Samsara.AlleatoERP.Service">
+    <property name="Dao" ref="IERPCustomerDao"/>
   </object>
 
 </objects>
