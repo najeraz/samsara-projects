@@ -1,4 +1,4 @@
-﻿namespace Samsara.Operation.Forms.Forms
+﻿namespace Samsara.AlleatoERP.Forms.Forms
 {
     partial class ProductBrandForm
     {

@@ -5,13 +5,13 @@ using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
-using Samsara.Operation.Core.Entities;
-using Samsara.Operation.Core.Parameters;
-using Samsara.Operation.Forms.Forms;
-using Samsara.Operation.Service.Interfaces;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Core.Parameters;
+using Samsara.AlleatoERP.Forms.Forms;
+using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Support.Util;
 
-namespace Samsara.Operation.Forms.Controller
+namespace Samsara.AlleatoERP.Forms.Controller
 {
     public class ProductFormController
     {

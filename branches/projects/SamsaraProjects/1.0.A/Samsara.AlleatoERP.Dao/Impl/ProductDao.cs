@@ -1,10 +1,10 @@
 ﻿
 using Samsara.Base.Dao.Impl;
-using Samsara.Operation.Core.Entities;
-using Samsara.Operation.Core.Parameters;
-using Samsara.Operation.Dao.Interfaces;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Core.Parameters;
+using Samsara.AlleatoERP.Dao.Interfaces;
 
-namespace Samsara.Operation.Dao.Impl
+namespace Samsara.AlleatoERP.Dao.Impl
 {
     public class ProductDao : GenericDao<Product, int, ProductParameters>, IProductDao
     {

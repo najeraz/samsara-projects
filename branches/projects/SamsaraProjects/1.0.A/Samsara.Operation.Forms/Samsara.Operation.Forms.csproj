@@ -105,25 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CurrencyFormController.cs" />
-    <Compile Include="Controller\ProductBrandFormController.cs" />
-    <Compile Include="Controller\ProductFormController.cs" />
     <Compile Include="Forms\CurrencyForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CurrencyForm.designer.cs">
       <DependentUpon>CurrencyForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ProductBrandForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ProductBrandForm.designer.cs">
-      <DependentUpon>ProductBrandForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ProductForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ProductForm.designer.cs">
-      <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\CurrencySearchForm.cs">
@@ -132,29 +118,11 @@
     <Compile Include="Templates\CurrencySearchForm.Designer.cs">
       <DependentUpon>CurrencySearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\ProductBrandSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\ProductBrandSearchForm.designer.cs">
-      <DependentUpon>ProductBrandSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\ProductSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\ProductSearchForm.designer.cs">
-      <DependentUpon>ProductSearchForm.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\CurrencyForm.resx">
       <DependentUpon>CurrencyForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProductBrandForm.resx">
-      <DependentUpon>ProductBrandForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProductForm.resx">
-      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
