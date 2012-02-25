@@ -189,17 +189,11 @@
           type="Samsara.Configuration.Dao.Impl.GridConfigurationDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+
+  <!-- ====================================== Operation ====================================== -->
   
   <object id="ICurrencyDao"
           type="Samsara.Operation.Dao.Impl.CurrencyDao, Samsara.Operation.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
-  <object id="IProductDao"
-          type="Samsara.Operation.Dao.Impl.ProductDao, Samsara.Operation.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
-  <object id="IProductBrandDao"
-          type="Samsara.Operation.Dao.Impl.ProductBrandDao, Samsara.Operation.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
@@ -448,5 +442,40 @@
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
+  <!-- ====================================== AlleatoERP ====================================== -->
+
+  <object id="IProductDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IProductBrandDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductBrandDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IAlleatoERPDao"
+          type="Samsara.AlleatoERP.Dao.Impl.AlleatoERPDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IProductFamilyDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductFamilyDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IProductLineDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductLineDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IProductSublineDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ProductSublineDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IStaffDao"
+          type="Samsara.AlleatoERP.Dao.Impl.StaffDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IERPCustomerDao"
+          type="Samsara.AlleatoERP.Dao.Impl.ERPCustomerDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
 </objects>
 

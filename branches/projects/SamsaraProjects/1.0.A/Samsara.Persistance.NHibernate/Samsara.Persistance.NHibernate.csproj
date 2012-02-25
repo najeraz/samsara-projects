@@ -317,12 +317,12 @@
     <EmbeddedResource Include="Mapping\Operation\ExchangeRate.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Operation\Product.hbm.xml">
+    <EmbeddedResource Include="Mapping\AlleatoERP\Product.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Operation\ProductBrand.hbm.xml" />
+    <EmbeddedResource Include="Mapping\AlleatoERP\ProductBrand.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Schema\nhibernate-configuration.xsd">

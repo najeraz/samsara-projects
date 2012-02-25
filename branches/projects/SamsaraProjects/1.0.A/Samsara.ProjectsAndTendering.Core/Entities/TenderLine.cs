@@ -1,8 +1,8 @@
 ﻿
 using Iesi.Collections.Generic;
+using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
-using Samsara.Operation.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
