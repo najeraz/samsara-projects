@@ -124,7 +124,7 @@ namespace Samsara.Dashboard.Forms.Controller
                     newRow["ComercialName"] = DBNull.Value;
                 else
                     newRow["ComercialName"] = customer.ComercialName.Trim();
-                newRow["Agent"] = customer.Staff.Names.Trim() + " " + customer.Staff.Lastname.Trim();
+                newRow["Agent"] = customer.Staff.Fullname.Trim();
             }
 
             foreach (DataRow row in this.dtGridReport.Rows)
