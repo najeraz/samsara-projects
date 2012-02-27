@@ -23,21 +23,21 @@
 
   <query name="Staff.GetByParameters">
     <![CDATA[
-        from Staff
+        from Staff where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="Staff.GetListByParameters">
     <![CDATA[
-        from Staff where DeletedOn is null
-        order by Names
+        from Staff where Deleted = 0 and Activated = 1
+        order by Fullname
     ]]>
   </query>
 
   <query name="Staff.SearchByParameters">
     <![CDATA[
         from Staff 
-        where Name like :Name
+        where Name like :Name and Deleted = 0 and Activated = 1
     ]]>
   </query>
 

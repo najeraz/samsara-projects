@@ -27,19 +27,19 @@ namespace Samsara.Base.Core.Entities
             set;
         }
 
-        public virtual int CreatedBy
+        public virtual Nullable<int> CreatedBy
         {
             get;
             set;
         }
 
-        public virtual DateTime CreatedOn
+        public virtual Nullable<DateTime> CreatedOn
         {
             get;
             set;
         }
 
-        public virtual DateTime UpdatedOn
+        public virtual Nullable<DateTime> UpdatedOn
         {
             get;
             set;
