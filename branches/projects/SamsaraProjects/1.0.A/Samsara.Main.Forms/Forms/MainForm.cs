@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Samsara.AlleatoERP.Forms.Forms;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.Dashboard.Forms.Forms;
