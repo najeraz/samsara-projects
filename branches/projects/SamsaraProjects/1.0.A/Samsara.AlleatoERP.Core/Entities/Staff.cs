@@ -25,7 +25,7 @@ namespace Samsara.AlleatoERP.Core.Entities
             set;
         }
 
-        public virtual string Lastname
+        public virtual string Lastnames
         {
             get;
             set;

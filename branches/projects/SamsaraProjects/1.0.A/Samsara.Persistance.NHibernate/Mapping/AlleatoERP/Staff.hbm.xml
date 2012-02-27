@@ -9,7 +9,7 @@
     </id>
     
     <property name="Names"/>
-    <property name="Lastname"/>
+    <property name="Lastnames"/>
     <property name="Fullname"/>
 
     <property name="Activated"/>
