@@ -148,6 +148,9 @@ namespace Samsara.Base.Controls.Controls
             base.Refresh();
             this.PrepareComponents();
 
+            this.suceEntities.ValueChanged -= new EventHandler(suceEntities_ValueChanged);
+            this.suceEntities.ValueChanged += new EventHandler(suceEntities_ValueChanged);
+
             this.RefreshCombo();
 
             EditorButton editorButtonAdd = this.suceEntities.ButtonsLeft["Add"] as EditorButton;
@@ -307,7 +310,44 @@ namespace Samsara.Base.Controls.Controls
                 default:
                     throw new NotImplementedException();
             }
+        }
 
+        private void suceEntities_BeforeDropDown(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            switch (this.controlType)
+            {
+                case SamsaraEntityChooserControlTypeEnum.Single:
+                    break;
+                case SamsaraEntityChooserControlTypeEnum.Multiple:
+                    this.suceEntities.ValueChanged -= new EventHandler(suceEntities_ValueChanged);
+                    if (this.suceEntities.Items.ValueList.CheckedItems.Count == 1 &&
+                        this.suceEntities.Items.ValueList.CheckedItems
+                        .All.Cast<ValueListItem>().Count(x => Convert.ToInt32(x.DataValue) == -1) == 1)
+                    {
+                        this.suceEntities.Value = null;
+                    }
+                    this.suceEntities.ValueChanged += new EventHandler(suceEntities_ValueChanged);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        private void suceEntities_AfterCloseUp(object sender, EventArgs e)
+        {
+            switch (this.controlType)
+            {
+                case SamsaraEntityChooserControlTypeEnum.Single:
+                    break;
+                case SamsaraEntityChooserControlTypeEnum.Multiple:
+                    if (this.suceEntities.Value == null)
+                    {
+                        this.suceEntities.Value = new object[] { -1 };
+                    }
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         #endregion Events

@@ -33,7 +33,7 @@
                  column="CompetitorWonId"/>
 
     <many-to-one name="Product" lazy="false"
-                 class="Samsara.Operation.Core.Entities.Product, Samsara.Operation.Core"
+                 class="Samsara.AlleatoERP.Core.Entities.Product, Samsara.Operation.Core"
                  column="ProductId"/>
 
     <many-to-one name="Wholesaler"
