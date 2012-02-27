@@ -47,7 +47,7 @@ namespace Samsara.Commissions.Forms.Controllers
 
             StaffParameters pmtStaff = new StaffParameters();
 
-            this.frmServicesManagement.sccDetStaff.DisplayMember = "Names";
+            this.frmServicesManagement.sccDetStaff.DisplayMember = "Fullname";
             this.frmServicesManagement.sccDetStaff.Parameters = pmtStaff;
             this.frmServicesManagement.sccDetStaff.Refresh();
         }

@@ -45,7 +45,8 @@ namespace Samsara.Base.Controls.Controls
             this.suceEntities.Name = "suceEntities";
             this.suceEntities.Size = new System.Drawing.Size(226, 21);
             this.suceEntities.TabIndex = 0;
-            this.suceEntities.ValueChanged += new System.EventHandler(this.suceEntities_ValueChanged);
+            this.suceEntities.BeforeDropDown += new System.ComponentModel.CancelEventHandler(this.suceEntities_BeforeDropDown);
+            this.suceEntities.AfterCloseUp += new System.EventHandler(this.suceEntities_AfterCloseUp);
             // 
             // SamsaraEntityChooserControl
             // 

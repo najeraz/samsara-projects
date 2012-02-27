@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.Operation.Core" 
-  namespace="Samsara.Operation.Core.Entities">
+  assembly="Samsara.AlleatoERP.Core" 
+  namespace="Samsara.AlleatoERP.Core.Entities">
   
   <class name="ProductBrand" table="AlleatoERP.ProductBrands">
     

@@ -25,20 +25,20 @@
 
   <query name="ERPCustomer.GetByParameters">
     <![CDATA[
-        from ERPCustomer
+        from ERPCustomer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="ERPCustomer.GetListByParameters">
     <![CDATA[
-        from ERPCustomer
+        from ERPCustomer where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
   <query name="ERPCustomer.SearchByParameters">
     <![CDATA[
         from ERPCustomer 
-        where Name like :Name
+        where Name like :Name and Deleted = 0 and Activated = 1
     ]]>
   </query>
 

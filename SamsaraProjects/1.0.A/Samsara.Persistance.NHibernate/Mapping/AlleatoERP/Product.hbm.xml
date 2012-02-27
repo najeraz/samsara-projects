@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.Operation.Core" 
-  namespace="Samsara.Operation.Core.Entities">
+  assembly="Samsara.AlleatoERP.Core" 
+  namespace="Samsara.AlleatoERP.Core.Entities">
   
   <class name="Product" table="AlleatoERP.Products">
     
@@ -21,7 +21,7 @@
     <property name="UpdatedOn"/>
 
     <many-to-one name="ProductBrand" lazy="false"
-                 class="Samsara.Operation.Core.Entities.ProductBrand, Samsara.Operation.Core"
+                 class="Samsara.AlleatoERP.Core.Entities.ProductBrand, Samsara.AlleatoERP.Core"
                  column="ProductBrandId"/>
 
   </class>
