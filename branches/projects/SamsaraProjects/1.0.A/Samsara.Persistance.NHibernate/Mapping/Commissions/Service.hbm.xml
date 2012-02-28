@@ -56,7 +56,7 @@
       INNER JOIN  Commissions.ServiceStaff ss ON ss.ServiceId = s.ServiceId
       WHERE s.Deleted = 0 and s.Activated = 1
       AND (s.ServiceNumber = :ServiceNumber OR -1 = :ServiceNumber)
-      AND (ss.StaffId IN (SELECT data FROM Split(:StaffIds)) OR '-1' = :StaffIds)
+      AND (ss.StaffId IN (SELECT data FROM Split(:StaffIds, ',')) OR '-1' = :StaffIds)
       ORDER BY s.ServiceId
     ]]>
   </sql-query>
