@@ -73,16 +73,20 @@ namespace Samsara.Commissions.Forms.Controllers
         {
             ServiceParameters pmtService = new ServiceParameters();
 
-            pmtService.ServiceNumber = this.frmServicesManagement.txtSchServiceNumber.Value == null ?
+            pmtService.ServiceNumber = this.frmServicesManagement.txtSchServiceNumber.Value == DBNull.Value ?
                 ParameterConstants.IntNone : Convert.ToInt32(this.frmServicesManagement.txtSchServiceNumber.Value);
-            pmtService.StaffIds = string.Join(", ", this.frmServicesManagement.sccSchStaff.Values.Select(x => x.StaffId.ToString()));
+            pmtService.StaffIds = this.frmServicesManagement.sccSchStaff.Values.Count > 0 ? 
+                string.Join(", ", this.frmServicesManagement.sccSchStaff.Values.Select(x => x.StaffId.ToString()))
+                : "-1";
+
+            this.srvService.SearchByParameters(pmtService);
         }
 
         public override void ClearSearchFields()
         {
             base.ClearSearchFields();
 
-            this.frmServicesManagement.sccSchStaff.Value = null;
+            this.frmServicesManagement.sccSchStaff.Values = null;
             this.frmServicesManagement.txtSchServiceNumber.Value = null;
         }
 
