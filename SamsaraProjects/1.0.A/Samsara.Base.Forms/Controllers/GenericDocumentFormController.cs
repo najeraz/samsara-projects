@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
+using System;
 
 namespace Samsara.Base.Forms.Controllers
 {
@@ -26,8 +27,6 @@ namespace Samsara.Base.Forms.Controllers
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
             this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
-
-            //this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -56,15 +55,11 @@ namespace Samsara.Base.Forms.Controllers
         {
         }
 
-        public virtual void CloseForm()
+        public virtual void EditEntity(int entityId)
         {
         }
 
-        public virtual void DeleteSelectedEntity()
-        {
-        }
-
-        public virtual void EditSelectedEntity()
+        public virtual void DeleteEntity(int entityId)
         {
         }
 
@@ -81,6 +76,31 @@ namespace Samsara.Base.Forms.Controllers
         }
 
         #endregion Public
+
+        #region Internal
+
+        internal void CloseForm()
+        {
+            this.frmGenericDocument.Close();
+        }
+
+        internal void EditSelectedEntity()
+        {
+            UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
+
+            if (activeRow != null)
+                this.EditEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+
+        internal void DeleteSelectedEntity()
+        {
+            UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
+
+            if (activeRow != null)
+                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+
+        #endregion Internal
 
         #endregion Methods
 
