@@ -610,7 +610,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.LaodTenderWarranties();
 
             IList<TenderLineStatus> lstTenderLineStatuses
-                = this.tender.TenderLines.Where(x => x.Activated && !x.Deleted)
+                = this.tender.TenderLines.Where(x => x.Activated.Value && !x.Deleted.Value)
                 .Select(x => x.TenderLineStatus).Distinct().ToList();
 
             this.tender.TenderStatus = this.srvTenderStatus.GetById((int)TenderStatusesEnum.Open);
@@ -1038,7 +1038,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.mtoDetTenderLines.LoadControls();
 
             foreach (TenderCompetitor tenderCompetitor in this.tender
-                .TenderCompetitors.Where(x => x.Activated && !x.Deleted)
+                .TenderCompetitors.Where(x => x.Activated.Value && !x.Deleted.Value)
                 .OrderBy(x => x.Competitor.CompetitorId))
             {
                 DataRow row = this.dtTenderCompetitors.NewRow();
@@ -1050,7 +1050,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderWholesaler tenderWholesaler in this.tender
-                .TenderWholesalers.Where(x => x.Activated && !x.Deleted))
+                .TenderWholesalers.Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 DataRow row = this.dtTenderWholesalers.NewRow();
                 this.dtTenderWholesalers.Rows.Add(row);
@@ -1062,7 +1062,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines
-                .Where(x => x.Activated && !x.Deleted).OrderBy(x => x.Name))
+                .Where(x => x.Activated.Value && !x.Deleted.Value).OrderBy(x => x.Name))
             {
                 DataRow row = this.dtTenderLines.NewRow();
 
@@ -1080,7 +1080,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderManufacturer tenderManufacturer in this.tender
-                .TenderManufacturers.Where(x => x.Activated && !x.Deleted))
+                .TenderManufacturers.Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 DataRow row = this.dtTenderManufacturers.NewRow();
                 this.dtTenderManufacturers.Rows.Add(row);
@@ -1093,7 +1093,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderLog tenderLog in this.tender.TenderLogs
-                .Where(x => x.Activated && !x.Deleted).OrderByDescending(x => x.LogDate))
+                .Where(x => x.Activated.Value && !x.Deleted.Value).OrderByDescending(x => x.LogDate))
             {
                 DataRow row = this.dtTenderLog.NewRow();
                 this.dtTenderLog.Rows.Add(row);
@@ -1105,7 +1105,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderExchangeRate tenderExchangeRate in this.tender
-                .TenderExchangeRates.Where(x => x.Activated && !x.Deleted))
+                .TenderExchangeRates.Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 DataRow row = this.dtTenderExchangeRates.NewRow();
                 this.dtTenderExchangeRates.Rows.Add(row);
@@ -1116,7 +1116,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderWarranty tenderWarranty in this.tender
-                .TenderWarranties.Where(x => x.Activated && !x.Deleted))
+                .TenderWarranties.Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 DataRow row = this.dtTenderWarranties.NewRow();
                 this.dtTenderWarranties.Rows.Add(row);
@@ -1135,7 +1135,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderLineExtraCost tenderLineExtraCost in this.tender.TenderLines
-                .Where(x => x.Activated && !x.Deleted).SelectMany(x => x.TenderLineExtraCosts))
+                .Where(x => x.Activated.Value && !x.Deleted.Value).SelectMany(x => x.TenderLineExtraCosts))
             {
                 DataRow row = this.dtTenderLineExtraCosts.NewRow();
 
@@ -1388,7 +1388,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderLineWholesaler tenderLineWholesaler in
                 this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
-                .Where(x => x.Activated && !x.Deleted))
+                .Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 DataRow row = this.dtPriceComparison.AsEnumerable().SingleOrDefault(x =>
                     Convert.ToInt32(x["TenderLineId"]) == tenderLineWholesaler.TenderLine.TenderLineId);
@@ -1555,7 +1555,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (TenderLineCompetitor tenderLineCompetitor in
                 this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
-                .Where(x => x.Activated && !x.Deleted))
+                .Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 DataRow row = this.dtPreresults.AsEnumerable().SingleOrDefault(x =>
                     Convert.ToInt32(x["TenderLineId"]) == tenderLineCompetitor.TenderLine.TenderLineId);
@@ -1775,7 +1775,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             Manufacturer manufacturer = null;
             TenderManufacturer tenderManufacturer = this.tender.TenderManufacturers
-                .SingleOrDefault(x => x.Activated && !x.Deleted && x.Manufacturer.ManufacturerId == manufacturerId);
+                .SingleOrDefault(x => x.Activated.Value && !x.Deleted.Value && x.Manufacturer.ManufacturerId == manufacturerId);
 
             if (tenderManufacturer != null)
                 manufacturer = tenderManufacturer.Manufacturer;
@@ -1789,7 +1789,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             Wholesaler wholesaler = null;
             TenderWholesaler tenderWholesaler = this.tender.TenderWholesalers
-                .SingleOrDefault(x => x.Activated && !x.Deleted && x.Wholesaler.WholesalerId == wholesalerId);
+                .SingleOrDefault(x => x.Activated.Value && !x.Deleted.Value && x.Wholesaler.WholesalerId == wholesalerId);
 
             if (tenderWholesaler != null)
                 wholesaler = tenderWholesaler.Wholesaler;
@@ -1803,7 +1803,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             Competitor competitor = null;
             TenderCompetitor tenderCompetitor = this.tender.TenderCompetitors
-                .SingleOrDefault(x => x.Activated && !x.Deleted && x.Competitor.CompetitorId == competitorId);
+                .SingleOrDefault(x => x.Activated.Value && !x.Deleted.Value && x.Competitor.CompetitorId == competitorId);
 
             if (tenderCompetitor != null)
                 competitor = tenderCompetitor.Competitor;

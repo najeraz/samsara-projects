@@ -12,6 +12,8 @@ using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Commissions.Core.Entities;
+using Samsara.Base.Controls.Enums;
+using Samsara.Support.Util;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -52,9 +54,15 @@ namespace Samsara.Commissions.Forms.Controllers
 
             StaffParameters pmtStaff = new StaffParameters();
 
+            this.frmServicesManagement.sccDetStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
             this.frmServicesManagement.sccDetStaff.DisplayMember = "Fullname";
             this.frmServicesManagement.sccDetStaff.Parameters = pmtStaff;
             this.frmServicesManagement.sccDetStaff.Refresh();
+
+            this.frmServicesManagement.sccSchStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
+            this.frmServicesManagement.sccSchStaff.DisplayMember = "Fullname";
+            this.frmServicesManagement.sccSchStaff.Parameters = pmtStaff;
+            this.frmServicesManagement.sccSchStaff.Refresh();
         }
 
         #endregion Protected
@@ -64,6 +72,10 @@ namespace Samsara.Commissions.Forms.Controllers
         public override void Search()
         {
             ServiceParameters pmtService = new ServiceParameters();
+
+            pmtService.ServiceNumber = this.frmServicesManagement.txtSchServiceNumber.Value == null ?
+                ParameterConstants.IntNone : Convert.ToInt32(this.frmServicesManagement.txtSchServiceNumber.Value);
+            pmtService.StaffIds = string.Join(", ", this.frmServicesManagement.sccSchStaff.Values.Select(x => x.StaffId.ToString()));
         }
 
         public override void ClearSearchFields()
