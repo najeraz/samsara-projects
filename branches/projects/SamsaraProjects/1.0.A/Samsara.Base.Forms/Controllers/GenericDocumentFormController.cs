@@ -15,7 +15,7 @@ namespace Samsara.Base.Forms.Controllers
 
         private GenericDocumentForm frmGenericDocument;
         private DataTable dtSearchGrid;
-        private FormStatusEnum formStatus;
+        protected FormStatusEnum formStatus;
 
         #endregion Attributes
 

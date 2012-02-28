@@ -28,7 +28,7 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl
         {
             base.SaveOrUpdate(entity);
 
-            if (entity.Deleted)
+            if (entity.Deleted.Value)
                 this.DeleteTenderFiles(entity);
             else
                 this.SaveTenderFiles(entity);
@@ -38,7 +38,7 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl
         {
             base.Update(entity);
 
-            if (entity.Deleted)
+            if (entity.Deleted.Value)
                 this.DeleteTenderFiles(entity);
             else
                 this.SaveTenderFiles(entity);
