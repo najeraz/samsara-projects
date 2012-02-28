@@ -446,7 +446,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
 
             foreach (OpportunityLog opportunityLog in 
-                this.opportunity.OpportunityLogs.Where(x => x.Activated && !x.Deleted))
+                this.opportunity.OpportunityLogs.Where(x => x.Activated.Value && !x.Deleted.Value))
             {
                 TenderLog tenderLog = new TenderLog();
                 ObjectsUtil.CopyProperties(tenderLog, opportunityLog);
