@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class UPSBrandSearchForm : GenericSearchForm<UPSBrand>
+    public partial class UPSBrandSearchForm : GenericCatalogSearchForm<UPSBrand>
     {
         public UPSBrandSearchForm()
         {

@@ -4,7 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Forms.Templates
 {
-    public partial class BidderSearchForm : GenericSearchForm<Bidder>
+    public partial class BidderSearchForm : GenericCatalogSearchForm<Bidder>
     {
         public BidderSearchForm()
         {

@@ -4,7 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Forms.Templates
 {
-    public partial class WarrantyTypeSearchForm : GenericSearchForm<WarrantyType>
+    public partial class WarrantyTypeSearchForm : GenericCatalogSearchForm<WarrantyType>
     {
         public WarrantyTypeSearchForm()
         {

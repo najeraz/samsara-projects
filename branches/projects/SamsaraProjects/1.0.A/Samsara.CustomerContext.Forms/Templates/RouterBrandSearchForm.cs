@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class RouterBrandSearchForm : GenericSearchForm<RouterBrand>
+    public partial class RouterBrandSearchForm : GenericCatalogSearchForm<RouterBrand>
     {
         public RouterBrandSearchForm()
         {

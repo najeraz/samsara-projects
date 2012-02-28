@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class CCTVTypeSearchForm : GenericSearchForm<CCTVType>
+    public partial class CCTVTypeSearchForm : GenericCatalogSearchForm<CCTVType>
     {
         public CCTVTypeSearchForm()
         {

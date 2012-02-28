@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class PrinterTypeSearchForm : GenericSearchForm<PrinterType>
+    public partial class PrinterTypeSearchForm : GenericCatalogSearchForm<PrinterType>
     {
         public PrinterTypeSearchForm()
         {

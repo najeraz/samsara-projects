@@ -4,7 +4,7 @@ using Samsara.Controls.Interfaces;
 
 namespace Samsara.Base.Forms.Forms
 {
-    public abstract partial class GenericSearchForm<T> : CatalogForm, ISearchForm<T>
+    public abstract partial class GenericCatalogSearchForm<T> : CatalogForm, ISearchForm<T>
     {
         public Form ParentSearchForm
         {
@@ -18,7 +18,7 @@ namespace Samsara.Base.Forms.Forms
             set;
         }
 
-        public GenericSearchForm()
+        public GenericCatalogSearchForm()
         {
             InitializeComponent();
         }

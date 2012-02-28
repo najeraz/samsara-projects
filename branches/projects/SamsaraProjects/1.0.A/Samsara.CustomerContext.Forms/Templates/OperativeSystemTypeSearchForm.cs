@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class OperativeSystemTypeSearchForm : GenericSearchForm<OperativeSystemType>
+    public partial class OperativeSystemTypeSearchForm : GenericCatalogSearchForm<OperativeSystemType>
     {
         public OperativeSystemTypeSearchForm()
         {

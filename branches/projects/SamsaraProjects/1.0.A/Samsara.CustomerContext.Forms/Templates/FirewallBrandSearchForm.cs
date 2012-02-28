@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class FirewallBrandSearchForm : GenericSearchForm<FirewallBrand>
+    public partial class FirewallBrandSearchForm : GenericCatalogSearchForm<FirewallBrand>
     {
         public FirewallBrandSearchForm()
         {

@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class ISPSearchForm : GenericSearchForm<ISP>
+    public partial class ISPSearchForm : GenericCatalogSearchForm<ISP>
     {
         public ISPSearchForm()
         {
