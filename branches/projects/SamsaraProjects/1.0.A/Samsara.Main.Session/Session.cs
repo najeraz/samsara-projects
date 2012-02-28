@@ -1,7 +1,9 @@
 ﻿
+using System;
 using System.Diagnostics;
 using NUnit.Framework;
 using Samsara.Base.Core.Context;
+using Samsara.Base.Core.Interfaces;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Core.Parameters;
 using Samsara.Main.Service.Interfaces;
@@ -9,7 +11,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.Main.Session
 {
-    public class Session
+    public class Session : ISession
     {
         private static Session session;
         private static User user;
@@ -19,6 +21,14 @@ namespace Samsara.Main.Session
             get
             {
                 return user;
+            }
+        }
+
+        public Nullable<int> UserId
+        {
+            get
+            {
+                return user == null ? null : (Nullable<int>)(user.UserId);
             }
         }
 

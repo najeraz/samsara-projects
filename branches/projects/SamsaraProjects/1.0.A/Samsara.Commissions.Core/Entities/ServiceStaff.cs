@@ -1,6 +1,7 @@
 ﻿
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.Commissions.Core.Entities
 {
@@ -18,13 +19,13 @@ namespace Samsara.Commissions.Core.Entities
             set;
         }
 
-        public virtual string ServiceId
+        public virtual Service Service
         {
             get;
             set;
         }
 
-        public virtual string StaffId
+        public virtual Staff Staff
         {
             get;
             set;

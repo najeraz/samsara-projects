@@ -13,6 +13,7 @@ namespace Samsara.Commissions.Forms.Forms
             InitializeComponent();
 
             this.ctrlServicesManagementForm = new ServicesManagementFormController(this);
+            this.controller = this.ctrlServicesManagementForm;
         }
     }
 }

@@ -201,7 +201,7 @@ namespace Samsara.Base.Controls.Controls
                     this.suceEntities.Value = null;
                     break;
                 case SamsaraEntityChooserControlTypeEnum.Multiple:
-                    if (e.NewValues.Count > 0)
+                    if (e.NewValues != null && e.NewValues.Count > 0)
                     {
                         this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValues<T>(e.NewValues);
                     }
