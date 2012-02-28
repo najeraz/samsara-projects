@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class SwitchBrandSearchForm : GenericSearchForm<SwitchBrand>
+    public partial class SwitchBrandSearchForm : GenericCatalogSearchForm<SwitchBrand>
     {
         public SwitchBrandSearchForm()
         {

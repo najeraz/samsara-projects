@@ -44,6 +44,7 @@
     <Reference Include="Samsara.AlleatoERP.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.AlleatoERP.Forms.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -196,33 +197,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\SamsaraFormSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\SamsaraFormSearchForm.cs" />
     <Compile Include="Templates\SamsaraFormSearchForm.designer.cs">
       <DependentUpon>SamsaraFormSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\SchemeSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\SchemeSearchForm.cs" />
     <Compile Include="Templates\SchemeSearchForm.designer.cs">
       <DependentUpon>SchemeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserGroupSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\UserGroupSearchForm.cs" />
     <Compile Include="Templates\UserGroupSearchForm.designer.cs">
       <DependentUpon>UserGroupSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserPermissionSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\UserPermissionSearchForm.cs" />
     <Compile Include="Templates\UserPermissionSearchForm.designer.cs">
       <DependentUpon>UserPermissionSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\UserSearchForm.cs" />
     <Compile Include="Templates\UserSearchForm.designer.cs">
       <DependentUpon>UserSearchForm.cs</DependentUpon>
     </Compile>

@@ -1,6 +1,6 @@
 ﻿namespace Samsara.Base.Forms.Forms
 {
-    partial class GenericSearchForm<T>
+    partial class GenericCatalogSearchForm<T>
     {
         /// <summary>
         /// Required designer variable.

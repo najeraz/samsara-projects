@@ -416,7 +416,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 -1 : this.frmOpportunity.oscSchOpportunityStatus.Value.OpportunityStatusId;
             pmtOpportunity.Name = "%" + this.frmOpportunity.txtSchOpportunityName.Text + "%";
             pmtOpportunity.DateTypeSearchId = (DateTypeSearchEnum)this.frmOpportunity.uosSchDates.Value;
-            pmtOpportunity.OnlyNotRelatedToTenders = ((GenericSearchForm<Opportunity>)
+            pmtOpportunity.OnlyNotRelatedToTenders = ((GenericCatalogSearchForm<Opportunity>)
                 this.frmOpportunity).ParentSearchForm != null;
 
             DataTable dtOpportunitys = srvOpportunity.SearchByParameters(pmtOpportunity);

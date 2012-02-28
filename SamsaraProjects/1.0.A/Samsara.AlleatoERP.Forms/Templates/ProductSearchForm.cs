@@ -4,7 +4,7 @@ using Samsara.Base.Forms.Forms;
 
 namespace Samsara.AlleatoERP.Forms.Templates
 {
-    public partial class ProductSearchForm : GenericSearchForm<Product>
+    public partial class ProductSearchForm : GenericCatalogSearchForm<Product>
     {
         public ProductSearchForm()
         {

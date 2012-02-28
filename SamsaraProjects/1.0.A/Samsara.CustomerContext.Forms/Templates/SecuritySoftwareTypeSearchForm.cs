@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class SecuritySoftwareTypeSearchForm : GenericSearchForm<SecuritySoftwareType>
+    public partial class SecuritySoftwareTypeSearchForm : GenericCatalogSearchForm<SecuritySoftwareType>
     {
         public SecuritySoftwareTypeSearchForm()
         {
