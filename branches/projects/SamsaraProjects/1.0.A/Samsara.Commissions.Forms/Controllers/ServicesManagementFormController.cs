@@ -71,15 +71,11 @@ namespace Samsara.Commissions.Forms.Controllers
         {
         }
 
-        public override void CloseForm()
+        public override void DeleteEntity(int serviceId)
         {
         }
 
-        public override void DeleteSelectedEntity()
-        {
-        }
-
-        public override void EditSelectedEntity()
+        public override void EditEntity(int serviceId)
         {
         }
 

@@ -54,7 +54,6 @@ namespace Samsara.Commissions.Forms.Forms
             this.gbxSchParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
-            this.pnlDetCtgButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxSchParameters
@@ -254,7 +253,6 @@ namespace Samsara.Commissions.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
-            this.pnlDetCtgButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

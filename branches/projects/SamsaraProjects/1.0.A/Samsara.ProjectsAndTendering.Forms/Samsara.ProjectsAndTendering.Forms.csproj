@@ -246,9 +246,7 @@
     <Compile Include="Forms\OrganizationForm.designer.cs">
       <DependentUpon>OrganizationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OpportunityForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\OpportunityForm.cs" />
     <Compile Include="Forms\OpportunityForm.designer.cs">
       <DependentUpon>OpportunityForm.cs</DependentUpon>
     </Compile>
@@ -282,81 +280,55 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\AsesorSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\AsesorSearchForm.cs" />
     <Compile Include="Templates\AsesorSearchForm.Designer.cs">
       <DependentUpon>AsesorSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\BidderSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\BidderSearchForm.cs" />
     <Compile Include="Templates\BidderSearchForm.Designer.cs">
       <DependentUpon>BidderSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\CompetitorSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\CompetitorSearchForm.cs" />
     <Compile Include="Templates\CompetitorSearchForm.Designer.cs">
       <DependentUpon>CompetitorSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\DocumentTypeWarrantySearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\DocumentTypeWarrantySearchForm.cs" />
     <Compile Include="Templates\DocumentTypeWarrantySearchForm.Designer.cs">
       <DependentUpon>DocumentTypeWarrantySearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\WarrantyTypeSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\WarrantyTypeSearchForm.cs" />
     <Compile Include="Templates\WarrantyTypeSearchForm.Designer.cs">
       <DependentUpon>WarrantyTypeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\WholesalerSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\WholesalerSearchForm.cs" />
     <Compile Include="Templates\WholesalerSearchForm.Designer.cs">
       <DependentUpon>WholesalerSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\OpportunityStatusSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\OpportunityStatusSearchForm.cs" />
     <Compile Include="Templates\OpportunityStatusSearchForm.Designer.cs">
       <DependentUpon>OpportunityStatusSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\OrganizationSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\OrganizationSearchForm.cs" />
     <Compile Include="Templates\OrganizationSearchForm.Designer.cs">
       <DependentUpon>OrganizationSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\OpportunitySearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\OpportunitySearchForm.cs" />
     <Compile Include="Templates\OpportunitySearchForm.Designer.cs">
       <DependentUpon>OpportunitySearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\ManufacturerSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\ManufacturerSearchForm.cs" />
     <Compile Include="Templates\ManufacturerSearchForm.Designer.cs">
       <DependentUpon>ManufacturerSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\EndUserSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\EndUserSearchForm.cs" />
     <Compile Include="Templates\EndUserSearchForm.Designer.cs">
       <DependentUpon>EndUserSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\DependencySearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\DependencySearchForm.cs" />
     <Compile Include="Templates\DependencySearchForm.Designer.cs">
       <DependentUpon>DependencySearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\TenderSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\TenderSearchForm.cs" />
     <Compile Include="Templates\TenderSearchForm.Designer.cs">
       <DependentUpon>TenderSearchForm.cs</DependentUpon>
     </Compile>

@@ -4,7 +4,7 @@ using Samsara.Main.Core.Entities;
 
 namespace Samsara.Main.Forms.Templates
 {
-    public partial class SchemeSearchForm : GenericSearchForm<Scheme>
+    public partial class SchemeSearchForm : GenericCatalogSearchForm<Scheme>
     {
         public SchemeSearchForm()
         {

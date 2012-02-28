@@ -4,7 +4,7 @@ using Samsara.Main.Core.Entities;
 
 namespace Samsara.Main.Forms.Templates
 {
-    public partial class UserPermissionSearchForm : GenericSearchForm<UserPermission>
+    public partial class UserPermissionSearchForm : GenericCatalogSearchForm<UserPermission>
     {
         public UserPermissionSearchForm()
         {

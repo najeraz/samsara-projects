@@ -42,7 +42,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         {
             base.PrepareSearchControls();
 
-            if (((GenericSearchForm<Opportunity>)this).ParentSearchForm != null)
+            if (((GenericCatalogSearchForm<Opportunity>)this).ParentSearchForm != null)
             {
                 this.otcSchOpportunityType.ReadOnly = true;
                 this.otcSchOpportunityType.Value = this.srvOpportunityType.GetById((int)OpportunityTypeEnum.PublicSector);

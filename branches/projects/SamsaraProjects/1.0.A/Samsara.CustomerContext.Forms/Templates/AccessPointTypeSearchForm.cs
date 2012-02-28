@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class AccessPointTypeSearchForm : GenericSearchForm<AccessPointType>
+    public partial class AccessPointTypeSearchForm : GenericCatalogSearchForm<AccessPointType>
     {
         public AccessPointTypeSearchForm()
         {

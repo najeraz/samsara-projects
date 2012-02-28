@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class NetworkCablingTypeSearchForm : GenericSearchForm<NetworkCablingType>
+    public partial class NetworkCablingTypeSearchForm : GenericCatalogSearchForm<NetworkCablingType>
     {
         public NetworkCablingTypeSearchForm()
         {

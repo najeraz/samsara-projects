@@ -4,7 +4,7 @@ using Samsara.ProjectsAndTendering.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Forms.Templates
 {
-    public partial class DependencySearchForm : GenericSearchForm<Dependency>
+    public partial class DependencySearchForm : GenericCatalogSearchForm<Dependency>
     {
         public DependencySearchForm()
         {

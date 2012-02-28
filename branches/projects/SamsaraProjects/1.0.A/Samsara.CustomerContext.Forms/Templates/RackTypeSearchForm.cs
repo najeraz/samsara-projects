@@ -4,7 +4,7 @@ using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {
-    public partial class RackTypeSearchForm : GenericSearchForm<RackType>
+    public partial class RackTypeSearchForm : GenericCatalogSearchForm<RackType>
     {
         public RackTypeSearchForm()
         {
