@@ -1,10 +1,11 @@
 ﻿
+using System;
 using System.Data;
 using System.Diagnostics;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.Base.Forms.Enums;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
-using System;
 
 namespace Samsara.Base.Forms.Controllers
 {
@@ -14,6 +15,7 @@ namespace Samsara.Base.Forms.Controllers
 
         private GenericDocumentForm frmGenericDocument;
         private DataTable dtSearchGrid;
+        private FormStatusEnum formStatus;
 
         #endregion Attributes
 
@@ -27,6 +29,9 @@ namespace Samsara.Base.Forms.Controllers
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
             this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
+
+            this.formStatus = FormStatusEnum.Search;
+            this.ShowDetail(false);
         }
 
         #endregion Constructor
@@ -57,6 +62,8 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void EditEntity(int entityId)
         {
+            this.formStatus = FormStatusEnum.Edition;
+            this.ShowDetail(true);
         }
 
         public virtual void DeleteEntity(int entityId)
@@ -65,13 +72,22 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void CreateEntity()
         {
+            this.formStatus = FormStatusEnum.Creation;
+            this.ClearDetailFields();
+            this.ShowDetail(true);
         }
 
         public virtual void BackToSearch()
         {
+            this.formStatus = FormStatusEnum.Search;
+            this.ShowDetail(false);
         }
 
         public virtual void SaveEntity()
+        {
+        }
+
+        public virtual void ClearDetailFields()
         {
         }
 
@@ -101,6 +117,28 @@ namespace Samsara.Base.Forms.Controllers
         }
 
         #endregion Internal
+
+        #region Private
+
+        private void ShowDetail(bool show)
+        {
+            this.frmGenericDocument.utcPrincipal.Tabs["tbSearch"].Visible = !show;
+            this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Visible = show;
+
+            switch (this.formStatus)
+            {
+                case FormStatusEnum.Creation:
+                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Nuevo";
+                    break;
+                case FormStatusEnum.Edition:
+                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Edición";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        #endregion Private
 
         #endregion Methods
 

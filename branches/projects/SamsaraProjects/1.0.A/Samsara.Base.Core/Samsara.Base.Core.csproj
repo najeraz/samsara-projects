@@ -54,6 +54,7 @@
     <Compile Include="Attributes\PrimaryKey.cs" />
     <Compile Include="Context\SamsaraAppContext.cs" />
     <Compile Include="Entities\GenericEntity.cs" />
+    <Compile Include="Interfaces\ISession.cs" />
     <Compile Include="Parameters\GenericParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

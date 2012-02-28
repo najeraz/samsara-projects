@@ -387,6 +387,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Commissions.Core", "Samsara.Commissions.Core\Samsara.Commissions.Core.csproj", "{C5E01474-2D46-440B-A41E-FE1169FE5F0F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{968F4740-8FC1-4994-8157-1EE39FF9B92C} = {968F4740-8FC1-4994-8157-1EE39FF9B92C}
+		{09757043-CD35-479F-B53B-B37118F464C6} = {09757043-CD35-479F-B53B-B37118F464C6}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Commissions.Dao", "Samsara.Commissions.Dao\Samsara.Commissions.Dao.csproj", "{0107202B-1934-45F2-B1D8-109F04CD1379}"
