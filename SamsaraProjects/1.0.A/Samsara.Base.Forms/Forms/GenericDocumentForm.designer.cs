@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
@@ -45,18 +40,14 @@
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenericDocumentForm));
-            this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
-            this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.ultraTabPageControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.gbxSchParameters = new System.Windows.Forms.GroupBox();
-            this.upSchSearchButtons = new Infragistics.Win.Misc.UltraPanel();
-            this.upSchSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
-            this.btnSchClear = new System.Windows.Forms.Button();
-            this.upSchSeparatorSearch = new Infragistics.Win.Misc.UltraPanel();
-            this.btnSchSearch = new System.Windows.Forms.Button();
-            this.upSchSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
+            this.grdPrincipal = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             this.upnlSchBottonControls = new Infragistics.Win.Misc.UltraPanel();
             this.ulblSchUsername = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSchNumRows = new Infragistics.Win.Misc.UltraLabel();
@@ -73,17 +64,25 @@
             this.upSchSeparatorCreate = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchCreate = new System.Windows.Forms.Button();
             this.upSchSeparatorBottom = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSearchButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upSchSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
+            this.btnSchClear = new System.Windows.Forms.Button();
+            this.upSchSeparatorSearch = new Infragistics.Win.Misc.UltraPanel();
+            this.btnSchSearch = new System.Windows.Forms.Button();
+            this.upSchSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
+            this.gbxSchParameters = new System.Windows.Forms.GroupBox();
+            this.ultraTabPageControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.gbxDetDetail = new System.Windows.Forms.GroupBox();
-            this.grdPrincipal = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
-            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).BeginInit();
-            this.utcPrincipal.SuspendLayout();
+            this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
+            this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.pnlDetButtons = new System.Windows.Forms.Panel();
+            this.upDetSeparator3 = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetSave = new System.Windows.Forms.Button();
+            this.upDetSeparator2 = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetCancel = new System.Windows.Forms.Button();
+            this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraTabPageControl1.SuspendLayout();
-            this.ultraTabPageControl2.SuspendLayout();
-            this.upSchSearchButtons.ClientArea.SuspendLayout();
-            this.upSchSearchButtons.SuspendLayout();
-            this.upSchSeparatorClean.SuspendLayout();
-            this.upSchSeparatorSearch.SuspendLayout();
-            this.upSchSeparatorBottonSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.upnlSchBottonControls.ClientArea.SuspendLayout();
             this.upnlSchBottonControls.SuspendLayout();
             this.upButtons.ClientArea.SuspendLayout();
@@ -94,35 +93,19 @@
             this.upSchSeparatorEdit.SuspendLayout();
             this.upSchSeparatorCreate.SuspendLayout();
             this.upSchSeparatorBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
+            this.upSchSearchButtons.ClientArea.SuspendLayout();
+            this.upSchSearchButtons.SuspendLayout();
+            this.upSchSeparatorClean.SuspendLayout();
+            this.upSchSeparatorSearch.SuspendLayout();
+            this.upSchSeparatorBottonSearch.SuspendLayout();
+            this.ultraTabPageControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).BeginInit();
+            this.utcPrincipal.SuspendLayout();
+            this.pnlDetButtons.SuspendLayout();
+            this.upDetSeparator3.SuspendLayout();
+            this.upDetSeparator2.SuspendLayout();
+            this.upDetSeparator1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // utcPrincipal
-            // 
-            this.utcPrincipal.Controls.Add(this.ultraTabSharedControlsPage1);
-            this.utcPrincipal.Controls.Add(this.ultraTabPageControl1);
-            this.utcPrincipal.Controls.Add(this.ultraTabPageControl2);
-            this.utcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.utcPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.utcPrincipal.Name = "utcPrincipal";
-            this.utcPrincipal.SharedControlsPage = this.ultraTabSharedControlsPage1;
-            this.utcPrincipal.Size = new System.Drawing.Size(640, 443);
-            this.utcPrincipal.TabIndex = 21;
-            ultraTab1.Key = "tbSearch";
-            ultraTab1.TabPage = this.ultraTabPageControl1;
-            ultraTab1.Text = "Busqueda";
-            ultraTab2.Key = "tbDetail";
-            ultraTab2.TabPage = this.ultraTabPageControl2;
-            ultraTab2.Text = "[tbDetail]";
-            this.utcPrincipal.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
-            ultraTab1,
-            ultraTab2});
-            // 
-            // ultraTabSharedControlsPage1
-            // 
-            this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
-            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
             // 
             // ultraTabPageControl1
             // 
@@ -131,86 +114,72 @@
             this.ultraTabPageControl1.Controls.Add(this.upButtons);
             this.ultraTabPageControl1.Controls.Add(this.upSchSearchButtons);
             this.ultraTabPageControl1.Controls.Add(this.gbxSchParameters);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(636, 417);
             // 
-            // ultraTabPageControl2
+            // grdPrincipal
             // 
-            this.ultraTabPageControl2.Controls.Add(this.gbxDetDetail);
-            this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabPageControl2.Name = "ultraTabPageControl2";
-            this.ultraTabPageControl2.Size = new System.Drawing.Size(636, 417);
-            // 
-            // gbxSchParameters
-            // 
-            this.gbxSchParameters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxSchParameters.Location = new System.Drawing.Point(0, 0);
-            this.gbxSchParameters.Name = "gbxSchParameters";
-            this.gbxSchParameters.Size = new System.Drawing.Size(636, 94);
-            this.gbxSchParameters.TabIndex = 20;
-            this.gbxSchParameters.TabStop = false;
-            this.gbxSchParameters.Text = "Parámetros de búsqueda:";
-            // 
-            // upSchSearchButtons
-            // 
-            // 
-            // upSchSearchButtons.ClientArea
-            // 
-            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorClean);
-            this.upSchSearchButtons.ClientArea.Controls.Add(this.btnSchClear);
-            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorSearch);
-            this.upSchSearchButtons.ClientArea.Controls.Add(this.btnSchSearch);
-            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorBottonSearch);
-            this.upSchSearchButtons.Dock = System.Windows.Forms.DockStyle.Top;
-            this.upSchSearchButtons.Location = new System.Drawing.Point(0, 94);
-            this.upSchSearchButtons.Name = "upSchSearchButtons";
-            this.upSchSearchButtons.Size = new System.Drawing.Size(636, 25);
-            this.upSchSearchButtons.TabIndex = 24;
-            // 
-            // upSchSeparatorClean
-            // 
-            this.upSchSeparatorClean.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorClean.Location = new System.Drawing.Point(438, 0);
-            this.upSchSeparatorClean.Name = "upSchSeparatorClean";
-            this.upSchSeparatorClean.Size = new System.Drawing.Size(16, 25);
-            this.upSchSeparatorClean.TabIndex = 6;
-            // 
-            // btnSchClear
-            // 
-            this.btnSchClear.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchClear.Location = new System.Drawing.Point(454, 0);
-            this.btnSchClear.Name = "btnSchClear";
-            this.btnSchClear.Size = new System.Drawing.Size(75, 25);
-            this.btnSchClear.TabIndex = 2;
-            this.btnSchClear.Text = "Limpiar";
-            this.btnSchClear.UseVisualStyleBackColor = true;
-            // 
-            // upSchSeparatorSearch
-            // 
-            this.upSchSeparatorSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorSearch.Location = new System.Drawing.Point(529, 0);
-            this.upSchSeparatorSearch.Name = "upSchSeparatorSearch";
-            this.upSchSeparatorSearch.Size = new System.Drawing.Size(16, 25);
-            this.upSchSeparatorSearch.TabIndex = 5;
-            // 
-            // btnSchSearch
-            // 
-            this.btnSchSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchSearch.Location = new System.Drawing.Point(545, 0);
-            this.btnSchSearch.Name = "btnSchSearch";
-            this.btnSchSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnSchSearch.TabIndex = 3;
-            this.btnSchSearch.Text = "Buscar";
-            this.btnSchSearch.UseVisualStyleBackColor = true;
-            // 
-            // upSchSeparatorBottonSearch
-            // 
-            this.upSchSeparatorBottonSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorBottonSearch.Location = new System.Drawing.Point(620, 0);
-            this.upSchSeparatorBottonSearch.Name = "upSchSeparatorBottonSearch";
-            this.upSchSeparatorBottonSearch.Size = new System.Drawing.Size(16, 25);
-            this.upSchSeparatorBottonSearch.TabIndex = 1;
+            appearance13.BackColor = System.Drawing.SystemColors.Window;
+            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.grdPrincipal.DisplayLayout.Appearance = appearance13;
+            this.grdPrincipal.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdPrincipal.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance14.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance14.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdPrincipal.DisplayLayout.GroupByBox.Appearance = appearance14;
+            appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdPrincipal.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
+            this.grdPrincipal.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance16.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance16.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.grdPrincipal.DisplayLayout.GroupByBox.PromptAppearance = appearance16;
+            this.grdPrincipal.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdPrincipal.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance17.BackColor = System.Drawing.SystemColors.Window;
+            appearance17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grdPrincipal.DisplayLayout.Override.ActiveCellAppearance = appearance17;
+            appearance18.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance18.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.grdPrincipal.DisplayLayout.Override.ActiveRowAppearance = appearance18;
+            this.grdPrincipal.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdPrincipal.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance19.BackColor = System.Drawing.SystemColors.Window;
+            this.grdPrincipal.DisplayLayout.Override.CardAreaAppearance = appearance19;
+            appearance20.BorderColor = System.Drawing.Color.Silver;
+            appearance20.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.grdPrincipal.DisplayLayout.Override.CellAppearance = appearance20;
+            this.grdPrincipal.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdPrincipal.DisplayLayout.Override.CellPadding = 0;
+            appearance21.BackColor = System.Drawing.SystemColors.Control;
+            appearance21.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance21.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance21.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance21.BorderColor = System.Drawing.SystemColors.Window;
+            this.grdPrincipal.DisplayLayout.Override.GroupByRowAppearance = appearance21;
+            appearance22.TextHAlignAsString = "Left";
+            this.grdPrincipal.DisplayLayout.Override.HeaderAppearance = appearance22;
+            this.grdPrincipal.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdPrincipal.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance23.BackColor = System.Drawing.SystemColors.Window;
+            appearance23.BorderColor = System.Drawing.Color.Silver;
+            this.grdPrincipal.DisplayLayout.Override.RowAppearance = appearance23;
+            this.grdPrincipal.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grdPrincipal.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
+            this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdPrincipal.Location = new System.Drawing.Point(0, 119);
+            this.grdPrincipal.Name = "grdPrincipal";
+            this.grdPrincipal.Size = new System.Drawing.Size(636, 253);
+            this.grdPrincipal.TabIndex = 27;
+            this.grdPrincipal.Text = "samsaraUltraGrid1";
             // 
             // upnlSchBottonControls
             // 
@@ -303,6 +272,7 @@
             this.btnSchAccept.Text = "Aceptar";
             this.btnSchAccept.UseVisualStyleBackColor = true;
             this.btnSchAccept.Visible = false;
+            this.btnSchAccept.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorClose
             // 
@@ -321,6 +291,7 @@
             this.btnSchClose.TabIndex = 5;
             this.btnSchClose.Text = "Cerrar";
             this.btnSchClose.UseVisualStyleBackColor = true;
+            this.btnSchClose.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorDelete
             // 
@@ -339,6 +310,7 @@
             this.btnSchDelete.TabIndex = 6;
             this.btnSchDelete.Text = "Eliminar";
             this.btnSchDelete.UseVisualStyleBackColor = true;
+            this.btnSchDelete.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorEdit
             // 
@@ -357,6 +329,7 @@
             this.btnSchEdit.TabIndex = 7;
             this.btnSchEdit.Text = "Modificar";
             this.btnSchEdit.UseVisualStyleBackColor = true;
+            this.btnSchEdit.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorCreate
             // 
@@ -375,6 +348,7 @@
             this.btnSchCreate.TabIndex = 8;
             this.btnSchCreate.Text = "Nuevo";
             this.btnSchCreate.UseVisualStyleBackColor = true;
+            this.btnSchCreate.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorBottom
             // 
@@ -384,78 +358,183 @@
             this.upSchSeparatorBottom.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorBottom.TabIndex = 1;
             // 
+            // upSchSearchButtons
+            // 
+            // 
+            // upSchSearchButtons.ClientArea
+            // 
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorClean);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.btnSchClear);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorSearch);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.btnSchSearch);
+            this.upSchSearchButtons.ClientArea.Controls.Add(this.upSchSeparatorBottonSearch);
+            this.upSchSearchButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upSchSearchButtons.Location = new System.Drawing.Point(0, 94);
+            this.upSchSearchButtons.Name = "upSchSearchButtons";
+            this.upSchSearchButtons.Size = new System.Drawing.Size(636, 25);
+            this.upSchSearchButtons.TabIndex = 24;
+            // 
+            // upSchSeparatorClean
+            // 
+            this.upSchSeparatorClean.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorClean.Location = new System.Drawing.Point(438, 0);
+            this.upSchSeparatorClean.Name = "upSchSeparatorClean";
+            this.upSchSeparatorClean.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorClean.TabIndex = 6;
+            // 
+            // btnSchClear
+            // 
+            this.btnSchClear.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchClear.Location = new System.Drawing.Point(454, 0);
+            this.btnSchClear.Name = "btnSchClear";
+            this.btnSchClear.Size = new System.Drawing.Size(75, 25);
+            this.btnSchClear.TabIndex = 2;
+            this.btnSchClear.Text = "Limpiar";
+            this.btnSchClear.UseVisualStyleBackColor = true;
+            this.btnSchClear.Click += new System.EventHandler(this.btnClick);
+            // 
+            // upSchSeparatorSearch
+            // 
+            this.upSchSeparatorSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorSearch.Location = new System.Drawing.Point(529, 0);
+            this.upSchSeparatorSearch.Name = "upSchSeparatorSearch";
+            this.upSchSeparatorSearch.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorSearch.TabIndex = 5;
+            // 
+            // btnSchSearch
+            // 
+            this.btnSchSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchSearch.Location = new System.Drawing.Point(545, 0);
+            this.btnSchSearch.Name = "btnSchSearch";
+            this.btnSchSearch.Size = new System.Drawing.Size(75, 25);
+            this.btnSchSearch.TabIndex = 3;
+            this.btnSchSearch.Text = "Buscar";
+            this.btnSchSearch.UseVisualStyleBackColor = true;
+            this.btnSchSearch.Click += new System.EventHandler(this.btnClick);
+            // 
+            // upSchSeparatorBottonSearch
+            // 
+            this.upSchSeparatorBottonSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorBottonSearch.Location = new System.Drawing.Point(620, 0);
+            this.upSchSeparatorBottonSearch.Name = "upSchSeparatorBottonSearch";
+            this.upSchSeparatorBottonSearch.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorBottonSearch.TabIndex = 1;
+            // 
+            // gbxSchParameters
+            // 
+            this.gbxSchParameters.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxSchParameters.Location = new System.Drawing.Point(0, 0);
+            this.gbxSchParameters.Name = "gbxSchParameters";
+            this.gbxSchParameters.Size = new System.Drawing.Size(636, 94);
+            this.gbxSchParameters.TabIndex = 20;
+            this.gbxSchParameters.TabStop = false;
+            this.gbxSchParameters.Text = "Parámetros de búsqueda:";
+            // 
+            // ultraTabPageControl2
+            // 
+            this.ultraTabPageControl2.Controls.Add(this.gbxDetDetail);
+            this.ultraTabPageControl2.Controls.Add(this.pnlDetButtons);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl2.Name = "ultraTabPageControl2";
+            this.ultraTabPageControl2.Size = new System.Drawing.Size(636, 417);
+            // 
             // gbxDetDetail
             // 
             this.gbxDetDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxDetDetail.Location = new System.Drawing.Point(0, 0);
             this.gbxDetDetail.Name = "gbxDetDetail";
-            this.gbxDetDetail.Size = new System.Drawing.Size(636, 417);
+            this.gbxDetDetail.Size = new System.Drawing.Size(636, 392);
             this.gbxDetDetail.TabIndex = 21;
             this.gbxDetDetail.TabStop = false;
             this.gbxDetDetail.Text = "Datos del Registro:";
             // 
-            // grdPrincipal
+            // utcPrincipal
             // 
-            appearance13.BackColor = System.Drawing.SystemColors.Window;
-            appearance13.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.grdPrincipal.DisplayLayout.Appearance = appearance13;
-            this.grdPrincipal.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdPrincipal.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance14.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance14.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance14.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdPrincipal.DisplayLayout.GroupByBox.Appearance = appearance14;
-            appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdPrincipal.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
-            this.grdPrincipal.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance16.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance16.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.grdPrincipal.DisplayLayout.GroupByBox.PromptAppearance = appearance16;
-            this.grdPrincipal.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdPrincipal.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance17.BackColor = System.Drawing.SystemColors.Window;
-            appearance17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grdPrincipal.DisplayLayout.Override.ActiveCellAppearance = appearance17;
-            appearance18.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance18.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.grdPrincipal.DisplayLayout.Override.ActiveRowAppearance = appearance18;
-            this.grdPrincipal.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdPrincipal.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance19.BackColor = System.Drawing.SystemColors.Window;
-            this.grdPrincipal.DisplayLayout.Override.CardAreaAppearance = appearance19;
-            appearance20.BorderColor = System.Drawing.Color.Silver;
-            appearance20.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.grdPrincipal.DisplayLayout.Override.CellAppearance = appearance20;
-            this.grdPrincipal.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdPrincipal.DisplayLayout.Override.CellPadding = 0;
-            appearance21.BackColor = System.Drawing.SystemColors.Control;
-            appearance21.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance21.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance21.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance21.BorderColor = System.Drawing.SystemColors.Window;
-            this.grdPrincipal.DisplayLayout.Override.GroupByRowAppearance = appearance21;
-            appearance22.TextHAlignAsString = "Left";
-            this.grdPrincipal.DisplayLayout.Override.HeaderAppearance = appearance22;
-            this.grdPrincipal.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdPrincipal.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance23.BackColor = System.Drawing.SystemColors.Window;
-            appearance23.BorderColor = System.Drawing.Color.Silver;
-            this.grdPrincipal.DisplayLayout.Override.RowAppearance = appearance23;
-            this.grdPrincipal.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance24.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.grdPrincipal.DisplayLayout.Override.TemplateAddRowAppearance = appearance24;
-            this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPrincipal.Location = new System.Drawing.Point(0, 119);
-            this.grdPrincipal.Name = "grdPrincipal";
-            this.grdPrincipal.Size = new System.Drawing.Size(636, 253);
-            this.grdPrincipal.TabIndex = 27;
-            this.grdPrincipal.Text = "samsaraUltraGrid1";
+            this.utcPrincipal.Controls.Add(this.ultraTabSharedControlsPage1);
+            this.utcPrincipal.Controls.Add(this.ultraTabPageControl1);
+            this.utcPrincipal.Controls.Add(this.ultraTabPageControl2);
+            this.utcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.utcPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.utcPrincipal.Name = "utcPrincipal";
+            this.utcPrincipal.SharedControlsPage = this.ultraTabSharedControlsPage1;
+            this.utcPrincipal.Size = new System.Drawing.Size(640, 443);
+            this.utcPrincipal.TabIndex = 21;
+            ultraTab1.Key = "tbSearch";
+            ultraTab1.TabPage = this.ultraTabPageControl1;
+            ultraTab1.Text = "Busqueda";
+            ultraTab2.Key = "tbDetail";
+            ultraTab2.TabPage = this.ultraTabPageControl2;
+            ultraTab2.Text = "[tbDetail]";
+            this.utcPrincipal.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab1,
+            ultraTab2});
+            // 
+            // ultraTabSharedControlsPage1
+            // 
+            this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
+            // 
+            // pnlDetButtons
+            // 
+            this.pnlDetButtons.Controls.Add(this.upDetSeparator3);
+            this.pnlDetButtons.Controls.Add(this.btnDetSave);
+            this.pnlDetButtons.Controls.Add(this.upDetSeparator2);
+            this.pnlDetButtons.Controls.Add(this.btnDetCancel);
+            this.pnlDetButtons.Controls.Add(this.upDetSeparator1);
+            this.pnlDetButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDetButtons.Location = new System.Drawing.Point(0, 392);
+            this.pnlDetButtons.MaximumSize = new System.Drawing.Size(0, 25);
+            this.pnlDetButtons.MinimumSize = new System.Drawing.Size(0, 25);
+            this.pnlDetButtons.Name = "pnlDetButtons";
+            this.pnlDetButtons.Size = new System.Drawing.Size(636, 25);
+            this.pnlDetButtons.TabIndex = 22;
+            // 
+            // upDetSeparator3
+            // 
+            this.upDetSeparator3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator3.Location = new System.Drawing.Point(438, 0);
+            this.upDetSeparator3.Name = "upDetSeparator3";
+            this.upDetSeparator3.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator3.TabIndex = 9;
+            // 
+            // btnDetSave
+            // 
+            this.btnDetSave.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetSave.Location = new System.Drawing.Point(454, 0);
+            this.btnDetSave.Name = "btnDetSave";
+            this.btnDetSave.Size = new System.Drawing.Size(75, 25);
+            this.btnDetSave.TabIndex = 0;
+            this.btnDetSave.Text = "Guardar";
+            this.btnDetSave.UseVisualStyleBackColor = true;
+            this.btnDetSave.Click += new System.EventHandler(this.btnClick);
+            // 
+            // upDetSeparator2
+            // 
+            this.upDetSeparator2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator2.Location = new System.Drawing.Point(529, 0);
+            this.upDetSeparator2.Name = "upDetSeparator2";
+            this.upDetSeparator2.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator2.TabIndex = 8;
+            // 
+            // btnDetCancel
+            // 
+            this.btnDetCancel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetCancel.Location = new System.Drawing.Point(545, 0);
+            this.btnDetCancel.Name = "btnDetCancel";
+            this.btnDetCancel.Size = new System.Drawing.Size(75, 25);
+            this.btnDetCancel.TabIndex = 0;
+            this.btnDetCancel.Text = "Cancelar";
+            this.btnDetCancel.UseVisualStyleBackColor = true;
+            this.btnDetCancel.Click += new System.EventHandler(this.btnClick);
+            // 
+            // upDetSeparator1
+            // 
+            this.upDetSeparator1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator1.Location = new System.Drawing.Point(620, 0);
+            this.upDetSeparator1.Name = "upDetSeparator1";
+            this.upDetSeparator1.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator1.TabIndex = 7;
             // 
             // GenericDocumentForm
             // 
@@ -466,15 +545,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GenericDocumentForm";
             this.Text = "GenericDocumentForm";
-            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).EndInit();
-            this.utcPrincipal.ResumeLayout(false);
             this.ultraTabPageControl1.ResumeLayout(false);
-            this.ultraTabPageControl2.ResumeLayout(false);
-            this.upSchSearchButtons.ClientArea.ResumeLayout(false);
-            this.upSchSearchButtons.ResumeLayout(false);
-            this.upSchSeparatorClean.ResumeLayout(false);
-            this.upSchSeparatorSearch.ResumeLayout(false);
-            this.upSchSeparatorBottonSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.upnlSchBottonControls.ClientArea.ResumeLayout(false);
             this.upnlSchBottonControls.ClientArea.PerformLayout();
             this.upnlSchBottonControls.ResumeLayout(false);
@@ -486,14 +558,24 @@
             this.upSchSeparatorEdit.ResumeLayout(false);
             this.upSchSeparatorCreate.ResumeLayout(false);
             this.upSchSeparatorBottom.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
+            this.upSchSearchButtons.ClientArea.ResumeLayout(false);
+            this.upSchSearchButtons.ResumeLayout(false);
+            this.upSchSeparatorClean.ResumeLayout(false);
+            this.upSchSeparatorSearch.ResumeLayout(false);
+            this.upSchSeparatorBottonSearch.ResumeLayout(false);
+            this.ultraTabPageControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).EndInit();
+            this.utcPrincipal.ResumeLayout(false);
+            this.pnlDetButtons.ResumeLayout(false);
+            this.upDetSeparator3.ResumeLayout(false);
+            this.upDetSeparator2.ResumeLayout(false);
+            this.upDetSeparator1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Infragistics.Win.UltraWinTabControl.UltraTabControl utcPrincipal;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage1;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl1;
         public Controls.Controls.SamsaraUltraGrid grdPrincipal;
@@ -522,5 +604,12 @@
         protected System.Windows.Forms.GroupBox gbxSchParameters;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl2;
         protected System.Windows.Forms.GroupBox gbxDetDetail;
+        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utcPrincipal;
+        protected System.Windows.Forms.Panel pnlDetButtons;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator3;
+        public System.Windows.Forms.Button btnDetSave;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator2;
+        public System.Windows.Forms.Button btnDetCancel;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
     }
 }

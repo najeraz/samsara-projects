@@ -9,13 +9,13 @@ namespace Samsara.Base.Core.Entities
         {
         }
 
-        public virtual bool Deleted
+        public virtual Nullable<bool> Deleted
         {
             get;
             set;
         }
 
-        public virtual bool Activated
+        public virtual Nullable<bool> Activated
         {
             get;
             set;

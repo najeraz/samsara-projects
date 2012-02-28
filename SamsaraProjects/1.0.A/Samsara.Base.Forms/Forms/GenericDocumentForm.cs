@@ -34,7 +34,7 @@ namespace Samsara.Base.Forms.Forms
 
         #region Events
 
-        [DebuggerStepThroughAttribute]
+        [DebuggerStepThrough]
         private void btnClick(object sender, System.EventArgs e)
         {
             Button btn = sender as Button;

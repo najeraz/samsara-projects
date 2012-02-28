@@ -21,12 +21,12 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual IList<T> GetAll()
         {
-            return HibernateTemplate.LoadAll<T>();
+            return this.HibernateTemplate.LoadAll<T>();
         }
 
         public virtual T GetById(TId Id)
         {
-            return HibernateTemplate.Get<T>(Id);
+            return this.HibernateTemplate.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()

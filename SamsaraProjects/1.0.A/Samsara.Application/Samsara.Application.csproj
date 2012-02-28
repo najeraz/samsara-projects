@@ -141,6 +141,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Session.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Dao.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
