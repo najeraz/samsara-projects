@@ -39,16 +39,18 @@ namespace Samsara.Commissions.Forms.Forms
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters2 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesManagementForm));
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters1 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServicesManagementForm));
             this.sccDetStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
-            this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblDetServiceNumber = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblDetServiceAmount = new Infragistics.Win.Misc.UltraLabel();
             this.txtDetServiceNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.txtDetServiceAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblDetStaffs = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchStaff = new Infragistics.Win.Misc.UltraLabel();
             this.sccSchStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
+            this.txtSchServiceNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.ulblSchServiceNumber = new Infragistics.Win.Misc.UltraLabel();
             this.gbxSchParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
@@ -57,8 +59,11 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxSchParameters
             // 
-            this.gbxSchParameters.Controls.Add(this.ultraLabel4);
+            this.gbxSchParameters.Controls.Add(this.txtSchServiceNumber);
+            this.gbxSchParameters.Controls.Add(this.ulblSchServiceNumber);
+            this.gbxSchParameters.Controls.Add(this.ulblSchStaff);
             this.gbxSchParameters.Controls.Add(this.sccSchStaff);
+            this.gbxSchParameters.Size = new System.Drawing.Size(626, 68);
             // 
             // grdPrincipal
             // 
@@ -105,14 +110,16 @@ namespace Samsara.Commissions.Forms.Forms
             this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.grdPrincipal.Location = new System.Drawing.Point(3, 96);
+            this.grdPrincipal.Size = new System.Drawing.Size(626, 273);
             // 
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.txtDetServiceAmount);
             this.gbxDetDetail.Controls.Add(this.txtDetServiceNumber);
-            this.gbxDetDetail.Controls.Add(this.ultraLabel3);
-            this.gbxDetDetail.Controls.Add(this.ultraLabel2);
-            this.gbxDetDetail.Controls.Add(this.ultraLabel1);
+            this.gbxDetDetail.Controls.Add(this.ulblDetStaffs);
+            this.gbxDetDetail.Controls.Add(this.ulblDetServiceAmount);
+            this.gbxDetDetail.Controls.Add(this.ulblDetServiceNumber);
             this.gbxDetDetail.Controls.Add(this.sccDetStaff);
             // 
             // sccDetStaff
@@ -130,29 +137,29 @@ namespace Samsara.Commissions.Forms.Forms
             staffParameters2.UpdatedDate = null;
             this.sccDetStaff.Parameters = staffParameters2;
             this.sccDetStaff.ReadOnly = false;
-            this.sccDetStaff.Size = new System.Drawing.Size(226, 22);
+            this.sccDetStaff.Size = new System.Drawing.Size(289, 22);
             this.sccDetStaff.TabIndex = 0;
             this.sccDetStaff.Value = null;
             this.sccDetStaff.ValueMember = "StaffId";
             this.sccDetStaff.Values = null;
             // 
-            // ultraLabel1
+            // ulblDetServiceNumber
             // 
-            this.ultraLabel1.AutoSize = true;
-            this.ultraLabel1.Location = new System.Drawing.Point(8, 22);
-            this.ultraLabel1.Name = "ultraLabel1";
-            this.ultraLabel1.Size = new System.Drawing.Size(75, 14);
-            this.ultraLabel1.TabIndex = 1;
-            this.ultraLabel1.Text = "Núm Servicio:";
+            this.ulblDetServiceNumber.AutoSize = true;
+            this.ulblDetServiceNumber.Location = new System.Drawing.Point(8, 22);
+            this.ulblDetServiceNumber.Name = "ulblDetServiceNumber";
+            this.ulblDetServiceNumber.Size = new System.Drawing.Size(75, 14);
+            this.ulblDetServiceNumber.TabIndex = 1;
+            this.ulblDetServiceNumber.Text = "Núm Servicio:";
             // 
-            // ultraLabel2
+            // ulblDetServiceAmount
             // 
-            this.ultraLabel2.AutoSize = true;
-            this.ultraLabel2.Location = new System.Drawing.Point(8, 48);
-            this.ultraLabel2.Name = "ultraLabel2";
-            this.ultraLabel2.Size = new System.Drawing.Size(39, 14);
-            this.ultraLabel2.TabIndex = 1;
-            this.ultraLabel2.Text = "Monto:";
+            this.ulblDetServiceAmount.AutoSize = true;
+            this.ulblDetServiceAmount.Location = new System.Drawing.Point(8, 48);
+            this.ulblDetServiceAmount.Name = "ulblDetServiceAmount";
+            this.ulblDetServiceAmount.Size = new System.Drawing.Size(39, 14);
+            this.ulblDetServiceAmount.TabIndex = 1;
+            this.ulblDetServiceAmount.Text = "Monto:";
             // 
             // txtDetServiceNumber
             // 
@@ -176,30 +183,30 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetServiceAmount.TabIndex = 2;
             this.txtDetServiceAmount.Value = ((object)(resources.GetObject("txtDetServiceAmount.Value")));
             // 
-            // ultraLabel3
+            // ulblDetStaffs
             // 
-            this.ultraLabel3.AutoSize = true;
-            this.ultraLabel3.Location = new System.Drawing.Point(8, 75);
-            this.ultraLabel3.Name = "ultraLabel3";
-            this.ultraLabel3.Size = new System.Drawing.Size(53, 14);
-            this.ultraLabel3.TabIndex = 1;
-            this.ultraLabel3.Text = "Técnicos:";
+            this.ulblDetStaffs.AutoSize = true;
+            this.ulblDetStaffs.Location = new System.Drawing.Point(8, 75);
+            this.ulblDetStaffs.Name = "ulblDetStaffs";
+            this.ulblDetStaffs.Size = new System.Drawing.Size(53, 14);
+            this.ulblDetStaffs.TabIndex = 1;
+            this.ulblDetStaffs.Text = "Técnicos:";
             // 
-            // ultraLabel4
+            // ulblSchStaff
             // 
-            this.ultraLabel4.AutoSize = true;
-            this.ultraLabel4.Location = new System.Drawing.Point(8, 22);
-            this.ultraLabel4.Name = "ultraLabel4";
-            this.ultraLabel4.Size = new System.Drawing.Size(47, 14);
-            this.ultraLabel4.TabIndex = 3;
-            this.ultraLabel4.Text = "Técnico:";
+            this.ulblSchStaff.AutoSize = true;
+            this.ulblSchStaff.Location = new System.Drawing.Point(15, 43);
+            this.ulblSchStaff.Name = "ulblSchStaff";
+            this.ulblSchStaff.Size = new System.Drawing.Size(47, 14);
+            this.ulblSchStaff.TabIndex = 3;
+            this.ulblSchStaff.Text = "Técnico:";
             // 
             // sccSchStaff
             // 
             this.sccSchStaff.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
             this.sccSchStaff.CustomParent = null;
             this.sccSchStaff.DisplayMember = "Name";
-            this.sccSchStaff.Location = new System.Drawing.Point(67, 19);
+            this.sccSchStaff.Location = new System.Drawing.Point(96, 40);
             this.sccSchStaff.Name = "sccSchStaff";
             staffParameters1.CreatedBy = null;
             staffParameters1.CreationDate = null;
@@ -214,6 +221,26 @@ namespace Samsara.Commissions.Forms.Forms
             this.sccSchStaff.Value = null;
             this.sccSchStaff.ValueMember = "StaffId";
             this.sccSchStaff.Values = null;
+            // 
+            // txtSchServiceNumber
+            // 
+            this.txtSchServiceNumber.CustomParent = null;
+            this.txtSchServiceNumber.Location = new System.Drawing.Point(96, 14);
+            this.txtSchServiceNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtSchServiceNumber.Name = "txtSchServiceNumber";
+            this.txtSchServiceNumber.ReadOnly = false;
+            this.txtSchServiceNumber.Size = new System.Drawing.Size(150, 20);
+            this.txtSchServiceNumber.TabIndex = 5;
+            this.txtSchServiceNumber.Value = ((object)(resources.GetObject("txtSchServiceNumber.Value")));
+            // 
+            // ulblSchServiceNumber
+            // 
+            this.ulblSchServiceNumber.AutoSize = true;
+            this.ulblSchServiceNumber.Location = new System.Drawing.Point(15, 17);
+            this.ulblSchServiceNumber.Name = "ulblSchServiceNumber";
+            this.ulblSchServiceNumber.Size = new System.Drawing.Size(75, 14);
+            this.ulblSchServiceNumber.TabIndex = 4;
+            this.ulblSchServiceNumber.Text = "Núm Servicio:";
             // 
             // ServicesManagementForm
             // 
@@ -234,14 +261,16 @@ namespace Samsara.Commissions.Forms.Forms
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraLabel ultraLabel1;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel2;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel3;
+        private Infragistics.Win.Misc.UltraLabel ulblDetServiceNumber;
+        private Infragistics.Win.Misc.UltraLabel ulblDetServiceAmount;
+        private Infragistics.Win.Misc.UltraLabel ulblDetStaffs;
         internal AlleatoERP.Controls.Controls.StaffChooserControl sccDetStaff;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetServiceAmount;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetServiceNumber;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel4;
+        private Infragistics.Win.Misc.UltraLabel ulblSchStaff;
         internal AlleatoERP.Controls.Controls.StaffChooserControl sccSchStaff;
+        internal Base.Controls.Controls.SamsaraTextEditor txtSchServiceNumber;
+        private Infragistics.Win.Misc.UltraLabel ulblSchServiceNumber;
 
     }
 }
