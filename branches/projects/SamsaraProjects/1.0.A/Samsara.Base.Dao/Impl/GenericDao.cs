@@ -1,12 +1,15 @@
 ﻿
 using System;
-using System.ComponentModel;
+using System.Collections;
+using System.Reflection;
+using NUnit.Framework;
+using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Context;
 using Samsara.Base.Core.Entities;
+using Samsara.Base.Core.Interfaces;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Support.Util;
-using Samsara.Base.Core.Interfaces;
-using Samsara.Base.Core.Context;
-using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Samsara.Base.Dao.Impl
 {
@@ -18,6 +21,8 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual void SaveOrUpdate(T entity)
         {
+            this.ProcessAuditProperties(entity);
+
             this.HibernateTemplate.SaveOrUpdate(entity);
         }
 
@@ -35,6 +40,7 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual void Update(T entity)
         {
+            this.ProcessAuditProperties(entity);
             this.HibernateTemplate.Update(entity);
         }
 
@@ -62,7 +68,7 @@ namespace Samsara.Base.Dao.Impl
         private void ProcessAuditProperties(object entity)
         {
             Type entityType = entity.GetType();
-            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(entityType);
+
             int primaryKeyValue = Convert.ToInt32(EntitiesUtil.GetPrimaryKeyPropertyValue(entityType, entity));
 
             if (entity.GetType().IsSubclassOf(typeof(GenericEntity)))
@@ -81,22 +87,34 @@ namespace Samsara.Base.Dao.Impl
                         (entity as GenericEntity).Deleted = false;
                     }
                     (entity as GenericEntity).CreatedBy = session.UserId;
-                    (entity as GenericEntity).UpdatedOn = this.GetServerDateTime();
+                    (entity as GenericEntity).CreatedOn = this.GetServerDateTime();
                 }
                 else
                 {
                     (entity as GenericEntity).UpdatedBy = session.UserId;
-                    (entity as GenericEntity).CreatedOn = this.GetServerDateTime();
+                    (entity as GenericEntity).UpdatedOn = this.GetServerDateTime();
                 }
             }
 
-            foreach (PropertyDescriptor propertyDescriptor in properties)
+            foreach (PropertyInfo propertyInfo in 
+                EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType, typeof(PropagationAudit)))
             {
-                object value = entity.GetType().GetProperty(propertyDescriptor.Name).GetValue(entity, null);
+                object value = entity.GetType().GetProperty(propertyInfo.Name).GetValue(entity, null);
 
-                if (value.GetType().IsSubclassOf(typeof(GenericEntity)))
+                if (value != null && value.GetType().IsSubclassOf(typeof(GenericEntity)))
                 {
                     this.ProcessAuditProperties(value);
+                }
+
+                if (value.GetType().GetInterface(typeof(IEnumerable).FullName) != null)
+                {
+                    foreach (object item in (value as IEnumerable))
+                    {
+                        if (item != null && item.GetType().IsSubclassOf(typeof(GenericEntity)))
+                        {
+                            this.ProcessAuditProperties(item);
+                        }
+                    }
                 }
             }
         }

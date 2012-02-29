@@ -8,6 +8,13 @@
     <id name="GridConfigurationId" type="int">
       <generator class="native"/>
     </id>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
     
     <many-to-one name="FormConfiguration" 
                  class="Samsara.Configuration.Core.Entities.FormConfiguration, Samsara.Configuration.Core"

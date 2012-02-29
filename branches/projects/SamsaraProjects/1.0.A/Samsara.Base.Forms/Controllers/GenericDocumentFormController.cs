@@ -87,8 +87,17 @@ namespace Samsara.Base.Forms.Controllers
         {
         }
 
+        public virtual void LoadDetail()
+        {
+        }
+
         public virtual void ClearDetailFields()
         {
+        }
+
+        public virtual bool LoadEntity(int entityId)
+        {
+            return true;
         }
 
         #endregion Public
@@ -100,20 +109,31 @@ namespace Samsara.Base.Forms.Controllers
             this.frmGenericDocument.Close();
         }
 
-        internal void EditSelectedEntity()
+        internal void EditEntityProcess()
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
 
-            if (activeRow != null)
-                this.EditEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+            if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
+            {
+                this.ClearDetailFields();
+                this.LoadDetail();
+                this.ShowDetail(true);
+            }
         }
 
-        internal void DeleteSelectedEntity()
+        internal void DeleteEntityProcess()
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
 
             if (activeRow != null)
                 this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+        }
+
+        internal void SaveEntityProcess()
+        {
+            this.SaveEntity();
+            this.Search();
+            this.BackToSearch();
         }
 
         #endregion Internal

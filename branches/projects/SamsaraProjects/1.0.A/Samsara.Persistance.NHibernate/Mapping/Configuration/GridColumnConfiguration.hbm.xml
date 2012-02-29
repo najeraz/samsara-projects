@@ -9,6 +9,13 @@
       <generator class="native"/>
     </id>
 
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
     <many-to-one name="GridConfiguration"
                  class="Samsara.Configuration.Core.Entities.GridConfiguration, Samsara.Configuration.Core"
                  column="GridConfigurationId"/>

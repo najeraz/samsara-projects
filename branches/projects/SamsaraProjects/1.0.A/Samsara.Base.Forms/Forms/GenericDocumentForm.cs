@@ -58,16 +58,16 @@ namespace Samsara.Base.Forms.Forms
                         this.controller.CloseForm();
                         break;
                     case "btnSchDelete":
-                        this.controller.DeleteSelectedEntity();
+                        this.controller.DeleteEntityProcess();
                         break;
                     case "btnSchEdit":
-                        this.controller.EditSelectedEntity();
+                        this.controller.EditEntityProcess();
                         break;
                     case "btnSchCreate":
                         this.controller.CreateEntity();
                         break;
                     case "btnDetSave":
-                        this.controller.SaveEntity();
+                        this.controller.SaveEntityProcess();
                         break;
                     case "btnDetCancel":
                         this.controller.BackToSearch();
