@@ -1,5 +1,4 @@
 ﻿
-using System;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
