@@ -1,10 +1,15 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using NUnit.Framework;
 using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Context;
+using Samsara.Base.Core.Entities;
+using Samsara.Base.Core.Interfaces;
 
 namespace Samsara.Support.Util
 {
@@ -108,6 +113,60 @@ namespace Samsara.Support.Util
             }
 
             return resultList;
+        }
+
+        public static void ProcessAuditProperties(object entity, DateTime dtNow)
+        {
+            Type entityType = entity.GetType();
+
+            int primaryKeyValue = Convert.ToInt32(EntitiesUtil.GetPrimaryKeyPropertyValue(entityType, entity));
+
+            if (entity.GetType().IsSubclassOf(typeof(GenericEntity)))
+            {
+                ISession session = SamsaraAppContext.Resolve<ISession>();
+                Assert.IsNotNull(session);
+
+                if (primaryKeyValue <= 0)
+                {
+                    if ((entity as GenericEntity).Activated == null)
+                    {
+                        (entity as GenericEntity).Activated = true;
+                    }
+                    if ((entity as GenericEntity).Deleted == null)
+                    {
+                        (entity as GenericEntity).Deleted = false;
+                    }
+                    (entity as GenericEntity).CreatedBy = session.UserId;
+                    (entity as GenericEntity).CreatedOn = dtNow;
+                }
+                else
+                {
+                    (entity as GenericEntity).UpdatedBy = session.UserId;
+                    (entity as GenericEntity).UpdatedOn = dtNow;
+                }
+            }
+
+            foreach (PropertyInfo propertyInfo in
+                EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType, typeof(PropagationAudit)))
+            {
+                object value = entity.GetType().GetProperty(propertyInfo.Name).GetValue(entity, null);
+
+                if (value != null && value.GetType().IsSubclassOf(typeof(GenericEntity)))
+                {
+                    ProcessAuditProperties(value, dtNow);
+                }
+
+                if (value.GetType().GetInterface(typeof(IEnumerable).FullName) != null)
+                {
+                    foreach (object item in (value as IEnumerable))
+                    {
+                        if (item != null && item.GetType().IsSubclassOf(typeof(GenericEntity)))
+                        {
+                            ProcessAuditProperties(item, dtNow);
+                        }
+                    }
+                }
+            }
         }
     }
 }
