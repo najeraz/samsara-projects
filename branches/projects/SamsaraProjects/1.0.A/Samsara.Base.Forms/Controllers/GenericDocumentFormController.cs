@@ -6,6 +6,7 @@ using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Forms.Enums;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
+using System.Windows.Forms;
 
 namespace Samsara.Base.Forms.Controllers
 {
@@ -66,7 +67,7 @@ namespace Samsara.Base.Forms.Controllers
             this.ShowDetail(true);
         }
 
-        public virtual void DeleteEntity(int entityId)
+        public virtual void DeleteEntity()
         {
         }
 
@@ -93,6 +94,15 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void ClearDetailFields()
         {
+        }
+
+        public virtual bool ConfirmDeleteEntity()
+        {
+            if (MessageBox.Show("¿Esta seguro de borrar el registro?", "Advertencia",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+                return false;
+
+            return true;
         }
 
         public virtual bool LoadEntity(int entityId)
@@ -125,10 +135,12 @@ namespace Samsara.Base.Forms.Controllers
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
 
-            if (activeRow != null)
-                this.DeleteEntity(Convert.ToInt32(activeRow.Cells[0].Value));
+            if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value))
+                && this.ConfirmDeleteEntity())
+            {
+                this.DeleteEntity();
+            }
         }
-
         internal void SaveEntityProcess()
         {
             this.SaveEntity();
