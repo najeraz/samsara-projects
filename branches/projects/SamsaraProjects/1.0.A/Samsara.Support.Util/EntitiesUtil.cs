@@ -52,8 +52,7 @@ namespace Samsara.Support.Util
         /// <param name="classType">Tipo de la Clase.</param>
         /// <param name="attributeType">Tipo del Atributo a buscar.</param>
         /// <returns>Propiedades que cumplen con el Atributo.</returns>
-        private static PropertyInfo[] GetPropertiesWithSpecificAttribute(Type classType
-            , Type attributeType)
+        public static PropertyInfo[] GetPropertiesWithSpecificAttribute(Type classType, Type attributeType)
         {
             return classType.GetProperties()
                 .Where(property => property.GetCustomAttributes(attributeType, false).Length > 0)

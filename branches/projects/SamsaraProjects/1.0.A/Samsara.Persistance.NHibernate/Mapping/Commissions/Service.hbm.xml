@@ -44,17 +44,20 @@
   <sql-query name="Service.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="ServiceId" type="int"/>
     <return-scalar column="ServiceNumber" type="string"/>
-    <return-scalar column="ServiceStaff" type="string"/>
+    <return-scalar column="StaffNames" type="string"/>
     <return-scalar column="CreatedBy" type="string"/>
     <return-scalar column="CreatedOn" type="DateTime"/>
     <return-scalar column="UpdatedBy" type="string"/>
     <return-scalar column="UpdatedOn" type="DateTime"/>
     <![CDATA[    
-      SELECT
-          s.ServiceId, s.ServiceNumber, s.StaffNames
+      SELECT DISTINCT
+          s.ServiceId, s.ServiceNumber, s.StaffNames, uc.username CreatedBy, 
+          uu.username UpdatedBy, s.CreatedOn, s.UpdatedOn
       FROM        Commissions.Services s
-      INNER JOIN  Commissions.ServiceStaff ss ON ss.ServiceId = s.ServiceId
-      WHERE s.Deleted = 0 and s.Activated = 1
+      INNER JOIN  Commissions.ServiceStaffs ss    ON ss.ServiceId = s.ServiceId
+      LEFT JOIN  Main.Users uc                    ON uc.UserId = s.CreatedBy
+      LEFT JOIN  Main.Users uu                    ON uu.UserId = s.UpdatedBy
+      WHERE s.Deleted = 0 and s.Activated = 1 and ss.Deleted = 0 and ss.Activated = 1
       AND (s.ServiceNumber = :ServiceNumber OR -1 = :ServiceNumber)
       AND (ss.StaffId IN (SELECT data FROM Split(:StaffIds, ',')) OR '-1' = :StaffIds)
       ORDER BY s.ServiceId
