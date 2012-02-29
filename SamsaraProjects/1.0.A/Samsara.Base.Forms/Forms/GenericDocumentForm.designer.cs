@@ -73,14 +73,14 @@
             this.gbxSchParameters = new System.Windows.Forms.GroupBox();
             this.ultraTabPageControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.gbxDetDetail = new System.Windows.Forms.GroupBox();
-            this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
-            this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.pnlDetButtons = new System.Windows.Forms.Panel();
             this.upDetSeparator3 = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetSave = new System.Windows.Forms.Button();
             this.upDetSeparator2 = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetCancel = new System.Windows.Forms.Button();
             this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
+            this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
+            this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.ultraTabPageControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.upnlSchBottonControls.ClientArea.SuspendLayout();
@@ -99,22 +99,22 @@
             this.upSchSeparatorSearch.SuspendLayout();
             this.upSchSeparatorBottonSearch.SuspendLayout();
             this.ultraTabPageControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).BeginInit();
-            this.utcPrincipal.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
             this.upDetSeparator3.SuspendLayout();
             this.upDetSeparator2.SuspendLayout();
             this.upDetSeparator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).BeginInit();
+            this.utcPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.grdPrincipal);
-            this.ultraTabPageControl1.Controls.Add(this.upnlSchBottonControls);
             this.ultraTabPageControl1.Controls.Add(this.upButtons);
             this.ultraTabPageControl1.Controls.Add(this.upSchSearchButtons);
             this.ultraTabPageControl1.Controls.Add(this.gbxSchParameters);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl1.Controls.Add(this.upnlSchBottonControls);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(636, 417);
             // 
@@ -190,7 +190,7 @@
             this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchNumRows);
             this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchRowQuantity);
             this.upnlSchBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlSchBottonControls.Location = new System.Drawing.Point(0, 372);
+            this.upnlSchBottonControls.Location = new System.Drawing.Point(0, 397);
             this.upnlSchBottonControls.Name = "upnlSchBottonControls";
             this.upnlSchBottonControls.Size = new System.Drawing.Size(636, 20);
             this.upnlSchBottonControls.TabIndex = 25;
@@ -248,7 +248,7 @@
             this.upButtons.ClientArea.Controls.Add(this.btnSchCreate);
             this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorBottom);
             this.upButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upButtons.Location = new System.Drawing.Point(0, 392);
+            this.upButtons.Location = new System.Drawing.Point(0, 372);
             this.upButtons.Name = "upButtons";
             this.upButtons.Size = new System.Drawing.Size(636, 25);
             this.upButtons.TabIndex = 26;
@@ -434,7 +434,7 @@
             // 
             this.ultraTabPageControl2.Controls.Add(this.gbxDetDetail);
             this.ultraTabPageControl2.Controls.Add(this.pnlDetButtons);
-            this.ultraTabPageControl2.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl2.Name = "ultraTabPageControl2";
             this.ultraTabPageControl2.Size = new System.Drawing.Size(636, 417);
             // 
@@ -447,33 +447,6 @@
             this.gbxDetDetail.TabIndex = 21;
             this.gbxDetDetail.TabStop = false;
             this.gbxDetDetail.Text = "Datos del Registro:";
-            // 
-            // utcPrincipal
-            // 
-            this.utcPrincipal.Controls.Add(this.ultraTabSharedControlsPage1);
-            this.utcPrincipal.Controls.Add(this.ultraTabPageControl1);
-            this.utcPrincipal.Controls.Add(this.ultraTabPageControl2);
-            this.utcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.utcPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.utcPrincipal.Name = "utcPrincipal";
-            this.utcPrincipal.SharedControlsPage = this.ultraTabSharedControlsPage1;
-            this.utcPrincipal.Size = new System.Drawing.Size(640, 443);
-            this.utcPrincipal.TabIndex = 21;
-            ultraTab1.Key = "tbSearch";
-            ultraTab1.TabPage = this.ultraTabPageControl1;
-            ultraTab1.Text = "Busqueda";
-            ultraTab2.Key = "tbDetail";
-            ultraTab2.TabPage = this.ultraTabPageControl2;
-            ultraTab2.Text = "[tbDetail]";
-            this.utcPrincipal.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
-            ultraTab1,
-            ultraTab2});
-            // 
-            // ultraTabSharedControlsPage1
-            // 
-            this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
-            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
             // 
             // pnlDetButtons
             // 
@@ -536,6 +509,33 @@
             this.upDetSeparator1.Size = new System.Drawing.Size(16, 25);
             this.upDetSeparator1.TabIndex = 7;
             // 
+            // utcPrincipal
+            // 
+            this.utcPrincipal.Controls.Add(this.ultraTabSharedControlsPage1);
+            this.utcPrincipal.Controls.Add(this.ultraTabPageControl1);
+            this.utcPrincipal.Controls.Add(this.ultraTabPageControl2);
+            this.utcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.utcPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.utcPrincipal.Name = "utcPrincipal";
+            this.utcPrincipal.SharedControlsPage = this.ultraTabSharedControlsPage1;
+            this.utcPrincipal.Size = new System.Drawing.Size(640, 443);
+            this.utcPrincipal.TabIndex = 21;
+            ultraTab1.Key = "tbSearch";
+            ultraTab1.TabPage = this.ultraTabPageControl1;
+            ultraTab1.Text = "Busqueda";
+            ultraTab2.Key = "tbDetail";
+            ultraTab2.TabPage = this.ultraTabPageControl2;
+            ultraTab2.Text = "[tbDetail]";
+            this.utcPrincipal.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab1,
+            ultraTab2});
+            // 
+            // ultraTabSharedControlsPage1
+            // 
+            this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
+            // 
             // GenericDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,12 +564,12 @@
             this.upSchSeparatorSearch.ResumeLayout(false);
             this.upSchSeparatorBottonSearch.ResumeLayout(false);
             this.ultraTabPageControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).EndInit();
-            this.utcPrincipal.ResumeLayout(false);
             this.pnlDetButtons.ResumeLayout(false);
             this.upDetSeparator3.ResumeLayout(false);
             this.upDetSeparator2.ResumeLayout(false);
             this.upDetSeparator1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).EndInit();
+            this.utcPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

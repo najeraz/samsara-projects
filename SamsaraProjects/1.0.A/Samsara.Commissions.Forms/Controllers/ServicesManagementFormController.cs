@@ -91,12 +91,8 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmServicesManagement.txtSchServiceNumber.Value = null;
         }
 
-        public override void DeleteEntity(int serviceId)
+        public override void DeleteEntity()
         {
-            base.DeleteEntity(serviceId);
-
-            Core.Entities.Service service = this.srvService.GetById(serviceId);
-
             if (service != null)
             {
                 this.srvService.Delete(service);
@@ -107,8 +103,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override bool LoadEntity(int serviceId)
         {
-            base.EditEntity(serviceId);
-
             this.service = this.srvService.GetById(serviceId);
 
             return this.service != null;
@@ -116,15 +110,11 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void CreateEntity()
         {
-            base.CreateEntity();
-
             this.service = new Core.Entities.Service();
         }
 
         public override void LoadDetail()
         {
-            base.LoadDetail();
-
             this.frmServicesManagement.txtDetServiceAmount.Value = this.service.ServiceAmount;
             this.frmServicesManagement.txtDetServiceNumber.Value = this.service.ServiceNumber;
             this.frmServicesManagement.sccDetStaff.Values = this.service.ServiceStaff.Select(x => x.Staff).ToList();
@@ -132,8 +122,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void SaveEntity()
         {
-            base.SaveEntity();
-
             this.service.ServiceAmount = Convert.ToDecimal(this.frmServicesManagement.txtDetServiceAmount.Value);
             this.service.ServiceNumber = Convert.ToInt32(this.frmServicesManagement.txtDetServiceNumber.Value);
             this.service.StaffNames = string.Join(", ", this.frmServicesManagement.sccDetStaff.Values.Select(x => x.Fullname).ToArray());
@@ -153,8 +141,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void ClearDetailFields()
         {
-            base.ClearDetailFields();
-
             this.frmServicesManagement.sccDetStaff.Values = null;
             this.frmServicesManagement.txtDetServiceAmount.Value = null;
             this.frmServicesManagement.txtDetServiceNumber.Value = null;
