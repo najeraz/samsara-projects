@@ -23,6 +23,7 @@ namespace Samsara.Commissions.Forms.Controllers
 
         private ServicesManagementForm frmServicesManagement;
         private IServiceService srvService;
+        private Core.Entities.Service service;
 
         #endregion Attributes
 
@@ -74,12 +75,12 @@ namespace Samsara.Commissions.Forms.Controllers
             ServiceParameters pmtService = new ServiceParameters();
 
             pmtService.ServiceNumber = this.frmServicesManagement.txtSchServiceNumber.Value == DBNull.Value ?
-                ParameterConstants.IntNone : Convert.ToInt32(this.frmServicesManagement.txtSchServiceNumber.Value);
-            pmtService.StaffIds = this.frmServicesManagement.sccSchStaff.Values.Count > 0 ? 
-                string.Join(", ", this.frmServicesManagement.sccSchStaff.Values.Select(x => x.StaffId.ToString()))
-                : "-1";
+                ParameterConstants.IntDefault : Convert.ToInt32(this.frmServicesManagement.txtSchServiceNumber.Value);
+            pmtService.StaffIds = this.frmServicesManagement.sccSchStaff.Values.Count <= 0 ? "-1" :
+                string.Join(", ", this.frmServicesManagement.sccSchStaff.Values.Select(x => x.StaffId.ToString()));
 
-            this.srvService.SearchByParameters(pmtService);
+            this.frmServicesManagement.grdPrincipal.DataSource = null;
+            this.frmServicesManagement.grdPrincipal.DataSource = this.srvService.SearchByParameters(pmtService);
         }
 
         public override void ClearSearchFields()
@@ -104,32 +105,38 @@ namespace Samsara.Commissions.Forms.Controllers
             this.Search();
         }
 
-        public override void EditEntity(int serviceId)
+        public override bool LoadEntity(int serviceId)
         {
             base.EditEntity(serviceId);
 
-            Core.Entities.Service service = this.srvService.GetById(serviceId);
+            this.service = this.srvService.GetById(serviceId);
 
-            if (service != null)
-            {
-                
-            }
+            return this.service != null;
         }
 
         public override void CreateEntity()
         {
             base.CreateEntity();
+
+            this.service = new Core.Entities.Service();
+        }
+
+        public override void LoadDetail()
+        {
+            base.LoadDetail();
+
+            this.frmServicesManagement.txtDetServiceAmount.Value = this.service.ServiceAmount;
+            this.frmServicesManagement.txtDetServiceNumber.Value = this.service.ServiceNumber;
+            this.frmServicesManagement.sccDetStaff.Values = this.service.ServiceStaff.Select(x => x.Staff).ToList();
         }
 
         public override void SaveEntity()
         {
-            Core.Entities.Service service = new Core.Entities.Service();
-
             base.SaveEntity();
 
-            service.ServiceAmount = Convert.ToDecimal(this.frmServicesManagement.txtDetServiceAmount.Value);
-            service.ServiceNumber = Convert.ToInt32(this.frmServicesManagement.txtDetServiceNumber.Value);
-            service.StaffNames = string.Join(", ", this.frmServicesManagement.sccDetStaff.Values.Select(x => x.Fullname).ToArray());
+            this.service.ServiceAmount = Convert.ToDecimal(this.frmServicesManagement.txtDetServiceAmount.Value);
+            this.service.ServiceNumber = Convert.ToInt32(this.frmServicesManagement.txtDetServiceNumber.Value);
+            this.service.StaffNames = string.Join(", ", this.frmServicesManagement.sccDetStaff.Values.Select(x => x.Fullname).ToArray());
 
             foreach (Staff staff in this.frmServicesManagement.sccDetStaff.Values)
             {
@@ -137,9 +144,11 @@ namespace Samsara.Commissions.Forms.Controllers
 
                 serviceStaff.Service = service;
                 serviceStaff.Staff = staff;
+
+                this.service.ServiceStaff.Add(serviceStaff);
             }
 
-            this.srvService.Save(service);
+            this.srvService.SaveOrUpdate(this.service);
         }
 
         public override void ClearDetailFields()

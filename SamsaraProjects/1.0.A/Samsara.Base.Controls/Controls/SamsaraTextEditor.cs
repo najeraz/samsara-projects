@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
@@ -38,7 +39,69 @@ namespace Samsara.Base.Controls.Controls
         {
             get
             {
-                return this.sumeValue.Value;
+                string result = null;
+                decimal decimalParser;
+                int integerParser;
+
+                if (this.sumeValue.Value == null)
+                    return null;
+                if (string.IsNullOrWhiteSpace(this.sumeValue.Value.ToString()))
+                    return this.sumeValue.Value;
+
+                switch (this.maskType)
+                {
+                    case TextMaskFormatEnum.Currency:
+                        result = this.sumeValue.Value.ToString();
+
+                        if (decimal.TryParse(result, out decimalParser))
+                            return decimalParser;
+                            
+                        return null;
+                    case TextMaskFormatEnum.FileSize:
+                        result = this.sumeValue.Value.ToString().Replace("%", "").Trim();
+
+                        if (decimal.TryParse(result, out decimalParser))
+                            return decimalParser;
+
+                        return null;
+                    case TextMaskFormatEnum.NaturalQuantity:
+                        result = this.sumeValue.Value.ToString().Replace(",", "").Trim();
+
+                        if (int.TryParse(result, out integerParser))
+                            return integerParser;
+
+                        return null;
+                    case TextMaskFormatEnum.NoLimitPercentage:
+                        result = this.sumeValue.Value.ToString().Replace("%", "").Trim();
+
+                        if (decimal.TryParse(result, out decimalParser))
+                            return decimalParser;
+
+                        return null;
+                    case TextMaskFormatEnum.Percentage:
+                        result = this.sumeValue.Value.ToString().Replace("%", "").Trim();
+
+                        if (decimal.TryParse(result, out decimalParser))
+                            return decimalParser;
+
+                        return null;
+                    case TextMaskFormatEnum.Rate:
+                        result = this.sumeValue.Value.ToString();
+
+                        if (decimal.TryParse(result, out decimalParser))
+                            return decimalParser;
+
+                        return null;
+                    case TextMaskFormatEnum.RealQuantity:
+                        result = this.sumeValue.Value.ToString();
+
+                        if (int.TryParse(result, out integerParser))
+                            return integerParser;
+
+                        return null;
+                    default:
+                        throw new NotImplementedException();
+                }
             }
             set
             {

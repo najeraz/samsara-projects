@@ -10,6 +10,13 @@
     </id>
     
     <property name="FormName" not-null="true"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
     
     <set name="GridConfigurations" table="Configuration.GridConfigurations" cascade="all-delete-orphan">
       <key column="FormConfigurationId"/>

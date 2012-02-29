@@ -1,9 +1,10 @@
 ﻿
 using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class GridColumnConfiguration
+    public class GridColumnConfiguration : GenericEntity
     {
         public GridColumnConfiguration()
         {

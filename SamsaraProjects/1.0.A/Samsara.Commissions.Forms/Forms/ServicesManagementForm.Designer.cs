@@ -51,18 +51,11 @@ namespace Samsara.Commissions.Forms.Forms
             this.sccSchStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
             this.txtSchServiceNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ulblSchServiceNumber = new Infragistics.Win.Misc.UltraLabel();
-            this.gbxSchParameters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
+            this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
+            this.pnlDetButtons.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gbxSchParameters
-            // 
-            this.gbxSchParameters.Controls.Add(this.txtSchServiceNumber);
-            this.gbxSchParameters.Controls.Add(this.ulblSchServiceNumber);
-            this.gbxSchParameters.Controls.Add(this.ulblSchStaff);
-            this.gbxSchParameters.Controls.Add(this.sccSchStaff);
-            this.gbxSchParameters.Size = new System.Drawing.Size(626, 68);
             // 
             // grdPrincipal
             // 
@@ -109,8 +102,16 @@ namespace Samsara.Commissions.Forms.Forms
             this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdPrincipal.Location = new System.Drawing.Point(3, 96);
-            this.grdPrincipal.Size = new System.Drawing.Size(626, 273);
+            this.grdPrincipal.Location = new System.Drawing.Point(0, 93);
+            this.grdPrincipal.Size = new System.Drawing.Size(636, 279);
+            // 
+            // gbxSchParameters
+            // 
+            this.gbxSchParameters.Controls.Add(this.txtSchServiceNumber);
+            this.gbxSchParameters.Controls.Add(this.ulblSchServiceNumber);
+            this.gbxSchParameters.Controls.Add(this.ulblSchStaff);
+            this.gbxSchParameters.Controls.Add(this.sccSchStaff);
+            this.gbxSchParameters.Size = new System.Drawing.Size(636, 68);
             // 
             // gbxDetDetail
             // 
@@ -248,11 +249,12 @@ namespace Samsara.Commissions.Forms.Forms
             this.ClientSize = new System.Drawing.Size(640, 443);
             this.Name = "ServicesManagementForm";
             this.Text = "ServicesManagement";
+            ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxSchParameters.ResumeLayout(false);
             this.gbxSchParameters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
+            this.pnlDetButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

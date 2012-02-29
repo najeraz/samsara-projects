@@ -1,10 +1,11 @@
 ﻿
 using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class FormConfiguration
+    public class FormConfiguration : GenericEntity
     {
         private ISet<GridConfiguration> gridConfigurations;
 
@@ -26,6 +27,7 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
+        [PropagationAudit]
         public virtual ISet<GridConfiguration> GridConfigurations
         {
             get
