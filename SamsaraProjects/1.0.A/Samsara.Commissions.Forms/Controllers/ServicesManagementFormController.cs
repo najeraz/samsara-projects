@@ -76,7 +76,8 @@ namespace Samsara.Commissions.Forms.Controllers
 
             pmtService.ServiceNumber = this.frmServicesManagement.txtSchServiceNumber.Value == DBNull.Value ?
                 ParameterConstants.IntDefault : Convert.ToInt32(this.frmServicesManagement.txtSchServiceNumber.Value);
-            pmtService.StaffIds = this.frmServicesManagement.sccSchStaff.Values.Count <= 0 ? "-1" :
+            pmtService.StaffIds = this.frmServicesManagement.sccSchStaff.Values == null || 
+                this.frmServicesManagement.sccSchStaff.Values.Count <= 0 ? "-1" :
                 string.Join(", ", this.frmServicesManagement.sccSchStaff.Values.Select(x => x.StaffId.ToString()));
 
             this.frmServicesManagement.grdPrincipal.DataSource = null;
