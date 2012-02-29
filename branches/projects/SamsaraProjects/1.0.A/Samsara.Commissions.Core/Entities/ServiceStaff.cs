@@ -1,7 +1,7 @@
 ﻿
+using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
-using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.Commissions.Core.Entities
 {
