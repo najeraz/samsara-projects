@@ -16,7 +16,7 @@
       FROM		    Facturas_Clientes f
       INNER JOIN	Detalles_Facturas_Clientes dfc 	ON dfc.factura = f.factura
       INNER JOIN	Clientes c			      	        ON c.cliente = f.cliente
-      INNER JOIN	personal p	                    ON p.persona = c.agente
+      INNER JOIN	Personal p	                    ON p.persona = c.agente
       WHERE f.sucursal = 1 AND p.fecha_baja IS NULL
       AND	f.estado_actual != 'Cancelada'
       AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
