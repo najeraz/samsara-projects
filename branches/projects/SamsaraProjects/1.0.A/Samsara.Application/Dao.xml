@@ -452,10 +452,6 @@
           type="Samsara.AlleatoERP.Dao.Impl.ProductBrandDao, Samsara.AlleatoERP.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IAlleatoERPDao"
-          type="Samsara.AlleatoERP.Dao.Impl.AlleatoERPDao, Samsara.AlleatoERP.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
   <object id="IProductFamilyDao"
           type="Samsara.AlleatoERP.Dao.Impl.ProductFamilyDao, Samsara.AlleatoERP.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>

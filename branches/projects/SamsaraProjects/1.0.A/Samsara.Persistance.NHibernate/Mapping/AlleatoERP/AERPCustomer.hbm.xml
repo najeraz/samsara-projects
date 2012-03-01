@@ -3,7 +3,7 @@
   assembly="Samsara.AlleatoERP.Core"
   namespace="Samsara.AlleatoERP.Core.Entities">
   
-  <class name="ERPCustomer" table="AlleatoERP.ERPCustomer">
+  <class name="ERPCustomer" table="AlleatoERP.ERPCustomers">
 
     <id name="ERPCustomerId">
     </id>
@@ -20,7 +20,7 @@
 
     <many-to-one name="Staff" fetch="join"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
-                 column="agente"/>
+                 column="ERPCustomerId"/>
   </class>
 
   <query name="ERPCustomer.GetByParameters">
