@@ -126,17 +126,17 @@
     <property name="Dao" ref="ITenderLineStatusDao"/>
   </object>
   
-  <object id="IFormConfigurationService"
-          type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.Configuration.Service">
-    <property name="Dao" ref="IFormConfigurationDao"/>
+  <object id="IFormService"
+          type="Samsara.Configuration.Service.Impl.FormService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormDao"/>
   </object>
-  <object id="IGridColumnConfigurationService"
-          type="Samsara.Configuration.Service.Impl.GridColumnConfigurationService, Samsara.Configuration.Service">
-    <property name="Dao" ref="IGridColumnConfigurationDao"/>
+  <object id="IFormGridColumnService"
+          type="Samsara.Configuration.Service.Impl.FormGridColumnService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormGridColumnDao"/>
   </object>
-  <object id="IGridConfigurationService"
-          type="Samsara.Configuration.Service.Impl.GridConfigurationService, Samsara.Configuration.Service">
-    <property name="Dao" ref="IGridConfigurationDao"/>
+  <object id="IFormGridService"
+          type="Samsara.Configuration.Service.Impl.FormGridService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormGridDao"/>
   </object>
 
   <object id="ICurrencyService"
@@ -356,10 +356,6 @@
   <object id="IUserService"
           type="Samsara.Main.Service.Impl.UserService, Samsara.Main.Service">
     <property name="Dao" ref="IUserDao"/>
-  </object>
-  <object id="ISamsaraFormService"
-          type="Samsara.Main.Service.Impl.SamsaraFormService, Samsara.Main.Service">
-    <property name="Dao" ref="ISamsaraFormDao"/>
   </object>
   <object id="ISchemeService"
           type="Samsara.Main.Service.Impl.SchemeService, Samsara.Main.Service">
