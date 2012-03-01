@@ -14,14 +14,12 @@ namespace Samsara.Base.Dao.Impl
         public virtual void SaveOrUpdate(T entity)
         {
             EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
-
             this.HibernateTemplate.SaveOrUpdate(entity);
         }
 
         public virtual void Save(T entity)
         {
             EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
-
             this.HibernateTemplate.Save(entity);
         }
 
@@ -44,7 +42,6 @@ namespace Samsara.Base.Dao.Impl
                 (entity as GenericEntity).Activated = false;
 
                 EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
-                
                 this.HibernateTemplate.Update(entity);
             }
             else
