@@ -80,12 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\FormConfigurationService.cs" />
-    <Compile Include="Impl\GridColumnConfigurationService.cs" />
-    <Compile Include="Impl\GridConfigurationService.cs" />
-    <Compile Include="Interfaces\IFormConfigurationService.cs" />
-    <Compile Include="Interfaces\IGridColumnConfigurationService.cs" />
-    <Compile Include="Interfaces\IGridConfigurationService.cs" />
+    <Compile Include="Impl\FormGridColumnService.cs" />
+    <Compile Include="Impl\FormGridService.cs" />
+    <Compile Include="Impl\FormService.cs" />
+    <Compile Include="Interfaces\IFormGridColumnService.cs" />
+    <Compile Include="Interfaces\IFormGridService.cs" />
+    <Compile Include="Interfaces\IFormService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

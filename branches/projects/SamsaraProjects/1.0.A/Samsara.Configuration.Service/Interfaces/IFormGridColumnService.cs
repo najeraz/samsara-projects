@@ -5,7 +5,7 @@ using Samsara.Configuration.Core.Parameters;
 
 namespace Samsara.Configuration.Service.Interfaces
 {
-    public interface IGridConfigurationService : IGenericService<GridConfiguration, int, GridConfigurationParameters>
+    public interface IFormGridColumnService : IGenericService<FormGridColumn, int, FormGridColumnParameters>
     {
     }
 }

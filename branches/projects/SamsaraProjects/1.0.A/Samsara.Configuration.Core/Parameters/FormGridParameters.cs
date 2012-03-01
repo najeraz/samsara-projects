@@ -3,7 +3,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Configuration.Core.Parameters
 {
-    public class GridConfigurationParameters : GenericParameters
+    public class FormGridParameters : GenericParameters
     {
         public string GridName
         {
@@ -11,7 +11,7 @@ namespace Samsara.Configuration.Core.Parameters
             set;
         }
 
-        public int FormConfigurationId
+        public int FormId
         {
             get;
             set;
