@@ -40,13 +40,18 @@
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenericReportForm));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.grdPrincipal = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
+            this.upnlPrplBottonControls = new Infragistics.Win.Misc.UltraPanel();
+            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblPrplNumRows = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblPrplRowQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.upPrplSearchButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upPrplSeparatorClean = new Infragistics.Win.Misc.UltraPanel();
             this.btnPrplClear = new System.Windows.Forms.Button();
@@ -54,20 +59,17 @@
             this.btnPrplGenerate = new System.Windows.Forms.Button();
             this.upPrplSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
             this.gbxPrplParameters = new System.Windows.Forms.GroupBox();
-            this.upnlPrplBottonControls = new Infragistics.Win.Misc.UltraPanel();
-            this.ulblPrplNumRows = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblPrplRowQuantity = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchUsernameTag = new Infragistics.Win.Misc.UltraLabel();
             this.tabPrincipal.SuspendLayout();
             this.Principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
+            this.upnlPrplBottonControls.ClientArea.SuspendLayout();
+            this.upnlPrplBottonControls.SuspendLayout();
             this.upPrplSearchButtons.ClientArea.SuspendLayout();
             this.upPrplSearchButtons.SuspendLayout();
             this.upPrplSeparatorClean.SuspendLayout();
             this.upPrplSeparatorSearch.SuspendLayout();
             this.upPrplSeparatorBottonSearch.SuspendLayout();
-            this.upnlPrplBottonControls.ClientArea.SuspendLayout();
-            this.upnlPrplBottonControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -157,6 +159,57 @@
             this.grdPrincipal.TabIndex = 22;
             this.grdPrincipal.Text = "samsaraUltraGrid1";
             // 
+            // upnlPrplBottonControls
+            // 
+            // 
+            // upnlPrplBottonControls.ClientArea
+            // 
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplUsername);
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblSchUsernameTag);
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplNumRows);
+            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplRowQuantity);
+            this.upnlPrplBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlPrplBottonControls.Location = new System.Drawing.Point(3, 394);
+            this.upnlPrplBottonControls.Name = "upnlPrplBottonControls";
+            this.upnlPrplBottonControls.Size = new System.Drawing.Size(626, 20);
+            this.upnlPrplBottonControls.TabIndex = 24;
+            // 
+            // ulblPrplUsername
+            // 
+            appearance1.TextVAlignAsString = "Middle";
+            this.ulblPrplUsername.Appearance = appearance1;
+            this.ulblPrplUsername.AutoSize = true;
+            this.ulblPrplUsername.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblPrplUsername.Location = new System.Drawing.Point(46, 0);
+            this.ulblPrplUsername.Name = "ulblPrplUsername";
+            this.ulblPrplUsername.Size = new System.Drawing.Size(61, 20);
+            this.ulblPrplUsername.TabIndex = 4;
+            this.ulblPrplUsername.Text = "[username]";
+            // 
+            // ulblPrplNumRows
+            // 
+            appearance2.TextVAlignAsString = "Middle";
+            this.ulblPrplNumRows.Appearance = appearance2;
+            this.ulblPrplNumRows.AutoSize = true;
+            this.ulblPrplNumRows.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ulblPrplNumRows.Location = new System.Drawing.Point(523, 0);
+            this.ulblPrplNumRows.Name = "ulblPrplNumRows";
+            this.ulblPrplNumRows.Size = new System.Drawing.Size(93, 20);
+            this.ulblPrplNumRows.TabIndex = 0;
+            this.ulblPrplNumRows.Text = "Num de registros:";
+            // 
+            // ulblPrplRowQuantity
+            // 
+            appearance4.TextVAlignAsString = "Middle";
+            this.ulblPrplRowQuantity.Appearance = appearance4;
+            this.ulblPrplRowQuantity.AutoSize = true;
+            this.ulblPrplRowQuantity.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ulblPrplRowQuantity.Location = new System.Drawing.Point(616, 0);
+            this.ulblPrplRowQuantity.Name = "ulblPrplRowQuantity";
+            this.ulblPrplRowQuantity.Size = new System.Drawing.Size(10, 20);
+            this.ulblPrplRowQuantity.TabIndex = 2;
+            this.ulblPrplRowQuantity.Text = "0";
+            // 
             // upPrplSearchButtons
             // 
             // 
@@ -228,55 +281,17 @@
             this.gbxPrplParameters.TabStop = false;
             this.gbxPrplParameters.Text = "Parámetros de búsqueda:";
             // 
-            // upnlPrplBottonControls
-            // 
-            // 
-            // upnlPrplBottonControls.ClientArea
-            // 
-            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplUsername);
-            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplNumRows);
-            this.upnlPrplBottonControls.ClientArea.Controls.Add(this.ulblPrplRowQuantity);
-            this.upnlPrplBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlPrplBottonControls.Location = new System.Drawing.Point(3, 394);
-            this.upnlPrplBottonControls.Name = "upnlPrplBottonControls";
-            this.upnlPrplBottonControls.Size = new System.Drawing.Size(626, 20);
-            this.upnlPrplBottonControls.TabIndex = 24;
-            // 
-            // ulblPrplNumRows
-            // 
-            appearance2.TextVAlignAsString = "Middle";
-            this.ulblPrplNumRows.Appearance = appearance2;
-            this.ulblPrplNumRows.AutoSize = true;
-            this.ulblPrplNumRows.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ulblPrplNumRows.Location = new System.Drawing.Point(523, 0);
-            this.ulblPrplNumRows.Name = "ulblPrplNumRows";
-            this.ulblPrplNumRows.Size = new System.Drawing.Size(93, 20);
-            this.ulblPrplNumRows.TabIndex = 0;
-            this.ulblPrplNumRows.Text = "Num de registros:";
-            // 
-            // ulblPrplUsername
+            // ulblSchUsernameTag
             // 
             appearance5.TextVAlignAsString = "Middle";
-            this.ulblPrplUsername.Appearance = appearance5;
-            this.ulblPrplUsername.AutoSize = true;
-            this.ulblPrplUsername.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ulblPrplUsername.Location = new System.Drawing.Point(0, 0);
-            this.ulblPrplUsername.Name = "ulblPrplUsername";
-            this.ulblPrplUsername.Size = new System.Drawing.Size(61, 20);
-            this.ulblPrplUsername.TabIndex = 4;
-            this.ulblPrplUsername.Text = "[username]";
-            // 
-            // ulblPrplRowQuantity
-            // 
-            appearance4.TextVAlignAsString = "Middle";
-            this.ulblPrplRowQuantity.Appearance = appearance4;
-            this.ulblPrplRowQuantity.AutoSize = true;
-            this.ulblPrplRowQuantity.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ulblPrplRowQuantity.Location = new System.Drawing.Point(616, 0);
-            this.ulblPrplRowQuantity.Name = "ulblPrplRowQuantity";
-            this.ulblPrplRowQuantity.Size = new System.Drawing.Size(10, 20);
-            this.ulblPrplRowQuantity.TabIndex = 2;
-            this.ulblPrplRowQuantity.Text = "0";
+            this.ulblSchUsernameTag.Appearance = appearance5;
+            this.ulblSchUsernameTag.AutoSize = true;
+            this.ulblSchUsernameTag.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblSchUsernameTag.Location = new System.Drawing.Point(0, 0);
+            this.ulblSchUsernameTag.Name = "ulblSchUsernameTag";
+            this.ulblSchUsernameTag.Size = new System.Drawing.Size(46, 20);
+            this.ulblSchUsernameTag.TabIndex = 6;
+            this.ulblSchUsernameTag.Text = "Usuario:";
             // 
             // GenericReportForm
             // 
@@ -290,14 +305,14 @@
             this.tabPrincipal.ResumeLayout(false);
             this.Principal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
+            this.upnlPrplBottonControls.ClientArea.ResumeLayout(false);
+            this.upnlPrplBottonControls.ClientArea.PerformLayout();
+            this.upnlPrplBottonControls.ResumeLayout(false);
             this.upPrplSearchButtons.ClientArea.ResumeLayout(false);
             this.upPrplSearchButtons.ResumeLayout(false);
             this.upPrplSeparatorClean.ResumeLayout(false);
             this.upPrplSeparatorSearch.ResumeLayout(false);
             this.upPrplSeparatorBottonSearch.ResumeLayout(false);
-            this.upnlPrplBottonControls.ClientArea.ResumeLayout(false);
-            this.upnlPrplBottonControls.ClientArea.PerformLayout();
-            this.upnlPrplBottonControls.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -318,5 +333,6 @@
         private Infragistics.Win.Misc.UltraLabel ulblPrplNumRows;
         internal Infragistics.Win.Misc.UltraLabel ulblPrplUsername;
         internal Infragistics.Win.Misc.UltraLabel ulblPrplRowQuantity;
+        internal Infragistics.Win.Misc.UltraLabel ulblSchUsernameTag;
     }
 }
