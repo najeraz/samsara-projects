@@ -177,16 +177,16 @@
 
   <!-- ====================================== Configuration ====================================== -->
 
-  <object id="IFormConfigurationDao"
-          type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.Configuration.Dao">
+  <object id="IFormDao"
+          type="Samsara.Configuration.Dao.Impl.FormDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IGridColumnConfigurationDao"
-          type="Samsara.Configuration.Dao.Impl.GridColumnConfigurationDao, Samsara.Configuration.Dao">
+  <object id="IFormGridColumnDao"
+          type="Samsara.Configuration.Dao.Impl.FormGridColumnDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IGridConfigurationDao"
-          type="Samsara.Configuration.Dao.Impl.GridConfigurationDao, Samsara.Configuration.Dao">
+  <object id="IFormGridDao"
+          type="Samsara.Configuration.Dao.Impl.FormGridDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
@@ -412,10 +412,6 @@
   
   <object id="IUserDao"
           type="Samsara.Main.Dao.Impl.UserDao, Samsara.Main.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
-  <object id="ISamsaraFormDao"
-          type="Samsara.Main.Dao.Impl.SamsaraFormDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   <object id="ISchemeDao"

@@ -76,9 +76,13 @@
     <Compile Include="Impl\FormDao.cs" />
     <Compile Include="Impl\FormGridColumnDao.cs" />
     <Compile Include="Impl\FormGridDao.cs" />
+    <Compile Include="Impl\UserGroupDao.cs" />
+    <Compile Include="Impl\UserPermissionDao.cs" />
     <Compile Include="Interfaces\IFormDao.cs" />
     <Compile Include="Interfaces\IFormGridColumnDao.cs" />
     <Compile Include="Interfaces\IFormGridDao.cs" />
+    <Compile Include="Interfaces\IUserGroupDao.cs" />
+    <Compile Include="Interfaces\IUserPermissionDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

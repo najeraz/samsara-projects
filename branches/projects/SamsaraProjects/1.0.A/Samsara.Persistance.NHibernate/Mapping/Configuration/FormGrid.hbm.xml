@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="FormGrid" table="Configuration.FormGrids">
+
+    <id name="FormGridId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+    <many-to-one name="Form" 
+                 class="Samsara.Configuration.Core.Entities.Form, Samsara.Configuration.Core"
+                 column="FormId"/>
+
+    <set name="FormGridColumns" table="Configuration.FormGridColumns" cascade="all-delete-orphan" fetch="join" order-by="FormGridId">
+      <key column="FormGridId"/>
+      <one-to-many
+        class="Samsara.Configuration.Core.Entities.FormGridColumn, Samsara.Configuration.Core"/>
+    </set>
+
+    <property name="GridName"/>
+    <property name="IgnoreConfiguration"/>
+  </class>
+
+  <query name="FormGrid.GetByParameters">
+    <![CDATA[
+        from FormGrid grid where grid.GridName = :GridName
+        and grid.Form.FormId = :FormId
+    ]]>
+  </query>
+
+</hibernate-mapping>
