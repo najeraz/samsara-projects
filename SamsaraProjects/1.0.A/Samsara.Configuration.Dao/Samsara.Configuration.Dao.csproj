@@ -73,14 +73,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\FormConfigurationDao.cs" />
-    <Compile Include="Impl\GridColumnConfiguratioDao.cs" />
-    <Compile Include="Impl\GridConfigurationDao.cs" />
-    <Compile Include="Interfaces\IFormConfigurationDao.cs" />
-    <Compile Include="Interfaces\IGridColumnConfigurationDao.cs" />
-    <Compile Include="Interfaces\IGridConfigurationDao.cs" />
+    <Compile Include="Impl\FormDao.cs" />
+    <Compile Include="Impl\FormGridColumnDao.cs" />
+    <Compile Include="Impl\FormGridDao.cs" />
+    <Compile Include="Interfaces\IFormDao.cs" />
+    <Compile Include="Interfaces\IFormGridColumnDao.cs" />
+    <Compile Include="Interfaces\IFormGridDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
