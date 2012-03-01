@@ -48,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\FormConfiguration.cs" />
-    <Compile Include="Entities\GridColumnConfiguration.cs" />
-    <Compile Include="Entities\GridConfiguration.cs" />
-    <Compile Include="Parameters\FormConfigurationParameters.cs" />
-    <Compile Include="Parameters\GridColumnConfigurationParameters.cs" />
-    <Compile Include="Parameters\GridConfigurationParameters.cs" />
+    <Compile Include="Entities\Form.cs" />
+    <Compile Include="Entities\FormGrid.cs" />
+    <Compile Include="Entities\FormGridColumn.cs" />
+    <Compile Include="Parameters\FormGridColumnParameters.cs" />
+    <Compile Include="Parameters\FormGridParameters.cs" />
+    <Compile Include="Parameters\FormParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,7 @@
 ﻿
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Samsara.Configuration.Core.Entities;
 
 namespace Samsara.Main.Core.Entities
 {
@@ -25,7 +26,7 @@ namespace Samsara.Main.Core.Entities
             set;
         }
 
-        public virtual SamsaraForm SamsaraForm
+        public virtual Form Form
         {
             get;
             set;
