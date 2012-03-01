@@ -40,5 +40,10 @@
     <property name="CacheQueries" value="true"/>
   </object>
 
+  <object id="IAlleatoERPDao"
+          type="Samsara.AlleatoERP.Dao.Impl.AlleatoERPDao, Samsara.AlleatoERP.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplateAlleatoERP"/>
+  </object>
+
 </objects>
 
