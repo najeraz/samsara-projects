@@ -140,8 +140,6 @@
   <ItemGroup>
     <Compile Include="Controllers\SchemeFormController.cs" />
     <Compile Include="Controllers\UserFormController.cs" />
-    <Compile Include="Controllers\UserGroupFormController.cs" />
-    <Compile Include="Controllers\UserPermissionFormController.cs" />
     <Compile Include="Forms\LoadingApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,18 +170,6 @@
     <Compile Include="Forms\UserForm.designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserGroupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UserGroupForm.designer.cs">
-      <DependentUpon>UserGroupForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\UserPermissionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UserPermissionForm.designer.cs">
-      <DependentUpon>UserPermissionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -195,18 +181,6 @@
     </Compile>
     <Compile Include="Templates\SchemeSearchForm.designer.cs">
       <DependentUpon>SchemeSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\UserGroupSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\UserGroupSearchForm.designer.cs">
-      <DependentUpon>UserGroupSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\UserPermissionSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\UserPermissionSearchForm.designer.cs">
-      <DependentUpon>UserPermissionSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Templates\UserSearchForm.cs">
       <SubType>Form</SubType>
@@ -231,12 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserGroupForm.resx">
-      <DependentUpon>UserGroupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserPermissionForm.resx">
-      <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

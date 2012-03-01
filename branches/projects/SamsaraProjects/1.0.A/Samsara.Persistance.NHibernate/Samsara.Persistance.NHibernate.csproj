@@ -142,13 +142,13 @@
     <EmbeddedResource Include="Mapping\ProjectsAndTendering\Wholesaler.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\FormConfiguration.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\Form.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\GridColumnConfiguration.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\FormGridColumn.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\GridConfiguration.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\FormGrid.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\CustomerContext\AccessPointBrand.hbm.xml" />
@@ -366,9 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\CustomerContext\UPSType.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mapping\Main\SamsaraForm.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Main\Scheme.hbm.xml" />

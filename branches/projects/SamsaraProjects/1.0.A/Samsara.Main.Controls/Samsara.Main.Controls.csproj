@@ -89,18 +89,6 @@
     <Compile Include="Controls\Choosers\UserChooserControl.designer.cs">
       <DependentUpon>UserChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UserGroupChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Choosers\UserGroupChooserControl.designer.cs">
-      <DependentUpon>UserGroupChooserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Choosers\UserPermissionChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\Choosers\UserPermissionChooserControl.designer.cs">
-      <DependentUpon>UserPermissionChooserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

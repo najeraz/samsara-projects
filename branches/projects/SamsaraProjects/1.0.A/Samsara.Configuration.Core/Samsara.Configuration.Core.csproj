@@ -51,9 +51,13 @@
     <Compile Include="Entities\Form.cs" />
     <Compile Include="Entities\FormGrid.cs" />
     <Compile Include="Entities\FormGridColumn.cs" />
+    <Compile Include="Entities\UserGroup.cs" />
+    <Compile Include="Entities\UserPermission.cs" />
     <Compile Include="Parameters\FormGridColumnParameters.cs" />
     <Compile Include="Parameters\FormGridParameters.cs" />
     <Compile Include="Parameters\FormParameters.cs" />
+    <Compile Include="Parameters\UserGroupParameters.cs" />
+    <Compile Include="Parameters\UserPermissionParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

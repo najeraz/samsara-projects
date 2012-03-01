@@ -83,9 +83,13 @@
     <Compile Include="Impl\FormGridColumnService.cs" />
     <Compile Include="Impl\FormGridService.cs" />
     <Compile Include="Impl\FormService.cs" />
+    <Compile Include="Impl\UserGroupService.cs" />
+    <Compile Include="Impl\UserPermissionService.cs" />
     <Compile Include="Interfaces\IFormGridColumnService.cs" />
     <Compile Include="Interfaces\IFormGridService.cs" />
     <Compile Include="Interfaces\IFormService.cs" />
+    <Compile Include="Interfaces\IUserGroupService.cs" />
+    <Compile Include="Interfaces\IUserPermissionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
