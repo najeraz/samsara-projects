@@ -40,18 +40,15 @@
             Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenericDocumentForm));
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.grdPrincipal = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
-            this.upnlSchBottonControls = new Infragistics.Win.Misc.UltraPanel();
-            this.ulblSchUsername = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblSchNumRows = new Infragistics.Win.Misc.UltraLabel();
-            this.ulblSchRowQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.upButtons = new Infragistics.Win.Misc.UltraPanel();
             this.upSeparatorAccept = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchAccept = new System.Windows.Forms.Button();
@@ -71,6 +68,10 @@
             this.btnSchSearch = new System.Windows.Forms.Button();
             this.upSchSeparatorBottonSearch = new Infragistics.Win.Misc.UltraPanel();
             this.gbxSchParameters = new System.Windows.Forms.GroupBox();
+            this.upnlSchBottonControls = new Infragistics.Win.Misc.UltraPanel();
+            this.ulblSchUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchNumRows = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchRowQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.ultraTabPageControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.gbxDetDetail = new System.Windows.Forms.GroupBox();
             this.pnlDetButtons = new System.Windows.Forms.Panel();
@@ -81,10 +82,9 @@
             this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.ulblSchUsernameTag = new Infragistics.Win.Misc.UltraLabel();
             this.ultraTabPageControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
-            this.upnlSchBottonControls.ClientArea.SuspendLayout();
-            this.upnlSchBottonControls.SuspendLayout();
             this.upButtons.ClientArea.SuspendLayout();
             this.upButtons.SuspendLayout();
             this.upSeparatorAccept.SuspendLayout();
@@ -98,6 +98,8 @@
             this.upSchSeparatorClean.SuspendLayout();
             this.upSchSeparatorSearch.SuspendLayout();
             this.upSchSeparatorBottonSearch.SuspendLayout();
+            this.upnlSchBottonControls.ClientArea.SuspendLayout();
+            this.upnlSchBottonControls.SuspendLayout();
             this.ultraTabPageControl2.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
             this.upDetSeparator3.SuspendLayout();
@@ -180,56 +182,6 @@
             this.grdPrincipal.Size = new System.Drawing.Size(636, 253);
             this.grdPrincipal.TabIndex = 27;
             this.grdPrincipal.Text = "samsaraUltraGrid1";
-            // 
-            // upnlSchBottonControls
-            // 
-            // 
-            // upnlSchBottonControls.ClientArea
-            // 
-            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchUsername);
-            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchNumRows);
-            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchRowQuantity);
-            this.upnlSchBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.upnlSchBottonControls.Location = new System.Drawing.Point(0, 397);
-            this.upnlSchBottonControls.Name = "upnlSchBottonControls";
-            this.upnlSchBottonControls.Size = new System.Drawing.Size(636, 20);
-            this.upnlSchBottonControls.TabIndex = 25;
-            // 
-            // ulblSchUsername
-            // 
-            appearance5.TextVAlignAsString = "Middle";
-            this.ulblSchUsername.Appearance = appearance5;
-            this.ulblSchUsername.AutoSize = true;
-            this.ulblSchUsername.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ulblSchUsername.Location = new System.Drawing.Point(0, 0);
-            this.ulblSchUsername.Name = "ulblSchUsername";
-            this.ulblSchUsername.Size = new System.Drawing.Size(61, 20);
-            this.ulblSchUsername.TabIndex = 4;
-            this.ulblSchUsername.Text = "[username]";
-            // 
-            // ulblSchNumRows
-            // 
-            appearance2.TextVAlignAsString = "Middle";
-            this.ulblSchNumRows.Appearance = appearance2;
-            this.ulblSchNumRows.AutoSize = true;
-            this.ulblSchNumRows.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ulblSchNumRows.Location = new System.Drawing.Point(533, 0);
-            this.ulblSchNumRows.Name = "ulblSchNumRows";
-            this.ulblSchNumRows.Size = new System.Drawing.Size(93, 20);
-            this.ulblSchNumRows.TabIndex = 0;
-            this.ulblSchNumRows.Text = "Num de registros:";
-            // 
-            // ulblSchRowQuantity
-            // 
-            appearance4.TextVAlignAsString = "Middle";
-            this.ulblSchRowQuantity.Appearance = appearance4;
-            this.ulblSchRowQuantity.AutoSize = true;
-            this.ulblSchRowQuantity.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ulblSchRowQuantity.Location = new System.Drawing.Point(626, 0);
-            this.ulblSchRowQuantity.Name = "ulblSchRowQuantity";
-            this.ulblSchRowQuantity.Size = new System.Drawing.Size(10, 20);
-            this.ulblSchRowQuantity.TabIndex = 2;
-            this.ulblSchRowQuantity.Text = "0";
             // 
             // upButtons
             // 
@@ -430,6 +382,57 @@
             this.gbxSchParameters.TabStop = false;
             this.gbxSchParameters.Text = "Parámetros de búsqueda:";
             // 
+            // upnlSchBottonControls
+            // 
+            // 
+            // upnlSchBottonControls.ClientArea
+            // 
+            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchUsername);
+            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchUsernameTag);
+            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchNumRows);
+            this.upnlSchBottonControls.ClientArea.Controls.Add(this.ulblSchRowQuantity);
+            this.upnlSchBottonControls.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upnlSchBottonControls.Location = new System.Drawing.Point(0, 397);
+            this.upnlSchBottonControls.Name = "upnlSchBottonControls";
+            this.upnlSchBottonControls.Size = new System.Drawing.Size(636, 20);
+            this.upnlSchBottonControls.TabIndex = 25;
+            // 
+            // ulblSchUsername
+            // 
+            appearance1.TextVAlignAsString = "Middle";
+            this.ulblSchUsername.Appearance = appearance1;
+            this.ulblSchUsername.AutoSize = true;
+            this.ulblSchUsername.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblSchUsername.Location = new System.Drawing.Point(46, 0);
+            this.ulblSchUsername.Name = "ulblSchUsername";
+            this.ulblSchUsername.Size = new System.Drawing.Size(61, 20);
+            this.ulblSchUsername.TabIndex = 4;
+            this.ulblSchUsername.Text = "[username]";
+            // 
+            // ulblSchNumRows
+            // 
+            appearance2.TextVAlignAsString = "Middle";
+            this.ulblSchNumRows.Appearance = appearance2;
+            this.ulblSchNumRows.AutoSize = true;
+            this.ulblSchNumRows.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ulblSchNumRows.Location = new System.Drawing.Point(533, 0);
+            this.ulblSchNumRows.Name = "ulblSchNumRows";
+            this.ulblSchNumRows.Size = new System.Drawing.Size(93, 20);
+            this.ulblSchNumRows.TabIndex = 0;
+            this.ulblSchNumRows.Text = "Num de registros:";
+            // 
+            // ulblSchRowQuantity
+            // 
+            appearance4.TextVAlignAsString = "Middle";
+            this.ulblSchRowQuantity.Appearance = appearance4;
+            this.ulblSchRowQuantity.AutoSize = true;
+            this.ulblSchRowQuantity.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ulblSchRowQuantity.Location = new System.Drawing.Point(626, 0);
+            this.ulblSchRowQuantity.Name = "ulblSchRowQuantity";
+            this.ulblSchRowQuantity.Size = new System.Drawing.Size(10, 20);
+            this.ulblSchRowQuantity.TabIndex = 2;
+            this.ulblSchRowQuantity.Text = "0";
+            // 
             // ultraTabPageControl2
             // 
             this.ultraTabPageControl2.Controls.Add(this.gbxDetDetail);
@@ -536,6 +539,18 @@
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
             this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
             // 
+            // ulblSchUsernameTag
+            // 
+            appearance5.TextVAlignAsString = "Middle";
+            this.ulblSchUsernameTag.Appearance = appearance5;
+            this.ulblSchUsernameTag.AutoSize = true;
+            this.ulblSchUsernameTag.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblSchUsernameTag.Location = new System.Drawing.Point(0, 0);
+            this.ulblSchUsernameTag.Name = "ulblSchUsernameTag";
+            this.ulblSchUsernameTag.Size = new System.Drawing.Size(46, 20);
+            this.ulblSchUsernameTag.TabIndex = 5;
+            this.ulblSchUsernameTag.Text = "Usuario:";
+            // 
             // GenericDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,9 +562,6 @@
             this.Text = "GenericDocumentForm";
             this.ultraTabPageControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
-            this.upnlSchBottonControls.ClientArea.ResumeLayout(false);
-            this.upnlSchBottonControls.ClientArea.PerformLayout();
-            this.upnlSchBottonControls.ResumeLayout(false);
             this.upButtons.ClientArea.ResumeLayout(false);
             this.upButtons.ResumeLayout(false);
             this.upSeparatorAccept.ResumeLayout(false);
@@ -563,6 +575,9 @@
             this.upSchSeparatorClean.ResumeLayout(false);
             this.upSchSeparatorSearch.ResumeLayout(false);
             this.upSchSeparatorBottonSearch.ResumeLayout(false);
+            this.upnlSchBottonControls.ClientArea.ResumeLayout(false);
+            this.upnlSchBottonControls.ClientArea.PerformLayout();
+            this.upnlSchBottonControls.ResumeLayout(false);
             this.ultraTabPageControl2.ResumeLayout(false);
             this.pnlDetButtons.ResumeLayout(false);
             this.upDetSeparator3.ResumeLayout(false);
@@ -611,5 +626,6 @@
         private Infragistics.Win.Misc.UltraPanel upDetSeparator2;
         public System.Windows.Forms.Button btnDetCancel;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
+        internal Infragistics.Win.Misc.UltraLabel ulblSchUsernameTag;
     }
 }
