@@ -31,8 +31,57 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,20 +91,28 @@
   <ItemGroup>
     <Compile Include="Controllers\UserGroupFormController.cs" />
     <Compile Include="Controllers\UserPermissionFormController.cs" />
-    <Compile Include="Forms\UserGroupForm.cs" />
+    <Compile Include="Forms\UserGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\UserGroupForm.designer.cs">
       <DependentUpon>UserGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserPermissionForm.cs" />
+    <Compile Include="Forms\UserPermissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\UserPermissionForm.designer.cs">
       <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\UserGroupSearchForm.cs" />
+    <Compile Include="Templates\UserGroupSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Templates\UserGroupSearchForm.Designer.cs">
       <DependentUpon>UserGroupSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserPermissionSearchForm.cs" />
+    <Compile Include="Templates\UserPermissionSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Templates\UserPermissionSearchForm.Designer.cs">
       <DependentUpon>UserPermissionSearchForm.cs</DependentUpon>
     </Compile>
@@ -67,6 +124,7 @@
     <EmbeddedResource Include="Forms\UserPermissionForm.resx">
       <DependentUpon>UserPermissionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

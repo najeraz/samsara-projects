@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.Main.Controls.Controls
+namespace Samsara.Configuration.Controls.Controls
 {
     partial class UserPermissionChooserControl
     {
