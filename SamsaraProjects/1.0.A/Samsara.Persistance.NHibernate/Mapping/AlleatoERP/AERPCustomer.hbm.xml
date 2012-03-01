@@ -20,7 +20,7 @@
 
     <many-to-one name="Staff" fetch="join"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
-                 column="ERPCustomerId"/>
+                 column="StaffId"/>
   </class>
 
   <query name="ERPCustomer.GetByParameters">
