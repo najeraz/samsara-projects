@@ -525,7 +525,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             decimal oldValue = Convert.ToDecimal(this.txtTotalComisiones.Text);
 
             decimal newValue = this.grdResumenComisiones.Rows.Cast<UltraGridRow>().Except(list)
-                .AsEnumerable().Sum(x => NumberUtil.DecimalValue(x.Cells["saldo_a_pagar"].Value))
+                .AsEnumerable().Sum(x => GeneralUtil.DecimalValue(x.Cells["saldo_a_pagar"].Value))
                 + (row == null ? 0 : newCellValue);
 
             decimal difference = Math.Abs(oldValue - newValue);
