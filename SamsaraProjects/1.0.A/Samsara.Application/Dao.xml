@@ -177,16 +177,24 @@
 
   <!-- ====================================== Configuration ====================================== -->
 
-  <object id="IFormDao"
-          type="Samsara.Configuration.Dao.Impl.FormDao, Samsara.Configuration.Dao">
+  <object id="IFormConfigurationDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IFormGridColumnDao"
-          type="Samsara.Configuration.Dao.Impl.FormGridColumnDao, Samsara.Configuration.Dao">
+  <object id="IFormConfigurationGridColumnDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationGridColumnDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IFormGridDao"
-          type="Samsara.Configuration.Dao.Impl.FormGridDao, Samsara.Configuration.Dao">
+  <object id="IFormConfigurationGridDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationGridDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUserGroupDao"
+          type="Samsara.Configuration.Dao.Impl.UserGroupDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUserPermissionDao"
+          type="Samsara.Configuration.Dao.Impl.UserPermissionDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
@@ -416,14 +424,6 @@
   </object>
   <object id="ISchemeDao"
           type="Samsara.Main.Dao.Impl.SchemeDao, Samsara.Main.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
-  <object id="IUserGroupDao"
-          type="Samsara.Main.Dao.Impl.UserGroupDao, Samsara.Main.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
-  <object id="IUserPermissionDao"
-          type="Samsara.Main.Dao.Impl.UserPermissionDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
   

@@ -53,6 +53,7 @@ namespace Samsara.Main.Session
             user = null;
         }
 
+        [DebuggerStepThrough]
         private void LoadSession(string username, string password)
         {
             UserParameters pmtUser = new UserParameters();

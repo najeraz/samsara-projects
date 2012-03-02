@@ -5,23 +5,23 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class FormGrid : GenericEntity
+    public class FormConfigurationGrid : GenericEntity
     {
-        private ISet<FormGridColumn> gridColumnfigurations;
+        private ISet<FormConfigurationGridColumn> gridColumnfigurations;
 
-        public FormGrid()
+        public FormConfigurationGrid()
         {
-            FormGridId = -1;
+            FormConfigurationGridId = -1;
         }
 
         [PrimaryKey]
-        public virtual int FormGridId
+        public virtual int FormConfigurationGridId
         {
             get;
             set;
         }
 
-        public virtual Form Form
+        public virtual FormConfiguration FormConfiguration
         {
             get;
             set;
@@ -40,12 +40,12 @@ namespace Samsara.Configuration.Core.Entities
         }
 
         [PropagationAudit]
-        public virtual ISet<FormGridColumn> FormGridColumns
+        public virtual ISet<FormConfigurationGridColumn> FormConfigurationGridColumns
         {
             get
             {
                 if (this.gridColumnfigurations == null)
-                    this.gridColumnfigurations = new HashedSet<FormGridColumn>();
+                    this.gridColumnfigurations = new HashedSet<FormConfigurationGridColumn>();
 
                 return this.gridColumnfigurations;
             }

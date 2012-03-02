@@ -142,13 +142,13 @@
     <EmbeddedResource Include="Mapping\ProjectsAndTendering\Wholesaler.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\Form.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\FormConfiguration.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\FormGridColumn.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\FormConfigurationGridColumn.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\FormGrid.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\FormConfigurationGrid.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\CustomerContext\AccessPointBrand.hbm.xml" />

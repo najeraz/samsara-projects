@@ -26,7 +26,7 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
-        public virtual Form Form
+        public virtual FormConfiguration FormConfiguration
         {
             get;
             set;

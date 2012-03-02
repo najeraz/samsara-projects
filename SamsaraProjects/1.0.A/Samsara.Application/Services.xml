@@ -126,17 +126,25 @@
     <property name="Dao" ref="ITenderLineStatusDao"/>
   </object>
   
-  <object id="IFormService"
-          type="Samsara.Configuration.Service.Impl.FormService, Samsara.Configuration.Service">
-    <property name="Dao" ref="IFormDao"/>
+  <object id="IFormConfigurationService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationDao"/>
   </object>
-  <object id="IFormGridColumnService"
-          type="Samsara.Configuration.Service.Impl.FormGridColumnService, Samsara.Configuration.Service">
-    <property name="Dao" ref="IFormGridColumnDao"/>
+  <object id="IFormConfigurationGridColumnService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationGridColumnService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationGridColumnDao"/>
   </object>
-  <object id="IFormGridService"
-          type="Samsara.Configuration.Service.Impl.FormGridService, Samsara.Configuration.Service">
-    <property name="Dao" ref="IFormGridDao"/>
+  <object id="IFormConfigurationGridService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationGridService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationGridDao"/>
+  </object>
+  <object id="IUserGroupService"
+          type="Samsara.Configuration.Service.Impl.UserGroupService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IUserGroupDao"/>
+  </object>
+  <object id="IUserPermissionService"
+          type="Samsara.Configuration.Service.Impl.UserPermissionService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IUserPermissionDao"/>
   </object>
 
   <object id="ICurrencyService"
@@ -360,14 +368,6 @@
   <object id="ISchemeService"
           type="Samsara.Main.Service.Impl.SchemeService, Samsara.Main.Service">
     <property name="Dao" ref="ISchemeDao"/>
-  </object>
-  <object id="IUserGroupService"
-          type="Samsara.Main.Service.Impl.UserGroupService, Samsara.Main.Service">
-    <property name="Dao" ref="IUserGroupDao"/>
-  </object>
-  <object id="IUserPermissionService"
-          type="Samsara.Main.Service.Impl.UserPermissionService, Samsara.Main.Service">
-    <property name="Dao" ref="IUserPermissionDao"/>
   </object>
   
   <object id="IServiceService"
