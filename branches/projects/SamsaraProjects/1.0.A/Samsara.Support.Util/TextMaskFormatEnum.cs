@@ -9,6 +9,7 @@ namespace Samsara.Support.Util
         NoLimitPercentage,
         NaturalQuantity,
         RealQuantity,
-        FileSize
+        FileSize,
+        Integer
     }
 }

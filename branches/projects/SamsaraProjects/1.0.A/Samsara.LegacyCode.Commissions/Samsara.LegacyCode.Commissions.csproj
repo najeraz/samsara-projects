@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F60E70AC-B0F4-43E4-8319-2A3A62D836C8}</ProjectGuid>
+    <ProjectGuid>{24790042-389E-411C-9985-60CDEFC041C2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.Configuration.Forms</RootNamespace>
-    <AssemblyName>Samsara.Configuration.Forms</AssemblyName>
+    <RootNamespace>Samsara.LegacyCode.Commissions</RootNamespace>
+    <AssemblyName>Samsara.LegacyCode.Commissions</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,53 +37,14 @@
     <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Support.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Base.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Forms.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Configuration.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Dao.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Service.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Controls.dll</HintPath>
+      <HintPath>..\bin\Samsara.Support.Util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -98,40 +59,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\UserGroupFormController.cs" />
-    <Compile Include="Controllers\UserPermissionFormController.cs" />
-    <Compile Include="Forms\UserGroupForm.cs">
+    <Compile Include="Controls\MulticuotasControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MulticuotasControl.designer.cs">
+      <DependentUpon>MulticuotasControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DetalleFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserGroupForm.designer.cs">
-      <DependentUpon>UserGroupForm.cs</DependentUpon>
+    <Compile Include="Forms\DetalleFactura.designer.cs">
+      <DependentUpon>DetalleFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserPermissionForm.cs">
+    <Compile Include="Forms\DetalleQuincena.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserPermissionForm.designer.cs">
-      <DependentUpon>UserPermissionForm.cs</DependentUpon>
+    <Compile Include="Forms\DetalleQuincena.designer.cs">
+      <DependentUpon>DetalleQuincena.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MinimalMarginDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MinimalMarginDialog.designer.cs">
+      <DependentUpon>MinimalMarginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ConectionStrings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\UserGroupSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\UserGroupSearchForm.Designer.cs">
-      <DependentUpon>UserGroupSearchForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\UserPermissionSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\UserPermissionSearchForm.Designer.cs">
-      <DependentUpon>UserPermissionSearchForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Util\GeneralUtil.cs" />
+    <Compile Include="Util\NumberUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\UserGroupForm.resx">
-      <DependentUpon>UserGroupForm.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\MulticuotasControl.resx">
+      <DependentUpon>MulticuotasControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserPermissionForm.resx">
-      <DependentUpon>UserPermissionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DetalleFactura.resx">
+      <DependentUpon>DetalleFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DetalleQuincena.resx">
+      <DependentUpon>DetalleQuincena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MinimalMarginDialog.resx">
+      <DependentUpon>MinimalMarginDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

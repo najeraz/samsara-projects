@@ -371,10 +371,10 @@
     <EmbeddedResource Include="Mapping\Main\Scheme.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Main\UserGroup.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\UserGroup.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Main\UserPermission.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Configuration\UserPermission.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Commissions\Service.hbm.xml">

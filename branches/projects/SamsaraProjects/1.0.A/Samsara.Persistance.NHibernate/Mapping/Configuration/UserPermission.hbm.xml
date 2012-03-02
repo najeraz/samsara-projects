@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.Main.Core" 
-  namespace="Samsara.Main.Core.Entities">
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
   
   <class name="UserPermission" table="Main.UserPermission">
     
@@ -11,15 +11,20 @@
 
     <property name="Name"/>
     <property name="Description"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
     <many-to-one name="Form"
-                 class="Samsara.Configuration.Core.Entities.Form, Samsara.Main.Core"
+                 class="Samsara.Configuration.Core.Entities.Form, Samsara.Configuration.Core"
                  column="FormId"/>
 
     <many-to-one name="User"
-                 class="Samsara.Main.Core.Entities.User, Samsara.Main.Core"
+                 class="Samsara.Configuration.Core.Entities.User, Samsara.Configuration.Core"
                  column="UserId"/>
     
   </class>

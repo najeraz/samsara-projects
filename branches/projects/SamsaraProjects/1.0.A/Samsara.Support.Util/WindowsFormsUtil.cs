@@ -18,6 +18,7 @@ namespace Samsara.Support.Util
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn %";
+        private static string integerMask = "nnnnnnnnnnnn";
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
         private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
         private static string rateMask = "{double:4.12}";
@@ -93,6 +94,12 @@ namespace Samsara.Support.Util
                     break;
                 case TextMaskFormatEnum.NaturalQuantity:
                     column.MaskInput = naturalQuantityMask;
+                    column.MaskDisplayMode = MaskMode.IncludeBoth;
+                    column.CellAppearance.TextHAlign = HAlign.Right;
+                    column.PromptChar = ' ';
+                    break;
+                case TextMaskFormatEnum.Integer:
+                    column.MaskInput = integerMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
