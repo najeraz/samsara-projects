@@ -18,7 +18,7 @@
     <property name="Activated"/>
     <property name="Deleted"/>
     
-    <set name="FormConfigurationGrids" table="Configuration.FormGrids" cascade="all-delete-orphan">
+    <set name="FormConfigurationGrids" table="Configuration.FormConfigurationGrids" cascade="all-delete-orphan">
       <key column="FormConfigurationId"/>
       <one-to-many 
         class="Samsara.Configuration.Core.Entities.FormConfigurationGrid, Samsara.Configuration.Core"/>
@@ -28,7 +28,7 @@
 
   <query name="Form.GetByParameters">
     <![CDATA[
-        from Form where FormName = :FormName
+        from FormConfiguration where FormName = :FormName
     ]]>
   </query>
 

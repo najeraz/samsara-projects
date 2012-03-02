@@ -3,9 +3,9 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="FormGrid" table="Configuration.FormGrids">
+  <class name="FormConfigurationGrid" table="Configuration.FormConfigurationGrids">
 
-    <id name="FormGridId" type="int">
+    <id name="FormConfigurationGridId" type="int">
       <generator class="native"/>
     </id>
 
@@ -16,24 +16,25 @@
     <property name="Activated"/>
     <property name="Deleted"/>
     
-    <many-to-one name="Form" 
-                 class="Samsara.Configuration.Core.Entities.Form, Samsara.Configuration.Core"
-                 column="FormId"/>
+    <many-to-one name="FormConfiguration" 
+                 class="Samsara.Configuration.Core.Entities.FormConfiguration, Samsara.Configuration.Core"
+                 column="FormConfigurationId"/>
 
-    <set name="FormGridColumns" table="Configuration.FormGridColumns" cascade="all-delete-orphan" fetch="join" order-by="FormGridId">
-      <key column="FormGridId"/>
+    <set name="FormConfigurationGridColumns" table="Configuration.FormConfigurationGridColumns" 
+         cascade="all-delete-orphan" fetch="join" order-by="FormConfigurationGridId">
+      <key column="FormConfigurationGridId"/>
       <one-to-many
-        class="Samsara.Configuration.Core.Entities.FormGridColumn, Samsara.Configuration.Core"/>
+        class="Samsara.Configuration.Core.Entities.FormConfigurationGridColumn, Samsara.Configuration.Core"/>
     </set>
 
     <property name="GridName"/>
     <property name="IgnoreConfiguration"/>
   </class>
 
-  <query name="FormGrid.GetByParameters">
+  <query name="FormConfigurationGrid.GetByParameters">
     <![CDATA[
-        from FormGrid grid where grid.GridName = :GridName
-        and grid.Form.FormId = :FormId
+        from FormConfigurationGrid grid where grid.GridName = :GridName
+        and grid.FormConfiguration.FormConfigurationId = :FormId
     ]]>
   </query>
 
