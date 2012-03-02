@@ -3,9 +3,9 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="Form" table="Configuration.Forms">
+  <class name="FormConfiguration" table="Configuration.Forms">
 
-    <id name="FormId" type="int">
+    <id name="FormConfigurationId" type="int">
       <generator class="native"/>
     </id>
     
@@ -18,10 +18,10 @@
     <property name="Activated"/>
     <property name="Deleted"/>
     
-    <set name="FormGrids" table="Configuration.FormGrids" cascade="all-delete-orphan">
-      <key column="FormId"/>
+    <set name="FormConfigurationGrids" table="Configuration.FormGrids" cascade="all-delete-orphan">
+      <key column="FormConfigurationId"/>
       <one-to-many 
-        class="Samsara.Configuration.Core.Entities.FormGrid, Samsara.Configuration.Core"/>
+        class="Samsara.Configuration.Core.Entities.FormConfigurationGrid, Samsara.Configuration.Core"/>
     </set>
     
   </class>

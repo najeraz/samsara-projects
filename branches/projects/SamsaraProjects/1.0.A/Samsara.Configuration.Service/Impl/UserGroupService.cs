@@ -7,7 +7,7 @@ using Samsara.Configuration.Service.Interfaces;
 
 namespace Samsara.Configuration.Service.Impl
 {
-    public class FormService : GenericService<Form, int, IFormDao, FormParameters>, IFormService
+    public class UserGroupService : GenericService<UserGroup, int, IUserGroupDao, UserGroupParameters>, IUserGroupService
     {
     }
 }

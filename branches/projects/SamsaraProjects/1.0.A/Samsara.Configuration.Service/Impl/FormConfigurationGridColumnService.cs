@@ -7,7 +7,7 @@ using Samsara.Configuration.Service.Interfaces;
 
 namespace Samsara.Configuration.Service.Impl
 {
-    public class FormGridColumnService : GenericService<FormGridColumn, int, IFormGridColumnDao, FormGridColumnParameters>, IFormGridColumnService
+    public class FormConfigurationGridColumnService : GenericService<FormConfigurationGridColumn, int, IFormConfigurationGridColumnDao, FormConfigurationGridColumnParameters>, IFormConfigurationGridColumnService
     {
     }
 }

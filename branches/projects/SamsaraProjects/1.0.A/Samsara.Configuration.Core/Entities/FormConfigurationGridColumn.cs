@@ -4,21 +4,21 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class FormGridColumn : GenericEntity
+    public class FormConfigurationGridColumn : GenericEntity
     {
-        public FormGridColumn()
+        public FormConfigurationGridColumn()
         {
-            FormGridColumnId = -1;
+            FormConfigurationGridColumnId = -1;
         }
 
         [PrimaryKey]
-        public virtual int FormGridColumnId
+        public virtual int FormConfigurationGridColumnId
         {
             get;
             set;
         }
 
-        public virtual FormGrid FormGrid
+        public virtual FormConfigurationGrid FormConfigurationGrid
         {
             get;
             set;
