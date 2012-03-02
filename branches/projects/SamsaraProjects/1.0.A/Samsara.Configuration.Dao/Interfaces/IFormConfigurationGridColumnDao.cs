@@ -5,7 +5,7 @@ using Samsara.Configuration.Core.Parameters;
 
 namespace Samsara.Configuration.Dao.Interfaces
 {
-    public interface IFormGridColumnDao : IGenericDao<FormGridColumn, int, FormGridColumnParameters>
+    public interface IFormConfigurationGridColumnDao : IGenericDao<FormConfigurationGridColumn, int, FormConfigurationGridColumnParameters>
     {
     }
 }

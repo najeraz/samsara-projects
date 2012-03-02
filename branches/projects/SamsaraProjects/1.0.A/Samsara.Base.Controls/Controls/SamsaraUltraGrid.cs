@@ -16,9 +16,9 @@ namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraUltraGrid : UltraGrid
     {
-        private IFormService srvForm;
-        private IFormGridService srvFormGrid;
-        private IFormGridColumnService srvFormGridColumn;
+        private IFormConfigurationService srvFormConfiguration;
+        private IFormConfigurationGridService srvFormConfigurationGrid;
+        private IFormConfigurationGridColumnService srvFormConfigurationGridColumn;
 
         public SamsaraUltraGrid()
         {
@@ -26,12 +26,12 @@ namespace Samsara.Base.Controls.Controls
             
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                srvForm = SamsaraAppContext.Resolve<IFormService>();
-                Assert.IsNotNull(this.srvForm);
-                srvFormGrid = SamsaraAppContext.Resolve<IFormGridService>();
-                Assert.IsNotNull(this.srvFormGrid);
-                srvFormGridColumn = SamsaraAppContext.Resolve<IFormGridColumnService>();
-                Assert.IsNotNull(this.srvFormGridColumn);
+                srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+                Assert.IsNotNull(this.srvFormConfiguration);
+                srvFormConfigurationGrid = SamsaraAppContext.Resolve<IFormConfigurationGridService>();
+                Assert.IsNotNull(this.srvFormConfigurationGrid);
+                srvFormConfigurationGridColumn = SamsaraAppContext.Resolve<IFormConfigurationGridColumnService>();
+                Assert.IsNotNull(this.srvFormConfigurationGridColumn);
             }
         }
 
@@ -40,7 +40,7 @@ namespace Samsara.Base.Controls.Controls
             base.OnInitializeLayout(e);
             e.Layout.Override.SummaryFooterCaptionVisible = DefaultableBoolean.False;   
 
-            Samsara.Configuration.Core.Entities.Form form = null;
+            FormConfiguration formConfiguration = null;
 
             if (this.DataSource != null)
             {
@@ -49,37 +49,37 @@ namespace Samsara.Base.Controls.Controls
                 string parentFormName = lstCustomControlNames.Last();
                 lstCustomControlNames.Remove(parentFormName);
 
-                if (parentFormName != null && parentFormName.Contains("Form"))
+                if (parentFormName != null && parentFormName.Contains("FormConfiguration"))
                 {
-                    FormParameters pmtForm = new FormParameters();
-                    pmtForm.FormName = parentFormName;
-                    form = srvForm.GetByParameters(pmtForm);
+                    FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
+                    pmtFormConfiguration.FormConfigurationName = parentFormName;
+                    formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);
                 }
                 else
                     return;
 
-                if (form == null)
+                if (formConfiguration == null)
                 {
-                    form = new Samsara.Configuration.Core.Entities.Form();
-                    form.FormName = parentFormName;
-                    srvForm.SaveOrUpdate(form);
+                    formConfiguration = new FormConfiguration();
+                    formConfiguration.FormName = parentFormName;
+                    srvFormConfiguration.SaveOrUpdate(formConfiguration);
                 }
 
                 string gridName = (lstCustomControlNames.Count == 0 ? "" :
                     string.Join(".", lstCustomControlNames.Reverse().ToArray()) + ".") + this.Name;
 
-                FormGridParameters pmtFormGrid = new FormGridParameters();
-                pmtFormGrid.GridName = gridName;
-                pmtFormGrid.FormId = form.FormId;
-                FormGrid formGrid = srvFormGrid.GetByParameters(pmtFormGrid);
+                FormConfigurationGridParameters pmtFormConfigurationGrid = new FormConfigurationGridParameters();
+                pmtFormConfigurationGrid.GridName = gridName;
+                pmtFormConfigurationGrid.FormConfigurationId = formConfiguration.FormConfigurationId;
+                FormConfigurationGrid formGrid = srvFormConfigurationGrid.GetByParameters(pmtFormConfigurationGrid);
                 
                 if (formGrid == null)
                 {
-                    formGrid = new FormGrid();
+                    formGrid = new FormConfigurationGrid();
                     formGrid.GridName = gridName;
                     formGrid.IgnoreConfiguration = false;
-                    formGrid.Form = form;
-                    srvFormGrid.SaveOrUpdate(formGrid);
+                    formGrid.FormConfiguration = formConfiguration;
+                    srvFormConfigurationGrid.SaveOrUpdate(formGrid);
                 }
 
                 if (formGrid.IgnoreConfiguration)
@@ -89,29 +89,29 @@ namespace Samsara.Base.Controls.Controls
                 {
                     foreach (UltraGridColumn column in band.Columns)
                     {
-                        FormGridColumn formGridColumn = null;
+                        FormConfigurationGridColumn formGridColumn = null;
 
-                        if (formGrid.FormGridColumns != null)
+                        if (formGrid.FormConfigurationGridColumns != null)
                             formGridColumn = formGrid
-                                .FormGridColumns.SingleOrDefault(x => x.ColumnName == column.Key
+                                .FormConfigurationGridColumns.SingleOrDefault(x => x.ColumnName == column.Key
                                 && (x.BandKey == null || x.BandKey == band.Key));
 
                         if (formGridColumn == null)
                         {
-                            formGridColumn = new FormGridColumn();
-                            formGrid.FormGridColumns.Add(formGridColumn);
+                            formGridColumn = new FormConfigurationGridColumn();
+                            formGrid.FormConfigurationGridColumns.Add(formGridColumn);
                             formGridColumn.ColumnName = column.Key;
                             formGridColumn.ColumnEndUserName = column.Key;
-                            formGridColumn.FormGrid = formGrid;
+                            formGridColumn.FormConfigurationGrid = formGrid;
                             formGridColumn.Visible = false;
                             formGridColumn.BandKey = band.Key;
-                            srvFormGridColumn.SaveOrUpdate(formGridColumn);
+                            srvFormConfigurationGridColumn.SaveOrUpdate(formGridColumn);
                         }
                     }
                 }
 
-                IList<string> lstOrderedColumnNames = formGrid.FormGridColumns
-                    .OrderBy(x => x.FormGridColumnId).Select(x => x.ColumnName).ToList();
+                IList<string> lstOrderedColumnNames = formGrid.FormConfigurationGridColumns
+                    .OrderBy(x => x.FormConfigurationGridColumnId).Select(x => x.ColumnName).ToList();
 
                 foreach (UltraGridBand band in this.DisplayLayout.Bands)
                 {
@@ -119,8 +119,8 @@ namespace Samsara.Base.Controls.Controls
                     foreach (UltraGridColumn column in band.Columns.Cast<UltraGridColumn>()
                         .OrderBy(x => lstOrderedColumnNames.IndexOf(x.Key)))
                     {
-                        FormGridColumn gridColumnConfiguration = formGrid
-                                .FormGridColumns.Single(x => x.ColumnName == column.Key
+                        FormConfigurationGridColumn gridColumnConfiguration = formGrid
+                                .FormConfigurationGridColumns.Single(x => x.ColumnName == column.Key
                                 && (x.BandKey == null || x.BandKey == band.Key));
 
                         column.Hidden = !gridColumnConfiguration.Visible && !formGrid.IgnoreConfiguration;
@@ -172,7 +172,7 @@ namespace Samsara.Base.Controls.Controls
             if (control == null)
                 return;
 
-            bool isForm = control is System.Windows.Forms.Form;
+            bool isForm = control is Form;
             bool isSamsaraUserControl = control.GetType().IsSubclassOf(typeof(SamsaraUserControl));
 
             if (isForm || isSamsaraUserControl)

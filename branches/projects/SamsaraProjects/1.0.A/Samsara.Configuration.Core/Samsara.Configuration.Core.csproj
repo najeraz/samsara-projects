@@ -53,14 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Form.cs" />
-    <Compile Include="Entities\FormGrid.cs" />
-    <Compile Include="Entities\FormGridColumn.cs" />
+    <Compile Include="Entities\FormConfiguration.cs" />
+    <Compile Include="Entities\FormConfigurationGrid.cs" />
+    <Compile Include="Entities\FormConfigurationGridColumn.cs" />
     <Compile Include="Entities\UserGroup.cs" />
     <Compile Include="Entities\UserPermission.cs" />
-    <Compile Include="Parameters\FormGridColumnParameters.cs" />
-    <Compile Include="Parameters\FormGridParameters.cs" />
-    <Compile Include="Parameters\FormParameters.cs" />
+    <Compile Include="Parameters\FormConfigurationGridColumnParameters.cs" />
+    <Compile Include="Parameters\FormConfigurationGridParameters.cs" />
+    <Compile Include="Parameters\FormConfigurationParameters.cs" />
     <Compile Include="Parameters\UserGroupParameters.cs" />
     <Compile Include="Parameters\UserPermissionParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -24,7 +24,7 @@
                  column="FormId"/>
 
     <many-to-one name="User"
-                 class="Samsara.Configuration.Core.Entities.User, Samsara.Configuration.Core"
+                 class="Samsara.Main.Core.Entities.User, Samsara.Main.Core"
                  column="UserId"/>
     
   </class>

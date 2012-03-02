@@ -7,7 +7,7 @@ using Samsara.Configuration.Service.Interfaces;
 
 namespace Samsara.Configuration.Service.Impl
 {
-    public class FormGridService : GenericService<FormGrid, int, IFormGridDao, FormGridParameters>, IFormGridService
+    public class UserPermissionService : GenericService<UserPermission, int, IUserPermissionDao, UserPermissionParameters>, IUserPermissionService
     {
     }
 }
