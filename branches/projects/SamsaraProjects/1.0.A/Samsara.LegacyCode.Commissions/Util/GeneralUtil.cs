@@ -1,4 +1,5 @@
 ﻿
+using System;
 namespace Samsara.LegacyCode.Commissions.Util
 {
     public class GeneralUtil
@@ -53,6 +54,18 @@ namespace Samsara.LegacyCode.Commissions.Util
             }
 
             return false;
+        }
+
+        public static decimal DecimalValue(object p)
+        {
+            try
+            {
+                return Convert.ToDecimal(p);
+            }
+            catch
+            {
+                return decimal.Zero;
+            }
         }
     }
 }
