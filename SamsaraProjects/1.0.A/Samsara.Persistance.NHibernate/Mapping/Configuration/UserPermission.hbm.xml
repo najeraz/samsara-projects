@@ -19,9 +19,9 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
-    <many-to-one name="Form"
-                 class="Samsara.Configuration.Core.Entities.Form, Samsara.Configuration.Core"
-                 column="FormId"/>
+    <many-to-one name="FormConfiguration"
+                 class="Samsara.Configuration.Core.Entities.FormConfiguration, Samsara.Configuration.Core"
+                 column="FormConfigurationId"/>
 
     <many-to-one name="User"
                  class="Samsara.Main.Core.Entities.User, Samsara.Main.Core"
