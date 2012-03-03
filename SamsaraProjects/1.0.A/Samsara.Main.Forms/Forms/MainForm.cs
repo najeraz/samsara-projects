@@ -688,12 +688,25 @@ namespace Samsara.Main.Forms.Forms
 
         private void comisionesDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 this.Cursor = Cursors.WaitCursor;
                 ServicesManagementForm frmServicesManagement = new ServicesManagementForm();
                 frmServicesManagement.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void calculoDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                Samsara.LegacyCode.Commissions.Forms.MainForm frmMainComissions = new Samsara.LegacyCode.Commissions.Forms.MainForm();
+                frmMainComissions.Show();
             }
             finally
             {

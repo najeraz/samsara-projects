@@ -14,25 +14,26 @@ using Infragistics.Win.UltraWinGrid;
 using Samsara.LegacyCode.Commissions.Main;
 using Samsara.LegacyCode.Commissions.Util;
 using Samsara.Support.Util;
+using Samsara.Main.Session;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {
-    public partial class ComisionesForm : Form
+    public partial class MainForm : Form
     {
         #region Attributes
 
         private static bool isConfigurable =
-            WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\ADMINISTRACION"
-            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\DIRECCION"
-            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\JAVIER";
+            Session.User.UserId == 2 //Najera
+            || Session.User.UserId == 11 //Gaby
+            || Session.User.UserId == 13; //Ana
 
         private static bool canPay =
-            WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\ADMINISTRACION"
-            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\JAVIER";
+            Session.User.UserId == 2 //Najera
+            || Session.User.UserId == 13; //Ana
 
         private static bool canChangeMargins =
-            WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\DIRECCION"
-            || WindowsIdentity.GetCurrent().Name.ToUpper() == @"SAMSARA\JAVIER";
+            Session.User.UserId == 2 //Najera
+            || Session.User.UserId == 11; //Gaby;
 
         private SqlConnection cnn;
         private DataSet ds;
@@ -51,7 +52,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
         #region Constructor
 
-        public ComisionesForm()
+        public MainForm()
         {
             try
             {
