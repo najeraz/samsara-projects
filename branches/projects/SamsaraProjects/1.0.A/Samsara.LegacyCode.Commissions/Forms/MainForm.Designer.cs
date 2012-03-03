@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.LegacyCode.Commissions.Forms
 {
-    partial class ComisionesForm
+    partial class MainForm
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -29,7 +29,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComisionesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();

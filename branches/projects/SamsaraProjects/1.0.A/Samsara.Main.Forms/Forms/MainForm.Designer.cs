@@ -95,10 +95,11 @@
             this.coberturaHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturaVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
-            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
             this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comisionesDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
+            this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.upnlPrplBottom.ClientArea.SuspendLayout();
             this.upnlPrplBottom.SuspendLayout();
@@ -630,6 +631,22 @@
             this.cerrarSesiónToolStripMenuItem.Text = "[Cerrar sesión]";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
+            // comisionesToolStripMenuItem
+            // 
+            this.comisionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comisionesDeServiciosToolStripMenuItem,
+            this.calculoDeComisionesToolStripMenuItem});
+            this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
+            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.comisionesToolStripMenuItem.Text = "Comisiones";
+            // 
+            // comisionesDeServiciosToolStripMenuItem
+            // 
+            this.comisionesDeServiciosToolStripMenuItem.Name = "comisionesDeServiciosToolStripMenuItem";
+            this.comisionesDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.comisionesDeServiciosToolStripMenuItem.Text = "Comisiones de Servicios";
+            this.comisionesDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.comisionesDeServiciosToolStripMenuItem_Click);
+            // 
             // ulblPrplUsername
             // 
             appearance1.ImageHAlign = Infragistics.Win.HAlign.Center;
@@ -655,20 +672,12 @@
             this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
             this.upnlPrplBottom.TabIndex = 2;
             // 
-            // comisionesToolStripMenuItem
+            // calculoDeComisionesToolStripMenuItem
             // 
-            this.comisionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.comisionesDeServiciosToolStripMenuItem});
-            this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
-            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.comisionesToolStripMenuItem.Text = "Comisiones";
-            // 
-            // comisionesDeServiciosToolStripMenuItem
-            // 
-            this.comisionesDeServiciosToolStripMenuItem.Name = "comisionesDeServiciosToolStripMenuItem";
-            this.comisionesDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.comisionesDeServiciosToolStripMenuItem.Text = "Comisiones de Servicios";
-            this.comisionesDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.comisionesDeServiciosToolStripMenuItem_Click);
+            this.calculoDeComisionesToolStripMenuItem.Name = "calculoDeComisionesToolStripMenuItem";
+            this.calculoDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.calculoDeComisionesToolStripMenuItem.Text = "Calculo de Comisiones";
+            this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -763,6 +772,7 @@
         private Infragistics.Win.Misc.UltraPanel upnlPrplBottom;
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comisionesDeServiciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculoDeComisionesToolStripMenuItem;
     }
 }
 
