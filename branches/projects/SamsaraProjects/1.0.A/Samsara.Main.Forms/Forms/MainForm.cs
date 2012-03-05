@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Samsara.AlleatoERP.Forms.Forms;
@@ -688,11 +689,21 @@ namespace Samsara.Main.Forms.Forms
 
         private void comisionesDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IList<int> allowedUsers = new List<int>(new int[] { 2, 11, 4 });
+
             try
             {
-                this.Cursor = Cursors.WaitCursor;
-                ServicesManagementForm frmServicesManagement = new ServicesManagementForm();
-                frmServicesManagement.Show();
+                if (allowedUsers.Contains(Session.Session.User.UserId))
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    ServicesManagementForm frmServicesManagement = new ServicesManagementForm();
+                    frmServicesManagement.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No cuenta con acceso a esta ventana.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             finally
             {

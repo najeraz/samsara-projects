@@ -5,7 +5,7 @@ namespace Samsara.Configuration.Core.Parameters
 {
     public class FormConfigurationParameters : GenericParameters
     {
-        public string FormConfigurationName
+        public string FormName
         {
             get;
             set;
