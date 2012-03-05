@@ -509,8 +509,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
             ds = new DataSet();
             da.Fill(ds, "meses");
 
-            this.grdReporteAnual.DataSource = null;
-            this.grdReporteAnual.DataSource = ds.Tables["meses"];
+            this.grdReporteAnualServicios.DataSource = null;
+            this.grdReporteAnualServicios.DataSource = ds.Tables["meses"];
             ds.Tables["meses"].Rows.Remove(ds.Tables["meses"].Rows[0]);
             ds.Tables["meses"].AcceptChanges();
         }
@@ -525,7 +525,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
             decimal oldValue = Convert.ToDecimal(this.txtTotalComisiones.Text);
 
-            decimal newValue = this.grdResumenComisiones.Rows.Cast<UltraGridRow>().Except(list)
+            decimal newValue = this.grdResumenComisionesProductos.Rows.Cast<UltraGridRow>().Except(list)
                 .AsEnumerable().Sum(x => GeneralUtil.DecimalValue(x.Cells["saldo_a_pagar"].Value))
                 + (row == null ? 0 : newCellValue);
 
@@ -568,7 +568,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             command.Transaction = this.transacction;
             int idAjuste = Convert.ToInt32(command.ExecuteScalar());
 
-            foreach (DataRow row in ((DataTable)this.grdResumenComisiones.DataSource).AsEnumerable()
+            foreach (DataRow row in ((DataTable)this.grdResumenComisionesProductos.DataSource).AsEnumerable()
                 .Where(x => !(x["saldo_a_pagar"] is DBNull)))
             {
                 consulta = "INSERT INTO comisiones_pagadas (anio,mes,q,utilidad,monto_comisionable"
@@ -641,7 +641,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
         private void FormatGridResumenComisiones()
         {
-            foreach (DataGridViewRow row in this.grdReporteAnual.Rows)
+            foreach (DataGridViewRow row in this.grdReporteAnualServicios.Rows)
             {
                 if (row.Cells["concepto"].Value.ToString() == "Comisión")
                     row.DefaultCellStyle.Format = "";
@@ -696,7 +696,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 this.dtFacturasCanceladas = data.Tables[3];
                 this.dtRefacturaciónAgena = data.Tables[4];
 
-                this.grdResumenComisiones.DataSource = this.dtResumenComisiones;
+                this.grdResumenComisionesProductos.DataSource = this.dtResumenComisiones;
 
                 this.CreaReporteAnual();
                 this.ProcesaFacturasPendientes();
@@ -885,8 +885,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
             if (this.cbxAños.SelectedValue != null
                 && int.TryParse(this.cbxAños.SelectedValue.ToString(), out año))
             {
-                DataTable dtResumen = (DataTable)this.grdResumenComisiones.DataSource;
-                DataTable dtReporteAnual = (DataTable)this.grdReporteAnual.DataSource;
+                DataTable dtResumen = (DataTable)this.grdResumenComisionesProductos.DataSource;
+                DataTable dtReporteAnual = (DataTable)this.grdReporteAnualServicios.DataSource;
 
                 if (dtReporteAnual != null)
                 {
@@ -1055,7 +1055,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
         [DebuggerStepThrough]
         private void grdReporteAnual_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.grdReporteAnual.Rows[e.RowIndex].Cells["concepto"].Value.ToString() == "Comisión")
+            if (this.grdReporteAnualServicios.Rows[e.RowIndex].Cells["concepto"].Value.ToString() == "Comisión")
                 e.CellStyle.Format = "";
             else
                 e.CellStyle.Format = "c";
@@ -1305,7 +1305,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
         private void grdResumenComisiones_AfterCellUpdate(object sender, CellEventArgs e)
         {
-            UltraGridRow activeRow = this.grdResumenComisiones.ActiveRow;
+            UltraGridRow activeRow = this.grdResumenComisionesProductos.ActiveRow;
 
             if (activeRow != null)
                 activeRow.Cells["monto_comision"].Value
