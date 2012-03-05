@@ -4,7 +4,7 @@
 
   <db:provider id="DbProviderAlleatoERP"
                    provider="SqlServer-2.0"
-                   connectionString="Server=192.168.10.4;Database=ERP_CIE;User ID=javier;Password=javier;Trusted_Connection=False;"/>
+                   connectionString="Server=${AlleatoERP.datasource};Database=${AlleatoERP.database};User ID=${AlleatoERP.username};Password=${AlleatoERP.username};Trusted_Connection=False;"/>
 
   <object id="SessionFactoryAlleatoERP" type="Spring.Data.NHibernate.LocalSessionFactoryObject, Spring.Data.NHibernate32">
     <property name="DbProvider" ref="DbProviderAlleatoERP"/>
