@@ -29,10 +29,18 @@ namespace Samsara.LegacyCode.Commissions.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,12 +75,12 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.Comiciones = new System.Windows.Forms.TabPage();
             this.tcComisiones = new System.Windows.Forms.TabControl();
             this.ReporteAnual = new System.Windows.Forms.TabPage();
-            this.grdReporteAnual = new System.Windows.Forms.DataGridView();
+            this.grdReporteAnualServicios = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbxAños = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.Pagos = new System.Windows.Forms.TabPage();
-            this.grdResumenComisiones = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.grdResumenComisionesProductos = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.pnlAdmin = new System.Windows.Forms.Panel();
             this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnActualizarComisiones = new System.Windows.Forms.Button();
@@ -81,7 +89,6 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.lblAgente = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -102,6 +109,16 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.gbxLineas = new System.Windows.Forms.GroupBox();
             this.grdLineas = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.grdComisionesAgentes = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.ultraTabControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
+            this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.ultraTabPageControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.grdReporteAnualProductos = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.ultraTabControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
+            this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.ultraTabPageControl4 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.grdResumenComisionesServicios = new Infragistics.Win.UltraWinGrid.UltraGrid();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Configuración.SuspendLayout();
             this.tcConfiguracion.SuspendLayout();
@@ -120,13 +137,12 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.Comiciones.SuspendLayout();
             this.tcComisiones.SuspendLayout();
             this.ReporteAnual.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnualServicios)).BeginInit();
             this.panel3.SuspendLayout();
             this.Pagos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisiones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisionesProductos)).BeginInit();
             this.pnlAdmin.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.MargenesMínimos.SuspendLayout();
@@ -138,6 +154,16 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.gbxLineas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl1)).BeginInit();
+            this.ultraTabControl1.SuspendLayout();
+            this.ultraTabPageControl1.SuspendLayout();
+            this.ultraTabPageControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnualProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).BeginInit();
+            this.ultraTabControl2.SuspendLayout();
+            this.ultraTabPageControl3.SuspendLayout();
+            this.ultraTabPageControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisionesServicios)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -234,7 +260,23 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // 
             this.grdAgentesActivos.AllowUserToAddRows = false;
             this.grdAgentesActivos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdAgentesActivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdAgentesActivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdAgentesActivos.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdAgentesActivos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdAgentesActivos.Location = new System.Drawing.Point(3, 3);
             this.grdAgentesActivos.Name = "grdAgentesActivos";
@@ -481,38 +523,54 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.tcComisiones.Controls.Add(this.ReporteAnual);
             this.tcComisiones.Controls.Add(this.Pagos);
             this.tcComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcComisiones.Location = new System.Drawing.Point(3, 191);
+            this.tcComisiones.Location = new System.Drawing.Point(3, 132);
             this.tcComisiones.Name = "tcComisiones";
             this.tcComisiones.SelectedIndex = 0;
-            this.tcComisiones.Size = new System.Drawing.Size(635, 270);
+            this.tcComisiones.Size = new System.Drawing.Size(635, 329);
             this.tcComisiones.TabIndex = 2;
             // 
             // ReporteAnual
             // 
             this.ReporteAnual.BackColor = System.Drawing.Color.Transparent;
-            this.ReporteAnual.Controls.Add(this.grdReporteAnual);
+            this.ReporteAnual.Controls.Add(this.ultraTabControl1);
             this.ReporteAnual.Controls.Add(this.panel3);
             this.ReporteAnual.Location = new System.Drawing.Point(4, 22);
             this.ReporteAnual.Name = "ReporteAnual";
-            this.ReporteAnual.Size = new System.Drawing.Size(627, 244);
+            this.ReporteAnual.Size = new System.Drawing.Size(627, 303);
             this.ReporteAnual.TabIndex = 4;
             this.ReporteAnual.Text = "Reporte Anual";
             // 
-            // grdReporteAnual
+            // grdReporteAnualServicios
             // 
-            this.grdReporteAnual.AllowUserToAddRows = false;
-            this.grdReporteAnual.AllowUserToDeleteRows = false;
-            this.grdReporteAnual.AllowUserToResizeRows = false;
-            this.grdReporteAnual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdReporteAnual.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdReporteAnual.Location = new System.Drawing.Point(0, 30);
-            this.grdReporteAnual.Name = "grdReporteAnual";
-            this.grdReporteAnual.ReadOnly = true;
-            this.grdReporteAnual.Size = new System.Drawing.Size(627, 214);
-            this.grdReporteAnual.TabIndex = 2;
-            this.grdReporteAnual.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdReporteAnual_CellClick);
-            this.grdReporteAnual.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdReporteAnual_CellFormatting);
-            this.grdReporteAnual.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
+            this.grdReporteAnualServicios.AllowUserToAddRows = false;
+            this.grdReporteAnualServicios.AllowUserToDeleteRows = false;
+            this.grdReporteAnualServicios.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdReporteAnualServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grdReporteAnualServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdReporteAnualServicios.DefaultCellStyle = dataGridViewCellStyle4;
+            this.grdReporteAnualServicios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdReporteAnualServicios.Location = new System.Drawing.Point(0, 0);
+            this.grdReporteAnualServicios.Name = "grdReporteAnualServicios";
+            this.grdReporteAnualServicios.ReadOnly = true;
+            this.grdReporteAnualServicios.Size = new System.Drawing.Size(623, 247);
+            this.grdReporteAnualServicios.TabIndex = 2;
+            this.grdReporteAnualServicios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdReporteAnual_CellClick);
+            this.grdReporteAnualServicios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdReporteAnual_CellFormatting);
+            this.grdReporteAnualServicios.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GeneralGrid_ColumnAdded);
             // 
             // panel3
             // 
@@ -545,40 +603,40 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // Pagos
             // 
             this.Pagos.BackColor = System.Drawing.Color.Transparent;
-            this.Pagos.Controls.Add(this.grdResumenComisiones);
+            this.Pagos.Controls.Add(this.ultraTabControl2);
             this.Pagos.Controls.Add(this.pnlAdmin);
             this.Pagos.Location = new System.Drawing.Point(4, 22);
             this.Pagos.Name = "Pagos";
-            this.Pagos.Size = new System.Drawing.Size(627, 244);
+            this.Pagos.Size = new System.Drawing.Size(627, 303);
             this.Pagos.TabIndex = 1;
             this.Pagos.Text = "Pagos";
             // 
-            // grdResumenComisiones
+            // grdResumenComisionesProductos
             // 
-            this.grdResumenComisiones.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdResumenComisiones.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.grdResumenComisiones.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.grdResumenComisiones.DisplayLayout.MaxColScrollRegions = 1;
-            this.grdResumenComisiones.DisplayLayout.MaxRowScrollRegions = 1;
-            this.grdResumenComisiones.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdResumenComisiones.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.grdResumenComisiones.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.grdResumenComisiones.DisplayLayout.Override.CellPadding = 0;
-            this.grdResumenComisiones.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.grdResumenComisiones.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            this.grdResumenComisiones.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            this.grdResumenComisiones.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.grdResumenComisiones.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.grdResumenComisiones.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
-            this.grdResumenComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdResumenComisiones.Location = new System.Drawing.Point(0, 0);
-            this.grdResumenComisiones.Name = "grdResumenComisiones";
-            this.grdResumenComisiones.Size = new System.Drawing.Size(627, 208);
-            this.grdResumenComisiones.TabIndex = 10;
-            this.grdResumenComisiones.Text = "ultraGrid1";
-            this.grdResumenComisiones.AfterCellUpdate += new Infragistics.Win.UltraWinGrid.CellEventHandler(this.grdResumenComisiones_AfterCellUpdate);
-            this.grdResumenComisiones.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdResumenComisiones_InitializeLayout);
-            this.grdResumenComisiones.BeforeCellUpdate += new Infragistics.Win.UltraWinGrid.BeforeCellUpdateEventHandler(this.grdResumenComisiones_BeforeCellUpdate);
+            this.grdResumenComisionesProductos.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdResumenComisionesProductos.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.grdResumenComisionesProductos.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdResumenComisionesProductos.DisplayLayout.MaxColScrollRegions = 1;
+            this.grdResumenComisionesProductos.DisplayLayout.MaxRowScrollRegions = 1;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.CellPadding = 0;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.grdResumenComisionesProductos.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.grdResumenComisionesProductos.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.grdResumenComisionesProductos.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.grdResumenComisionesProductos.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.Horizontal;
+            this.grdResumenComisionesProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdResumenComisionesProductos.Location = new System.Drawing.Point(0, 0);
+            this.grdResumenComisionesProductos.Name = "grdResumenComisionesProductos";
+            this.grdResumenComisionesProductos.Size = new System.Drawing.Size(623, 241);
+            this.grdResumenComisionesProductos.TabIndex = 10;
+            this.grdResumenComisionesProductos.Text = "ultraGrid1";
+            this.grdResumenComisionesProductos.AfterCellUpdate += new Infragistics.Win.UltraWinGrid.CellEventHandler(this.grdResumenComisiones_AfterCellUpdate);
+            this.grdResumenComisionesProductos.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grdResumenComisiones_InitializeLayout);
+            this.grdResumenComisionesProductos.BeforeCellUpdate += new Infragistics.Win.UltraWinGrid.BeforeCellUpdateEventHandler(this.grdResumenComisiones_BeforeCellUpdate);
             // 
             // pnlAdmin
             // 
@@ -590,7 +648,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.pnlAdmin.Controls.Add(this.label11);
             this.pnlAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAdmin.Enabled = false;
-            this.pnlAdmin.Location = new System.Drawing.Point(0, 208);
+            this.pnlAdmin.Location = new System.Drawing.Point(0, 267);
             this.pnlAdmin.Name = "pnlAdmin";
             this.pnlAdmin.Size = new System.Drawing.Size(627, 36);
             this.pnlAdmin.TabIndex = 2;
@@ -658,7 +716,6 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.dtpFin);
             this.groupBox1.Controls.Add(this.dtpInicio);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -671,27 +728,16 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 188);
+            this.groupBox1.Size = new System.Drawing.Size(635, 129);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de busqueda:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(364, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(264, 107);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // dtpFin
             // 
             this.dtpFin.CustomFormat = "";
             this.dtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFin.Location = new System.Drawing.Point(399, 155);
+            this.dtpFin.Location = new System.Drawing.Point(400, 90);
             this.dtpFin.MaxDate = new System.DateTime(2100, 1, 1, 0, 0, 0, 0);
             this.dtpFin.MinDate = new System.DateTime(1989, 1, 1, 0, 0, 0, 0);
             this.dtpFin.Name = "dtpFin";
@@ -702,7 +748,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // 
             this.dtpInicio.CustomFormat = "";
             this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicio.Location = new System.Drawing.Point(399, 129);
+            this.dtpInicio.Location = new System.Drawing.Point(400, 64);
             this.dtpInicio.MaxDate = new System.DateTime(2100, 1, 1, 0, 0, 0, 0);
             this.dtpInicio.MinDate = new System.DateTime(1989, 1, 1, 0, 0, 0, 0);
             this.dtpInicio.Name = "dtpInicio";
@@ -714,7 +760,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.groupBox2.Controls.Add(this.lbAgentesEquivalentes);
             this.groupBox2.Location = new System.Drawing.Point(62, 41);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(286, 134);
+            this.groupBox2.Size = new System.Drawing.Size(286, 82);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Agentes Equivalentes:";
@@ -725,7 +771,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.lbAgentesEquivalentes.FormattingEnabled = true;
             this.lbAgentesEquivalentes.Location = new System.Drawing.Point(3, 16);
             this.lbAgentesEquivalentes.Name = "lbAgentesEquivalentes";
-            this.lbAgentesEquivalentes.Size = new System.Drawing.Size(280, 115);
+            this.lbAgentesEquivalentes.Size = new System.Drawing.Size(280, 63);
             this.lbAgentesEquivalentes.TabIndex = 0;
             // 
             // cbxAgentes
@@ -740,7 +786,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // btnCalculate
             // 
             this.btnCalculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalculate.Location = new System.Drawing.Point(553, 127);
+            this.btnCalculate.Location = new System.Drawing.Point(553, 86);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
             this.btnCalculate.TabIndex = 3;
@@ -751,7 +797,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(410, 132);
+            this.label4.Location = new System.Drawing.Point(411, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 5;
@@ -759,7 +805,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(357, 132);
+            this.label1.Location = new System.Drawing.Point(358, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 5;
@@ -777,7 +823,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(357, 161);
+            this.label2.Location = new System.Drawing.Point(358, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 5;
@@ -959,14 +1005,112 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.grdComisionesAgentes.TabIndex = 1;
             this.grdComisionesAgentes.Text = "ultraGrid1";
             // 
-            // ComisionesForm
+            // ultraTabControl1
+            // 
+            this.ultraTabControl1.Controls.Add(this.ultraTabSharedControlsPage1);
+            this.ultraTabControl1.Controls.Add(this.ultraTabPageControl1);
+            this.ultraTabControl1.Controls.Add(this.ultraTabPageControl2);
+            this.ultraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTabControl1.Location = new System.Drawing.Point(0, 30);
+            this.ultraTabControl1.Name = "ultraTabControl1";
+            this.ultraTabControl1.SharedControlsPage = this.ultraTabSharedControlsPage1;
+            this.ultraTabControl1.Size = new System.Drawing.Size(627, 273);
+            this.ultraTabControl1.TabIndex = 7;
+            ultraTab3.Key = "Products";
+            ultraTab3.TabPage = this.ultraTabPageControl1;
+            ultraTab3.Text = "Productos";
+            ultraTab4.Key = "Services";
+            ultraTab4.TabPage = this.ultraTabPageControl2;
+            ultraTab4.Text = "Servicios";
+            this.ultraTabControl1.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab3,
+            ultraTab4});
+            // 
+            // ultraTabSharedControlsPage1
+            // 
+            this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(623, 247);
+            // 
+            // ultraTabPageControl1
+            // 
+            this.ultraTabPageControl1.Controls.Add(this.grdReporteAnualServicios);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl1.Name = "ultraTabPageControl1";
+            this.ultraTabPageControl1.Size = new System.Drawing.Size(623, 247);
+            // 
+            // ultraTabPageControl2
+            // 
+            this.ultraTabPageControl2.Controls.Add(this.grdReporteAnualProductos);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl2.Name = "ultraTabPageControl2";
+            this.ultraTabPageControl2.Size = new System.Drawing.Size(623, 247);
+            // 
+            // grdReporteAnualProductos
+            // 
+            this.grdReporteAnualProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdReporteAnualProductos.Location = new System.Drawing.Point(0, 0);
+            this.grdReporteAnualProductos.Name = "grdReporteAnualProductos";
+            this.grdReporteAnualProductos.Size = new System.Drawing.Size(623, 247);
+            this.grdReporteAnualProductos.TabIndex = 1;
+            // 
+            // ultraTabControl2
+            // 
+            this.ultraTabControl2.Controls.Add(this.ultraTabSharedControlsPage2);
+            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl3);
+            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl4);
+            this.ultraTabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultraTabControl2.Location = new System.Drawing.Point(0, 0);
+            this.ultraTabControl2.Name = "ultraTabControl2";
+            this.ultraTabControl2.SharedControlsPage = this.ultraTabSharedControlsPage2;
+            this.ultraTabControl2.Size = new System.Drawing.Size(627, 267);
+            this.ultraTabControl2.TabIndex = 11;
+            ultraTab1.Key = "Products";
+            ultraTab1.TabPage = this.ultraTabPageControl3;
+            ultraTab1.Text = "Productos";
+            ultraTab2.Key = "Services";
+            ultraTab2.TabPage = this.ultraTabPageControl4;
+            ultraTab2.Text = "Servicios";
+            this.ultraTabControl2.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab1,
+            ultraTab2});
+            // 
+            // ultraTabSharedControlsPage2
+            // 
+            this.ultraTabSharedControlsPage2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage2.Name = "ultraTabSharedControlsPage2";
+            this.ultraTabSharedControlsPage2.Size = new System.Drawing.Size(623, 241);
+            // 
+            // ultraTabPageControl3
+            // 
+            this.ultraTabPageControl3.Controls.Add(this.grdResumenComisionesProductos);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl3.Name = "ultraTabPageControl3";
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(623, 241);
+            // 
+            // ultraTabPageControl4
+            // 
+            this.ultraTabPageControl4.Controls.Add(this.grdResumenComisionesServicios);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl4.Name = "ultraTabPageControl4";
+            this.ultraTabPageControl4.Size = new System.Drawing.Size(623, 241);
+            // 
+            // grdResumenComisionesServicios
+            // 
+            this.grdResumenComisionesServicios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdResumenComisionesServicios.Location = new System.Drawing.Point(0, 0);
+            this.grdResumenComisionesServicios.Name = "grdResumenComisionesServicios";
+            this.grdResumenComisionesServicios.Size = new System.Drawing.Size(623, 241);
+            this.grdResumenComisionesServicios.TabIndex = 1;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 490);
             this.Controls.Add(this.tcPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ComisionesForm";
+            this.Name = "MainForm";
             this.Text = "Comisiones Samsara";
             this.SizeChanged += new System.EventHandler(this.ComisionesForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -990,16 +1134,15 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.Comiciones.ResumeLayout(false);
             this.tcComisiones.ResumeLayout(false);
             this.ReporteAnual.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnualServicios)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.Pagos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisiones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisionesProductos)).EndInit();
             this.pnlAdmin.ResumeLayout(false);
             this.pnlAdmin.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tcPrincipal.ResumeLayout(false);
             this.MargenesMínimos.ResumeLayout(false);
@@ -1011,6 +1154,16 @@ namespace Samsara.LegacyCode.Commissions.Forms
             this.gbxLineas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLineas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdComisionesAgentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl1)).EndInit();
+            this.ultraTabControl1.ResumeLayout(false);
+            this.ultraTabPageControl1.ResumeLayout(false);
+            this.ultraTabPageControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdReporteAnualProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).EndInit();
+            this.ultraTabControl2.ResumeLayout(false);
+            this.ultraTabPageControl3.ResumeLayout(false);
+            this.ultraTabPageControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdResumenComisionesServicios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1057,12 +1210,11 @@ namespace Samsara.LegacyCode.Commissions.Forms
         private System.Windows.Forms.Label lblAgente;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage ReporteAnual;
-        private System.Windows.Forms.DataGridView grdReporteAnual;
+        private System.Windows.Forms.DataGridView grdReporteAnualServicios;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cbxAños;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dtpFin;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1082,10 +1234,20 @@ namespace Samsara.LegacyCode.Commissions.Forms
         private Infragistics.Win.UltraWinGrid.UltraGrid grdSublineas;
         private System.Windows.Forms.GroupBox gbxLineas;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdLineas;
-        private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisiones;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisionesProductos;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdComisionesAgentes;
         private Samsara.LegacyCode.Commissions.Controls.MulticuotasControl multicuotasControl;
         private Infragistics.Win.UltraWinGrid.UltraGrid grdAjustes;
+        private Infragistics.Win.UltraWinTabControl.UltraTabControl ultraTabControl1;
+        private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage1;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl1;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl2;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdReporteAnualProductos;
+        private Infragistics.Win.UltraWinTabControl.UltraTabControl ultraTabControl2;
+        private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage2;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl3;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
+        private Infragistics.Win.UltraWinGrid.UltraGrid grdResumenComisionesServicios;
     }
 }
 
