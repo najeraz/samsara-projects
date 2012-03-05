@@ -248,7 +248,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 443);
             this.Name = "ServicesManagementForm";
-            this.Text = "ServicesManagement";
+            this.Text = "Comisiones de Servicios";
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxSchParameters.ResumeLayout(false);
             this.gbxSchParameters.PerformLayout();
