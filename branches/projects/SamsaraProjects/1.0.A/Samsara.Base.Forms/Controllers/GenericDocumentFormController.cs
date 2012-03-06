@@ -73,9 +73,6 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void CreateEntity()
         {
-            this.formStatus = FormStatusEnum.Creation;
-            this.ClearDetailFields();
-            this.ShowDetail(true);
         }
 
         public virtual void BackToSearch()
@@ -86,6 +83,11 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void SaveEntity()
         {
+        }
+
+        public virtual bool ValidateFormInformation()
+        {
+            return true;
         }
 
         public virtual void LoadDetail()
@@ -141,11 +143,23 @@ namespace Samsara.Base.Forms.Controllers
                 this.DeleteEntity();
             }
         }
+
+        internal void CreateEntityProcess()
+        {
+            this.formStatus = FormStatusEnum.Creation;
+            this.ClearDetailFields();
+            this.ShowDetail(true);
+            this.CreateEntity();
+        }
+
         internal void SaveEntityProcess()
         {
-            this.SaveEntity();
-            this.Search();
-            this.BackToSearch();
+            if (this.ValidateFormInformation())
+            {
+                this.SaveEntity();
+                this.Search();
+                this.BackToSearch();
+            }
         }
 
         #endregion Internal
