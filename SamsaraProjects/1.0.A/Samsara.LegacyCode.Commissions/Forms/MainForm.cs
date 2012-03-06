@@ -629,11 +629,27 @@ namespace Samsara.LegacyCode.Commissions.Forms
             {
                 consulta = string.Format(@"
                     INSERT INTO comisiones_pagadas (anio,mes,q,utilidad_productos,monto_comisionable_productos,
-                        comision_productos,monto_comision_productos,fecha_ajuste,agente,ajuste) 
-                    VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7} GETDATE(), {8})
+                        comision_productos,monto_comision_productos,fecha_ajuste,agente,ajuste, tipo) 
+                    VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7} GETDATE(), {8}, {9})
                     ", row["anio"], this.dicMeses[row["mes"].ToString()], row["q"].ToString().Trim(),
                      row["utilidad_q"], row["acumulado_comision"], row["porcentaje_comision_productos"],
-                     row["monto_comision"], this.lblAgente.Text, idAjuste);
+                     row["monto_comision"], this.lblAgente.Text, idAjuste, (int)CommissionsTypes.Products);
+
+                command = new SqlCommand(consulta, cnn);
+                command.Transaction = this.transacction;
+                command.ExecuteNonQuery();
+            }
+
+            foreach (DataRow row in ((DataTable)this.grdResumenComisionesServicios.DataSource).AsEnumerable()
+                .Where(x => !(x["saldo_a_pagar"] is DBNull)))
+            {
+                consulta = string.Format(@"
+                    INSERT INTO comisiones_pagadas (anio,mes,q,utilidad_productos,monto_comisionable_productos,
+                        comision_productos,monto_comision_productos,fecha_ajuste,agente,ajuste, tipo) 
+                    VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7} GETDATE(), {8}, {9})
+                    ", row["anio"], this.dicMeses[row["mes"].ToString()], row["q"].ToString().Trim(),
+                     row["utilidad_q"], row["acumulado_comision"], row["porcentaje_comision_servicios"],
+                     row["monto_comision"], this.lblAgente.Text, idAjuste, (int)CommissionsTypes.Services);
 
                 command = new SqlCommand(consulta, cnn);
                 command.Transaction = this.transacction;
