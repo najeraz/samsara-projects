@@ -467,8 +467,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
                         SELECT MAX(cp1.id) FROM comisiones_pagadas cp1
                         INNER JOIN ajustes a ON a.id = cp1.ajuste
                         WHERE cp1.agente = cp.agente AND a.borrado = 0
-                        AND mes = cp.mes AND anio = cp.anio AND q = cp.q)
-                ", this.cbxAgentes.SelectedValue);
+                        AND mes = cp.mes AND anio = cp.anio AND q = cp.q AND cp1.tipo = {1})
+                ", this.cbxAgentes.SelectedValue, (int)CommissionsTypes.Products);
 
             da = new SqlDataAdapter(consulta, cnn);
             ds = new DataSet();
@@ -483,7 +483,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
                 if (row != null)
                 {
-                    resumenRow["total_pagado"] = row["monto_comision_productos"];
+                    resumenRow["total_pagado"] = row["monto_comision"];
                     resumenRow["fecha_ultimo_ajuste"] = row["fecha_ajuste"];
                 }
 
@@ -491,6 +491,19 @@ namespace Samsara.LegacyCode.Commissions.Forms
                     (Convert.ToDecimal(resumenRow["monto_comision"])
                     - Convert.ToDecimal(resumenRow["total_pagado"])).ToString("N2");
             }
+
+            consulta = string.Format(@"
+                    SELECT * FROM comisiones_pagadas cp 
+                    WHERE agente = {0} AND id = ( 
+                        SELECT MAX(cp1.id) FROM comisiones_pagadas cp1
+                        INNER JOIN ajustes a ON a.id = cp1.ajuste
+                        WHERE cp1.agente = cp.agente AND a.borrado = 0
+                        AND mes = cp.mes AND anio = cp.anio AND q = cp.q AND cp1.tipo = {1})
+                ", this.cbxAgentes.SelectedValue, (int)CommissionsTypes.Services);
+
+            da = new SqlDataAdapter(consulta, cnn);
+            ds = new DataSet();
+            da.Fill(ds, "ajustes");
 
             foreach (DataRow resumenRow in this.dtResumenComisionesServicios.Rows)
             {
@@ -501,7 +514,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
                 if (row != null)
                 {
-                    resumenRow["total_pagado"] = row["monto_comision_servicios"];
+                    resumenRow["total_pagado"] = row["monto_comision"];
                     resumenRow["fecha_ultimo_ajuste"] = row["fecha_ajuste"];
                 }
 
@@ -628,9 +641,9 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 .Where(x => !(x["saldo_a_pagar"] is DBNull)))
             {
                 consulta = string.Format(@"
-                    INSERT INTO comisiones_pagadas (anio,mes,q,utilidad_productos,monto_comisionable_productos,
-                        comision_productos,monto_comision_productos,fecha_ajuste,agente,ajuste, tipo) 
-                    VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7} GETDATE(), {8}, {9})
+                    INSERT INTO comisiones_pagadas (anio,mes,q,utilidad,monto_comisionable,
+                        comision,monto_comision,fecha_ajuste,agente,ajuste, tipo) 
+                    VALUES({0}, {1}, '{2}', {3}, {4}, {5}, {6}, GETDATE(), {7}, {8}, {9})
                     ", row["anio"], this.dicMeses[row["mes"].ToString()], row["q"].ToString().Trim(),
                      row["utilidad_q"], row["acumulado_comision"], row["porcentaje_comision_productos"],
                      row["monto_comision"], this.lblAgente.Text, idAjuste, (int)CommissionsTypes.Products);
@@ -644,9 +657,9 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 .Where(x => !(x["saldo_a_pagar"] is DBNull)))
             {
                 consulta = string.Format(@"
-                    INSERT INTO comisiones_pagadas (anio,mes,q,utilidad_productos,monto_comisionable_productos,
-                        comision_productos,monto_comision_productos,fecha_ajuste,agente,ajuste, tipo) 
-                    VALUES({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7} GETDATE(), {8}, {9})
+                    INSERT INTO comisiones_pagadas (anio,mes,q,utilidad,monto_comisionable,
+                        comision,monto_comision,fecha_ajuste,agente,ajuste, tipo) 
+                    VALUES({0}, {1}, '{2}', {3}, {4}, {5}, {6}, GETDATE(), {7}, {8}, {9})
                     ", row["anio"], this.dicMeses[row["mes"].ToString()], row["q"].ToString().Trim(),
                      row["utilidad_q"], row["acumulado_comision"], row["porcentaje_comision_servicios"],
                      row["monto_comision"], this.lblAgente.Text, idAjuste, (int)CommissionsTypes.Services);
@@ -1066,7 +1079,10 @@ namespace Samsara.LegacyCode.Commissions.Forms
         
         private void grdReporteAnual_DoubleClickHeader(object sender, DoubleClickHeaderEventArgs e)
         {
+            UltraGrid grid = sender as UltraGrid;
+
             DetalleQuincena form = new DetalleQuincena();
+            form.SonServicios = grid.Name == "grdReporteAnualServicios";
             form.Año = (int)this.cbxAños.SelectedValue;
             form.Mes = (e.Header.VisiblePosition - 1) / 2 + 1;
             form.Q = ((e.Header.VisiblePosition - 1) % 2) == 0 ? "Q1" : "Q2";
@@ -1388,12 +1404,14 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
         private void grdResumenComisiones_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)
         {
+            UltraGrid grid = sender as UltraGrid;
+
             if (e.Cell.Column.Key == "saldo_a_pagar")
             {
                 if (e.NewValue == DBNull.Value)
                     e.Cancel = true;
 
-                if (sender.Equals(this.grdResumenComisionesProductos))
+                if (grid.Name == "grdResumenComisionesProductos")
                 {
                     if (!e.Cancel)
                         e.Cancel = !this.ActualizaTotalComisionesProductos(e.Cell.Row, Convert.ToDecimal(e.NewValue));
