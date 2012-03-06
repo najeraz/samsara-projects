@@ -443,6 +443,12 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.txtServicesQuota.ReadOnly = !this.uchkServicesCommissions.Checked;
         }
 
+        private void ubtnEditScheme_Click(object sender, EventArgs e)
+        {
+            this.ClearNewSchemeFields();
+            this.ShowNewSchemeControls(true);
+        }
+
         #endregion Events
     }
 }
