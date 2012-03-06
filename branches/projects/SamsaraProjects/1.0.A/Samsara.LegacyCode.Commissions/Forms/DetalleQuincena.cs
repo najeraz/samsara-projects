@@ -37,6 +37,12 @@ namespace Samsara.LegacyCode.Commissions.Forms
             set;
         }
 
+        public bool SonServicios
+        {
+            get;
+            set;
+        }
+
         public string Title
         {
             get;
@@ -110,7 +116,9 @@ namespace Samsara.LegacyCode.Commissions.Forms
                     this.grdDetalleQuincena.DataSource = this.DtDetalleComisiones.AsEnumerable()
                         .AsParallel().Where(x => Convert.ToInt32(x["mes"]) == this.Mes
                             && this.Q == x["Q"].ToString().Trim()
-                            && Convert.ToInt32(x["anio"]) == this.Año).OrderBy(x => x["es_servicio"]).ThenBy(x => x["factura"]).CopyToDataTable();
+                            && Convert.ToInt32(x["anio"]) == this.Año 
+                            && x["es_servicio"].ToString() == (this.SonServicios ? "Si" : "No"))
+                            .OrderBy(x => x["factura"]).CopyToDataTable();
 
                     this.tcFacturasPagadas.TabPages["FacturasPagadas"].Text = "Facturas Pagadas [" +
                             this.grdDetalleQuincena.Rows.Count + "]";
