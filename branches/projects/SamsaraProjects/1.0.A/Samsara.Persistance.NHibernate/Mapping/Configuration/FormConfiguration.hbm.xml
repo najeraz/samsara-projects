@@ -3,7 +3,7 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="FormConfiguration" table="Configuration.Forms">
+  <class name="FormConfiguration" table="Configuration.FormConfigurations">
 
     <id name="FormConfigurationId" type="int">
       <generator class="native"/>
