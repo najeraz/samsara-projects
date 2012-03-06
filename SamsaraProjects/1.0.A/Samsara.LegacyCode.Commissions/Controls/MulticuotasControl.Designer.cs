@@ -172,6 +172,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.upnlSeparatorEditScheme.Name = "upnlSeparatorEditScheme";
             this.upnlSeparatorEditScheme.Size = new System.Drawing.Size(19, 23);
             this.upnlSeparatorEditScheme.TabIndex = 9;
+            this.upnlSeparatorEditScheme.Visible = false;
             // 
             // ubtnEditScheme
             // 
@@ -181,6 +182,8 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.ubtnEditScheme.Size = new System.Drawing.Size(75, 23);
             this.ubtnEditScheme.TabIndex = 10;
             this.ubtnEditScheme.Text = "Modificar";
+            this.ubtnEditScheme.Visible = false;
+            this.ubtnEditScheme.Click += new System.EventHandler(this.ubtnEditScheme_Click);
             // 
             // upnlSeparatorCreateScheme
             // 
@@ -233,7 +236,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // txtProductsQuota
             // 
             this.txtProductsQuota.CustomParent = null;
-            this.txtProductsQuota.Location = new System.Drawing.Point(482, 16);
+            this.txtProductsQuota.Location = new System.Drawing.Point(494, 16);
             this.txtProductsQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtProductsQuota.Name = "txtProductsQuota";
             this.txtProductsQuota.ReadOnly = false;
@@ -286,7 +289,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // ulblProductsQuota
             // 
             this.ulblProductsQuota.AutoSize = true;
-            this.ulblProductsQuota.Location = new System.Drawing.Point(370, 19);
+            this.ulblProductsQuota.Location = new System.Drawing.Point(382, 19);
             this.ulblProductsQuota.Name = "ulblProductsQuota";
             this.ulblProductsQuota.Size = new System.Drawing.Size(106, 14);
             this.ulblProductsQuota.TabIndex = 8;
@@ -302,7 +305,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // txtServicesQuota
             // 
             this.txtServicesQuota.CustomParent = null;
-            this.txtServicesQuota.Location = new System.Drawing.Point(481, 42);
+            this.txtServicesQuota.Location = new System.Drawing.Point(493, 42);
             this.txtServicesQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtServicesQuota.Name = "txtServicesQuota";
             this.txtServicesQuota.ReadOnly = false;
@@ -313,7 +316,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // ulblServicesQuota
             // 
             this.ulblServicesQuota.AutoSize = true;
-            this.ulblServicesQuota.Location = new System.Drawing.Point(369, 45);
+            this.ulblServicesQuota.Location = new System.Drawing.Point(381, 45);
             this.ulblServicesQuota.Name = "ulblServicesQuota";
             this.ulblServicesQuota.Size = new System.Drawing.Size(100, 14);
             this.ulblServicesQuota.TabIndex = 6;
