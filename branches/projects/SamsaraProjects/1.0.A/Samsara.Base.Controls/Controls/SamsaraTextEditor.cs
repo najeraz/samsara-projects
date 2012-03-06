@@ -27,9 +27,7 @@ namespace Samsara.Base.Controls.Controls
             }
             set
             {
-                if (value != this.maskType)
-                    this.MaskTypeChanged(value);
-
+                this.MaskTypeChanged(value);
                 this.maskType = value;
             }
         }
