@@ -52,7 +52,7 @@ namespace Samsara.Base.Controls.Controls
                 if (parentFormName != null && parentFormName.Contains("Form"))
                 {
                     FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
-                    pmtFormConfiguration.FormConfigurationName = parentFormName;
+                    pmtFormConfiguration.FormName = parentFormName;
                     formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);
                 }
                 else
