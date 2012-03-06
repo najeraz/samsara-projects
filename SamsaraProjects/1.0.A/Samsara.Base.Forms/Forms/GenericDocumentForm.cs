@@ -64,7 +64,7 @@ namespace Samsara.Base.Forms.Forms
                         this.controller.EditEntityProcess();
                         break;
                     case "btnSchCreate":
-                        this.controller.CreateEntity();
+                        this.controller.CreateEntityProcess();
                         break;
                     case "btnDetSave":
                         this.controller.SaveEntityProcess();

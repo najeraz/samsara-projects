@@ -41,6 +41,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.upnlSeparatorCreateScheme = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCreateScheme = new Infragistics.Win.Misc.UltraButton();
             this.ugbxNewScheme = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uchkServicesCommissions = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.txtProductsQuota = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.uplNewSchemeButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnAcceptScheme = new Infragistics.Win.Misc.UltraButton();
@@ -77,6 +78,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.upnlSeparatorCreateScheme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxNewScheme)).BeginInit();
             this.ugbxNewScheme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkServicesCommissions)).BeginInit();
             this.uplNewSchemeButtons.ClientArea.SuspendLayout();
             this.uplNewSchemeButtons.SuspendLayout();
             this.upnlSeparatorSchemeCancel.SuspendLayout();
@@ -200,6 +202,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             // ugbxNewScheme
             // 
+            this.ugbxNewScheme.Controls.Add(this.uchkServicesCommissions);
             this.ugbxNewScheme.Controls.Add(this.txtProductsQuota);
             this.ugbxNewScheme.Controls.Add(this.uplNewSchemeButtons);
             this.ugbxNewScheme.Controls.Add(this.ulblProductsQuota);
@@ -217,8 +220,19 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.ugbxNewScheme.Text = "Nuevo Esquema:";
             this.ugbxNewScheme.Visible = false;
             // 
+            // uchkServicesCommissions
+            // 
+            this.uchkServicesCommissions.AutoSize = true;
+            this.uchkServicesCommissions.Location = new System.Drawing.Point(239, 42);
+            this.uchkServicesCommissions.Name = "uchkServicesCommissions";
+            this.uchkServicesCommissions.Size = new System.Drawing.Size(124, 17);
+            this.uchkServicesCommissions.TabIndex = 10;
+            this.uchkServicesCommissions.Text = "Comisiona Servicios";
+            this.uchkServicesCommissions.CheckedChanged += new System.EventHandler(this.uchkServicesCommissions_CheckedChanged);
+            // 
             // txtProductsQuota
             // 
+            this.txtProductsQuota.CustomParent = null;
             this.txtProductsQuota.Location = new System.Drawing.Point(482, 16);
             this.txtProductsQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtProductsQuota.Name = "txtProductsQuota";
@@ -287,6 +301,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             // txtServicesQuota
             // 
+            this.txtServicesQuota.CustomParent = null;
             this.txtServicesQuota.Location = new System.Drawing.Point(481, 42);
             this.txtServicesQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtServicesQuota.Name = "txtServicesQuota";
@@ -440,6 +455,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             // txtComissionPercent
             // 
+            this.txtComissionPercent.CustomParent = null;
             this.txtComissionPercent.Location = new System.Drawing.Point(266, 20);
             this.txtComissionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
             this.txtComissionPercent.Name = "txtComissionPercent";
@@ -450,6 +466,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             // txtSegmentAmount
             // 
+            this.txtSegmentAmount.CustomParent = null;
             this.txtSegmentAmount.Location = new System.Drawing.Point(89, 20);
             this.txtSegmentAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtSegmentAmount.Name = "txtSegmentAmount";
@@ -535,6 +552,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             ((System.ComponentModel.ISupportInitialize)(this.ugbxNewScheme)).EndInit();
             this.ugbxNewScheme.ResumeLayout(false);
             this.ugbxNewScheme.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkServicesCommissions)).EndInit();
             this.uplNewSchemeButtons.ClientArea.ResumeLayout(false);
             this.uplNewSchemeButtons.ResumeLayout(false);
             this.upnlSeparatorSchemeCancel.ResumeLayout(false);
@@ -596,5 +614,6 @@ namespace Samsara.LegacyCode.Commissions.Controls
         private Infragistics.Win.Misc.UltraLabel ulblSegmentAmount;
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditScheme;
         private Infragistics.Win.Misc.UltraButton ubtnEditScheme;
+        private Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkServicesCommissions;
     }
 }

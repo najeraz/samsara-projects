@@ -34,7 +34,7 @@
   <query name="FormConfigurationGrid.GetByParameters">
     <![CDATA[
         from FormConfigurationGrid grid where grid.GridName = :GridName
-        and grid.FormConfiguration.FormConfigurationId = :FormId
+        and grid.FormConfiguration.FormConfigurationId = :FormConfigurationId
     ]]>
   </query>
 

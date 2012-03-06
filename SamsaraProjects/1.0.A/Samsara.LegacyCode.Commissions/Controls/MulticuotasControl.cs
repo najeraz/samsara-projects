@@ -159,7 +159,11 @@ namespace Samsara.LegacyCode.Commissions.Controls
         private void ClearNewSchemeFields()
         {
             this.txtSchemeName.Value = null;
+            this.txtProductsQuota.Value = null;
+            this.txtServicesQuota.Value = null;
             this.dteSchemeStartDate.DateTime = new DateTime(DateTime.Now.Year, 01, 01);
+            this.uchkServicesCommissions.Checked = false;
+            this.txtServicesQuota.ReadOnly = true;
         }
 
         private void ShowNewSegmentControls(bool visible)
@@ -257,9 +261,13 @@ namespace Samsara.LegacyCode.Commissions.Controls
             DateTime schemeDate = this.dteSchemeStartDate.DateTime;
 
             consulta = string.Format(@"
-                    INSERT INTO Esquemas_Agentes (nombre, fecha, agente, borrado)
-                    VALUES ('{0}', '{1}', {2}, 0)
-                ", schemeName, schemeDate.ToString("yyyyMMdd"), this.agentId);
+                    INSERT INTO Esquemas_Agentes (nombre, fecha, agente, borrado, 
+                        cuota_productos, cuota_servicios, comisiona_servicios)
+                    VALUES ('{0}', '{1}', {2}, 0, {3}, {4}, {5})
+                ", schemeName, schemeDate.ToString("yyyyMMdd"), this.agentId,
+                 this.txtProductsQuota.Value == null ? "NULL" : this.txtProductsQuota.Value,
+                 this.txtServicesQuota.Value == null ? "NULL" : this.txtServicesQuota.Value,
+                 this.uchkServicesCommissions.Checked ? 1 : 0);
 
             cnn.Open();
             SqlCommand command = new SqlCommand(consulta, cnn);
@@ -427,6 +435,12 @@ namespace Samsara.LegacyCode.Commissions.Controls
         private void grdMultiquotaSchemes_ClickCell(object sender, ClickCellEventArgs e)
         {
             this.LoadSegmentsGrid();
+        }
+
+        private void uchkServicesCommissions_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtServicesQuota.Value = null;
+            this.txtServicesQuota.ReadOnly = !this.uchkServicesCommissions.Checked;
         }
 
         #endregion Events

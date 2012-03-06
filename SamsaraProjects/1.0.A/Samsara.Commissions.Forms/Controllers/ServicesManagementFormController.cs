@@ -13,6 +13,7 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.Support.Util;
+using System.Windows.Forms;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -99,6 +100,37 @@ namespace Samsara.Commissions.Forms.Controllers
             }
 
             this.Search();
+        }
+
+        public override bool ValidateFormInformation()
+        {
+            if (this.frmServicesManagement.txtDetServiceNumber.Value == null ||
+                string.IsNullOrEmpty(this.frmServicesManagement.txtDetServiceNumber.Value.ToString()))
+            {
+                MessageBox.Show("Favor de asignar el Número de Servicio.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServicesManagement.txtDetServiceNumber.Focus();
+                return false;
+            }
+
+            if (this.frmServicesManagement.txtDetServiceAmount.Value == null ||
+                string.IsNullOrEmpty(this.frmServicesManagement.txtDetServiceAmount.Value.ToString()))
+            {
+                MessageBox.Show("Favor de asignar el Monto del Servicio.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServicesManagement.txtDetServiceAmount.Focus();
+                return false;
+            }
+
+            if (this.frmServicesManagement.sccDetStaff.Values == null)
+            {
+                MessageBox.Show("Favor de elegir al menos un Técnico de Soporte.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServicesManagement.sccDetStaff.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         public override bool LoadEntity(int serviceId)
