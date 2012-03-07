@@ -378,6 +378,10 @@
           type="Samsara.Commissions.Service.Impl.ServiceStaffService, Samsara.Commissions.Service">
     <property name="Dao" ref="IServiceStaffDao"/>
   </object>
+  <object id="ICommissionTypeService"
+          type="Samsara.Commissions.Service.Impl.CommissionTypeService, Samsara.Commissions.Service">
+    <property name="Dao" ref="ICommissionTypeDao"/>
+  </object>
   
   <object id="IProductService"
           type="Samsara.AlleatoERP.Service.Impl.ProductService, Samsara.AlleatoERP.Service">
