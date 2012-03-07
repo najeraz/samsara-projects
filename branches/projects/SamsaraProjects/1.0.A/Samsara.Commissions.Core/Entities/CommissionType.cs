@@ -24,5 +24,11 @@ namespace Samsara.Commissions.Core.Entities
             get;
             set;
         }
+
+        public virtual string Description
+        {
+            get;
+            set;
+        }
     }
 }

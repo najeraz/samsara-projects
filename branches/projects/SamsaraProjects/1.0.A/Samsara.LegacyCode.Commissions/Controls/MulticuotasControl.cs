@@ -7,6 +7,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.LegacyCode.Commissions.Main;
 using Samsara.Support.Util;
+using Samsara.Commissions.Core.Parameters;
 
 namespace Samsara.LegacyCode.Commissions.Controls
 {
@@ -83,6 +84,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
 
         private void InitializeControlControls()
         {
+            this.ctccCommissionType.Refresh();
         }
 
         private void LoadSchemesGrid()
@@ -164,6 +166,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.dteSchemeStartDate.DateTime = new DateTime(DateTime.Now.Year, 01, 01);
             this.uchkServicesCommissions.Checked = false;
             this.txtServicesQuota.ReadOnly = true;
+            this.ctccCommissionType.Value = null;
         }
 
         private void ShowNewSegmentControls(bool visible)

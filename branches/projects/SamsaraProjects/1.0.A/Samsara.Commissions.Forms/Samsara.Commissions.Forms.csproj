@@ -131,12 +131,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CommissionTypeFormController.cs" />
     <Compile Include="Controllers\ServicesManagementFormController.cs" />
-    <Compile Include="Forms\CommissionTypeForm.cs" />
-    <Compile Include="Forms\CommissionTypeForm.designer.cs">
-      <DependentUpon>CommissionTypeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\ServicesManagementForm.cs">
       <SubType>Form</SubType>
@@ -144,19 +139,15 @@
     <Compile Include="Forms\ServicesManagementForm.Designer.cs">
       <DependentUpon>ServicesManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\CommissionTypeSearchForm.cs" />
-    <Compile Include="Templates\CommissionTypeSearchForm.designer.cs">
-      <DependentUpon>CommissionTypeSearchForm.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\CommissionTypeForm.resx">
-      <DependentUpon>CommissionTypeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ServicesManagementForm.resx">
       <DependentUpon>ServicesManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

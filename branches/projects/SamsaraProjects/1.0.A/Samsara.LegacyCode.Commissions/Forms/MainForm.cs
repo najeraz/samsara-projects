@@ -55,16 +55,9 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
         public MainForm()
         {
-            try
-            {
-                cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
-                InitializeComponent();
-                PostInitializeComponent();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
+            InitializeComponent();
+            PostInitializeComponent();
         }
 
         #endregion Constructor

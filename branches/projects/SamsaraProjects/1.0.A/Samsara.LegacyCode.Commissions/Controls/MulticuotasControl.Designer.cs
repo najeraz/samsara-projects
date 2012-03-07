@@ -32,6 +32,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MulticuotasControl));
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Samsara.Commissions.Core.Parameters.CommissionTypeParameters commissionTypeParameters1 = new Samsara.Commissions.Core.Parameters.CommissionTypeParameters();
             this.gbxMultiquotaSchemes = new System.Windows.Forms.GroupBox();
             this.grdMultiquotaSchemes = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.uplSchemesButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -62,12 +63,14 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.upnlSeparatorCreateSegment = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCreateSegment = new Infragistics.Win.Misc.UltraButton();
             this.ugbxNewSegment = new Infragistics.Win.Misc.UltraGroupBox();
+            this.ctccCommissionType = new Samsara.Commissions.Controls.Controls.CommissionTypeChooserControl();
             this.txtComissionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.txtSegmentAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.uplNewSegmentButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnAcceptSegment = new Infragistics.Win.Misc.UltraButton();
             this.upnlSeparatorCancelSegment = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCancelSegment = new Infragistics.Win.Misc.UltraButton();
+            this.ulblCommissionType = new Infragistics.Win.Misc.UltraLabel();
             this.ulblComissionPercent = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSegmentAmount = new Infragistics.Win.Misc.UltraLabel();
             this.gbxMultiquotaSchemes.SuspendLayout();
@@ -443,9 +446,11 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             // ugbxNewSegment
             // 
+            this.ugbxNewSegment.Controls.Add(this.ctccCommissionType);
             this.ugbxNewSegment.Controls.Add(this.txtComissionPercent);
             this.ugbxNewSegment.Controls.Add(this.txtSegmentAmount);
             this.ugbxNewSegment.Controls.Add(this.uplNewSegmentButtons);
+            this.ugbxNewSegment.Controls.Add(this.ulblCommissionType);
             this.ugbxNewSegment.Controls.Add(this.ulblComissionPercent);
             this.ugbxNewSegment.Controls.Add(this.ulblSegmentAmount);
             this.ugbxNewSegment.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -456,10 +461,31 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.ugbxNewSegment.Text = "Nuevo Segmento:";
             this.ugbxNewSegment.Visible = false;
             // 
+            // ctccCommissionType
+            // 
+            this.ctccCommissionType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.ctccCommissionType.CustomParent = null;
+            this.ctccCommissionType.DisplayMember = "Name";
+            this.ctccCommissionType.Location = new System.Drawing.Point(401, 18);
+            this.ctccCommissionType.Name = "ctccCommissionType";
+            commissionTypeParameters1.CommissionTypeId = null;
+            commissionTypeParameters1.CreatedBy = null;
+            commissionTypeParameters1.CreationDate = null;
+            commissionTypeParameters1.Name = null;
+            commissionTypeParameters1.UpdatedBy = null;
+            commissionTypeParameters1.UpdatedDate = null;
+            this.ctccCommissionType.Parameters = commissionTypeParameters1;
+            this.ctccCommissionType.ReadOnly = false;
+            this.ctccCommissionType.Size = new System.Drawing.Size(186, 22);
+            this.ctccCommissionType.TabIndex = 6;
+            this.ctccCommissionType.Value = null;
+            this.ctccCommissionType.ValueMember = "CommissionTypeId";
+            this.ctccCommissionType.Values = null;
+            // 
             // txtComissionPercent
             // 
             this.txtComissionPercent.CustomParent = null;
-            this.txtComissionPercent.Location = new System.Drawing.Point(266, 20);
+            this.txtComissionPercent.Location = new System.Drawing.Point(267, 18);
             this.txtComissionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
             this.txtComissionPercent.Name = "txtComissionPercent";
             this.txtComissionPercent.ReadOnly = false;
@@ -470,7 +496,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // txtSegmentAmount
             // 
             this.txtSegmentAmount.CustomParent = null;
-            this.txtSegmentAmount.Location = new System.Drawing.Point(89, 20);
+            this.txtSegmentAmount.Location = new System.Drawing.Point(90, 18);
             this.txtSegmentAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtSegmentAmount.Name = "txtSegmentAmount";
             this.txtSegmentAmount.ReadOnly = false;
@@ -520,10 +546,19 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.ubtnCancelSegment.Text = "Cancelar";
             this.ubtnCancelSegment.Click += new System.EventHandler(this.ubtnCancelSegment_Click);
             // 
+            // ulblCommissionType
+            // 
+            this.ulblCommissionType.AutoSize = true;
+            this.ulblCommissionType.Location = new System.Drawing.Point(366, 22);
+            this.ulblCommissionType.Name = "ulblCommissionType";
+            this.ulblCommissionType.Size = new System.Drawing.Size(29, 14);
+            this.ulblCommissionType.TabIndex = 0;
+            this.ulblCommissionType.Text = "Tipo:";
+            // 
             // ulblComissionPercent
             // 
             this.ulblComissionPercent.AutoSize = true;
-            this.ulblComissionPercent.Location = new System.Drawing.Point(205, 23);
+            this.ulblComissionPercent.Location = new System.Drawing.Point(206, 21);
             this.ulblComissionPercent.Name = "ulblComissionPercent";
             this.ulblComissionPercent.Size = new System.Drawing.Size(55, 14);
             this.ulblComissionPercent.TabIndex = 0;
@@ -532,7 +567,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // ulblSegmentAmount
             // 
             this.ulblSegmentAmount.AutoSize = true;
-            this.ulblSegmentAmount.Location = new System.Drawing.Point(6, 23);
+            this.ulblSegmentAmount.Location = new System.Drawing.Point(7, 21);
             this.ulblSegmentAmount.Name = "ulblSegmentAmount";
             this.ulblSegmentAmount.Size = new System.Drawing.Size(77, 14);
             this.ulblSegmentAmount.TabIndex = 0;
@@ -618,5 +653,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditScheme;
         private Infragistics.Win.Misc.UltraButton ubtnEditScheme;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkServicesCommissions;
+        private Samsara.Commissions.Controls.Controls.CommissionTypeChooserControl ctccCommissionType;
+        private Infragistics.Win.Misc.UltraLabel ulblCommissionType;
     }
 }
