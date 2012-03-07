@@ -54,8 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\CommissionType.cs" />
     <Compile Include="Entities\ServiceStaff.cs" />
     <Compile Include="Entities\Service.cs" />
+    <Compile Include="Parameters\CommissionTypeParameters.cs" />
     <Compile Include="Parameters\ServiceStaffParameters.cs" />
     <Compile Include="Parameters\ServiceParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

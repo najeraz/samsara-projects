@@ -437,6 +437,10 @@
           type="Samsara.Commissions.Dao.Impl.ServiceStaffDao, Samsara.Commissions.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ICommissionTypeDao"
+          type="Samsara.Commissions.Dao.Impl.CommissionTypeDao, Samsara.Commissions.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
 
   <!-- ====================================== AlleatoERP ====================================== -->
 
