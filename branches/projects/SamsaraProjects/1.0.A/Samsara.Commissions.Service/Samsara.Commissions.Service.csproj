@@ -81,8 +81,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CommissionTypeService.cs" />
     <Compile Include="Impl\ServiceService.cs" />
     <Compile Include="Impl\ServiceStaffService.cs" />
+    <Compile Include="Interfaces\ICommissionTypeService.cs" />
     <Compile Include="Interfaces\IServiceService.cs" />
     <Compile Include="Interfaces\IServiceStaffService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
