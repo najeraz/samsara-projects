@@ -5,16 +5,16 @@ using Samsara.Main.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class UserPermission : GenericEntity
+    public class FormConfigurationUserPermission : GenericEntity
     {
 
-        public UserPermission()
+        public FormConfigurationUserPermission()
         {
-            UserPermissionId = -1;
+            FormConfigurationUserPermissionId = -1;
         }
 
         [PrimaryKey]
-        public virtual int UserPermissionId
+        public virtual int FormConfigurationUserPermissionId
         {
             get;
             set;

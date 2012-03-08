@@ -193,8 +193,8 @@
           type="Samsara.Configuration.Dao.Impl.UserGroupDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IUserPermissionDao"
-          type="Samsara.Configuration.Dao.Impl.UserPermissionDao, Samsara.Configuration.Dao">
+  <object id="IFormConfigurationUserPermissionDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationUserPermissionDao, Samsara.Configuration.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
 
