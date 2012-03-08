@@ -76,13 +76,13 @@
     <Compile Include="Impl\FormConfigurationDao.cs" />
     <Compile Include="Impl\FormConfigurationGridColumnDao.cs" />
     <Compile Include="Impl\FormConfigurationGridDao.cs" />
+    <Compile Include="Impl\FormConfigurationUserPermissionDao.cs" />
     <Compile Include="Impl\UserGroupDao.cs" />
-    <Compile Include="Impl\UserPermissionDao.cs" />
     <Compile Include="Interfaces\IFormConfigurationDao.cs" />
     <Compile Include="Interfaces\IFormConfigurationGridColumnDao.cs" />
     <Compile Include="Interfaces\IFormConfigurationGridDao.cs" />
+    <Compile Include="Interfaces\IFormConfigurationUserPermissionDao.cs" />
     <Compile Include="Interfaces\IUserGroupDao.cs" />
-    <Compile Include="Interfaces\IUserPermissionDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

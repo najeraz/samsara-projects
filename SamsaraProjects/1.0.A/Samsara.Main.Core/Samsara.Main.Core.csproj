@@ -45,10 +45,6 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Spring.Core.dll</HintPath>
@@ -68,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Entities\Scheme.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Enums\UserPermissionsEnum.cs" />
     <Compile Include="Enums\MainFormsEnum.cs" />
     <Compile Include="Enums\TaxEnum.cs" />
     <Compile Include="Parameters\SchemeParameters.cs" />

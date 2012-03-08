@@ -83,13 +83,13 @@
     <Compile Include="Impl\FormConfigurationGridColumnService.cs" />
     <Compile Include="Impl\FormConfigurationGridService.cs" />
     <Compile Include="Impl\FormConfigurationService.cs" />
+    <Compile Include="Impl\FormConfigurationUserPermissionService.cs" />
     <Compile Include="Impl\UserGroupService.cs" />
-    <Compile Include="Impl\UserPermissionService.cs" />
     <Compile Include="Interfaces\IFormConfigurationGridColumnService.cs" />
     <Compile Include="Interfaces\IFormConfigurationGridService.cs" />
     <Compile Include="Interfaces\IFormConfigurationService.cs" />
+    <Compile Include="Interfaces\IFormConfigurationUserPermissionService.cs" />
     <Compile Include="Interfaces\IUserGroupService.cs" />
-    <Compile Include="Interfaces\IUserPermissionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

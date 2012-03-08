@@ -3,9 +3,9 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="UserPermission" table="Main.UserPermission">
+  <class name="FormConfigurationUserPermission" table="Main.FormConfigurationUserPermission">
     
-    <id name="UserPermissionId" type="int">
+    <id name="FormConfigurationUserPermissionId" type="int">
       <generator class="native"/>
     </id>
 
@@ -29,21 +29,21 @@
     
   </class>
 
-  <query name="UserPermission.GetByParameters">
+  <query name="FormConfigurationUserPermission.GetByParameters">
     <![CDATA[
-        from UserPermission where Deleted = 0 and Activated = 1
+        from FormConfigurationUserPermission where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="UserPermission.GetListByParameters">
+  <query name="FormConfigurationUserPermission.GetListByParameters">
     <![CDATA[
-        from UserPermission where Deleted = 0 and Activated = 1
+        from FormConfigurationUserPermission where Deleted = 0 and Activated = 1
     ]]>
   </query>
 
-  <query name="UserPermission.SearchByParameters">
+  <query name="FormConfigurationUserPermission.SearchByParameters">
     <![CDATA[
-        from UserPermission where Deleted = 0 and Activated = 1
+        from FormConfigurationUserPermission where Deleted = 0 and Activated = 1
         and Name like :Name
     ]]>
   </query>
