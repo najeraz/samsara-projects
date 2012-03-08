@@ -1061,6 +1061,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
             UltraGridLayout layout = e.Layout;
             UltraGridBand band = layout.Bands[0];
 
+            layout.Override.AllowUpdate = DefaultableBoolean.False;
+
             foreach (UltraGridColumn column in band.Columns)
             {
                 if (column.Header.Caption != "Comisión" && column.Header.Caption != "Concepto")

@@ -56,13 +56,13 @@
     <Compile Include="Entities\FormConfiguration.cs" />
     <Compile Include="Entities\FormConfigurationGrid.cs" />
     <Compile Include="Entities\FormConfigurationGridColumn.cs" />
+    <Compile Include="Entities\FormConfigurationUserPermission.cs" />
     <Compile Include="Entities\UserGroup.cs" />
-    <Compile Include="Entities\UserPermission.cs" />
     <Compile Include="Parameters\FormConfigurationGridColumnParameters.cs" />
     <Compile Include="Parameters\FormConfigurationGridParameters.cs" />
     <Compile Include="Parameters\FormConfigurationParameters.cs" />
+    <Compile Include="Parameters\FormConfigurationUserPermissionParameters.cs" />
     <Compile Include="Parameters\UserGroupParameters.cs" />
-    <Compile Include="Parameters\UserPermissionParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

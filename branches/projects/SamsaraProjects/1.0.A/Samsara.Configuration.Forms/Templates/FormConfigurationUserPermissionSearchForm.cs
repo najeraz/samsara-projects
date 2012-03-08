@@ -4,14 +4,14 @@ using Samsara.Configuration.Core.Entities;
 
 namespace Samsara.Configuration.Forms.Templates
 {
-    public partial class UserPermissionSearchForm : GenericCatalogSearchForm<UserPermission>
+    public partial class FormConfigurationUserPermissionSearchForm : GenericCatalogSearchForm<FormConfigurationUserPermission>
     {
-        public UserPermissionSearchForm()
+        public FormConfigurationUserPermissionSearchForm()
         {
             InitializeComponent();
         }
 
-        public override UserPermission GetSearchResult()
+        public override FormConfigurationUserPermission GetSearchResult()
         {
             throw new System.NotImplementedException();
         }

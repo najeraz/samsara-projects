@@ -5,7 +5,7 @@ using Samsara.Configuration.Core.Parameters;
 
 namespace Samsara.Configuration.Service.Interfaces
 {
-    public interface IUserPermissionService : IGenericService<UserPermission, int, UserPermissionParameters>
+    public interface IFormConfigurationUserPermissionService : IGenericService<FormConfigurationUserPermission, int, FormConfigurationUserPermissionParameters>
     {
 	}
 }

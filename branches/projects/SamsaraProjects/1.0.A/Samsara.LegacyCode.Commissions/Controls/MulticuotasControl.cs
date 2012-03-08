@@ -112,8 +112,9 @@ namespace Samsara.LegacyCode.Commissions.Controls
             {
                 consulta = string.Format(@"
                     SELECT 
-                        id, esquema, utilidad_inicial, comision * 100 comision
+                        ec.id, ec.esquema, ec.utilidad_inicial, ec.comision * 100 comision, tc.nombre tipo
                     FROM Esquemas_Cuotas ec
+                    INNER JOIN tipo_comision tc ON tc.id = ec.tipo
                     WHERE esquema = {0} AND borrado = 0
                     ORDER BY utilidad_inicial
                 ", this.SelectedSquemeId);
@@ -166,7 +167,6 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.dteSchemeStartDate.DateTime = new DateTime(DateTime.Now.Year, 01, 01);
             this.uchkServicesCommissions.Checked = false;
             this.txtServicesQuota.ReadOnly = true;
-            this.ctccCommissionType.Value = null;
         }
 
         private void ShowNewSegmentControls(bool visible)
@@ -179,6 +179,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
         {
             this.txtComissionPercent.Value = null;
             this.txtSegmentAmount.Value = null;
+            this.ctccCommissionType.Value = null;
         }
 
         private bool ValidateSegmentFields()
@@ -196,6 +197,14 @@ namespace Samsara.LegacyCode.Commissions.Controls
                 || string.IsNullOrEmpty(this.txtComissionPercent.Value.ToString().Trim()))
             {
                 MessageBox.Show("Debe asignar un porcentaje de comsión al esquema del agente.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return false;
+            }
+
+            if (this.ctccCommissionType.Value == null)
+            {
+                MessageBox.Show("Debe asignar un tipo de comsión al esquema del agente.", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return false;
@@ -330,8 +339,8 @@ namespace Samsara.LegacyCode.Commissions.Controls
             if (this.SelectedSegmentId == null || this.IsUsedSelectedScheme())
                 return;
 
-            if (MessageBox.Show(string.Format("¿Esta seguro de borrar la cuota de monto \"{0}\"?",
-                Convert.ToDecimal(this.grdAgentSegments.ActiveRow.Cells["cuota"].Value).ToString("N2")),
+            if (MessageBox.Show(string.Format("¿Esta seguro de borrar la cuota \"{0}%\"?",
+                Convert.ToDecimal(this.grdAgentSegments.ActiveRow.Cells["comision"].Value).ToString("N2")),
                 "Confirmar", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 return;
 
@@ -369,9 +378,9 @@ namespace Samsara.LegacyCode.Commissions.Controls
                 decimal quotaAmount = Convert.ToDecimal(this.txtSegmentAmount.Value);
 
                 consulta = string.Format(@"
-                    INSERT INTO Esquemas_Cuotas (esquema, utilidad_inicial, comision, borrado)
-                    VALUES ({0}, {1}, {2}, 0)
-                ", this.SelectedSquemeId, quotaAmount, quotaPercent);
+                    INSERT INTO Esquemas_Cuotas (esquema, utilidad_inicial, comision, tipo, borrado)
+                    VALUES ({0}, {1}, {2}, {3}, 0)
+                ", this.SelectedSquemeId, quotaAmount, quotaPercent, this.ctccCommissionType.Value.CommissionTypeId);
 
                 cnn.Open();
                 SqlCommand command = new SqlCommand(consulta, cnn);
@@ -428,6 +437,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             band.Columns["esquema"].Hidden = true;
             band.Columns["utilidad_inicial"].Header.Caption = "Utilidad inicial";
             band.Columns["comision"].Header.Caption = "Comisión";
+            band.Columns["tipo"].Header.Caption = "Tipo";
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_inicial"],
                 TextMaskFormatEnum.Currency);
