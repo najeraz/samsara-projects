@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Principal;
@@ -13,8 +12,8 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.LegacyCode.Commissions.Main;
 using Samsara.LegacyCode.Commissions.Util;
-using Samsara.Support.Util;
 using Samsara.Main.Session;
+using Samsara.Support.Util;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {

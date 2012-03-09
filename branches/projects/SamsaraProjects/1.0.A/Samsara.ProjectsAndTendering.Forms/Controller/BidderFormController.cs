@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
@@ -29,9 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmBidder = instance;
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
-            Assert.IsNotNull(this.srvBidder);
             this.srvBidderType = SamsaraAppContext.Resolve<IBidderTypeService>();
-            Assert.IsNotNull(this.srvBidderType);
             this.InitializeFormControls();
         }
 

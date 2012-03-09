@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
-using NUnit.Framework;
+using System.Windows.Forms;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Core.Parameters;
 using Samsara.Base.Controls.Enums;
@@ -13,7 +13,6 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.Support.Util;
-using System.Windows.Forms;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -37,7 +36,6 @@ namespace Samsara.Commissions.Forms.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvService = SamsaraAppContext.Resolve<IServiceService>();
-                Assert.IsNotNull(this.srvService);
             }
 
             this.InitializeFormControls();

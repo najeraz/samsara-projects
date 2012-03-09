@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Forms.Controller;
 using Samsara.AlleatoERP.Forms.Templates;
@@ -24,7 +23,6 @@ namespace Samsara.AlleatoERP.Forms.Forms
             InitializeComponent();
             this.ctrlProductForm = new ProductFormController(this);
             this.srvProduct = SamsaraAppContext.Resolve<IProductService>();
-            Assert.IsNotNull(this.srvProduct);
         }
 
         #region Methods

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Dao.Impl;
 using Samsara.ProjectsAndTendering.Core.Entities;
@@ -66,7 +65,6 @@ namespace Samsara.ProjectsAndTendering.Dao.Impl
         {
             TenderFileParameters pmtTenderFile = new TenderFileParameters();
             ITenderFileDao daoTenderFile = SamsaraAppContext.Resolve<ITenderFileDao>();
-            Assert.IsNotNull(daoTenderFile);
 
             foreach (TenderFile tenderFile in entity.TenderFiles)
             {

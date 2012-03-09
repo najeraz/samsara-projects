@@ -6,7 +6,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
@@ -27,11 +26,8 @@ namespace Samsara.Base.Controls.Controls
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
-                Assert.IsNotNull(this.srvFormConfiguration);
                 srvFormConfigurationGrid = SamsaraAppContext.Resolve<IFormConfigurationGridService>();
-                Assert.IsNotNull(this.srvFormConfigurationGrid);
                 srvFormConfigurationGridColumn = SamsaraAppContext.Resolve<IFormConfigurationGridColumnService>();
-                Assert.IsNotNull(this.srvFormConfigurationGridColumn);
             }
         }
 

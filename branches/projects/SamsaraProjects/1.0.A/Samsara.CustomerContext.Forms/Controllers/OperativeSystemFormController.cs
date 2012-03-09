@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
@@ -31,9 +30,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.frmOperativeSystem = instance;
             this.srvOperativeSystem = SamsaraAppContext.Resolve<IOperativeSystemService>();
-            Assert.IsNotNull(this.srvOperativeSystem);
             this.srvOperativeSystemType = SamsaraAppContext.Resolve<IOperativeSystemTypeService>();
-            Assert.IsNotNull(this.srvOperativeSystemType);
             this.InitializeFormControls();
         }
 

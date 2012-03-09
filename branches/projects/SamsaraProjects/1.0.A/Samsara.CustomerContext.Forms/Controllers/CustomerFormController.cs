@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
@@ -30,9 +29,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.frmCustomer = instance;
             this.srvCustomer = SamsaraAppContext.Resolve<ICustomerService>();
-            Assert.IsNotNull(this.srvCustomer);
             this.srvBusinessType = SamsaraAppContext.Resolve<IBusinessTypeService>();
-            Assert.IsNotNull(this.srvBusinessType);
             this.InitializeFormControls();
         }
 

@@ -2,7 +2,10 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using Infragistics.Win;
+using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
+using Samsara.Configuration.Core.Entities;
+using Samsara.Configuration.Service.Interfaces;
 
 namespace Samsara.Base.Forms.Forms
 {
@@ -10,6 +13,8 @@ namespace Samsara.Base.Forms.Forms
     {
         #region Attributes
 
+        private IFormConfigurationService srvFormConfiguration;
+        protected FormConfiguration formConfiguration;
         protected GenericDocumentFormController controller;
          
         #endregion Attributes
@@ -24,6 +29,9 @@ namespace Samsara.Base.Forms.Forms
         {
             InitializeComponent();
             this.grdPrincipal.DisplayLayout.Override.AllowUpdate = DefaultableBoolean.False;
+            this.srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+            
+            this.formConfiguration = null;
         }
 
         #endregion Constructor

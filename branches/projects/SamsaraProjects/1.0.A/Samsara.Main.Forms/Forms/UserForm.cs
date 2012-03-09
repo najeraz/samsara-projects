@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Forms.Controller;
@@ -24,7 +23,6 @@ namespace Samsara.Main.Forms.Forms
             InitializeComponent();
             this.ctrlUserForm = new UserFormController(this);
             this.srvUser = SamsaraAppContext.Resolve<IUserService>();
-            Assert.IsNotNull(this.srvUser);
         }
 
         #region Methods

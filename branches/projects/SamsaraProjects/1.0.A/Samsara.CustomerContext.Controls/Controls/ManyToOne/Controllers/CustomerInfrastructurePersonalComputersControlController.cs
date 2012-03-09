@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
@@ -59,15 +58,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructurePersonalComputer = SamsaraAppContext.Resolve<ICustomerInfrastructurePersonalComputerService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructurePersonalComputer);
                 this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructure);
                 this.srvPersonalComputerType = SamsaraAppContext.Resolve<IPersonalComputerTypeService>();
-                Assert.IsNotNull(this.srvPersonalComputerType);
                 this.srvOperativeSystem = SamsaraAppContext.Resolve<IOperativeSystemService>();
-                Assert.IsNotNull(this.srvOperativeSystem);
                 this.srvComputerBrand = SamsaraAppContext.Resolve<IComputerBrandService>();
-                Assert.IsNotNull(this.srvComputerBrand);
             }
 
             this.InitializeControlControls();

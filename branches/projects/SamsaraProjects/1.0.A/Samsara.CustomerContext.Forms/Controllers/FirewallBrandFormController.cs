@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
@@ -28,7 +27,6 @@ namespace Samsara.CustomerContext.Forms.Controller
         {
             this.frmFirewallBrand = instance;
             this.srvFirewallBrand = SamsaraAppContext.Resolve<IFirewallBrandService>();
-            Assert.IsNotNull(this.srvFirewallBrand);
             this.InitializeFormControls();
         }
 

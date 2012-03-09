@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -54,11 +53,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructureNetworkFirewall = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkFirewallService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetworkFirewall);
                 this.srvCustomerInfrastructureNetwork = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetwork);
                 this.srvFirewallBrand = SamsaraAppContext.Resolve<IFirewallBrandService>();
-                Assert.IsNotNull(this.srvFirewallBrand);
             }
 
             this.InitializeControlControls();

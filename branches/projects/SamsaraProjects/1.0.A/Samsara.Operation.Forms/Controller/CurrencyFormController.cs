@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Core.Parameters;
@@ -28,7 +27,6 @@ namespace Samsara.Operation.Forms.Controller
         {
             this.frmCurrency = instance;
             this.srvCurrency = SamsaraAppContext.Resolve<ICurrencyService>();
-            Assert.IsNotNull(this.srvCurrency);
             this.InitializeFormControls();
         }
 

@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Controls.Controllers;
@@ -57,11 +56,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvTenderLine = SamsaraAppContext.Resolve<ITenderLineService>();
-                Assert.IsNotNull(this.srvTenderLine);
                 this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
-                Assert.IsNotNull(this.srvTender);
                 this.srvProduct = SamsaraAppContext.Resolve<IProductService>();
-                Assert.IsNotNull(this.srvProduct);
             }
 
             this.InitializeControlControls();
