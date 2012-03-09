@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -54,11 +53,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructureNetworkSwitch = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkSwitchService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetworkSwitch);
                 this.srvCustomerInfrastructureNetwork = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetwork);
                 this.srvSwitchBrand = SamsaraAppContext.Resolve<ISwitchBrandService>();
-                Assert.IsNotNull(this.srvSwitchBrand);
             }
 
             this.InitializeControlControls();

@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
@@ -28,7 +27,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOrganization = instance;
             this.srvOrganization = SamsaraAppContext.Resolve<IOrganizationService>();
-            Assert.IsNotNull(this.srvOrganization);
             this.InitializeFormControls();
         }
 

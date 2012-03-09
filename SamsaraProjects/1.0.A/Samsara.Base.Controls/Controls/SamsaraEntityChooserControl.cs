@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinEditors;
-using NUnit.Framework;
 using Samsara.Base.Controls.Enums;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
@@ -227,7 +226,6 @@ namespace Samsara.Base.Controls.Controls
             if (this.service == null)
             {
                 this.service = SamsaraAppContext.Resolve<TService>();
-                Assert.IsNotNull(this.service);
             }
         }
 

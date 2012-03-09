@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
 using Samsara.ProjectsAndTendering.Core.Entities;
@@ -29,9 +28,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlOpportunityForm = new OpportunityFormController(this);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
-            Assert.IsNotNull(this.srvOpportunity);
             this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityTypeService>();
-            Assert.IsNotNull(this.srvOpportunityType);
         }
 
         #endregion Constructor

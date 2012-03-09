@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
@@ -47,27 +46,16 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
         {
             this.frmOpportunity = instance;
             this.srvOrganization = SamsaraAppContext.Resolve<IOrganizationService>();
-            Assert.IsNotNull(this.srvOrganization);
             this.srvBidder = SamsaraAppContext.Resolve<IBidderService>();
-            Assert.IsNotNull(this.srvBidder);
             this.srvDependency = SamsaraAppContext.Resolve<IDependencyService>();
-            Assert.IsNotNull(this.srvDependency);
             this.srvEndUser = SamsaraAppContext.Resolve<IEndUserService>();
-            Assert.IsNotNull(this.srvEndUser);
             this.srvAsesor = SamsaraAppContext.Resolve<IAsesorService>();
-            Assert.IsNotNull(this.srvAsesor);
             this.srvTender = SamsaraAppContext.Resolve<ITenderService>();
-            Assert.IsNotNull(this.srvTender);
             this.srvOpportunity = SamsaraAppContext.Resolve<IOpportunityService>();
-            Assert.IsNotNull(this.srvOpportunity);
             this.srvOpportunityType = SamsaraAppContext.Resolve<IOpportunityTypeService>();
-            Assert.IsNotNull(this.srvOpportunityType);
             this.srvOpportunityStatus = SamsaraAppContext.Resolve<IOpportunityStatusService>();
-            Assert.IsNotNull(this.srvOpportunityStatus);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
-            Assert.IsNotNull(this.srvManufacturer);
             this.srvOpportunityLog = SamsaraAppContext.Resolve<IOpportunityLogService>();
-            Assert.IsNotNull(this.srvOpportunityLog);
             this.InitializeFormControls();
         }
 

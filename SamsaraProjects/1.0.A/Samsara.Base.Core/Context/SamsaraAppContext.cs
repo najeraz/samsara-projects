@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Diagnostics;
+using NUnit.Framework;
 using Spring.Context;
 using Spring.Context.Support;
 
@@ -21,14 +22,14 @@ namespace Samsara.Base.Core.Context
         /// <summary>
         /// Object that gonna content the context of the app
         /// </summary>
-        private IApplicationContext springContext = null;
+        private IApplicationContext applicationContext = null;
 
         [DebuggerStepThrough]
         private SamsaraAppContext()
         {
             try
             {
-                springContext = ContextRegistry.GetContext();
+                applicationContext = ContextRegistry.GetContext();
             }
             catch (Exception ex)
             {
@@ -53,14 +54,13 @@ namespace Samsara.Base.Core.Context
         /// </summary>
         /// <param name="objectName">Name of the solicited object</param>
         /// <returns>A instance of the object, in other case an exception</returns>
-        public static object Resolve(string objectName)
-        {
-            return Instance.springContext.GetObject(objectName);
-        }
-
+        [DebuggerStepThrough]
         public static T Resolve<T>(string objectName)
         {
-            return (T)Instance.springContext.GetObject(objectName);
+            T value = (T)Instance.applicationContext.GetObject(objectName);
+            Assert.IsNotNull(value);
+
+            return value;
         }
 
         /// <summary>
@@ -70,8 +70,10 @@ namespace Samsara.Base.Core.Context
         [DebuggerStepThrough]
         public static T Resolve<T>()
         {
-            //Console.Out.WriteLine("type to resolve: " + typeof(T).Name);
-            return (T)Instance.springContext.GetObject(typeof(T).Name);
+            T value = (T)Instance.applicationContext.GetObject(typeof(T).Name);
+            Assert.IsNotNull(value);
+
+            return value;
         }
     }
 }

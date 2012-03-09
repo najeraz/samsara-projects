@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Forms.Controller;
@@ -24,7 +23,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             InitializeComponent();
             this.ctrlManufacturerForm = new ManufacturerFormController(this);
             this.srvManufacturer = SamsaraAppContext.Resolve<IManufacturerService>();
-            Assert.IsNotNull(this.srvManufacturer);
         }
 
         #region Methods

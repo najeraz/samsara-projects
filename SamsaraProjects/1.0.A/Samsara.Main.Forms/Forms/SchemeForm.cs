@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Forms.Controller;
@@ -24,7 +23,6 @@ namespace Samsara.Main.Forms.Forms
             InitializeComponent();
             this.ctrlSchemeForm = new SchemeFormController(this);
             this.srvScheme = SamsaraAppContext.Resolve<ISchemeService>();
-            Assert.IsNotNull(this.srvScheme);
         }
 
         #region Methods

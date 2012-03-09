@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Linq;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
@@ -39,13 +38,9 @@ namespace Samsara.Dashboard.Forms.Controller
             this.frmVerticalIntegration = frmVerticalIntegration;
 
             this.srvERPCustomer = SamsaraAppContext.Resolve<IERPCustomerService>();
-            Assert.IsNotNull(this.srvERPCustomer);
             this.srvProductLine = SamsaraAppContext.Resolve<IProductLineService>();
-            Assert.IsNotNull(this.srvProductLine);
             this.srvProductSubline = SamsaraAppContext.Resolve<IProductSublineService>();
-            Assert.IsNotNull(this.srvProductSubline);
             this.srvProductFamily = SamsaraAppContext.Resolve<IProductFamilyService>();
-            Assert.IsNotNull(this.srvProductFamily);
 
             lstLines = this.srvProductLine.GetAll()
                 .AsParallel().OrderBy(x => x.Name).ToList();

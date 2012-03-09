@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -54,11 +53,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructureServerComputerDBMS = SamsaraAppContext.Resolve<ICustomerInfrastructureServerComputerDBMSService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureServerComputerDBMS);
                 this.srvCustomerInfrastructureServerComputer = SamsaraAppContext.Resolve<ICustomerInfrastructureServerComputerService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureServerComputer);
                 this.srvDBMS = SamsaraAppContext.Resolve<IDBMSService>();
-                Assert.IsNotNull(this.srvDBMS);
             }
 
             this.InitializeControlControls();

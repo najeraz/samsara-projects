@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
@@ -28,7 +27,6 @@ namespace Samsara.Configuration.Forms.Controller
         {
             this.frmFormConfigurationUserPermission = instance;
             this.srvFormConfigurationUserPermission = SamsaraAppContext.Resolve<IFormConfigurationUserPermissionService>();
-            Assert.IsNotNull(this.srvFormConfigurationUserPermission);
             this.InitializeFormControls();
         }
 
