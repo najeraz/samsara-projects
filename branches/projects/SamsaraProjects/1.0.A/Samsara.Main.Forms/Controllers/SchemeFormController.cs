@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Core.Parameters;
@@ -28,7 +27,6 @@ namespace Samsara.Main.Forms.Controller
         {
             this.frmScheme = instance;
             this.srvScheme = SamsaraAppContext.Resolve<ISchemeService>();
-            Assert.IsNotNull(this.srvScheme);
             this.InitializeFormControls();
         }
 

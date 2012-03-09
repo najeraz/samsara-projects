@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Core.Context;
@@ -57,13 +56,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructurePrinter = SamsaraAppContext.Resolve<ICustomerInfrastructurePrinterService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructurePrinter);
                 this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructure);
                 this.srvPrinterBrand = SamsaraAppContext.Resolve<IPrinterBrandService>();
-                Assert.IsNotNull(this.srvPrinterBrand);
                 this.srvPrinterType = SamsaraAppContext.Resolve<IPrinterTypeService>();
-                Assert.IsNotNull(this.srvPrinterType);
             }
 
             this.InitializeControlControls();

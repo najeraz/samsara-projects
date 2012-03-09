@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Forms.Controller;
@@ -24,7 +23,6 @@ namespace Samsara.CustomerContext.Forms.Forms
             InitializeComponent();
             this.ctrlISPForm = new ISPFormController(this);
             this.srvISP = SamsaraAppContext.Resolve<IISPService>();
-            Assert.IsNotNull(this.srvISP);
         }
 
         #region Methods

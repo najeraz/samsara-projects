@@ -2,11 +2,11 @@
 using System;
 using System.Data;
 using System.Diagnostics;
+using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Forms.Enums;
 using Samsara.Base.Forms.Forms;
 using Samsara.Main.Session;
-using System.Windows.Forms;
 
 namespace Samsara.Base.Forms.Controllers
 {

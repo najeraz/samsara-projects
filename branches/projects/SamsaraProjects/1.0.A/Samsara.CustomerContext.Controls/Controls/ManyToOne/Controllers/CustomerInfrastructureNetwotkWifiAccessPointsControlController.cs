@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -55,13 +54,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructureNetworkWifiAccessPoint = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkWifiAccessPointService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetworkWifiAccessPoint);
                 this.srvCustomerInfrastructureNetworkWifi = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkWifiService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetworkWifi);
                 this.srvAccessPointBrand = SamsaraAppContext.Resolve<IAccessPointBrandService>();
-                Assert.IsNotNull(this.srvAccessPointBrand);
                 this.srvAccessPointType = SamsaraAppContext.Resolve<IAccessPointTypeService>();
-                Assert.IsNotNull(this.srvAccessPointType);
             }
 
             this.InitializeControlControls();

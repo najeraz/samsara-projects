@@ -17,11 +17,17 @@
     <property name="UpdatedOn"/>
     <property name="Activated"/>
     <property name="Deleted"/>
-    
+
     <set name="FormConfigurationGrids" table="Configuration.FormConfigurationGrids" cascade="all-delete-orphan">
       <key column="FormConfigurationId"/>
-      <one-to-many 
+      <one-to-many
         class="Samsara.Configuration.Core.Entities.FormConfigurationGrid, Samsara.Configuration.Core"/>
+    </set>
+
+    <set name="FormConfigurationUserPermissions" table="Configuration.FormConfigurationUserPermissions" cascade="all-delete-orphan">
+      <key column="FormConfigurationId"/>
+      <one-to-many
+        class="Samsara.Configuration.Core.Entities.FormConfigurationUserPermission, Samsara.Configuration.Core"/>
     </set>
     
   </class>

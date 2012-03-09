@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Core.Parameters;
 using Samsara.AlleatoERP.Forms.Forms;
@@ -29,7 +28,6 @@ namespace Samsara.AlleatoERP.Forms.Controller
         {
             this.frmProduct = instance;
             this.srvProduct = SamsaraAppContext.Resolve<IProductService>();
-            Assert.IsNotNull(this.srvProduct);
             this.InitializeFormControls();
         }
 

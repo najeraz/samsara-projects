@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -55,13 +54,9 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructureCCTV = SamsaraAppContext.Resolve<ICustomerInfrastructureCCTVService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureCCTV);
                 this.srvCustomerInfrastructure = SamsaraAppContext.Resolve<ICustomerInfrastructureService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructure);
                 this.srvCCTVBrand = SamsaraAppContext.Resolve<ICCTVBrandService>();
-                Assert.IsNotNull(this.srvCCTVBrand);
                 this.srvCCTVType = SamsaraAppContext.Resolve<ICCTVTypeService>();
-                Assert.IsNotNull(this.srvCCTVType);
             }
 
             this.InitializeControlControls();

@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Diagnostics;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Core.Interfaces;
 using Samsara.Main.Core.Entities;
@@ -57,7 +56,6 @@ namespace Samsara.Main.Session
         {
             UserParameters pmtUser = new UserParameters();
             IUserService srvUser = SamsaraAppContext.Resolve<IUserService>();
-            Assert.IsNotNull(srvUser);
 
             pmtUser.Username = username.ToLower();
             pmtUser.Password = CryptoUtil.PasswordHash(username, password);

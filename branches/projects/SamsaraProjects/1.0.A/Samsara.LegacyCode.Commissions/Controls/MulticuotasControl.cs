@@ -7,7 +7,6 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.LegacyCode.Commissions.Main;
 using Samsara.Support.Util;
-using Samsara.Commissions.Core.Parameters;
 
 namespace Samsara.LegacyCode.Commissions.Controls
 {

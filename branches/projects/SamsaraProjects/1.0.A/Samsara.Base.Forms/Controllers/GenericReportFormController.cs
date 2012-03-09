@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Data;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Forms;
@@ -28,7 +27,6 @@ namespace Samsara.Base.Forms.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvAlleatoERP = SamsaraAppContext.Resolve<IAlleatoERPService>();
-                Assert.IsNotNull(this.srvAlleatoERP);
             }
 
             this.frmGenericReport.grdPrincipal.InitializeLayout

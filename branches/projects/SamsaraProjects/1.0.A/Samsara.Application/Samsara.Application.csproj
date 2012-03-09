@@ -69,9 +69,6 @@
       <HintPath>..\lib\NHibernate.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Samsara.Base.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Forms.dll</HintPath>

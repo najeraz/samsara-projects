@@ -7,7 +7,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -54,11 +53,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvCustomerInfrastructureNetworkCabling = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkCablingService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetworkCabling);
                 this.srvCustomerInfrastructureNetwork = SamsaraAppContext.Resolve<ICustomerInfrastructureNetworkService>();
-                Assert.IsNotNull(this.srvCustomerInfrastructureNetwork);
                 this.srvNetworkCablingType = SamsaraAppContext.Resolve<INetworkCablingTypeService>();
-                Assert.IsNotNull(this.srvNetworkCablingType);
             }
 
             this.InitializeControlControls();

@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Operation.Core.Entities;
 using Samsara.Operation.Forms.Controller;
@@ -24,7 +23,6 @@ namespace Samsara.Operation.Forms.Forms
             InitializeComponent();
             this.ctrlCurrencyForm = new CurrencyFormController(this);
             this.srvCurrency = SamsaraAppContext.Resolve<ICurrencyService>();
-            Assert.IsNotNull(this.srvCurrency);
         }
 
         #region Methods

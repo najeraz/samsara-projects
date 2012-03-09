@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using NUnit.Framework;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Core.Entities;
@@ -124,7 +123,6 @@ namespace Samsara.Support.Util
             if (entity.GetType().IsSubclassOf(typeof(GenericEntity)))
             {
                 ISession session = SamsaraAppContext.Resolve<ISession>();
-                Assert.IsNotNull(session);
 
                 if (primaryKeyValue <= 0)
                 {

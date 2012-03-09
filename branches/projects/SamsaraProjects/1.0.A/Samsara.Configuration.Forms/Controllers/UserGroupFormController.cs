@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
-using NUnit.Framework;
 using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
@@ -28,7 +27,6 @@ namespace Samsara.Configuration.Forms.Controller
         {
             this.frmUserGroup = instance;
             this.srvUserGroup = SamsaraAppContext.Resolve<IUserGroupService>();
-            Assert.IsNotNull(this.srvUserGroup);
             this.InitializeFormControls();
         }
 
