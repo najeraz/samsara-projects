@@ -387,6 +387,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Mapping\Configuration\FormConfigurationUserPermissionUser.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Mapping\Configuration\FormConfigurationUserPermission.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

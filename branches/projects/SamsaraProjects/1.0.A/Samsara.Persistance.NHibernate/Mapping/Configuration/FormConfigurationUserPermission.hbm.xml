@@ -23,6 +23,13 @@
                  class="Samsara.Configuration.Core.Entities.FormConfiguration, Samsara.Configuration.Core"
                  column="FormConfigurationId"/>
     
+
+    <set name="FormConfigurationUserPermissionUsers" table="Configuration.FormConfigurationUserPermissionUsers" cascade="all-delete-orphan">
+      <key column="FormConfigurationUserPermissionUserId"/>
+      <one-to-many
+        class="Samsara.Configuration.Core.Entities.FormConfigurationUserPermissionUser, Samsara.Configuration.Core"/>
+    </set>
+    
   </class>
 
   <query name="FormConfigurationUserPermission.GetByParameters">

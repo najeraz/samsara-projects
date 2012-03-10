@@ -7,8 +7,8 @@ namespace Samsara.Configuration.Core.Entities
 {
     public class FormConfiguration : GenericEntity
     {
-        private ISet<FormConfigurationGrid> formGrids;
-        private ISet<FormConfigurationUserPermission> formConfigurationUserPermission;
+        private ISet<FormConfigurationGrid> formConfigurationGrids;
+        private ISet<FormConfigurationUserPermission> formConfigurationUserPermissions;
 
         public FormConfiguration()
         {
@@ -33,14 +33,14 @@ namespace Samsara.Configuration.Core.Entities
         {
             get
             {
-                if (this.formGrids == null)
-                    this.formGrids = new HashedSet<FormConfigurationGrid>();
+                if (this.formConfigurationGrids == null)
+                    this.formConfigurationGrids = new HashedSet<FormConfigurationGrid>();
 
-                return this.formGrids;
+                return this.formConfigurationGrids;
             }
             set
             {
-                this.formGrids = value;
+                this.formConfigurationGrids = value;
             }
         }
 
@@ -49,14 +49,14 @@ namespace Samsara.Configuration.Core.Entities
         {
             get
             {
-                if (this.formConfigurationUserPermission == null)
-                    this.formConfigurationUserPermission = new HashedSet<FormConfigurationUserPermission>();
+                if (this.formConfigurationUserPermissions == null)
+                    this.formConfigurationUserPermissions = new HashedSet<FormConfigurationUserPermission>();
 
-                return this.formConfigurationUserPermission;
+                return this.formConfigurationUserPermissions;
             }
             set
             {
-                this.formConfigurationUserPermission = value;
+                this.formConfigurationUserPermissions = value;
             }
         }
     }
