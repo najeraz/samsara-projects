@@ -3,7 +3,7 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="UserGroup" table="Main.UserGroups">
+  <class name="UserGroup" table="Configuration.UserGroups">
     
     <id name="UserGroupId" type="int">
       <generator class="native"/>

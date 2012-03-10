@@ -374,9 +374,6 @@
     <EmbeddedResource Include="Mapping\Configuration\UserGroup.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Configuration\UserPermission.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Mapping\Commissions\Service.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -388,6 +385,9 @@
     <EmbeddedResource Include="Mapping\Commissions\CommissionType.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Configuration\FormConfigurationUserPermission.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

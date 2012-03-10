@@ -58,6 +58,7 @@
     <Compile Include="Entities\FormConfigurationGridColumn.cs" />
     <Compile Include="Entities\FormConfigurationUserPermission.cs" />
     <Compile Include="Entities\UserGroup.cs" />
+    <Compile Include="Interfaces\IConfigurableForm.cs" />
     <Compile Include="Parameters\FormConfigurationGridColumnParameters.cs" />
     <Compile Include="Parameters\FormConfigurationGridParameters.cs" />
     <Compile Include="Parameters\FormConfigurationParameters.cs" />
