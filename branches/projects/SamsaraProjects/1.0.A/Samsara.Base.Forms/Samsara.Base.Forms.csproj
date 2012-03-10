@@ -105,6 +105,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SamsaraFormController.cs" />
     <Compile Include="Controllers\GenericDocumentFormController.cs" />
     <Compile Include="Controllers\GenericReportFormController.cs" />
     <Compile Include="Enums\FormStatusEnum.cs" />
@@ -125,6 +126,12 @@
     </Compile>
     <Compile Include="Forms\GenericReportForm.designer.cs">
       <DependentUpon>GenericReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SamsaraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SamsaraForm.Designer.cs">
+      <DependentUpon>SamsaraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\CatalogForm.cs">
