@@ -3,26 +3,25 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Samsara.Base.Forms.Controllers;
-using Samsara.Configuration.Code.Interfaces;
-using Samsara.Configuration.Core.Entities;
 
 namespace Samsara.Base.Forms.Forms
 {
-    public partial class GenericDocumentForm : Form, IConfigurableForm
+    public partial class GenericDocumentForm : SamsaraForm
     {
         #region Attributes
 
-        protected GenericDocumentFormController controller;
+        private GenericDocumentFormController ctrlGenericDocumentForm;
 
         #endregion Attributes
 
         #region Properties
 
-        public FormConfiguration FormConfiguration
+        protected override SamsaraFormController Controller
         {
-            get
+            set
             {
-                return this.controller.FormConfiguration;
+                base.Controller = value;
+                this.ctrlGenericDocumentForm = value as GenericDocumentFormController;
             }
         }
 
@@ -44,7 +43,6 @@ namespace Samsara.Base.Forms.Forms
 
         #region Events
 
-        [DebuggerStepThrough]
         private void btnClick(object sender, System.EventArgs e)
         {
             Button btn = sender as Button;
@@ -56,31 +54,31 @@ namespace Samsara.Base.Forms.Forms
                 switch (btn.Name)
                 {
                     case "btnSchSearch":
-                        this.controller.Search();
+                        this.ctrlGenericDocumentForm.Search();
                         break;
                     case "btnSchClear":
-                        this.controller.ClearSearchFields();
+                        this.ctrlGenericDocumentForm.ClearSearchFields();
                         break;
                     case "btnSchAccept":
-                        this.controller.ReturnSelectedEntity();
+                        this.ctrlGenericDocumentForm.ReturnSelectedEntity();
                         break;
                     case "btnSchClose":
-                        this.controller.CloseForm();
+                        this.ctrlGenericDocumentForm.CloseForm();
                         break;
                     case "btnSchDelete":
-                        this.controller.DeleteEntityProcess();
+                        this.ctrlGenericDocumentForm.DeleteEntityProcess();
                         break;
                     case "btnSchEdit":
-                        this.controller.EditEntityProcess();
+                        this.ctrlGenericDocumentForm.EditEntityProcess();
                         break;
                     case "btnSchCreate":
-                        this.controller.CreateEntityProcess();
+                        this.ctrlGenericDocumentForm.CreateEntityProcess();
                         break;
                     case "btnDetSave":
-                        this.controller.SaveEntityProcess();
+                        this.ctrlGenericDocumentForm.SaveEntityProcess();
                         break;
                     case "btnDetCancel":
-                        this.controller.BackToSearch();
+                        this.ctrlGenericDocumentForm.BackToSearch();
                         break;
                     default:
                         break;
