@@ -10,8 +10,10 @@ namespace Samsara.Main.Forms.Forms
 
         public LoginForm()
         {
+            Random random = new Random();
+
             frmLoadingApplication.Show();
-            Session.Session.Login(new Random().Next().ToString(), new Random().Next().ToString());
+            Session.Session.Login(random.Next().ToString(), random.Next().ToString());
             frmLoadingApplication.Close();
 
             InitializeComponent();
