@@ -6,7 +6,7 @@ using Samsara.Base.Forms.Enums;
 
 namespace Samsara.Base.Forms.Forms
 {
-    public partial class CatalogForm : SamsaraForm
+    public partial class CatalogForm : Form
     {
         #region Attributes
 

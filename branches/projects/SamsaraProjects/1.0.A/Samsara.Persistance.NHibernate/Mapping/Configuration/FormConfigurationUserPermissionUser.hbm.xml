@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="FormConfigurationUserPermissionUser" table="Configuration.FormConfigurationUserPermissionUsers">
+
+    <id name="FormConfigurationUserPermissionUserId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="FormConfigurationUserPermission"
+                 class="Samsara.Configuration.Core.Entities.FormConfigurationUserPermission, Samsara.Configuration.Core"
+                 column="FormConfigurationUserPermissionId"/>
+
+    <many-to-one name="User"
+                 class="Samsara.Main.Core.Entities.User, Samsara.Main.Core"
+                 column="UserId"/>
+    
+  </class>
+
+  <query name="FormConfigurationUserPermissionUser.GetByParameters">
+    <![CDATA[
+        from FormConfigurationUserPermissionUser where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="FormConfigurationUserPermissionUser.GetListByParameters">
+    <![CDATA[
+        from FormConfigurationUserPermissionUser where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="FormConfigurationUserPermissionUser.SearchByParameters">
+    <![CDATA[
+        from FormConfigurationUserPermissionUser where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>

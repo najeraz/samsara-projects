@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\FormConfigurationUserPermissionUser.cs" />
     <Compile Include="Entities\FormConfiguration.cs" />
     <Compile Include="Entities\FormConfigurationGrid.cs" />
     <Compile Include="Entities\FormConfigurationGridColumn.cs" />
