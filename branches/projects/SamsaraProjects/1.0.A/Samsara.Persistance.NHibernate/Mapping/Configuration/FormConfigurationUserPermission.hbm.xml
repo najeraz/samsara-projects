@@ -3,7 +3,7 @@
   assembly="Samsara.Configuration.Core" 
   namespace="Samsara.Configuration.Core.Entities">
   
-  <class name="FormConfigurationUserPermission" table="Main.FormConfigurationUserPermission">
+  <class name="FormConfigurationUserPermission" table="Configuration.FormConfigurationUserPermissions">
     
     <id name="FormConfigurationUserPermissionId" type="int">
       <generator class="native"/>
@@ -22,10 +22,6 @@
     <many-to-one name="FormConfiguration"
                  class="Samsara.Configuration.Core.Entities.FormConfiguration, Samsara.Configuration.Core"
                  column="FormConfigurationId"/>
-
-    <many-to-one name="User"
-                 class="Samsara.Main.Core.Entities.User, Samsara.Main.Core"
-                 column="UserId"/>
     
   </class>
 
