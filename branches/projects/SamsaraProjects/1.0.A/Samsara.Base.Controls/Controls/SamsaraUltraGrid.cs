@@ -10,6 +10,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
+using Samsara.Configuration.Code.Interfaces;
 
 namespace Samsara.Base.Controls.Controls
 {
@@ -47,12 +48,20 @@ namespace Samsara.Base.Controls.Controls
 
                 if (parentFormName != null && parentFormName.Contains("Form"))
                 {
-                    //if (typeof(IConfigurableForm).IsAssignableFrom(someOtherType))
-                    //{
-                    //}
-                    FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
-                    pmtFormConfiguration.FormName = parentFormName;
-                    formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);
+                    Form form = this.FindForm();
+
+                    if (typeof(IConfigurableForm).IsAssignableFrom(form.GetType()))
+                    {
+                        IConfigurableForm configurableForm = form as IConfigurableForm;
+
+                        formConfiguration = configurableForm.FormConfiguration;
+                    }
+                    else
+                    {
+                        FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
+                        pmtFormConfiguration.FormName = parentFormName;
+                        formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);
+                    }
                 }
                 else
                     return;
@@ -67,11 +76,17 @@ namespace Samsara.Base.Controls.Controls
                 string gridName = (lstCustomControlNames.Count == 0 ? "" :
                     string.Join(".", lstCustomControlNames.Reverse().ToArray()) + ".") + this.Name;
 
-                FormConfigurationGridParameters pmtFormConfigurationGrid = new FormConfigurationGridParameters();
-                pmtFormConfigurationGrid.GridName = gridName;
-                pmtFormConfigurationGrid.FormConfigurationId = formConfiguration.FormConfigurationId;
-                FormConfigurationGrid formGrid = srvFormConfigurationGrid.GetByParameters(pmtFormConfigurationGrid);
-                
+                FormConfigurationGrid formGrid = formConfiguration.FormConfigurationGrids
+                    .SingleOrDefault(x => x.GridName == gridName);
+
+                if (formGrid == null)
+                {
+                    FormConfigurationGridParameters pmtFormConfigurationGrid = new FormConfigurationGridParameters();
+                    pmtFormConfigurationGrid.GridName = gridName;
+                    pmtFormConfigurationGrid.FormConfigurationId = formConfiguration.FormConfigurationId;
+                    formGrid = srvFormConfigurationGrid.GetByParameters(pmtFormConfigurationGrid);
+                }
+
                 if (formGrid == null)
                 {
                     formGrid = new FormConfigurationGrid();
