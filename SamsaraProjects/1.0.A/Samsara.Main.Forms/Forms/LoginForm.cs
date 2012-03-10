@@ -11,7 +11,7 @@ namespace Samsara.Main.Forms.Forms
         public LoginForm()
         {
             frmLoadingApplication.Show();
-            Session.Session.Login(string.Empty, string.Empty);
+            Session.Session.Login(new Random().Next().ToString(), new Random().Next().ToString());
             frmLoadingApplication.Close();
 
             InitializeComponent();
