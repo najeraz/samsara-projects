@@ -25,7 +25,7 @@
     
 
     <set name="FormConfigurationUserPermissionUsers" table="Configuration.FormConfigurationUserPermissionUsers" cascade="all-delete-orphan">
-      <key column="FormConfigurationUserPermissionUserId"/>
+      <key column="FormConfigurationUserPermissionId"/>
       <one-to-many
         class="Samsara.Configuration.Core.Entities.FormConfigurationUserPermissionUser, Samsara.Configuration.Core"/>
     </set>
