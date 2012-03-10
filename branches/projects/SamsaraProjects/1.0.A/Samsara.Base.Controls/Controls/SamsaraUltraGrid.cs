@@ -47,6 +47,9 @@ namespace Samsara.Base.Controls.Controls
 
                 if (parentFormName != null && parentFormName.Contains("Form"))
                 {
+                    //if (typeof(IConfigurableForm).IsAssignableFrom(someOtherType))
+                    //{
+                    //}
                     FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
                     pmtFormConfiguration.FormName = parentFormName;
                     formConfiguration = srvFormConfiguration.GetByParameters(pmtFormConfiguration);

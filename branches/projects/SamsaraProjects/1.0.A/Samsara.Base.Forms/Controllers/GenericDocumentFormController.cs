@@ -4,8 +4,12 @@ using System.Data;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Enums;
 using Samsara.Base.Forms.Forms;
+using Samsara.Configuration.Core.Entities;
+using Samsara.Configuration.Core.Parameters;
+using Samsara.Configuration.Service.Interfaces;
 using Samsara.Main.Session;
 
 namespace Samsara.Base.Forms.Controllers
@@ -14,16 +18,29 @@ namespace Samsara.Base.Forms.Controllers
     {
         #region Attributes
 
+        private IFormConfigurationService srvFormConfiguration;
         private GenericDocumentForm frmGenericDocument;
         private DataTable dtSearchGrid;
         protected FormStatusEnum formStatus;
 
         #endregion Attributes
 
+        #region Properties
+
+        protected internal FormConfiguration FormConfiguration
+        {
+            get;
+            private set;
+        }
+
+        #endregion Properties
+
         #region Constructor
 
         public GenericDocumentFormController(GenericDocumentForm frmGenericDocument)
         {
+            FormConfigurationParameters pmtFormConfiguration = new FormConfigurationParameters();
+
             this.frmGenericDocument = frmGenericDocument;
 
             this.frmGenericDocument.grdPrincipal.InitializeLayout
@@ -33,6 +50,11 @@ namespace Samsara.Base.Forms.Controllers
 
             this.formStatus = FormStatusEnum.Search;
             this.ShowDetail(false);
+
+            this.srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+
+            pmtFormConfiguration.FormName = this.frmGenericDocument.Name;
+            this.FormConfiguration = this.srvFormConfiguration.GetByParameters(pmtFormConfiguration);
         }
 
         #endregion Constructor
