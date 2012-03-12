@@ -13,8 +13,13 @@
     <property name="Name"/>
     <property name="Code"/>
     <property name="Description"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
   </class>
 
