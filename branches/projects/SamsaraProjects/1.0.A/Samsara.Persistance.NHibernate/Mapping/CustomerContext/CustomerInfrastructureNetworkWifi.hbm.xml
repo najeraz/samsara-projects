@@ -18,7 +18,7 @@
     
 
     <set name="CustomerInfrastructureNetworkWifiAccessPoints" table="CustomerContext.CustomerInfrastructureNetworkWifiAccessPoints"
-         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan">
       <key column="CustomerInfrastructureNetworkWifiId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkWifiAccessPoint, Samsara.CustomerContext.Core"/>

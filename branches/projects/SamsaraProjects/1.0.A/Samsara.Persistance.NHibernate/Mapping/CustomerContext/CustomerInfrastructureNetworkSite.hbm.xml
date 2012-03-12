@@ -21,7 +21,7 @@
 
 
     <set name="CustomerInfrastructureNetworkSiteRacks" table="CustomerContext.CustomerInfrastructureNetworkSiteRacks"
-         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
+         where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan">
       <key column="CustomerInfrastructureNetworkSiteId"/>
       <one-to-many
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureNetworkSiteRack, Samsara.CustomerContext.Core"/>

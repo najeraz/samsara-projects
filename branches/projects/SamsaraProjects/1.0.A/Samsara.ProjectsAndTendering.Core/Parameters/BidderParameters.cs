@@ -17,5 +17,11 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             get;
             set;
         }
+
+        public Nullable<int> BidderId
+        {
+            get;
+            set;
+        }
     }
 }
