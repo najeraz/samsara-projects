@@ -17,7 +17,7 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
                  column="TenderId"/>
 
-    <many-to-one name="Competitor" lazy="false"
+    <many-to-one name="Competitor"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Competitor, Samsara.ProjectsAndTendering.Core"
                  column="CompetitorId"/>
 

@@ -19,10 +19,10 @@
     <many-to-one name="ExchangeRate"
                  class="Samsara.Operation.Core.Entities.ExchangeRate, Samsara.ProjectsAndTendering.Core"
                  column="ExchangeRateId"/>
-    <many-to-one name="SourceCurrency" lazy="false"
+    <many-to-one name="SourceCurrency"
                  class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="SourceCurrencyId"/>
-    <many-to-one name="DestinyCurrency" lazy="false"
+    <many-to-one name="DestinyCurrency"
                  class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="DestinyCurrencyId"/>
 

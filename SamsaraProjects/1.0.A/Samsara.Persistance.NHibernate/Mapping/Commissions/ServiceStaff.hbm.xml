@@ -20,7 +20,7 @@
                  class="Samsara.Commissions.Core.Entities.Service, Samsara.Commissions.Core"
                  column="ServiceId"/>
 
-    <many-to-one name="Staff" lazy="false"
+    <many-to-one name="Staff"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
                  column="StaffId"/>
 

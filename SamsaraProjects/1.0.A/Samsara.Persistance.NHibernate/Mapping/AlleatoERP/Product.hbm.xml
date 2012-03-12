@@ -20,7 +20,7 @@
     <property name="CreatedOn"/>
     <property name="UpdatedOn"/>
 
-    <many-to-one name="ProductBrand" lazy="false"
+    <many-to-one name="ProductBrand"
                  class="Samsara.AlleatoERP.Core.Entities.ProductBrand, Samsara.AlleatoERP.Core"
                  column="ProductBrandId"/>
 

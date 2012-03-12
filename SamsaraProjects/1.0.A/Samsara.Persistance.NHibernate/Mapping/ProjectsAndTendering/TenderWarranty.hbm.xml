@@ -20,11 +20,11 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"
                  column="TenderId"/>
     
-    <many-to-one name="WarrantyType" lazy="false"
+    <many-to-one name="WarrantyType"
                  class="Samsara.ProjectsAndTendering.Core.Entities.WarrantyType, Samsara.ProjectsAndTendering.Core"
                  column="WarrantyTypeId"/>
     
-    <many-to-one name="DocumentTypeWarranty" lazy="false"
+    <many-to-one name="DocumentTypeWarranty"
                  class="Samsara.ProjectsAndTendering.Core.Entities.DocumentTypeWarranty, Samsara.ProjectsAndTendering.Core"
                  column="DocumentTypeWarrantyId"/>
 
