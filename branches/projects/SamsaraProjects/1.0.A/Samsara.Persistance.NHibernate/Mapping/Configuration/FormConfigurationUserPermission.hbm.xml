@@ -11,6 +11,7 @@
 
     <property name="Name"/>
     <property name="Description"/>
+    <property name="UserPermissionId"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>

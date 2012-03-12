@@ -40,6 +40,12 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
+        public virtual int UserPermissionId
+        {
+            get;
+            set;
+        }
+
         [PropagationAudit]
         public virtual ISet<FormConfigurationUserPermissionUser> FormConfigurationUserPermissionUsers
         {

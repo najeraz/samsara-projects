@@ -13,6 +13,9 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.Support.Util;
+using Samsara.Commissions.Core.Enums;
+using Samsara.Main.Session;
+using Samsara.Configuration.Core.Entities;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -36,6 +39,11 @@ namespace Samsara.Commissions.Forms.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvService = SamsaraAppContext.Resolve<IServiceService>();
+            }
+
+            if (!this.CanOpenForm())
+            {
+                this.frmServicesManagement.Close();
             }
 
             this.InitializeFormControls();
@@ -177,6 +185,21 @@ namespace Samsara.Commissions.Forms.Controllers
         }
 
         #endregion Public
+
+        #region
+
+        private bool CanOpenForm()
+        {
+            FormConfigurationUserPermissionUser formConfigurationUserPermissionUser
+                = this.FormConfiguration.FormConfigurationUserPermissions
+                .SelectMany(x => x.FormConfigurationUserPermissionUsers).SingleOrDefault(x =>
+                    x.FormConfigurationUserPermission.UserPermissionId == (int)ServicesManagementFormUserPermissionEnum.CanOpenForm &&
+                x.User.UserId == Session.User.UserId);
+
+            return formConfigurationUserPermissionUser != null;
+        }
+
+        #endregion
 
         #endregion Methods
 

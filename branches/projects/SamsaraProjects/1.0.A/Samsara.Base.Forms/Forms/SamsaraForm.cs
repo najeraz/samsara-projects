@@ -6,7 +6,7 @@ using Samsara.Configuration.Core.Entities;
 
 namespace Samsara.Base.Forms.Forms
 {
-    public partial class SamsaraForm : Form, IConfigurableForm
+    public partial class SamsaraForm : Form//, IConfigurableForm
     {
         #region Attributes
 
@@ -16,13 +16,13 @@ namespace Samsara.Base.Forms.Forms
 
         #region Properties
 
-        public FormConfiguration FormConfiguration
-        {
-            get
-            {
-                return this.ctrlSamsaraForm.FormConfiguration;
-            }
-        }
+        //public FormConfiguration FormConfiguration
+        //{
+        //    get
+        //    {
+        //        return this.ctrlSamsaraForm.FormConfiguration;
+        //    }
+        //}
 
         protected virtual SamsaraFormController Controller
         {
