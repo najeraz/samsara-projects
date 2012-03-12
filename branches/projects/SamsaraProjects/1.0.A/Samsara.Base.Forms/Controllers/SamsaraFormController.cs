@@ -18,7 +18,7 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Properties
 
-        internal FormConfiguration FormConfiguration
+        protected FormConfiguration FormConfiguration
         {
             get;
             private set;
