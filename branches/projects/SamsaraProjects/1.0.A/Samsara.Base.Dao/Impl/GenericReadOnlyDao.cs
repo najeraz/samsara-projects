@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
+using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Impl;
 using Samsara.Base.Dao.Interfaces;
@@ -26,7 +27,8 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual T GetById(TId Id)
         {
-            return this.HibernateTemplate.Get<T>(Id);
+            ISession session = HibernateTemplate.SessionFactory.OpenSession();
+            return session.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()
