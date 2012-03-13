@@ -1,10 +1,10 @@
 ﻿
+using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Service.Impl;
-using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class AlleatoERPService : GenericReadOnlyService, IGenericReadOnlyService
+    public class AlleatoERPService : GenericReadOnlyService, IAlleatoERPService
     {
     }
 }
