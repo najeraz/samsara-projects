@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class DocumentTypeWarrantyService : GenericService<DocumentTypeWarranty, int, IDocumentTypeWarrantyDao, DocumentTypeWarrantyParameters>, IDocumentTypeWarrantyService
+    public class DocumentTypeWarrantyService : BaseService<DocumentTypeWarranty, int, IDocumentTypeWarrantyDao, DocumentTypeWarrantyParameters>, IDocumentTypeWarrantyService
     {
     }
 }

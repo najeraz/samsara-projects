@@ -106,8 +106,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\BasecReadOnlyDao.cs" />
+    <Compile Include="Impl\BaseReadOnlyDao.cs" />
     <Compile Include="Impl\BaseDao.cs" />
+    <Compile Include="Impl\GenericReadOnlyDao.cs" />
+    <Compile Include="Impl\GenericDao.cs" />
+    <Compile Include="Interfaces\IGenericReadOnlyDao.cs" />
+    <Compile Include="Interfaces\IGenericDao.cs" />
     <Compile Include="Interfaces\IBaseDao.cs" />
     <Compile Include="Interfaces\IBaseReadOnlyDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

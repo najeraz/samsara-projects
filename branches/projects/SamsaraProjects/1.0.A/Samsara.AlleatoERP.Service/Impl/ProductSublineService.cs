@@ -7,7 +7,7 @@ using Samsara.Base.Service.Impl;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class ProductSublineService : GenericReadOnlyService<ProductSubline, int, IProductSublineDao, ProductSublineParameters>, IProductSublineService
+    public class ProductSublineService : BaseReadOnlyService<ProductSubline, int, IProductSublineDao, ProductSublineParameters>, IProductSublineService
     {
     }
 }

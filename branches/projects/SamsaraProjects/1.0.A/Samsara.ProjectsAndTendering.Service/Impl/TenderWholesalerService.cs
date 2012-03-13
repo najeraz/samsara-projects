@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class TenderWholesalerService : GenericService<TenderWholesaler, int, ITenderWholesalerDao, TenderWholesalerParameters>, ITenderWholesalerService
+    public class TenderWholesalerService : BaseService<TenderWholesaler, int, ITenderWholesalerDao, TenderWholesalerParameters>, ITenderWholesalerService
     {
     }
 }

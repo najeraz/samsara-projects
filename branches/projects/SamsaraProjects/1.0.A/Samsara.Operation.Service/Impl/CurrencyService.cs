@@ -7,7 +7,7 @@ using Samsara.Operation.Service.Interfaces;
 
 namespace Samsara.Operation.Service.Impl
 {
-    public class CurrencyService : GenericService<Currency, int, ICurrencyDao, CurrencyParameters>, ICurrencyService
+    public class CurrencyService : BaseService<Currency, int, ICurrencyDao, CurrencyParameters>, ICurrencyService
     {
         public override void Save(Currency entity)
         {

@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Samsara.Base.Service.Interfaces
 {
-    public interface IGenericReadOnlyService<T, TId, Tpmt>
+    public interface IBaseReadOnlyService<T, TId, Tpmt>
     {
         #region Methods
 

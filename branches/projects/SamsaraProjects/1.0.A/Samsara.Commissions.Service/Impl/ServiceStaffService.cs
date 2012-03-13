@@ -7,7 +7,7 @@ using Samsara.Commissions.Service.Interfaces;
 
 namespace Samsara.Commissions.Service.Impl
 {
-    public class ServiceStaffService : GenericService<ServiceStaff, int, IServiceStaffDao, ServiceStaffParameters>, IServiceStaffService
+    public class ServiceStaffService : BaseService<ServiceStaff, int, IServiceStaffDao, ServiceStaffParameters>, IServiceStaffService
     {
     }
 }

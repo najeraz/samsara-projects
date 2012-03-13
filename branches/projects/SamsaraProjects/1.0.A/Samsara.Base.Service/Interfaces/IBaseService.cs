@@ -1,7 +1,7 @@
 ﻿
 namespace Samsara.Base.Service.Interfaces
 {
-    public interface IGenericService<T, TId, Tpmt> : IGenericReadOnlyService<T, TId, Tpmt>
+    public interface IGenericService<T, TId, Tpmt> : IBaseReadOnlyService<T, TId, Tpmt>
     {
         #region Methods
 

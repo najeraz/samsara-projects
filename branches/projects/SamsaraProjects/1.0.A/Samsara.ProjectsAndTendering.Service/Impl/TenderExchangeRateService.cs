@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class TenderExchangeRateService : GenericService<TenderExchangeRate, int, ITenderExchangeRateDao, TenderExchangeRateParameters>, ITenderExchangeRateService
+    public class TenderExchangeRateService : BaseService<TenderExchangeRate, int, ITenderExchangeRateDao, TenderExchangeRateParameters>, ITenderExchangeRateService
     {
     }
 }

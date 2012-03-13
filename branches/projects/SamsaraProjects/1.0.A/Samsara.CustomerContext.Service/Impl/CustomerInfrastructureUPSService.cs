@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CustomerInfrastructureUPSService : GenericService<CustomerInfrastructureUPS, int, ICustomerInfrastructureUPSDao, CustomerInfrastructureUPSParameters>, ICustomerInfrastructureUPSService
+    public class CustomerInfrastructureUPSService : BaseService<CustomerInfrastructureUPS, int, ICustomerInfrastructureUPSDao, CustomerInfrastructureUPSParameters>, ICustomerInfrastructureUPSService
     {
     }
 }

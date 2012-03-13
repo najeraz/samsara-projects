@@ -7,7 +7,7 @@ using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Main.Service.Impl
 {
-    public class SchemeService : GenericService<Scheme, int, ISchemeDao, SchemeParameters>, ISchemeService
+    public class SchemeService : BaseService<Scheme, int, ISchemeDao, SchemeParameters>, ISchemeService
     {
     }
 }

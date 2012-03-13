@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class FirewallBrandService : GenericService<FirewallBrand, int, IFirewallBrandDao, FirewallBrandParameters>, IFirewallBrandService
+    public class FirewallBrandService : BaseService<FirewallBrand, int, IFirewallBrandDao, FirewallBrandParameters>, IFirewallBrandService
     {
     }
 }

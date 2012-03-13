@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class SwitchBrandService : GenericService<SwitchBrand, int, ISwitchBrandDao, SwitchBrandParameters>, ISwitchBrandService
+    public class SwitchBrandService : BaseService<SwitchBrand, int, ISwitchBrandDao, SwitchBrandParameters>, ISwitchBrandService
     {
     }
 }

@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class SecuritySoftwareTypeService : GenericService<SecuritySoftwareType, int, ISecuritySoftwareTypeDao, SecuritySoftwareTypeParameters>, ISecuritySoftwareTypeService
+    public class SecuritySoftwareTypeService : BaseService<SecuritySoftwareType, int, ISecuritySoftwareTypeDao, SecuritySoftwareTypeParameters>, ISecuritySoftwareTypeService
     {
     }
 }

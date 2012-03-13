@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class PricingStrategyService : GenericService<PricingStrategy, int, IPricingStrategyDao, PricingStrategyParameters>, IPricingStrategyService
+    public class PricingStrategyService : BaseService<PricingStrategy, int, IPricingStrategyDao, PricingStrategyParameters>, IPricingStrategyService
     {
     }
 }
