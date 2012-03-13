@@ -2,10 +2,12 @@
 using System;
 using System.Data;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Forms.Enums;
 using Samsara.Base.Forms.Forms;
+using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Main.Session;
 
@@ -37,6 +39,7 @@ namespace Samsara.Base.Forms.Controllers
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
             this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
+            this.frmGenericDocument.Text = this.FormConfiguration.FormEndUserName;
 
             this.formStatus = FormStatusEnum.Search;
             this.ShowDetail(false);
@@ -49,6 +52,31 @@ namespace Samsara.Base.Forms.Controllers
         #region Protected
 
         protected abstract void InitializeFormControls();
+
+        protected virtual void ReadOnlySearchFields(bool readOnly)
+        {
+            this.frmGenericDocument.btnDetCancel.Enabled = !readOnly;
+            this.frmGenericDocument.btnDetSave.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchAccept.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchClear.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchClose.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchCreate.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchDelete.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchEdit.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchSearch.Enabled = !readOnly;
+            this.frmGenericDocument.btnSchShowDetail.Enabled = !readOnly;
+        }
+
+        protected bool HasPermission(Enum permission)
+        {
+            FormConfigurationUserPermissionUser formConfigurationUserPermissionUser
+                = this.FormConfiguration.FormConfigurationUserPermissions
+                .SelectMany(x => x.FormConfigurationUserPermissionUsers).SingleOrDefault(x =>
+                    x.FormConfigurationUserPermission.UserPermissionId == Convert.ToInt32(permission) &&
+                x.User.UserId == Session.User.UserId);
+
+            return formConfigurationUserPermissionUser != null;
+        }
 
         #endregion Protected
 
