@@ -74,6 +74,10 @@
   <ItemGroup>
     <Compile Include="Impl\BaseReadOnlyService.cs" />
     <Compile Include="Impl\BaseService.cs" />
+    <Compile Include="Impl\GenericService.cs" />
+    <Compile Include="Impl\GenericReadOnlyService.cs" />
+    <Compile Include="Interfaces\IGenericService.cs" />
+    <Compile Include="Interfaces\IGenericReadOnlyService.cs" />
     <Compile Include="Interfaces\IBaseReadOnlyService.cs" />
     <Compile Include="Interfaces\IBaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
