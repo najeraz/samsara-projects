@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructureNetworkFirewall : GenericEntity
+    public class CustomerInfrastructureNetworkFirewall : BaseEntity
     {
         public CustomerInfrastructureNetworkFirewall()
         {

@@ -4,7 +4,7 @@ using Samsara.Operation.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderLineCompetitor : GenericEntity
+    public class TenderLineCompetitor : BaseEntity
     {
         public TenderLineCompetitor()
         {

@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class OpportunityType : GenericEntity
+    public class OpportunityType : BaseEntity
     {
         public OpportunityType()
         {

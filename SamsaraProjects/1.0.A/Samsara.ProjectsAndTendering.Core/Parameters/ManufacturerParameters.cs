@@ -3,7 +3,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class ManufacturerParameters : GenericParameters
+    public class ManufacturerParameters : BaseParameters
     {
         public string Name
         {

@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class DBMS : GenericEntity
+    public class DBMS : BaseEntity
     {
         public DBMS()
         {

@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructureNetworkSiteRack : GenericEntity
+    public class CustomerInfrastructureNetworkSiteRack : BaseEntity
     {
         public CustomerInfrastructureNetworkSiteRack()
         {

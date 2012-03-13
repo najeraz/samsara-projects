@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderWarranty : GenericEntity
+    public class TenderWarranty : BaseEntity
     {
         public TenderWarranty()
         {

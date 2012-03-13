@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class BidderParameters : GenericParameters
+    public class BidderParameters : BaseParameters
     {
         public string Name
         {

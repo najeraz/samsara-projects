@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IUPSTypeDao : IGenericDao<UPSType, int, UPSTypeParameters>
+    public interface IUPSTypeDao : IBaseDao<UPSType, int, UPSTypeParameters>
     {
     }
 }

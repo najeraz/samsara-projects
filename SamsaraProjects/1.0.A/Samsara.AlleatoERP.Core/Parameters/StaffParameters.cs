@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Core.Parameters
 {
-    public class StaffParameters : GenericParameters
+    public class StaffParameters : BaseParameters
     {
         public StaffParameters()
         {

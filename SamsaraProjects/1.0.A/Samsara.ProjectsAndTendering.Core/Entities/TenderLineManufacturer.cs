@@ -3,7 +3,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderLineManufacturer : GenericEntity
+    public class TenderLineManufacturer : BaseEntity
     {
         public TenderLineManufacturer()
         {

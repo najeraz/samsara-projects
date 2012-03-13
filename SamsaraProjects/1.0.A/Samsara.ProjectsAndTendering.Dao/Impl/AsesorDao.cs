@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class AsesorDao : GenericDao<Asesor, int, AsesorParameters>, IAsesorDao
+    public class AsesorDao : BaseDao<Asesor, int, AsesorParameters>, IAsesorDao
     {
     }
 }

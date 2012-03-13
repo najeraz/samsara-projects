@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class ISP : GenericEntity
+    public class ISP : BaseEntity
     {
         public ISP()
         {

@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class AccessPointBrandDao : GenericDao<AccessPointBrand, int, AccessPointBrandParameters>, IAccessPointBrandDao
+    public class AccessPointBrandDao : BaseDao<AccessPointBrand, int, AccessPointBrandParameters>, IAccessPointBrandDao
     {
     }
 }

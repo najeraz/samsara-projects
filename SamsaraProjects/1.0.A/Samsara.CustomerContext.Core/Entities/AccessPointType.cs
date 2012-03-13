@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class AccessPointType : GenericEntity
+    public class AccessPointType : BaseEntity
     {
         public AccessPointType()
         {

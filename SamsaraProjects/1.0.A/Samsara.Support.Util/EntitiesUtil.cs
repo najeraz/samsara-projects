@@ -120,27 +120,27 @@ namespace Samsara.Support.Util
 
             int primaryKeyValue = Convert.ToInt32(EntitiesUtil.GetPrimaryKeyPropertyValue(entityType, entity));
 
-            if (entity.GetType().IsSubclassOf(typeof(GenericEntity)))
+            if (entity.GetType().IsSubclassOf(typeof(BaseEntity)))
             {
                 ISession session = SamsaraAppContext.Resolve<ISession>();
 
                 if (primaryKeyValue <= 0)
                 {
-                    if ((entity as GenericEntity).Activated == null)
+                    if ((entity as BaseEntity).Activated == null)
                     {
-                        (entity as GenericEntity).Activated = true;
+                        (entity as BaseEntity).Activated = true;
                     }
-                    if ((entity as GenericEntity).Deleted == null)
+                    if ((entity as BaseEntity).Deleted == null)
                     {
-                        (entity as GenericEntity).Deleted = false;
+                        (entity as BaseEntity).Deleted = false;
                     }
-                    (entity as GenericEntity).CreatedBy = session.UserId;
-                    (entity as GenericEntity).CreatedOn = dtNow;
+                    (entity as BaseEntity).CreatedBy = session.UserId;
+                    (entity as BaseEntity).CreatedOn = dtNow;
                 }
                 else
                 {
-                    (entity as GenericEntity).UpdatedBy = session.UserId;
-                    (entity as GenericEntity).UpdatedOn = dtNow;
+                    (entity as BaseEntity).UpdatedBy = session.UserId;
+                    (entity as BaseEntity).UpdatedOn = dtNow;
                 }
             }
 
@@ -149,7 +149,7 @@ namespace Samsara.Support.Util
             {
                 object value = entity.GetType().GetProperty(propertyInfo.Name).GetValue(entity, null);
 
-                if (value != null && value.GetType().IsSubclassOf(typeof(GenericEntity)))
+                if (value != null && value.GetType().IsSubclassOf(typeof(BaseEntity)))
                 {
                     ProcessAuditProperties(value, dtNow);
                 }
@@ -158,7 +158,7 @@ namespace Samsara.Support.Util
                 {
                     foreach (object item in (value as IEnumerable))
                     {
-                        if (item != null && item.GetType().IsSubclassOf(typeof(GenericEntity)))
+                        if (item != null && item.GetType().IsSubclassOf(typeof(BaseEntity)))
                         {
                             ProcessAuditProperties(item, dtNow);
                         }

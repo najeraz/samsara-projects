@@ -360,7 +360,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\Base\GenericBaseDao.hbm.xml">
+    <EmbeddedResource Include="Mapping\Base\BaseReadOnlyDao.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

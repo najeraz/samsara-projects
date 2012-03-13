@@ -5,7 +5,7 @@ using Samsara.Commissions.Core.Parameters;
 
 namespace Samsara.Commissions.Dao.Interfaces
 {
-    public interface IServiceDao : IGenericDao<Service, int, ServiceParameters>
+    public interface IServiceDao : IBaseDao<Service, int, ServiceParameters>
     {
     }
 }

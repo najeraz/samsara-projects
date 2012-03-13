@@ -5,7 +5,7 @@ using Samsara.Operation.Core.Parameters;
 
 namespace Samsara.Operation.Dao.Interfaces
 {
-    public interface ICurrencyDao : IGenericDao<Currency, int, CurrencyParameters>
+    public interface ICurrencyDao : IBaseDao<Currency, int, CurrencyParameters>
     {
     }
 }

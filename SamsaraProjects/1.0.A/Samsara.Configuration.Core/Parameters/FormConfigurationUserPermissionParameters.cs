@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Configuration.Core.Parameters
 {
-    public class FormConfigurationUserPermissionParameters : GenericParameters
+    public class FormConfigurationUserPermissionParameters : BaseParameters
     {
         public FormConfigurationUserPermissionParameters()
         {

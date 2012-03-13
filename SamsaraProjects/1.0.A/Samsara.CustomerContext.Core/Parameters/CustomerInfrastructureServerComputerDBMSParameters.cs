@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class CustomerInfrastructureServerComputerDBMSParameters : GenericParameters
+    public class CustomerInfrastructureServerComputerDBMSParameters : BaseParameters
     {
         public CustomerInfrastructureServerComputerDBMSParameters()
         {

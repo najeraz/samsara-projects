@@ -3,7 +3,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Core.Parameters
 {
-    public class ProductBrandParameters : GenericParameters
+    public class ProductBrandParameters : BaseParameters
     {
         public string Name
         {

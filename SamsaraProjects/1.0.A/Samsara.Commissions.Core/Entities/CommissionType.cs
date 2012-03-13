@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Commissions.Core.Entities
 {
-    public class CommissionType : GenericEntity
+    public class CommissionType : BaseEntity
     {
         
         public CommissionType()

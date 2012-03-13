@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface ICompetitorDao : IGenericDao<Competitor, int, CompetitorParameters>
+    public interface ICompetitorDao : IBaseDao<Competitor, int, CompetitorParameters>
     {
     }
 }

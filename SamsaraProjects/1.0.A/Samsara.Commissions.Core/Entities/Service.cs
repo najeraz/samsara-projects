@@ -1,11 +1,12 @@
 ﻿
+using System;
 using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
 namespace Samsara.Commissions.Core.Entities
 {
-    public class Service : GenericEntity
+    public class Service : BaseEntity
     {
         private ISet<ServiceStaff> serviceStaff;
 
@@ -22,6 +23,18 @@ namespace Samsara.Commissions.Core.Entities
         }
 
         public virtual int ServiceNumber
+        {
+            get;
+            set;
+        }
+
+        public virtual bool Authorized
+        {
+            get;
+            set;
+        }
+
+        public virtual bool Processed
         {
             get;
             set;

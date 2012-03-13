@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class CustomerInfrastructureTelephonyParameters : GenericParameters
+    public class CustomerInfrastructureTelephonyParameters : BaseParameters
     {
         public CustomerInfrastructureTelephonyParameters()
         {

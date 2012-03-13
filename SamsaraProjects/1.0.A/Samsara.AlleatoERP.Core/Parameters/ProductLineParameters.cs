@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Core.Parameters
 {
-    public class ProductLineParameters : GenericParameters
+    public class ProductLineParameters : BaseParameters
     {
         public ProductLineParameters()
         {

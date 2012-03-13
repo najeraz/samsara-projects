@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class ProductLine : GenericEntity
+    public class ProductLine : BaseEntity
     {
         public ProductLine()
         {

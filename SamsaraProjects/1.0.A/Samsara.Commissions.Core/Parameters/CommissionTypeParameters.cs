@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Commissions.Core.Parameters
 {
-    public class CommissionTypeParameters : GenericParameters
+    public class CommissionTypeParameters : BaseParameters
     {
         public CommissionTypeParameters()
         {

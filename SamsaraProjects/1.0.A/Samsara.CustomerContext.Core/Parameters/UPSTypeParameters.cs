@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class UPSTypeParameters : GenericParameters
+    public class UPSTypeParameters : BaseParameters
     {
         public UPSTypeParameters()
         {

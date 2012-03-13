@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class SecuritySoftwareBrand : GenericEntity
+    public class SecuritySoftwareBrand : BaseEntity
     {
         public SecuritySoftwareBrand()
         {

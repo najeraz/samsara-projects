@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class RouterBrandDao : GenericDao<RouterBrand, int, RouterBrandParameters>, IRouterBrandDao
+    public class RouterBrandDao : BaseDao<RouterBrand, int, RouterBrandParameters>, IRouterBrandDao
     {
     }
 }

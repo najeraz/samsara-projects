@@ -5,7 +5,7 @@ using Samsara.Operation.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderExchangeRate : GenericEntity
+    public class TenderExchangeRate : BaseEntity
     {
         public TenderExchangeRate()
         {

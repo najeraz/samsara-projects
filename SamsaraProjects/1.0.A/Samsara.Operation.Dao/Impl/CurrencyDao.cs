@@ -6,7 +6,7 @@ using Samsara.Operation.Dao.Interfaces;
 
 namespace Samsara.Operation.Dao.Impl
 {
-    public class CurrencyDao : GenericDao<Currency, int, CurrencyParameters>, ICurrencyDao
+    public class CurrencyDao : BaseDao<Currency, int, CurrencyParameters>, ICurrencyDao
     {
     }
 }

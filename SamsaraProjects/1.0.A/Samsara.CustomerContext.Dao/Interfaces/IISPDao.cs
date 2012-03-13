@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IISPDao : IGenericDao<ISP, int, ISPParameters>
+    public interface IISPDao : IBaseDao<ISP, int, ISPParameters>
     {
     }
 }

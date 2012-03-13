@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class OpportunityLog : GenericEntity
+    public class OpportunityLog : BaseEntity
     {
         public OpportunityLog()
         {

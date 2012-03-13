@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class DependencyParameters : GenericParameters
+    public class DependencyParameters : BaseParameters
     {
         public string Name
         {

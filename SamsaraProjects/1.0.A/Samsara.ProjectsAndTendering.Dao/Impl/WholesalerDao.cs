@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class WholesalerDao : GenericDao<Wholesaler, int, WholesalerParameters>, IWholesalerDao
+    public class WholesalerDao : BaseDao<Wholesaler, int, WholesalerParameters>, IWholesalerDao
     {
     }
 }

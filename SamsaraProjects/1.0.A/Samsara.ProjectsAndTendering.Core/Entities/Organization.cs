@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class Organization : GenericEntity
+    public class Organization : BaseEntity
     {
         public Organization()
         {

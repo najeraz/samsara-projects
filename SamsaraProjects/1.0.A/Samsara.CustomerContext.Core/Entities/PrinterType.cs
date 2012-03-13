@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class PrinterType : GenericEntity
+    public class PrinterType : BaseEntity
     {
         public PrinterType()
         {

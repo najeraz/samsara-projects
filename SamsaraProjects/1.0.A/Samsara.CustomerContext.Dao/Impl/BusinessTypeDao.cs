@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class BusinessTypeDao : GenericDao<BusinessType, int, BusinessTypeParameters>, IBusinessTypeDao
+    public class BusinessTypeDao : BaseDao<BusinessType, int, BusinessTypeParameters>, IBusinessTypeDao
     {
     }
 }

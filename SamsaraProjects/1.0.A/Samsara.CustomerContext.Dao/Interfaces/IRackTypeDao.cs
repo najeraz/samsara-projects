@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IRackTypeDao : IGenericDao<RackType, int, RackTypeParameters>
+    public interface IRackTypeDao : IBaseDao<RackType, int, RackTypeParameters>
     {
     }
 }

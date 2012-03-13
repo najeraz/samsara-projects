@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class Competitor : GenericEntity
+    public class Competitor : BaseEntity
     {
         public Competitor()
         {

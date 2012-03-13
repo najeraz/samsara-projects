@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICustomerInfrastructureNetworkFirewallDao : IGenericDao<CustomerInfrastructureNetworkFirewall, int, CustomerInfrastructureNetworkFirewallParameters>
+    public interface ICustomerInfrastructureNetworkFirewallDao : IBaseDao<CustomerInfrastructureNetworkFirewall, int, CustomerInfrastructureNetworkFirewallParameters>
     {
     }
 }

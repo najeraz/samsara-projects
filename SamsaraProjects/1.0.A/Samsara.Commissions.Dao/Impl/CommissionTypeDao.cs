@@ -6,7 +6,7 @@ using Samsara.Commissions.Dao.Interfaces;
 
 namespace Samsara.Commissions.Dao.Impl
 {
-    public class CommissionTypeDao : GenericDao<CommissionType, int, CommissionTypeParameters>, ICommissionTypeDao
+    public class CommissionTypeDao : BaseDao<CommissionType, int, CommissionTypeParameters>, ICommissionTypeDao
     {
     }
 }

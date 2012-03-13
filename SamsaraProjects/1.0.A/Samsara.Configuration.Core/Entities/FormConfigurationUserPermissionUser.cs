@@ -5,7 +5,7 @@ using Samsara.Main.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class FormConfigurationUserPermissionUser : GenericEntity
+    public class FormConfigurationUserPermissionUser : BaseEntity
     {
 
         public FormConfigurationUserPermissionUser()

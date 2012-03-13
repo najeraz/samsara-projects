@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class RouterBrandParameters : GenericParameters
+    public class RouterBrandParameters : BaseParameters
     {
         public RouterBrandParameters()
         {

@@ -5,7 +5,7 @@ using Samsara.Base.Dao.Interfaces;
 
 namespace Samsara.AlleatoERP.Dao.Interfaces
 {
-    public interface IProductLineDao : IGenericReadOnlyDao<ProductLine, int, ProductLineParameters>
+    public interface IProductLineDao : IBaseReadOnlyDao<ProductLine, int, ProductLineParameters>
     {
     }
 }
