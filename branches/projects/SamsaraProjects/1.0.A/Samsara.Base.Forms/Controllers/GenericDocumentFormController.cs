@@ -48,69 +48,33 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Protected
 
-        protected virtual void InitializeFormControls()
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract void InitializeFormControls();
 
         #endregion Protected
 
         #region Public
 
-        public virtual void Search()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Search();
 
-        public virtual void ClearSearchFields()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void ClearSearchFields();
 
-        public virtual void ReturnSelectedEntity()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void ReturnSelectedEntity();
 
-        public virtual void DeleteEntity()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void DeleteEntity();
 
-        public virtual void CreateEntity()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void CreateEntity();
 
-        public virtual void SaveEntity()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void SaveEntity();
 
-        public virtual bool ValidateFormInformation()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract bool ValidateFormInformation();
 
-        public virtual void LoadDetail()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void LoadDetail();
 
-        public virtual void ClearDetailFields()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void ClearDetailFields();
 
-        public virtual void ReadOnlyDetailFields(bool readOnly)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void ReadOnlyDetailFields(bool readOnly);
 
-        public virtual bool LoadEntity(int entityId)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract bool LoadEntity(int entityId);
 
         public virtual bool ConfirmDeleteEntity()
         {
