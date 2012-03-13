@@ -18,10 +18,10 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
-    <many-to-one name="SourceCurrency"
+    <many-to-one name="SourceCurrency" lazy="false"
                  class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="SourceCurrencyId"/>
-    <many-to-one name="DestinyCurrency"
+    <many-to-one name="DestinyCurrency" lazy="false"
                  class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
                  column="DestinyCurrencyId"/>
 

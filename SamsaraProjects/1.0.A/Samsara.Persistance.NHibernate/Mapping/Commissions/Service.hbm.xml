@@ -12,8 +12,6 @@
     <property name="ServiceNumber"/>
     <property name="ServiceAmount"/>
     <property name="StaffNames"/>
-    <property name="Processed"/>
-    <property name="Authorized"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
@@ -23,7 +21,7 @@
     <property name="Deleted"/>
 
     <set name="ServiceStaff" table="Commissions.ServiceStaff" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan">
+         cascade="all-delete-orphan" lazy="false">
       <key column="ServiceId"/>
       <one-to-many
         class="Samsara.Commissions.Core.Entities.ServiceStaff, Samsara.Commissions.Core"/>

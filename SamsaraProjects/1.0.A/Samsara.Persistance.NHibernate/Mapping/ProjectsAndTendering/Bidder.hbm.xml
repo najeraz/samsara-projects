@@ -10,13 +10,8 @@
     </id>
 
     <property name="Name"/>
-
-    <property name="UpdatedBy"/>
-    <property name="CreatedBy"/>
-    <property name="CreatedOn"/>
-    <property name="UpdatedOn"/>
-    <property name="Activated"/>
     <property name="Deleted"/>
+    <property name="Activated"/>
 
     <many-to-one name="BidderType"
                  class="Samsara.ProjectsAndTendering.Core.Entities.BidderType, Samsara.ProjectsAndTendering.Core"
@@ -24,13 +19,6 @@
 
   </class>
 
-  <query name="Bidder.GetByParameters">
-    <![CDATA[
-        from Bidder where Deleted = 0 and Activated = 1
-        and BidderId = : BidderId
-    ]]>
-  </query>
-  
   <query name="Bidder.GetListByParameters">
     <![CDATA[
         from Bidder where Deleted = 0 and Activated = 1
