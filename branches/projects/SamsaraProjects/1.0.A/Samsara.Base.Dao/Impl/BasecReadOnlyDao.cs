@@ -27,8 +27,7 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual T GetById(TId Id)
         {
-            ISession session = HibernateTemplate.SessionFactory.GetCurrentSession();
-            return session.Get<T>(Id);
+            return this.HibernateTemplate.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()

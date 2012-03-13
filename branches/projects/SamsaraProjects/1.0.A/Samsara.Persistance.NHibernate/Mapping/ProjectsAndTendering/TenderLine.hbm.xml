@@ -32,7 +32,7 @@
                  class="Samsara.ProjectsAndTendering.Core.Entities.Competitor, Samsara.ProjectsAndTendering.Core"
                  column="CompetitorWonId"/>
 
-    <many-to-one name="Product"
+    <many-to-one name="Product" lazy="false"
                  class="Samsara.AlleatoERP.Core.Entities.Product, Samsara.Operation.Core"
                  column="ProductId"/>
 
@@ -44,28 +44,28 @@
       class="Samsara.ProjectsAndTendering.Core.Entities.PricingStrategy, Samsara.ProjectsAndTendering.Core"/>
 
     <set name="TenderLineManufacturers" table="ProjectsAndTendering.TenderLineManufacturers" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan">
+         cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineManufacturer, Samsara.ProjectsAndTendering.Core"/>
     </set>
 
     <set name="TenderLineWholesalers" table="ProjectsAndTendering.TenderLineWholesalers" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan">
+         cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineWholesaler, Samsara.ProjectsAndTendering.Core"/>
     </set>
 
     <set name="TenderLineCompetitors" table="ProjectsAndTendering.TenderLineCompetitors" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan">
+         cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineCompetitor, Samsara.ProjectsAndTendering.Core"/>
     </set>
 
     <set name="TenderLineExtraCosts" table="ProjectsAndTendering.TenderLineExtraCosts" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan">
+         cascade="all-delete-orphan" lazy="false">
       <key column="TenderLineId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLineExtraCost, Samsara.ProjectsAndTendering.Core"/>
