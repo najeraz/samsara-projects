@@ -21,9 +21,7 @@ namespace Samsara.Support.Util
         }
 
 
-        public static void CopyProperties<T, Q>(Q Dest, T Src)
-            where T : new()
-            where Q : new()
+        public static void CopyProperties(object Dest, object Src)
         {
             foreach (PropertyInfo objSrcPI in Src.GetType().GetProperties())
             {

@@ -159,11 +159,22 @@ namespace Samsara.Commissions.Forms.Controllers
             this.service = new Core.Entities.Service();
         }
 
+        public override void ReadOnlyDetailFields(bool readOnly)
+        {
+            this.frmServicesManagement.txtDetServiceAmount.ReadOnly = readOnly;
+            this.frmServicesManagement.txtDetServiceNumber.ReadOnly = readOnly;
+            this.frmServicesManagement.sccDetStaff.ReadOnly = readOnly;
+            this.frmServicesManagement.uchkDetAuthorized.Enabled = !readOnly;
+            this.frmServicesManagement.uchkDetProcessed.Enabled = !readOnly;
+        }
+
         public override void LoadDetail()
         {
             this.frmServicesManagement.txtDetServiceAmount.Value = this.service.ServiceAmount;
             this.frmServicesManagement.txtDetServiceNumber.Value = this.service.ServiceNumber;
             this.frmServicesManagement.sccDetStaff.Values = this.service.ServiceStaff.Select(x => x.Staff).ToList();
+            this.frmServicesManagement.uchkDetAuthorized.Checked = this.service.Authorized;
+            this.frmServicesManagement.uchkDetProcessed.Checked = this.service.Processed;
         }
 
         public override void SaveEntity()
@@ -171,6 +182,14 @@ namespace Samsara.Commissions.Forms.Controllers
             this.service.ServiceAmount = Convert.ToDecimal(this.frmServicesManagement.txtDetServiceAmount.Value);
             this.service.ServiceNumber = Convert.ToInt32(this.frmServicesManagement.txtDetServiceNumber.Value);
             this.service.StaffNames = string.Join(", ", this.frmServicesManagement.sccDetStaff.Values.Select(x => x.Fullname).ToArray());
+            this.service.Authorized = this.frmServicesManagement.uchkDetAuthorized.Checked;
+            this.service.Processed = this.frmServicesManagement.uchkDetProcessed.Checked;
+
+            foreach (ServiceStaff serviceStaff in this.service.ServiceStaff)
+            {
+                serviceStaff.Activated = false;
+                serviceStaff.Deleted = true;
+            }
 
             foreach (Staff staff in this.frmServicesManagement.sccDetStaff.Values)
             {
