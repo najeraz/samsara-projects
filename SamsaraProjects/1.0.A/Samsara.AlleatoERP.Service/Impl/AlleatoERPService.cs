@@ -7,30 +7,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class AlleatoERPService : IAlleatoERPService
+    public class AlleatoERPService : GenericReadOnlyService, IGenericReadOnlyService
     {
-        #region Properties
-
-        protected AlleatoERPDao Dao
-        {
-            get;
-            set;
-        }
-
-        #endregion Properties
-
-        #region Methods
-
-        public virtual DateTime GetServerDateTime()
-        {
-            return this.Dao.GetServerDateTime();
-        }
-
-        public DataTable CustomSearchByParameters(string queryName, BaseParameters parameters, bool absoluteColumnNames)
-        {
-            return this.Dao.CustomSearchByParameters(queryName, parameters, absoluteColumnNames);
-        }
-
-        #endregion Methods
     }
 }

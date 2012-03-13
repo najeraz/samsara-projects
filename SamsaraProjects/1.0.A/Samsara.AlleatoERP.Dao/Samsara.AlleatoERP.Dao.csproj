@@ -78,7 +78,6 @@
     <Compile Include="Impl\ProductSublineDao.cs" />
     <Compile Include="Impl\StaffDao.cs" />
     <Compile Include="Interfaces\IERPCustomerDao.cs" />
-    <Compile Include="Interfaces\IAlleatoERPDao.cs" />
     <Compile Include="Interfaces\IProductBrandDao.cs" />
     <Compile Include="Interfaces\IProductDao.cs" />
     <Compile Include="Interfaces\IProductFamilyDao.cs" />
