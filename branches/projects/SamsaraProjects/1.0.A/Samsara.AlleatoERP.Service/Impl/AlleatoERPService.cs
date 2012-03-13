@@ -1,9 +1,6 @@
 ﻿
-using System;
-using System.Data;
-using Samsara.AlleatoERP.Dao.Impl;
-using Samsara.AlleatoERP.Service.Interfaces;
-using Samsara.Base.Core.Parameters;
+using Samsara.Base.Service.Impl;
+using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
