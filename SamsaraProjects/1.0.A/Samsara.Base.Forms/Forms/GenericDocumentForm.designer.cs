@@ -41,11 +41,11 @@
             Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenericDocumentForm));
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.grdPrincipal = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
@@ -56,6 +56,8 @@
             this.btnSchClose = new System.Windows.Forms.Button();
             this.upSchSeparatorDelete = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchDelete = new System.Windows.Forms.Button();
+            this.upSchSeparatorShowDetail = new Infragistics.Win.Misc.UltraPanel();
+            this.btnSchShowDetail = new System.Windows.Forms.Button();
             this.upSchSeparatorEdit = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchEdit = new System.Windows.Forms.Button();
             this.upSchSeparatorCreate = new Infragistics.Win.Misc.UltraPanel();
@@ -70,6 +72,7 @@
             this.gbxSchParameters = new System.Windows.Forms.GroupBox();
             this.upnlSchBottonControls = new Infragistics.Win.Misc.UltraPanel();
             this.ulblSchUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchUsernameTag = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSchNumRows = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSchRowQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.ultraTabPageControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
@@ -82,7 +85,6 @@
             this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.ulblSchUsernameTag = new Infragistics.Win.Misc.UltraLabel();
             this.ultraTabPageControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.upButtons.ClientArea.SuspendLayout();
@@ -90,6 +92,7 @@
             this.upSeparatorAccept.SuspendLayout();
             this.upSchSeparatorClose.SuspendLayout();
             this.upSchSeparatorDelete.SuspendLayout();
+            this.upSchSeparatorShowDetail.SuspendLayout();
             this.upSchSeparatorEdit.SuspendLayout();
             this.upSchSeparatorCreate.SuspendLayout();
             this.upSchSeparatorBottom.SuspendLayout();
@@ -194,6 +197,8 @@
             this.upButtons.ClientArea.Controls.Add(this.btnSchClose);
             this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorDelete);
             this.upButtons.ClientArea.Controls.Add(this.btnSchDelete);
+            this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorShowDetail);
+            this.upButtons.ClientArea.Controls.Add(this.btnSchShowDetail);
             this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorEdit);
             this.upButtons.ClientArea.Controls.Add(this.btnSchEdit);
             this.upButtons.ClientArea.Controls.Add(this.upSchSeparatorCreate);
@@ -208,7 +213,7 @@
             // upSeparatorAccept
             // 
             this.upSeparatorAccept.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSeparatorAccept.Location = new System.Drawing.Point(165, 0);
+            this.upSeparatorAccept.Location = new System.Drawing.Point(74, 0);
             this.upSeparatorAccept.Name = "upSeparatorAccept";
             this.upSeparatorAccept.Size = new System.Drawing.Size(16, 25);
             this.upSeparatorAccept.TabIndex = 10;
@@ -217,7 +222,7 @@
             // btnSchAccept
             // 
             this.btnSchAccept.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchAccept.Location = new System.Drawing.Point(181, 0);
+            this.btnSchAccept.Location = new System.Drawing.Point(90, 0);
             this.btnSchAccept.Name = "btnSchAccept";
             this.btnSchAccept.Size = new System.Drawing.Size(75, 25);
             this.btnSchAccept.TabIndex = 4;
@@ -229,7 +234,7 @@
             // upSchSeparatorClose
             // 
             this.upSchSeparatorClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorClose.Location = new System.Drawing.Point(256, 0);
+            this.upSchSeparatorClose.Location = new System.Drawing.Point(165, 0);
             this.upSchSeparatorClose.Name = "upSchSeparatorClose";
             this.upSchSeparatorClose.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorClose.TabIndex = 8;
@@ -237,7 +242,7 @@
             // btnSchClose
             // 
             this.btnSchClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchClose.Location = new System.Drawing.Point(272, 0);
+            this.btnSchClose.Location = new System.Drawing.Point(181, 0);
             this.btnSchClose.Name = "btnSchClose";
             this.btnSchClose.Size = new System.Drawing.Size(75, 25);
             this.btnSchClose.TabIndex = 5;
@@ -248,7 +253,7 @@
             // upSchSeparatorDelete
             // 
             this.upSchSeparatorDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.upSchSeparatorDelete.Location = new System.Drawing.Point(347, 0);
+            this.upSchSeparatorDelete.Location = new System.Drawing.Point(256, 0);
             this.upSchSeparatorDelete.Name = "upSchSeparatorDelete";
             this.upSchSeparatorDelete.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorDelete.TabIndex = 12;
@@ -256,13 +261,32 @@
             // btnSchDelete
             // 
             this.btnSchDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSchDelete.Location = new System.Drawing.Point(363, 0);
+            this.btnSchDelete.Location = new System.Drawing.Point(272, 0);
             this.btnSchDelete.Name = "btnSchDelete";
             this.btnSchDelete.Size = new System.Drawing.Size(75, 25);
             this.btnSchDelete.TabIndex = 6;
             this.btnSchDelete.Text = "Eliminar";
             this.btnSchDelete.UseVisualStyleBackColor = true;
             this.btnSchDelete.Click += new System.EventHandler(this.btnClick);
+            // 
+            // upSchSeparatorShowDetail
+            // 
+            this.upSchSeparatorShowDetail.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upSchSeparatorShowDetail.Location = new System.Drawing.Point(347, 0);
+            this.upSchSeparatorShowDetail.Name = "upSchSeparatorShowDetail";
+            this.upSchSeparatorShowDetail.Size = new System.Drawing.Size(16, 25);
+            this.upSchSeparatorShowDetail.TabIndex = 13;
+            // 
+            // btnSchShowDetail
+            // 
+            this.btnSchShowDetail.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSchShowDetail.Location = new System.Drawing.Point(363, 0);
+            this.btnSchShowDetail.Name = "btnSchShowDetail";
+            this.btnSchShowDetail.Size = new System.Drawing.Size(75, 25);
+            this.btnSchShowDetail.TabIndex = 14;
+            this.btnSchShowDetail.Text = "Ver Detalle";
+            this.btnSchShowDetail.UseVisualStyleBackColor = true;
+            this.btnSchShowDetail.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorEdit
             // 
@@ -409,6 +433,18 @@
             this.ulblSchUsername.TabIndex = 4;
             this.ulblSchUsername.Text = "[username]";
             // 
+            // ulblSchUsernameTag
+            // 
+            appearance5.TextVAlignAsString = "Middle";
+            this.ulblSchUsernameTag.Appearance = appearance5;
+            this.ulblSchUsernameTag.AutoSize = true;
+            this.ulblSchUsernameTag.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ulblSchUsernameTag.Location = new System.Drawing.Point(0, 0);
+            this.ulblSchUsernameTag.Name = "ulblSchUsernameTag";
+            this.ulblSchUsernameTag.Size = new System.Drawing.Size(46, 20);
+            this.ulblSchUsernameTag.TabIndex = 5;
+            this.ulblSchUsernameTag.Text = "Usuario:";
+            // 
             // ulblSchNumRows
             // 
             appearance2.TextVAlignAsString = "Middle";
@@ -539,18 +575,6 @@
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
             this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
             // 
-            // ulblSchUsernameTag
-            // 
-            appearance5.TextVAlignAsString = "Middle";
-            this.ulblSchUsernameTag.Appearance = appearance5;
-            this.ulblSchUsernameTag.AutoSize = true;
-            this.ulblSchUsernameTag.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ulblSchUsernameTag.Location = new System.Drawing.Point(0, 0);
-            this.ulblSchUsernameTag.Name = "ulblSchUsernameTag";
-            this.ulblSchUsernameTag.Size = new System.Drawing.Size(46, 20);
-            this.ulblSchUsernameTag.TabIndex = 5;
-            this.ulblSchUsernameTag.Text = "Usuario:";
-            // 
             // GenericDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,6 +591,7 @@
             this.upSeparatorAccept.ResumeLayout(false);
             this.upSchSeparatorClose.ResumeLayout(false);
             this.upSchSeparatorDelete.ResumeLayout(false);
+            this.upSchSeparatorShowDetail.ResumeLayout(false);
             this.upSchSeparatorEdit.ResumeLayout(false);
             this.upSchSeparatorCreate.ResumeLayout(false);
             this.upSchSeparatorBottom.ResumeLayout(false);
@@ -627,5 +652,7 @@
         public System.Windows.Forms.Button btnDetCancel;
         private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
         internal Infragistics.Win.Misc.UltraLabel ulblSchUsernameTag;
+        internal Infragistics.Win.Misc.UltraPanel upSchSeparatorShowDetail;
+        public System.Windows.Forms.Button btnSchShowDetail;
     }
 }
