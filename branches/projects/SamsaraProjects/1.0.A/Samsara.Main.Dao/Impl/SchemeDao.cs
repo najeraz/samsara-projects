@@ -6,7 +6,7 @@ using Samsara.Main.Dao.Interfaces;
 
 namespace Samsara.Main.Dao.Impl
 {
-    public class SchemeDao : GenericDao<Scheme, int, SchemeParameters>, ISchemeDao
+    public class SchemeDao : BaseDao<Scheme, int, SchemeParameters>, ISchemeDao
     {
     }
 }

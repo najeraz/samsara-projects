@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.AlleatoERP.Core.Entities
 {
-    public class Staff : GenericEntity
+    public class Staff : BaseEntity
     {
         public Staff()
         {

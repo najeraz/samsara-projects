@@ -26,7 +26,7 @@ namespace Samsara.AlleatoERP.Service.Impl
             return this.Dao.GetServerDateTime();
         }
 
-        public DataTable CustomSearchByParameters(string queryName, GenericParameters parameters, bool absoluteColumnNames)
+        public DataTable CustomSearchByParameters(string queryName, BaseParameters parameters, bool absoluteColumnNames)
         {
             return this.Dao.CustomSearchByParameters(queryName, parameters, absoluteColumnNames);
         }

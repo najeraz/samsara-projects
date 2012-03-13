@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface IPricingStrategyDao : IGenericDao<PricingStrategy, int, PricingStrategyParameters>
+    public interface IPricingStrategyDao : IBaseDao<PricingStrategy, int, PricingStrategyParameters>
     {
     }
 }

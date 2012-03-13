@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IBusinessTypeDao : IGenericDao<BusinessType, int, BusinessTypeParameters>
+    public interface IBusinessTypeDao : IBaseDao<BusinessType, int, BusinessTypeParameters>
     {
     }
 }

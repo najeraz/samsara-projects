@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructurePrinter : GenericEntity
+    public class CustomerInfrastructurePrinter : BaseEntity
     {
         public CustomerInfrastructurePrinter()
         {

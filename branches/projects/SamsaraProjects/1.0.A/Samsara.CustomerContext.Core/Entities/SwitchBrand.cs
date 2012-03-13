@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class SwitchBrand : GenericEntity
+    public class SwitchBrand : BaseEntity
     {
         public SwitchBrand()
         {

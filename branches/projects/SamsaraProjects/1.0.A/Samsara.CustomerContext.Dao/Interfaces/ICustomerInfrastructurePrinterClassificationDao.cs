@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICustomerInfrastructurePrinterClassificationDao : IGenericDao<CustomerInfrastructurePrinterClassification, int, CustomerInfrastructurePrinterClassificationParameters>
+    public interface ICustomerInfrastructurePrinterClassificationDao : IBaseDao<CustomerInfrastructurePrinterClassification, int, CustomerInfrastructurePrinterClassificationParameters>
     {
     }
 }

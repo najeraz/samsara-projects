@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class OpportunityParameters : GenericParameters
+    public class OpportunityParameters : BaseParameters
     {
         public Nullable<int> AsesorId
         {

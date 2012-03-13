@@ -2,7 +2,7 @@
 
 namespace Samsara.Base.Dao.Interfaces
 {
-    public interface IGenericDao<T, TId, Tpmt> : IGenericReadOnlyDao<T, TId, Tpmt>
+    public interface IBaseDao<T, TId, Tpmt> : IBaseReadOnlyDao<T, TId, Tpmt>
     {
         void Delete(T entity);
         void SaveOrUpdate(T entity);

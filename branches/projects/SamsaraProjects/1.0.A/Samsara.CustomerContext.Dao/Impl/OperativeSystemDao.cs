@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class OperativeSystemDao : GenericDao<OperativeSystem, int, OperativeSystemParameters>, IOperativeSystemDao
+    public class OperativeSystemDao : BaseDao<OperativeSystem, int, OperativeSystemParameters>, IOperativeSystemDao
     {
     }
 }

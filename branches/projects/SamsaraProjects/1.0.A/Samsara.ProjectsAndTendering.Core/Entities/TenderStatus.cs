@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderStatus : GenericEntity
+    public class TenderStatus : BaseEntity
     {
         public TenderStatus()
         {

@@ -6,7 +6,7 @@ using Samsara.Main.Dao.Interfaces;
 
 namespace Samsara.Main.Dao.Impl
 {
-    public class UserDao : GenericDao<User, int, UserParameters>, IUserDao
+    public class UserDao : BaseDao<User, int, UserParameters>, IUserDao
     {
     }
 }

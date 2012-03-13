@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class PersonalComputerType : GenericEntity
+    public class PersonalComputerType : BaseEntity
     {
         public PersonalComputerType()
         {

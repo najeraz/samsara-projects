@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class TenderLineDao : GenericDao<TenderLine, int, TenderLineParameters>, ITenderLineDao
+    public class TenderLineDao : BaseDao<TenderLine, int, TenderLineParameters>, ITenderLineDao
     {
     }
 }

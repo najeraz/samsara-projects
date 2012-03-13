@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Main.Core.Entities
 {
-    public class Scheme : GenericEntity
+    public class Scheme : BaseEntity
     {
 
         public Scheme()

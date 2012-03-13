@@ -14,7 +14,7 @@ using Spring.Data.NHibernate.Generic.Support;
 
 namespace Samsara.Base.Dao.Impl
 {
-    public class GenericReadOnlyDao<T, TId, Tpmt> : HibernateDaoSupport, IGenericReadOnlyDao<T, TId, Tpmt>
+    public class BaseReadOnlyDao<T, TId, Tpmt> : HibernateDaoSupport, IBaseReadOnlyDao<T, TId, Tpmt>
     {
         #region Methods
 
@@ -27,13 +27,13 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual T GetById(TId Id)
         {
-            ISession session = HibernateTemplate.SessionFactory.OpenSession();
+            ISession session = HibernateTemplate.SessionFactory.GetCurrentSession();
             return session.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("GenericBaseDao.GetServerDateTime");
+            DetachedNamedQuery dnq = new DetachedNamedQuery("BaseReadOnlyDao.GetServerDateTime");
 
             DateTime result = dnq.GetExecutableQuery(Session).UniqueResult<DateTime>();
 

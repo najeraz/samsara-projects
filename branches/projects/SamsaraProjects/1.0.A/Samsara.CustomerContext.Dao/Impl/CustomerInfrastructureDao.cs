@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class CustomerInfrastructureCCTVDao : GenericDao<CustomerInfrastructureCCTV, int, CustomerInfrastructureCCTVParameters>, ICustomerInfrastructureCCTVDao
+    public class CustomerInfrastructureCCTVDao : BaseDao<CustomerInfrastructureCCTV, int, CustomerInfrastructureCCTVParameters>, ICustomerInfrastructureCCTVDao
     {
     }
 }

@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class CustomerInfrastructureSecuritySoftwareDao : GenericDao<CustomerInfrastructureSecuritySoftware, int, CustomerInfrastructureSecuritySoftwareParameters>, ICustomerInfrastructureSecuritySoftwareDao
+    public class CustomerInfrastructureSecuritySoftwareDao : BaseDao<CustomerInfrastructureSecuritySoftware, int, CustomerInfrastructureSecuritySoftwareParameters>, ICustomerInfrastructureSecuritySoftwareDao
     {
     }
 }

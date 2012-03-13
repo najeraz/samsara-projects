@@ -6,7 +6,7 @@ using Samsara.Base.Dao.Impl;
 
 namespace Samsara.AlleatoERP.Dao.Impl
 {
-    public class ProductSublineDao : GenericReadOnlyDao<ProductSubline, int, ProductSublineParameters>, IProductSublineDao
+    public class ProductSublineDao : BaseReadOnlyDao<ProductSubline, int, ProductSublineParameters>, IProductSublineDao
     {
     }
 }

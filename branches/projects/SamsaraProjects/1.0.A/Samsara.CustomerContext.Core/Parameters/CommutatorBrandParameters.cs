@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class CommutatorBrandParameters : GenericParameters
+    public class CommutatorBrandParameters : BaseParameters
     {
         public CommutatorBrandParameters()
         {

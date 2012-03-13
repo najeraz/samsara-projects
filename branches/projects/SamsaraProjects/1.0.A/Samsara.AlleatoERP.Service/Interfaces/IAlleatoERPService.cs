@@ -24,7 +24,7 @@ namespace Samsara.AlleatoERP.Service.Interfaces
         /// name of column only if the property is an Entity
         /// otherwise only names the column as primary key from the Entity</param>
         /// <returns></returns>
-        DataTable CustomSearchByParameters(string queryName, GenericParameters parameters, bool absoluteColumnNames);
+        DataTable CustomSearchByParameters(string queryName, BaseParameters parameters, bool absoluteColumnNames);
 
         #endregion Methods
     }

@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class UPSTypeDao : GenericDao<UPSType, int, UPSTypeParameters>, IUPSTypeDao
+    public class UPSTypeDao : BaseDao<UPSType, int, UPSTypeParameters>, IUPSTypeDao
     {
     }
 }

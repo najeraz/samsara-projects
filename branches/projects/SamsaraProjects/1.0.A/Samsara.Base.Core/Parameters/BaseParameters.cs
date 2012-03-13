@@ -3,7 +3,7 @@ using System;
 
 namespace Samsara.Base.Core.Parameters
 {
-    public class GenericParameters
+    public class BaseParameters
     {
 
         public Nullable<int> CreatedBy

@@ -48,7 +48,7 @@ namespace Samsara.Base.Controls.Controls
 
                 if (parentFormName != null && parentFormName.Contains("Form"))
                 {
-                    Form form = this.FindForm();
+                    Form form = this.GetForm(this.Parent);
 
                     if (typeof(IConfigurableForm).IsAssignableFrom(form.GetType()))
                     {
@@ -179,6 +179,23 @@ namespace Samsara.Base.Controls.Controls
                     this.PerformAction(UltraGridAction.EnterEditMode, false, false);
                     break;
             }
+        }
+
+        private Form GetForm(Control control)
+        {
+            if (control == null)
+                return null;
+
+            bool isForm = control is Form;
+            bool isSamsaraUserControl = control.GetType().IsSubclassOf(typeof(SamsaraUserControl));
+
+            if (isForm)
+                return control as Form;
+
+            if (isSamsaraUserControl)
+                return this.GetForm((control as SamsaraUserControl).CustomParent);
+            else
+                return this.GetForm(control.Parent);
         }
 
         private void GetCustomControlsNames(Control control, IList<string> controlsNames)

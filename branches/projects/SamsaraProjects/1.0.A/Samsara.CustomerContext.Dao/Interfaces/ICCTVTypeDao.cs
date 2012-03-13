@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICCTVTypeDao : IGenericDao<CCTVType, int, CCTVTypeParameters>
+    public interface ICCTVTypeDao : IBaseDao<CCTVType, int, CCTVTypeParameters>
     {
     }
 }

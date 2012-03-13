@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class PrinterBrandParameters : GenericParameters
+    public class PrinterBrandParameters : BaseParameters
     {
         public PrinterBrandParameters()
         {

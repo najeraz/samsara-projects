@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class UserGroup : GenericEntity
+    public class UserGroup : BaseEntity
     {
 
         public UserGroup()

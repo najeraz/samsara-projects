@@ -6,7 +6,7 @@ using Samsara.Configuration.Dao.Interfaces;
 
 namespace Samsara.Configuration.Dao.Impl
 {
-    public class FormConfigurationGridDao : GenericDao<FormConfigurationGrid, int, FormConfigurationGridParameters>, IFormConfigurationGridDao
+    public class FormConfigurationGridDao : BaseDao<FormConfigurationGrid, int, FormConfigurationGridParameters>, IFormConfigurationGridDao
     {
     }
 }

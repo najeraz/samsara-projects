@@ -12,6 +12,8 @@
     <property name="ServiceNumber"/>
     <property name="ServiceAmount"/>
     <property name="StaffNames"/>
+    <property name="Processed"/>
+    <property name="Authorized"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>

@@ -26,7 +26,7 @@ namespace Samsara.AlleatoERP.Dao.Impl
             return result;
         }
 
-        public DataTable CustomSearchByParameters(string queryName, GenericParameters parameters, bool absoluteColumnNames)
+        public DataTable CustomSearchByParameters(string queryName, BaseParameters parameters, bool absoluteColumnNames)
         {
             return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
         }
@@ -36,13 +36,13 @@ namespace Samsara.AlleatoERP.Dao.Impl
             return dnq.GetExecutableQuery(Session).List();
         }
 
-        public IList GetGenericListByParameters(string queryName, GenericParameters parameters)
+        public IList GetGenericListByParameters(string queryName, BaseParameters parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetObjectList(dnq);
         }
 
-        public DataTable DataTableByParameters(string queryName, GenericParameters parameters, bool absoluteColumnNames)
+        public DataTable DataTableByParameters(string queryName, BaseParameters parameters, bool absoluteColumnNames)
         {
             DataTable dtResult = null;
 
@@ -57,7 +57,7 @@ namespace Samsara.AlleatoERP.Dao.Impl
             return dtResult;
         }
 
-        public DetachedNamedQuery GetDetachedNamedQuery(string queryName, GenericParameters parameters)
+        public DetachedNamedQuery GetDetachedNamedQuery(string queryName, BaseParameters parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
             object parameterValue;

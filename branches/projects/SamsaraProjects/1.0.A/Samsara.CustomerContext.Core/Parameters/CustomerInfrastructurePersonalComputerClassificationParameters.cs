@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class CustomerInfrastructurePersonalComputerClassificationParameters : GenericParameters
+    public class CustomerInfrastructurePersonalComputerClassificationParameters : BaseParameters
     {
         public CustomerInfrastructurePersonalComputerClassificationParameters()
         {

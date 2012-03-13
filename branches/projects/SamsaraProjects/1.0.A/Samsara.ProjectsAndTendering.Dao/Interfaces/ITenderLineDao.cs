@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface ITenderLineDao : IGenericDao<TenderLine, int, TenderLineParameters>
+    public interface ITenderLineDao : IBaseDao<TenderLine, int, TenderLineParameters>
     {
     }
 }

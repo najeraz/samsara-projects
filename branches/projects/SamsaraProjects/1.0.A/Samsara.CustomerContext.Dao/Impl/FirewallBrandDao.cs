@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class FirewallBrandDao : GenericDao<FirewallBrand, int, FirewallBrandParameters>, IFirewallBrandDao
+    public class FirewallBrandDao : BaseDao<FirewallBrand, int, FirewallBrandParameters>, IFirewallBrandDao
     {
     }
 }

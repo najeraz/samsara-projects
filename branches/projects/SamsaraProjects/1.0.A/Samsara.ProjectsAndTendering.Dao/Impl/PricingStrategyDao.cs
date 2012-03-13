@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class PricingStrategyDao : GenericDao<PricingStrategy, int, PricingStrategyParameters>, IPricingStrategyDao
+    public class PricingStrategyDao : BaseDao<PricingStrategy, int, PricingStrategyParameters>, IPricingStrategyDao
     {
     }
 }

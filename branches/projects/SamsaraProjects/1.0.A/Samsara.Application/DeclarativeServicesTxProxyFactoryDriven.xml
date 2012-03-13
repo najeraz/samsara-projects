@@ -68,6 +68,10 @@
   <object id="CustomerTransactionManager" parent="BaseTransactionManager">
     <property name="Target" ref="ICustomerService"/>
   </object>
+
+  <object id="ServiceTransactionManager" parent="BaseTransactionManager">
+    <property name="Target" ref="IServiceService"/>
+  </object>
   
 </objects>
 

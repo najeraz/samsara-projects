@@ -6,7 +6,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderLine : GenericEntity
+    public class TenderLine : BaseEntity
     {
         private ISet<TenderLineManufacturer> tenderLineManufacturers;
         private ISet<TenderLineWholesaler> tenderLineWholesalers;

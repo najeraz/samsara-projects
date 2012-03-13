@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructureServerComputer : GenericEntity
+    public class CustomerInfrastructureServerComputer : BaseEntity
     {
         private ISet<CustomerInfrastructureServerComputerDBMS> customerInfrastructureServerComputerDBMSs;
 

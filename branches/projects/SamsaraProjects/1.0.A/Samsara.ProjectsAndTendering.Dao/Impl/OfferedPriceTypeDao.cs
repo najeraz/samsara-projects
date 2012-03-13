@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class OfferedPriceTypeDao : GenericDao<OfferedPriceType, int, OfferedPriceTypeParameters>, IOfferedPriceTypeDao
+    public class OfferedPriceTypeDao : BaseDao<OfferedPriceType, int, OfferedPriceTypeParameters>, IOfferedPriceTypeDao
     {
     }
 }

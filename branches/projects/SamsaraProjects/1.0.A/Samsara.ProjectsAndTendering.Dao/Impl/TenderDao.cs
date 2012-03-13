@@ -11,7 +11,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class TenderDao : GenericDao<Tender, int, TenderParameters>, ITenderDao
+    public class TenderDao : BaseDao<Tender, int, TenderParameters>, ITenderDao
     {
         #region Methods
 

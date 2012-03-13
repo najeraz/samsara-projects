@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class CompetitorDao : GenericDao<Competitor, int, CompetitorParameters>, ICompetitorDao
+    public class CompetitorDao : BaseDao<Competitor, int, CompetitorParameters>, ICompetitorDao
     {
     }
 }

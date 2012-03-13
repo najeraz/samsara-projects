@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICustomerInfrastructureTelephonyDao : IGenericDao<CustomerInfrastructureTelephony, int, CustomerInfrastructureTelephonyParameters>
+    public interface ICustomerInfrastructureTelephonyDao : IBaseDao<CustomerInfrastructureTelephony, int, CustomerInfrastructureTelephonyParameters>
     {
     }
 }

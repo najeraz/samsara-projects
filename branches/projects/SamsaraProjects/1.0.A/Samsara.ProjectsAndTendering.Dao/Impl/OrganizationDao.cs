@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class OrganizationDao : GenericDao<Organization, int, OrganizationParameters>, IOrganizationDao
+    public class OrganizationDao : BaseDao<Organization, int, OrganizationParameters>, IOrganizationDao
     {
     }
 }

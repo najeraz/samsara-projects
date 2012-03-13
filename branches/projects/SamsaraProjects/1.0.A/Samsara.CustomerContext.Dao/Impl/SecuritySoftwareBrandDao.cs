@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class SecuritySoftwareBrandDao : GenericDao<SecuritySoftwareBrand, int, SecuritySoftwareBrandParameters>, ISecuritySoftwareBrandDao
+    public class SecuritySoftwareBrandDao : BaseDao<SecuritySoftwareBrand, int, SecuritySoftwareBrandParameters>, ISecuritySoftwareBrandDao
     {
     }
 }

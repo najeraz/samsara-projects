@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IAccessPointTypeDao : IGenericDao<AccessPointType, int, AccessPointTypeParameters>
+    public interface IAccessPointTypeDao : IBaseDao<AccessPointType, int, AccessPointTypeParameters>
     {
     }
 }

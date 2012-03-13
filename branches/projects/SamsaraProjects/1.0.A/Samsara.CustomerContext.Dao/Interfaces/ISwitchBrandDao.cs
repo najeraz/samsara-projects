@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ISwitchBrandDao : IGenericDao<SwitchBrand, int, SwitchBrandParameters>
+    public interface ISwitchBrandDao : IBaseDao<SwitchBrand, int, SwitchBrandParameters>
     {
     }
 }

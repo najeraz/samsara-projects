@@ -3,9 +3,9 @@ using System;
 
 namespace Samsara.Base.Core.Entities
 {
-    public class GenericEntity
+    public class BaseEntity
     {
-        public GenericEntity()
+        public BaseEntity()
         {
         }
 

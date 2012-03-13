@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface IDependencyDao : IGenericDao<Dependency, int, DependencyParameters>
+    public interface IDependencyDao : IBaseDao<Dependency, int, DependencyParameters>
     {
     }
 }

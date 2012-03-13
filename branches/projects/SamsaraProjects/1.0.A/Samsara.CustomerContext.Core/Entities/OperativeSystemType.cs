@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class OperativeSystemType : GenericEntity
+    public class OperativeSystemType : BaseEntity
     {
         public OperativeSystemType()
         {

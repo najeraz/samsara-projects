@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CCTVType : GenericEntity
+    public class CCTVType : BaseEntity
     {
         public CCTVType()
         {

@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class OperativeSystemParameters : GenericParameters
+    public class OperativeSystemParameters : BaseParameters
     {
         public OperativeSystemParameters()
         {

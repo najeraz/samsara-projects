@@ -5,7 +5,7 @@ using Samsara.Commissions.Core.Parameters;
 
 namespace Samsara.Commissions.Dao.Interfaces
 {
-    public interface IServiceStaffDao : IGenericDao<ServiceStaff, int, ServiceStaffParameters>
+    public interface IServiceStaffDao : IBaseDao<ServiceStaff, int, ServiceStaffParameters>
     {
     }
 }

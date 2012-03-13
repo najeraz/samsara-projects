@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class ManufacturerDao : GenericDao<Manufacturer, int, ManufacturerParameters>, IManufacturerDao
+    public class ManufacturerDao : BaseDao<Manufacturer, int, ManufacturerParameters>, IManufacturerDao
     {
 
     }

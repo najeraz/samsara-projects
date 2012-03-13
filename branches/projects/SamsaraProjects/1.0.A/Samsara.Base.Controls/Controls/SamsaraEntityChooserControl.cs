@@ -17,7 +17,7 @@ using Samsara.Support.Util;
 namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraEntityChooserControl<T, TId, TService, TDao, TPmt> : SamsaraUserControl
-        where TDao : IGenericReadOnlyDao<T, TId, TPmt> where TPmt : new()
+        where TDao : IBaseReadOnlyDao<T, TId, TPmt> where TPmt : new()
     {
         #region Attributes
 
