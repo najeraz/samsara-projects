@@ -41,17 +41,14 @@ namespace Samsara.Commissions.Forms.Controllers
                 this.srvService = SamsaraAppContext.Resolve<IServiceService>();
             }
 
-            if (this.HasPermission(ServicesManagementFormUserPermissionEnum.CanOpenForm))
-            {
-                this.InitializeFormControls();
-            }
-            else
+            if (!this.HasPermission(ServicesManagementFormUserPermissionEnum.CanOpenForm))
             {
                 MessageBox.Show("No cuenta con acceso a esta ventana.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.frmServicesManagement.Close();
+                this.ReadOnlySearchFields(true);
             }
+            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -59,6 +56,14 @@ namespace Samsara.Commissions.Forms.Controllers
         #region Methods
 
         #region Protected
+
+        protected override void ReadOnlySearchFields(bool readOnly)
+        {
+            base.ReadOnlySearchFields(readOnly);
+
+            this.frmServicesManagement.sccSchStaff.ReadOnly = readOnly;
+            this.frmServicesManagement.txtSchServiceNumber.ReadOnly = readOnly;
+        }
 
         protected override void InitializeFormControls()
         {
@@ -73,9 +78,6 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmServicesManagement.sccSchStaff.DisplayMember = "Fullname";
             this.frmServicesManagement.sccSchStaff.Parameters = pmtStaff;
             this.frmServicesManagement.sccSchStaff.Refresh();
-
-            this.frmServicesManagement.uchkDetAuthorized.Enabled 
-                = this.HasPermission(ServicesManagementFormUserPermissionEnum.CanAuthorizeService);
         }
 
         #endregion Protected
@@ -164,8 +166,8 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmServicesManagement.txtDetServiceAmount.ReadOnly = readOnly;
             this.frmServicesManagement.txtDetServiceNumber.ReadOnly = readOnly;
             this.frmServicesManagement.sccDetStaff.ReadOnly = readOnly;
-            this.frmServicesManagement.uchkDetAuthorized.Enabled = !readOnly;
-            this.frmServicesManagement.uchkDetProcessed.Enabled = !readOnly;
+            this.frmServicesManagement.uchkDetAuthorized.Enabled = !readOnly && 
+                this.HasPermission(ServicesManagementFormUserPermissionEnum.CanAuthorizeService);
         }
 
         public override void LoadDetail()
@@ -212,21 +214,6 @@ namespace Samsara.Commissions.Forms.Controllers
         }
 
         #endregion Public
-
-        #region Private
-
-        private bool HasPermission(ServicesManagementFormUserPermissionEnum permission)
-        {
-            FormConfigurationUserPermissionUser formConfigurationUserPermissionUser
-                = this.FormConfiguration.FormConfigurationUserPermissions
-                .SelectMany(x => x.FormConfigurationUserPermissionUsers).SingleOrDefault(x =>
-                    x.FormConfigurationUserPermission.UserPermissionId == (int)permission &&
-                x.User.UserId == Session.User.UserId);
-
-            return formConfigurationUserPermissionUser != null;
-        }
-
-        #endregion Private
 
         #endregion Methods
 
