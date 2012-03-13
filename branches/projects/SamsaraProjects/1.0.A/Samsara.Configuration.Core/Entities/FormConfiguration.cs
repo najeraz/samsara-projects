@@ -28,6 +28,12 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
+        public virtual string FormEndUserName
+        {
+            get;
+            set;
+        }
+
         [PropagationAudit]
         public virtual ISet<FormConfigurationGrid> FormConfigurationGrids
         {
