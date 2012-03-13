@@ -62,8 +62,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
         protected override void InitializeFormControls()
         {
-            base.InitializeFormControls();
-
             StaffParameters pmtStaff = new StaffParameters();
 
             this.frmServicesManagement.sccDetStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
@@ -100,10 +98,12 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void ClearSearchFields()
         {
-            base.ClearSearchFields();
-
             this.frmServicesManagement.sccSchStaff.Values = null;
             this.frmServicesManagement.txtSchServiceNumber.Value = null;
+        }
+
+        public override void ReturnSelectedEntity()
+        {
         }
 
         public override void DeleteEntity()
