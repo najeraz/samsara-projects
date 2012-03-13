@@ -7,7 +7,7 @@ using Samsara.Base.Service.Impl;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class ProductService : GenericService<Product, int, IProductDao, ProductParameters>, IProductService
+    public class ProductService : BaseService<Product, int, IProductDao, ProductParameters>, IProductService
     {
     }
 }

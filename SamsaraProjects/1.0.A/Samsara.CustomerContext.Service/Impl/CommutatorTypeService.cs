@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CommutatorTypeService : GenericService<CommutatorType, int, ICommutatorTypeDao, CommutatorTypeParameters>, ICommutatorTypeService
+    public class CommutatorTypeService : BaseService<CommutatorType, int, ICommutatorTypeDao, CommutatorTypeParameters>, ICommutatorTypeService
     {
     }
 }

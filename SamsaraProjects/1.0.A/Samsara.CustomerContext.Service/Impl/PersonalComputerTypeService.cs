@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class PersonalComputerTypeService : GenericService<PersonalComputerType, int, IPersonalComputerTypeDao, PersonalComputerTypeParameters>, IPersonalComputerTypeService
+    public class PersonalComputerTypeService : BaseService<PersonalComputerType, int, IPersonalComputerTypeDao, PersonalComputerTypeParameters>, IPersonalComputerTypeService
     {
     }
 }

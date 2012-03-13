@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class AccessPointBrandService : GenericService<AccessPointBrand, int, IAccessPointBrandDao, AccessPointBrandParameters>, IAccessPointBrandService
+    public class AccessPointBrandService : BaseService<AccessPointBrand, int, IAccessPointBrandDao, AccessPointBrandParameters>, IAccessPointBrandService
     {
     }
 }

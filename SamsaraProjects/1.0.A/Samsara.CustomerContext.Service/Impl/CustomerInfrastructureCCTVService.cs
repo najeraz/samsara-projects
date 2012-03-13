@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CustomerInfrastructureCCTVService : GenericService<CustomerInfrastructureCCTV, int, ICustomerInfrastructureCCTVDao, CustomerInfrastructureCCTVParameters>, ICustomerInfrastructureCCTVService
+    public class CustomerInfrastructureCCTVService : BaseService<CustomerInfrastructureCCTV, int, ICustomerInfrastructureCCTVDao, CustomerInfrastructureCCTVParameters>, ICustomerInfrastructureCCTVService
     {
     }
 }

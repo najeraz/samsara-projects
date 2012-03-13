@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class BidderTypeService : GenericService<BidderType, int, IBidderTypeDao, BidderTypeParameters>, IBidderTypeService
+    public class BidderTypeService : BaseService<BidderType, int, IBidderTypeDao, BidderTypeParameters>, IBidderTypeService
     {
     }
 }

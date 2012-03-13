@@ -14,9 +14,15 @@ using Spring.Data.NHibernate.Generic.Support;
 
 namespace Samsara.Base.Dao.Impl
 {
-    public class BaseReadOnlyDao<T, TId, Tpmt> : HibernateDaoSupport, IBaseReadOnlyDao<T, TId, Tpmt>
+    public class GenericReadOnlyDao : HibernateDaoSupport, IGenericReadOnlyDao
     {
+        #region Attributes
+
         private ISession readingSession;
+
+        #endregion Attributes
+
+        #region Properties
 
         protected ISession ReadingSession
         {
@@ -30,16 +36,18 @@ namespace Samsara.Base.Dao.Impl
             }
         }
 
+        #endregion Properties
+
         #region Methods
 
         #region Public
 
-        public virtual IList<T> GetAll()
+        public virtual IList<T> GetAll<T>()
         {
             return this.HibernateTemplate.LoadAll<T>();
         }
 
-        public virtual T GetById(TId Id)
+        public virtual T GetById<T>(object Id)
         {
             this.OpenReadingSession();
             return this.ReadingSession.Get<T>(Id);
@@ -47,46 +55,41 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual DateTime GetServerDateTime()
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("BaseReadOnlyDao.GetServerDateTime");
+            DetachedNamedQuery dnq = new DetachedNamedQuery("GenericReadOnlyDao.GetServerDateTime");
 
             DateTime result = dnq.GetExecutableQuery(Session).UniqueResult<DateTime>();
 
             return result;
         }
 
-        public virtual T GetByParameters(Tpmt parameters)
+        public virtual T GetByParameters<T>(object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
                 typeof(T).Name + ".GetByParameters", parameters);
             return dnq.GetExecutableQuery(Session).UniqueResult<T>();
         }
 
-        public virtual DataTable SearchByParameters(Tpmt parameters)
+        public virtual DataTable SearchByParameters<T>(object parameters)
         {
-            return this.DataTableByParameters(
+            return this.DataTableByParameters<T>(
                 typeof(T).Name + ".SearchByParameters", parameters, false);
         }
 
-        public virtual DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        public virtual DataTable CustomSearchByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
         {
-            return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
+            return this.DataTableByParameters<T>(queryName, parameters, absoluteColumnNames);
         }
 
-        public virtual IList<T> GetListByParameters(Tpmt parameters)
+        public virtual IList<T> GetListByParameters<T>(object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
                 typeof(T).Name + ".GetListByParameters", parameters);
-            return this.GetList(dnq);
+            return this.GetList<T>(dnq);
         }
 
-        public virtual IList<T> GetList(DetachedQuery dq)
+        public virtual IList<T> GetList<T>(DetachedQuery dq)
         {
             return dq.GetExecutableQuery(Session).List<T>();
-        }
-
-        public virtual IList<TType> GetList<TType>(DetachedQuery dq)
-        {
-            return dq.GetExecutableQuery(Session).List<TType>();
         }
 
         public virtual IList GetObjectList(DetachedNamedQuery dnq)
@@ -94,33 +97,23 @@ namespace Samsara.Base.Dao.Impl
             return dnq.GetExecutableQuery(Session).List();
         }
 
-        public virtual IList<T> GetList(DetachedNamedQuery dnq)
+        public virtual IList<T> GetList<T>(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List<T>();
         }
 
-        public virtual IList<TType> GetList<TType>(DetachedNamedQuery dnq)
-        {
-            return dnq.GetExecutableQuery(Session).List<TType>();
-        }
-
-        public virtual IList<T> GetList(DetachedCriteria detachedCriteria)
+        public virtual IList<T> GetList<T>(DetachedCriteria detachedCriteria)
         {
             return detachedCriteria.GetExecutableCriteria(Session).List<T>();
         }
 
-        public virtual IList<TType> GetList<TType>(DetachedCriteria detachedCriteria)
-        {
-            return detachedCriteria.GetExecutableCriteria(Session).List<TType>();
-        }
-
-        public virtual IList GetGenericListByParameters(string queryName, Tpmt parameters)
+        public virtual IList GetGenericListByParameters(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetObjectList(dnq);
         }
 
-        public virtual DataTable DataTableByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        public virtual DataTable DataTableByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
         {
             DataTable dtResult = null;
 
@@ -143,7 +136,7 @@ namespace Samsara.Base.Dao.Impl
             return dtResult;
         }
 
-        public virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
+        public virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
             object parameterValue;

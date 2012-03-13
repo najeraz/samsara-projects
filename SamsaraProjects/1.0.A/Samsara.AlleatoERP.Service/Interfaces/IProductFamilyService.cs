@@ -5,7 +5,7 @@ using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Service.Interfaces
 {
-    public interface IProductFamilyService : IGenericReadOnlyService<ProductFamily, int, ProductFamilyParameters>
+    public interface IProductFamilyService : IBaseReadOnlyService<ProductFamily, int, ProductFamilyParameters>
     {
 	}
 }

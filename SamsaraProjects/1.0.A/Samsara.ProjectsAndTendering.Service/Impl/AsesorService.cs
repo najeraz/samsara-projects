@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class AsesorService : GenericService<Asesor, int, IAsesorDao, AsesorParameters>, IAsesorService
+    public class AsesorService : BaseService<Asesor, int, IAsesorDao, AsesorParameters>, IAsesorService
     {
     }
 }

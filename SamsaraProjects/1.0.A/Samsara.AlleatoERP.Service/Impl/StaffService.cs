@@ -7,7 +7,7 @@ using Samsara.Base.Service.Impl;
 
 namespace Samsara.AlleatoERP.Service.Impl
 {
-    public class StaffService : GenericReadOnlyService<Staff, int, IStaffDao, StaffParameters>, IStaffService
+    public class StaffService : BaseReadOnlyService<Staff, int, IStaffDao, StaffParameters>, IStaffService
     {
     }
 }

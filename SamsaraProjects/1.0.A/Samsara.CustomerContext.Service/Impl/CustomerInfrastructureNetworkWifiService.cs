@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CustomerInfrastructureNetworkWifiService : GenericService<CustomerInfrastructureNetworkWifi, int, ICustomerInfrastructureNetworkWifiDao, CustomerInfrastructureNetworkWifiParameters>, ICustomerInfrastructureNetworkWifiService
+    public class CustomerInfrastructureNetworkWifiService : BaseService<CustomerInfrastructureNetworkWifi, int, ICustomerInfrastructureNetworkWifiDao, CustomerInfrastructureNetworkWifiParameters>, ICustomerInfrastructureNetworkWifiService
     {
     }
 }
