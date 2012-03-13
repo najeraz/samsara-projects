@@ -11,7 +11,7 @@ using Samsara.Main.Session;
 
 namespace Samsara.Base.Forms.Controllers
 {
-    public class GenericDocumentFormController : SamsaraFormController
+    public abstract class GenericDocumentFormController : SamsaraFormController
     {
         #region Attributes
 
@@ -50,6 +50,7 @@ namespace Samsara.Base.Forms.Controllers
 
         protected virtual void InitializeFormControls()
         {
+            throw new NotImplementedException();
         }
 
         #endregion Protected
@@ -58,51 +59,57 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void Search()
         {
+            throw new NotImplementedException();
         }
 
         public virtual void ClearSearchFields()
         {
+            throw new NotImplementedException();
         }
 
         public virtual void ReturnSelectedEntity()
         {
-        }
-
-        public virtual void EditEntity(int entityId)
-        {
-            this.formStatus = FormStatusEnum.Edition;
-            this.ShowDetail(true);
+            throw new NotImplementedException();
         }
 
         public virtual void DeleteEntity()
         {
+            throw new NotImplementedException();
         }
 
         public virtual void CreateEntity()
         {
-        }
-
-        public virtual void BackToSearch()
-        {
-            this.formStatus = FormStatusEnum.Search;
-            this.ShowDetail(false);
+            throw new NotImplementedException();
         }
 
         public virtual void SaveEntity()
         {
+            throw new NotImplementedException();
         }
 
         public virtual bool ValidateFormInformation()
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public virtual void LoadDetail()
         {
+            throw new NotImplementedException();
         }
 
         public virtual void ClearDetailFields()
         {
+            throw new NotImplementedException();
+        }
+
+        public virtual void ReadOnlyDetailFields(bool readOnly)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual bool LoadEntity(int entityId)
+        {
+            throw new NotImplementedException();
         }
 
         public virtual bool ConfirmDeleteEntity()
@@ -114,9 +121,10 @@ namespace Samsara.Base.Forms.Controllers
             return true;
         }
 
-        public virtual bool LoadEntity(int entityId)
+        public virtual void BackToSearch()
         {
-            return true;
+            this.formStatus = FormStatusEnum.Search;
+            this.ShowDetail(false);
         }
 
         #endregion Public
@@ -128,6 +136,19 @@ namespace Samsara.Base.Forms.Controllers
             this.frmGenericDocument.Close();
         }
 
+        internal void ShowDetailProcess()
+        {
+            UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
+
+            if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
+            {
+                this.ClearDetailFields();
+                this.LoadDetail();
+                this.ReadOnlyDetailFields(true);
+                this.ShowDetail(true);
+            }
+        }
+
         internal void EditEntityProcess()
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
@@ -136,6 +157,7 @@ namespace Samsara.Base.Forms.Controllers
             {
                 this.ClearDetailFields();
                 this.LoadDetail();
+                this.ReadOnlyDetailFields(false);
                 this.ShowDetail(true);
             }
         }

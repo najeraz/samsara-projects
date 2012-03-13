@@ -29,6 +29,9 @@
 
         <entry key="show_sql" value="True"/>
 
+        <entry key="current_session_context_class"
+        value="Spring.Data.NHibernate.SpringSessionContext, Spring.Data.NHibernate32"/>
+
         <!--<entry key="hibernate.hbm2ddl.auto" value="create-drop" />-->
       </dictionary>
     </property>

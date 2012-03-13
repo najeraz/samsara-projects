@@ -16,7 +16,7 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
-    <many-to-one name="Service"
+    <many-to-one name="Service" not-null="true"
                  class="Samsara.Commissions.Core.Entities.Service, Samsara.Commissions.Core"
                  column="ServiceId"/>
 
