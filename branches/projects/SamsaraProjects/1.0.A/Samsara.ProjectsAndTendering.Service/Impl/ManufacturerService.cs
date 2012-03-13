@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class ManufacturerService : GenericService<Manufacturer, int, IManufacturerDao, ManufacturerParameters>, IManufacturerService
+    public class ManufacturerService : BaseService<Manufacturer, int, IManufacturerDao, ManufacturerParameters>, IManufacturerService
     {
     }
 }

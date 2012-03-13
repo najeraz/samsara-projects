@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class OfferedPriceTypeService : GenericService<OfferedPriceType, int, IOfferedPriceTypeDao, OfferedPriceTypeParameters>, IOfferedPriceTypeService
+    public class OfferedPriceTypeService : BaseService<OfferedPriceType, int, IOfferedPriceTypeDao, OfferedPriceTypeParameters>, IOfferedPriceTypeService
     {
     }
 }

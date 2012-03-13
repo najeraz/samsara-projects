@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class TenderFileService : GenericService<TenderFile, int, ITenderFileDao, TenderFileParameters>, ITenderFileService
+    public class TenderFileService : BaseService<TenderFile, int, ITenderFileDao, TenderFileParameters>, ITenderFileService
     {
     }
 }

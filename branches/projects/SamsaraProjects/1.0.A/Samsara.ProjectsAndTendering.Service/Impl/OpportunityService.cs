@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class OpportunityService : GenericService<Opportunity, int, IOpportunityDao, OpportunityParameters>, IOpportunityService
+    public class OpportunityService : BaseService<Opportunity, int, IOpportunityDao, OpportunityParameters>, IOpportunityService
     {
     }
 }

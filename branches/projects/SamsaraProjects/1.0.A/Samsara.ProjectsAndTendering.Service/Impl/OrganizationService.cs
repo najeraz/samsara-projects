@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class OrganizationService : GenericService<Organization, int, IOrganizationDao, OrganizationParameters>, IOrganizationService
+    public class OrganizationService : BaseService<Organization, int, IOrganizationDao, OrganizationParameters>, IOrganizationService
     {
     }
 }

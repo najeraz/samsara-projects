@@ -7,7 +7,7 @@ using Samsara.Configuration.Service.Interfaces;
 
 namespace Samsara.Configuration.Service.Impl
 {
-    public class FormConfigurationUserPermissionService : GenericService<FormConfigurationUserPermission, int, IFormConfigurationUserPermissionDao, FormConfigurationUserPermissionParameters>, IFormConfigurationUserPermissionService
+    public class FormConfigurationUserPermissionService : BaseService<FormConfigurationUserPermission, int, IFormConfigurationUserPermissionDao, FormConfigurationUserPermissionParameters>, IFormConfigurationUserPermissionService
     {
     }
 }

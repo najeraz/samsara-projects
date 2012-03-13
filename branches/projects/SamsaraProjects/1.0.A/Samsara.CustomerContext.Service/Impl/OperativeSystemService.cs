@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class OperativeSystemService : GenericService<OperativeSystem, int, IOperativeSystemDao, OperativeSystemParameters>, IOperativeSystemService
+    public class OperativeSystemService : BaseService<OperativeSystem, int, IOperativeSystemDao, OperativeSystemParameters>, IOperativeSystemService
     {
     }
 }

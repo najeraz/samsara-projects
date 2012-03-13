@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CustomerInfrastructurePrinterService : GenericService<CustomerInfrastructurePrinter, int, ICustomerInfrastructurePrinterDao, CustomerInfrastructurePrinterParameters>, ICustomerInfrastructurePrinterService
+    public class CustomerInfrastructurePrinterService : BaseService<CustomerInfrastructurePrinter, int, ICustomerInfrastructurePrinterDao, CustomerInfrastructurePrinterParameters>, ICustomerInfrastructurePrinterService
     {
     }
 }

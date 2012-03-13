@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class TenderLineService : GenericService<TenderLine, int, ITenderLineDao, TenderLineParameters>, ITenderLineService
+    public class TenderLineService : BaseService<TenderLine, int, ITenderLineDao, TenderLineParameters>, ITenderLineService
     {
     }
 }

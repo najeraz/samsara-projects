@@ -7,7 +7,7 @@ using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Main.Service.Impl
 {
-    public class UserService : GenericService<User, int, IUserDao, UserParameters>, IUserService
+    public class UserService : BaseService<User, int, IUserDao, UserParameters>, IUserService
     {
     }
 }

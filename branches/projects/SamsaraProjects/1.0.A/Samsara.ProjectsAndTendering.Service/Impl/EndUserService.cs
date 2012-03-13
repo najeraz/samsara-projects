@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class EndUserService : GenericService<EndUser, int, IEndUserDao, EndUserParameters>, IEndUserService
+    public class EndUserService : BaseService<EndUser, int, IEndUserDao, EndUserParameters>, IEndUserService
     {
     }
 }

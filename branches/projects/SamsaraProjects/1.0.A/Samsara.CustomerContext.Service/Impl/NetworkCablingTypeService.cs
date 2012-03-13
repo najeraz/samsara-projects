@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class NetworkCablingTypeService : GenericService<NetworkCablingType, int, INetworkCablingTypeDao, NetworkCablingTypeParameters>, INetworkCablingTypeService
+    public class NetworkCablingTypeService : BaseService<NetworkCablingType, int, INetworkCablingTypeDao, NetworkCablingTypeParameters>, INetworkCablingTypeService
     {
     }
 }

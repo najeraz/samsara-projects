@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class CompetitorService : GenericService<Competitor, int, ICompetitorDao, CompetitorParameters>, ICompetitorService
+    public class CompetitorService : BaseService<Competitor, int, ICompetitorDao, CompetitorParameters>, ICompetitorService
     {
     }
 }

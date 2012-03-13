@@ -7,7 +7,7 @@ using Samsara.Commissions.Service.Interfaces;
 
 namespace Samsara.Commissions.Service.Impl
 {
-    public class CommissionTypeService : GenericService<CommissionType, int, ICommissionTypeDao, CommissionTypeParameters>, ICommissionTypeService
+    public class CommissionTypeService : BaseService<CommissionType, int, ICommissionTypeDao, CommissionTypeParameters>, ICommissionTypeService
     {
     }
 }

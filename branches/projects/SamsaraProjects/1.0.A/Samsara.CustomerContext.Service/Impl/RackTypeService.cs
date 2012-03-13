@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class RackTypeService : GenericService<RackType, int, IRackTypeDao, RackTypeParameters>, IRackTypeService
+    public class RackTypeService : BaseService<RackType, int, IRackTypeDao, RackTypeParameters>, IRackTypeService
     {
     }
 }

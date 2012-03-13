@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class UPSBrandService : GenericService<UPSBrand, int, IUPSBrandDao, UPSBrandParameters>, IUPSBrandService
+    public class UPSBrandService : BaseService<UPSBrand, int, IUPSBrandDao, UPSBrandParameters>, IUPSBrandService
     {
     }
 }

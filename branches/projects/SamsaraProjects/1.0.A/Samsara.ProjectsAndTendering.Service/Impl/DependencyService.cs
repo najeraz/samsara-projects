@@ -7,7 +7,7 @@ using Samsara.ProjectsAndTendering.Service.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Service.Impl
 {
-    public class DependencyService : GenericService<Dependency, int, IDependencyDao, DependencyParameters>, IDependencyService
+    public class DependencyService : BaseService<Dependency, int, IDependencyDao, DependencyParameters>, IDependencyService
     {
     }
 }

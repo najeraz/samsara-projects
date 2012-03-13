@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class RouterBrandService : GenericService<RouterBrand, int, IRouterBrandDao, RouterBrandParameters>, IRouterBrandService
+    public class RouterBrandService : BaseService<RouterBrand, int, IRouterBrandDao, RouterBrandParameters>, IRouterBrandService
     {
     }
 }

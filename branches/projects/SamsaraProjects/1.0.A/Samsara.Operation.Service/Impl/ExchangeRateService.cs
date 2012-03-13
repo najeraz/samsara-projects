@@ -7,7 +7,7 @@ using Samsara.Operation.Service.Interfaces;
 
 namespace Samsara.Operation.Service.Impl
 {
-    public class ExchangeRateService : GenericService<ExchangeRate, int, IExchangeRateDao, ExchangeRateParameters>, IExchangeRateService
+    public class ExchangeRateService : BaseService<ExchangeRate, int, IExchangeRateDao, ExchangeRateParameters>, IExchangeRateService
     {
     }
 }

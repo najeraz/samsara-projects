@@ -231,7 +231,7 @@ namespace Samsara.Base.Controls.Controls
 
         private void RefreshCombo()
         {
-            IList<T> entityList = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
+            IList<T> entityList = (this.service as BaseReadOnlyService<T, TId, TDao, TPmt>)
                 .GetListByParameters(this.Parameters);
 
             this.suceEntities.DataSource = null;
@@ -283,7 +283,7 @@ namespace Samsara.Base.Controls.Controls
             switch (this.controlType)
             {
                 case SamsaraEntityChooserControlTypeEnum.Single:
-                    this.value = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
+                    this.value = (this.service as BaseReadOnlyService<T, TId, TDao, TPmt>)
                         .GetById((TId)(Convert.ToInt32(suceEntities.Value) as object));
                         
                     this.OnValueChanged(new SamsaraEntityChooserValueChangedEventArgs<T>(this.value)); 
@@ -294,7 +294,7 @@ namespace Samsara.Base.Controls.Controls
                     foreach (ValueListItem checkedItem in this.suceEntities.Items.ValueList.CheckedItems
                         .All.Cast<ValueListItem>().Where(x => Convert.ToInt32(x.DataValue) != -1))
                     {
-                        T entityItem = (this.service as GenericReadOnlyService<T, TId, TDao, TPmt>)
+                        T entityItem = (this.service as BaseReadOnlyService<T, TId, TDao, TPmt>)
                             .GetById((TId)(Convert.ToInt32(checkedItem.DataValue) as object));
 
                         if (entityItem != null)

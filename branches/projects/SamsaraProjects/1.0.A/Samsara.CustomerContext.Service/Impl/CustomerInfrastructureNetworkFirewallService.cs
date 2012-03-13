@@ -7,7 +7,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CustomerInfrastructureNetworkFirewallService : GenericService<CustomerInfrastructureNetworkFirewall, int, ICustomerInfrastructureNetworkFirewallDao, CustomerInfrastructureNetworkFirewallParameters>, ICustomerInfrastructureNetworkFirewallService
+    public class CustomerInfrastructureNetworkFirewallService : BaseService<CustomerInfrastructureNetworkFirewall, int, ICustomerInfrastructureNetworkFirewallDao, CustomerInfrastructureNetworkFirewallParameters>, ICustomerInfrastructureNetworkFirewallService
     {
     }
 }
