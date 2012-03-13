@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Commissions.Core.Parameters
 {
-    public class ServiceParameters : GenericParameters
+    public class ServiceParameters : BaseParameters
     {
         public ServiceParameters()
         {

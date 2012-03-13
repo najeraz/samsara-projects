@@ -6,7 +6,7 @@ using Samsara.Operation.Dao.Interfaces;
 
 namespace Samsara.Operation.Dao.Impl
 {
-    public class ExchangeRateDao : GenericDao<ExchangeRate, int, ExchangeRateParameters>, IExchangeRateDao
+    public class ExchangeRateDao : BaseDao<ExchangeRate, int, ExchangeRateParameters>, IExchangeRateDao
     {
     }
 }

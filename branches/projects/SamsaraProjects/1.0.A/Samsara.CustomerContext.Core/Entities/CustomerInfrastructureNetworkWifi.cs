@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructureNetworkWifi : GenericEntity
+    public class CustomerInfrastructureNetworkWifi : BaseEntity
     {
         private ISet<CustomerInfrastructureNetworkWifiAccessPoint> customerInfrastructureNetworkWifiAccessPoints;
 

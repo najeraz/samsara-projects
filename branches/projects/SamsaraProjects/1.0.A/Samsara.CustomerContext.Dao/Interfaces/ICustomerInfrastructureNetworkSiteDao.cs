@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICustomerInfrastructureNetworkSiteDao : IGenericDao<CustomerInfrastructureNetworkSite, int, CustomerInfrastructureNetworkSiteParameters>
+    public interface ICustomerInfrastructureNetworkSiteDao : IBaseDao<CustomerInfrastructureNetworkSite, int, CustomerInfrastructureNetworkSiteParameters>
     {
     }
 }

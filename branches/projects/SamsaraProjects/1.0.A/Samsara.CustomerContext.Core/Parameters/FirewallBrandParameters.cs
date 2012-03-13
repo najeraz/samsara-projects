@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class FirewallBrandParameters : GenericParameters
+    public class FirewallBrandParameters : BaseParameters
     {
         public FirewallBrandParameters()
         {

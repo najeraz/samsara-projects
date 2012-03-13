@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class RouterBrand : GenericEntity
+    public class RouterBrand : BaseEntity
     {
         public RouterBrand()
         {

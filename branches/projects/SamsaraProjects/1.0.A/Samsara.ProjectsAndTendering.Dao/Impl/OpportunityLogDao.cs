@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class OpportunityLogDao : GenericDao<OpportunityLog, int, OpportunityLogParameters>, IOpportunityLogDao
+    public class OpportunityLogDao : BaseDao<OpportunityLog, int, OpportunityLogParameters>, IOpportunityLogDao
     {
     }
 }

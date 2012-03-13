@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class FormConfiguration : GenericEntity
+    public class FormConfiguration : BaseEntity
     {
         private ISet<FormConfigurationGrid> formConfigurationGrids;
         private ISet<FormConfigurationUserPermission> formConfigurationUserPermissions;

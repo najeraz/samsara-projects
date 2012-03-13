@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class CommutatorBrandDao : GenericDao<CommutatorBrand, int, CommutatorBrandParameters>, ICommutatorBrandDao
+    public class CommutatorBrandDao : BaseDao<CommutatorBrand, int, CommutatorBrandParameters>, ICommutatorBrandDao
     {
     }
 }

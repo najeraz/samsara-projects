@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class TelephonyProviderDao : GenericDao<TelephonyProvider, int, TelephonyProviderParameters>, ITelephonyProviderDao
+    public class TelephonyProviderDao : BaseDao<TelephonyProvider, int, TelephonyProviderParameters>, ITelephonyProviderDao
     {
     }
 }

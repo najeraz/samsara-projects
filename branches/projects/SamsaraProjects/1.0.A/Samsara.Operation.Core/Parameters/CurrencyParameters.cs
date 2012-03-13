@@ -3,7 +3,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Operation.Core.Parameters
 {
-    public class CurrencyParameters : GenericParameters
+    public class CurrencyParameters : BaseParameters
     {
         public string Name
         {

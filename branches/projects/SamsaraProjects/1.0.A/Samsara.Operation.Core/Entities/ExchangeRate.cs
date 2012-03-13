@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Operation.Core.Entities
 {
-    public class ExchangeRate : GenericEntity
+    public class ExchangeRate : BaseEntity
     {
         public ExchangeRate()
         {

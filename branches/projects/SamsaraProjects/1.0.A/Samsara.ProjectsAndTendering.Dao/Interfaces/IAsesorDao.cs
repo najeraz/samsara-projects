@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface IAsesorDao : IGenericDao<Asesor, int, AsesorParameters>
+    public interface IAsesorDao : IBaseDao<Asesor, int, AsesorParameters>
     {
     }
 }

@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface IBidderTypeDao : IGenericDao<BidderType, int, BidderTypeParameters>
+    public interface IBidderTypeDao : IBaseDao<BidderType, int, BidderTypeParameters>
     {
     }
 }

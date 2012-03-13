@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CommutatorType : GenericEntity
+    public class CommutatorType : BaseEntity
     {
         public CommutatorType()
         {

@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class BackupSoftwareBrandDao : GenericDao<BackupSoftwareBrand, int, BackupSoftwareBrandParameters>, IBackupSoftwareBrandDao
+    public class BackupSoftwareBrandDao : BaseDao<BackupSoftwareBrand, int, BackupSoftwareBrandParameters>, IBackupSoftwareBrandDao
     {
     }
 }

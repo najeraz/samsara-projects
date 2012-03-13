@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class EndUserDao : GenericDao<EndUser, int, EndUserParameters>, IEndUserDao
+    public class EndUserDao : BaseDao<EndUser, int, EndUserParameters>, IEndUserDao
     {
     }
 }

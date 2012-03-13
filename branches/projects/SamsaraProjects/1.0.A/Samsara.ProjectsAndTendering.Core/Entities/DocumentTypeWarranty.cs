@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class DocumentTypeWarranty : GenericEntity
+    public class DocumentTypeWarranty : BaseEntity
     {
         public DocumentTypeWarranty()
         {

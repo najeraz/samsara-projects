@@ -5,7 +5,7 @@ using Samsara.Support.Util;
 
 namespace Samsara.Base.Dao.Impl
 {
-    public class GenericDao<T, TId, Tpmt> : GenericReadOnlyDao<T, TId, Tpmt>, IGenericDao<T, TId, Tpmt>
+    public class BaseDao<T, TId, Tpmt> : BaseReadOnlyDao<T, TId, Tpmt>, IBaseDao<T, TId, Tpmt>
     {
         #region Methods
 
@@ -36,10 +36,10 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual void Delete(T entity)
         {
-            if (entity.GetType().IsSubclassOf(typeof(GenericEntity)))
+            if (entity.GetType().IsSubclassOf(typeof(BaseEntity)))
             {
-                (entity as GenericEntity).Deleted = true;
-                (entity as GenericEntity).Activated = false;
+                (entity as BaseEntity).Deleted = true;
+                (entity as BaseEntity).Activated = false;
 
                 EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
                 this.HibernateTemplate.Update(entity);

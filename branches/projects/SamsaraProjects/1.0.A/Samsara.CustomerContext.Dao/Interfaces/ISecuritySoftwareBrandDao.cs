@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ISecuritySoftwareBrandDao : IGenericDao<SecuritySoftwareBrand, int, SecuritySoftwareBrandParameters>
+    public interface ISecuritySoftwareBrandDao : IBaseDao<SecuritySoftwareBrand, int, SecuritySoftwareBrandParameters>
     {
     }
 }

@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class ComputerBrandParameters : GenericParameters
+    public class ComputerBrandParameters : BaseParameters
     {
         public ComputerBrandParameters()
         {

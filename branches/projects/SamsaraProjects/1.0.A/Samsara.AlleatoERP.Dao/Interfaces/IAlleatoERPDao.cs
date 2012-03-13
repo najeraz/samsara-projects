@@ -9,7 +9,7 @@ namespace Samsara.AlleatoERP.Dao.Interfaces
     public interface IAlleatoERPDao
     {
         DateTime GetServerDateTime();
-        DataTable CustomSearchByParameters(string queryName, GenericParameters parameters, bool absoluteColumnNames);
-        DetachedNamedQuery GetDetachedNamedQuery(string queryName, GenericParameters parameters);
+        DataTable CustomSearchByParameters(string queryName, BaseParameters parameters, bool absoluteColumnNames);
+        DetachedNamedQuery GetDetachedNamedQuery(string queryName, BaseParameters parameters);
     }
 }

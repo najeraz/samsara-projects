@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICustomerInfrastructurePersonalComputerClassificationDao : IGenericDao<CustomerInfrastructurePersonalComputerClassification, int, CustomerInfrastructurePersonalComputerClassificationParameters>
+    public interface ICustomerInfrastructurePersonalComputerClassificationDao : IBaseDao<CustomerInfrastructurePersonalComputerClassification, int, CustomerInfrastructurePersonalComputerClassificationParameters>
     {
     }
 }

@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class UPSBrandDao : GenericDao<UPSBrand, int, UPSBrandParameters>, IUPSBrandDao
+    public class UPSBrandDao : BaseDao<UPSBrand, int, UPSBrandParameters>, IUPSBrandDao
     {
     }
 }

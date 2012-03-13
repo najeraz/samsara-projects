@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class CustomerInfrastructureNetworkWifiAccessPointDao : GenericDao<CustomerInfrastructureNetworkWifiAccessPoint, int, CustomerInfrastructureNetworkWifiAccessPointParameters>, ICustomerInfrastructureNetworkWifiAccessPointDao
+    public class CustomerInfrastructureNetworkWifiAccessPointDao : BaseDao<CustomerInfrastructureNetworkWifiAccessPoint, int, CustomerInfrastructureNetworkWifiAccessPointParameters>, ICustomerInfrastructureNetworkWifiAccessPointDao
     {
     }
 }

@@ -3,7 +3,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Configuration.Core.Parameters
 {
-    public class FormConfigurationGridColumnParameters : GenericParameters
+    public class FormConfigurationGridColumnParameters : BaseParameters
     {
     }
 }

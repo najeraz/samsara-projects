@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructurePersonalComputerClassification : GenericEntity
+    public class CustomerInfrastructurePersonalComputerClassification : BaseEntity
     {
         public CustomerInfrastructurePersonalComputerClassification()
         {

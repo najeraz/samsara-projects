@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class RackTypeParameters : GenericParameters
+    public class RackTypeParameters : BaseParameters
     {
         public RackTypeParameters()
         {

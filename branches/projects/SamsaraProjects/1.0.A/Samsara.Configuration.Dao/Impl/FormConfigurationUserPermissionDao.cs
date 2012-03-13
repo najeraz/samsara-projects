@@ -6,7 +6,7 @@ using Samsara.Configuration.Dao.Interfaces;
 
 namespace Samsara.Configuration.Dao.Impl
 {
-    public class FormConfigurationUserPermissionDao : GenericDao<FormConfigurationUserPermission, int, FormConfigurationUserPermissionParameters>, IFormConfigurationUserPermissionDao
+    public class FormConfigurationUserPermissionDao : BaseDao<FormConfigurationUserPermission, int, FormConfigurationUserPermissionParameters>, IFormConfigurationUserPermissionDao
     {
     }
 }

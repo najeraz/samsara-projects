@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
-    public class FormConfigurationGridColumn : GenericEntity
+    public class FormConfigurationGridColumn : BaseEntity
     {
         public FormConfigurationGridColumn()
         {

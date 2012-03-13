@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class TenderStatusDao : GenericDao<TenderStatus, int, TenderStatusParameters>, ITenderStatusDao
+    public class TenderStatusDao : BaseDao<TenderStatus, int, TenderStatusParameters>, ITenderStatusDao
     {
     }
 }

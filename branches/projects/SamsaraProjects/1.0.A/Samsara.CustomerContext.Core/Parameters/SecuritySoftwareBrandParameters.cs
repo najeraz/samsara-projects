@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.CustomerContext.Core.Parameters
 {
-    public class SecuritySoftwareBrandParameters : GenericParameters
+    public class SecuritySoftwareBrandParameters : BaseParameters
     {
         public SecuritySoftwareBrandParameters()
         {

@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class BidderType : GenericEntity
+    public class BidderType : BaseEntity
     {
         public BidderType()
         {

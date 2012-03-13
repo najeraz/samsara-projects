@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class BidderDao : GenericDao<Bidder, int, BidderParameters>, IBidderDao
+    public class BidderDao : BaseDao<Bidder, int, BidderParameters>, IBidderDao
     {
     }
 }

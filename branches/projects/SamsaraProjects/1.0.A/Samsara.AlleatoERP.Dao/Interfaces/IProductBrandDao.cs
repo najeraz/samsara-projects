@@ -5,7 +5,7 @@ using Samsara.Base.Dao.Interfaces;
 
 namespace Samsara.AlleatoERP.Dao.Interfaces
 {
-    public interface IProductBrandDao : IGenericDao<ProductBrand, int, ProductBrandParameters>
+    public interface IProductBrandDao : IBaseDao<ProductBrand, int, ProductBrandParameters>
     {
     }
 }

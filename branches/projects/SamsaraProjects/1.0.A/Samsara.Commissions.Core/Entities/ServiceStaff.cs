@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Commissions.Core.Entities
 {
-    public class ServiceStaff : GenericEntity
+    public class ServiceStaff : BaseEntity
     {
         public ServiceStaff()
         {

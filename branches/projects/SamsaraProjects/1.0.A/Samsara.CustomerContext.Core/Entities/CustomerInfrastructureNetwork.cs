@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class CustomerInfrastructureNetwork : GenericEntity
+    public class CustomerInfrastructureNetwork : BaseEntity
     {
         private ISet<CustomerInfrastructureNetworkSwitch> customerInfrastructureNetworkSwitches;
         private ISet<CustomerInfrastructureNetworkCommutator> customerInfrastructureNetworkCommutators;

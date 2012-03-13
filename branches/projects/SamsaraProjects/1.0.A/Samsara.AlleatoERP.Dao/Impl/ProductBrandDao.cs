@@ -6,7 +6,7 @@ using Samsara.Base.Dao.Impl;
 
 namespace Samsara.AlleatoERP.Dao.Impl
 {
-    public class ProductBrandDao : GenericDao<ProductBrand, int, ProductBrandParameters>, IProductBrandDao
+    public class ProductBrandDao : BaseDao<ProductBrand, int, ProductBrandParameters>, IProductBrandDao
     {
     }
 }

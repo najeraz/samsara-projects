@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Main.Core.Parameters
 {
-    public class SchemeParameters : GenericParameters
+    public class SchemeParameters : BaseParameters
     {
         public SchemeParameters()
         {

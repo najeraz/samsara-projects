@@ -5,7 +5,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.Main.Core.Entities
 {
-    public class User : GenericEntity
+    public class User : BaseEntity
     {
 
         public User()

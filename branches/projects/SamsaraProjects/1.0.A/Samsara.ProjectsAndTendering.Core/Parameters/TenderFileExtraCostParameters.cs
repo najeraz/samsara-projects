@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class TenderLineExtraCostParameters : GenericParameters
+    public class TenderLineExtraCostParameters : BaseParameters
     {
         public Nullable<int> TenderLineId
         {

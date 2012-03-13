@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.Dashboard.Core.Parameters
 {
-    public class VerticalIntegrationReportParameters : GenericParameters
+    public class VerticalIntegrationReportParameters : BaseParameters
     {
         public Nullable<DateTime> MinDate
         {

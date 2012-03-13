@@ -7,7 +7,7 @@ using NHibernate.Impl;
 
 namespace Samsara.Base.Dao.Interfaces
 {
-    public interface IGenericReadOnlyDao<T, TId, Tpmt>
+    public interface IBaseReadOnlyDao<T, TId, Tpmt>
     {
         IList<T> GetAll();
         T GetById(TId Id);

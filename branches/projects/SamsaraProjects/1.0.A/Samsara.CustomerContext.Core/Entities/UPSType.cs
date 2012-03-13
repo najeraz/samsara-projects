@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class UPSType : GenericEntity
+    public class UPSType : BaseEntity
     {
         public UPSType()
         {

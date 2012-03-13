@@ -4,7 +4,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
-    public class UPSBrand : GenericEntity
+    public class UPSBrand : BaseEntity
     {
         public UPSBrand()
         {

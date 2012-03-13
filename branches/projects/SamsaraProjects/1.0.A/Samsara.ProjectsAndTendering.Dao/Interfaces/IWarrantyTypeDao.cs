@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface IWarrantyTypeDao : IGenericDao<WarrantyType, int, WarrantyTypeParameters>
+    public interface IWarrantyTypeDao : IBaseDao<WarrantyType, int, WarrantyTypeParameters>
     {
     }
 }

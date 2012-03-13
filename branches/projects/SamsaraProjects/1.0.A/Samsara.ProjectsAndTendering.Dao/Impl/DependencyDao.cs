@@ -6,7 +6,7 @@ using Samsara.ProjectsAndTendering.Dao.Interfaces;
 
 namespace Samsara.ProjectsAndTendering.Dao.Impl
 {
-    public class DependencyDao : GenericDao<Dependency, int, DependencyParameters>, IDependencyDao
+    public class DependencyDao : BaseDao<Dependency, int, DependencyParameters>, IDependencyDao
     {
     }
 }

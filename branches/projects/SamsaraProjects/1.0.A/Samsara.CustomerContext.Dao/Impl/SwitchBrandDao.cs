@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class SwitchBrandDao : GenericDao<SwitchBrand, int, SwitchBrandParameters>, ISwitchBrandDao
+    public class SwitchBrandDao : BaseDao<SwitchBrand, int, SwitchBrandParameters>, ISwitchBrandDao
     {
     }
 }

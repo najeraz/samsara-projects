@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IRouterBrandDao : IGenericDao<RouterBrand, int, RouterBrandParameters>
+    public interface IRouterBrandDao : IBaseDao<RouterBrand, int, RouterBrandParameters>
     {
     }
 }

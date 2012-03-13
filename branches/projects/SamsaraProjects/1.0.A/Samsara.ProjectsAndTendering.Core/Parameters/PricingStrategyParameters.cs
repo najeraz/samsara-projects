@@ -4,7 +4,7 @@ using Samsara.Base.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Core.Parameters
 {
-    public class PricingStrategyParameters : GenericParameters
+    public class PricingStrategyParameters : BaseParameters
     {
         public Nullable<int> PricingStrategyId
         {

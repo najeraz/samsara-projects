@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Dao.Interfaces
 {
-    public interface IOpportunityLogDao : IGenericDao<OpportunityLog, int, OpportunityLogParameters>
+    public interface IOpportunityLogDao : IBaseDao<OpportunityLog, int, OpportunityLogParameters>
     {
     }
 }

@@ -5,7 +5,7 @@ using Samsara.Base.Service.Interfaces;
 namespace Samsara.Base.Service.Impl
 {
     public class GenericService<T, TId, TDao, Tpmt> : GenericReadOnlyService<T, TId, TDao, Tpmt>, 
-        IGenericService<T, TId, Tpmt> where TDao : IGenericDao<T, TId, Tpmt>
+        IGenericService<T, TId, Tpmt> where TDao : IBaseDao<T, TId, Tpmt>
     {
         #region Methods
 

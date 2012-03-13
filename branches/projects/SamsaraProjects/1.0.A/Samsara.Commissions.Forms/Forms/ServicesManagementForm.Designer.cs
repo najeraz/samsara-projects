@@ -51,10 +51,14 @@ namespace Samsara.Commissions.Forms.Forms
             this.sccSchStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
             this.txtSchServiceNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ulblSchServiceNumber = new Infragistics.Win.Misc.UltraLabel();
+            this.uchkDetAuthorized = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.uchkDetProcessed = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetAuthorized)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetProcessed)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -115,6 +119,8 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxDetDetail
             // 
+            this.gbxDetDetail.Controls.Add(this.uchkDetProcessed);
+            this.gbxDetDetail.Controls.Add(this.uchkDetAuthorized);
             this.gbxDetDetail.Controls.Add(this.txtDetServiceAmount);
             this.gbxDetDetail.Controls.Add(this.txtDetServiceNumber);
             this.gbxDetDetail.Controls.Add(this.ulblDetStaffs);
@@ -242,6 +248,26 @@ namespace Samsara.Commissions.Forms.Forms
             this.ulblSchServiceNumber.TabIndex = 4;
             this.ulblSchServiceNumber.Text = "Núm Servicio:";
             // 
+            // uchkDetAuthorized
+            // 
+            this.uchkDetAuthorized.AutoSize = true;
+            this.uchkDetAuthorized.Enabled = false;
+            this.uchkDetAuthorized.Location = new System.Drawing.Point(418, 44);
+            this.uchkDetAuthorized.Name = "uchkDetAuthorized";
+            this.uchkDetAuthorized.Size = new System.Drawing.Size(75, 17);
+            this.uchkDetAuthorized.TabIndex = 3;
+            this.uchkDetAuthorized.Text = "Autorizado";
+            // 
+            // uchkDetProcessed
+            // 
+            this.uchkDetProcessed.AutoSize = true;
+            this.uchkDetProcessed.Enabled = false;
+            this.uchkDetProcessed.Location = new System.Drawing.Point(418, 21);
+            this.uchkDetProcessed.Name = "uchkDetProcessed";
+            this.uchkDetProcessed.Size = new System.Drawing.Size(75, 17);
+            this.uchkDetProcessed.TabIndex = 3;
+            this.uchkDetProcessed.Text = "Procesado";
+            // 
             // ServicesManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +281,8 @@ namespace Samsara.Commissions.Forms.Forms
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
             this.pnlDetButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetAuthorized)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetProcessed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,6 +299,8 @@ namespace Samsara.Commissions.Forms.Forms
         internal AlleatoERP.Controls.Controls.StaffChooserControl sccSchStaff;
         internal Base.Controls.Controls.SamsaraTextEditor txtSchServiceNumber;
         private Infragistics.Win.Misc.UltraLabel ulblSchServiceNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetProcessed;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetAuthorized;
 
     }
 }

@@ -41,12 +41,17 @@ namespace Samsara.Commissions.Forms.Controllers
                 this.srvService = SamsaraAppContext.Resolve<IServiceService>();
             }
 
-            if (!this.CanOpenForm())
+            if (this.HasPermission(ServicesManagementFormUserPermissionEnum.CanOpenForm))
             {
+                this.InitializeFormControls();
+            }
+            else
+            {
+                MessageBox.Show("No cuenta con acceso a esta ventana.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.frmServicesManagement.Close();
             }
-
-            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -70,6 +75,9 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmServicesManagement.sccSchStaff.DisplayMember = "Fullname";
             this.frmServicesManagement.sccSchStaff.Parameters = pmtStaff;
             this.frmServicesManagement.sccSchStaff.Refresh();
+
+            this.frmServicesManagement.uchkDetAuthorized.Enabled 
+                = this.HasPermission(ServicesManagementFormUserPermissionEnum.CanAuthorizeService);
         }
 
         #endregion Protected
@@ -186,20 +194,20 @@ namespace Samsara.Commissions.Forms.Controllers
 
         #endregion Public
 
-        #region
+        #region Private
 
-        private bool CanOpenForm()
+        private bool HasPermission(ServicesManagementFormUserPermissionEnum permission)
         {
             FormConfigurationUserPermissionUser formConfigurationUserPermissionUser
                 = this.FormConfiguration.FormConfigurationUserPermissions
                 .SelectMany(x => x.FormConfigurationUserPermissionUsers).SingleOrDefault(x =>
-                    x.FormConfigurationUserPermission.UserPermissionId == (int)ServicesManagementFormUserPermissionEnum.CanOpenForm &&
+                    x.FormConfigurationUserPermission.UserPermissionId == (int)permission &&
                 x.User.UserId == Session.User.UserId);
 
             return formConfigurationUserPermissionUser != null;
         }
 
-        #endregion
+        #endregion Private
 
         #endregion Methods
 

@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface IPrinterTypeDao : IGenericDao<PrinterType, int, PrinterTypeParameters>
+    public interface IPrinterTypeDao : IBaseDao<PrinterType, int, PrinterTypeParameters>
     {
     }
 }

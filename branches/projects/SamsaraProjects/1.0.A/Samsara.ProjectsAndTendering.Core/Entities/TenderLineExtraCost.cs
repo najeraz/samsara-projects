@@ -3,7 +3,7 @@ using Samsara.Base.Core.Entities;
 
 namespace Samsara.ProjectsAndTendering.Core.Entities
 {
-    public class TenderLineExtraCost : GenericEntity
+    public class TenderLineExtraCost : BaseEntity
     {
         public TenderLineExtraCost()
         {

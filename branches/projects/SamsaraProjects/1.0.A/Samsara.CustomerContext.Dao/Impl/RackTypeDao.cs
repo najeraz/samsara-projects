@@ -6,7 +6,7 @@ using Samsara.CustomerContext.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Impl
 {
-    public class RackTypeDao : GenericDao<RackType, int, RackTypeParameters>, IRackTypeDao
+    public class RackTypeDao : BaseDao<RackType, int, RackTypeParameters>, IRackTypeDao
     {
     }
 }

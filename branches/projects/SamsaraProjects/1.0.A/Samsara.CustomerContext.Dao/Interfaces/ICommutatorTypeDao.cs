@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {
-    public interface ICommutatorTypeDao : IGenericDao<CommutatorType, int, CommutatorTypeParameters>
+    public interface ICommutatorTypeDao : IBaseDao<CommutatorType, int, CommutatorTypeParameters>
     {
     }
 }
