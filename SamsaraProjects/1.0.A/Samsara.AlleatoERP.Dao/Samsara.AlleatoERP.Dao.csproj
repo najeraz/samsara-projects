@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAlleatoERPDao.cs" />
     <Compile Include="Impl\ERPCustomerDao.cs" />
     <Compile Include="Impl\AlleatoERPDao.cs" />
     <Compile Include="Impl\ProductBrandDao.cs" />
