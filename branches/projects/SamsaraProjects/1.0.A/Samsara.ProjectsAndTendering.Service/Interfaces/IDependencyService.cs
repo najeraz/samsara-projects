@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IDependencyService : IGenericService<Dependency, int, DependencyParameters>
+    public interface IDependencyService : IBaseService<Dependency, int, DependencyParameters>
     {
     }
 }

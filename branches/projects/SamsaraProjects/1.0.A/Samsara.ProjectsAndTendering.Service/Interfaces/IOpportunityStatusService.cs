@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IOpportunityStatusService : IGenericService<OpportunityStatus, int, OpportunityStatusParameters>
+    public interface IOpportunityStatusService : IBaseService<OpportunityStatus, int, OpportunityStatusParameters>
     {
     }
 }

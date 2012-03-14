@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IEndUserService : IGenericService<EndUser, int, EndUserParameters>
+    public interface IEndUserService : IBaseService<EndUser, int, EndUserParameters>
     {
     }
 }

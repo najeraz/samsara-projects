@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IAccessPointTypeService : IGenericService<AccessPointType, int, AccessPointTypeParameters>
+    public interface IAccessPointTypeService : IBaseService<AccessPointType, int, AccessPointTypeParameters>
     {
 	}
 }

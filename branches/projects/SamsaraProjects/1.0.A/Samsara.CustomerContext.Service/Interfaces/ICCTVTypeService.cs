@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICCTVTypeService : IGenericService<CCTVType, int, CCTVTypeParameters>
+    public interface ICCTVTypeService : IBaseService<CCTVType, int, CCTVTypeParameters>
     {
 	}
 }

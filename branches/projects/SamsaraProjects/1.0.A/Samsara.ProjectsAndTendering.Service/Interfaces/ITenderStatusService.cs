@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface ITenderStatusService : IGenericService<TenderStatus, int, TenderStatusParameters>
+    public interface ITenderStatusService : IBaseService<TenderStatus, int, TenderStatusParameters>
     {
     }
 }

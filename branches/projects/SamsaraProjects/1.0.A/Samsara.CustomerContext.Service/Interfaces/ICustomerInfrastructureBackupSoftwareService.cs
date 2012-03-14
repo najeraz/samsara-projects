@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICustomerInfrastructureBackupSoftwareService : IGenericService<CustomerInfrastructureBackupSoftware, int, CustomerInfrastructureBackupSoftwareParameters>
+    public interface ICustomerInfrastructureBackupSoftwareService : IBaseService<CustomerInfrastructureBackupSoftware, int, CustomerInfrastructureBackupSoftwareParameters>
     {
 	}
 }

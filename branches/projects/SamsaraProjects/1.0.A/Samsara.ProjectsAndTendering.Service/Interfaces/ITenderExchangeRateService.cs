@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface ITenderExchangeRateService : IGenericService<TenderExchangeRate, int, TenderExchangeRateParameters>
+    public interface ITenderExchangeRateService : IBaseService<TenderExchangeRate, int, TenderExchangeRateParameters>
     {
     }
 }

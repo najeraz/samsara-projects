@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IManufacturerService : IGenericService<Manufacturer, int, ManufacturerParameters>
+    public interface IManufacturerService : IBaseService<Manufacturer, int, ManufacturerParameters>
     {
     }
 }

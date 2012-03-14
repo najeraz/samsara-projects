@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IDBMSService : IGenericService<DBMS, int, DBMSParameters>
+    public interface IDBMSService : IBaseService<DBMS, int, DBMSParameters>
     {
 	}
 }
