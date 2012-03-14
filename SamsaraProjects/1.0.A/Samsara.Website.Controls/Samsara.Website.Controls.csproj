@@ -31,8 +31,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Website.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Website.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Website.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Website.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Website.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Website.Service.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,27 +70,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ProductFamilyConfigurationChooserControl.cs" />
-    <Compile Include="Controls\ProductFamilyConfigurationChooserControl.designer.cs">
+    <Compile Include="Controls\Choosers\ProductFamilyConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Choosers\ProductFamilyConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductFamilyConfigurationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProductLineConfigurationChooserControl.cs" />
-    <Compile Include="Controls\ProductLineConfigurationChooserControl.designer.cs">
+    <Compile Include="Controls\Choosers\ProductLineConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Choosers\ProductLineConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductLineConfigurationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs" />
-    <Compile Include="Controls\ProductLineConfigurationSamsaraBusinessUnitChooserControl.designer.cs">
+    <Compile Include="Controls\Choosers\ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Choosers\ProductLineConfigurationSamsaraBusinessUnitChooserControl.designer.cs">
       <DependentUpon>ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ProductSublineConfigurationChooserControl.cs" />
-    <Compile Include="Controls\ProductSublineConfigurationChooserControl.designer.cs">
+    <Compile Include="Controls\Choosers\ProductSublineConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Choosers\ProductSublineConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductSublineConfigurationChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\Choosers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
