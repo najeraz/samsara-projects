@@ -1173,9 +1173,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     return;
                 this.frmTender.Cursor = Cursors.WaitCursor;
                 this.tender = this.srvTender.GetById(tenderId);
-                this.tender.Activated = false;
-                this.tender.Deleted = true;
-                this.srvTender.SaveOrUpdate(this.tender);
+                this.srvTender.Delete(this.tender);
                 this.Search();
             }
             finally
