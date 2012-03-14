@@ -54,7 +54,7 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual DateTime GetServerDateTime()
         {
-            DetachedNamedQuery dnq = new DetachedNamedQuery("GenericReadOnlyDao.GetServerDateTime");
+            DetachedNamedQuery dnq = new DetachedNamedQuery("BaseReadOnlyDao.GetServerDateTime");
 
             DateTime result = dnq.GetExecutableQuery(Session).UniqueResult<DateTime>();
 
@@ -74,9 +74,9 @@ namespace Samsara.Base.Dao.Impl
                 typeof(T).Name + ".SearchByParameters", parameters, false);
         }
 
-        public virtual DataTable CustomSearchByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
+        public virtual DataTable CustomSearchByParameters(string queryName, object parameters, bool absoluteColumnNames)
         {
-            return this.DataTableByParameters<T>(queryName, parameters, absoluteColumnNames);
+            return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
         }
 
         public virtual IList<T> GetListByParameters<T>(object parameters)
@@ -131,6 +131,20 @@ namespace Samsara.Base.Dao.Impl
                 }
                 catch { }
             }
+
+            return dtResult;
+        }
+
+        public virtual DataTable DataTableByParameters(string queryName, object parameters, bool absoluteColumnNames)
+        {
+            DataTable dtResult = null;
+
+            IList lstResult = GetGenericListByParameters(queryName, parameters);
+            try
+            {
+                dtResult = CollectionsUtil.ConvertToDataTable(lstResult);
+            }
+            catch { }
 
             return dtResult;
         }
