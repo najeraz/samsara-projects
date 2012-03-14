@@ -11,7 +11,7 @@ namespace Samsara.Base.Service.Impl
     {
         #region Properties
 
-        protected IGenericDao Dao
+        protected IGenericReadOnlyDao ReadOnlyDao
         {
             get;
             set;
@@ -23,37 +23,37 @@ namespace Samsara.Base.Service.Impl
 
         public virtual DateTime GetServerDateTime()
         {
-            return this.Dao.GetServerDateTime();
+            return this.ReadOnlyDao.GetServerDateTime();
         }
 
         public T GetById<T>(object id)
         {
-            return Dao.GetById<T>(id);
+            return ReadOnlyDao.GetById<T>(id);
         }
 
         public T GetByParameters<T>(object parameters)
         {
-            return Dao.GetByParameters<T>(parameters);
+            return ReadOnlyDao.GetByParameters<T>(parameters);
         }
 
         public IList<T> GetAll<T>()
         {
-            return Dao.GetAll<T>();
+            return ReadOnlyDao.GetAll<T>();
         }
 
         public DataTable SearchByParameters<T>(object parameters)
         {
-            return this.Dao.SearchByParameters<T>(parameters);
+            return this.ReadOnlyDao.SearchByParameters<T>(parameters);
         }
 
         public IList<T> GetListByParameters<T>(object parameters)
         {
-            return this.Dao.GetListByParameters<T>(parameters);
+            return this.ReadOnlyDao.GetListByParameters<T>(parameters);
         }
 
         public DataTable CustomSearchByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
         {
-            return this.Dao.CustomSearchByParameters<T>(queryName, parameters, absoluteColumnNames);
+            return this.ReadOnlyDao.CustomSearchByParameters<T>(queryName, parameters, absoluteColumnNames);
         }
 
         #endregion Methods

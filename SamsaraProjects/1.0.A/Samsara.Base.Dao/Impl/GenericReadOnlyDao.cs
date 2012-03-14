@@ -49,8 +49,7 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual T GetById<T>(object Id)
         {
-            this.OpenReadingSession();
-            return this.ReadingSession.Get<T>(Id);
+            return this.Session.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()
@@ -179,21 +178,6 @@ namespace Samsara.Base.Dao.Impl
         }
 
         #endregion Public
-
-        #region Private
-
-        /// <summary>
-        /// Eliminar cuando SessionFactory.GetCurrentSession() no lanze una excepción.
-        /// </summary>
-        private void OpenReadingSession()
-        {
-            if (!this.ReadingSession.IsOpen)
-            {
-                this.ReadingSession = this.HibernateTemplate.SessionFactory.OpenSession();
-            }
-        }
-
-        #endregion Private
 
         #endregion Methods
     }

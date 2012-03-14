@@ -149,6 +149,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderManufacturer> TenderManufacturers
         {
             get
@@ -164,6 +165,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderLine> TenderLines
         {
             get
@@ -179,6 +181,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderFile> TenderFiles
         {
             get
@@ -194,6 +197,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderLog> TenderLogs
         {
             get
@@ -209,6 +213,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderCompetitor> TenderCompetitors
         {
             get
@@ -224,6 +229,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderWholesaler> TenderWholesalers
         {
             get
@@ -239,6 +245,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderExchangeRate> TenderExchangeRates
         {
             get
@@ -254,6 +261,7 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
+        [PropagationAudit]
         public virtual ISet<TenderWarranty> TenderWarranties
         {
             get
