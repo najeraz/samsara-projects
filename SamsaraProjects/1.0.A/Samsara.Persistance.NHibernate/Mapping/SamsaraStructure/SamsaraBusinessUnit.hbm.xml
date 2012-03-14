@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.SamsaraStructure.Core" 
+  namespace="Samsara.SamsaraStructure.Core.Entities">
+  
+  <class name="SamsaraBusinessUnit" table="SamsaraStructure.SamsaraBusinessUnits">
+    
+    <id name="SamsaraBusinessUnitId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+  </class>
+
+  <query name="SamsaraBusinessUnit.GetByParameters">
+    <![CDATA[
+        from SamsaraBusinessUnit where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="SamsaraBusinessUnit.GetListByParameters">
+    <![CDATA[
+        from SamsaraBusinessUnit where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="SamsaraBusinessUnit.SearchByParameters">
+    <![CDATA[
+        from SamsaraBusinessUnit where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>
