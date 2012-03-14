@@ -13,8 +13,13 @@
     <property name="ExpirationDate"/>
     <property name="Amount"/>
     <property name="Description"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
     <many-to-one name="Tender"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Tender, Samsara.ProjectsAndTendering.Core"

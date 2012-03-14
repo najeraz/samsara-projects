@@ -17,8 +17,13 @@
     <property name="StorageSystem"/>
     <property name="Utilization"/>
     <property name="Scalability"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
     <many-to-one name="CustomerInfrastructure"
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"

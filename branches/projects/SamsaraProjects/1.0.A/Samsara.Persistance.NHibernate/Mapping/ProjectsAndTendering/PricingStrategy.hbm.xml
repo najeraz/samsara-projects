@@ -18,8 +18,13 @@
     <property name="TotalPriceAfterTax"/>
     <property name="OfferedTotalPrice"/>
     <property name="OfferedUnitaryPrice"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
     
     <many-to-one name="Wholesaler"
                  class="Samsara.ProjectsAndTendering.Core.Entities.Wholesaler, Samsara.ProjectsAndTendering.Core"

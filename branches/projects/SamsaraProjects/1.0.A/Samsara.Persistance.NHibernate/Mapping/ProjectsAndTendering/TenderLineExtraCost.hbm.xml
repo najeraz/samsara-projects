@@ -12,8 +12,13 @@
     <property name="Name"/>
     <property name="Description"/>
     <property name="Amount"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
     <many-to-one name="TenderLine"
                  class="Samsara.ProjectsAndTendering.Core.Entities.TenderLine, Samsara.ProjectsAndTendering.Core"

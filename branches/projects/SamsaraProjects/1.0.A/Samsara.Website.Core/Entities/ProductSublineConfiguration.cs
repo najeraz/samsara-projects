@@ -31,5 +31,11 @@ namespace Samsara.Website.Core.Entities
             set;
         }
 
+        public virtual bool Hidden
+        {
+            get;
+            set;
+        }
+
     }
 }

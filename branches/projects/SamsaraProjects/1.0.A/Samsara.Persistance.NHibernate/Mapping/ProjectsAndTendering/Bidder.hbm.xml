@@ -10,8 +10,13 @@
     </id>
 
     <property name="Name"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
     <many-to-one name="BidderType"
                  class="Samsara.ProjectsAndTendering.Core.Entities.BidderType, Samsara.ProjectsAndTendering.Core"
