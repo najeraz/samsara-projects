@@ -5,7 +5,7 @@ using Samsara.Main.Core.Parameters;
 
 namespace Samsara.Main.Service.Interfaces
 {
-    public interface IUserService : IGenericService<User, int, UserParameters>
+    public interface IUserService : IBaseService<User, int, UserParameters>
     {
 	}
 }

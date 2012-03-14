@@ -7,7 +7,7 @@ using Samsara.Website.Service.Interfaces;
 
 namespace Samsara.Website.Service.Impl
 {
-    public class ProductFamilyConfigurationService : GenericService<ProductFamilyConfiguration, int, IProductFamilyConfigurationDao, ProductFamilyConfigurationParameters>, IProductFamilyConfigurationService
+    public class ProductFamilyConfigurationService : BaseService<ProductFamilyConfiguration, int, IProductFamilyConfigurationDao, ProductFamilyConfigurationParameters>, IProductFamilyConfigurationService
     {
     }
 }

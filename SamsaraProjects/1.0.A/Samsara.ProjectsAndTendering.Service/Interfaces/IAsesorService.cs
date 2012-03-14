@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IAsesorService : IGenericService<Asesor, int, AsesorParameters>
+    public interface IAsesorService : IBaseService<Asesor, int, AsesorParameters>
     {
     }
 }

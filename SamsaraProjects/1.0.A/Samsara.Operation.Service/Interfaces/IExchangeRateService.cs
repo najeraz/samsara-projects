@@ -5,7 +5,7 @@ using Samsara.Operation.Core.Parameters;
 
 namespace Samsara.Operation.Service.Interfaces
 {
-    public interface IExchangeRateService : IGenericService<ExchangeRate, int, ExchangeRateParameters>
+    public interface IExchangeRateService : IBaseService<ExchangeRate, int, ExchangeRateParameters>
     {
     }
 }

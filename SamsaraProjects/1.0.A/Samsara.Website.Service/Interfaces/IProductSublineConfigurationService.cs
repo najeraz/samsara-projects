@@ -5,7 +5,7 @@ using Samsara.Website.Core.Parameters;
 
 namespace Samsara.Website.Service.Interfaces
 {
-    public interface IProductSublineConfigurationService : IGenericService<ProductSublineConfiguration, int, ProductSublineConfigurationParameters>
+    public interface IProductSublineConfigurationService : IBaseService<ProductSublineConfiguration, int, ProductSublineConfigurationParameters>
     {
 	}
 }

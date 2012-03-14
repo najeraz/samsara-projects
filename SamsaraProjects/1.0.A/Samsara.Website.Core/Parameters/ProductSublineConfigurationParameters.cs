@@ -2,7 +2,7 @@
 using System;
 using Samsara.Base.Core.Parameters;
 
-namespace Samsara.Main.Core.Parameters
+namespace Samsara.Website.Core.Parameters
 {
     public class ProductSublineConfigurationParameters : BaseParameters
     {

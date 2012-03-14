@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICommutatorBrandService : IGenericService<CommutatorBrand, int, CommutatorBrandParameters>
+    public interface ICommutatorBrandService : IBaseService<CommutatorBrand, int, CommutatorBrandParameters>
     {
 	}
 }

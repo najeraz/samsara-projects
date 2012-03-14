@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IUPSTypeService : IGenericService<UPSType, int, UPSTypeParameters>
+    public interface IUPSTypeService : IBaseService<UPSType, int, UPSTypeParameters>
     {
 	}
 }

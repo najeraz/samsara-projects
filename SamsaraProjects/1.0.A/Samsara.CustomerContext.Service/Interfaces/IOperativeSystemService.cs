@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IOperativeSystemService : IGenericService<OperativeSystem, int, OperativeSystemParameters>
+    public interface IOperativeSystemService : IBaseService<OperativeSystem, int, OperativeSystemParameters>
     {
 	}
 }

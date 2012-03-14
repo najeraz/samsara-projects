@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICustomerInfrastructureNetworkWifiService : IGenericService<CustomerInfrastructureNetworkWifi, int, CustomerInfrastructureNetworkWifiParameters>
+    public interface ICustomerInfrastructureNetworkWifiService : IBaseService<CustomerInfrastructureNetworkWifi, int, CustomerInfrastructureNetworkWifiParameters>
     {
 	}
 }

@@ -5,7 +5,7 @@ using Samsara.Operation.Core.Parameters;
 
 namespace Samsara.Operation.Service.Interfaces
 {
-    public interface ICurrencyService : IGenericService<Currency, int, CurrencyParameters>
+    public interface ICurrencyService : IBaseService<Currency, int, CurrencyParameters>
     {
     }
 }

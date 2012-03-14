@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IWarrantyTypeService : IGenericService<WarrantyType, int, WarrantyTypeParameters>
+    public interface IWarrantyTypeService : IBaseService<WarrantyType, int, WarrantyTypeParameters>
     {
     }
 }

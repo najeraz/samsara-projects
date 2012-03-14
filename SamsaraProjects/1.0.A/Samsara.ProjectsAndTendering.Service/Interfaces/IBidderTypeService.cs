@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IBidderTypeService : IGenericService<BidderType, int, BidderTypeParameters>
+    public interface IBidderTypeService : IBaseService<BidderType, int, BidderTypeParameters>
     {
     }
 }
