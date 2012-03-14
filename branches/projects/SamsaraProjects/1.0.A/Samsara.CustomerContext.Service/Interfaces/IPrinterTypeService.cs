@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IPrinterTypeService : IGenericService<PrinterType, int, PrinterTypeParameters>
+    public interface IPrinterTypeService : IBaseService<PrinterType, int, PrinterTypeParameters>
     {
 	}
 }

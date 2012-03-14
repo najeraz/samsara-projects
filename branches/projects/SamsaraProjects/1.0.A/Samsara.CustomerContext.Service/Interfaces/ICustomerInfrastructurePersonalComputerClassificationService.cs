@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICustomerInfrastructurePersonalComputerClassificationService : IGenericService<CustomerInfrastructurePersonalComputerClassification, int, CustomerInfrastructurePersonalComputerClassificationParameters>
+    public interface ICustomerInfrastructurePersonalComputerClassificationService : IBaseService<CustomerInfrastructurePersonalComputerClassification, int, CustomerInfrastructurePersonalComputerClassificationParameters>
     {
 	}
 }

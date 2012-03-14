@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IPricingStrategyService : IGenericService<PricingStrategy, int, PricingStrategyParameters>
+    public interface IPricingStrategyService : IBaseService<PricingStrategy, int, PricingStrategyParameters>
     {
     }
 }

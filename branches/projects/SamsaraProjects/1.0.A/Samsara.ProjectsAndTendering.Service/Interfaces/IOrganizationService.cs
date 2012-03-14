@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IOrganizationService : IGenericService<Organization, int, OrganizationParameters>
+    public interface IOrganizationService : IBaseService<Organization, int, OrganizationParameters>
     {
     }
 }

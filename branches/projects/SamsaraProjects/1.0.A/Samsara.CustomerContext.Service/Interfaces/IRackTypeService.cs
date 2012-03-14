@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IRackTypeService : IGenericService<RackType, int, RackTypeParameters>
+    public interface IRackTypeService : IBaseService<RackType, int, RackTypeParameters>
     {
 	}
 }

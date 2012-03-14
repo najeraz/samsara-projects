@@ -5,7 +5,7 @@ using Samsara.Website.Core.Parameters;
 
 namespace Samsara.Website.Dao.Interfaces
 {
-    public interface IProductLineConfigurationDao : IGenericDao<ProductLineConfiguration, int, ProductLineConfigurationParameters>
+    public interface IProductLineConfigurationDao : IBaseDao<ProductLineConfiguration, int, ProductLineConfigurationParameters>
     {
     }
 }

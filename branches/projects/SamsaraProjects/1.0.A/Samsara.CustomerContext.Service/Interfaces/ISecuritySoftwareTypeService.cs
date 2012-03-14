@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ISecuritySoftwareTypeService : IGenericService<SecuritySoftwareType, int, SecuritySoftwareTypeParameters>
+    public interface ISecuritySoftwareTypeService : IBaseService<SecuritySoftwareType, int, SecuritySoftwareTypeParameters>
     {
 	}
 }

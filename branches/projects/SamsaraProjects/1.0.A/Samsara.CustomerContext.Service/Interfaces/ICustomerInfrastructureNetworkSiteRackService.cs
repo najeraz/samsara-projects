@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICustomerInfrastructureNetworkSiteRackService : IGenericService<CustomerInfrastructureNetworkSiteRack, int, CustomerInfrastructureNetworkSiteRackParameters>
+    public interface ICustomerInfrastructureNetworkSiteRackService : IBaseService<CustomerInfrastructureNetworkSiteRack, int, CustomerInfrastructureNetworkSiteRackParameters>
     {
 	}
 }

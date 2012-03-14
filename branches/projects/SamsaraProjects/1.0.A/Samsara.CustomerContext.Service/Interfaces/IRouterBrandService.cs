@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface IRouterBrandService : IGenericService<RouterBrand, int, RouterBrandParameters>
+    public interface IRouterBrandService : IBaseService<RouterBrand, int, RouterBrandParameters>
     {
 	}
 }

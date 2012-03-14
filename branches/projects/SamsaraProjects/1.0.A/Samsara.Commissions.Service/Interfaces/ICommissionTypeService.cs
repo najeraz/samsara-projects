@@ -5,7 +5,7 @@ using Samsara.Commissions.Core.Parameters;
 
 namespace Samsara.Commissions.Service.Interfaces
 {
-    public interface ICommissionTypeService : IGenericService<CommissionType, int, CommissionTypeParameters>
+    public interface ICommissionTypeService : IBaseService<CommissionType, int, CommissionTypeParameters>
     {
 	}
 }

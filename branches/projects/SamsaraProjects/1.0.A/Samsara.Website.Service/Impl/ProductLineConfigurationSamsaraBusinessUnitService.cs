@@ -7,7 +7,7 @@ using Samsara.Website.Service.Interfaces;
 
 namespace Samsara.Website.Service.Impl
 {
-    public class ProductLineConfigurationSamsaraBusinessUnitService : GenericService<ProductLineConfigurationSamsaraBusinessUnit, int, IProductLineConfigurationSamsaraBusinessUnitDao, ProductLineConfigurationSamsaraBusinessUnitParameters>, IProductLineConfigurationSamsaraBusinessUnitService
+    public class ProductLineConfigurationSamsaraBusinessUnitService : BaseService<ProductLineConfigurationSamsaraBusinessUnit, int, IProductLineConfigurationSamsaraBusinessUnitDao, ProductLineConfigurationSamsaraBusinessUnitParameters>, IProductLineConfigurationSamsaraBusinessUnitService
     {
     }
 }

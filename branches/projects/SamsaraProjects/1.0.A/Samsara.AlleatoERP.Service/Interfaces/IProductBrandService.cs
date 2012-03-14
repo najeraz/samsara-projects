@@ -5,7 +5,7 @@ using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.AlleatoERP.Service.Interfaces
 {
-    public interface IProductBrandService : IGenericService<ProductBrand, int, ProductBrandParameters>
+    public interface IProductBrandService : IBaseService<ProductBrand, int, ProductBrandParameters>
     {
 	}
 }

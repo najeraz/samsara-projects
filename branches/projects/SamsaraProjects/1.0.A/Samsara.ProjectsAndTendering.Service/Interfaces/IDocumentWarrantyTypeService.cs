@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface IDocumentTypeWarrantyService : IGenericService<DocumentTypeWarranty, int, DocumentTypeWarrantyParameters>
+    public interface IDocumentTypeWarrantyService : IBaseService<DocumentTypeWarranty, int, DocumentTypeWarrantyParameters>
     {
     }
 }

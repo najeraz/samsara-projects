@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ISwitchBrandService : IGenericService<SwitchBrand, int, SwitchBrandParameters>
+    public interface ISwitchBrandService : IBaseService<SwitchBrand, int, SwitchBrandParameters>
     {
 	}
 }

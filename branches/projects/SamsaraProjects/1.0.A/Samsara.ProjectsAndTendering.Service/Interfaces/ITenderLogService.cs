@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface ITenderLogService : IGenericService<TenderLog, int, TenderLogParameters>
+    public interface ITenderLogService : IBaseService<TenderLog, int, TenderLogParameters>
     {
     }
 }

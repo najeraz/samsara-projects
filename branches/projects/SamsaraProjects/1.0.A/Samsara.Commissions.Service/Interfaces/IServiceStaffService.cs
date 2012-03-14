@@ -5,7 +5,7 @@ using Samsara.Commissions.Core.Parameters;
 
 namespace Samsara.Commissions.Service.Interfaces
 {
-    public interface IServiceStaffService : IGenericService<ServiceStaff, int, ServiceStaffParameters>
+    public interface IServiceStaffService : IBaseService<ServiceStaff, int, ServiceStaffParameters>
     {
 	}
 }

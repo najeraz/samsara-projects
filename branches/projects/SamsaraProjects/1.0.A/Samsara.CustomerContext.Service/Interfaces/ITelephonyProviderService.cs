@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ITelephonyProviderService : IGenericService<TelephonyProvider, int, TelephonyProviderParameters>
+    public interface ITelephonyProviderService : IBaseService<TelephonyProvider, int, TelephonyProviderParameters>
     {
 	}
 }

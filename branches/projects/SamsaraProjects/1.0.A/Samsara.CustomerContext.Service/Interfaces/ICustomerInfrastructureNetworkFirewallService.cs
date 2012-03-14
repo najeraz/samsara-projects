@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
-    public interface ICustomerInfrastructureNetworkFirewallService : IGenericService<CustomerInfrastructureNetworkFirewall, int, CustomerInfrastructureNetworkFirewallParameters>
+    public interface ICustomerInfrastructureNetworkFirewallService : IBaseService<CustomerInfrastructureNetworkFirewall, int, CustomerInfrastructureNetworkFirewallParameters>
     {
 	}
 }

@@ -5,7 +5,7 @@ using Samsara.Website.Core.Parameters;
 
 namespace Samsara.Website.Service.Interfaces
 {
-    public interface IProductFamilyConfigurationService : IGenericService<ProductFamilyConfiguration, int, ProductFamilyConfigurationParameters>
+    public interface IProductFamilyConfigurationService : IBaseService<ProductFamilyConfiguration, int, ProductFamilyConfigurationParameters>
     {
 	}
 }

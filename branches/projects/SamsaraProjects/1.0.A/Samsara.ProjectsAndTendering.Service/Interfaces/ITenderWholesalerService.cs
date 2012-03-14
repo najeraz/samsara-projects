@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 
 namespace Samsara.ProjectsAndTendering.Service.Interfaces
 {
-    public interface ITenderWholesalerService : IGenericService<TenderWholesaler, int, TenderWholesalerParameters>
+    public interface ITenderWholesalerService : IBaseService<TenderWholesaler, int, TenderWholesalerParameters>
     {
     }
 }

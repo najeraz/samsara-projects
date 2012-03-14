@@ -6,7 +6,7 @@ using Samsara.Website.Dao.Interfaces;
 
 namespace Samsara.Website.Dao.Impl
 {
-    public class ProductLineConfigurationSamsaraBusinessUnitDao : GenericDao<ProductLineConfigurationSamsaraBusinessUnit, int, ProductLineConfigurationSamsaraBusinessUnitParameters>, IProductLineConfigurationSamsaraBusinessUnitDao
+    public class ProductLineConfigurationSamsaraBusinessUnitDao : BaseDao<ProductLineConfigurationSamsaraBusinessUnit, int, ProductLineConfigurationSamsaraBusinessUnitParameters>, IProductLineConfigurationSamsaraBusinessUnitDao
     {
     }
 }
