@@ -52,7 +52,6 @@ namespace Samsara.Commissions.Core.Entities
             set;
         }
 
-        [PropagationAudit]
         public virtual ISet<ServiceStaff> ServiceStaff
         {
             get

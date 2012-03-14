@@ -57,7 +57,7 @@ namespace Samsara.Base.Service.Interfaces
         /// name of column only if the property is an Entity
         /// otherwise only names the column as primary key from the Entity</param>
         /// <returns></returns>
-        DataTable CustomSearchByParameters<T>(string queryName, object parameters, bool absoluteColumnNames);
+        DataTable CustomSearchByParameters(string queryName, object parameters, bool absoluteColumnNames);
 
         #endregion Methods
     }

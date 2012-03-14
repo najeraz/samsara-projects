@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\AuditableProperty.cs" />
     <Compile Include="Attributes\PrimaryKey.cs" />
     <Compile Include="Context\SamsaraAppContext.cs" />
     <Compile Include="Entities\BaseEntity.cs" />

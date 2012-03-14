@@ -98,7 +98,7 @@ namespace Samsara.Dashboard.Forms.Controller
             pmtVerticalIntegrationReport.MinDate = this.frmVerticalIntegration.dtePrplMinDate.DateTime;
             pmtVerticalIntegrationReport.MaxDate = this.frmVerticalIntegration.dtePrplMaxDate.DateTime;
 
-            DataTable dtData = this.srvAlleatoERP.CustomSearchByParameters<object>(
+            DataTable dtData = this.srvAlleatoERP.CustomSearchByParameters(
                 "VerticalIntegrationReport.SearchReportData", pmtVerticalIntegrationReport, false);
 
             IList<int> lstStaffIds = dtData.AsEnumerable().AsParallel()
