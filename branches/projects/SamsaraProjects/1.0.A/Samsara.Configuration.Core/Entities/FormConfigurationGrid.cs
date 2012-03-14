@@ -39,7 +39,6 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
-        [PropagationAudit]
         public virtual ISet<FormConfigurationGridColumn> FormConfigurationGridColumns
         {
             get
