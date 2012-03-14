@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Website.Core" 
+  namespace="Samsara.Website.Core.Entities">
+  
+  <class name="ProductSublineConfiguration" table="Website.ProductSublineConfigurations">
+    
+    <id name="ProductSublineConfigurationId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Hidden"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+  </class>
+
+  <query name="ProductSublineConfiguration.GetByParameters">
+    <![CDATA[
+        from ProductSublineConfiguration where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ProductSublineConfiguration.GetListByParameters">
+    <![CDATA[
+        from ProductSublineConfiguration where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ProductSublineConfiguration.SearchByParameters">
+    <![CDATA[
+        from ProductSublineConfiguration where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>

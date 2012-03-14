@@ -11,8 +11,13 @@
 
     <property name="GroundedOutlet"/>
     <property name="TrainingAndCourses"/>
-    <property name="Deleted"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
     <property name="Activated"/>
+    <property name="Deleted"/>
 
     <many-to-one name="Customer"
                  class="Samsara.CustomerContext.Core.Entities.Customer, Samsara.CustomerContext.Core"
