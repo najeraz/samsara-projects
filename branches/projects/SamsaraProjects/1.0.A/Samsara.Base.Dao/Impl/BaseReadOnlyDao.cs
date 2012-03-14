@@ -16,28 +16,6 @@ namespace Samsara.Base.Dao.Impl
 {
     public class BaseReadOnlyDao<T, TId, Tpmt> : HibernateDaoSupport, IBaseReadOnlyDao<T, TId, Tpmt>
     {
-        #region Attributes
-
-        private ISession readingSession;
-
-        #endregion Attributes
-
-        #region Properties
-
-        protected ISession ReadingSession
-        {
-            get
-            {
-                return this.readingSession = this.readingSession ?? this.HibernateTemplate.SessionFactory.OpenSession();
-            }
-            set
-            {
-                this.readingSession = value;
-            }
-        }
-
-        #endregion Properties
-
         #region Methods
 
         #region Public
@@ -49,8 +27,7 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual T GetById(TId Id)
         {
-            this.OpenReadingSession();
-            return this.ReadingSession.Get<T>(Id);
+            return this.HibernateTemplate.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()
@@ -179,21 +156,6 @@ namespace Samsara.Base.Dao.Impl
         }
 
         #endregion Public
-
-        #region Private
-
-        /// <summary>
-        /// Eliminar cuando SessionFactory.GetCurrentSession() no lanze una excepción.
-        /// </summary>
-        private void OpenReadingSession()
-        {
-            if (!this.ReadingSession.IsOpen)
-            {
-                this.ReadingSession = this.HibernateTemplate.SessionFactory.OpenSession();
-            }
-        }
-
-        #endregion Private
 
         #endregion Methods
     }

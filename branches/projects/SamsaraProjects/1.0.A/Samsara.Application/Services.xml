@@ -383,6 +383,10 @@
     <property name="Dao" ref="ICommissionTypeDao"/>
   </object>
   
+  <object id="IAlleatoERPService"
+          type="Samsara.AlleatoERP.Service.Impl.AlleatoERPService, Samsara.AlleatoERP.Service">
+    <property name="ReadOnlyDao" ref="IAlleatoERPDao"/>
+  </object>
   <object id="IProductService"
           type="Samsara.AlleatoERP.Service.Impl.ProductService, Samsara.AlleatoERP.Service">
     <property name="Dao" ref="IProductDao"/>
@@ -390,10 +394,6 @@
   <object id="IProductBrandService"
           type="Samsara.AlleatoERP.Service.Impl.ProductBrandService, Samsara.AlleatoERP.Service">
     <property name="Dao" ref="IProductBrandDao"/>
-  </object>
-  <object id="IAlleatoERPService"
-          type="Samsara.AlleatoERP.Service.Impl.AlleatoERPService, Samsara.AlleatoERP.Service">
-    <property name="Dao" ref="IAlleatoERPDao"/>
   </object>
   <object id="IProductFamilyService"
           type="Samsara.AlleatoERP.Service.Impl.ProductFamilyService, Samsara.AlleatoERP.Service">
