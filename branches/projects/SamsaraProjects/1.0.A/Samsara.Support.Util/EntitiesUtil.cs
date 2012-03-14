@@ -125,6 +125,7 @@ namespace Samsara.Support.Util
             }
             catch
             {
+                //Es un proxy que no pudo ser inicializado...
                 return;
             }
 
