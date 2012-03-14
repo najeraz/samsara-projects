@@ -81,7 +81,7 @@ namespace Samsara.Support.Util
 
             PropertyInfo primaryKeyPropertyInfo = GetPrimaryKeyPropertyInfo(entityType);
 
-            return entityType.GetProperty(primaryKeyPropertyInfo.Name).GetValue(entity, null);
+            return primaryKeyPropertyInfo == null ? null : entityType.GetProperty(primaryKeyPropertyInfo.Name).GetValue(entity, null);
         }
 
         public static object GetPrimaryKeyPropertyValue<T>(object entity)
@@ -114,26 +114,49 @@ namespace Samsara.Support.Util
             return resultList;
         }
 
-        public static void ProcessAuditProperties(object entity, DateTime dtNow)
+        public static void ProcessAuditProperties(object entity, DateTime dtNow, IDictionary<int, string> auditedObjects, NHibernate.ISession nHibernateSession)
         {
-            Type entityType = entity.GetType();
+            Type entityType = null;
 
-            int primaryKeyValue = Convert.ToInt32(EntitiesUtil.GetPrimaryKeyPropertyValue(entityType, entity));
+            try
+            {
+                object unProxiedEntity = nHibernateSession.GetSessionImplementation().PersistenceContext.Unproxy(entity);
+                entityType = unProxiedEntity.GetType();
+            }
+            catch
+            {
+                return;
+            }
+
+            if (auditedObjects == null)
+            {
+                auditedObjects = new Dictionary<int, string>();
+            }
+
+            if (auditedObjects.ContainsKey(entity.GetHashCode()))
+            {
+                return;
+            }
+
+            Nullable<int> primaryKeyValue = (Nullable<int>)EntitiesUtil.GetPrimaryKeyPropertyValue(entityType, entity);
 
             if (entity.GetType().IsSubclassOf(typeof(BaseEntity)))
             {
+                auditedObjects.Add(entity.GetHashCode(), entityType.Name);
+
                 ISession session = SamsaraAppContext.Resolve<ISession>();
+
+                if ((entity as BaseEntity).Activated == null)
+                {
+                    (entity as BaseEntity).Activated = true;
+                }
+                if ((entity as BaseEntity).Deleted == null)
+                {
+                    (entity as BaseEntity).Deleted = false;
+                }
 
                 if (primaryKeyValue <= 0)
                 {
-                    if ((entity as BaseEntity).Activated == null)
-                    {
-                        (entity as BaseEntity).Activated = true;
-                    }
-                    if ((entity as BaseEntity).Deleted == null)
-                    {
-                        (entity as BaseEntity).Deleted = false;
-                    }
                     (entity as BaseEntity).CreatedBy = session.UserId;
                     (entity as BaseEntity).CreatedOn = dtNow;
                 }
@@ -144,23 +167,22 @@ namespace Samsara.Support.Util
                 }
             }
 
-            foreach (PropertyInfo propertyInfo in
-                EntitiesUtil.GetPropertiesWithSpecificAttribute(entityType, typeof(PropagationAudit)))
+            foreach (PropertyInfo propertyInfo in entityType.GetProperties())
             {
                 object value = entity.GetType().GetProperty(propertyInfo.Name).GetValue(entity, null);
 
                 if (value != null && value.GetType().IsSubclassOf(typeof(BaseEntity)))
                 {
-                    ProcessAuditProperties(value, dtNow);
+                    ProcessAuditProperties(value, dtNow, auditedObjects, nHibernateSession);
                 }
 
-                if (value.GetType().GetInterface(typeof(IEnumerable).FullName) != null)
+                if (value != null && value.GetType().GetInterface(typeof(IEnumerable).FullName) != null)
                 {
                     foreach (object item in (value as IEnumerable))
                     {
                         if (item != null && item.GetType().IsSubclassOf(typeof(BaseEntity)))
                         {
-                            ProcessAuditProperties(item, dtNow);
+                            ProcessAuditProperties(item, dtNow, auditedObjects, nHibernateSession);
                         }
                     }
                 }

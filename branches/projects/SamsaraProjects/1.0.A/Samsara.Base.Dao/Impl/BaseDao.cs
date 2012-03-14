@@ -2,6 +2,7 @@
 using Samsara.Base.Core.Entities;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Support.Util;
+using NHibernate;
 
 namespace Samsara.Base.Dao.Impl
 {
@@ -13,15 +14,13 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual void SaveOrUpdate(T entity)
         {
-            this.CloseReadingSession();
-            EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
+            EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
             this.HibernateTemplate.SaveOrUpdate(entity);
         }
 
         public virtual void Save(T entity)
         {
-            this.CloseReadingSession();
-            EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
+            EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
             this.HibernateTemplate.Save(entity);
         }
 
@@ -32,20 +31,18 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual void Update(T entity)
         {
-            this.CloseReadingSession();
-            EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
+            EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
             this.HibernateTemplate.Update(entity);
         }
 
         public virtual void Delete(T entity)
         {
-            this.CloseReadingSession();
             if (entity.GetType().IsSubclassOf(typeof(BaseEntity)))
             {
                 (entity as BaseEntity).Deleted = true;
                 (entity as BaseEntity).Activated = false;
 
-                EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime());
+                EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
                 this.HibernateTemplate.Update(entity);
             }
             else
@@ -55,18 +52,6 @@ namespace Samsara.Base.Dao.Impl
         }
 
         #endregion Public
-
-        #region Private
-
-        private void CloseReadingSession()
-        {
-            if (this.ReadingSession.IsOpen)
-            {
-                this.ReadingSession.Close();
-            }
-        }
-
-        #endregion Private
 
         #endregion Methods
     }
