@@ -91,7 +91,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             set;
         }
 
-        [PropagationAudit]
         public virtual ISet<TenderLineManufacturer> TenderLineManufacturers
         {
             get
@@ -107,7 +106,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
-        [PropagationAudit]
         public virtual ISet<TenderLineWholesaler> TenderLineWholesalers
         {
             get
@@ -123,7 +121,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
-        [PropagationAudit]
         public virtual ISet<TenderLineCompetitor> TenderLineCompetitors
         {
             get
@@ -139,7 +136,6 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
             }
         }
 
-        [PropagationAudit]
         public virtual ISet<TenderLineExtraCost> TenderLineExtraCosts
         {
             get
