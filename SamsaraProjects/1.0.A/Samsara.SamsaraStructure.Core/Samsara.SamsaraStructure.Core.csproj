@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7A847A66-1DC1-4334-8F67-7CFF7F664213}</ProjectGuid>
+    <ProjectGuid>{546A0C59-D1A3-45CB-8F6B-6E7E8D0527AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.Website.Controls</RootNamespace>
-    <AssemblyName>Samsara.Website.Controls</AssemblyName>
+    <RootNamespace>Samsara.SamsaraStructure.Core</RootNamespace>
+    <AssemblyName>Samsara.SamsaraStructure.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,26 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ProductFamilyConfigurationChooserControl.cs" />
-    <Compile Include="Controls\ProductFamilyConfigurationChooserControl.designer.cs">
-      <DependentUpon>ProductFamilyConfigurationChooserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ProductLineConfigurationChooserControl.cs" />
-    <Compile Include="Controls\ProductLineConfigurationChooserControl.designer.cs">
-      <DependentUpon>ProductLineConfigurationChooserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs" />
-    <Compile Include="Controls\ProductLineConfigurationSamsaraBusinessUnitChooserControl.designer.cs">
-      <DependentUpon>ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ProductSublineConfigurationChooserControl.cs" />
-    <Compile Include="Controls\ProductSublineConfigurationChooserControl.designer.cs">
-      <DependentUpon>ProductSublineConfigurationChooserControl.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Entities\SamsaraBusinessUnit.cs" />
+    <Compile Include="Parameters\SamsaraBusinessUnitParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\Choosers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
