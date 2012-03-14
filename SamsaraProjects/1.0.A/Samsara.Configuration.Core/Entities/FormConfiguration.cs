@@ -34,7 +34,6 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
-        [PropagationAudit]
         public virtual ISet<FormConfigurationGrid> FormConfigurationGrids
         {
             get
@@ -50,7 +49,6 @@ namespace Samsara.Configuration.Core.Entities
             }
         }
 
-        [PropagationAudit]
         public virtual ISet<FormConfigurationUserPermission> FormConfigurationUserPermissions
         {
             get
