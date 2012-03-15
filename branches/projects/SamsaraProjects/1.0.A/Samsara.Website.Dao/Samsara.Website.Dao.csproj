@@ -71,10 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\ProductConfigurationDao.cs" />
     <Compile Include="Impl\ProductFamilyConfigurationDao.cs" />
     <Compile Include="Impl\ProductLineConfigurationDao.cs" />
     <Compile Include="Impl\ProductLineConfigurationSamsaraBusinessUnitDao.cs" />
     <Compile Include="Impl\ProductSublineConfigurationDao.cs" />
+    <Compile Include="Interfaces\IProductConfigurationDao.cs" />
     <Compile Include="Interfaces\IProductFamilyConfigurationDao.cs" />
     <Compile Include="Interfaces\IProductLineConfigurationDao.cs" />
     <Compile Include="Interfaces\IProductLineConfigurationSamsaraBusinessUnitDao.cs" />

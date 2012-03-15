@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Choosers\ProductConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Choosers\ProductConfigurationChooserControl.designer.cs">
+      <DependentUpon>ProductConfigurationChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductFamilyConfigurationChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
