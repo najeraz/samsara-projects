@@ -65,10 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\ProductConfigurationService.cs" />
     <Compile Include="Impl\ProductFamilyConfigurationService.cs" />
     <Compile Include="Impl\ProductLineConfigurationSamsaraBusinessUnitService.cs" />
     <Compile Include="Impl\ProductLineConfigurationService.cs" />
     <Compile Include="Impl\ProductSublineConfigurationService.cs" />
+    <Compile Include="Interfaces\IProductConfigurationService.cs" />
     <Compile Include="Interfaces\IProductFamilyConfigurationService.cs" />
     <Compile Include="Interfaces\IProductLineConfigurationSamsaraBusinessUnitService.cs" />
     <Compile Include="Interfaces\IProductLineConfigurationService.cs" />

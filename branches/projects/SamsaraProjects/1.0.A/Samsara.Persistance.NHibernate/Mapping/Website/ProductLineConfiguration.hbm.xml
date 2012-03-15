@@ -19,6 +19,10 @@
     <property name="UpdatedOn"/>
     <property name="Activated"/>
     <property name="Deleted"/>
+
+    <many-to-one name="SamsaraBusinessUnit"
+                 class="Samsara.SamsaraStructure.Core.Entities.SamsaraBusinessUnit, Samsara.SamsaraStructure.Core"
+                 column="SamsaraBusinessUnitId"/>
     
   </class>
 
