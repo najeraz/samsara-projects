@@ -12,6 +12,9 @@
     <property name="Name"/>
     <property name="Code"/>
     <property name="Description"/>
+    <property name="CurrentStock"/>
+    <property name="CurrentPrice4"/>
+    <property name="CurrentPrice5"/>
 
     <property name="Activated"/>
     <property name="Deleted"/>
