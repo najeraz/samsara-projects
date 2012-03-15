@@ -36,6 +36,10 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.SamsaraStructure.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.SamsaraStructure.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ProductConfiguration.cs" />
     <Compile Include="Entities\ProductSublineConfiguration.cs" />
     <Compile Include="Entities\ProductLineConfigurationSamsaraBusinessUnit.cs" />
     <Compile Include="Entities\ProductFamilyConfiguration.cs" />
     <Compile Include="Entities\ProductLineConfiguration.cs" />
+    <Compile Include="Parameters\ProductConfigurationParameters.cs" />
     <Compile Include="Parameters\ProductSublineConfigurationParameters.cs" />
     <Compile Include="Parameters\ProductLineConfigurationParameters.cs" />
     <Compile Include="Parameters\ProductLineConfigurationSamsaraBusinessUnitParameters.cs" />
