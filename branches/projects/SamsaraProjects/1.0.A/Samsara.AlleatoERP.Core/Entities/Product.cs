@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -19,6 +20,24 @@ namespace Samsara.AlleatoERP.Core.Entities
         }
 
         public virtual ProductBrand ProductBrand
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<decimal> CurrentStock
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<decimal> CurrentPrice4
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<decimal> CurrentPrice5
         {
             get;
             set;
