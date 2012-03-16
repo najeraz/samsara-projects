@@ -26,15 +26,21 @@ namespace SamsaraWebsiteUpdateDataService
         private static int numProdutcsInsert = 50;
         private static int numCategoriesInsert = 50;
         private static int numProdutcsCategoriesInsert = 200;
-        private static int diferentOrderIndex = 10000;
+
+        private static int order2 = 10000;
+        private static int order3 = 1000000;
 
         private static string ftpUser = "productos@samsaracomputacion.com.mx";
         private static string ftpPassword = "Pr0DuCT05";
         private static string ftpServerIP = "samsaracomputacion.com.mx";
 
-        private SqlConnection sqlServerConnection;
-        private SqlDataAdapter sqlServerDataAdapter;
-        private SqlCommand sqlServerCommand;
+        private SqlConnection samsaraProjectsConnection;
+        private SqlDataAdapter samsaraProjectsAdapter;
+        private SqlCommand samsaraProjectsCommand;
+
+        private SqlConnection alleatoERPConnection;
+        private SqlDataAdapter alleatoERPAdapter;
+        private SqlCommand alleatoERPCommand;
 
         private MySqlConnection mySqlConnection;
         private MySqlDataAdapter mySqlDataAdapter;
@@ -43,7 +49,9 @@ namespace SamsaraWebsiteUpdateDataService
         public SamsaraUpdateWebsiteProductsService()
         {
             InitializeComponent();
-            this.sqlServerConnection = new SqlConnection(ConnectionStrings.SqlServerConnectionString);
+
+            this.samsaraProjectsConnection = new SqlConnection(ConnectionStrings.SamsaraProjectsConnectionString);
+            this.alleatoERPConnection = new SqlConnection(ConnectionStrings.AlleatoERPConnectionString);
             this.mySqlConnection = new MySqlConnection(ConnectionStrings.MySqlConnectionString);
 
             if (!System.Diagnostics.EventLog.SourceExists("WebsiteUpdateLogSource"))
@@ -76,11 +84,21 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
-                this.sqlServerConnection.Open();
+                this.samsaraProjectsConnection.Open();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - MSSQL Connection : " + ex.Message, EventLogEntryType.Error);
+                eventLog1.WriteEntry("ERROR - SamsaraProjects Connection : " + ex.Message, EventLogEntryType.Error);
+                return;
+            }
+
+            try
+            {
+                this.alleatoERPConnection.Open();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - AlleatoERP Connection : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
 
@@ -151,11 +169,20 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
-                this.sqlServerConnection.Close();
+                this.samsaraProjectsConnection.Close();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - MSSQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
+                eventLog1.WriteEntry("ERROR - SamsaraProjects Closing Connection : " + ex.Message, EventLogEntryType.Error);
+            }
+
+            try
+            {
+                this.alleatoERPConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                eventLog1.WriteEntry("ERROR - AlleatoERP Closing Connection : " + ex.Message, EventLogEntryType.Error);
             }
 
             try
@@ -188,11 +215,11 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void InsertNewBrands()
         {
-            this.sqlServerDataAdapter = new SqlDataAdapter("SELECT cast(marca as int) marca FROM marcas_articulos",
-                this.sqlServerConnection);
+            this.alleatoERPAdapter = new SqlDataAdapter("SELECT cast(marca as int) marca FROM marcas_articulos",
+                this.alleatoERPConnection);
 
             DataSet ds = new DataSet();
-            this.sqlServerDataAdapter.Fill(ds, "Marcas");
+            this.alleatoERPAdapter.Fill(ds, "Marcas");
 
             IList<int> erpBrandsIds = ds.Tables["Marcas"].AsEnumerable()
                 .Select(x => Convert.ToInt32(x["marca"])).ToList();
@@ -224,12 +251,12 @@ namespace SamsaraWebsiteUpdateDataService
 
                 if (marcasIds.Count > 0)
                 {
-                    this.sqlServerDataAdapter = new SqlDataAdapter(
+                    this.alleatoERPAdapter = new SqlDataAdapter(
                         "SELECT marca, nombre_marca, comentarios FROM marcas_articulos WHERE cast(marca as int) IN ('"
-                        + marcasStringIds + "')", this.sqlServerConnection);
+                        + marcasStringIds + "')", this.alleatoERPConnection);
 
                     ds = new DataSet();
-                    this.sqlServerDataAdapter.Fill(ds, "Marcas");
+                    this.alleatoERPAdapter.Fill(ds, "Marcas");
 
                     foreach (DataRow row in ds.Tables["Marcas"].AsEnumerable())
                     {
@@ -241,8 +268,11 @@ namespace SamsaraWebsiteUpdateDataService
                             row["comentarios"].ToString().Trim());
                     }
 
-                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
+                    if (!string.IsNullOrEmpty(insertQuery))
+                    {
+                        this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                        this.mySqlCommand.ExecuteNonQuery();
+                    }
                 }
 
                 brandsToInsert = brandsToInsert.Except(currentIds).ToList();
@@ -252,12 +282,12 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void UpdateBrands()
         {
-            this.sqlServerDataAdapter = new SqlDataAdapter(
+            this.alleatoERPAdapter = new SqlDataAdapter(
                 "SELECT marca, nombre_marca, comentarios FROM marcas_articulos",
-                this.sqlServerConnection);
+                this.alleatoERPConnection);
 
             DataSet ds = new DataSet();
-            this.sqlServerDataAdapter.Fill(ds, "Marcas");
+            this.alleatoERPAdapter.Fill(ds, "Marcas");
 
             var currentBrands = ds.Tables["Marcas"].AsEnumerable()
                 .Select(x => new
@@ -314,24 +344,53 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void UpdateCategories()
         {
-            sqlServerDataAdapter = new SqlDataAdapter(
-                "SELECT familia, nombre_familia, sublinea padre FROM familias_articulos union all"
-                + " SELECT sublinea + " + diferentOrderIndex
-                + ", nombre_sublinea, null padre FROM sublineas_articulos",
-                this.sqlServerConnection);
+            samsaraProjectsAdapter = new SqlDataAdapter(string.Format(@"
+                    SELECT ProductLineId + {0} CategoryId, Hidden
+                    FROM Website.ProductLineConfigurations
+                    WHERE Activated = 1 AND Deleted = 0
+                    UNION ALL
+                    SELECT ProductSublineId + {1} CategoryId, Hidden 
+                    FROM Website.ProductSublineConfigurations
+                    WHERE Activated = 1 AND Deleted = 0
+                    UNION ALL
+                    SELECT ProductFamilyId CategoryId, Hidden 
+                    FROM Website.ProductFamilyConfigurations
+                    WHERE Activated = 1 AND Deleted = 0
+                ", order3, order2), this.samsaraProjectsConnection);
 
             DataSet ds = new DataSet();
-            sqlServerDataAdapter.Fill(ds, "Familias");
+            samsaraProjectsAdapter.Fill(ds);
+
+            var categoriesConfigurations = ds.Tables[0].AsEnumerable()
+                .Select(x => new
+                {
+                    CategoryId = Convert.ToInt32(x["CategoryId"]),
+                    Hidden = Convert.ToBoolean(x["Hidden"])
+                }).ToDictionary(x => x.CategoryId, x => x);
+
+            alleatoERPAdapter = new SqlDataAdapter(
+                "SELECT familia, nombre_familia, sublinea + " + order2 + " padre FROM familias_articulos union all"
+                + " SELECT sublinea + " + order2
+                + ", nombre_sublinea, linea + " + order3 + " padre FROM sublineas_articulos union all "
+                + "SELECT linea + " + order3
+                + ", nombre_linea, null padre FROM lineas_articulos ",
+                this.alleatoERPConnection);
+
+            ds = new DataSet();
+            alleatoERPAdapter.Fill(ds, "Familias");
 
             var currentCategoriesStock = ds.Tables["Familias"].AsEnumerable()
                 .Select(x => new
                 {
-                    codigo = Convert.ToInt32(x["familia"]),
-                    descripcion = x["nombre_familia"].ToString().Trim(),
-                    padre = x["padre"] == DBNull.Value ? 0 : Convert.ToInt32(x["padre"]) + diferentOrderIndex
-                }).ToList();
+                    CategoryId = Convert.ToInt32(x["familia"]),
+                    Description = x["nombre_familia"].ToString().Trim(),
+                    Father = x["padre"] == DBNull.Value ? 0 : Convert.ToInt32(x["padre"]),
+                    Hidden = Convert.ToBoolean(categoriesConfigurations.ContainsKey(Convert.ToInt32(x["familia"])) &&
+                    categoriesConfigurations[Convert.ToInt32(x["familia"])].Hidden)
+                }).ToDictionary(x => x.CategoryId, x => x);
 
-            this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.descripcion, id_padre FROM categorias c",
+            this.mySqlDataAdapter = new MySqlDataAdapter(
+                "SELECT c.codigo, c.descripcion, id_padre, oculto FROM categorias c",
                 this.mySqlConnection);
 
             ds = new DataSet();
@@ -340,23 +399,25 @@ namespace SamsaraWebsiteUpdateDataService
             var oldCategories = ds.Tables["categorias"].AsEnumerable()
                 .Select(x => new
                 {
-                    codigo = Convert.ToInt32(x["codigo"]),
-                    descripcion = x["descripcion"].ToString().Trim(),
-                    padre = x["id_padre"] == DBNull.Value ? 0 : Convert.ToInt32(x["id_padre"])
-                }).ToList();
+                    CategoryId = Convert.ToInt32(x["codigo"]),
+                    Description = x["descripcion"].ToString().Trim(),
+                    Father = x["id_padre"] == DBNull.Value ? 0 : Convert.ToInt32(x["id_padre"]),
+                    Hidden = Convert.ToBoolean(x["oculto"])
+                }).ToDictionary(x => x.CategoryId, x => x);
 
-            var categoriesToUpdate = currentCategoriesStock.AsParallel().Where(x => x.descripcion !=
-                oldCategories.Single(y => y.codigo == x.codigo).descripcion ||
-                oldCategories.Single(y => y.codigo == x.codigo).padre != x.padre)
+            var categoriesToUpdate = currentCategoriesStock.AsParallel().Where(x =>
+                oldCategories[x.Key].Description != x.Value.Description ||
+                oldCategories[x.Key].Father != x.Value.Father ||
+                oldCategories[x.Key].Hidden != x.Value.Hidden)
                 .ToList();
-
-            eventLog1.WriteEntry("Categories To Update : " + categoriesToUpdate.Count, EventLogEntryType.Information);
 
             foreach (var element in categoriesToUpdate)
             {
-                string updateQuery = string.Format(
-                    "UPDATE categorias SET descripcion = '{0}', id_padre = {1} WHERE codigo = '{2}'",
-                    element.descripcion.Replace("'", "''"), element.padre, element.codigo);
+                string updateQuery = string.Format(@"
+                        UPDATE categorias SET descripcion = '{0}', id_padre = {1}, oculto = {3}
+                        WHERE codigo = '{2}'
+                    ", element.Value.Description.Replace("'", "''"), element.Value.Father,
+                     element.Value.CategoryId, element.Value.Hidden ? 1 : 0);
 
                 this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
                 this.mySqlCommand.ExecuteNonQuery();
@@ -380,11 +441,11 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, int> externalProductsIds = ds.Tables["productos"].AsEnumerable()
                 .ToDictionary(x => Convert.ToInt32(x["codigo"]), x => Convert.ToInt32(x["id_producto"]));
 
-            sqlServerDataAdapter = new SqlDataAdapter(
-                    "SELECT a.clave_articulo, a.familia FROM Articulos a", this.sqlServerConnection);
+            alleatoERPAdapter = new SqlDataAdapter(
+                    "SELECT a.clave_articulo, a.familia FROM Articulos a", this.alleatoERPConnection);
 
             ds = new DataSet();
-            sqlServerDataAdapter.Fill(ds, "Articulos");
+            alleatoERPAdapter.Fill(ds, "Articulos");
 
             int familyId = 0;
 
@@ -392,7 +453,10 @@ namespace SamsaraWebsiteUpdateDataService
                 .Where(x => int.TryParse(x["familia"].ToString(), out familyId))
                 .ToDictionary(x => Convert.ToInt32(x["clave_articulo"]), x => Convert.ToInt32(x["familia"]));
 
-            this.mySqlCommand = new MySqlCommand("DELETE FROM productos_categorias", this.mySqlConnection);
+
+            MySqlTransaction myTransaction = this.mySqlConnection.BeginTransaction();
+
+            this.mySqlCommand = new MySqlCommand("DELETE FROM productos_categorias", this.mySqlConnection, myTransaction);
             this.mySqlCommand.ExecuteNonQuery();
 
             do
@@ -411,22 +475,78 @@ namespace SamsaraWebsiteUpdateDataService
                         externalCategoriesIds[productCategory.Value]);
                 }
 
-                this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                this.mySqlCommand.ExecuteNonQuery();
+                if (!string.IsNullOrEmpty(insertQuery))
+                {
+                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection, myTransaction);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
 
                 productsCategories = productsCategories.Except(currentRows)
                     .ToDictionary(x => x.Key, x => x.Value);
             } while (true);
+
+            myTransaction.Commit();
+
+            samsaraProjectsAdapter = new SqlDataAdapter(string.Format(@"
+                    SELECT plc.ProductLineId, plcsbu.SamsaraBusinessUnitId
+                    FROM Website.ProductLineConfigurationSamsaraBusinessUnits plcsbu
+                    INNER JOIN Website.ProductLineConfigurations plc ON plc.ProductLineConfigurationId = plcsbu.ProductLineConfigurationId
+                    WHERE plcsbu.Deleted = 0 AND plc.Deleted = 0
+                "), this.samsaraProjectsConnection);
+
+            ds = new DataSet();
+            samsaraProjectsAdapter.Fill(ds);
+
+            var productLineConfigurationSamsaraBusinessUnits = ds.Tables[0].AsEnumerable()
+                .Select(x => new
+                {
+                    ProductLineId = Convert.ToInt32(x["ProductLineId"]),
+                    SamsaraBusinessUnitId = Convert.ToInt32(x["SamsaraBusinessUnitId"])
+                }).ToList();
+
+            myTransaction = this.mySqlConnection.BeginTransaction();
+            this.mySqlCommand.Transaction = myTransaction;
+
+            this.mySqlCommand = new MySqlCommand("DELETE FROM categorias_unidades_negocio", this.mySqlConnection, myTransaction);
+            this.mySqlCommand.ExecuteNonQuery();
+
+            do
+            {
+                string insertQuery = string.Empty;
+                var currentRows
+                    = productLineConfigurationSamsaraBusinessUnits.Take(numProdutcsCategoriesInsert).ToList();
+
+                if (currentRows.Count == 0)
+                    break;
+
+                foreach (var categoryBusinessUnit in currentRows)
+                {
+                    insertQuery += string.Format("INSERT INTO categorias_unidades_negocio (codigo_categoria, codigo_unidad_negocio) "
+                        + "VALUES ({0}, {1}); \n", categoryBusinessUnit.ProductLineId, categoryBusinessUnit.SamsaraBusinessUnitId);
+                }
+
+                if (!string.IsNullOrEmpty(insertQuery))
+                {
+                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection, myTransaction);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
+
+                productLineConfigurationSamsaraBusinessUnits
+                    = productLineConfigurationSamsaraBusinessUnits.Except(currentRows).ToList();
+            } while (true);
+
+            myTransaction.Commit();
         }
 
         private void InsertNewCategories()
         {
-            sqlServerDataAdapter = new SqlDataAdapter("SELECT familia FROM familias_articulos"
-                + " union all SELECT sublinea + " + diferentOrderIndex + " FROM Sublineas_Articulos;",
-                this.sqlServerConnection);
+            alleatoERPAdapter = new SqlDataAdapter("SELECT familia FROM familias_articulos"
+                + " union all SELECT sublinea + " + order2 + " FROM Sublineas_Articulos "
+                + " union all SELECT linea + " + order3 + " FROM Lineas_Articulos",
+                this.alleatoERPConnection);
 
             DataSet ds = new DataSet();
-            sqlServerDataAdapter.Fill(ds, "Familias");
+            alleatoERPAdapter.Fill(ds, "Familias");
 
             IList<int> erpCategoriesCodes = ds.Tables["Familias"].AsEnumerable()
                 .Select(x => Convert.ToInt32(x["familia"])).ToList();
@@ -452,58 +572,94 @@ namespace SamsaraWebsiteUpdateDataService
                 if (currentCodes.Count == 0)
                     break;
 
-                IList<int> familiasCodes = currentCodes.Where(x => x < diferentOrderIndex).ToList();
-                IList<int> sublineasCodes = currentCodes.Where(x => x >= diferentOrderIndex)
-                    .Select(x => x - diferentOrderIndex).ToList();
+                IList<int> familiasCodes = currentCodes.Where(x => x < order2).ToList();
+                IList<int> sublineasCodes = currentCodes.Where(x => x >= order2 && x < order3)
+                    .Select(x => x - order2).ToList();
+                IList<int> lineasCodes = currentCodes.Where(x => x >= order3)
+                    .Select(x => x - order3).ToList();
 
                 string familiasStringCodes = string.Join("','", familiasCodes.ToArray());
                 string sublineasStringCodes = string.Join("','", sublineasCodes.ToArray());
+                string lineasStringCodes = string.Join("','", lineasCodes.ToArray());
 
                 if (familiasCodes.Count > 0)
                 {
-                    sqlServerDataAdapter = new SqlDataAdapter(
+                    alleatoERPAdapter = new SqlDataAdapter(
                         "SELECT familia, nombre_familia, sublinea padre FROM familias_articulos WHERE cast(familia as int) IN ('"
-                        + familiasStringCodes + "')", this.sqlServerConnection);
+                        + familiasStringCodes + "')", this.alleatoERPConnection);
 
                     ds = new DataSet();
-                    sqlServerDataAdapter.Fill(ds, "Familias");
+                    alleatoERPAdapter.Fill(ds, "Familias");
 
                     insertQuery = string.Empty;
                     foreach (DataRow row in ds.Tables["Familias"].AsEnumerable())
                     {
                         insertQuery += string.Format(
-                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre) "
-                            + "VALUES ('{0}', 1, '{1}', '', {2});\n",
+                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre, oculto) "
+                            + "VALUES ('{0}', 1, '{1}', '', {2}, 0);\n",
                             row["nombre_familia"].ToString().Trim().Replace("'", "''"),
                             row["familia"], row["padre"]);
                     }
 
-                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
+                    if (!string.IsNullOrEmpty(insertQuery))
+                    {
+                        this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                        this.mySqlCommand.ExecuteNonQuery();
+                    }
                 }
 
                 if (sublineasCodes.Count > 0)
                 {
-                    sqlServerDataAdapter = new SqlDataAdapter(
-                        "SELECT sublinea + " + diferentOrderIndex
-                        + " sublinea, nombre_sublinea FROM Sublineas_Articulos WHERE cast(sublinea as int) IN ('"
-                        + sublineasStringCodes + "')", this.sqlServerConnection);
+                    alleatoERPAdapter = new SqlDataAdapter(
+                        "SELECT sublinea + " + order2
+                        + " sublinea, nombre_sublinea, linea padre FROM Sublineas_Articulos WHERE cast(sublinea as int) IN ('"
+                        + sublineasStringCodes + "')", this.alleatoERPConnection);
 
                     ds = new DataSet();
-                    sqlServerDataAdapter.Fill(ds, "Sublineas");
+                    alleatoERPAdapter.Fill(ds, "Sublineas");
 
                     insertQuery = string.Empty;
                     foreach (DataRow row in ds.Tables["Sublineas"].AsEnumerable())
                     {
                         insertQuery += string.Format(
-                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre) "
-                            + "VALUES ('{0}', 1, '{1}', '', 0);\n",
+                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre, oculto) "
+                            + "VALUES ('{0}', 1, '{1}', '', {2}, 0);\n",
                             row["nombre_sublinea"].ToString().Trim().Replace("'", "''"),
-                            row["sublinea"]);
+                            row["sublinea"], row["padre"]);
                     }
 
-                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                    this.mySqlCommand.ExecuteNonQuery();
+                    if (!string.IsNullOrEmpty(insertQuery))
+                    {
+                        this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                        this.mySqlCommand.ExecuteNonQuery();
+                    }
+                }
+
+                if (lineasCodes.Count > 0)
+                {
+                    alleatoERPAdapter = new SqlDataAdapter(
+                        "SELECT linea + " + order3
+                        + " linea, nombre_linea FROM lineas_Articulos WHERE cast(linea as int) IN ('"
+                        + lineasStringCodes + "')", this.alleatoERPConnection);
+
+                    ds = new DataSet();
+                    alleatoERPAdapter.Fill(ds, "lineas");
+
+                    insertQuery = string.Empty;
+                    foreach (DataRow row in ds.Tables["lineas"].AsEnumerable())
+                    {
+                        insertQuery += string.Format(
+                            "INSERT INTO categorias (descripcion, activo, codigo, categoria, id_padre, oculto) "
+                            + "VALUES ('{0}', 1, '{1}', '', 0, 0);\n",
+                            row["nombre_linea"].ToString().Trim().Replace("'", "''"),
+                            row["linea"]);
+                    }
+
+                    if (!string.IsNullOrEmpty(insertQuery))
+                    {
+                        this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                        this.mySqlCommand.ExecuteNonQuery();
+                    }
                 }
 
                 categoriesToInsert = categoriesToInsert.Except(currentCodes).ToList();
@@ -525,18 +681,33 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void UpdateProducts()
         {
-            sqlServerDataAdapter = new SqlDataAdapter(
-                @"
+            samsaraProjectsAdapter = new SqlDataAdapter(string.Format(@"
+                    SELECT ProductId, Hidden 
+                    FROM Website.ProductConfigurations
+                "), this.samsaraProjectsConnection);
+
+            DataSet ds = new DataSet();
+            samsaraProjectsAdapter.Fill(ds);
+
+            var productsConfigurations = ds.Tables[0].AsEnumerable()
+                .Select(x => new
+                {
+                    ProductId = Convert.ToInt32(x["ProductId"]),
+                    Hidden = Convert.ToBoolean(x["Hidden"])
+                }).ToDictionary(x => x.ProductId, x => x);
+
+
+            alleatoERPAdapter = new SqlDataAdapter(@"
                     SELECT a.clave_articulo, ea.stock, cast(marca as int) marca,
                     precio4, precio5 FROM Articulos a 
                     INNER JOIN ( SELECT sum(disponible) stock, articulo,
                     max(precio4) precio4, max(precio5) precio5
                     FROM existencias_articulos ea GROUP BY ea.articulo
                     ) ea ON ea.articulo = a.articulo
-                ", this.sqlServerConnection);
+                ", this.alleatoERPConnection);
 
-            DataSet ds = new DataSet();
-            sqlServerDataAdapter.Fill(ds, "Articulos");
+            ds = new DataSet();
+            alleatoERPAdapter.Fill(ds, "Articulos");
 
             var currentProducts = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => new
@@ -545,12 +716,13 @@ namespace SamsaraWebsiteUpdateDataService
                     stock = Convert.ToInt32(x["stock"]),
                     brand = x["marca"].ToString().Trim() == string.Empty ? "null" : x["marca"].ToString().Trim(),
                     price4 = Convert.ToDecimal(x["precio4"]),
-                    price5 = Convert.ToDecimal(x["precio5"])
-                }).ToList();
+                    price5 = Convert.ToDecimal(x["precio5"]),
+                    Hidden = Convert.ToBoolean(productsConfigurations.ContainsKey(Convert.ToInt32(x["clave_articulo"])) &&
+                    productsConfigurations[Convert.ToInt32(x["clave_articulo"])].Hidden)
+                }).ToDictionary(x => x.productId, x => x);
 
-            this.mySqlDataAdapter = new MySqlDataAdapter(
-                @"
-                    SELECT codigo, stock, codigo_marca, precio4, precio5 FROM productos
+            this.mySqlDataAdapter = new MySqlDataAdapter(@"
+                    SELECT codigo, stock, codigo_marca, precio4, precio5, oculto FROM productos
                 ", this.mySqlConnection);
 
             ds = new DataSet();
@@ -563,15 +735,17 @@ namespace SamsaraWebsiteUpdateDataService
                     stock = Convert.ToInt32(x["stock"]),
                     brand = x["codigo_marca"].ToString().Trim() == string.Empty ? "null" : x["codigo_marca"].ToString().Trim(),
                     price4 = Convert.ToDecimal(x["precio4"]),
-                    price5 = Convert.ToDecimal(x["precio5"])
-                }).ToList();
+                    price5 = Convert.ToDecimal(x["precio5"]),
+                    Hidden = Convert.ToBoolean(x["oculto"])
+                }).ToDictionary(x => x.productId, x => x);
 
             var productsToUpdate = currentProducts.AsParallel().Where(x =>
-                x.stock != oldProducts.Single(y => y.productId == x.productId).stock ||
-                x.brand != oldProducts.Single(y => y.productId == x.productId).brand ||
-                x.price4 != oldProducts.Single(y => y.productId == x.productId).price4 ||
-                x.price5 != oldProducts.Single(y => y.productId == x.productId).price5)
-                .OrderByDescending(x => x.productId).ToList();
+                x.Value.stock != oldProducts[x.Key].stock ||
+                x.Value.brand != oldProducts[x.Key].brand ||
+                x.Value.price4 != oldProducts[x.Key].price4 ||
+                x.Value.price5 != oldProducts[x.Key].price5 ||
+                x.Value.Hidden != oldProducts[x.Key].Hidden)
+                .OrderByDescending(x => x.Key).ToList();
 
             do
             {
@@ -585,20 +759,23 @@ namespace SamsaraWebsiteUpdateDataService
                 foreach (var element in currentElements)
                 {
                     updateQuery += string.Format(@"
-                        UPDATE productos SET stock = {0}, codigo_marca = {1} , precio4 = {2} , precio5 = {3} 
+                        UPDATE productos SET stock = {0}, codigo_marca = {1}, precio4 = {2}, precio5 = {3}, oculto = {5} 
                         WHERE codigo = '{4}';
-                        ",
-                        element.stock, element.brand, element.price4, element.price5, element.productId);
+                        ", element.Value.stock, element.Value.brand, element.Value.price4,
+                         element.Value.price5, element.Key, element.Value.Hidden ? 1 : 0);
                 }
 
-                this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
-                this.mySqlCommand.ExecuteNonQuery();
+                if (!string.IsNullOrEmpty(updateQuery))
+                {
+                    this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
 
                 productsToUpdate = productsToUpdate.Except(currentElements).ToList();
             } while (true);
 
-            IList<int> productsToDelete = oldProducts.Select(x => x.productId)
-                .Except(currentProducts.Select(x => x.productId)).ToList();
+            IList<int> productsToDelete = oldProducts.Select(x => x.Key)
+                .Except(currentProducts.Select(x => x.Key)).ToList();
 
             if (productsToDelete.Count > 0)
             {
@@ -613,11 +790,11 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void InsertNewProducts()
         {
-            sqlServerDataAdapter = new SqlDataAdapter("SELECT clave_articulo FROM Articulos",
-                this.sqlServerConnection);
+            alleatoERPAdapter = new SqlDataAdapter("SELECT clave_articulo FROM Articulos",
+                this.alleatoERPConnection);
 
             DataSet ds = new DataSet();
-            sqlServerDataAdapter.Fill(ds, "Articulos");
+            alleatoERPAdapter.Fill(ds, "Articulos");
 
             IList<int> erpProductCodes = ds.Tables["Articulos"].AsEnumerable()
                 .Select(x => Convert.ToInt32(x["clave_articulo"])).ToArray();
@@ -644,7 +821,7 @@ namespace SamsaraWebsiteUpdateDataService
 
                 string allCodes = string.Join(",", currentCodes.ToArray());
 
-                sqlServerDataAdapter = new SqlDataAdapter(
+                alleatoERPAdapter = new SqlDataAdapter(
                     string.Format(@"
                         SELECT a.clave_articulo, a.nombre_articulo, cast(marca as int) marca, 
                         precio4, precio5, ea.stock
@@ -653,10 +830,10 @@ namespace SamsaraWebsiteUpdateDataService
                         FROM existencias_articulos ea GROUP BY ea.articulo
                         ) ea ON ea.articulo = a.articulo WHERE a.clave_articulo in
                         ({0})
-                    ", allCodes), this.sqlServerConnection);
+                    ", allCodes), this.alleatoERPConnection);
 
                 ds = new DataSet();
-                sqlServerDataAdapter.Fill(ds, "Articulos");
+                alleatoERPAdapter.Fill(ds, "Articulos");
 
                 foreach (DataRow row in ds.Tables["Articulos"].AsEnumerable())
                 {
@@ -671,8 +848,11 @@ namespace SamsaraWebsiteUpdateDataService
                         row["precio4"].ToString(), row["precio5"].ToString());
                 }
 
-                this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
-                this.mySqlCommand.ExecuteNonQuery();
+                if (!string.IsNullOrEmpty(insertQuery))
+                {
+                    this.mySqlCommand = new MySqlCommand(insertQuery, this.mySqlConnection);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
 
                 productsToInsert = productsToInsert.Except(currentCodes).ToList();
             } while (true);
@@ -697,7 +877,7 @@ namespace SamsaraWebsiteUpdateDataService
 
         private void UpdateImages()
         {
-            SqlConnection sqlConnection = new SqlConnection(ConnectionStrings.SqlServerConnectionString);
+            SqlConnection sqlConnection = new SqlConnection(ConnectionStrings.AlleatoERPConnectionString);
 
             try
             {
