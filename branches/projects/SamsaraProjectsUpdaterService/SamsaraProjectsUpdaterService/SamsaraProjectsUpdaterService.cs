@@ -690,7 +690,7 @@ namespace SamsaraProjectsUpdaterService
                 oldProductLines.Single(y => y.ProductLineId == x.ProductLineId).Description != x.Description)
                 .ToList();
 
-            if (productLinesToUpdate.Count == 0)
+            if (productLinesToUpdate.Count > 0)
                 eventLog1.WriteEntry("ProductLines To Update : " + productLinesToUpdate.Count, EventLogEntryType.Information);
 
             do
@@ -847,7 +847,7 @@ namespace SamsaraProjectsUpdaterService
                 oldProductSublines.Single(y => y.ProductSublineId == x.ProductSublineId).Description != x.Description)
                 .ToList();
 
-            if (productSublinesToUpdate.Count == 0)
+            if (productSublinesToUpdate.Count > 0)
                 eventLog1.WriteEntry("ProductSublines To Update : " + productSublinesToUpdate.Count, EventLogEntryType.Information);
 
             do
@@ -1004,7 +1004,7 @@ namespace SamsaraProjectsUpdaterService
                 oldProductFamilies.Single(y => y.ProductFamilyId == x.ProductFamilyId).Description != x.Description)
                 .ToList();
 
-            if (productFamiliesToUpdate.Count == 0)
+            if (productFamiliesToUpdate.Count > 0)
                 eventLog1.WriteEntry("ProductFamilies To Update : " + productFamiliesToUpdate.Count, EventLogEntryType.Information);
 
             do
@@ -1179,7 +1179,7 @@ namespace SamsaraProjectsUpdaterService
                 oldStaffs[x.Key].Fullname != x.Value.Fullname)
                 .ToList();
 
-            if (staffsToUpdate.Count == 0)
+            if (staffsToUpdate.Count > 0)
                 eventLog1.WriteEntry("Staff To Update : " + staffsToUpdate.Count, EventLogEntryType.Information);
 
             do
@@ -1347,7 +1347,7 @@ namespace SamsaraProjectsUpdaterService
                 oldERPCustomers.Single(y => y.ERPCustomerId == x.ERPCustomerId).StaffId != x.StaffId)
                 .ToList();
 
-            if (eRPCustomersToUpdate.Count == 0)
+            if (eRPCustomersToUpdate.Count > 0)
                 eventLog1.WriteEntry("Customers To Update : " + eRPCustomersToUpdate.Count, EventLogEntryType.Information);
 
             do
