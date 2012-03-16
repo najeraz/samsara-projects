@@ -67,7 +67,7 @@ namespace SamsaraProjectsUpdaterService
             eventLog1.WriteEntry("SamsaraProjectsUpdaterService - Started", EventLogEntryType.Information);
 
             TimerCallback timerCallback = new TimerCallback(UpdateProcess);
-            System.Threading.Timer serviceTimer = new System.Threading.Timer(timerCallback, null, 0, criticalInterval);
+            Timer serviceTimer = new Timer(timerCallback, null, 0, criticalInterval);
         }
 
         protected override void OnStop()
@@ -729,7 +729,7 @@ namespace SamsaraProjectsUpdaterService
 
                 string deleteQuery = string.Format(@"
                         UPDATE FROM AlleatoERP.ProductLines
-                        SET Deleted = 1, Activated = 0
+                        SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE ProductLineId in ({0});
                         ", string.Join<int>(",", productLinesToDelete));
 
@@ -886,7 +886,7 @@ namespace SamsaraProjectsUpdaterService
 
                 string deleteQuery = string.Format(@"
                         UPDATE AlleatoERP.ProductSublines
-                        SET Deleted = 1, Activated = 0
+                        SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE ProductSublineId in ({0});
                         ", string.Join<int>(",", ProductSublinesToDelete));
 
@@ -1043,7 +1043,7 @@ namespace SamsaraProjectsUpdaterService
 
                 string deleteQuery = string.Format(@"
                         UPDATE FROM AlleatoERP.ProductFamilies
-                        SET Deleted = 1, Activated = 0
+                        SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE ProductFamilyId in ({0});
                         ", string.Join<int>(",", ProductFamiliesToDelete));
 
@@ -1221,7 +1221,7 @@ namespace SamsaraProjectsUpdaterService
 
                 string deleteQuery = string.Format(@"
                         UPDATE FROM AlleatoERP.Staffs
-                        SET Deleted = 1, Activated = 0
+                        SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE StaffId in ({0});
                         ", string.Join<int>(",", staffsToDelete));
 
@@ -1387,7 +1387,7 @@ namespace SamsaraProjectsUpdaterService
                 
                 string deleteQuery = string.Format(@"
                         UPDATE FROM AlleatoERP.ERPCustomers
-                        SET Deleted = 1, Activated = 0
+                        SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE ERPCustomerId in ({0});
                         ", string.Join<int>(",", eRPCustomersToDelete));
 
