@@ -2,11 +2,13 @@
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 using Samsara.SamsaraStructure.Core.Entities;
+using Iesi.Collections.Generic;
 
 namespace Samsara.Website.Core.Entities
 {
     public class ProductLineConfiguration : BaseEntity
     {
+        private ISet<SamsaraBusinessUnit> samsaraBusinessUnits;
 
         public ProductLineConfiguration()
         {
@@ -38,10 +40,19 @@ namespace Samsara.Website.Core.Entities
             set;
         }
 
-        public virtual SamsaraBusinessUnit SamsaraBusinessUnit
+        public virtual ISet<SamsaraBusinessUnit> SamsaraBusinessUnits
         {
-            get;
-            set;
+            get
+            {
+                if (this.samsaraBusinessUnits == null)
+                    this.samsaraBusinessUnits = new HashedSet<SamsaraBusinessUnit>();
+
+                return this.samsaraBusinessUnits;
+            }
+            set
+            {
+                this.samsaraBusinessUnits = value;
+            }
         }
 
     }
