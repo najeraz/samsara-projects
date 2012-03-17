@@ -20,9 +20,12 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
-    <many-to-one name="SamsaraBusinessUnit"
-                 class="Samsara.SamsaraStructure.Core.Entities.SamsaraBusinessUnit, Samsara.SamsaraStructure.Core"
-                 column="SamsaraBusinessUnitId"/>
+    <set name="SamsaraBusinessUnits" table="SamsaraStructure.SamsaraBusinessUnits" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="SamsaraBusinessUnitId"/>
+      <one-to-many
+        class="Samsara.SamsaraStructure.Core.Entities.SamsaraBusinessUnit, Samsara.SamsaraStructure.Core"/>
+    </set>
     
   </class>
 
