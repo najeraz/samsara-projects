@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -62,7 +63,11 @@ namespace Samsara.LegacyCode.Commissions.Controls
         {
             cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
             InitializeComponent();
-            InitializeControlControls();
+
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                InitializeControlControls();
+            }
         }
 
         #endregion Constructor

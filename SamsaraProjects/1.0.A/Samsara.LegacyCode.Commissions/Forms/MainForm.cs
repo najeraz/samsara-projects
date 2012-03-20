@@ -687,7 +687,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             {
                 decimal acumulado = decimal.Zero;
 
-                foreach (DataRow row in group)
+                foreach (DataRow row in group.OrderBy(x => x["factura"]))
                 {
                     acumulado += Convert.ToDecimal(row["utilidad"]);
                     row["total_acumulado"] = acumulado;
