@@ -205,7 +205,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // ultraTabPageControl3
             // 
             this.ultraTabPageControl3.Controls.Add(this.grdResumenComisionesProductos);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
             this.ultraTabPageControl3.Size = new System.Drawing.Size(623, 188);
             // 
@@ -239,7 +239,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             // ultraTabPageControl4
             // 
             this.ultraTabPageControl4.Controls.Add(this.grdResumenComisionesServicios);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
             this.ultraTabPageControl4.Size = new System.Drawing.Size(623, 188);
             // 

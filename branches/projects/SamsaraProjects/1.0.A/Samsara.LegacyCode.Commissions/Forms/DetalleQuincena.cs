@@ -285,5 +285,23 @@ namespace Samsara.LegacyCode.Commissions.Forms
             form.LoadGrids();
             form.ShowDialog(this);
         }
+
+        private void grdFacturasPendientes_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            e.Layout.Override.AllowUpdate = DefaultableBoolean.False;
+            e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
+
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["fiscal"],
+                TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["factura"],
+                TextMaskFormatEnum.Integer);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad"],
+                TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_acumulado"],
+                TextMaskFormatEnum.Currency);
+        }
     }
 }
