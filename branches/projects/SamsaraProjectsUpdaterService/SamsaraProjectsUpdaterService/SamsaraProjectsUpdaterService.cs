@@ -14,6 +14,9 @@ namespace SamsaraProjectsUpdaterService
     {
         #region Attibutes
 
+        private static TimerCallback timerCallback;
+        private static Timer serviceTimer;
+
         private static int oneMinute = 60000;
         private static long criticalInterval = 5 * oneMinute;
 
@@ -66,8 +69,8 @@ namespace SamsaraProjectsUpdaterService
         {
             eventLog1.WriteEntry("SamsaraProjectsUpdaterService - Started", EventLogEntryType.Information);
 
-            TimerCallback timerCallback = new TimerCallback(UpdateProcess);
-            Timer serviceTimer = new Timer(timerCallback, null, 0, criticalInterval);
+            timerCallback = new TimerCallback(UpdateProcess);
+            serviceTimer = new Timer(timerCallback, null, 0, criticalInterval);
         }
 
         protected override void OnStop()
@@ -85,6 +88,8 @@ namespace SamsaraProjectsUpdaterService
 
             try
             {
+                if (this.alleatoErpConnection.State != ConnectionState.Closed)
+                    this.alleatoErpConnection.Close();
                 this.alleatoErpConnection.Open();
             }
             catch (Exception ex)
@@ -95,6 +100,8 @@ namespace SamsaraProjectsUpdaterService
 
             try
             {
+                if (this.samsaraProjectsConnection.State != ConnectionState.Closed)
+                    this.samsaraProjectsConnection.Close();
                 this.samsaraProjectsConnection.Open();
             }
             catch (Exception ex)
@@ -110,6 +117,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewBrands : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -119,6 +127,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateBrands : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -128,6 +137,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -137,6 +147,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateProducts : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -146,6 +157,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewProductLines : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -155,6 +167,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateProductLines : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -164,6 +177,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewProductSublines : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -173,6 +187,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateProductSublines : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -182,6 +197,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewProductFamilies : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -191,6 +207,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateProductFamilies : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -200,6 +217,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewStaffs : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -209,6 +227,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateStaffs : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -218,6 +237,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewERPCustomers : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -227,6 +247,7 @@ namespace SamsaraProjectsUpdaterService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateERPCustomers : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             eventLog1.WriteEntry("Update Process - Stoped", EventLogEntryType.Information);
