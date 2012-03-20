@@ -17,8 +17,13 @@ namespace SamsaraWebsiteUpdateDataService
 {
     partial class SamsaraUpdateWebsiteProductsService : ServiceBase
     {
+        private static TimerCallback timerCallbackData;
+        private static Timer serviceTimerData;
+        private static TimerCallback timerCallbackImages;
+        private static Timer serviceTimerImages;
+
         private static int oneMinute = 60000;
-        private static long updateDataTime = 10 * oneMinute;
+        private static long updateDataTime = 5 * oneMinute;
         private static long updateImagesTime = 30 * oneMinute;
 
         private static int numBrandsInsert = 50;
@@ -36,11 +41,11 @@ namespace SamsaraWebsiteUpdateDataService
 
         private SqlConnection samsaraProjectsConnection;
         private SqlDataAdapter samsaraProjectsAdapter;
-        private SqlCommand samsaraProjectsCommand;
+        //private SqlCommand samsaraProjectsCommand;
 
         private SqlConnection alleatoERPConnection;
         private SqlDataAdapter alleatoERPAdapter;
-        private SqlCommand alleatoERPCommand;
+        //private SqlCommand alleatoERPCommand;
 
         private MySqlConnection mySqlConnection;
         private MySqlDataAdapter mySqlDataAdapter;
@@ -66,11 +71,11 @@ namespace SamsaraWebsiteUpdateDataService
         {
             eventLog1.WriteEntry("SERVICE - Started", EventLogEntryType.Information);
 
-            TimerCallback timerCallbackData = new TimerCallback(UpdateDataProcess);
-            Timer serviceTimerData = new Timer(timerCallbackData, null, 0, updateDataTime);
+            timerCallbackData = new TimerCallback(UpdateDataProcess);
+            serviceTimerData = new Timer(timerCallbackData, null, 0, updateDataTime);
 
-            TimerCallback timerCallbackImages = new TimerCallback(UpdateImagesProcess);
-            Timer serviceTimerImages = new Timer(timerCallbackImages, null, 0, updateImagesTime);
+            timerCallbackImages = new TimerCallback(UpdateImagesProcess);
+            serviceTimerImages = new Timer(timerCallbackImages, null, 0, updateImagesTime);
         }
 
         protected override void OnStop()
@@ -84,6 +89,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
+                if (this.samsaraProjectsConnection.State != ConnectionState.Closed)
+                    this.samsaraProjectsConnection.Close();
                 this.samsaraProjectsConnection.Open();
             }
             catch (Exception ex)
@@ -94,6 +101,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
+                if (this.alleatoERPConnection.State != ConnectionState.Closed)
+                    this.alleatoERPConnection.Close();
                 this.alleatoERPConnection.Open();
             }
             catch (Exception ex)
@@ -104,15 +113,12 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
+                if (this.mySqlConnection.State != ConnectionState.Closed)
+                    this.mySqlConnection.Close();
                 this.mySqlConnection.Open();
             }
             catch (Exception ex)
             {
-                try
-                {
-                    this.mySqlConnection.Close();
-                }
-                catch { }
                 eventLog1.WriteEntry("ERROR - MySQL Connection : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
@@ -124,6 +130,7 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
             try
             {
@@ -132,6 +139,7 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateProducts : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             try
@@ -141,7 +149,9 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewProducts : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
+
             try
             {
                 this.UpdateProducts();
@@ -149,7 +159,9 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateProducts : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
+
             try
             {
                 this.InsertNewCategories();
@@ -157,7 +169,9 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - InsertNewCategories : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
+
             try
             {
                 this.UpdateCategories();
@@ -165,33 +179,7 @@ namespace SamsaraWebsiteUpdateDataService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry("ERROR - UpdateCategories : " + ex.Message, EventLogEntryType.Error);
-            }
-
-            try
-            {
-                this.samsaraProjectsConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                eventLog1.WriteEntry("ERROR - SamsaraProjects Closing Connection : " + ex.Message, EventLogEntryType.Error);
-            }
-
-            try
-            {
-                this.alleatoERPConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                eventLog1.WriteEntry("ERROR - AlleatoERP Closing Connection : " + ex.Message, EventLogEntryType.Error);
-            }
-
-            try
-            {
-                this.mySqlConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                eventLog1.WriteEntry("ERROR - MySQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
+                return;
             }
 
             eventLog1.WriteEntry("UpdateDataProcess - Stoped", EventLogEntryType.Information);
