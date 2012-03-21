@@ -19,6 +19,5 @@ namespace Samsara.Base.Dao.Interfaces
         IList<T> GetList(DetachedNamedQuery dnq);
         IList<T> GetList(DetachedCriteria detachedCriteria);
         IList<T> GetList(DetachedQuery dq);
-        DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters);
     }
 }

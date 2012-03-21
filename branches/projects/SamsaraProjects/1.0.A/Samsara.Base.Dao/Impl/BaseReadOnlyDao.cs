@@ -119,49 +119,20 @@ namespace Samsara.Base.Dao.Impl
             return dtResult;
         }
 
-        public virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
+        #endregion Public
+
+        #region Protected
+
+        protected virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
-            object parameterValue;
-            Type nullableType;
 
-            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
-            {
-                parameterValue = pInfo.GetValue(parameters, null);
-                nullableType = Nullable.GetUnderlyingType(pInfo.PropertyType);
-                if (parameterValue != null)
-                {
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(int)))
-                    {
-                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
-                    {
-                        dnq.SetBoolean(pInfo.Name, (bool)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                    {
-                        dnq.SetDateTime(pInfo.Name, (DateTime)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                    {
-                        dnq.SetString(pInfo.Name, parameterValue.ToString());
-                    }
-                    else if (nullableType != null && nullableType.IsEnum)
-                    {
-                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
-                    }
-                    else
-                    {
-                        dnq.SetParameter(pInfo.Name, parameterValue);
-                    }
-                }
-            }
+            NHibernateUtil.SetDetachedNamedQueryParameters(dnq, parameters);
 
             return dnq;
         }
 
-        #endregion Public
+        #endregion Protected
 
         #endregion Methods
     }

@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsUtil.cs" />
+    <Compile Include="NHibernateUtil.cs" />
     <Compile Include="CryptoUtil.cs" />
     <Compile Include="SQLUtil.cs" />
     <Compile Include="TextMaskFormatEnum.cs" />

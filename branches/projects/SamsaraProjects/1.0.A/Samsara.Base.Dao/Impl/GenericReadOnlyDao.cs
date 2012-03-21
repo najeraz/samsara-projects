@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Reflection;
 using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Impl;
@@ -17,28 +16,6 @@ namespace Samsara.Base.Dao.Impl
 {
     public class GenericReadOnlyDao : HibernateDaoSupport, IGenericReadOnlyDao
     {
-        #region Attributes
-
-        private ISession readingSession;
-
-        #endregion Attributes
-
-        #region Properties
-
-        protected ISession ReadingSession
-        {
-            get
-            {
-                return this.readingSession = this.readingSession ?? this.HibernateTemplate.SessionFactory.OpenSession();
-            }
-            set
-            {
-                this.readingSession = value;
-            }
-        }
-
-        #endregion Properties
-
         #region Methods
 
         #region Public
@@ -50,15 +27,13 @@ namespace Samsara.Base.Dao.Impl
 
         public virtual T GetById<T>(object Id)
         {
-            return this.Session.Get<T>(Id);
+            return this.HibernateTemplate.Get<T>(Id);
         }
 
         public virtual DateTime GetServerDateTime()
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery("BaseReadOnlyDao.GetServerDateTime");
-
             DateTime result = dnq.GetExecutableQuery(Session).UniqueResult<DateTime>();
-
             return result;
         }
 
@@ -110,7 +85,9 @@ namespace Samsara.Base.Dao.Impl
         public virtual IList GetGenericListByParameters(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+
             dnq.SetResultTransformer(new NativeSQLTransformer());
+
             return this.GetObjectList(dnq);
         }
 
@@ -127,8 +104,7 @@ namespace Samsara.Base.Dao.Impl
             try
             {
                 IList<T> lstResult = this.GetListByParameters<T>(queryName, parameters);
-                IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
-                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp, absoluteColumnNames);
+                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstResult, absoluteColumnNames);
             }
             catch
             {
@@ -157,49 +133,18 @@ namespace Samsara.Base.Dao.Impl
             return dtResult;
         }
 
-        public virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, object parameters)
+        #endregion Public
+
+        #region Protected
+
+        protected virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
-            object parameterValue;
-            Type nullableType;
-
-            foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
-            {
-                parameterValue = pInfo.GetValue(parameters, null);
-                nullableType = Nullable.GetUnderlyingType(pInfo.PropertyType);
-                if (parameterValue != null)
-                {
-                    if (pInfo.PropertyType.IsAssignableFrom(typeof(int)))
-                    {
-                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(bool)))
-                    {
-                        dnq.SetBoolean(pInfo.Name, (bool)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(DateTime)))
-                    {
-                        dnq.SetDateTime(pInfo.Name, (DateTime)parameterValue);
-                    }
-                    else if (pInfo.PropertyType.IsAssignableFrom(typeof(string)))
-                    {
-                        dnq.SetString(pInfo.Name, parameterValue.ToString());
-                    }
-                    else if (nullableType != null && nullableType.IsEnum)
-                    {
-                        dnq.SetInt32(pInfo.Name, (int)parameterValue);
-                    }
-                    else
-                    {
-                        dnq.SetParameter(pInfo.Name, parameterValue);
-                    }
-                }
-            }
-
+            Samsara.Support.Util.NHibernateUtil.SetDetachedNamedQueryParameters(dnq, parameters);
             return dnq;
         }
 
-        #endregion Public
+        #endregion Protected
 
         #endregion Methods
     }
