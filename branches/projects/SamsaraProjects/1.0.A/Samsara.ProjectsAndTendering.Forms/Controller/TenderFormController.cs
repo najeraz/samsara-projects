@@ -2890,11 +2890,11 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 DataRow row = this.dtTenderFiles.NewRow();
                 this.dtTenderFiles.Rows.Add(row);
 
-                row[0] = tenderFile.TenderFileId <= 0 ? -tenderFile.GetHashCode() : tenderFile.TenderFileId;
-                row[1] = tenderFile.TenderId;
-                row[3] = tenderFile.Filename;
-                row[4] = tenderFile.Description;
-                row[5] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
+                row["TenderFileId"] = tenderFile.TenderFileId <= 0 ? -tenderFile.GetHashCode() : tenderFile.TenderFileId;
+                row["TenderId"] = tenderFile.TenderId;
+                row["Filename"] = tenderFile.Filename;
+                row["Description"] = tenderFile.Description;
+                row["FileSize"] = Convert.ToDecimal(tenderFile.FileSize) / (1024M * 1024M);
             }
             catch (OverflowException ex)
             {

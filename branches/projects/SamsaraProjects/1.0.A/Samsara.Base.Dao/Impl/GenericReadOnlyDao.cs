@@ -9,6 +9,7 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Impl;
 using Samsara.Base.Dao.Interfaces;
+using Samsara.Persistance.NHibernate.Transformers;
 using Samsara.Support.Util;
 using Spring.Data.NHibernate.Generic.Support;
 
@@ -109,17 +110,23 @@ namespace Samsara.Base.Dao.Impl
         public virtual IList GetGenericListByParameters(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+            dnq.SetResultTransformer(new NativeSQLTransformer());
             return this.GetObjectList(dnq);
+        }
+
+        public virtual IList<T> GetListByParameters<T>(string queryName, object parameters)
+        {
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+            return this.GetList<T>(dnq);
         }
 
         public virtual DataTable DataTableByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
         {
             DataTable dtResult = null;
 
-            IList lstResult = GetGenericListByParameters(queryName, parameters);
-
             try
             {
+                IList<T> lstResult = this.GetListByParameters<T>(queryName, parameters);
                 IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
                 dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp, absoluteColumnNames);
             }
@@ -127,7 +134,8 @@ namespace Samsara.Base.Dao.Impl
             {
                 try
                 {
-                    dtResult = CollectionsUtil.ConvertToDataTable(lstResult);
+                    IList lstResult = GetGenericListByParameters(queryName, parameters);
+                    dtResult = CollectionsUtil.ConvertToDataTable(lstResult.Cast<object>().ToList(), typeof(T).Name);
                 }
                 catch { }
             }

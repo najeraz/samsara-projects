@@ -30,6 +30,25 @@ namespace Samsara.Support.Util
             return null;
         }
 
+        public static DataTable ConvertToDataTable(IList<object> list, string tableName)
+        {
+            DataTable table = CreateTable(list, tableName);
+
+            foreach (IDictionary<string, object> tuple in list)
+            {
+                DataRow row = table.NewRow();
+
+                foreach (KeyValuePair<string, object> cell in tuple)
+                {
+                    row[cell.Key] = cell.Value ?? DBNull.Value;
+                }
+
+                table.Rows.Add(row);
+            }
+
+            return table;
+        }
+
         public static DataTable ConvertToDataTable<T>(IList<T> list, bool absoluteColumnNames)
         {
             DataTable table = CreateTable<T>(absoluteColumnNames);
@@ -56,7 +75,7 @@ namespace Samsara.Support.Util
                     }
                     else
                     {
-                        row[propertyDescriptor.Name] = propertyDescriptor.GetValue(entity);
+                        row[propertyDescriptor.Name] = propertyDescriptor.GetValue(entity) ?? DBNull.Value;
                     }
                 }
 
@@ -84,7 +103,7 @@ namespace Samsara.Support.Util
                 if (primaryKeyType != null)
                 {
                     if (absoluteColumnNames)
-                        table.Columns.Add(entityProperty.Name + "." + primaryKeyType.Name, 
+                        table.Columns.Add(entityProperty.Name + "." + primaryKeyType.Name,
                             primaryKeyType.PropertyType);
                     else
                         table.Columns.Add(primaryKeyType.Name, primaryKeyType.PropertyType);
@@ -102,6 +121,34 @@ namespace Samsara.Support.Util
             }
 
             return table;
+        }
+
+        /// <summary>
+        /// Crea una Tabla sencilla a partir de la Definición de una Entidad del Framework.
+        /// </summary>
+        /// <typeparam name="T">Tipo de la Entidad.</typeparam>
+        /// <returns>Tabla con un Esquema acorde a <c>T</c>.</returns>
+        public static DataTable CreateTable(IList<object> list, string tableName)
+        {
+            DataTable table = new DataTable(tableName);
+            IDictionary<string, object> dictionary = (IDictionary<string, object>) list.First();
+
+            foreach (KeyValuePair<string, object> pair in dictionary)
+            {
+                table.Columns.Add(pair.Key, GetTypeFromNativeSQLColletion(list, pair.Key));
+            }
+
+            return table;
+        }
+
+        private static Type GetTypeFromNativeSQLColletion(IList<object> list, string columnName)
+        {
+            KeyValuePair<string, object> valuePair = list.Cast<IDictionary<string, object>>()
+                .SelectMany(x => x.Where(y => y.Key == columnName)).FirstOrDefault(x => x.Value != null);
+
+            object value = valuePair.Value;
+
+            return value != null ? value.GetType() : typeof(string);
         }
 
         public static DataTable CreateTable(IList list)
