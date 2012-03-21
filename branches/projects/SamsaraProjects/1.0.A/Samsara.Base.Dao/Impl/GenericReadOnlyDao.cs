@@ -67,11 +67,6 @@ namespace Samsara.Base.Dao.Impl
             return dq.GetExecutableQuery(Session).List<T>();
         }
 
-        public virtual IList GetObjectList(DetachedNamedQuery dnq)
-        {
-            return dnq.GetExecutableQuery(Session).List();
-        }
-
         public virtual IList<T> GetList<T>(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List<T>();
@@ -82,55 +77,10 @@ namespace Samsara.Base.Dao.Impl
             return detachedCriteria.GetExecutableCriteria(Session).List<T>();
         }
 
-        public virtual IList GetGenericListByParameters(string queryName, object parameters)
-        {
-            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
-
-            dnq.SetResultTransformer(new NativeSQLTransformer());
-
-            return this.GetObjectList(dnq);
-        }
-
         public virtual IList<T> GetListByParameters<T>(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
             return this.GetList<T>(dnq);
-        }
-
-        public virtual DataTable DataTableByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
-        {
-            DataTable dtResult = null;
-
-            try
-            {
-                IList<T> lstResult = this.GetListByParameters<T>(queryName, parameters);
-                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstResult, absoluteColumnNames);
-            }
-            catch
-            {
-                try
-                {
-                    IList lstResult = GetGenericListByParameters(queryName, parameters);
-                    dtResult = CollectionsUtil.ConvertToDataTable(lstResult.Cast<object>().ToList(), typeof(T).Name);
-                }
-                catch { }
-            }
-
-            return dtResult;
-        }
-
-        public virtual DataTable DataTableByParameters(string queryName, object parameters, bool absoluteColumnNames)
-        {
-            DataTable dtResult = null;
-
-            IList lstResult = GetGenericListByParameters(queryName, parameters);
-            try
-            {
-                dtResult = CollectionsUtil.ConvertToDataTable(lstResult);
-            }
-            catch { }
-
-            return dtResult;
         }
 
         #endregion Public
@@ -144,7 +94,54 @@ namespace Samsara.Base.Dao.Impl
             return dnq;
         }
 
+        protected virtual DataTable DataTableByParameters<T>(string queryName, object parameters, bool absoluteColumnNames)
+        {
+            DataTable dtResult = null;
+
+            try
+            {
+                IList<T> lstResult = this.GetListByParameters<T>(queryName, parameters);
+                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstResult, absoluteColumnNames);
+            }
+            catch
+            {
+                return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
+            }
+
+            return dtResult;
+        }
+
+        protected virtual DataTable DataTableByParameters(string queryName, object parameters, bool absoluteColumnNames)
+        {
+            DataTable dtResult = null;
+
+            try
+            {
+                IList lstResult = GetGenericListByParameters(queryName, parameters);
+                dtResult = CollectionsUtil.ConvertToDataTable(lstResult.Cast<object>().ToList(), null);
+            }
+            catch { }
+
+            return dtResult;
+        }
+
         #endregion Protected
+
+        #region Private
+
+        private IList GetGenericList(DetachedNamedQuery dnq)
+        {
+            return dnq.GetExecutableQuery(Session).List();
+        }
+
+        private IList GetGenericListByParameters(string queryName, object parameters)
+        {
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+            dnq.SetResultTransformer(new NativeSQLTransformer());
+            return this.GetGenericList(dnq);
+        }
+
+        #endregion Private
 
         #endregion Methods
     }
