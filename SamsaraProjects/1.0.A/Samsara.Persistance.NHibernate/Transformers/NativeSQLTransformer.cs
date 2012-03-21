@@ -25,5 +25,4 @@ namespace Samsara.Persistance.NHibernate.Transformers
         }
 
     }
-
 }

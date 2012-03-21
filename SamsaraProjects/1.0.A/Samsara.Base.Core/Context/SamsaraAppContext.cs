@@ -66,7 +66,7 @@ namespace Samsara.Base.Core.Context
         /// <summary>
         /// Return a instance that correspond with the interface
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A instance of the object, in other case an exception</returns>
         [DebuggerStepThrough]
         public static T Resolve<T>()
         {

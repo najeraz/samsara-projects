@@ -139,9 +139,9 @@ namespace Samsara.Support.Util
                 return;
             }
 
-            Nullable<int> primaryKeyValue = (Nullable<int>)EntitiesUtil.GetPrimaryKeyPropertyValue(entityType, entity);
+            Nullable<int> primaryKeyValue = (Nullable<int>) GetPrimaryKeyPropertyValue(entityType, entity);
 
-            if (entity.GetType().IsSubclassOf(typeof(BaseEntity)))
+            if (entityType.IsSubclassOf(typeof(BaseEntity)))
             {
                 auditedObjects.Add(entity.GetHashCode(), entityType.Name);
 
@@ -170,7 +170,7 @@ namespace Samsara.Support.Util
 
             foreach (PropertyInfo propertyInfo in entityType.GetProperties())
             {
-                object value = entity.GetType().GetProperty(propertyInfo.Name).GetValue(entity, null);
+                object value = entityType.GetProperty(propertyInfo.Name).GetValue(entity, null);
 
                 if (value != null && value.GetType().IsSubclassOf(typeof(BaseEntity)))
                 {
