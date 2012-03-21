@@ -75,11 +75,6 @@ namespace Samsara.Base.Dao.Impl
             return dq.GetExecutableQuery(Session).List<T>();
         }
 
-        public virtual IList GetObjectList(DetachedNamedQuery dnq)
-        {
-            return dnq.GetExecutableQuery(Session).List();
-        }
-
         public virtual IList<T> GetList(DetachedNamedQuery dnq)
         {
             return dnq.GetExecutableQuery(Session).List<T>();
@@ -90,14 +85,11 @@ namespace Samsara.Base.Dao.Impl
             return detachedCriteria.GetExecutableCriteria(Session).List<T>();
         }
 
-        public virtual IList GetGenericListByParameters(string queryName, Tpmt parameters)
-        {
-            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
-            dnq.SetResultTransformer(new NativeSQLTransformer());
-            return this.GetObjectList(dnq);
-        }
+        #endregion Public
 
-        public virtual DataTable DataTableByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
+        #region Protected
+
+        protected virtual DataTable DataTableByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames)
         {
             DataTable dtResult = null;
 
@@ -119,20 +111,30 @@ namespace Samsara.Base.Dao.Impl
             return dtResult;
         }
 
-        #endregion Public
-
-        #region Protected
-
         protected virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
-
             NHibernateUtil.SetDetachedNamedQueryParameters(dnq, parameters);
-
             return dnq;
         }
 
         #endregion Protected
+
+        #region Private
+
+        private IList GetGenericList(DetachedNamedQuery dnq)
+        {
+            return dnq.GetExecutableQuery(Session).List();
+        }
+
+        private IList GetGenericListByParameters(string queryName, Tpmt parameters)
+        {
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+            dnq.SetResultTransformer(new NativeSQLTransformer());
+            return this.GetGenericList(dnq);
+        }
+
+        #endregion Private
 
         #endregion Methods
     }
