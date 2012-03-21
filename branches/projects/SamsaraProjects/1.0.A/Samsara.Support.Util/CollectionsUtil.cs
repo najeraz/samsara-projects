@@ -123,11 +123,6 @@ namespace Samsara.Support.Util
             return table;
         }
 
-        /// <summary>
-        /// Crea una Tabla sencilla a partir de la Definición de una Entidad del Framework.
-        /// </summary>
-        /// <typeparam name="T">Tipo de la Entidad.</typeparam>
-        /// <returns>Tabla con un Esquema acorde a <c>T</c>.</returns>
         public static DataTable CreateTable(IList<object> list, string tableName)
         {
             DataTable table = new DataTable(tableName);
@@ -135,13 +130,13 @@ namespace Samsara.Support.Util
 
             foreach (KeyValuePair<string, object> pair in dictionary)
             {
-                table.Columns.Add(pair.Key, GetTypeFromNativeSQLColletion(list, pair.Key));
+                table.Columns.Add(pair.Key, GetTypeFromNativeSQLResultColletion(list, pair.Key));
             }
 
             return table;
         }
 
-        private static Type GetTypeFromNativeSQLColletion(IList<object> list, string columnName)
+        private static Type GetTypeFromNativeSQLResultColletion(IList<object> list, string columnName)
         {
             KeyValuePair<string, object> valuePair = list.Cast<IDictionary<string, object>>()
                 .SelectMany(x => x.Where(y => y.Key == columnName)).FirstOrDefault(x => x.Value != null);
