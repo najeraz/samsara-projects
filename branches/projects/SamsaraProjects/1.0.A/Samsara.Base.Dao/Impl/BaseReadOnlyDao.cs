@@ -104,8 +104,7 @@ namespace Samsara.Base.Dao.Impl
             try
             {
                 IList<T> lstResult = this.GetListByParameters(queryName, parameters);
-                IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
-                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp, absoluteColumnNames);
+                dtResult = CollectionsUtil.ConvertToDataTable<T>(lstResult, absoluteColumnNames);
             }
             catch
             {
