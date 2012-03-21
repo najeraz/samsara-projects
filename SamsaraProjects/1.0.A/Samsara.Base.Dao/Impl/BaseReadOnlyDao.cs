@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
-using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Impl;
 using Samsara.Base.Dao.Interfaces;
+using Samsara.Persistance.NHibernate.Transformers;
 using Samsara.Support.Util;
 using Spring.Data.NHibernate.Generic.Support;
 
@@ -64,6 +64,12 @@ namespace Samsara.Base.Dao.Impl
             return this.GetList(dnq);
         }
 
+        public virtual IList<T> GetListByParameters(string queryName, Tpmt parameters)
+        {
+            DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+            return this.GetList(dnq);
+        }
+
         public virtual IList<T> GetList(DetachedQuery dq)
         {
             return dq.GetExecutableQuery(Session).List<T>();
@@ -87,6 +93,7 @@ namespace Samsara.Base.Dao.Impl
         public virtual IList GetGenericListByParameters(string queryName, Tpmt parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
+            dnq.SetResultTransformer(new NativeSQLTransformer());
             return this.GetObjectList(dnq);
         }
 
@@ -94,10 +101,9 @@ namespace Samsara.Base.Dao.Impl
         {
             DataTable dtResult = null;
 
-            IList lstResult = GetGenericListByParameters(queryName, parameters);
-
             try
             {
+                IList<T> lstResult = this.GetListByParameters(queryName, parameters);
                 IList<T> lstTemp = lstTemp = lstResult.Cast<T>().ToList();
                 dtResult = CollectionsUtil.ConvertToDataTable<T>(lstTemp, absoluteColumnNames);
             }
@@ -105,7 +111,8 @@ namespace Samsara.Base.Dao.Impl
             {
                 try
                 {
-                    dtResult = CollectionsUtil.ConvertToDataTable(lstResult);
+                    IList lstResult = GetGenericListByParameters(queryName, parameters);
+                    dtResult = CollectionsUtil.ConvertToDataTable(lstResult.Cast<object>().ToList(), typeof(T).Name);
                 }
                 catch { }
             }
