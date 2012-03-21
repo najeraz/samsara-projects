@@ -31,6 +31,7 @@ namespace SamsaraWebsiteUpdateDataService
         private static int numProdutcsInsert = 50;
         private static int numCategoriesInsert = 50;
         private static int numProdutcsCategoriesInsert = 200;
+        private static int numCategoriesUpdate = 50;
 
         private static int order2 = 10000;
         private static int order3 = 1000000;
@@ -223,7 +224,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> brandsToInsert = erpBrandsIds.Except(samsaraProjectsBrandsIds).ToList();
 
-            eventLog1.WriteEntry("Brands To Insert : " + brandsToInsert.Count, EventLogEntryType.Information);
+            if (brandsToInsert.Count > 0)
+                eventLog1.WriteEntry("Brands To Insert : " + brandsToInsert.Count, EventLogEntryType.Information);
 
             do
             {
@@ -304,7 +306,8 @@ namespace SamsaraWebsiteUpdateDataService
                 oldBrands.Single(y => y.id == x.id).comentarios != x.comentarios)
                 .ToList();
 
-            eventLog1.WriteEntry("Brands To Update : " + brandsToUpdate.Count, EventLogEntryType.Information);
+            if (brandsToUpdate.Count > 0)
+                eventLog1.WriteEntry("Brands To Update : " + brandsToUpdate.Count, EventLogEntryType.Information);
 
             foreach (var element in brandsToUpdate)
             {
@@ -321,6 +324,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             if (brandsToDelete.Count > 0)
             {
+                eventLog1.WriteEntry("Brands To Delete : " + brandsToDelete.Count, EventLogEntryType.Information);
+
                 string deleteQuery = string.Format(@"
                         DELETE FROM marcas WHERE codigo in ({0});
                         ", string.Join<int>(",", brandsToDelete));
@@ -399,18 +404,36 @@ namespace SamsaraWebsiteUpdateDataService
                 oldCategories[x.Key].Hidden != x.Value.Hidden)
                 .ToList();
 
-            foreach (var element in categoriesToUpdate)
+            if (categoriesToUpdate.Count > 0)
+                eventLog1.WriteEntry("Categories to Update : " + categoriesToUpdate.Count, EventLogEntryType.Information);
+
+            do
             {
-                string updateQuery = string.Format(@"
-                        UPDATE categorias SET descripcion = '{0}', id_padre = {1}, oculto = {3}
-                        WHERE codigo = '{2}'
-                    ", element.Value.Description.Replace("'", "''"), element.Value.Father,
-                     element.Value.CategoryId, element.Value.Hidden ? 1 : 0);
+                var groupCategories = categoriesToUpdate.Take(numCategoriesUpdate).ToList();
 
-                this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
-                this.mySqlCommand.ExecuteNonQuery();
-            }
+                if (groupCategories.Count == 0)
+                    break;
 
+                string updateQuery = string.Empty;
+
+                foreach (var element in groupCategories)
+                {
+                    updateQuery += string.Format(@"
+                            UPDATE categorias SET descripcion = '{0}', id_padre = {1}, oculto = {3}
+                            WHERE codigo = '{2}';
+                        ", element.Value.Description.Replace("'", "''"), element.Value.Father,
+                         element.Value.CategoryId, element.Value.Hidden ? 1 : 0);
+                }
+
+                if (updateQuery != string.Empty)
+                {
+                    this.mySqlCommand = new MySqlCommand(updateQuery, this.mySqlConnection);
+                    this.mySqlCommand.ExecuteNonQuery();
+                }
+
+                categoriesToUpdate = categoriesToUpdate.Except(groupCategories).ToList();
+            } while (true);
+            
             this.mySqlDataAdapter = new MySqlDataAdapter("SELECT c.codigo, c.id_categoria FROM categorias c",
                 this.mySqlConnection);
 
@@ -440,8 +463,7 @@ namespace SamsaraWebsiteUpdateDataService
             Dictionary<int, int> productsCategories = ds.Tables["Articulos"].AsEnumerable()
                 .Where(x => int.TryParse(x["familia"].ToString(), out familyId))
                 .ToDictionary(x => Convert.ToInt32(x["clave_articulo"]), x => Convert.ToInt32(x["familia"]));
-
-
+            
             MySqlTransaction myTransaction = this.mySqlConnection.BeginTransaction();
 
             this.mySqlCommand = new MySqlCommand("DELETE FROM productos_categorias", this.mySqlConnection, myTransaction);
@@ -550,7 +572,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> categoriesToInsert = erpCategoriesCodes.Except(websiteCategoriesCodes).ToList();
 
-            eventLog1.WriteEntry("Categories To Insert : " + categoriesToInsert.Count, EventLogEntryType.Information);
+            if (categoriesToInsert.Count > 0)
+                eventLog1.WriteEntry("Categories To Insert : " + categoriesToInsert.Count, EventLogEntryType.Information);
 
             do
             {
@@ -657,6 +680,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             if (categoriesToDelete.Count > 0)
             {
+                eventLog1.WriteEntry("Categories To Delete : " + categoriesToDelete.Count, EventLogEntryType.Information);
+
                 string deleteQuery = string.Format(@"
                         DELETE FROM categorias WHERE codigo in ({0});
                         ", string.Join<int>(",", categoriesToDelete));
@@ -735,6 +760,9 @@ namespace SamsaraWebsiteUpdateDataService
                 x.Value.Hidden != oldProducts[x.Key].Hidden)
                 .OrderByDescending(x => x.Key).ToList();
 
+            if (productsToUpdate.Count > 0)
+                eventLog1.WriteEntry("Products to Update : " + productsToUpdate.Count, EventLogEntryType.Information);
+
             do
             {
                 var currentElements = productsToUpdate.Take(numProdutcsUpdate).ToList();
@@ -767,6 +795,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             if (productsToDelete.Count > 0)
             {
+                eventLog1.WriteEntry("Products to Delete : " + productsToDelete.Count, EventLogEntryType.Information);
+
                 string deleteQuery = string.Format(@"
                         DELETE FROM productos WHERE codigo in ({0});
                         ", string.Join<int>(",", productsToDelete));
@@ -797,7 +827,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<int> productsToInsert = erpProductCodes.Except(websiteProductCodes).ToList();
 
-            eventLog1.WriteEntry("Products To Insert : " + productsToInsert.Count, EventLogEntryType.Information);
+            if (productsToInsert.Count > 0)
+                eventLog1.WriteEntry("Products To Insert : " + productsToInsert.Count, EventLogEntryType.Information);
 
             do
             {
@@ -869,6 +900,8 @@ namespace SamsaraWebsiteUpdateDataService
 
             try
             {
+                if (sqlConnection.State != ConnectionState.Closed)
+                    sqlConnection.Close();
                 sqlConnection.Open();
             }
             catch (Exception ex)
@@ -887,6 +920,9 @@ namespace SamsaraWebsiteUpdateDataService
 
             IList<IGrouping<int, DataRow>> productGroups = ds.Tables["Articulos"].AsEnumerable()
                 .GroupBy(x => Convert.ToInt32(x["clave_articulo"])).ToList();
+
+            if (productGroups.Count > 0)
+                eventLog1.WriteEntry("Images to Check : " + productGroups.Count, EventLogEntryType.Information);
 
             foreach (IGrouping<int, DataRow> productGroup in productGroups)
             {
@@ -932,15 +968,6 @@ namespace SamsaraWebsiteUpdateDataService
 
                     this.Upload(file, fileName);
                 }
-            }
-
-            try
-            {
-                sqlConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                eventLog1.WriteEntry("ERROR - MSSQL Closing Connection : " + ex.Message, EventLogEntryType.Error);
             }
         }
     }
