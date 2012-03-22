@@ -17,7 +17,5 @@ namespace Samsara.Base.Dao.Interfaces
         IList<T> GetListByParameters(Tpmt parameters);
         DataTable CustomSearchByParameters(string queryName, Tpmt parameters, bool absoluteColumnNames);
         IList<T> GetList(DetachedNamedQuery dnq);
-        IList<T> GetList(DetachedCriteria detachedCriteria);
-        IList<T> GetList(DetachedQuery dq);
     }
 }
