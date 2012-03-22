@@ -51,9 +51,9 @@ namespace Samsara.Base.Service.Impl
             return this.ReadOnlyDao.GetListByParameters<T>(parameters);
         }
 
-        public DataTable CustomSearchByParameters(string queryName, object parameters, bool absoluteColumnNames)
+        public DataTable SearchByParameters(string queryName, object parameters, bool absoluteColumnNames)
         {
-            return this.ReadOnlyDao.CustomSearchByParameters(queryName, parameters, absoluteColumnNames);
+            return this.ReadOnlyDao.SearchByParameters(queryName, parameters, absoluteColumnNames);
         }
 
         #endregion Methods
