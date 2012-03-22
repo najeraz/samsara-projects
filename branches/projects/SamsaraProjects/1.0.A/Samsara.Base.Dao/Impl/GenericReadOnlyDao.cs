@@ -62,21 +62,6 @@ namespace Samsara.Base.Dao.Impl
             return this.GetList<T>(dnq);
         }
 
-        public virtual IList<T> GetList<T>(DetachedQuery dq)
-        {
-            return dq.GetExecutableQuery(Session).List<T>();
-        }
-
-        public virtual IList<T> GetList<T>(DetachedNamedQuery dnq)
-        {
-            return dnq.GetExecutableQuery(Session).List<T>();
-        }
-
-        public virtual IList<T> GetList<T>(DetachedCriteria detachedCriteria)
-        {
-            return detachedCriteria.GetExecutableCriteria(Session).List<T>();
-        }
-
         public virtual IList<T> GetListByParameters<T>(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(queryName, parameters);
@@ -128,6 +113,11 @@ namespace Samsara.Base.Dao.Impl
         #endregion Protected
 
         #region Private
+
+        private IList<T> GetList<T>(DetachedNamedQuery dnq)
+        {
+            return dnq.GetExecutableQuery(Session).List<T>();
+        }
 
         private IList GetGenericList(DetachedNamedQuery dnq)
         {
