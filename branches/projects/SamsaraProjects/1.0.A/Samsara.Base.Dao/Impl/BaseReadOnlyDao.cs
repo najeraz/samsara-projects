@@ -4,8 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Reflection;
-using NHibernate.Criterion;
 using NHibernate.Impl;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Persistance.NHibernate.Transformers;
