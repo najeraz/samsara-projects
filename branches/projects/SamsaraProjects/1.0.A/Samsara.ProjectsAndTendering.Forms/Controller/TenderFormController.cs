@@ -223,7 +223,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 += new CellEventHandler(grdDetExchangeRates_AfterCellUpdate);
             TenderExchangeRateParameters pmtTenderExchangeRate = new TenderExchangeRateParameters();
             pmtTenderExchangeRate.TenderId = ParameterConstants.IntNone;
-            this.dtTenderExchangeRates = this.srvTenderExchangeRate.CustomSearchByParameters(
+            this.dtTenderExchangeRates = this.srvTenderExchangeRate.SearchByParameters(
                 "TenderExchangeRate.SearchByParameters", pmtTenderExchangeRate, true);
             this.frmTender.grdDetExchangeRates.DataSource = null;
             this.frmTender.grdDetExchangeRates.DataSource = dtTenderExchangeRates;

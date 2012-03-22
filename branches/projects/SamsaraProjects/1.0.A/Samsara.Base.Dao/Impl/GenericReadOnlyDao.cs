@@ -48,7 +48,7 @@ namespace Samsara.Base.Dao.Impl
                 typeof(T).Name + ".SearchByParameters", parameters, false);
         }
 
-        public virtual DataTable CustomSearchByParameters(string queryName, object parameters, bool absoluteColumnNames)
+        public virtual DataTable SearchByParameters(string queryName, object parameters, bool absoluteColumnNames)
         {
             return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
         }
