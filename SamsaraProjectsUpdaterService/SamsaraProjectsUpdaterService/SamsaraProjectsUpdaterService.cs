@@ -1407,7 +1407,7 @@ namespace SamsaraProjectsUpdaterService
                 eventLog1.WriteEntry("Customers To Delete : " + eRPCustomersToDelete.Count, EventLogEntryType.Information);
                 
                 string deleteQuery = string.Format(@"
-                        UPDATE FROM AlleatoERP.ERPCustomers
+                        UPDATE AlleatoERP.ERPCustomers
                         SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE ERPCustomerId in ({0});
                         ", string.Join<int>(",", eRPCustomersToDelete));
