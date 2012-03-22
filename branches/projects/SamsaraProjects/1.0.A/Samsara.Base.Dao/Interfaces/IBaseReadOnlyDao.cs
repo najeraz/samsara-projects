@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using NHibernate.Criterion;
-using NHibernate.Impl;
 
 namespace Samsara.Base.Dao.Interfaces
 {

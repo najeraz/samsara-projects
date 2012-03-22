@@ -2,7 +2,6 @@
 using Samsara.Base.Core.Entities;
 using Samsara.Base.Dao.Interfaces;
 using Samsara.Support.Util;
-using NHibernate;
 
 namespace Samsara.Base.Dao.Impl
 {
