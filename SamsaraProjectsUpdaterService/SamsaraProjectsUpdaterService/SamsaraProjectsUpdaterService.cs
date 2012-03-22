@@ -1348,6 +1348,7 @@ namespace SamsaraProjectsUpdaterService
             this.samsaraProjectsDataAdapter = new SqlDataAdapter(string.Format(@"
                     SELECT ERPCustomerId, Name, ComercialName, StaffId, Activated, Deleted
                     FROM AlleatoERP.ERPCustomers
+                    WHERE Activated = 1 AND Deleted = 0
                 "), this.samsaraProjectsConnection);
 
             ds = new DataSet();
