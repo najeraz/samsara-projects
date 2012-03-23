@@ -407,13 +407,19 @@
     <EmbeddedResource Include="Mapping\Website\ProductSublineConfiguration.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\SamsaraStructure\SamsaraBusinessUnit.hbm.xml" />
+    <EmbeddedResource Include="Mapping\TIConsulting\ServerConsulting.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Website\ProductConfiguration.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\CustomerContext\ServerComputerType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\SamsaraStructure\SamsaraBusinessUnit.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\TIConsulting\ServerConsultingOldServerComputer.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
