@@ -8,6 +8,8 @@
   <import resource="Services\MainServices.xml"/>
   <import resource="Services\OperationServices.xml"/>
   <import resource="Services\ProjectsAndTenderingServices.xml"/>
+  <import resource="Services\SamsaraStructureServices.xml"/>
+  <import resource="Services\TIConsultingServices.xml"/>
   
   <import resource="Services\TransactionProxyFactory.xml"/>
 
