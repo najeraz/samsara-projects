@@ -9,11 +9,11 @@ namespace Samsara.TIConsulting.Core.Entities
 
         public ServerConsultingOldServerComputer()
         {
-            ServerConsultingOldServerComputersId = -1;
+            ServerConsultingOldServerComputerId = -1;
         }
 
         [PrimaryKey]
-        public virtual int ServerConsultingOldServerComputersId
+        public virtual int ServerConsultingOldServerComputerId
         {
             get;
             set;
