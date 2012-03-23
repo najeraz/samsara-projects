@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Samsara.SamsaraStructure.Controls")]
+[assembly: AssemblyTitle("Samsara.TIConsulting.Service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Samsara")]
-[assembly: AssemblyProduct("Samsara.SamsaraStructure.Controls")]
+[assembly: AssemblyProduct("Samsara.TIConsulting.Service")]
 [assembly: AssemblyCopyright("Copyright © Samsara 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8077e89b-e79d-4795-a41e-9fb3c0cbcc8e")]
+[assembly: Guid("c99343a2-bb3b-47ac-b458-a0298d2d0283")]
 
 // Version information for an assembly consists of the following four values:
 //
