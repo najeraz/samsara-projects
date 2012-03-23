@@ -601,6 +601,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     case TenderLineStatusesEnum.CouldNotParticipate:
                         this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.CouldNotParticipate);
                         break;
+                    //case TenderLineStatusesEnum.Disqualification:
+                    //    this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Lost);
+                    //    break;
                     case TenderLineStatusesEnum.Lost:
                         this.tender.TenderSubstatus = this.srvTenderSubstatus.GetById((int)TenderSubsatusesEnum.Lost);
                         break;

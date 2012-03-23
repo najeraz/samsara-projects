@@ -5,6 +5,7 @@ namespace Samsara.ProjectsAndTendering.Core.Enums
     {
         Won = 1,
         Lost,
-        CouldNotParticipate
+        CouldNotParticipate,
+        Disqualification
     }
 }
