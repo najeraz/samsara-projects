@@ -112,6 +112,7 @@
     <Compile Include="Impl\RouterBrandService.cs" />
     <Compile Include="Impl\SecuritySoftwareBrandService.cs" />
     <Compile Include="Impl\SecuritySoftwareTypeService.cs" />
+    <Compile Include="Impl\ServerComputerTypeService.cs" />
     <Compile Include="Impl\SwitchBrandService.cs" />
     <Compile Include="Impl\TelephonyLineTypeService.cs" />
     <Compile Include="Impl\TelephonyProviderService.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Interfaces\IRouterBrandService.cs" />
     <Compile Include="Interfaces\ISecuritySoftwareBrandService.cs" />
     <Compile Include="Interfaces\ISecuritySoftwareTypeService.cs" />
+    <Compile Include="Interfaces\IServerComputerTypeService.cs" />
     <Compile Include="Interfaces\ISwitchBrandService.cs" />
     <Compile Include="Interfaces\ITelephonyLineTypeService.cs" />
     <Compile Include="Interfaces\ITelephonyProviderService.cs" />
