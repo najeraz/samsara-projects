@@ -84,6 +84,7 @@
     <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareDao.cs" />
     <Compile Include="Impl\SecuritySoftwareBrandDao.cs" />
     <Compile Include="Impl\SecuritySoftwareTypeDao.cs" />
+    <Compile Include="Impl\ServerComputerTypeDao.cs" />
     <Compile Include="Interfaces\IAccessPointBrandDao.cs" />
     <Compile Include="Interfaces\IAccessPointTypeDao.cs" />
     <Compile Include="Interfaces\IBackupSoftwareBrandDao.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Interfaces\IRouterBrandDao.cs" />
     <Compile Include="Interfaces\ISecuritySoftwareBrandDao.cs" />
     <Compile Include="Interfaces\ISecuritySoftwareTypeDao.cs" />
+    <Compile Include="Interfaces\IServerComputerTypeDao.cs" />
     <Compile Include="Interfaces\ISwitchBrandDao.cs" />
     <Compile Include="Interfaces\ITelephonyLineTypeDao.cs" />
     <Compile Include="Interfaces\ITelephonyProviderDao.cs" />
