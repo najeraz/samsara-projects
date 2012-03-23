@@ -10,6 +10,7 @@
   <import resource="Dao\ProjectsAndTenderingDao.xml"/>
   <import resource="Dao\SamsaraStructureDao.xml"/>
   <import resource="Dao\TIConsultingDao.xml"/>
+  <import resource="Dao\WebsiteDao.xml"/>
 
 </objects>
 
