@@ -10,6 +10,7 @@
   <import resource="Services\ProjectsAndTenderingServices.xml"/>
   <import resource="Services\SamsaraStructureServices.xml"/>
   <import resource="Services\TIConsultingServices.xml"/>
+  <import resource="Services\WebsiteServices.xml"/>
   
   <import resource="Services\TransactionProxyFactory.xml"/>
 
