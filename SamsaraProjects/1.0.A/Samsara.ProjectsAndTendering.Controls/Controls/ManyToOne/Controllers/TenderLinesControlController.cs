@@ -78,8 +78,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
                 this.controlTenderLines.pscProduct.DisplayMember = "Name";
 
-                Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + "Samsara.Operation.Forms.dll");
-                Type formType = assembly.GetType("Samsara.Operation.Forms.Forms.ProductForm");
+                Assembly assembly = Assembly.LoadFile(Application.StartupPath + @"\" + "Samsara.AlleatoERP.Forms.dll");
+                Type formType = assembly.GetType("Samsara.AlleatoERP.Forms.Forms.ProductForm");
 
                 if (formType != null)
                 {

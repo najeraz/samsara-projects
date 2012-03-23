@@ -94,7 +94,9 @@
     <Compile Include="Controls\Choosers\SecuritySoftwareTypeChooserControl.designer.cs">
       <DependentUpon>SecuritySoftwareTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.designer.cs">
       <DependentUpon>ServerComputerTypeChooserControl.cs</DependentUpon>
     </Compile>

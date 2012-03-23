@@ -164,7 +164,7 @@ namespace Samsara.AlleatoERP.Forms.Controller
 
             try
             {
-                dtProducts = srvProduct.SearchByParameters(pmtProduct);
+                dtProducts = srvProduct.SearchByParameters("Product.Search100Products", pmtProduct, false);
             }
             catch { } 
 
