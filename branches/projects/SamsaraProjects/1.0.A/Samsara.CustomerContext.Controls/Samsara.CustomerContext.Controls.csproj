@@ -94,6 +94,10 @@
     <Compile Include="Controls\Choosers\SecuritySoftwareTypeChooserControl.designer.cs">
       <DependentUpon>SecuritySoftwareTypeChooserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.designer.cs">
+      <DependentUpon>ServerComputerTypeChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetwotkWifiAccessPointsControlController.cs" />
     <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkSiteRacksControlController.cs" />
     <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkSwitchesControlController.cs" />
