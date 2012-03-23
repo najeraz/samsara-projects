@@ -8,6 +8,8 @@
   <import resource="Dao\MainDao.xml"/>
   <import resource="Dao\OperationDao.xml"/>
   <import resource="Dao\ProjectsAndTenderingDao.xml"/>
+  <import resource="Dao\SamsaraStructureDao.xml"/>
+  <import resource="Dao\TIConsultingDao.xml"/>
 
 </objects>
 

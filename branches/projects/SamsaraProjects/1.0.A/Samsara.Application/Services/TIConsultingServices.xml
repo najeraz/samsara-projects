@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <object id="IServerConsultingService"
+          type="Samsara.TIConsulting.Service.Impl.ServerConsultingService, Samsara.TIConsulting.Service">
+    <property name="Dao" ref="IServerConsultingDao"/>
+  </object>
+  <object id="IServerConsultingOldServerComputerService"
+          type="Samsara.TIConsulting.Service.Impl.ServerConsultingOldServerComputerService, Samsara.TIConsulting.Service">
+    <property name="Dao" ref="IServerConsultingOldServerComputerDao"/>
+  </object>
+
+</objects>
+
