@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.TIConsulting.Core" 
+  namespace="Samsara.TIConsulting.Core.Entities">
+  
+  <class name="ServerConsulting" table="TIConsulting.ServerConsulting">
+    
+    <id name="ServerConsultingId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="OrganizationName"/>
+    <property name="PhoneNumber"/>
+    <property name="Email"/>
+    <property name="HasServer"/>
+    <property name="FirstServer"/>
+    <property name="ServerUsage"/>
+    <property name="CurrentProblem"/>
+    <property name="NumberOfUsers"/>
+    <property name="NumberOfUsersWillGrow"/>
+    <property name="FutureNumberOfUsers"/>
+    <property name="CurrentStorageVolume"/>
+    <property name="FutureStorageVolume"/>
+    <property name="BrandPreference"/>
+    <property name="FullServerUptimeRequired"/>
+    <property name="RedundantPowerSupply"/>
+    <property name="ArrayDisks"/>
+    <property name="Budget"/>
+    <property name="HaveSite"/>
+    <property name="ServerTypePreference"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn"/>
+    <property name="UpdatedOn"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+  </class>
+
+  <query name="ServerConsulting.GetByParameters">
+    <![CDATA[
+        from ServerConsulting where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ServerConsulting.GetListByParameters">
+    <![CDATA[
+        from ServerConsulting where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ServerConsulting.SearchByParameters">
+    <![CDATA[
+        from ServerConsulting where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>
