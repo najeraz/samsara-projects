@@ -95,6 +95,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraCheckEditor2 = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.ultraTextEditor6 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraCheckEditor3 = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.ultraCheckEditor4 = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
@@ -157,6 +158,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor4)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -215,20 +217,20 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.gbxDetDetail.Controls.Add(this.ultraGroupBox2);
             this.gbxDetDetail.Controls.Add(this.ultraGroupBox1);
-            this.gbxDetDetail.Size = new System.Drawing.Size(656, 642);
+            this.gbxDetDetail.Size = new System.Drawing.Size(651, 642);
             // 
             // pnlDetButtons
             // 
             this.pnlDetButtons.Location = new System.Drawing.Point(0, 642);
-            this.pnlDetButtons.Size = new System.Drawing.Size(656, 25);
+            this.pnlDetButtons.Size = new System.Drawing.Size(651, 25);
             // 
             // btnDetSave
             // 
-            this.btnDetSave.Location = new System.Drawing.Point(474, 0);
+            this.btnDetSave.Location = new System.Drawing.Point(469, 0);
             // 
             // btnDetCancel
             // 
-            this.btnDetCancel.Location = new System.Drawing.Point(565, 0);
+            this.btnDetCancel.Location = new System.Drawing.Point(560, 0);
             // 
             // ultraLabel2
             // 
@@ -268,7 +270,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ultraGroupBox1.Location = new System.Drawing.Point(3, 16);
             this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(650, 78);
+            this.ultraGroupBox1.Size = new System.Drawing.Size(645, 78);
             this.ultraGroupBox1.TabIndex = 1;
             this.ultraGroupBox1.Text = "Datos del Cliente:";
             // 
@@ -312,7 +314,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ultraGroupBox2.Location = new System.Drawing.Point(3, 94);
             this.ultraGroupBox2.Name = "ultraGroupBox2";
-            this.ultraGroupBox2.Size = new System.Drawing.Size(650, 545);
+            this.ultraGroupBox2.Size = new System.Drawing.Size(645, 545);
             this.ultraGroupBox2.TabIndex = 1;
             this.ultraGroupBox2.Text = "Estatus Quo:";
             // 
@@ -387,7 +389,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabControl1.Controls.Add(this.ultraTabSharedControlsPage2);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl3);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl4);
-            this.ultraTabControl1.Location = new System.Drawing.Point(8, 77);
+            this.ultraTabControl1.Location = new System.Drawing.Point(8, 81);
             this.ultraTabControl1.Name = "ultraTabControl1";
             this.ultraTabControl1.SharedControlsPage = this.ultraTabSharedControlsPage2;
             this.ultraTabControl1.Size = new System.Drawing.Size(314, 249);
@@ -492,7 +494,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox4
             // 
             this.ultraGroupBox4.Controls.Add(this.ultraTextEditor8);
-            this.ultraGroupBox4.Location = new System.Drawing.Point(6, 332);
+            this.ultraGroupBox4.Location = new System.Drawing.Point(6, 336);
             this.ultraGroupBox4.Name = "ultraGroupBox4";
             this.ultraGroupBox4.Size = new System.Drawing.Size(313, 73);
             this.ultraGroupBox4.TabIndex = 3;
@@ -510,7 +512,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox5
             // 
             this.ultraGroupBox5.Controls.Add(this.ultraTextEditor9);
-            this.ultraGroupBox5.Location = new System.Drawing.Point(6, 411);
+            this.ultraGroupBox5.Location = new System.Drawing.Point(6, 415);
             this.ultraGroupBox5.Name = "ultraGroupBox5";
             this.ultraGroupBox5.Size = new System.Drawing.Size(313, 73);
             this.ultraGroupBox5.TabIndex = 3;
@@ -528,7 +530,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox6
             // 
             this.ultraGroupBox6.Controls.Add(this.ultraTextEditor10);
-            this.ultraGroupBox6.Location = new System.Drawing.Point(6, 490);
+            this.ultraGroupBox6.Location = new System.Drawing.Point(6, 494);
             this.ultraGroupBox6.Name = "ultraGroupBox6";
             this.ultraGroupBox6.Size = new System.Drawing.Size(313, 42);
             this.ultraGroupBox6.TabIndex = 3;
@@ -545,7 +547,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox7
             // 
             this.ultraGroupBox7.Controls.Add(this.ultraTextEditor11);
-            this.ultraGroupBox7.Location = new System.Drawing.Point(331, 485);
+            this.ultraGroupBox7.Controls.Add(this.ultraCheckEditor4);
+            this.ultraGroupBox7.Location = new System.Drawing.Point(328, 12);
             this.ultraGroupBox7.Name = "ultraGroupBox7";
             this.ultraGroupBox7.Size = new System.Drawing.Size(313, 56);
             this.ultraGroupBox7.TabIndex = 3;
@@ -554,15 +557,15 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTextEditor11
             // 
             this.ultraTextEditor11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor11.Location = new System.Drawing.Point(3, 29);
+            this.ultraTextEditor11.Location = new System.Drawing.Point(34, 29);
             this.ultraTextEditor11.Name = "ultraTextEditor11";
-            this.ultraTextEditor11.Size = new System.Drawing.Size(307, 21);
+            this.ultraTextEditor11.Size = new System.Drawing.Size(276, 21);
             this.ultraTextEditor11.TabIndex = 1;
             // 
             // ultraGroupBox8
             // 
             this.ultraGroupBox8.Controls.Add(this.ultraTextEditor12);
-            this.ultraGroupBox8.Location = new System.Drawing.Point(328, 17);
+            this.ultraGroupBox8.Location = new System.Drawing.Point(328, 74);
             this.ultraGroupBox8.Name = "ultraGroupBox8";
             this.ultraGroupBox8.Size = new System.Drawing.Size(313, 56);
             this.ultraGroupBox8.TabIndex = 3;
@@ -579,7 +582,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox9
             // 
             this.ultraGroupBox9.Controls.Add(this.ultraTextEditor13);
-            this.ultraGroupBox9.Location = new System.Drawing.Point(328, 79);
+            this.ultraGroupBox9.Location = new System.Drawing.Point(328, 136);
             this.ultraGroupBox9.Name = "ultraGroupBox9";
             this.ultraGroupBox9.Size = new System.Drawing.Size(313, 56);
             this.ultraGroupBox9.TabIndex = 3;
@@ -597,7 +600,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox11
             // 
             this.ultraGroupBox11.Controls.Add(this.ultraTextEditor15);
-            this.ultraGroupBox11.Location = new System.Drawing.Point(328, 141);
+            this.ultraGroupBox11.Location = new System.Drawing.Point(328, 198);
             this.ultraGroupBox11.Name = "ultraGroupBox11";
             this.ultraGroupBox11.Size = new System.Drawing.Size(313, 42);
             this.ultraGroupBox11.TabIndex = 3;
@@ -614,7 +617,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox10
             // 
             this.ultraGroupBox10.Controls.Add(this.ultraTextEditor14);
-            this.ultraGroupBox10.Location = new System.Drawing.Point(328, 189);
+            this.ultraGroupBox10.Location = new System.Drawing.Point(328, 246);
             this.ultraGroupBox10.Name = "ultraGroupBox10";
             this.ultraGroupBox10.Size = new System.Drawing.Size(313, 94);
             this.ultraGroupBox10.TabIndex = 3;
@@ -633,7 +636,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox12
             // 
             this.ultraGroupBox12.Controls.Add(this.ultraTextEditor16);
-            this.ultraGroupBox12.Location = new System.Drawing.Point(328, 289);
+            this.ultraGroupBox12.Location = new System.Drawing.Point(328, 346);
             this.ultraGroupBox12.Name = "ultraGroupBox12";
             this.ultraGroupBox12.Size = new System.Drawing.Size(313, 42);
             this.ultraGroupBox12.TabIndex = 3;
@@ -650,7 +653,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox13
             // 
             this.ultraGroupBox13.Controls.Add(this.ultraTextEditor17);
-            this.ultraGroupBox13.Location = new System.Drawing.Point(328, 337);
+            this.ultraGroupBox13.Location = new System.Drawing.Point(328, 394);
             this.ultraGroupBox13.Name = "ultraGroupBox13";
             this.ultraGroupBox13.Size = new System.Drawing.Size(313, 94);
             this.ultraGroupBox13.TabIndex = 3;
@@ -669,7 +672,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraGroupBox14
             // 
             this.ultraGroupBox14.Controls.Add(this.ultraTextEditor18);
-            this.ultraGroupBox14.Location = new System.Drawing.Point(328, 437);
+            this.ultraGroupBox14.Location = new System.Drawing.Point(328, 494);
             this.ultraGroupBox14.Name = "ultraGroupBox14";
             this.ultraGroupBox14.Size = new System.Drawing.Size(313, 42);
             this.ultraGroupBox14.TabIndex = 3;
@@ -724,11 +727,21 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraCheckEditor3.TabIndex = 3;
             this.ultraCheckEditor3.Text = "No se acuerda";
             // 
+            // ultraCheckEditor4
+            // 
+            this.ultraCheckEditor4.AutoSize = true;
+            this.ultraCheckEditor4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ultraCheckEditor4.Location = new System.Drawing.Point(3, 29);
+            this.ultraCheckEditor4.Name = "ultraCheckEditor4";
+            this.ultraCheckEditor4.Size = new System.Drawing.Size(31, 24);
+            this.ultraCheckEditor4.TabIndex = 4;
+            this.ultraCheckEditor4.Text = "Si";
+            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 693);
+            this.ClientSize = new System.Drawing.Size(655, 693);
             this.Name = "ServerConsultingForm";
             this.Text = "Comisiones de Servicios";
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
@@ -809,6 +822,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraCheckEditor4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -866,6 +880,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
         private Infragistics.Win.Misc.UltraPanel ultraPanel2;
         private Infragistics.Win.UltraWinEditors.UltraOptionSet ultraOptionSet2;
+        private Infragistics.Win.UltraWinEditors.UltraCheckEditor ultraCheckEditor4;
 
 
 
