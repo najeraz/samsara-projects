@@ -53,17 +53,21 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeFormControls()
         {
-            this.frmServerConsulting.uosDetHasServer.ValueChanged += new System.EventHandler(uosDetHasServer_ValueChanged);
-            this.frmServerConsulting.uchkDetServerComputerTypeMissing.CheckedChanged += new EventHandler(uchkDetServerComputerTypeMissing_CheckedChanged);
-            this.frmServerConsulting.uchkDetServerModelMissing.CheckedChanged += new EventHandler(uchkDetServerModelMissing_CheckedChanged);
-            this.frmServerConsulting.uchkDetServerComputerBrandMissing.CheckedChanged += new EventHandler(uchkDetServerComputerBrandMissing_CheckedChanged);
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
-            this.frmServerConsulting.grdDetSummary.InitializeLayout += new InitializeLayoutEventHandler(grdDetSummary_InitializeLayout);
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged 
+                += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
+            this.frmServerConsulting.grdDetSummary.InitializeLayout 
+                += new InitializeLayoutEventHandler(grdDetSummary_InitializeLayout);
 
-            DataTable dtSummary = this.srvServerConsulting.SearchByParameters("ServerConsulting.ServerConsultingSummary", null);
+            DataTable dtSummary = this.srvServerConsulting.SearchByParameters(
+                "ServerConsulting.ServerConsultingSummary", null);
 
             this.frmServerConsulting.grdDetSummary.DataSource = null;
             this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
+
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = false;
+            this.uchkDetNumberOfUsersWillGrow_CheckedChanged(null, null);
+
+            this.frmServerConsulting.uosDetFirstServer.Value = true;
         }
 
         public override void Search()
@@ -111,6 +115,25 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void ReadOnlyDetailFields(bool readOnly)
         {
+            this.frmServerConsulting.txtDetArrayDisks.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetBrandPreference.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetBudget.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetCurrentProblem.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetEmail.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetFutureNumberOfUsers.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetNumberOfUsers.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetOrganizationName.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetPhoneNumber.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetServerComputerBrand.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetServerComputerType.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetServerModel.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetServerSpecs.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetServerTypePreference.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Enabled = !readOnly;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly;
         }
 
         public override void LoadDetail()
@@ -137,27 +160,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
             this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = hasServer;
             this.frmServerConsulting.utabDetOldServerDetail.Tabs["NewServer"].Visible = !hasServer;
-        }
-
-        private void uchkDetServerComputerTypeMissing_CheckedChanged(object sender, EventArgs e)
-        {
-            bool serverComputerTypeMissing = this.frmServerConsulting.uchkDetServerComputerTypeMissing.Checked;
-
-            this.frmServerConsulting.txtDetServerComputerType.ReadOnly = serverComputerTypeMissing;
-        }
-
-        private void uchkDetServerComputerBrandMissing_CheckedChanged(object sender, EventArgs e)
-        {
-            bool serverComputerBrandMissing = this.frmServerConsulting.uchkDetServerComputerBrandMissing.Checked;
-
-            this.frmServerConsulting.txtDetServerComputerBrand.ReadOnly = serverComputerBrandMissing;
-        }
-
-        private void uchkDetServerModelMissing_CheckedChanged(object sender, EventArgs e)
-        {
-            bool serverModelMissing = this.frmServerConsulting.uchkDetServerModelMissing.Checked;
-
-            this.frmServerConsulting.txtDetServerModel.ReadOnly = serverModelMissing;
         }
 
         private void uchkDetNumberOfUsersWillGrow_CheckedChanged(object sender, System.EventArgs e)
