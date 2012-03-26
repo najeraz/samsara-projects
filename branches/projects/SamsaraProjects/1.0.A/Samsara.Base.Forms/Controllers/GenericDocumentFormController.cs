@@ -39,7 +39,9 @@ namespace Samsara.Base.Forms.Controllers
                 += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
 
             this.frmGenericDocument.ulblSchUsername.Text = Session.User.Username;
-            this.frmGenericDocument.Text = this.FormConfiguration.FormEndUserName;
+
+            if (this.FormConfiguration != null)
+                this.frmGenericDocument.Text = this.FormConfiguration.FormEndUserName;
 
             this.formStatus = FormStatusEnum.Search;
             this.ShowDetail(false);

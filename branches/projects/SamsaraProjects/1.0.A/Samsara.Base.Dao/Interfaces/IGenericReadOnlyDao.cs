@@ -14,5 +14,6 @@ namespace Samsara.Base.Dao.Interfaces
         DataTable SearchByParameters<T>(object parameters);
         IList<T> GetListByParameters<T>(object parameters);
         DataTable SearchByParameters(string queryName, object parameters, bool absoluteColumnNames);
+        DataTable SearchByParameters(string queryName, object parameters);
     }
 }
