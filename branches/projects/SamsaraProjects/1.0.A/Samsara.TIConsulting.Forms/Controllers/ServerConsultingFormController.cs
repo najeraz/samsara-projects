@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
@@ -47,6 +48,11 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         protected override void InitializeFormControls()
         {
+            this.frmServerConsulting.uosDetHasServer.ValueChanged += new System.EventHandler(uosDetHasServer_ValueChanged);
+            this.frmServerConsulting.uchkDetServerComputerTypeMissing.CheckedChanged += new EventHandler(uchkDetServerComputerTypeMissing_CheckedChanged);
+            this.frmServerConsulting.uchkDetServerModelMissing.CheckedChanged += new EventHandler(uchkDetServerModelMissing_CheckedChanged);
+            this.frmServerConsulting.uchkDetServerComputerBrandMissing.CheckedChanged += new EventHandler(uchkDetServerComputerBrandMissing_CheckedChanged);
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
         }
 
         #endregion Protected
@@ -117,6 +123,42 @@ namespace Samsara.TIConsulting.Forms.Controllers
         #endregion Methods
 
         #region Events
+
+        private void uosDetHasServer_ValueChanged(object sender, EventArgs e)
+        {
+            bool hasServer = Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
+
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = hasServer;
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["NewServer"].Visible = !hasServer;
+        }
+
+        private void uchkDetServerComputerTypeMissing_CheckedChanged(object sender, EventArgs e)
+        {
+            bool serverComputerTypeMissing = this.frmServerConsulting.uchkDetServerComputerTypeMissing.Checked;
+
+            this.frmServerConsulting.txtDetServerComputerType.ReadOnly = serverComputerTypeMissing;
+        }
+
+        private void uchkDetServerComputerBrandMissing_CheckedChanged(object sender, EventArgs e)
+        {
+            bool serverComputerBrandMissing = this.frmServerConsulting.uchkDetServerComputerBrandMissing.Checked;
+
+            this.frmServerConsulting.txtDetServerComputerBrand.ReadOnly = serverComputerBrandMissing;
+        }
+
+        private void uchkDetServerModelMissing_CheckedChanged(object sender, EventArgs e)
+        {
+            bool serverModelMissing = this.frmServerConsulting.uchkDetServerModelMissing.Checked;
+
+            this.frmServerConsulting.txtDetServerModel.ReadOnly = serverModelMissing;
+        }
+
+        private void uchkDetNumberOfUsersWillGrow_CheckedChanged(object sender, System.EventArgs e)
+        {
+            bool numberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
+
+            this.frmServerConsulting.txtDetFutureNumberOfUsers.ReadOnly = !numberOfUsersWillGrow;
+        }
 
         #endregion Events
     }
