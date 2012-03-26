@@ -93,7 +93,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetFutureNumberOfUsers = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.uchkDetNumberOfUsersWillGrow = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.ugbxDetBrandPreference = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraTextEditor15 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetBrandPreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraTabPageControl6 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.apDetServerConsultingSummary = new Infragistics.Win.Misc.UltraPanel();
             this.ulblDetOrganizationName = new Infragistics.Win.Misc.UltraLabel();
@@ -105,6 +105,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetOrganizationName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utabDetServerConsultingDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage3 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.grdDetSummary = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
@@ -166,8 +167,9 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetNumberOfUsersWillGrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBrandPreference)).BeginInit();
             this.ugbxDetBrandPreference.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetBrandPreference)).BeginInit();
             this.ultraTabPageControl6.SuspendLayout();
+            this.apDetServerConsultingSummary.ClientArea.SuspendLayout();
             this.apDetServerConsultingSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCustomerData)).BeginInit();
             this.ugbxDetCustomerData.SuspendLayout();
@@ -176,6 +178,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOrganizationName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetServerConsultingDetail)).BeginInit();
             this.utabDetServerConsultingDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSummary)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -736,20 +739,20 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // ugbxDetBrandPreference
             // 
-            this.ugbxDetBrandPreference.Controls.Add(this.ultraTextEditor15);
+            this.ugbxDetBrandPreference.Controls.Add(this.txtDetBrandPreference);
             this.ugbxDetBrandPreference.Location = new System.Drawing.Point(332, 200);
             this.ugbxDetBrandPreference.Name = "ugbxDetBrandPreference";
             this.ugbxDetBrandPreference.Size = new System.Drawing.Size(313, 42);
             this.ugbxDetBrandPreference.TabIndex = 3;
             this.ugbxDetBrandPreference.Text = "Tiene alguna preferencia de marca?";
             // 
-            // ultraTextEditor15
+            // txtDetBrandPreference
             // 
-            this.ultraTextEditor15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor15.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor15.Name = "ultraTextEditor15";
-            this.ultraTextEditor15.Size = new System.Drawing.Size(307, 21);
-            this.ultraTextEditor15.TabIndex = 1;
+            this.txtDetBrandPreference.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetBrandPreference.Location = new System.Drawing.Point(3, 16);
+            this.txtDetBrandPreference.Name = "txtDetBrandPreference";
+            this.txtDetBrandPreference.Size = new System.Drawing.Size(307, 21);
+            this.txtDetBrandPreference.TabIndex = 1;
             // 
             // ultraTabPageControl6
             // 
@@ -760,6 +763,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // apDetServerConsultingSummary
             // 
+            // 
+            // apDetServerConsultingSummary.ClientArea
+            // 
+            this.apDetServerConsultingSummary.ClientArea.Controls.Add(this.grdDetSummary);
             this.apDetServerConsultingSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.apDetServerConsultingSummary.Location = new System.Drawing.Point(0, 0);
             this.apDetServerConsultingSummary.Name = "apDetServerConsultingSummary";
@@ -856,6 +863,14 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabSharedControlsPage3.Name = "ultraTabSharedControlsPage3";
             this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(653, 559);
             // 
+            // grdDetSummary
+            // 
+            this.grdDetSummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetSummary.Location = new System.Drawing.Point(0, 0);
+            this.grdDetSummary.Name = "grdDetSummary";
+            this.grdDetSummary.Size = new System.Drawing.Size(653, 559);
+            this.grdDetSummary.TabIndex = 0;
+            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -940,8 +955,9 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBrandPreference)).EndInit();
             this.ugbxDetBrandPreference.ResumeLayout(false);
             this.ugbxDetBrandPreference.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetBrandPreference)).EndInit();
             this.ultraTabPageControl6.ResumeLayout(false);
+            this.apDetServerConsultingSummary.ClientArea.ResumeLayout(false);
             this.apDetServerConsultingSummary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCustomerData)).EndInit();
             this.ugbxDetCustomerData.ResumeLayout(false);
@@ -951,6 +967,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOrganizationName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetServerConsultingDetail)).EndInit();
             this.utabDetServerConsultingDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetSummary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -985,7 +1002,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsersWillGrow;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFutureNumberOfUsers;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetBrandPreference;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor15;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBrandPreference;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsers;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetNumberOfUsers;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentProblem;
@@ -1016,6 +1033,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetRedundantPowerSupply;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetArrayDisks;
+        internal Base.Controls.Controls.SamsaraUltraGrid grdDetSummary;
 
 
 
