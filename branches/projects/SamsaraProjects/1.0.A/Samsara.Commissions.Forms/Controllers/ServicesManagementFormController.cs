@@ -48,7 +48,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
                 this.ReadOnlySearchFields(true);
             }
-            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -65,7 +64,11 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmServicesManagement.txtSchServiceNumber.ReadOnly = readOnly;
         }
 
-        protected override void InitializeFormControls()
+        #endregion Protected
+
+        #region Public
+
+        public override void InitializeFormControls()
         {
             StaffParameters pmtStaff = new StaffParameters();
 
@@ -79,10 +82,6 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmServicesManagement.sccSchStaff.Parameters = pmtStaff;
             this.frmServicesManagement.sccSchStaff.Refresh();
         }
-
-        #endregion Protected
-
-        #region Public
 
         public override void Search()
         {

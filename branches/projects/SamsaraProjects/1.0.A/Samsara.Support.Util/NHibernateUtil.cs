@@ -12,6 +12,9 @@ namespace Samsara.Support.Util
             object parameterValue;
             Type nullableType;
 
+            if (parameters == null)
+                return;
+
             foreach (PropertyInfo pInfo in parameters.GetType().GetProperties())
             {
                 parameterValue = pInfo.GetValue(parameters, null);

@@ -31,6 +31,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             InitializeComponent();
 
             this.Controller = new ServerConsultingFormController(this);
+
+            this.ctrlServerConsultingForm.InitializeFormControls();
         }
     }
 }
