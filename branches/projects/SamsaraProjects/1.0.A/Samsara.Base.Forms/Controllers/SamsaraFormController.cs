@@ -42,6 +42,11 @@ namespace Samsara.Base.Forms.Controllers
         #endregion Constructor
 
         #region Methods
+
+        public virtual void InitializeFormControls()
+        {
+        }
+
         #endregion Methods
     }
 }

@@ -18,6 +18,12 @@
     <property name="UpdatedOn"/>
     <property name="Activated"/>
     <property name="Deleted"/>
+    
+
+    <many-to-one name="Scheme"
+                 class="Samsara.Main.Core.Entities.Scheme, Samsara.Main.Core"
+                 column="SchemeId"/>
+    
 
     <set name="FormConfigurationGrids" table="Configuration.FormConfigurationGrids" cascade="all-delete-orphan">
       <key column="FormConfigurationId"/>

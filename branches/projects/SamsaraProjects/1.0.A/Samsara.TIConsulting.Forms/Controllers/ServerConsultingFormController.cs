@@ -34,8 +34,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
             {
                 this.srvServerConsulting = SamsaraAppContext.Resolve<IServerConsultingService>();
             }
-
-            this.InitializeFormControls();
         }
 
         #endregion Constructor
@@ -49,7 +47,11 @@ namespace Samsara.TIConsulting.Forms.Controllers
             base.ReadOnlySearchFields(readOnly);
         }
 
-        protected override void InitializeFormControls()
+        #endregion Protected
+
+        #region Public
+
+        public override void InitializeFormControls()
         {
             this.frmServerConsulting.uosDetHasServer.ValueChanged += new System.EventHandler(uosDetHasServer_ValueChanged);
             this.frmServerConsulting.uchkDetServerComputerTypeMissing.CheckedChanged += new EventHandler(uchkDetServerComputerTypeMissing_CheckedChanged);
@@ -63,10 +65,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.grdDetSummary.DataSource = null;
             this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
         }
-
-        #endregion Protected
-
-        #region Public
 
         public override void Search()
         {

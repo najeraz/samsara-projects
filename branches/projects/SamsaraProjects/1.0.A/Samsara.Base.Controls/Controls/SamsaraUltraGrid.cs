@@ -7,15 +7,19 @@ using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
+using Samsara.Configuration.Code.Interfaces;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
-using Samsara.Configuration.Code.Interfaces;
+using Samsara.Main.Service.Interfaces;
+using Samsara.Main.Core.Parameters;
+using Samsara.Main.Core.Entities;
 
 namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraUltraGrid : UltraGrid
     {
+        private ISchemeService srvScheme;
         private IFormConfigurationService srvFormConfiguration;
         private IFormConfigurationGridService srvFormConfigurationGrid;
         private IFormConfigurationGridColumnService srvFormConfigurationGridColumn;
@@ -26,9 +30,10 @@ namespace Samsara.Base.Controls.Controls
             
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
-                srvFormConfigurationGrid = SamsaraAppContext.Resolve<IFormConfigurationGridService>();
-                srvFormConfigurationGridColumn = SamsaraAppContext.Resolve<IFormConfigurationGridColumnService>();
+                this.srvScheme = SamsaraAppContext.Resolve<ISchemeService>();
+                this.srvFormConfiguration = SamsaraAppContext.Resolve<IFormConfigurationService>();
+                this.srvFormConfigurationGrid = SamsaraAppContext.Resolve<IFormConfigurationGridService>();
+                this.srvFormConfigurationGridColumn = SamsaraAppContext.Resolve<IFormConfigurationGridColumnService>();
             }
         }
 
@@ -45,10 +50,12 @@ namespace Samsara.Base.Controls.Controls
                 this.GetCustomControlsNames(this.Parent, lstCustomControlNames);
                 string parentFormName = lstCustomControlNames.Last();
                 lstCustomControlNames.Remove(parentFormName);
+                string schemeName = null;
 
                 if (parentFormName != null && parentFormName.Contains("Form"))
                 {
                     Form form = this.GetForm(this.Parent);
+                    schemeName = form.GetType().Namespace.Split('.')[1];
 
                     if (typeof(IConfigurableForm).IsAssignableFrom(form.GetType()))
                     {
@@ -68,8 +75,14 @@ namespace Samsara.Base.Controls.Controls
 
                 if (formConfiguration == null)
                 {
+                    SchemeParameters pmtScheme = new SchemeParameters();
+                    pmtScheme.Name = schemeName;
+
+                    Scheme scheme = this.srvScheme.GetByParameters(pmtScheme);
+
                     formConfiguration = new FormConfiguration();
                     formConfiguration.FormName = parentFormName;
+                    formConfiguration.Scheme = scheme;
                     srvFormConfiguration.SaveOrUpdate(formConfiguration);
                 }
 
