@@ -6,5 +6,10 @@ namespace Samsara.TIConsulting.Core.Parameters
 {
     public class ServerConsultingParameters : BaseParameters
     {
+        public string OrganizationName
+        {
+            get;
+            set;
+        }
     }
 }
