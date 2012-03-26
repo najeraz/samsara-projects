@@ -81,21 +81,25 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetOldServerDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.ugbxDetBudget = new Infragistics.Win.Misc.UltraGroupBox();
-            this.txtDetBudget = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uchkDetHaveBudget = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.upnlDetSeparatorHaveBudget = new Infragistics.Win.Misc.UltraPanel();
+            this.txtDetBudget = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ugbxDetServerUsage = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetServerUsage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetFutureStorageVolume = new Infragistics.Win.Misc.UltraGroupBox();
-            this.txtDetFutureStorageVolume = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.uchkDetFutureStorageVolume = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.txtDetFutureStorageVolume = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.upnlDetSeparatorFutureStorageVolume = new Infragistics.Win.Misc.UltraPanel();
             this.ugbxDetCurrentProblem = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetCurrentProblem = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetCurrentStorageVolume = new Infragistics.Win.Misc.UltraGroupBox();
-            this.txtDetCurrentStorageVolume = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtDetCurrentStorageVolume = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ugbxDetNumberOfUsers = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetNumberOfUsers = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ugbxDetNumberOfUsersWillGrow = new Infragistics.Win.Misc.UltraGroupBox();
             this.uchkDetNumberOfUsersWillGrow = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.txtDetFutureNumberOfUsers = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
+            this.upnlDetSeparatorNumberOfUsersWillGrow = new Infragistics.Win.Misc.UltraPanel();
+            this.txtDetNumberOfUsersWillGrow = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ugbxDetBrandPreference = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetBrandPreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraTabPageControl6 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
@@ -149,25 +153,26 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetOldServerDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).BeginInit();
             this.ugbxDetBudget.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetBudget)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetHaveBudget)).BeginInit();
+            this.upnlDetSeparatorHaveBudget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerUsage)).BeginInit();
             this.ugbxDetServerUsage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetServerUsage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetFutureStorageVolume)).BeginInit();
             this.ugbxDetFutureStorageVolume.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFutureStorageVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetFutureStorageVolume)).BeginInit();
+            this.upnlDetSeparatorFutureStorageVolume.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCurrentProblem)).BeginInit();
             this.ugbxDetCurrentProblem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetCurrentProblem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCurrentStorageVolume)).BeginInit();
             this.ugbxDetCurrentStorageVolume.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetCurrentStorageVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetNumberOfUsers)).BeginInit();
             this.ugbxDetNumberOfUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetNumberOfUsersWillGrow)).BeginInit();
             this.ugbxDetNumberOfUsersWillGrow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetNumberOfUsersWillGrow)).BeginInit();
-            this.ultraPanel1.SuspendLayout();
+            this.upnlDetSeparatorNumberOfUsersWillGrow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBrandPreference)).BeginInit();
             this.ugbxDetBrandPreference.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetBrandPreference)).BeginInit();
@@ -426,7 +431,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl5
             // 
             this.ultraTabPageControl5.Controls.Add(this.upDetServerConsultingDetail);
-            this.ultraTabPageControl5.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl5.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl5.Name = "ultraTabPageControl5";
             this.ultraTabPageControl5.Size = new System.Drawing.Size(969, 383);
             // 
@@ -602,6 +607,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // ugbxDetBudget
             // 
+            this.ugbxDetBudget.Controls.Add(this.uchkDetHaveBudget);
+            this.ugbxDetBudget.Controls.Add(this.upnlDetSeparatorHaveBudget);
             this.ugbxDetBudget.Controls.Add(this.txtDetBudget);
             this.ugbxDetBudget.Location = new System.Drawing.Point(651, 140);
             this.ugbxDetBudget.Name = "ugbxDetBudget";
@@ -609,13 +616,36 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetBudget.TabIndex = 3;
             this.ugbxDetBudget.Text = "Cuentan con algun presupuesto asignado para el equipo?";
             // 
+            // uchkDetHaveBudget
+            // 
+            this.uchkDetHaveBudget.AutoSize = true;
+            this.uchkDetHaveBudget.Dock = System.Windows.Forms.DockStyle.Left;
+            this.uchkDetHaveBudget.Location = new System.Drawing.Point(61, 16);
+            this.uchkDetHaveBudget.Name = "uchkDetHaveBudget";
+            this.uchkDetHaveBudget.Size = new System.Drawing.Size(31, 23);
+            this.uchkDetHaveBudget.TabIndex = 3;
+            this.uchkDetHaveBudget.Text = "Si";
+            // 
+            // upnlDetSeparatorHaveBudget
+            // 
+            this.upnlDetSeparatorHaveBudget.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upnlDetSeparatorHaveBudget.Location = new System.Drawing.Point(3, 16);
+            this.upnlDetSeparatorHaveBudget.Name = "upnlDetSeparatorHaveBudget";
+            this.upnlDetSeparatorHaveBudget.Size = new System.Drawing.Size(58, 23);
+            this.upnlDetSeparatorHaveBudget.TabIndex = 4;
+            // 
             // txtDetBudget
             // 
-            this.txtDetBudget.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetBudget.Location = new System.Drawing.Point(3, 16);
+            this.txtDetBudget.CustomParent = null;
+            this.txtDetBudget.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtDetBudget.Location = new System.Drawing.Point(192, 16);
+            this.txtDetBudget.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetBudget.MeasurementFileUnit = "GB";
             this.txtDetBudget.Name = "txtDetBudget";
-            this.txtDetBudget.Size = new System.Drawing.Size(307, 21);
-            this.txtDetBudget.TabIndex = 0;
+            this.txtDetBudget.ReadOnly = true;
+            this.txtDetBudget.Size = new System.Drawing.Size(118, 23);
+            this.txtDetBudget.TabIndex = 1;
+            this.txtDetBudget.Value = ((object)(resources.GetObject("txtDetBudget.Value")));
             // 
             // ugbxDetServerUsage
             // 
@@ -637,7 +667,9 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // ugbxDetFutureStorageVolume
             // 
+            this.ugbxDetFutureStorageVolume.Controls.Add(this.uchkDetFutureStorageVolume);
             this.ugbxDetFutureStorageVolume.Controls.Add(this.txtDetFutureStorageVolume);
+            this.ugbxDetFutureStorageVolume.Controls.Add(this.upnlDetSeparatorFutureStorageVolume);
             this.ugbxDetFutureStorageVolume.Location = new System.Drawing.Point(332, 270);
             this.ugbxDetFutureStorageVolume.Name = "ugbxDetFutureStorageVolume";
             this.ugbxDetFutureStorageVolume.Size = new System.Drawing.Size(313, 56);
@@ -645,13 +677,36 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetFutureStorageVolume.Text = "Cuanto tienen estimado crecer en el tamaño de la informacion en un plazo de 3 a 5" +
                 " años?";
             // 
+            // uchkDetFutureStorageVolume
+            // 
+            this.uchkDetFutureStorageVolume.AutoSize = true;
+            this.uchkDetFutureStorageVolume.Dock = System.Windows.Forms.DockStyle.Left;
+            this.uchkDetFutureStorageVolume.Location = new System.Drawing.Point(61, 29);
+            this.uchkDetFutureStorageVolume.Name = "uchkDetFutureStorageVolume";
+            this.uchkDetFutureStorageVolume.Size = new System.Drawing.Size(31, 24);
+            this.uchkDetFutureStorageVolume.TabIndex = 3;
+            this.uchkDetFutureStorageVolume.Text = "Si";
+            // 
             // txtDetFutureStorageVolume
             // 
-            this.txtDetFutureStorageVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetFutureStorageVolume.Location = new System.Drawing.Point(3, 29);
+            this.txtDetFutureStorageVolume.CustomParent = null;
+            this.txtDetFutureStorageVolume.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtDetFutureStorageVolume.Location = new System.Drawing.Point(192, 29);
+            this.txtDetFutureStorageVolume.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
+            this.txtDetFutureStorageVolume.MeasurementFileUnit = "GB";
             this.txtDetFutureStorageVolume.Name = "txtDetFutureStorageVolume";
-            this.txtDetFutureStorageVolume.Size = new System.Drawing.Size(307, 21);
-            this.txtDetFutureStorageVolume.TabIndex = 0;
+            this.txtDetFutureStorageVolume.ReadOnly = true;
+            this.txtDetFutureStorageVolume.Size = new System.Drawing.Size(118, 24);
+            this.txtDetFutureStorageVolume.TabIndex = 4;
+            this.txtDetFutureStorageVolume.Value = ((object)(resources.GetObject("txtDetFutureStorageVolume.Value")));
+            // 
+            // upnlDetSeparatorFutureStorageVolume
+            // 
+            this.upnlDetSeparatorFutureStorageVolume.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upnlDetSeparatorFutureStorageVolume.Location = new System.Drawing.Point(3, 29);
+            this.upnlDetSeparatorFutureStorageVolume.Name = "upnlDetSeparatorFutureStorageVolume";
+            this.upnlDetSeparatorFutureStorageVolume.Size = new System.Drawing.Size(58, 24);
+            this.upnlDetSeparatorFutureStorageVolume.TabIndex = 5;
             // 
             // ugbxDetCurrentProblem
             // 
@@ -682,11 +737,16 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // txtDetCurrentStorageVolume
             // 
-            this.txtDetCurrentStorageVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetCurrentStorageVolume.Location = new System.Drawing.Point(3, 29);
+            this.txtDetCurrentStorageVolume.CustomParent = null;
+            this.txtDetCurrentStorageVolume.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtDetCurrentStorageVolume.Location = new System.Drawing.Point(192, 29);
+            this.txtDetCurrentStorageVolume.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
+            this.txtDetCurrentStorageVolume.MeasurementFileUnit = "GB";
             this.txtDetCurrentStorageVolume.Name = "txtDetCurrentStorageVolume";
-            this.txtDetCurrentStorageVolume.Size = new System.Drawing.Size(307, 21);
+            this.txtDetCurrentStorageVolume.ReadOnly = false;
+            this.txtDetCurrentStorageVolume.Size = new System.Drawing.Size(118, 24);
             this.txtDetCurrentStorageVolume.TabIndex = 1;
+            this.txtDetCurrentStorageVolume.Value = ((object)(resources.GetObject("txtDetCurrentStorageVolume.Value")));
             // 
             // ugbxDetNumberOfUsers
             // 
@@ -702,19 +762,19 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetNumberOfUsers.CustomParent = null;
             this.txtDetNumberOfUsers.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDetNumberOfUsers.Location = new System.Drawing.Point(192, 16);
-            this.txtDetNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
+            this.txtDetNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.txtDetNumberOfUsers.MeasurementFileUnit = "GB";
             this.txtDetNumberOfUsers.Name = "txtDetNumberOfUsers";
             this.txtDetNumberOfUsers.ReadOnly = false;
             this.txtDetNumberOfUsers.Size = new System.Drawing.Size(118, 23);
-            this.txtDetNumberOfUsers.TabIndex = 0;
+            this.txtDetNumberOfUsers.TabIndex = 2;
             this.txtDetNumberOfUsers.Value = ((object)(resources.GetObject("txtDetNumberOfUsers.Value")));
             // 
             // ugbxDetNumberOfUsersWillGrow
             // 
             this.ugbxDetNumberOfUsersWillGrow.Controls.Add(this.uchkDetNumberOfUsersWillGrow);
-            this.ugbxDetNumberOfUsersWillGrow.Controls.Add(this.txtDetFutureNumberOfUsers);
-            this.ugbxDetNumberOfUsersWillGrow.Controls.Add(this.ultraPanel1);
+            this.ugbxDetNumberOfUsersWillGrow.Controls.Add(this.upnlDetSeparatorNumberOfUsersWillGrow);
+            this.ugbxDetNumberOfUsersWillGrow.Controls.Add(this.txtDetNumberOfUsersWillGrow);
             this.ugbxDetNumberOfUsersWillGrow.Location = new System.Drawing.Point(332, 146);
             this.ugbxDetNumberOfUsersWillGrow.Name = "ugbxDetNumberOfUsersWillGrow";
             this.ugbxDetNumberOfUsersWillGrow.Size = new System.Drawing.Size(313, 56);
@@ -728,29 +788,29 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uchkDetNumberOfUsersWillGrow.Location = new System.Drawing.Point(61, 29);
             this.uchkDetNumberOfUsersWillGrow.Name = "uchkDetNumberOfUsersWillGrow";
             this.uchkDetNumberOfUsersWillGrow.Size = new System.Drawing.Size(31, 24);
-            this.uchkDetNumberOfUsersWillGrow.TabIndex = 0;
+            this.uchkDetNumberOfUsersWillGrow.TabIndex = 6;
             this.uchkDetNumberOfUsersWillGrow.Text = "Si";
             // 
-            // txtDetFutureNumberOfUsers
+            // upnlDetSeparatorNumberOfUsersWillGrow
             // 
-            this.txtDetFutureNumberOfUsers.CustomParent = null;
-            this.txtDetFutureNumberOfUsers.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtDetFutureNumberOfUsers.Location = new System.Drawing.Point(192, 29);
-            this.txtDetFutureNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
-            this.txtDetFutureNumberOfUsers.MeasurementFileUnit = "GB";
-            this.txtDetFutureNumberOfUsers.Name = "txtDetFutureNumberOfUsers";
-            this.txtDetFutureNumberOfUsers.ReadOnly = false;
-            this.txtDetFutureNumberOfUsers.Size = new System.Drawing.Size(118, 24);
-            this.txtDetFutureNumberOfUsers.TabIndex = 1;
-            this.txtDetFutureNumberOfUsers.Value = ((object)(resources.GetObject("txtDetFutureNumberOfUsers.Value")));
+            this.upnlDetSeparatorNumberOfUsersWillGrow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upnlDetSeparatorNumberOfUsersWillGrow.Location = new System.Drawing.Point(3, 29);
+            this.upnlDetSeparatorNumberOfUsersWillGrow.Name = "upnlDetSeparatorNumberOfUsersWillGrow";
+            this.upnlDetSeparatorNumberOfUsersWillGrow.Size = new System.Drawing.Size(58, 24);
+            this.upnlDetSeparatorNumberOfUsersWillGrow.TabIndex = 7;
             // 
-            // ultraPanel1
+            // txtDetNumberOfUsersWillGrow
             // 
-            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ultraPanel1.Location = new System.Drawing.Point(3, 29);
-            this.ultraPanel1.Name = "ultraPanel1";
-            this.ultraPanel1.Size = new System.Drawing.Size(58, 24);
-            this.ultraPanel1.TabIndex = 2;
+            this.txtDetNumberOfUsersWillGrow.CustomParent = null;
+            this.txtDetNumberOfUsersWillGrow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtDetNumberOfUsersWillGrow.Location = new System.Drawing.Point(192, 29);
+            this.txtDetNumberOfUsersWillGrow.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetNumberOfUsersWillGrow.MeasurementFileUnit = "GB";
+            this.txtDetNumberOfUsersWillGrow.Name = "txtDetNumberOfUsersWillGrow";
+            this.txtDetNumberOfUsersWillGrow.ReadOnly = true;
+            this.txtDetNumberOfUsersWillGrow.Size = new System.Drawing.Size(118, 24);
+            this.txtDetNumberOfUsersWillGrow.TabIndex = 2;
+            this.txtDetNumberOfUsersWillGrow.Value = ((object)(resources.GetObject("txtDetNumberOfUsersWillGrow.Value")));
             // 
             // ugbxDetBrandPreference
             // 
@@ -772,7 +832,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl6
             // 
             this.ultraTabPageControl6.Controls.Add(this.apDetServerConsultingSummary);
-            this.ultraTabPageControl6.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl6.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl6.Name = "ultraTabPageControl6";
             this.ultraTabPageControl6.Size = new System.Drawing.Size(969, 383);
             // 
@@ -939,7 +999,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).EndInit();
             this.ugbxDetBudget.ResumeLayout(false);
             this.ugbxDetBudget.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetBudget)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetHaveBudget)).EndInit();
+            this.upnlDetSeparatorHaveBudget.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerUsage)).EndInit();
             this.ugbxDetServerUsage.ResumeLayout(false);
             this.ugbxDetServerUsage.PerformLayout();
@@ -947,22 +1008,21 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetFutureStorageVolume)).EndInit();
             this.ugbxDetFutureStorageVolume.ResumeLayout(false);
             this.ugbxDetFutureStorageVolume.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetFutureStorageVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetFutureStorageVolume)).EndInit();
+            this.upnlDetSeparatorFutureStorageVolume.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCurrentProblem)).EndInit();
             this.ugbxDetCurrentProblem.ResumeLayout(false);
             this.ugbxDetCurrentProblem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetCurrentProblem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCurrentStorageVolume)).EndInit();
             this.ugbxDetCurrentStorageVolume.ResumeLayout(false);
-            this.ugbxDetCurrentStorageVolume.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetCurrentStorageVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetNumberOfUsers)).EndInit();
             this.ugbxDetNumberOfUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetNumberOfUsersWillGrow)).EndInit();
             this.ugbxDetNumberOfUsersWillGrow.ResumeLayout(false);
             this.ugbxDetNumberOfUsersWillGrow.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetNumberOfUsersWillGrow)).EndInit();
-            this.ultraPanel1.ResumeLayout(false);
+            this.upnlDetSeparatorNumberOfUsersWillGrow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBrandPreference)).EndInit();
             this.ugbxDetBrandPreference.ResumeLayout(false);
             this.ugbxDetBrandPreference.PerformLayout();
@@ -1001,11 +1061,8 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetServerTypePreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerTypePreference;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetBudget;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBudget;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetFutureStorageVolume;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetFutureStorageVolume;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentStorageVolume;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetCurrentStorageVolume;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsersWillGrow;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetBrandPreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBrandPreference;
@@ -1023,7 +1080,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerSpecs;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
         private Infragistics.Win.Misc.UltraPanel upnlDetFirstServer;
-        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetNumberOfUsersWillGrow;
         private Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetServerConsultingDetail;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage3;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl5;
@@ -1038,12 +1094,20 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetFirstServer;
         internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetOldServerDetail;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetHaveSite;
-        internal Base.Controls.Controls.SamsaraTextEditor txtDetNumberOfUsers;
-        internal Base.Controls.Controls.SamsaraTextEditor txtDetFutureNumberOfUsers;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetHaveSite;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetHasServer;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetFullServerUptimeRequired;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetBudget;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetHaveBudget;
+        private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorHaveBudget;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetFutureStorageVolume;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetFutureStorageVolume;
+        private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorFutureStorageVolume;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetCurrentStorageVolume;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetNumberOfUsers;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetNumberOfUsersWillGrow;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetNumberOfUsersWillGrow;
+        private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorNumberOfUsersWillGrow;
 
 
 

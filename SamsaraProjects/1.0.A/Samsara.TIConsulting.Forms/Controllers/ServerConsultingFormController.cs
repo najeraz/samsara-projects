@@ -55,7 +55,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
         {
             this.frmServerConsulting.uosDetFullServerUptimeRequired.ValueChanged
                 += new EventHandler(uosDetFullServerUptimeRequired_ValueChanged);
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged 
+            this.frmServerConsulting.uchkDetFutureStorageVolume.CheckedChanged 
                 += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
             this.frmServerConsulting.grdDetSummary.InitializeLayout 
                 += new InitializeLayoutEventHandler(grdDetSummary_InitializeLayout);
@@ -66,7 +66,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.grdDetSummary.DataSource = null;
             this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
 
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = false;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = false;
             this.uchkDetNumberOfUsersWillGrow_CheckedChanged(null, null);
 
             this.frmServerConsulting.uosDetFirstServer.Value = true;
@@ -123,9 +123,9 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetCurrentProblem.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetCurrentStorageVolume.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetEmail.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetFutureNumberOfUsers.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetNumberOfUsers.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetOrganizationName.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetPhoneNumber.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerComputerBrand.ReadOnly = readOnly;
@@ -134,7 +134,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerSpecs.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerTypePreference.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Enabled = !readOnly;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly;
         }
 
@@ -151,12 +151,12 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.CurrentStorageVolume;
             this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
             this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
-            this.frmServerConsulting.txtDetFutureNumberOfUsers.Value = this.serverConsulting.FutureNumberOfUsers;
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureNumberOfUsers;
             this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureStorageVolume;
             this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
             this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
-            this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.NumberOfUsers;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
             this.frmServerConsulting.txtDetServerTypePreference.Value = this.serverConsulting.ServerTypePreference;
             this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
@@ -169,10 +169,60 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void SaveEntity()
         {
+            this.serverConsulting.Email = this.frmServerConsulting.txtDetEmail.Value.ToString();
+            this.serverConsulting.OrganizationName = this.frmServerConsulting.txtDetOrganizationName.Value.ToString();
+            this.serverConsulting.PhoneNumber = this.frmServerConsulting.txtDetPhoneNumber.Value.ToString();
+
+            this.serverConsulting.ArrayDisks = this.frmServerConsulting.txtDetArrayDisks.Value.ToString();
+            this.serverConsulting.BrandPreference = this.frmServerConsulting.txtDetBrandPreference.Value.ToString();
+            this.serverConsulting.Budget = Convert.ToDecimal(this.frmServerConsulting.txtDetBudget.Value);
+            this.serverConsulting.CurrentProblem = this.frmServerConsulting.txtDetCurrentProblem.Value.ToString();
+            this.serverConsulting.CurrentStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetCurrentStorageVolume.Value);
+            this.serverConsulting.FirstServer = Convert.ToBoolean(this.frmServerConsulting.uosDetFirstServer.Value);
+            this.serverConsulting.FullServerUptimeRequired = Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
+            this.serverConsulting.FutureNumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetFutureStorageVolume.Value);
+            this.serverConsulting.FutureStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetFutureStorageVolume.Value);
+            this.serverConsulting.HasServer = Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
+            this.serverConsulting.HaveSite = Convert.ToBoolean(this.frmServerConsulting.uosDetHaveSite.Value);
+            this.serverConsulting.NumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetCurrentStorageVolume.Value);
+            this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetFutureStorageVolume.Checked;
+            this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
+            this.serverConsulting.ServerTypePreference = this.frmServerConsulting.txtDetServerTypePreference.Value.ToString();
+            this.serverConsulting.ServerUsage = this.frmServerConsulting.txtDetServerUsage.Value.ToString();
+
+            this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerBrand 
+                = this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString();
+            this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerType 
+                = this.frmServerConsulting.txtDetServerComputerType.Value.ToString();
+            this.serverConsulting.ServerConsultingOldServerComputer.ServerModel 
+                = this.frmServerConsulting.txtDetServerModel.Value.ToString();
+            this.serverConsulting.ServerConsultingOldServerComputer.ServerSpecs 
+                = this.frmServerConsulting.txtDetServerSpecs.Value.ToString();
+
+            this.srvServerConsulting.SaveOrUpdate(this.serverConsulting);
         }
 
         public override void ClearDetailFields()
         {
+            this.frmServerConsulting.txtDetArrayDisks.Value = null;
+            this.frmServerConsulting.txtDetBrandPreference.Value = null;
+            this.frmServerConsulting.txtDetBudget.Value = null;
+            this.frmServerConsulting.txtDetCurrentProblem.Value = null;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = null;
+            this.frmServerConsulting.txtDetEmail.Value = null;
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = null;
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = null;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = null;
+            this.frmServerConsulting.txtDetOrganizationName.Value = null;
+            this.frmServerConsulting.txtDetPhoneNumber.Value = null;
+            this.frmServerConsulting.txtDetServerComputerBrand.Value = null;
+            this.frmServerConsulting.txtDetServerComputerType.Value = null;
+            this.frmServerConsulting.txtDetServerModel.Value = null;
+            this.frmServerConsulting.txtDetServerSpecs.Value = null;
+            this.frmServerConsulting.txtDetServerTypePreference.Value = null;
+            this.frmServerConsulting.txtDetServerUsage.Value = null;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = false;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = false;
         }
 
         #endregion Public
@@ -193,7 +243,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
         {
             bool numberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
 
-            this.frmServerConsulting.txtDetFutureNumberOfUsers.ReadOnly = !numberOfUsersWillGrow;
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.ReadOnly = !numberOfUsersWillGrow;
         }
 
         private void grdDetSummary_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -213,6 +263,13 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
             this.frmServerConsulting.txtDetArrayDisks.Value = string.Empty;
             this.frmServerConsulting.txtDetArrayDisks.ReadOnly = !fullServerUptimeRequired;
+        }
+
+        private void uchkDetFutureStorageVolume_CheckedChanged(object sender, System.EventArgs e)
+        {
+            bool futureStorageVolume = this.frmServerConsulting.uchkDetFutureStorageVolume.Checked;
+
+            this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = !futureStorageVolume;
         }
 
         #endregion Events
