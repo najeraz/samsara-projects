@@ -53,6 +53,11 @@ namespace Samsara.Base.Dao.Impl
             return this.DataTableByParameters(queryName, parameters, absoluteColumnNames);
         }
 
+        public virtual DataTable SearchByParameters(string queryName, object parameters)
+        {
+            return this.DataTableByParameters(queryName, parameters, false);
+        }
+
         public virtual IList<T> GetListByParameters<T>(object parameters)
         {
             DetachedNamedQuery dnq = this.GetDetachedNamedQuery(
