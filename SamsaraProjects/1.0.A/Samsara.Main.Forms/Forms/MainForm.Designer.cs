@@ -97,9 +97,11 @@
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comisionesDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
             this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
-            this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultoriaTIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.servidoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.upnlPrplBottom.ClientArea.SuspendLayout();
             this.upnlPrplBottom.SuspendLayout();
@@ -593,7 +595,8 @@
             this.licitacionesToolStripMenuItem,
             this.tableroDeControlToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
-            this.comisionesToolStripMenuItem});
+            this.comisionesToolStripMenuItem,
+            this.consultoriaTIToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(811, 24);
@@ -647,6 +650,13 @@
             this.comisionesDeServiciosToolStripMenuItem.Text = "Comisiones de Servicios";
             this.comisionesDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.comisionesDeServiciosToolStripMenuItem_Click);
             // 
+            // calculoDeComisionesToolStripMenuItem
+            // 
+            this.calculoDeComisionesToolStripMenuItem.Name = "calculoDeComisionesToolStripMenuItem";
+            this.calculoDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.calculoDeComisionesToolStripMenuItem.Text = "Calculo de Comisiones";
+            this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
+            // 
             // ulblPrplUsername
             // 
             appearance1.ImageHAlign = Infragistics.Win.HAlign.Center;
@@ -672,12 +682,20 @@
             this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
             this.upnlPrplBottom.TabIndex = 2;
             // 
-            // calculoDeComisionesToolStripMenuItem
+            // consultoriaTIToolStripMenuItem
             // 
-            this.calculoDeComisionesToolStripMenuItem.Name = "calculoDeComisionesToolStripMenuItem";
-            this.calculoDeComisionesToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.calculoDeComisionesToolStripMenuItem.Text = "Calculo de Comisiones";
-            this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
+            this.consultoriaTIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.servidoresToolStripMenuItem});
+            this.consultoriaTIToolStripMenuItem.Name = "consultoriaTIToolStripMenuItem";
+            this.consultoriaTIToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.consultoriaTIToolStripMenuItem.Text = "Consultoria TI";
+            // 
+            // servidoresToolStripMenuItem
+            // 
+            this.servidoresToolStripMenuItem.Name = "servidoresToolStripMenuItem";
+            this.servidoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.servidoresToolStripMenuItem.Text = "Servidores";
+            this.servidoresToolStripMenuItem.Click += new System.EventHandler(this.servidoresToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -773,6 +791,8 @@
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comisionesDeServiciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculoDeComisionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultoriaTIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem servidoresToolStripMenuItem;
     }
 }
 

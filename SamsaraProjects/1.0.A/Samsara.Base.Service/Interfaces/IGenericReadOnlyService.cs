@@ -59,6 +59,15 @@ namespace Samsara.Base.Service.Interfaces
         /// <returns></returns>
         DataTable SearchByParameters(string queryName, object parameters, bool absoluteColumnNames);
 
+        /// <summary>
+        /// Get datatable by parameters from custom query
+        /// </summary>
+        /// <param name="queryName">Query name</param>
+        /// <param name="parameters">Parameters</param>
+        /// otherwise only names the column as primary key from the Entity</param>
+        /// <returns></returns>
+        DataTable SearchByParameters(string queryName, object parameters);
+
         #endregion Methods
     }
 }

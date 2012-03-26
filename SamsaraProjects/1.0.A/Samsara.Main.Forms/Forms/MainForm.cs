@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Samsara.AlleatoERP.Forms.Forms;
@@ -10,6 +9,7 @@ using Samsara.Dashboard.Forms.Forms;
 using Samsara.Operation.Forms.Forms;
 using Samsara.ProjectsAndTendering.Forms.Forms;
 using Samsara.Support.Util;
+using Samsara.TIConsulting.Forms.Forms;
 
 namespace Samsara.Main.Forms.Forms
 {
@@ -708,6 +708,20 @@ namespace Samsara.Main.Forms.Forms
                 this.Cursor = Cursors.WaitCursor;
                 Samsara.LegacyCode.Commissions.Forms.MainForm frmMainComissions = new Samsara.LegacyCode.Commissions.Forms.MainForm();
                 frmMainComissions.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void servidoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                ServerConsultingForm frmServerConsulting = new ServerConsultingForm();
+                frmServerConsulting.Show();
             }
             finally
             {

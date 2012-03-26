@@ -1,6 +1,9 @@
 ﻿
 using System;
 using System.ComponentModel;
+using System.Data;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.TIConsulting.Core.Entities;
@@ -53,6 +56,12 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetServerModelMissing.CheckedChanged += new EventHandler(uchkDetServerModelMissing_CheckedChanged);
             this.frmServerConsulting.uchkDetServerComputerBrandMissing.CheckedChanged += new EventHandler(uchkDetServerComputerBrandMissing_CheckedChanged);
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
+            this.frmServerConsulting.grdDetSummary.InitializeLayout += new InitializeLayoutEventHandler(grdDetSummary_InitializeLayout);
+
+            DataTable dtSummary = this.srvServerConsulting.SearchByParameters("ServerConsulting.ServerConsultingSummary", null);
+
+            this.frmServerConsulting.grdDetSummary.DataSource = null;
+            this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
         }
 
         #endregion Protected
@@ -158,6 +167,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
             bool numberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
 
             this.frmServerConsulting.txtDetFutureNumberOfUsers.ReadOnly = !numberOfUsersWillGrow;
+        }
+
+        private void grdDetSummary_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.Override.AllowUpdate = DefaultableBoolean.False;
         }
 
         #endregion Events
