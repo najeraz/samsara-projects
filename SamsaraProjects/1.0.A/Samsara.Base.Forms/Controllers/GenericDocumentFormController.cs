@@ -53,8 +53,6 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Protected
 
-        protected abstract void InitializeFormControls();
-
         protected virtual void ReadOnlySearchFields(bool readOnly)
         {
             this.frmGenericDocument.btnDetCancel.Enabled = !readOnly;
