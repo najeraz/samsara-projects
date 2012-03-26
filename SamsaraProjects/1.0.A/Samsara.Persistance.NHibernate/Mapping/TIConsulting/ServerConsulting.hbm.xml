@@ -35,6 +35,10 @@
     <property name="UpdatedOn"/>
     <property name="Activated"/>
     <property name="Deleted"/>
+
+    <many-to-one name="ServerConsultingOldServerComputer"
+                 class="Samsara.TIConsulting.Core.Entities.ServerConsultingOldServerComputer"
+                 column="ServerConsultingId" not-null="true" cascade="all" unique="true" lazy="false" />
     
   </class>
 
