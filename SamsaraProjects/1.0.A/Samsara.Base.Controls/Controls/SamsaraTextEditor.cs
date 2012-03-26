@@ -14,9 +14,25 @@ namespace Samsara.Base.Controls.Controls
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn %";
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
-        private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
         private static string rateMask = "{double:4.12}";
+
         private TextMaskFormatEnum maskType;
+        private string measurementFileUnit = "MB";
+        private string fileSizeSubmask = "nnn,nnn,nnn,nnn.nn ";
+
+        [Description("Unidad de medida para marcara de archivos")]
+        public string MeasurementFileUnit
+        {
+            get
+            {
+                return measurementFileUnit;
+            }
+            set
+            {
+                measurementFileUnit = value;
+                this.MaskTypeChanged(this.maskType);
+            }
+        }
 
         [Description("Mascara del editor de texto")]
         public TextMaskFormatEnum MaskType
@@ -56,7 +72,7 @@ namespace Samsara.Base.Controls.Controls
                             
                         return null;
                     case TextMaskFormatEnum.FileSize:
-                        result = this.sumeValue.Value.ToString().Replace("%", "").Trim();
+                        result = this.sumeValue.Value.ToString().Replace(measurementFileUnit, "").Trim();
 
                         if (decimal.TryParse(result, out decimalParser))
                             return decimalParser;
@@ -125,14 +141,14 @@ namespace Samsara.Base.Controls.Controls
             InitializeComponent();
         }
 
-        private void MaskTypeChanged(TextMaskFormatEnum newValue)
+        private void MaskTypeChanged(TextMaskFormatEnum newMask)
         {
-            this.SetMaskFormat(newValue);
+            this.SetMaskFormat(newMask);
         }
 
-        private void SetMaskFormat(TextMaskFormatEnum newValue)
+        private void SetMaskFormat(TextMaskFormatEnum newMask)
         {
-            switch (newValue)
+            switch (newMask)
             {
                 case TextMaskFormatEnum.Currency:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
@@ -167,7 +183,7 @@ namespace Samsara.Base.Controls.Controls
                 case TextMaskFormatEnum.FileSize:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
-                    this.sumeValue.InputMask = fileSizeMask;
+                    this.sumeValue.InputMask = this.fileSizeSubmask + this.measurementFileUnit;
                     break;
                 default:
                     break;
