@@ -70,8 +70,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetHasServer = new Infragistics.Win.Misc.UltraLabel();
             this.ugbxDetFullServerUptimeRequired = new Infragistics.Win.Misc.UltraGroupBox();
             this.uchkDetRedundantPowerSupply = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ugbxDetArrayDisks = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtDetArrayDisks = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.uosDetHasServer = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ugbxDetServerTypePreference = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetServerTypePreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -133,9 +133,9 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetFullServerUptimeRequired)).BeginInit();
             this.ugbxDetFullServerUptimeRequired.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetRedundantPowerSupply)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
-            this.ultraGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetArrayDisks)).BeginInit();
+            this.ugbxDetArrayDisks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetArrayDisks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uosDetHasServer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerTypePreference)).BeginInit();
             this.ugbxDetServerTypePreference.SuspendLayout();
@@ -509,7 +509,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ugbxDetFullServerUptimeRequired
             // 
             this.ugbxDetFullServerUptimeRequired.Controls.Add(this.uchkDetRedundantPowerSupply);
-            this.ugbxDetFullServerUptimeRequired.Controls.Add(this.ultraGroupBox1);
+            this.ugbxDetFullServerUptimeRequired.Controls.Add(this.ugbxDetArrayDisks);
             this.ugbxDetFullServerUptimeRequired.Location = new System.Drawing.Point(332, 248);
             this.ugbxDetFullServerUptimeRequired.Name = "ugbxDetFullServerUptimeRequired";
             this.ugbxDetFullServerUptimeRequired.Size = new System.Drawing.Size(313, 108);
@@ -526,23 +526,23 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uchkDetRedundantPowerSupply.TabIndex = 5;
             this.uchkDetRedundantPowerSupply.Text = "Fuente Redundante?";
             // 
-            // ultraGroupBox1
+            // ugbxDetArrayDisks
             // 
-            this.ultraGroupBox1.Controls.Add(this.ultraTextEditor1);
-            this.ultraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraGroupBox1.Location = new System.Drawing.Point(3, 63);
-            this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(307, 42);
-            this.ultraGroupBox1.TabIndex = 3;
-            this.ultraGroupBox1.Text = "Tiene alguna preferencia de marca?";
+            this.ugbxDetArrayDisks.Controls.Add(this.txtDetArrayDisks);
+            this.ugbxDetArrayDisks.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ugbxDetArrayDisks.Location = new System.Drawing.Point(3, 63);
+            this.ugbxDetArrayDisks.Name = "ugbxDetArrayDisks";
+            this.ugbxDetArrayDisks.Size = new System.Drawing.Size(307, 42);
+            this.ugbxDetArrayDisks.TabIndex = 3;
+            this.ugbxDetArrayDisks.Text = "Arreglo de Discos (Array Disks)";
             // 
-            // ultraTextEditor1
+            // txtDetArrayDisks
             // 
-            this.ultraTextEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraTextEditor1.Location = new System.Drawing.Point(3, 16);
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(301, 21);
-            this.ultraTextEditor1.TabIndex = 1;
+            this.txtDetArrayDisks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetArrayDisks.Location = new System.Drawing.Point(3, 16);
+            this.txtDetArrayDisks.Name = "txtDetArrayDisks";
+            this.txtDetArrayDisks.Size = new System.Drawing.Size(301, 21);
+            this.txtDetArrayDisks.TabIndex = 1;
             // 
             // uosDetHasServer
             // 
@@ -897,10 +897,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetFullServerUptimeRequired.ResumeLayout(false);
             this.ugbxDetFullServerUptimeRequired.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetRedundantPowerSupply)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
-            this.ultraGroupBox1.ResumeLayout(false);
-            this.ultraGroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetArrayDisks)).EndInit();
+            this.ugbxDetArrayDisks.ResumeLayout(false);
+            this.ugbxDetArrayDisks.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetArrayDisks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uosDetHasServer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerTypePreference)).EndInit();
             this.ugbxDetServerTypePreference.ResumeLayout(false);
@@ -1014,8 +1014,8 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl6;
         private Infragistics.Win.Misc.UltraPanel apDetServerConsultingSummary;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetRedundantPowerSupply;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
+        private Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetArrayDisks;
 
 
 
