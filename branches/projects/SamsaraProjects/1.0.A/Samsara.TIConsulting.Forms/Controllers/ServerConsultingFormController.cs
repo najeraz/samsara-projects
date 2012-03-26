@@ -76,12 +76,15 @@ namespace Samsara.TIConsulting.Forms.Controllers
         {
             ServerConsultingParameters pmtServerConsulting = new ServerConsultingParameters();
 
+            pmtServerConsulting.OrganizationName = this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value.ToString();
+
             this.frmServerConsulting.grdPrincipal.DataSource = null;
             this.frmServerConsulting.grdPrincipal.DataSource = this.srvServerConsulting.SearchByParameters(pmtServerConsulting);
         }
 
         public override void ClearSearchFields()
         {
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = null;
         }
 
         public override void ReturnSelectedEntity()

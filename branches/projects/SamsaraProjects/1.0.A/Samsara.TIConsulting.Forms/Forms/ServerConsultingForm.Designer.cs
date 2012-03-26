@@ -114,7 +114,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetOrganizationName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utabDetServerConsultingDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage3 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.txtSchOrganizationName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblSchOrganizationName = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
+            this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
             this.ultraTabPageControl3.SuspendLayout();
@@ -187,6 +190,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOrganizationName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetServerConsultingDetail)).BeginInit();
             this.utabDetServerConsultingDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -234,8 +238,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdPrincipal.Location = new System.Drawing.Point(0, 93);
-            this.grdPrincipal.Size = new System.Drawing.Size(979, 393);
+            this.grdPrincipal.Location = new System.Drawing.Point(0, 76);
+            this.grdPrincipal.Size = new System.Drawing.Size(979, 410);
             // 
             // btnSchAccept
             // 
@@ -267,7 +271,9 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // gbxSchParameters
             // 
-            this.gbxSchParameters.Size = new System.Drawing.Size(979, 68);
+            this.gbxSchParameters.Controls.Add(this.txtSchOrganizationName);
+            this.gbxSchParameters.Controls.Add(this.ulblSchOrganizationName);
+            this.gbxSchParameters.Size = new System.Drawing.Size(979, 51);
             // 
             // gbxDetDetail
             // 
@@ -946,6 +952,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabSharedControlsPage3.Name = "ultraTabSharedControlsPage3";
             this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(969, 383);
             // 
+            // txtSchOrganizationName
+            // 
+            this.txtSchOrganizationName.Location = new System.Drawing.Point(86, 19);
+            this.txtSchOrganizationName.Name = "txtSchOrganizationName";
+            this.txtSchOrganizationName.Size = new System.Drawing.Size(308, 21);
+            this.txtSchOrganizationName.TabIndex = 2;
+            // 
+            // ulblSchOrganizationName
+            // 
+            this.ulblSchOrganizationName.AutoSize = true;
+            this.ulblSchOrganizationName.Location = new System.Drawing.Point(6, 23);
+            this.ulblSchOrganizationName.Name = "ulblSchOrganizationName";
+            this.ulblSchOrganizationName.Size = new System.Drawing.Size(74, 14);
+            this.ulblSchOrganizationName.TabIndex = 1;
+            this.ulblSchOrganizationName.Text = "Organización:";
+            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -954,6 +976,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.Name = "ServerConsultingForm";
             this.Text = "ServerConsultingForm";
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
+            this.gbxSchParameters.ResumeLayout(false);
+            this.gbxSchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
             this.pnlDetButtons.ResumeLayout(false);
             this.ultraTabPageControl3.ResumeLayout(false);
@@ -1039,6 +1063,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOrganizationName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetServerConsultingDetail)).EndInit();
             this.utabDetServerConsultingDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1108,6 +1133,8 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Base.Controls.Controls.SamsaraTextEditor txtDetNumberOfUsersWillGrow;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetNumberOfUsersWillGrow;
         private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorNumberOfUsersWillGrow;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchOrganizationName;
+        private Infragistics.Win.Misc.UltraLabel ulblSchOrganizationName;
 
 
 
