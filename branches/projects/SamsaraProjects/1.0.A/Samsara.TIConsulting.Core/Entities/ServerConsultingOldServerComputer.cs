@@ -37,5 +37,11 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual string ServerSpecs
+        {
+            get;
+            set;
+        }
+
     }
 }

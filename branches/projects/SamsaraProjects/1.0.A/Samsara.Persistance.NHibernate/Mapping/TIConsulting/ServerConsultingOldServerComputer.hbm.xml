@@ -12,6 +12,7 @@
     <property name="ServerComputerType"/>
     <property name="ServerComputerBrand"/>
     <property name="ServerModel"/>
+    <property name="ServerSpecs"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>

@@ -53,6 +53,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeFormControls()
         {
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.ValueChanged
+                += new EventHandler(uosDetFullServerUptimeRequired_ValueChanged);
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged 
                 += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
             this.frmServerConsulting.grdDetSummary.InitializeLayout 
@@ -138,6 +140,31 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void LoadDetail()
         {
+            this.frmServerConsulting.txtDetEmail.Value = this.serverConsulting.Email;
+            this.frmServerConsulting.txtDetOrganizationName.Value = this.serverConsulting.OrganizationName;
+            this.frmServerConsulting.txtDetPhoneNumber.Value = this.serverConsulting.PhoneNumber;
+         
+            this.frmServerConsulting.txtDetArrayDisks.Value = this.serverConsulting.ArrayDisks;
+            this.frmServerConsulting.txtDetBrandPreference.Value = this.serverConsulting.BrandPreference;
+            this.frmServerConsulting.txtDetBudget.Value = this.serverConsulting.Budget;
+            this.frmServerConsulting.txtDetCurrentProblem.Value = this.serverConsulting.CurrentProblem;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.CurrentStorageVolume;
+            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
+            this.frmServerConsulting.txtDetFutureNumberOfUsers.Value = this.serverConsulting.FutureNumberOfUsers;
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureStorageVolume;
+            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
+            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
+            this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
+            this.frmServerConsulting.txtDetServerTypePreference.Value = this.serverConsulting.ServerTypePreference;
+            this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
+
+            this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerBrand;
+            this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerType;
+            this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerModel;
+            this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerSpecs;
         }
 
         public override void SaveEntity()
@@ -175,6 +202,17 @@ namespace Samsara.TIConsulting.Forms.Controllers
             UltraGridBand band = layout.Bands[0];
 
             layout.Override.AllowUpdate = DefaultableBoolean.False;
+        }
+
+        private void uosDetFullServerUptimeRequired_ValueChanged(object sender, System.EventArgs e)
+        {
+            bool fullServerUptimeRequired = Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
+
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = fullServerUptimeRequired;
+
+            this.frmServerConsulting.txtDetArrayDisks.Value = string.Empty;
+            this.frmServerConsulting.txtDetArrayDisks.ReadOnly = !fullServerUptimeRequired;
         }
 
         #endregion Events
