@@ -134,5 +134,11 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual ServerConsultingOldServerComputer ServerConsultingOldServerComputer
+        {
+            get;
+            set;
+        }
+
     }
 }
