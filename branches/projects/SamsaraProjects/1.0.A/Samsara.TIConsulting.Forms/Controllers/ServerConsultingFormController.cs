@@ -9,6 +9,7 @@ using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Base.Forms.Enums;
+using Samsara.Support.Util;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
@@ -592,6 +593,15 @@ Especificaciones: {3}
         }
 
         #endregion Private
+
+        #region Internal
+
+        internal void ExportSummaryToExcel()
+        {
+            ExcelUtil.ExportToExcel(this.frmServerConsulting.grdDetSummary);
+        }
+
+        #endregion Internal
 
         #endregion Methods
 
