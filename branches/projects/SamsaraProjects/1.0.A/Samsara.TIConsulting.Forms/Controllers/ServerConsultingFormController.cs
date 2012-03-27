@@ -8,6 +8,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
+using Samsara.Base.Forms.Enums;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
@@ -71,6 +72,29 @@ namespace Samsara.TIConsulting.Forms.Controllers
             base.ReadOnlySearchFields(readOnly);
         }
 
+        protected override void ShowDetail(bool show)
+        {
+            base.ShowDetail(show);
+
+            if (show)
+            {
+                switch (this.FormStatus)
+                {
+                    case FormStatusEnum.Creation:
+                    case FormStatusEnum.Edition:
+                        this.frmServerConsulting.utabDetServerConsultingDetail.SelectedTab
+                            = this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"];
+                        break;
+                    case FormStatusEnum.ShowDetail:
+                        this.frmServerConsulting.utabDetServerConsultingDetail.SelectedTab
+                            = this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["Summary"];
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
         #endregion Protected
 
         #region Public
@@ -96,10 +120,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.grdDetSummary.DataSource = null;
             this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
 
-            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = false;
-            this.uchkDetNumberOfUsersWillGrow_CheckedChanged(null, null);
-
-            this.frmServerConsulting.uosDetFirstServer.Value = true;
+            this.frmServerConsulting.btnSchShowDetail.Text = "Resumen";
         }
 
         public override void Search()
@@ -169,9 +190,9 @@ namespace Samsara.TIConsulting.Forms.Controllers
             return true;
         }
 
-        public override bool LoadEntity(int serviceId)
+        public override bool LoadEntity(int serverConsultingId)
         {
-            this.serverConsulting = this.srvServerConsulting.GetById(serviceId);
+            this.serverConsulting = this.srvServerConsulting.GetById(serverConsultingId);
 
             return this.serverConsulting != null;
         }
@@ -218,32 +239,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void LoadDetail()
         {
-            this.frmServerConsulting.txtDetEmail.Value = this.serverConsulting.Email;
-            this.frmServerConsulting.txtDetOrganizationName.Value = this.serverConsulting.OrganizationName;
-            this.frmServerConsulting.txtDetPhoneNumber.Value = this.serverConsulting.PhoneNumber;
-         
-            this.frmServerConsulting.txtDetArrayDisks.Value = this.serverConsulting.ArrayDisks;
-            this.frmServerConsulting.txtDetBrandPreference.Value = this.serverConsulting.BrandPreference;
-            this.frmServerConsulting.txtDetBudget.Value = this.serverConsulting.Budget;
-            this.frmServerConsulting.txtDetCurrentProblem.Value = this.serverConsulting.CurrentProblem;
-            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.CurrentStorageVolume;
-            this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureStorageVolume;
-            this.frmServerConsulting.txtDetServerTypePreference.Value = this.serverConsulting.ServerTypePreference;
-            this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
-            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = this.serverConsulting.FutureNumberOfUsers;
-            this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
-            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
-            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
-            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
-            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
-            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
-
-            this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
-            this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
-            this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerModel;
-            this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerSpecs;
+            this.LoadServerConsultingDetail();
+            this.LoadServerConsultingSummary();
         }
 
         public override void SaveEntity()
@@ -366,6 +363,202 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         #endregion Public
 
+        #region Private
+
+        private void LoadServerConsultingDetail()
+        {
+            this.frmServerConsulting.txtDetEmail.Value = this.serverConsulting.Email;
+            this.frmServerConsulting.txtDetOrganizationName.Value = this.serverConsulting.OrganizationName;
+            this.frmServerConsulting.txtDetPhoneNumber.Value = this.serverConsulting.PhoneNumber;
+
+            this.frmServerConsulting.txtDetArrayDisks.Value = this.serverConsulting.ArrayDisks;
+            this.frmServerConsulting.txtDetBrandPreference.Value = this.serverConsulting.BrandPreference;
+            this.frmServerConsulting.txtDetBudget.Value = this.serverConsulting.Budget;
+            this.frmServerConsulting.txtDetCurrentProblem.Value = this.serverConsulting.CurrentProblem;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.CurrentStorageVolume;
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureStorageVolume;
+            this.frmServerConsulting.txtDetServerTypePreference.Value = this.serverConsulting.ServerTypePreference;
+            this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = this.serverConsulting.FutureNumberOfUsers;
+            this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
+            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
+            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
+            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+
+            this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
+            this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
+            this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerModel;
+            this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerSpecs;
+        }
+
+        private void LoadServerConsultingSummary()
+        {
+            DataTable dtSummary = this.srvServerConsulting.SearchByParameters(
+                "ServerConsulting.ServerConsultingSummary", null);
+
+            this.frmServerConsulting.grdDetSummary.DataSource = null;
+            this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
+
+            dtSummary.Rows.Clear();
+
+            if (this.serverConsulting.OrganizationName != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ulblDetOrganizationName.Text;
+                row["Description"] = this.serverConsulting.OrganizationName;
+            }
+
+            if (this.serverConsulting.Email != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ulblDetEmail.Text;
+                row["Description"] = this.serverConsulting.Email;
+            }
+
+            if (this.serverConsulting.PhoneNumber != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ulblDetPhoneNumber.Text;
+                row["Description"] = this.serverConsulting.PhoneNumber;
+            }
+
+            if (Convert.ToBoolean(this.serverConsulting.HasServer))
+            {
+                ServerConsultingOldServerComputer serverConsultingOldServerComputer
+                    = this.serverConsulting.ServerConsultingOldServerComputers.First();
+
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Text;
+                row["Description"] = string.Format(@"
+Tipo:   {0}
+Marca:  {1}
+Modelo: {2}
+Especificaciones: {3}
+                    ", serverConsultingOldServerComputer.ServerComputerType,
+                     serverConsultingOldServerComputer.ServerComputerBrand,
+                     serverConsultingOldServerComputer.ServerModel,
+                     serverConsultingOldServerComputer.ServerSpecs).Trim();
+            }
+            else
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Text;
+                row["Description"] = this.frmServerConsulting.uosDetHasServer.Text;
+
+                row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ulblDetFirstServer.Text;
+                row["Description"] = this.frmServerConsulting.uosDetFirstServer.Text;
+            }
+
+            if (this.serverConsulting.ServerUsage != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetServerUsage.Text;
+                row["Description"] = this.serverConsulting.ServerUsage;
+            }
+
+            if (this.serverConsulting.CurrentProblem != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetCurrentProblem.Text;
+                row["Description"] = this.serverConsulting.CurrentProblem;
+            }
+
+            if (this.serverConsulting.NumberOfUsers != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetNumberOfUsers.Text;
+                row["Description"] = this.serverConsulting.NumberOfUsers;
+            }
+
+            if (this.serverConsulting.FutureNumberOfUsers != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetNumberOfUsersWillGrow.Text;
+                row["Description"] = this.serverConsulting.FutureNumberOfUsers;
+            }
+
+            if (this.serverConsulting.CurrentStorageVolume != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetCurrentStorageVolume.Text;
+                row["Description"] = this.serverConsulting.CurrentStorageVolume;
+            }
+
+            if (this.serverConsulting.FutureStorageVolume != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetFutureStorageVolume.Text;
+                row["Description"] = this.serverConsulting.FutureStorageVolume;
+            }
+
+            if (this.serverConsulting.BrandPreference != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetBrandPreference.Text;
+                row["Description"] = this.serverConsulting.BrandPreference;
+            }
+
+            if (this.serverConsulting.FullServerUptimeRequired.Value)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetFullServerUptimeRequired.Text;
+                row["Description"] = this.frmServerConsulting.uosDetFullServerUptimeRequired.Text;
+            }
+
+            if (this.serverConsulting.RedundantPowerSupply.Value)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.uchkDetRedundantPowerSupply.Text;
+                row["Description"] = this.serverConsulting.RedundantPowerSupply.Value ? "Si" : "No";
+            }
+
+            if (this.serverConsulting.ArrayDisks != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetArrayDisks.Text;
+                row["Description"] = this.serverConsulting.ArrayDisks;
+            }
+        }
+
+        #endregion Private
+
         #endregion Methods
 
         #region Events
@@ -390,6 +583,10 @@ namespace Samsara.TIConsulting.Forms.Controllers
             UltraGridBand band = layout.Bands[0];
 
             layout.Override.AllowUpdate = DefaultableBoolean.False;
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            band.Override.MinRowHeight = 3;
+            band.Override.RowSizing = RowSizing.AutoFixed;
+            band.Override.RowSizingAutoMaxLines = 5;
         }
 
         private void uosDetFullServerUptimeRequired_ValueChanged(object sender, EventArgs e)
