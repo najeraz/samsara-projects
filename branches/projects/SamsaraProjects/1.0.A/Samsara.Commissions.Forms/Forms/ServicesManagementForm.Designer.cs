@@ -136,11 +136,11 @@ namespace Samsara.Commissions.Forms.Forms
             this.sccDetStaff.Location = new System.Drawing.Point(89, 71);
             this.sccDetStaff.Name = "sccDetStaff";
             staffParameters2.CreatedBy = null;
-            staffParameters2.CreationDate = null;
+            staffParameters2.CreatedOn = null;
             staffParameters2.Names = null;
             staffParameters2.StaffId = null;
             staffParameters2.UpdatedBy = null;
-            staffParameters2.UpdatedDate = null;
+            staffParameters2.UpdatedOn = null;
             this.sccDetStaff.Parameters = staffParameters2;
             this.sccDetStaff.ReadOnly = false;
             this.sccDetStaff.Size = new System.Drawing.Size(289, 22);
@@ -215,11 +215,11 @@ namespace Samsara.Commissions.Forms.Forms
             this.sccSchStaff.Location = new System.Drawing.Point(96, 40);
             this.sccSchStaff.Name = "sccSchStaff";
             staffParameters1.CreatedBy = null;
-            staffParameters1.CreationDate = null;
+            staffParameters1.CreatedOn = null;
             staffParameters1.Names = null;
             staffParameters1.StaffId = null;
             staffParameters1.UpdatedBy = null;
-            staffParameters1.UpdatedDate = null;
+            staffParameters1.UpdatedOn = null;
             this.sccSchStaff.Parameters = staffParameters1;
             this.sccSchStaff.ReadOnly = false;
             this.sccSchStaff.Size = new System.Drawing.Size(226, 22);

@@ -470,10 +470,10 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.ctccCommissionType.Name = "ctccCommissionType";
             commissionTypeParameters1.CommissionTypeId = null;
             commissionTypeParameters1.CreatedBy = null;
-            commissionTypeParameters1.CreationDate = null;
+            commissionTypeParameters1.CreatedOn = null;
             commissionTypeParameters1.Name = null;
             commissionTypeParameters1.UpdatedBy = null;
-            commissionTypeParameters1.UpdatedDate = null;
+            commissionTypeParameters1.UpdatedOn = null;
             this.ctccCommissionType.Parameters = commissionTypeParameters1;
             this.ctccCommissionType.ReadOnly = false;
             this.ctccCommissionType.Size = new System.Drawing.Size(186, 22);
