@@ -26,6 +26,8 @@ namespace Samsara.Commissions.Forms.Forms
 
         #endregion Properties
 
+        #region Constructor
+
         public ServicesManagementForm()
         {
             InitializeComponent();
@@ -34,5 +36,7 @@ namespace Samsara.Commissions.Forms.Forms
 
             this.ctrlServicesManagementForm.InitializeFormControls();
         }
+
+        #endregion Constructor
     }
 }

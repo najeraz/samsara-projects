@@ -26,6 +26,8 @@ namespace Samsara.TIConsulting.Forms.Forms
 
         #endregion Properties
 
+        #region Constructor
+
         public ServerConsultingForm()
         {
             InitializeComponent();
@@ -34,5 +36,7 @@ namespace Samsara.TIConsulting.Forms.Forms
 
             this.ctrlServerConsultingForm.InitializeFormControls();
         }
+
+        #endregion Constructor
     }
 }
