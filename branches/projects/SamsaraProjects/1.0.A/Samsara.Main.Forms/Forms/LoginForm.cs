@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Samsara.Main.Forms.Forms
@@ -20,6 +21,7 @@ namespace Samsara.Main.Forms.Forms
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        [DebuggerStepThrough]
         private void ubtnLogin_Click(object sender, EventArgs e)
         {
             try
