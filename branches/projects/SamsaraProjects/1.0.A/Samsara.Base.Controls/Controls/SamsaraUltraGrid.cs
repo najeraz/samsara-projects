@@ -11,9 +11,9 @@ using Samsara.Configuration.Code.Interfaces;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
-using Samsara.Main.Service.Interfaces;
-using Samsara.Main.Core.Parameters;
 using Samsara.Main.Core.Entities;
+using Samsara.Main.Core.Parameters;
+using Samsara.Main.Service.Interfaces;
 
 namespace Samsara.Base.Controls.Controls
 {

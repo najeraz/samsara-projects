@@ -1,8 +1,8 @@
 ﻿
+using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 using Samsara.SamsaraStructure.Core.Entities;
-using Iesi.Collections.Generic;
 
 namespace Samsara.Website.Core.Entities
 {
