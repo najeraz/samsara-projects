@@ -305,7 +305,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl3
             // 
             this.ultraTabPageControl3.Controls.Add(this.upnlDetOldServerDetail);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
             this.ultraTabPageControl3.Size = new System.Drawing.Size(310, 185);
             // 
@@ -397,7 +397,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl4
             // 
             this.ultraTabPageControl4.Controls.Add(this.upnlDetFirstServer);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
             this.ultraTabPageControl4.Size = new System.Drawing.Size(310, 185);
             // 
@@ -883,7 +883,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetPhoneNumber.Name = "ulblDetPhoneNumber";
             this.ulblDetPhoneNumber.Size = new System.Drawing.Size(51, 14);
             this.ulblDetPhoneNumber.TabIndex = 0;
-            this.ulblDetPhoneNumber.Text = "Telefono:";
+            this.ulblDetPhoneNumber.Text = "Teléfono:";
             // 
             // ulblDetEmail
             // 
