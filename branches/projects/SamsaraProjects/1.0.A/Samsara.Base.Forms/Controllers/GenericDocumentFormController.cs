@@ -224,13 +224,19 @@ namespace Samsara.Base.Forms.Controllers
                 case FormStatusEnum.Creation:
                 case FormStatusEnum.Edition:
                     this.frmGenericDocument.btnDetSave.Visible = true;
+                    this.frmGenericDocument.upDetSeparatorBtnSave.Visible = true;
                     this.frmGenericDocument.btnDetCancel.Visible = true;
+                    this.frmGenericDocument.upDetSeparatorBtnCancel.Visible = true;
                     this.frmGenericDocument.btnDetBackToSearch.Visible = false;
+                    this.frmGenericDocument.upDetSeparatorBtnBackToSearch.Visible = false;
                     break;
                 case FormStatusEnum.ShowDetail:
                     this.frmGenericDocument.btnDetSave.Visible = false;
+                    this.frmGenericDocument.upDetSeparatorBtnSave.Visible = false;
+                    this.frmGenericDocument.upDetSeparatorBtnCancel.Visible = false;
                     this.frmGenericDocument.btnDetCancel.Visible = false;
                     this.frmGenericDocument.btnDetBackToSearch.Visible = true;
+                    this.frmGenericDocument.upDetSeparatorBtnBackToSearch.Visible = true;
                     break;
                 default:
                     break;

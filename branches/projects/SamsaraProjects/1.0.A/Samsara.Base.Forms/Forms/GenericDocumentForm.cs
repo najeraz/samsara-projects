@@ -84,7 +84,7 @@ namespace Samsara.Base.Forms.Forms
                     case "btnSchShowDetail":
                         this.ctrlGenericDocumentForm.ShowDetailProcess();
                         break;
-                    case "btnSchBackToSearch":
+                    case "btnDetBackToSearch":
                         this.ctrlGenericDocumentForm.BackToSearch();
                         break;
                     default:
