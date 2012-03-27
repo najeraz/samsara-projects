@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Samsara.Support.Util;
 
 namespace Samsara.Main.Forms.Forms
 {
@@ -11,14 +12,22 @@ namespace Samsara.Main.Forms.Forms
 
         public LoginForm()
         {
-            Random random = new Random();
+            try
+            {
+                Random random = new Random();
 
-            frmLoadingApplication.Show();
-            Session.Session.Login(random.Next().ToString(), random.Next().ToString());
-            frmLoadingApplication.Close();
+                frmLoadingApplication.Show();
+                Session.Session.Login(random.Next().ToString(), random.Next().ToString());
+                frmLoadingApplication.Close();
 
-            InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+                InitializeComponent();
+                this.StartPosition = FormStartPosition.CenterScreen;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ExceptionsUtil.InnerExceptionsMessages(ex));
+                Environment.Exit(1);
+            }
         }
 
         [DebuggerStepThrough]
