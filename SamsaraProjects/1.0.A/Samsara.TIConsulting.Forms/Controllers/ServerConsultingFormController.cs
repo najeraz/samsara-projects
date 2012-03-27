@@ -12,6 +12,7 @@ using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
 using Samsara.TIConsulting.Service.Interfaces;
+using System.Windows.Forms;
 
 namespace Samsara.TIConsulting.Forms.Controllers
 {
@@ -134,6 +135,39 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override bool ValidateFormInformation()
         {
+            if (this.frmServerConsulting.txtDetOrganizationName.Value == null ||
+                string.IsNullOrEmpty(this.frmServerConsulting.txtDetOrganizationName.Value.ToString()))
+            {
+                MessageBox.Show("Favor de asignar el Nombre de la Organicación.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServerConsulting.txtDetOrganizationName.Focus();
+                return false;
+            }
+
+            if (this.frmServerConsulting.uosDetHasServer.Value == null)
+            {
+                MessageBox.Show("Favor de asignar si el Cliente Tiene un Servidor.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServerConsulting.uosDetHasServer.Focus();
+                return false;
+            }
+
+            if (this.frmServerConsulting.uosDetFullServerUptimeRequired.Value == null)
+            {
+                MessageBox.Show("Favor de asignar si se requiere Alta Disponibilidad en el Servidor.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServerConsulting.uosDetFullServerUptimeRequired.Focus();
+                return false;
+            }
+
+            if (this.frmServerConsulting.uosDetHaveSite.Value == null)
+            {
+                MessageBox.Show("Favor de asignar si el Cliente cuenta con un Site.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServerConsulting.uosDetHaveSite.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -227,14 +261,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.FirstServer = this.frmServerConsulting.uosDetFirstServer.Value == null ?
                 null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFirstServer.Value);
             this.serverConsulting.FullServerUptimeRequired = this.frmServerConsulting.uosDetFullServerUptimeRequired.Value == null ?
-                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value); 
-            
+                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
+
             if (!string.IsNullOrEmpty(this.frmServerConsulting.txtDetBudget.Value.ToString()))
                 this.serverConsulting.Budget = Convert.ToDecimal(this.frmServerConsulting.txtDetBudget.Value);
             else
                 this.serverConsulting.Budget = null;
 
-            if (this.frmServerConsulting.txtDetCurrentStorageVolume.Value != null 
+            if (this.frmServerConsulting.txtDetCurrentStorageVolume.Value != null
                 && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetCurrentStorageVolume.Value.ToString().Trim()))
                 this.serverConsulting.CurrentStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetCurrentStorageVolume.Value);
             else
@@ -249,46 +283,40 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 this.serverConsulting.NumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetNumberOfUsers.Value);
             else
                 this.serverConsulting.NumberOfUsers = null;
-            
+
             if (!string.IsNullOrEmpty(this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value.ToString()))
                 this.serverConsulting.FutureNumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value);
             else
                 this.serverConsulting.FutureNumberOfUsers = null;
 
-            foreach (ServerConsultingOldServerComputer serverConsultingOldServerComputer 
-                in this.serverConsulting.ServerConsultingOldServerComputers)
-            {
-                serverConsultingOldServerComputer.Activated = false;
-                serverConsultingOldServerComputer.Deleted = true;
-            }
-
-            ServerConsultingOldServerComputer oldServerComputer = new ServerConsultingOldServerComputer();
+            ServerConsultingOldServerComputer serverConsultingOldServerComputer
+                = this.serverConsulting.ServerConsultingOldServerComputers.Single();
 
             if (this.frmServerConsulting.txtDetServerComputerBrand.Value != null
                 && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString()))
-                oldServerComputer.ServerComputerBrand = this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString();
+                serverConsultingOldServerComputer.ServerComputerBrand = this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString();
             else
-                oldServerComputer.ServerComputerBrand = null;
+                serverConsultingOldServerComputer.ServerComputerBrand = null;
 
             if (this.frmServerConsulting.txtDetServerComputerType.Value != null
                 && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerComputerType.Value.ToString()))
-                oldServerComputer.ServerComputerType = this.frmServerConsulting.txtDetServerComputerType.Value.ToString();
+                serverConsultingOldServerComputer.ServerComputerType = this.frmServerConsulting.txtDetServerComputerType.Value.ToString();
             else
-                oldServerComputer.ServerComputerType = null;
+                serverConsultingOldServerComputer.ServerComputerType = null;
 
             if (this.frmServerConsulting.txtDetServerModel.Value != null
                 && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerModel.Value.ToString()))
-                oldServerComputer.ServerModel = this.frmServerConsulting.txtDetServerModel.Value.ToString();
+                serverConsultingOldServerComputer.ServerModel = this.frmServerConsulting.txtDetServerModel.Value.ToString();
             else
-                oldServerComputer.ServerModel = null;
+                serverConsultingOldServerComputer.ServerModel = null;
 
             if (this.frmServerConsulting.txtDetServerSpecs.Value != null
                 && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerSpecs.Value.ToString()))
-                oldServerComputer.ServerSpecs = this.frmServerConsulting.txtDetServerSpecs.Value.ToString();
+                serverConsultingOldServerComputer.ServerSpecs = this.frmServerConsulting.txtDetServerSpecs.Value.ToString();
             else
-                oldServerComputer.ServerSpecs = null;
+                serverConsultingOldServerComputer.ServerSpecs = null;
 
-            this.serverConsulting.ServerConsultingOldServerComputers.Add(oldServerComputer);
+            this.serverConsulting.ServerConsultingOldServerComputers.Add(serverConsultingOldServerComputer);
 
             this.srvServerConsulting.SaveOrUpdate(this.serverConsulting);
         }
