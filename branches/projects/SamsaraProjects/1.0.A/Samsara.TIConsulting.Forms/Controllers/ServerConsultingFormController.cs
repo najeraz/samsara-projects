@@ -509,7 +509,7 @@ Especificaciones: {3}
                 dtSummary.Rows.Add(row);
 
                 row["Data"] = "Tamaño de la Información Actual";
-                row["Description"] = this.serverConsulting.CurrentStorageVolume;
+                row["Description"] = Math.Round(this.serverConsulting.CurrentStorageVolume.Value, 2) + " GB";
             }
 
             if (this.serverConsulting.FutureStorageVolume != null)
@@ -518,7 +518,7 @@ Especificaciones: {3}
                 dtSummary.Rows.Add(row);
 
                 row["Data"] = "Tamaño de la Información en 3 a 5 Años";
-                row["Description"] = this.serverConsulting.FutureStorageVolume;
+                row["Description"] = Math.Round(this.serverConsulting.FutureStorageVolume.Value, 2) + " GB";
             }
 
             if (this.serverConsulting.BrandPreference != null)
@@ -563,7 +563,7 @@ Especificaciones: {3}
                 dtSummary.Rows.Add(row);
 
                 row["Data"] = "Presupuesto";
-                row["Description"] = this.serverConsulting.Budget;
+                row["Description"] = MoneyUtil.Round(this.serverConsulting.Budget.Value);
             }
 
             if (this.serverConsulting.HaveSite.Value)
