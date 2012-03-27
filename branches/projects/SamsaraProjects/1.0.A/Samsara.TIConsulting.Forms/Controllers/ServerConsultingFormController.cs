@@ -5,6 +5,8 @@ using System.Data;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
+using Iesi.Collections.Generic;
+using System.Linq;
 using Samsara.Base.Forms.Controllers;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
@@ -22,6 +24,29 @@ namespace Samsara.TIConsulting.Forms.Controllers
         private ServerConsulting serverConsulting;
 
         #endregion Attributes
+
+        #region Properties
+        
+
+        private bool FullServerUptimeRequired
+        {
+            get
+            {
+                return this.frmServerConsulting.uosDetFullServerUptimeRequired.Value != null
+                    && Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
+            }
+        }
+
+        private bool HasServer
+        {
+            get
+            {
+                return this.frmServerConsulting.uosDetHasServer.Value == null
+                    || Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
+            }
+        }
+
+        #endregion Properties
 
         #region Constructor
 
@@ -82,7 +107,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
         {
             ServerConsultingParameters pmtServerConsulting = new ServerConsultingParameters();
 
-            pmtServerConsulting.OrganizationName = this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value.ToString();
+            pmtServerConsulting.OrganizationName = "%" + this.frmServerConsulting.txtSchOrganizationName.Value + "%";
 
             this.frmServerConsulting.grdPrincipal.DataSource = null;
             this.frmServerConsulting.grdPrincipal.DataSource = this.srvServerConsulting.SearchByParameters(pmtServerConsulting);
@@ -122,20 +147,20 @@ namespace Samsara.TIConsulting.Forms.Controllers
         public override void CreateEntity()
         {
             this.serverConsulting = new ServerConsulting();
-            this.serverConsulting.ServerConsultingOldServerComputer = new ServerConsultingOldServerComputer();
         }
 
         public override void ReadOnlyDetailFields(bool readOnly)
         {
-            this.frmServerConsulting.txtDetArrayDisks.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetArrayDisks.ReadOnly = readOnly
+                || !FullServerUptimeRequired;
             this.frmServerConsulting.txtDetBrandPreference.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetBudget.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetBudget.ReadOnly = readOnly
+                || this.frmServerConsulting.uchkDetHaveBudget.Checked;
             this.frmServerConsulting.txtDetCurrentProblem.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetCurrentStorageVolume.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetEmail.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetCurrentStorageVolume.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = readOnly 
+                || !this.frmServerConsulting.uchkDetFutureStorageVolume.Checked;
             this.frmServerConsulting.txtDetOrganizationName.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetPhoneNumber.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerComputerBrand.ReadOnly = readOnly;
@@ -145,7 +170,10 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerTypePreference.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
             this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = !readOnly;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly 
+                || FullServerUptimeRequired;
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.ReadOnly = !readOnly
+                || this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
         }
 
         public override void LoadDetail()
@@ -159,87 +187,147 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetBudget.Value = this.serverConsulting.Budget;
             this.frmServerConsulting.txtDetCurrentProblem.Value = this.serverConsulting.CurrentProblem;
             this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.CurrentStorageVolume;
-            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
-            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
-            this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureNumberOfUsers;
             this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureStorageVolume;
-            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
-            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
-            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.NumberOfUsers;
-            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
             this.frmServerConsulting.txtDetServerTypePreference.Value = this.serverConsulting.ServerTypePreference;
             this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = this.serverConsulting.FutureNumberOfUsers;
+            this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
+            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
+            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
+            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
 
-            this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerBrand;
-            this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerType;
-            this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerModel;
-            this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputer.ServerSpecs;
+            this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
+            this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
+            this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerModel;
+            this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerSpecs;
         }
 
         public override void SaveEntity()
         {
-            this.serverConsulting.Email = this.frmServerConsulting.txtDetEmail.Value.ToString();
-            this.serverConsulting.OrganizationName = this.frmServerConsulting.txtDetOrganizationName.Value.ToString();
-            this.serverConsulting.PhoneNumber = this.frmServerConsulting.txtDetPhoneNumber.Value.ToString();
+            this.serverConsulting.Email = (this.frmServerConsulting.txtDetEmail.Value as string);
+            this.serverConsulting.OrganizationName = (this.frmServerConsulting.txtDetOrganizationName.Value as string);
+            this.serverConsulting.PhoneNumber = (this.frmServerConsulting.txtDetPhoneNumber.Value as string);
+            this.serverConsulting.CurrentProblem = (this.frmServerConsulting.txtDetCurrentProblem.Value as string);
+            this.serverConsulting.ArrayDisks = (this.frmServerConsulting.txtDetArrayDisks.Value as string);
+            this.serverConsulting.BrandPreference = (this.frmServerConsulting.txtDetBrandPreference.Value as string);
+            this.serverConsulting.ServerTypePreference = (this.frmServerConsulting.txtDetServerTypePreference.Value as string);
+            this.serverConsulting.ServerUsage = (this.frmServerConsulting.txtDetServerUsage.Value as string);
 
-            this.serverConsulting.ArrayDisks = this.frmServerConsulting.txtDetArrayDisks.Value.ToString();
-            this.serverConsulting.BrandPreference = this.frmServerConsulting.txtDetBrandPreference.Value.ToString();
-            //this.serverConsulting.Budget = Convert.ToDecimal(this.frmServerConsulting.txtDetBudget.Value);
-            this.serverConsulting.CurrentProblem = this.frmServerConsulting.txtDetCurrentProblem.Value.ToString();
-            this.serverConsulting.CurrentStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetCurrentStorageVolume.Value);
-            this.serverConsulting.FirstServer = Convert.ToBoolean(this.frmServerConsulting.uosDetFirstServer.Value);
-            this.serverConsulting.FullServerUptimeRequired = Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
-            this.serverConsulting.FutureNumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetFutureStorageVolume.Value);
-            this.serverConsulting.FutureStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetFutureStorageVolume.Value);
-            this.serverConsulting.HasServer = Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
-            this.serverConsulting.HaveSite = Convert.ToBoolean(this.frmServerConsulting.uosDetHaveSite.Value);
-            this.serverConsulting.NumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetCurrentStorageVolume.Value);
-            this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetFutureStorageVolume.Checked;
+            this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
             this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
-            this.serverConsulting.ServerTypePreference = this.frmServerConsulting.txtDetServerTypePreference.Value.ToString();
-            this.serverConsulting.ServerUsage = this.frmServerConsulting.txtDetServerUsage.Value.ToString();
 
-            this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerBrand 
-                = this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString();
-            this.serverConsulting.ServerConsultingOldServerComputer.ServerComputerType 
-                = this.frmServerConsulting.txtDetServerComputerType.Value.ToString();
-            this.serverConsulting.ServerConsultingOldServerComputer.ServerModel 
-                = this.frmServerConsulting.txtDetServerModel.Value.ToString();
-            this.serverConsulting.ServerConsultingOldServerComputer.ServerSpecs 
-                = this.frmServerConsulting.txtDetServerSpecs.Value.ToString();
+            this.serverConsulting.HasServer = this.frmServerConsulting.uosDetHasServer.Value == null ?
+                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
+            this.serverConsulting.HaveSite = this.frmServerConsulting.uosDetHaveSite.Value == null ?
+                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetHaveSite.Value);
+            this.serverConsulting.FirstServer = this.frmServerConsulting.uosDetFirstServer.Value == null ?
+                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFirstServer.Value);
+            this.serverConsulting.FullServerUptimeRequired = this.frmServerConsulting.uosDetFullServerUptimeRequired.Value == null ?
+                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value); 
+            
+            if (!string.IsNullOrEmpty(this.frmServerConsulting.txtDetBudget.Value.ToString()))
+                this.serverConsulting.Budget = Convert.ToDecimal(this.frmServerConsulting.txtDetBudget.Value);
+            else
+                this.serverConsulting.Budget = null;
+
+            if (this.frmServerConsulting.txtDetCurrentStorageVolume.Value != null 
+                && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetCurrentStorageVolume.Value.ToString().Trim()))
+                this.serverConsulting.CurrentStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetCurrentStorageVolume.Value);
+            else
+                this.serverConsulting.CurrentStorageVolume = null;
+
+            if (!string.IsNullOrEmpty(this.frmServerConsulting.txtDetFutureStorageVolume.Value.ToString()))
+                this.serverConsulting.FutureStorageVolume = Convert.ToDecimal(this.frmServerConsulting.txtDetFutureStorageVolume.Value);
+            else
+                this.serverConsulting.FutureStorageVolume = null;
+
+            if (!string.IsNullOrEmpty(this.frmServerConsulting.txtDetNumberOfUsers.Value.ToString()))
+                this.serverConsulting.NumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetNumberOfUsers.Value);
+            else
+                this.serverConsulting.NumberOfUsers = null;
+            
+            if (!string.IsNullOrEmpty(this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value.ToString()))
+                this.serverConsulting.FutureNumberOfUsers = Convert.ToInt32(this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value);
+            else
+                this.serverConsulting.FutureNumberOfUsers = null;
+
+            foreach (ServerConsultingOldServerComputer serverConsultingOldServerComputer 
+                in this.serverConsulting.ServerConsultingOldServerComputers)
+            {
+                serverConsultingOldServerComputer.Activated = false;
+                serverConsultingOldServerComputer.Deleted = true;
+            }
+
+            ServerConsultingOldServerComputer oldServerComputer = new ServerConsultingOldServerComputer();
+
+            if (this.frmServerConsulting.txtDetServerComputerBrand.Value != null
+                && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString()))
+                oldServerComputer.ServerComputerBrand = this.frmServerConsulting.txtDetServerComputerBrand.Value.ToString();
+            else
+                oldServerComputer.ServerComputerBrand = null;
+
+            if (this.frmServerConsulting.txtDetServerComputerType.Value != null
+                && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerComputerType.Value.ToString()))
+                oldServerComputer.ServerComputerType = this.frmServerConsulting.txtDetServerComputerType.Value.ToString();
+            else
+                oldServerComputer.ServerComputerType = null;
+
+            if (this.frmServerConsulting.txtDetServerModel.Value != null
+                && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerModel.Value.ToString()))
+                oldServerComputer.ServerModel = this.frmServerConsulting.txtDetServerModel.Value.ToString();
+            else
+                oldServerComputer.ServerModel = null;
+
+            if (this.frmServerConsulting.txtDetServerSpecs.Value != null
+                && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetServerSpecs.Value.ToString()))
+                oldServerComputer.ServerSpecs = this.frmServerConsulting.txtDetServerSpecs.Value.ToString();
+            else
+                oldServerComputer.ServerSpecs = null;
+
+            this.serverConsulting.ServerConsultingOldServerComputers.Add(oldServerComputer);
 
             this.srvServerConsulting.SaveOrUpdate(this.serverConsulting);
         }
 
         public override void ClearDetailFields()
         {
-            this.frmServerConsulting.txtDetArrayDisks.Value = string.Empty;
-            this.frmServerConsulting.txtDetBrandPreference.Value = string.Empty;
-            this.frmServerConsulting.txtDetBudget.Value = string.Empty;
-            this.frmServerConsulting.txtDetCurrentProblem.Value = string.Empty;
-            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = string.Empty;
-            this.frmServerConsulting.txtDetEmail.Value = string.Empty;
-            this.frmServerConsulting.txtDetFutureStorageVolume.Value = string.Empty;
-            this.frmServerConsulting.txtDetFutureStorageVolume.Value = string.Empty;
-            this.frmServerConsulting.txtDetOrganizationName.Value = string.Empty;
-            this.frmServerConsulting.txtDetPhoneNumber.Value = string.Empty;
-            this.frmServerConsulting.txtDetServerComputerBrand.Value = string.Empty;
-            this.frmServerConsulting.txtDetServerComputerType.Value = string.Empty;
-            this.frmServerConsulting.txtDetServerModel.Value = string.Empty;
-            this.frmServerConsulting.txtDetServerSpecs.Value = string.Empty;
-            this.frmServerConsulting.txtDetServerTypePreference.Value = string.Empty;
-            this.frmServerConsulting.txtDetServerUsage.Value = string.Empty;
+            this.frmServerConsulting.txtDetArrayDisks.Value = null;
+            this.frmServerConsulting.txtDetBrandPreference.Value = null;
+            this.frmServerConsulting.txtDetBudget.Value = null;
+            this.frmServerConsulting.txtDetCurrentProblem.Value = null;
+            this.frmServerConsulting.txtDetCurrentStorageVolume.Value = null;
+            this.frmServerConsulting.txtDetEmail.Value = null;
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = null;
+            this.frmServerConsulting.txtDetOrganizationName.Value = null;
+            this.frmServerConsulting.txtDetPhoneNumber.Value = null;
+            this.frmServerConsulting.txtDetServerComputerBrand.Value = null;
+            this.frmServerConsulting.txtDetServerComputerType.Value = null;
+            this.frmServerConsulting.txtDetServerModel.Value = null;
+            this.frmServerConsulting.txtDetServerSpecs.Value = null;
+            this.frmServerConsulting.txtDetServerTypePreference.Value = null;
+            this.frmServerConsulting.txtDetServerUsage.Value = null;
+            this.frmServerConsulting.txtDetNumberOfUsers.Value = null;
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = null;
+
             this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = false;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
             this.frmServerConsulting.uchkDetHaveBudget.Checked = false;
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = false;
-            this.frmServerConsulting.uosDetHasServer.Value = true;
-            this.frmServerConsulting.uosDetHaveSite.Value = true;
-            this.frmServerConsulting.uosDetFirstServer.Value = true;
-            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = true;
-            this.frmServerConsulting.txtDetNumberOfUsers.Value = string.Empty;
-            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = string.Empty;
+            this.frmServerConsulting.uosDetHasServer.Value = null;
+            this.frmServerConsulting.uosDetHaveSite.Value = null;
+            this.frmServerConsulting.uosDetFirstServer.Value = null;
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = null;
+
+            this.uchkDetFutureStorageVolume_CheckedChanged(null, null);
+            this.uchkDetHaveBudget_CheckedChanged(null, null);
+            this.uchkDetNumberOfUsersWillGrow_CheckedChanged(null, null);
+
+            this.uosDetHasServer_ValueChanged(null, null);
+            this.uosDetFullServerUptimeRequired_ValueChanged(null, null);
         }
 
         #endregion Public
@@ -250,16 +338,15 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         private void uosDetHasServer_ValueChanged(object sender, EventArgs e)
         {
-            bool hasServer = Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
-
-            this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = hasServer;
-            this.frmServerConsulting.utabDetOldServerDetail.Tabs["NewServer"].Visible = !hasServer;
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = HasServer;
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["NewServer"].Visible = !HasServer;
         }
 
         private void uchkDetNumberOfUsersWillGrow_CheckedChanged(object sender, EventArgs e)
         {
             bool numberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
 
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = null;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.ReadOnly = !numberOfUsersWillGrow;
         }
 
@@ -273,25 +360,27 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         private void uosDetFullServerUptimeRequired_ValueChanged(object sender, EventArgs e)
         {
-            bool fullServerUptimeRequired = Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
-
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = fullServerUptimeRequired;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = FullServerUptimeRequired;
 
-            this.frmServerConsulting.txtDetArrayDisks.Value = string.Empty;
-            this.frmServerConsulting.txtDetArrayDisks.ReadOnly = !fullServerUptimeRequired;
+            this.frmServerConsulting.txtDetArrayDisks.Value = null;
+            this.frmServerConsulting.txtDetArrayDisks.ReadOnly = !FullServerUptimeRequired;
         }
 
         private void uchkDetFutureStorageVolume_CheckedChanged(object sender, EventArgs e)
         {
             bool futureStorageVolume = this.frmServerConsulting.uchkDetFutureStorageVolume.Checked;
 
+            this.frmServerConsulting.txtDetFutureStorageVolume.Value = null;
             this.frmServerConsulting.txtDetFutureStorageVolume.ReadOnly = !futureStorageVolume;
         }
 
         private void uchkDetHaveBudget_CheckedChanged(object sender, System.EventArgs e)
         {
+            bool haveBudget = this.frmServerConsulting.uchkDetHaveBudget.Checked;
 
+            this.frmServerConsulting.txtDetBudget.Value = null;
+            this.frmServerConsulting.txtDetBudget.ReadOnly = !haveBudget;
         }
 
         #endregion Events

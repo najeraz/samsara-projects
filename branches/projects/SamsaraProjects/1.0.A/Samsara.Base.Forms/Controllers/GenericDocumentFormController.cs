@@ -169,6 +169,7 @@ namespace Samsara.Base.Forms.Controllers
         {
             this.formStatus = FormStatusEnum.Creation;
             this.ClearDetailFields();
+            this.ReadOnlyDetailFields(false);
             this.ShowDetail(true);
             this.CreateEntity();
         }
