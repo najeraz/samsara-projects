@@ -582,6 +582,13 @@ Especificaciones: {3}
                 row["Data"] = "Tipo de Servidor Preferido";
                 row["Description"] = this.serverConsulting.ServerTypePreference;
             }
+
+            dtSummary.AcceptChanges();
+
+            foreach (UltraGridRow row in this.frmServerConsulting.grdDetSummary.Rows)
+            {
+                row.PerformAutoSize();
+            }
         }
 
         #endregion Private
@@ -611,9 +618,8 @@ Especificaciones: {3}
 
             layout.Override.AllowUpdate = DefaultableBoolean.False;
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
-            band.Override.MinRowHeight = 3;
             band.Override.RowSizing = RowSizing.AutoFixed;
-            band.Override.RowSizingAutoMaxLines = 5;
+            band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
         }
 
         private void uosDetFullServerUptimeRequired_ValueChanged(object sender, EventArgs e)
