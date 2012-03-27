@@ -544,6 +544,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // uchkDetRedundantPowerSupply
             // 
             this.uchkDetRedundantPowerSupply.AutoSize = true;
+            this.uchkDetRedundantPowerSupply.Enabled = false;
             this.uchkDetRedundantPowerSupply.Location = new System.Drawing.Point(180, 58);
             this.uchkDetRedundantPowerSupply.Name = "uchkDetRedundantPowerSupply";
             this.uchkDetRedundantPowerSupply.Size = new System.Drawing.Size(127, 17);
@@ -565,6 +566,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetArrayDisks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDetArrayDisks.Location = new System.Drawing.Point(3, 16);
             this.txtDetArrayDisks.Name = "txtDetArrayDisks";
+            this.txtDetArrayDisks.ReadOnly = true;
             this.txtDetArrayDisks.Size = new System.Drawing.Size(301, 21);
             this.txtDetArrayDisks.TabIndex = 0;
             // 
@@ -601,6 +603,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             ultraTab4.Key = "NewServer";
             ultraTab4.TabPage = this.ultraTabPageControl4;
             ultraTab4.Text = "Nuevo Servidor";
+            ultraTab4.Visible = false;
             this.utabDetOldServerDetail.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
             ultraTab3,
             ultraTab4});
