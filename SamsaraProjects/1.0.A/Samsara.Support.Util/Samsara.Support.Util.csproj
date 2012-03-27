@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsUtil.cs" />
+    <Compile Include="ExceptionsUtil.cs" />
     <Compile Include="ExcelUtil.cs" />
     <Compile Include="NHibernateUtil.cs" />
     <Compile Include="CryptoUtil.cs" />
