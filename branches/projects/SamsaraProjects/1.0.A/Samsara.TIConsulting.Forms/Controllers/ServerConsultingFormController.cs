@@ -27,7 +27,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         #region Properties
         
-
         private bool FullServerUptimeRequired
         {
             get

@@ -19,11 +19,17 @@ namespace Samsara.Base.Forms.Controllers
 
         private GenericDocumentForm frmGenericDocument;
         private DataTable dtSearchGrid;
-        protected FormStatusEnum formStatus;
 
         #endregion Attributes
 
         #region Properties
+
+        protected FormStatusEnum FormStatus
+        {
+            get;
+            set;
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -43,7 +49,7 @@ namespace Samsara.Base.Forms.Controllers
             if (this.FormConfiguration != null)
                 this.frmGenericDocument.Text = this.FormConfiguration.FormEndUserName;
 
-            this.formStatus = FormStatusEnum.Search;
+            this.FormStatus = FormStatusEnum.Search;
             this.ShowDetail(false);
         }
 
@@ -115,7 +121,7 @@ namespace Samsara.Base.Forms.Controllers
 
         public virtual void BackToSearch()
         {
-            this.formStatus = FormStatusEnum.Search;
+            this.FormStatus = FormStatusEnum.Search;
             this.ShowDetail(false);
         }
 
@@ -134,8 +140,10 @@ namespace Samsara.Base.Forms.Controllers
 
             if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
             {
+                this.FormStatus = FormStatusEnum.ShowDetail;
                 this.ClearDetailFields();
                 this.LoadDetail();
+                this.ProcessDetailButtons();
                 this.ReadOnlyDetailFields(true);
                 this.ShowDetail(true);
             }
@@ -147,9 +155,11 @@ namespace Samsara.Base.Forms.Controllers
 
             if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
             {
+                this.FormStatus = FormStatusEnum.Edition;
                 this.ClearDetailFields();
                 this.LoadDetail();
                 this.ReadOnlyDetailFields(false);
+                this.ProcessDetailButtons();
                 this.ShowDetail(true);
             }
         }
@@ -167,8 +177,9 @@ namespace Samsara.Base.Forms.Controllers
 
         internal void CreateEntityProcess()
         {
-            this.formStatus = FormStatusEnum.Creation;
+            this.FormStatus = FormStatusEnum.Creation;
             this.ClearDetailFields();
+            this.ProcessDetailButtons();
             this.ReadOnlyDetailFields(false);
             this.ShowDetail(true);
             this.CreateEntity();
@@ -193,13 +204,33 @@ namespace Samsara.Base.Forms.Controllers
             this.frmGenericDocument.utcPrincipal.Tabs["tbSearch"].Visible = !show;
             this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Visible = show;
 
-            switch (this.formStatus)
+            switch (this.FormStatus)
             {
                 case FormStatusEnum.Creation:
                     this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Nuevo";
                     break;
                 case FormStatusEnum.Edition:
                     this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Edición";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ProcessDetailButtons()
+        {
+            switch (this.FormStatus)
+            {
+                case FormStatusEnum.Creation:
+                case FormStatusEnum.Edition:
+                    this.frmGenericDocument.btnDetSave.Visible = true;
+                    this.frmGenericDocument.btnDetCancel.Visible = true;
+                    this.frmGenericDocument.btnDetBackToSearch.Visible = false;
+                    break;
+                case FormStatusEnum.ShowDetail:
+                    this.frmGenericDocument.btnDetSave.Visible = false;
+                    this.frmGenericDocument.btnDetCancel.Visible = false;
+                    this.frmGenericDocument.btnDetBackToSearch.Visible = true;
                     break;
                 default:
                     break;
