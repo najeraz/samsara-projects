@@ -18,13 +18,13 @@ namespace Samsara.Base.Core.Parameters
             set;
         }
 
-        public Nullable<DateTime> CreationDate
+        public Nullable<DateTime> CreatedOn
         {
             get;
             set;
         }
 
-        public Nullable<DateTime> UpdatedDate
+        public Nullable<DateTime> UpdatedOn
         {
             get;
             set;
