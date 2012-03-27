@@ -288,7 +288,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // btnDetSave
             // 
-            this.btnDetSave.Location = new System.Drawing.Point(797, 0);
+            this.btnDetSave.Location = new System.Drawing.Point(706, 0);
             // 
             // btnDetCancel
             // 
@@ -298,10 +298,14 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.btnSchShowDetail.Location = new System.Drawing.Point(706, 0);
             // 
+            // btnDetBackToSearch
+            // 
+            this.btnDetBackToSearch.Location = new System.Drawing.Point(797, 0);
+            // 
             // ultraTabPageControl3
             // 
             this.ultraTabPageControl3.Controls.Add(this.upnlDetOldServerDetail);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
             this.ultraTabPageControl3.Size = new System.Drawing.Size(310, 185);
             // 
@@ -393,7 +397,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl4
             // 
             this.ultraTabPageControl4.Controls.Add(this.upnlDetFirstServer);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
             this.ultraTabPageControl4.Size = new System.Drawing.Size(310, 185);
             // 
@@ -1072,7 +1076,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         #endregion
 
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerComputerType;
-        private Infragistics.Win.Misc.UltraLabel ulblDetFirstServer;
         private Infragistics.Win.Misc.UltraLabel ulblDetServerModel;
         private Infragistics.Win.Misc.UltraLabel ulblDetServerComputerBrand;
         private Infragistics.Win.Misc.UltraLabel ulblDetServerComputerType;
@@ -1080,22 +1083,9 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetEmail;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPhoneNumber;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetOrganizationName;
-        private Infragistics.Win.Misc.UltraLabel ulblDetEmail;
-        private Infragistics.Win.Misc.UltraLabel ulblDetOrganizationName;
-        private Infragistics.Win.Misc.UltraLabel ulblDetPhoneNumber;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetFullServerUptimeRequired;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetServerTypePreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerTypePreference;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetBudget;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetFutureStorageVolume;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentStorageVolume;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsersWillGrow;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetBrandPreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBrandPreference;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsers;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentProblem;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetCurrentProblem;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetServerUsage;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerUsage;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage2;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl3;
@@ -1106,22 +1096,18 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerSpecs;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
         private Infragistics.Win.Misc.UltraPanel upnlDetFirstServer;
-        private Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetServerConsultingDetail;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage3;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl5;
         private Infragistics.Win.Misc.UltraPanel upDetServerConsultingDetail;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl6;
         private Infragistics.Win.Misc.UltraPanel apDetServerConsultingSummary;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetRedundantPowerSupply;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetArrayDisks;
         internal Base.Controls.Controls.SamsaraUltraGrid grdDetSummary;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetHasServer;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetFirstServer;
         internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetOldServerDetail;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetHaveSite;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetHaveSite;
-        private Infragistics.Win.Misc.UltraGroupBox ugbxDetHasServer;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetFullServerUptimeRequired;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetBudget;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetHaveBudget;
@@ -1136,6 +1122,24 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorNumberOfUsersWillGrow;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchOrganizationName;
         private Infragistics.Win.Misc.UltraLabel ulblSchOrganizationName;
+        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetServerConsultingDetail;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFullServerUptimeRequired;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerTypePreference;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetBudget;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFutureStorageVolume;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentStorageVolume;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsersWillGrow;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetBrandPreference;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetNumberOfUsers;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentProblem;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerUsage;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetHaveSite;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetHasServer;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetEmail;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetOrganizationName;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetPhoneNumber;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetFirstServer;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
 
 
 
