@@ -84,6 +84,24 @@ namespace Samsara.Base.Forms.Controllers
             return formConfigurationUserPermissionUser != null;
         }
 
+        protected virtual void ShowDetail(bool show)
+        {
+            this.frmGenericDocument.utcPrincipal.Tabs["tbSearch"].Visible = !show;
+            this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Visible = show;
+
+            switch (this.FormStatus)
+            {
+                case FormStatusEnum.Creation:
+                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Nuevo";
+                    break;
+                case FormStatusEnum.Edition:
+                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Edición";
+                    break;
+                default:
+                    break;
+            }
+        }
+
         #endregion Protected
 
         #region Public
@@ -198,24 +216,6 @@ namespace Samsara.Base.Forms.Controllers
         #endregion Internal
 
         #region Private
-
-        private void ShowDetail(bool show)
-        {
-            this.frmGenericDocument.utcPrincipal.Tabs["tbSearch"].Visible = !show;
-            this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Visible = show;
-
-            switch (this.FormStatus)
-            {
-                case FormStatusEnum.Creation:
-                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Nuevo";
-                    break;
-                case FormStatusEnum.Edition:
-                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Edición";
-                    break;
-                default:
-                    break;
-            }
-        }
 
         private void ProcessDetailButtons()
         {
