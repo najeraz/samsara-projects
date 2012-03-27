@@ -520,15 +520,6 @@ Especificaciones: {3}
                 row["Description"] = this.serverConsulting.FutureStorageVolume;
             }
 
-            if (this.serverConsulting.BrandPreference != null)
-            {
-                DataRow row = dtSummary.NewRow();
-                dtSummary.Rows.Add(row);
-
-                row["Data"] = this.frmServerConsulting.ugbxDetBrandPreference.Text;
-                row["Description"] = this.serverConsulting.BrandPreference;
-            }
-
             if (this.serverConsulting.FullServerUptimeRequired.Value)
             {
                 DataRow row = dtSummary.NewRow();
@@ -554,6 +545,33 @@ Especificaciones: {3}
 
                 row["Data"] = this.frmServerConsulting.ugbxDetArrayDisks.Text;
                 row["Description"] = this.serverConsulting.ArrayDisks;
+            }
+
+            if (this.serverConsulting.Budget != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetBudget.Text;
+                row["Description"] = this.serverConsulting.Budget;
+            }
+
+            if (this.serverConsulting.HaveSite.Value)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetHaveSite.Text;
+                row["Description"] = this.frmServerConsulting.uosDetHaveSite.Text;
+            }
+
+            if (this.serverConsulting.BrandPreference != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = this.frmServerConsulting.ugbxDetBrandPreference.Text;
+                row["Description"] = this.serverConsulting.BrandPreference;
             }
         }
 
