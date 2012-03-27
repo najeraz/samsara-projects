@@ -2,17 +2,16 @@
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
-using Iesi.Collections.Generic;
-using System.Linq;
 using Samsara.Base.Forms.Controllers;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
 using Samsara.TIConsulting.Service.Interfaces;
-using System.Windows.Forms;
 
 namespace Samsara.TIConsulting.Forms.Controllers
 {
@@ -204,10 +203,18 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerTypePreference.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
             this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = !readOnly;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly 
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly
                 || FullServerUptimeRequired;
-            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.ReadOnly = !readOnly
-                || this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
+            this.frmServerConsulting.txtDetNumberOfUsers.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetNumberOfUsersWillGrow.ReadOnly = readOnly
+                || !this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly;
+            this.frmServerConsulting.uosDetFirstServer.Enabled = !readOnly;
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.Enabled = !readOnly;
+            this.frmServerConsulting.uosDetHasServer.Enabled = !readOnly;
+            this.frmServerConsulting.uosDetHaveSite.Enabled = !readOnly;
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Enabled = !readOnly;
+            this.frmServerConsulting.uchkDetHaveBudget.Enabled = !readOnly;
         }
 
         public override void LoadDetail()
