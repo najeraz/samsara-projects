@@ -60,6 +60,8 @@
     <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics3.Documents.Excel.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics3.Win.UltraWinGrid.ExcelExport.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -94,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CollectionsUtil.cs" />
+    <Compile Include="ExcelUtil.cs" />
     <Compile Include="NHibernateUtil.cs" />
     <Compile Include="CryptoUtil.cs" />
     <Compile Include="SQLUtil.cs" />

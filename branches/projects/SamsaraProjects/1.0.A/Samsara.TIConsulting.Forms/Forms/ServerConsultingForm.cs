@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics;
+using System.Windows.Forms;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Base.Forms.Forms;
 using Samsara.TIConsulting.Forms.Controllers;
@@ -38,5 +40,33 @@ namespace Samsara.TIConsulting.Forms.Forms
         }
 
         #endregion Constructor
+
+        #region Events
+
+        [DebuggerStepThroughAttribute]
+        private void btnClick(object sender, System.EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+
+                switch (btn.Name)
+                {
+                    case "btnDetExportSummaryToExcel":
+                        this.ctrlServerConsultingForm.ExportSummaryToExcel();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        #endregion Events
     }
 }
