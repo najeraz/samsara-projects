@@ -105,6 +105,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl6 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.apDetServerConsultingSummary = new Infragistics.Win.Misc.UltraPanel();
             this.grdDetSummary = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
+            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparatorBtnExportToExcel = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetExportSummaryToExcel = new System.Windows.Forms.Button();
+            this.upDetSeparatorSumaryButtons = new Infragistics.Win.Misc.UltraPanel();
             this.ulblDetOrganizationName = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetPhoneNumber = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetEmail = new Infragistics.Win.Misc.UltraLabel();
@@ -183,6 +187,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.apDetServerConsultingSummary.ClientArea.SuspendLayout();
             this.apDetServerConsultingSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDetSummary)).BeginInit();
+            this.ultraPanel1.ClientArea.SuspendLayout();
+            this.ultraPanel1.SuspendLayout();
+            this.upDetSeparatorBtnExportToExcel.SuspendLayout();
+            this.upDetSeparatorSumaryButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCustomerData)).BeginInit();
             this.ugbxDetCustomerData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetEmail)).BeginInit();
@@ -853,6 +861,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // apDetServerConsultingSummary.ClientArea
             // 
             this.apDetServerConsultingSummary.ClientArea.Controls.Add(this.grdDetSummary);
+            this.apDetServerConsultingSummary.ClientArea.Controls.Add(this.ultraPanel1);
             this.apDetServerConsultingSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.apDetServerConsultingSummary.Location = new System.Drawing.Point(0, 0);
             this.apDetServerConsultingSummary.Name = "apDetServerConsultingSummary";
@@ -865,8 +874,49 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.grdDetSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetSummary.Location = new System.Drawing.Point(0, 0);
             this.grdDetSummary.Name = "grdDetSummary";
-            this.grdDetSummary.Size = new System.Drawing.Size(969, 383);
+            this.grdDetSummary.Size = new System.Drawing.Size(969, 358);
             this.grdDetSummary.TabIndex = 0;
+            // 
+            // ultraPanel1
+            // 
+            // 
+            // ultraPanel1.ClientArea
+            // 
+            this.ultraPanel1.ClientArea.Controls.Add(this.upDetSeparatorBtnExportToExcel);
+            this.ultraPanel1.ClientArea.Controls.Add(this.btnDetExportSummaryToExcel);
+            this.ultraPanel1.ClientArea.Controls.Add(this.upDetSeparatorSumaryButtons);
+            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel1.Location = new System.Drawing.Point(0, 358);
+            this.ultraPanel1.Name = "ultraPanel1";
+            this.ultraPanel1.Size = new System.Drawing.Size(969, 25);
+            this.ultraPanel1.TabIndex = 1;
+            // 
+            // upDetSeparatorBtnExportToExcel
+            // 
+            this.upDetSeparatorBtnExportToExcel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upDetSeparatorBtnExportToExcel.Location = new System.Drawing.Point(166, 0);
+            this.upDetSeparatorBtnExportToExcel.Name = "upDetSeparatorBtnExportToExcel";
+            this.upDetSeparatorBtnExportToExcel.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorBtnExportToExcel.TabIndex = 11;
+            // 
+            // btnDetExportSummaryToExcel
+            // 
+            this.btnDetExportSummaryToExcel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDetExportSummaryToExcel.Location = new System.Drawing.Point(16, 0);
+            this.btnDetExportSummaryToExcel.Name = "btnDetExportSummaryToExcel";
+            this.btnDetExportSummaryToExcel.Size = new System.Drawing.Size(150, 25);
+            this.btnDetExportSummaryToExcel.TabIndex = 9;
+            this.btnDetExportSummaryToExcel.Text = "Exportar Resumen a Excel";
+            this.btnDetExportSummaryToExcel.UseVisualStyleBackColor = true;
+            this.btnDetExportSummaryToExcel.Click += new System.EventHandler(this.btnClick);
+            // 
+            // upDetSeparatorSumaryButtons
+            // 
+            this.upDetSeparatorSumaryButtons.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upDetSeparatorSumaryButtons.Location = new System.Drawing.Point(0, 0);
+            this.upDetSeparatorSumaryButtons.Name = "upDetSeparatorSumaryButtons";
+            this.upDetSeparatorSumaryButtons.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorSumaryButtons.TabIndex = 10;
             // 
             // ulblDetOrganizationName
             // 
@@ -1061,6 +1111,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.apDetServerConsultingSummary.ClientArea.ResumeLayout(false);
             this.apDetServerConsultingSummary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDetSummary)).EndInit();
+            this.ultraPanel1.ClientArea.ResumeLayout(false);
+            this.ultraPanel1.ResumeLayout(false);
+            this.upDetSeparatorBtnExportToExcel.ResumeLayout(false);
+            this.upDetSeparatorSumaryButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCustomerData)).EndInit();
             this.ugbxDetCustomerData.ResumeLayout(false);
             this.ugbxDetCustomerData.PerformLayout();
@@ -1141,6 +1195,10 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.Misc.UltraLabel ulblDetPhoneNumber;
         internal Infragistics.Win.Misc.UltraLabel ulblDetFirstServer;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
+        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnExportToExcel;
+        public System.Windows.Forms.Button btnDetExportSummaryToExcel;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparatorSumaryButtons;
 
 
 
