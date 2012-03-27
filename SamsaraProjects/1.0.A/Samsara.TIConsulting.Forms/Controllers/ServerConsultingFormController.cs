@@ -410,7 +410,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ulblDetOrganizationName.Text;
+                row["Data"] = "Organización";
                 row["Description"] = this.serverConsulting.OrganizationName;
             }
 
@@ -428,7 +428,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ulblDetPhoneNumber.Text;
+                row["Data"] = "Teléfono";
                 row["Description"] = this.serverConsulting.PhoneNumber;
             }
 
@@ -456,7 +456,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Text;
+                row["Data"] = "Cuentan con un Servidor?";
                 row["Description"] = this.frmServerConsulting.uosDetHasServer.Text;
 
                 row = dtSummary.NewRow();
@@ -471,7 +471,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetServerUsage.Text;
+                row["Data"] = "Uso del Servidor";
                 row["Description"] = this.serverConsulting.ServerUsage;
             }
 
@@ -480,7 +480,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetCurrentProblem.Text;
+                row["Data"] = "Necesidad/Problematica Actual";
                 row["Description"] = this.serverConsulting.CurrentProblem;
             }
 
@@ -489,7 +489,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetNumberOfUsers.Text;
+                row["Data"] = "Número de Usuarios";
                 row["Description"] = this.serverConsulting.NumberOfUsers;
             }
 
@@ -498,7 +498,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetNumberOfUsersWillGrow.Text;
+                row["Data"] = "Número de Usuarios en 3 a 5 Años";
                 row["Description"] = this.serverConsulting.FutureNumberOfUsers;
             }
 
@@ -507,7 +507,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetCurrentStorageVolume.Text;
+                row["Data"] = "Tamaño de la Información Actual";
                 row["Description"] = this.serverConsulting.CurrentStorageVolume;
             }
 
@@ -516,8 +516,17 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetFutureStorageVolume.Text;
+                row["Data"] = "Tamaño de la Información en 3 a 5 Años";
                 row["Description"] = this.serverConsulting.FutureStorageVolume;
+            }
+
+            if (this.serverConsulting.BrandPreference != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = "Marca Preferida";
+                row["Description"] = this.serverConsulting.BrandPreference;
             }
 
             if (this.serverConsulting.FullServerUptimeRequired.Value)
@@ -525,7 +534,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetFullServerUptimeRequired.Text;
+                row["Data"] = "Alta Disponibilidad (24/7)";
                 row["Description"] = this.frmServerConsulting.uosDetFullServerUptimeRequired.Text;
             }
 
@@ -552,7 +561,7 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetBudget.Text;
+                row["Data"] = "Presupuesto";
                 row["Description"] = this.serverConsulting.Budget;
             }
 
@@ -561,17 +570,17 @@ Especificaciones: {3}
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetHaveSite.Text;
+                row["Data"] = "Cuentan con Site?";
                 row["Description"] = this.frmServerConsulting.uosDetHaveSite.Text;
             }
 
-            if (this.serverConsulting.BrandPreference != null)
+            if (this.serverConsulting.ServerTypePreference != null)
             {
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
-                row["Data"] = this.frmServerConsulting.ugbxDetBrandPreference.Text;
-                row["Description"] = this.serverConsulting.BrandPreference;
+                row["Data"] = "Tipo de Servidor Preferido";
+                row["Description"] = this.serverConsulting.ServerTypePreference;
             }
         }
 
