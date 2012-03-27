@@ -83,10 +83,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 {
                     case FormStatusEnum.Creation:
                     case FormStatusEnum.Edition:
+                        this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"].Visible = true;
+                        this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["Summary"].Visible = false;
                         this.frmServerConsulting.utabDetServerConsultingDetail.SelectedTab
                             = this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"];
                         break;
                     case FormStatusEnum.ShowDetail:
+                        this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"].Visible = true;
+                        this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["Summary"].Visible = true;
                         this.frmServerConsulting.utabDetServerConsultingDetail.SelectedTab
                             = this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["Summary"];
                         break;
