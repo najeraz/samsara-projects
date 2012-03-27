@@ -85,6 +85,8 @@
             this.upDetSeparator1 = new Infragistics.Win.Misc.UltraPanel();
             this.utcPrincipal = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.upDetSeparator4 = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetBackToSearch = new System.Windows.Forms.Button();
             this.ultraTabPageControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.upButtons.ClientArea.SuspendLayout();
@@ -110,6 +112,7 @@
             this.upDetSeparator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).BeginInit();
             this.utcPrincipal.SuspendLayout();
+            this.upDetSeparator4.SuspendLayout();
             this.SuspendLayout();
             // 
             // ultraTabPageControl1
@@ -119,7 +122,7 @@
             this.ultraTabPageControl1.Controls.Add(this.upSchSearchButtons);
             this.ultraTabPageControl1.Controls.Add(this.gbxSchParameters);
             this.ultraTabPageControl1.Controls.Add(this.upnlSchBottonControls);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(636, 417);
             // 
@@ -473,7 +476,7 @@
             // 
             this.ultraTabPageControl2.Controls.Add(this.gbxDetDetail);
             this.ultraTabPageControl2.Controls.Add(this.pnlDetButtons);
-            this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl2.Name = "ultraTabPageControl2";
             this.ultraTabPageControl2.Size = new System.Drawing.Size(636, 417);
             // 
@@ -489,8 +492,10 @@
             // 
             // pnlDetButtons
             // 
-            this.pnlDetButtons.Controls.Add(this.upDetSeparator3);
+            this.pnlDetButtons.Controls.Add(this.upDetSeparator4);
             this.pnlDetButtons.Controls.Add(this.btnDetSave);
+            this.pnlDetButtons.Controls.Add(this.upDetSeparator3);
+            this.pnlDetButtons.Controls.Add(this.btnDetBackToSearch);
             this.pnlDetButtons.Controls.Add(this.upDetSeparator2);
             this.pnlDetButtons.Controls.Add(this.btnDetCancel);
             this.pnlDetButtons.Controls.Add(this.upDetSeparator1);
@@ -513,7 +518,7 @@
             // btnDetSave
             // 
             this.btnDetSave.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnDetSave.Location = new System.Drawing.Point(454, 0);
+            this.btnDetSave.Location = new System.Drawing.Point(363, 0);
             this.btnDetSave.Name = "btnDetSave";
             this.btnDetSave.Size = new System.Drawing.Size(75, 25);
             this.btnDetSave.TabIndex = 0;
@@ -575,6 +580,25 @@
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
             this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(636, 417);
             // 
+            // upDetSeparator4
+            // 
+            this.upDetSeparator4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparator4.Location = new System.Drawing.Point(347, 0);
+            this.upDetSeparator4.Name = "upDetSeparator4";
+            this.upDetSeparator4.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparator4.TabIndex = 11;
+            // 
+            // btnDetBackToSearch
+            // 
+            this.btnDetBackToSearch.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetBackToSearch.Location = new System.Drawing.Point(454, 0);
+            this.btnDetBackToSearch.Name = "btnDetBackToSearch";
+            this.btnDetBackToSearch.Size = new System.Drawing.Size(75, 25);
+            this.btnDetBackToSearch.TabIndex = 10;
+            this.btnDetBackToSearch.Text = "Cerrar";
+            this.btnDetBackToSearch.UseVisualStyleBackColor = true;
+            this.btnDetBackToSearch.Click += new System.EventHandler(this.btnClick);
+            // 
             // GenericDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +634,7 @@
             this.upDetSeparator1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).EndInit();
             this.utcPrincipal.ResumeLayout(false);
+            this.upDetSeparator4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -654,5 +679,7 @@
         internal Infragistics.Win.Misc.UltraLabel ulblSchUsernameTag;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorShowDetail;
         public System.Windows.Forms.Button btnSchShowDetail;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparator4;
+        public System.Windows.Forms.Button btnDetBackToSearch;
     }
 }
