@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 
@@ -7,6 +8,7 @@ namespace Samsara.TIConsulting.Core.Entities
 {
     public class ServerConsulting : BaseEntity
     {
+        private ISet<ServerConsultingOldServerComputer> serverConsultingOldServerComputers;
 
         public ServerConsulting()
         {
@@ -134,10 +136,19 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual ServerConsultingOldServerComputer ServerConsultingOldServerComputer
+        public virtual ISet<ServerConsultingOldServerComputer> ServerConsultingOldServerComputers
         {
-            get;
-            set;
+            get
+            {
+                if (this.serverConsultingOldServerComputers == null)
+                    this.serverConsultingOldServerComputers = new HashedSet<ServerConsultingOldServerComputer>();
+
+                return this.serverConsultingOldServerComputers;
+            }
+            set
+            {
+                this.serverConsultingOldServerComputers = value;
+            }
         }
 
     }
