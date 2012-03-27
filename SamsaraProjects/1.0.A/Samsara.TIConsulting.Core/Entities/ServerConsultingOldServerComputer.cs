@@ -19,6 +19,12 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual ServerConsulting ServerConsulting
+        {
+            get;
+            set;
+        }
+
         public virtual string ServerComputerType
         {
             get;

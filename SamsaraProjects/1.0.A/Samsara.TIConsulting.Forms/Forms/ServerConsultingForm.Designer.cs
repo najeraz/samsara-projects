@@ -544,7 +544,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             // uchkDetRedundantPowerSupply
             // 
             this.uchkDetRedundantPowerSupply.AutoSize = true;
-            this.uchkDetRedundantPowerSupply.Enabled = false;
             this.uchkDetRedundantPowerSupply.Location = new System.Drawing.Point(180, 58);
             this.uchkDetRedundantPowerSupply.Name = "uchkDetRedundantPowerSupply";
             this.uchkDetRedundantPowerSupply.Size = new System.Drawing.Size(127, 17);
@@ -566,7 +565,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetArrayDisks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDetArrayDisks.Location = new System.Drawing.Point(3, 16);
             this.txtDetArrayDisks.Name = "txtDetArrayDisks";
-            this.txtDetArrayDisks.ReadOnly = true;
             this.txtDetArrayDisks.Size = new System.Drawing.Size(301, 21);
             this.txtDetArrayDisks.TabIndex = 0;
             // 
@@ -651,7 +649,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetBudget.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtDetBudget.MeasurementFileUnit = "GB";
             this.txtDetBudget.Name = "txtDetBudget";
-            this.txtDetBudget.ReadOnly = true;
+            this.txtDetBudget.ReadOnly = false;
             this.txtDetBudget.Size = new System.Drawing.Size(118, 23);
             this.txtDetBudget.TabIndex = 1;
             this.txtDetBudget.Value = ((object)(resources.GetObject("txtDetBudget.Value")));
@@ -704,7 +702,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetFutureStorageVolume.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
             this.txtDetFutureStorageVolume.MeasurementFileUnit = "GB";
             this.txtDetFutureStorageVolume.Name = "txtDetFutureStorageVolume";
-            this.txtDetFutureStorageVolume.ReadOnly = true;
+            this.txtDetFutureStorageVolume.ReadOnly = false;
             this.txtDetFutureStorageVolume.Size = new System.Drawing.Size(118, 24);
             this.txtDetFutureStorageVolume.TabIndex = 4;
             this.txtDetFutureStorageVolume.Value = ((object)(resources.GetObject("txtDetFutureStorageVolume.Value")));
@@ -816,7 +814,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetNumberOfUsersWillGrow.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.txtDetNumberOfUsersWillGrow.MeasurementFileUnit = "GB";
             this.txtDetNumberOfUsersWillGrow.Name = "txtDetNumberOfUsersWillGrow";
-            this.txtDetNumberOfUsersWillGrow.ReadOnly = true;
+            this.txtDetNumberOfUsersWillGrow.ReadOnly = false;
             this.txtDetNumberOfUsersWillGrow.Size = new System.Drawing.Size(118, 24);
             this.txtDetNumberOfUsersWillGrow.TabIndex = 2;
             this.txtDetNumberOfUsersWillGrow.Value = ((object)(resources.GetObject("txtDetNumberOfUsersWillGrow.Value")));

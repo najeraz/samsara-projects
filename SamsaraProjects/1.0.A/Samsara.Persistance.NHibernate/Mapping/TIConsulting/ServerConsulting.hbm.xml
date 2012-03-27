@@ -36,9 +36,12 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
-    <many-to-one name="ServerConsultingOldServerComputer"
-                 class="Samsara.TIConsulting.Core.Entities.ServerConsultingOldServerComputer"
-                 column="ServerConsultingId" not-null="true" cascade="all" unique="true" lazy="false" />
+    <set name="ServerConsultingOldServerComputers" table="TIConsulting.ServerConsultingOldServerComputers" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="ServerConsultingId"/>
+      <one-to-many
+        class="Samsara.TIConsulting.Core.Entities.ServerConsultingOldServerComputer, Samsara.TIConsulting.Core"/>
+    </set>
     
   </class>
 
@@ -55,6 +58,7 @@
   </query>
 
   <sql-query name="ServerConsulting.SearchByParameters">
+    <return-scalar column="ServerConsultingId" type="int"/>
     <return-scalar column="OrganizationName" type="string"/>
     <return-scalar column="PhoneNumber" type="string"/>
     <return-scalar column="Email" type="string"/>
@@ -64,11 +68,11 @@
     <return-scalar column="CurrentProblem" type="string"/>
     <![CDATA[
         SELECT 
-	        sc.OrganizationName, sc.PhoneNumber, sc.Email, sc.HasServer,
-	        sc.FirstServer, sc.ServerUsage, sc.CurrentProblem
+	        sc.ServerConsultingId, sc.OrganizationName, sc.PhoneNumber, sc.Email, 
+          sc.HasServer, sc.FirstServer, sc.ServerUsage, sc.CurrentProblem
         FROM TIConsulting.ServerConsulting sc
         WHERE sc.Activated = 1 AND sc.Deleted = 0
-        AND sc.OrganizationName = :OrganizationName
+        AND sc.OrganizationName LIKE :OrganizationName
     ]]>
   </sql-query>
 
