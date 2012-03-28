@@ -10,6 +10,7 @@ namespace Samsara.Support.Util
         NaturalQuantity,
         RealQuantity,
         FileSize,
-        Integer
+        Integer,
+        PhoneNumber
     }
 }

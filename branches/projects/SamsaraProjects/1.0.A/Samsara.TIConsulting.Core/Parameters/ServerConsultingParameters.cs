@@ -10,5 +10,11 @@ namespace Samsara.TIConsulting.Core.Parameters
             get;
             set;
         }
+
+        public string Contact
+        {
+            get;
+            set;
+        }
     }
 }

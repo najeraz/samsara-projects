@@ -28,7 +28,19 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual string Contact
+        {
+            get;
+            set;
+        }
+
         public virtual string PhoneNumber
+        {
+            get;
+            set;
+        }
+
+        public virtual string ExtensionNumber
         {
             get;
             set;
