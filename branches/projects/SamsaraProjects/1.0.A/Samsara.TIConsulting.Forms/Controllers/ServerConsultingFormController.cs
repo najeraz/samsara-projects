@@ -276,8 +276,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
             this.serverConsulting.HaveSite = this.frmServerConsulting.uosDetHaveSite.Value == null ?
                 null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetHaveSite.Value);
-            this.serverConsulting.FirstServer = this.frmServerConsulting.uosDetFirstServer.Value == null ?
-                null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFirstServer.Value);
+            this.serverConsulting.FirstServer = (this.frmServerConsulting.uosDetFirstServer.Value == null ?
+                false : Convert.ToBoolean(this.frmServerConsulting.uosDetFirstServer.Value) && !this.serverConsulting.HasServer.Value);
             this.serverConsulting.FullServerUptimeRequired = this.frmServerConsulting.uosDetFullServerUptimeRequired.Value == null ?
                 null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetFullServerUptimeRequired.Value);
 
@@ -366,6 +366,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = null;
             this.frmServerConsulting.txtDetContact.Value = null;
             this.frmServerConsulting.txtDetExtensionNumber.Value = null;
+            this.frmServerConsulting.txtDetOperativeSystem.Value = null;
 
             this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = false;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
@@ -703,7 +704,7 @@ Especificaciones: {4}
             UltraGridBand band = layout.Bands[0];
 
             layout.Override.AllowUpdate = DefaultableBoolean.False;
-            layout.Override.AllowMultiCellOperations = AllowMultiCellOperation.CopyWithHeaders;
+            layout.Override.AllowMultiCellOperations = AllowMultiCellOperation.All;
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
             
             band.Override.RowSizing = RowSizing.AutoFixed;
