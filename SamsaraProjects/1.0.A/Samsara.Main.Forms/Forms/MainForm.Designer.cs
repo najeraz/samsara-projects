@@ -98,10 +98,10 @@
             this.comisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comisionesDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculoDeComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
-            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
             this.consultoriaTIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servidoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
+            this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
             this.menuStrip1.SuspendLayout();
             this.upnlPrplBottom.ClientArea.SuspendLayout();
             this.upnlPrplBottom.SuspendLayout();
@@ -657,6 +657,21 @@
             this.calculoDeComisionesToolStripMenuItem.Text = "Calculo de Comisiones";
             this.calculoDeComisionesToolStripMenuItem.Click += new System.EventHandler(this.calculoDeComisionesToolStripMenuItem_Click);
             // 
+            // consultoriaTIToolStripMenuItem
+            // 
+            this.consultoriaTIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.servidoresToolStripMenuItem});
+            this.consultoriaTIToolStripMenuItem.Name = "consultoriaTIToolStripMenuItem";
+            this.consultoriaTIToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.consultoriaTIToolStripMenuItem.Text = "Consultoria TI";
+            // 
+            // servidoresToolStripMenuItem
+            // 
+            this.servidoresToolStripMenuItem.Name = "servidoresToolStripMenuItem";
+            this.servidoresToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
+            this.servidoresToolStripMenuItem.Text = "Dimensionamiento de Servidores";
+            this.servidoresToolStripMenuItem.Click += new System.EventHandler(this.servidoresToolStripMenuItem_Click);
+            // 
             // ulblPrplUsername
             // 
             appearance1.ImageHAlign = Infragistics.Win.HAlign.Center;
@@ -681,21 +696,6 @@
             this.upnlPrplBottom.Name = "upnlPrplBottom";
             this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
             this.upnlPrplBottom.TabIndex = 2;
-            // 
-            // consultoriaTIToolStripMenuItem
-            // 
-            this.consultoriaTIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.servidoresToolStripMenuItem});
-            this.consultoriaTIToolStripMenuItem.Name = "consultoriaTIToolStripMenuItem";
-            this.consultoriaTIToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.consultoriaTIToolStripMenuItem.Text = "Consultoria TI";
-            // 
-            // servidoresToolStripMenuItem
-            // 
-            this.servidoresToolStripMenuItem.Name = "servidoresToolStripMenuItem";
-            this.servidoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.servidoresToolStripMenuItem.Text = "Servidores";
-            this.servidoresToolStripMenuItem.Click += new System.EventHandler(this.servidoresToolStripMenuItem_Click);
             // 
             // MainForm
             // 

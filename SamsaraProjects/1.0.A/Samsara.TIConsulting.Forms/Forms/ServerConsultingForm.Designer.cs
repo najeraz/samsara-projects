@@ -126,6 +126,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchOrganizationName = new Infragistics.Win.Misc.UltraLabel();
             this.txtSchContact = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchContact = new Infragistics.Win.Misc.UltraLabel();
+            this.upDetSeparatorBtnCopySummary = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetCopySummary = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -206,6 +208,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetServerConsultingDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchContact)).BeginInit();
+            this.upDetSeparatorBtnCopySummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -458,7 +461,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl5
             // 
             this.ultraTabPageControl5.Controls.Add(this.upDetServerConsultingDetail);
-            this.ultraTabPageControl5.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl5.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl5.Name = "ultraTabPageControl5";
             this.ultraTabPageControl5.Size = new System.Drawing.Size(969, 383);
             // 
@@ -860,7 +863,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl6
             // 
             this.ultraTabPageControl6.Controls.Add(this.apDetServerConsultingSummary);
-            this.ultraTabPageControl6.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl6.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl6.Name = "ultraTabPageControl6";
             this.ultraTabPageControl6.Size = new System.Drawing.Size(969, 383);
             // 
@@ -891,6 +894,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // ultraPanel1.ClientArea
             // 
+            this.ultraPanel1.ClientArea.Controls.Add(this.upDetSeparatorBtnCopySummary);
+            this.ultraPanel1.ClientArea.Controls.Add(this.btnDetCopySummary);
             this.ultraPanel1.ClientArea.Controls.Add(this.upDetSeparatorBtnExportToExcel);
             this.ultraPanel1.ClientArea.Controls.Add(this.btnDetExportSummaryToExcel);
             this.ultraPanel1.ClientArea.Controls.Add(this.upDetSeparatorSumaryButtons);
@@ -1095,6 +1100,25 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchContact.TabIndex = 3;
             this.ulblSchContact.Text = "Contacto:";
             // 
+            // upDetSeparatorBtnCopySummary
+            // 
+            this.upDetSeparatorBtnCopySummary.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upDetSeparatorBtnCopySummary.Location = new System.Drawing.Point(295, 0);
+            this.upDetSeparatorBtnCopySummary.Name = "upDetSeparatorBtnCopySummary";
+            this.upDetSeparatorBtnCopySummary.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorBtnCopySummary.TabIndex = 13;
+            // 
+            // btnDetCopySummary
+            // 
+            this.btnDetCopySummary.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDetCopySummary.Location = new System.Drawing.Point(182, 0);
+            this.btnDetCopySummary.Name = "btnDetCopySummary";
+            this.btnDetCopySummary.Size = new System.Drawing.Size(113, 25);
+            this.btnDetCopySummary.TabIndex = 12;
+            this.btnDetCopySummary.Text = "Copiar Resumen";
+            this.btnDetCopySummary.UseVisualStyleBackColor = true;
+            this.btnDetCopySummary.Click += new System.EventHandler(this.btnClick);
+            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1196,6 +1220,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetServerConsultingDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchContact)).EndInit();
+            this.upDetSeparatorBtnCopySummary.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1277,6 +1302,8 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchContact;
         internal Infragistics.Win.Misc.UltraLabel ulblSchContact;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetPhoneNumber;
+        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnCopySummary;
+        public System.Windows.Forms.Button btnDetCopySummary;
 
 
 
