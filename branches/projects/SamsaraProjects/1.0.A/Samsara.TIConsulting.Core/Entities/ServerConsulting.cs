@@ -124,6 +124,18 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual Nullable<bool> DataMigration
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<bool> DataBackup
+        {
+            get;
+            set;
+        }
+
         public virtual string ArrayDisks
         {
             get;

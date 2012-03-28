@@ -26,6 +26,8 @@
     <property name="BrandPreference"/>
     <property name="FullServerUptimeRequired"/>
     <property name="RedundantPowerSupply"/>
+    <property name="DataMigration"/>
+    <property name="DataBackup"/>
     <property name="ArrayDisks"/>
     <property name="Budget"/>
     <property name="HaveSite"/>
