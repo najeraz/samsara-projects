@@ -9,6 +9,8 @@ namespace Samsara.Base.Controls.Controls
 {
     public partial class SamsaraTextEditor : SamsaraUserControl
     {
+        private static string phoneNumberMask = "(###)###-####";
+        private static string integerMask = "-nnnnnnnnnnnn";
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
         private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
@@ -113,6 +115,17 @@ namespace Samsara.Base.Controls.Controls
                             return integerParser;
 
                         return null;
+                    case TextMaskFormatEnum.Integer:
+                        result = this.sumeValue.Value.ToString();
+
+                        if (int.TryParse(result, out integerParser))
+                            return integerParser;
+
+                        return null;
+                    case TextMaskFormatEnum.PhoneNumber:
+                        result = this.sumeValue.Value.ToString();
+
+                        return result;
                     default:
                         throw new NotImplementedException();
                 }
@@ -184,6 +197,16 @@ namespace Samsara.Base.Controls.Controls
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = this.fileSizeSubmask + this.measurementFileUnit;
+                    break;
+                case TextMaskFormatEnum.Integer:
+                    this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
+                    this.sumeValue.Appearance.TextHAlign = HAlign.Right;
+                    this.sumeValue.InputMask = integerMask;
+                    break;
+                case TextMaskFormatEnum.PhoneNumber:
+                    this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
+                    this.sumeValue.Appearance.TextHAlign = HAlign.Left;
+                    this.sumeValue.InputMask = phoneNumberMask;
                     break;
                 default:
                     break;

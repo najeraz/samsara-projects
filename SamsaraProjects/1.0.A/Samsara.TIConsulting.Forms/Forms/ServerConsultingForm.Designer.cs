@@ -113,13 +113,19 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetPhoneNumber = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetEmail = new Infragistics.Win.Misc.UltraLabel();
             this.ugbxDetCustomerData = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtDetExtensionNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtDetPhoneNumber = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtDetContact = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtDetEmail = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtDetPhoneNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblDetContact = new Infragistics.Win.Misc.UltraLabel();
             this.txtDetOrganizationName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblDetExtensionNumber = new Infragistics.Win.Misc.UltraLabel();
             this.utabDetServerConsultingDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage3 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.txtSchOrganizationName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchOrganizationName = new Infragistics.Win.Misc.UltraLabel();
+            this.txtSchContact = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblSchContact = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -193,12 +199,13 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upDetSeparatorSumaryButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCustomerData)).BeginInit();
             this.ugbxDetCustomerData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetContact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetEmail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPhoneNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOrganizationName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetServerConsultingDetail)).BeginInit();
             this.utabDetServerConsultingDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchContact)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -246,8 +253,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.grdPrincipal.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.grdPrincipal.Location = new System.Drawing.Point(0, 76);
-            this.grdPrincipal.Size = new System.Drawing.Size(979, 410);
+            this.grdPrincipal.Location = new System.Drawing.Point(0, 101);
+            this.grdPrincipal.Size = new System.Drawing.Size(979, 385);
             // 
             // btnSchAccept
             // 
@@ -279,9 +286,11 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // gbxSchParameters
             // 
+            this.gbxSchParameters.Controls.Add(this.txtSchContact);
+            this.gbxSchParameters.Controls.Add(this.ulblSchContact);
             this.gbxSchParameters.Controls.Add(this.txtSchOrganizationName);
             this.gbxSchParameters.Controls.Add(this.ulblSchOrganizationName);
-            this.gbxSchParameters.Size = new System.Drawing.Size(979, 51);
+            this.gbxSchParameters.Size = new System.Drawing.Size(979, 76);
             // 
             // gbxDetDetail
             // 
@@ -449,7 +458,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl5
             // 
             this.ultraTabPageControl5.Controls.Add(this.upDetServerConsultingDetail);
-            this.ultraTabPageControl5.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl5.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl5.Name = "ultraTabPageControl5";
             this.ultraTabPageControl5.Size = new System.Drawing.Size(969, 383);
             // 
@@ -851,7 +860,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl6
             // 
             this.ultraTabPageControl6.Controls.Add(this.apDetServerConsultingSummary);
-            this.ultraTabPageControl6.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl6.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl6.Name = "ultraTabPageControl6";
             this.ultraTabPageControl6.Size = new System.Drawing.Size(969, 383);
             // 
@@ -930,7 +939,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ulblDetPhoneNumber
             // 
             this.ulblDetPhoneNumber.AutoSize = true;
-            this.ulblDetPhoneNumber.Location = new System.Drawing.Point(8, 50);
+            this.ulblDetPhoneNumber.Location = new System.Drawing.Point(444, 50);
             this.ulblDetPhoneNumber.Name = "ulblDetPhoneNumber";
             this.ulblDetPhoneNumber.Size = new System.Drawing.Size(51, 14);
             this.ulblDetPhoneNumber.TabIndex = 0;
@@ -939,7 +948,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ulblDetEmail
             // 
             this.ulblDetEmail.AutoSize = true;
-            this.ulblDetEmail.Location = new System.Drawing.Point(293, 50);
+            this.ulblDetEmail.Location = new System.Drawing.Point(394, 23);
             this.ulblDetEmail.Name = "ulblDetEmail";
             this.ulblDetEmail.Size = new System.Drawing.Size(101, 14);
             this.ulblDetEmail.TabIndex = 0;
@@ -947,11 +956,15 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // ugbxDetCustomerData
             // 
-            this.ugbxDetCustomerData.Controls.Add(this.txtDetEmail);
+            this.ugbxDetCustomerData.Controls.Add(this.txtDetExtensionNumber);
             this.ugbxDetCustomerData.Controls.Add(this.txtDetPhoneNumber);
+            this.ugbxDetCustomerData.Controls.Add(this.txtDetContact);
+            this.ugbxDetCustomerData.Controls.Add(this.txtDetEmail);
+            this.ugbxDetCustomerData.Controls.Add(this.ulblDetContact);
             this.ugbxDetCustomerData.Controls.Add(this.txtDetOrganizationName);
             this.ugbxDetCustomerData.Controls.Add(this.ulblDetEmail);
             this.ugbxDetCustomerData.Controls.Add(this.ulblDetOrganizationName);
+            this.ugbxDetCustomerData.Controls.Add(this.ulblDetExtensionNumber);
             this.ugbxDetCustomerData.Controls.Add(this.ulblDetPhoneNumber);
             this.ugbxDetCustomerData.Dock = System.Windows.Forms.DockStyle.Top;
             this.ugbxDetCustomerData.Location = new System.Drawing.Point(3, 16);
@@ -960,26 +973,68 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetCustomerData.TabIndex = 0;
             this.ugbxDetCustomerData.Text = "Datos del Cliente:";
             // 
+            // txtDetExtensionNumber
+            // 
+            this.txtDetExtensionNumber.CustomParent = null;
+            this.txtDetExtensionNumber.Location = new System.Drawing.Point(637, 46);
+            this.txtDetExtensionNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetExtensionNumber.MeasurementFileUnit = "GB";
+            this.txtDetExtensionNumber.Name = "txtDetExtensionNumber";
+            this.txtDetExtensionNumber.ReadOnly = false;
+            this.txtDetExtensionNumber.Size = new System.Drawing.Size(47, 20);
+            this.txtDetExtensionNumber.TabIndex = 4;
+            this.txtDetExtensionNumber.Value = ((object)(resources.GetObject("txtDetExtensionNumber.Value")));
+            // 
+            // txtDetPhoneNumber
+            // 
+            this.txtDetPhoneNumber.CustomParent = this;
+            this.txtDetPhoneNumber.Location = new System.Drawing.Point(501, 46);
+            this.txtDetPhoneNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.PhoneNumber;
+            this.txtDetPhoneNumber.MeasurementFileUnit = "MB";
+            this.txtDetPhoneNumber.Name = "txtDetPhoneNumber";
+            this.txtDetPhoneNumber.ReadOnly = false;
+            this.txtDetPhoneNumber.Size = new System.Drawing.Size(87, 20);
+            this.txtDetPhoneNumber.TabIndex = 3;
+            this.txtDetPhoneNumber.Value = ((object)(resources.GetObject("txtDetPhoneNumber.Value")));
+            // 
+            // txtDetContact
+            // 
+            this.txtDetContact.Location = new System.Drawing.Point(88, 46);
+            this.txtDetContact.Name = "txtDetContact";
+            this.txtDetContact.Size = new System.Drawing.Size(283, 21);
+            this.txtDetContact.TabIndex = 2;
+            // 
             // txtDetEmail
             // 
-            this.txtDetEmail.Location = new System.Drawing.Point(400, 46);
+            this.txtDetEmail.Location = new System.Drawing.Point(501, 19);
             this.txtDetEmail.Name = "txtDetEmail";
             this.txtDetEmail.Size = new System.Drawing.Size(283, 21);
             this.txtDetEmail.TabIndex = 2;
             // 
-            // txtDetPhoneNumber
+            // ulblDetContact
             // 
-            this.txtDetPhoneNumber.Location = new System.Drawing.Point(88, 46);
-            this.txtDetPhoneNumber.Name = "txtDetPhoneNumber";
-            this.txtDetPhoneNumber.Size = new System.Drawing.Size(199, 21);
-            this.txtDetPhoneNumber.TabIndex = 1;
+            this.ulblDetContact.AutoSize = true;
+            this.ulblDetContact.Location = new System.Drawing.Point(8, 50);
+            this.ulblDetContact.Name = "ulblDetContact";
+            this.ulblDetContact.Size = new System.Drawing.Size(53, 14);
+            this.ulblDetContact.TabIndex = 0;
+            this.ulblDetContact.Text = "Contacto:";
             // 
             // txtDetOrganizationName
             // 
             this.txtDetOrganizationName.Location = new System.Drawing.Point(88, 19);
             this.txtDetOrganizationName.Name = "txtDetOrganizationName";
-            this.txtDetOrganizationName.Size = new System.Drawing.Size(595, 21);
+            this.txtDetOrganizationName.Size = new System.Drawing.Size(283, 21);
             this.txtDetOrganizationName.TabIndex = 0;
+            // 
+            // ulblDetExtensionNumber
+            // 
+            this.ulblDetExtensionNumber.AutoSize = true;
+            this.ulblDetExtensionNumber.Location = new System.Drawing.Point(607, 50);
+            this.ulblDetExtensionNumber.Name = "ulblDetExtensionNumber";
+            this.ulblDetExtensionNumber.Size = new System.Drawing.Size(24, 14);
+            this.ulblDetExtensionNumber.TabIndex = 0;
+            this.ulblDetExtensionNumber.Text = "Ext.";
             // 
             // utabDetServerConsultingDetail
             // 
@@ -1012,7 +1067,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.txtSchOrganizationName.Location = new System.Drawing.Point(86, 19);
             this.txtSchOrganizationName.Name = "txtSchOrganizationName";
-            this.txtSchOrganizationName.Size = new System.Drawing.Size(308, 21);
+            this.txtSchOrganizationName.Size = new System.Drawing.Size(283, 21);
             this.txtSchOrganizationName.TabIndex = 2;
             // 
             // ulblSchOrganizationName
@@ -1023,6 +1078,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchOrganizationName.Size = new System.Drawing.Size(74, 14);
             this.ulblSchOrganizationName.TabIndex = 1;
             this.ulblSchOrganizationName.Text = "Organización:";
+            // 
+            // txtSchContact
+            // 
+            this.txtSchContact.Location = new System.Drawing.Point(86, 46);
+            this.txtSchContact.Name = "txtSchContact";
+            this.txtSchContact.Size = new System.Drawing.Size(283, 21);
+            this.txtSchContact.TabIndex = 4;
+            // 
+            // ulblSchContact
+            // 
+            this.ulblSchContact.AutoSize = true;
+            this.ulblSchContact.Location = new System.Drawing.Point(6, 50);
+            this.ulblSchContact.Name = "ulblSchContact";
+            this.ulblSchContact.Size = new System.Drawing.Size(53, 14);
+            this.ulblSchContact.TabIndex = 3;
+            this.ulblSchContact.Text = "Contacto:";
             // 
             // ServerConsultingForm
             // 
@@ -1118,12 +1189,13 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCustomerData)).EndInit();
             this.ugbxDetCustomerData.ResumeLayout(false);
             this.ugbxDetCustomerData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetContact)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetPhoneNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetOrganizationName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetServerConsultingDetail)).EndInit();
             this.utabDetServerConsultingDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchContact)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1136,7 +1208,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraLabel ulblDetServerComputerType;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetCustomerData;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetEmail;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetPhoneNumber;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetOrganizationName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerTypePreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBrandPreference;
@@ -1199,6 +1270,13 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnExportToExcel;
         public System.Windows.Forms.Button btnDetExportSummaryToExcel;
         private Infragistics.Win.Misc.UltraPanel upDetSeparatorSumaryButtons;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetExtensionNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetContact;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetContact;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetExtensionNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchContact;
+        internal Infragistics.Win.Misc.UltraLabel ulblSchContact;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetPhoneNumber;
 
 
 
