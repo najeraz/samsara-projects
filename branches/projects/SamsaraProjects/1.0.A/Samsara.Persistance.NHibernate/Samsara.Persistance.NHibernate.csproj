@@ -407,7 +407,9 @@
     <EmbeddedResource Include="Mapping\Website\ProductSublineConfiguration.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\TIConsulting\ServerConsulting.hbm.xml" />
+    <EmbeddedResource Include="Mapping\TIConsulting\ServerConsulting.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\Website\ProductConfiguration.hbm.xml" />

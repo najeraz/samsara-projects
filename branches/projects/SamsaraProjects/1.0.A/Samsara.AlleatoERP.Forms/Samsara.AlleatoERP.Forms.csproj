@@ -115,28 +115,20 @@
   <ItemGroup>
     <Compile Include="Controller\ProductBrandFormController.cs" />
     <Compile Include="Controller\ProductFormController.cs" />
-    <Compile Include="Forms\ProductBrandForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\ProductBrandForm.cs" />
     <Compile Include="Forms\ProductBrandForm.designer.cs">
       <DependentUpon>ProductBrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ProductForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\ProductForm.cs" />
     <Compile Include="Forms\ProductForm.designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\ProductBrandSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\ProductBrandSearchForm.cs" />
     <Compile Include="Templates\ProductBrandSearchForm.Designer.cs">
       <DependentUpon>ProductBrandSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\ProductSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\ProductSearchForm.cs" />
     <Compile Include="Templates\ProductSearchForm.Designer.cs">
       <DependentUpon>ProductSearchForm.cs</DependentUpon>
     </Compile>
