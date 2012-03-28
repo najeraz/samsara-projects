@@ -100,28 +100,20 @@
   <ItemGroup>
     <Compile Include="Controllers\FormConfigurationUserPermissionFormController.cs" />
     <Compile Include="Controllers\UserGroupFormController.cs" />
-    <Compile Include="Forms\FormConfigurationUserPermissionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\FormConfigurationUserPermissionForm.cs" />
     <Compile Include="Forms\FormConfigurationUserPermissionForm.designer.cs">
       <DependentUpon>FormConfigurationUserPermissionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserGroupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\UserGroupForm.cs" />
     <Compile Include="Forms\UserGroupForm.designer.cs">
       <DependentUpon>UserGroupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates\FormConfigurationUserPermissionSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\FormConfigurationUserPermissionSearchForm.cs" />
     <Compile Include="Templates\FormConfigurationUserPermissionSearchForm.designer.cs">
       <DependentUpon>FormConfigurationUserPermissionSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserGroupSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Templates\UserGroupSearchForm.cs" />
     <Compile Include="Templates\UserGroupSearchForm.Designer.cs">
       <DependentUpon>UserGroupSearchForm.cs</DependentUpon>
     </Compile>

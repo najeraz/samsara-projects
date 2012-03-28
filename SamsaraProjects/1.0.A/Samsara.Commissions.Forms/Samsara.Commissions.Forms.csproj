@@ -149,9 +149,7 @@
   <ItemGroup>
     <Compile Include="Controllers\ServicesManagementFormController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\ServicesManagementForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\ServicesManagementForm.cs" />
     <Compile Include="Forms\ServicesManagementForm.Designer.cs">
       <DependentUpon>ServicesManagementForm.cs</DependentUpon>
     </Compile>
