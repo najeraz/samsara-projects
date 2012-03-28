@@ -244,6 +244,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetHaveBudget.Enabled = !readOnly;
             this.frmServerConsulting.txtDetContact.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetExtensionNumber.ReadOnly = readOnly;
+            this.frmServerConsulting.uchkDetDataBackup.Enabled = !readOnly;
+            this.frmServerConsulting.uchkDetDataMigration.Enabled = !readOnly;
         }
 
         public override void LoadDetail()
@@ -267,6 +269,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
             this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
             this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
+            this.serverConsulting.DataBackup = this.frmServerConsulting.uchkDetDataBackup.Checked;
+            this.serverConsulting.DataMigration = this.frmServerConsulting.uchkDetDataMigration.Checked;
 
             this.serverConsulting.HasServer = this.frmServerConsulting.uosDetHasServer.Value == null ?
                 null : (Nullable<bool>)Convert.ToBoolean(this.frmServerConsulting.uosDetHasServer.Value);
@@ -330,6 +334,12 @@ namespace Samsara.TIConsulting.Forms.Controllers
             else
                 serverConsultingOldServerComputer.ServerSpecs = null;
 
+            if (this.frmServerConsulting.txtDetOperativeSystem.Value != null
+                && !string.IsNullOrEmpty(this.frmServerConsulting.txtDetOperativeSystem.Value.ToString()))
+                serverConsultingOldServerComputer.OperativeSystem = this.frmServerConsulting.txtDetOperativeSystem.Value.ToString();
+            else
+                serverConsultingOldServerComputer.OperativeSystem = null;
+
             this.serverConsulting.ServerConsultingOldServerComputers.Add(serverConsultingOldServerComputer);
 
             this.srvServerConsulting.SaveOrUpdate(this.serverConsulting);
@@ -361,6 +371,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
             this.frmServerConsulting.uchkDetHaveBudget.Checked = false;
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = false;
+            this.frmServerConsulting.uchkDetDataBackup.Checked = false;
+            this.frmServerConsulting.uchkDetDataMigration.Checked = false;
             this.frmServerConsulting.uosDetHasServer.Value = null;
             this.frmServerConsulting.uosDetHaveSite.Value = null;
             this.frmServerConsulting.uosDetFirstServer.Value = null;
@@ -391,6 +403,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.uchkDetDataBackup.Checked = this.serverConsulting.DataBackup.Value;
+            this.frmServerConsulting.uchkDetDataMigration.Checked = this.serverConsulting.DataMigration.Value;
             this.frmServerConsulting.uchkDetHaveBudget.Checked = this.serverConsulting.Budget != null;
             this.frmServerConsulting.txtDetArrayDisks.Value = this.serverConsulting.ArrayDisks;
             this.frmServerConsulting.txtDetBrandPreference.Value = this.serverConsulting.BrandPreference;
@@ -409,6 +423,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
             this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerModel;
             this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerSpecs;
+            this.frmServerConsulting.txtDetOperativeSystem.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().OperativeSystem;
         }
 
         private void LoadServerConsultingSummary()
@@ -479,10 +494,12 @@ namespace Samsara.TIConsulting.Forms.Controllers
 Tipo:   {0}
 Marca:  {1}
 Modelo: {2}
-Especificaciones: {3}
+Sistema Operativo: {3}
+Especificaciones: {4}
                     ", serverConsultingOldServerComputer.ServerComputerType,
                      serverConsultingOldServerComputer.ServerComputerBrand,
                      serverConsultingOldServerComputer.ServerModel,
+                     serverConsultingOldServerComputer.OperativeSystem,
                      serverConsultingOldServerComputer.ServerSpecs).Trim();
             }
             else
@@ -615,6 +632,24 @@ Especificaciones: {3}
 
                 row["Data"] = "Tipo de Servidor Preferido";
                 row["Description"] = this.serverConsulting.ServerTypePreference;
+            }
+
+            if (this.serverConsulting.DataMigration != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = "Requiere Migración de Datos";
+                row["Description"] = this.serverConsulting.DataMigration.Value ? "Si" : "No";
+            }
+
+            if (this.serverConsulting.DataBackup != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = "Requiere Respaldo de Datos";
+                row["Description"] = this.serverConsulting.DataBackup.Value ? "Si" : "No";
             }
 
             dtSummary.AcceptChanges();
