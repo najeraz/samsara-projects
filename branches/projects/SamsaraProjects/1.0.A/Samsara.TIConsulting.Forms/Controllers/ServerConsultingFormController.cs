@@ -133,6 +133,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             ServerConsultingParameters pmtServerConsulting = new ServerConsultingParameters();
 
             pmtServerConsulting.OrganizationName = "%" + this.frmServerConsulting.txtSchOrganizationName.Value + "%";
+            pmtServerConsulting.Contact = "%" + this.frmServerConsulting.txtSchContact.Value + "%";
 
             this.frmServerConsulting.grdPrincipal.DataSource = null;
             this.frmServerConsulting.grdPrincipal.DataSource = this.srvServerConsulting.SearchByParameters(pmtServerConsulting);
@@ -205,6 +206,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
         public override void CreateEntity()
         {
             this.serverConsulting = new ServerConsulting();
+            this.serverConsulting.ServerConsultingOldServerComputers.Add(new ServerConsultingOldServerComputer());
         }
 
         public override void ReadOnlyDetailFields(bool readOnly)
@@ -240,6 +242,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uosDetHaveSite.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetHaveBudget.Enabled = !readOnly;
+            this.frmServerConsulting.txtDetContact.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetExtensionNumber.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()
@@ -258,6 +262,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.BrandPreference = (this.frmServerConsulting.txtDetBrandPreference.Value as string);
             this.serverConsulting.ServerTypePreference = (this.frmServerConsulting.txtDetServerTypePreference.Value as string);
             this.serverConsulting.ServerUsage = (this.frmServerConsulting.txtDetServerUsage.Value as string);
+            this.serverConsulting.Contact = (this.frmServerConsulting.txtDetContact.Value as string);
+            this.serverConsulting.ExtensionNumber = (this.frmServerConsulting.txtDetExtensionNumber.Value as string);
 
             this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
             this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
@@ -348,6 +354,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerUsage.Value = null;
             this.frmServerConsulting.txtDetNumberOfUsers.Value = null;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = null;
+            this.frmServerConsulting.txtDetContact.Value = null;
+            this.frmServerConsulting.txtDetExtensionNumber.Value = null;
 
             this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = false;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
@@ -378,7 +386,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
             this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
             this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
-            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
+            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer ?? false;
             this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
             this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
@@ -394,6 +402,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = this.serverConsulting.FutureNumberOfUsers;
             this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
+            this.frmServerConsulting.txtDetContact.Value = this.serverConsulting.Contact;
+            this.frmServerConsulting.txtDetExtensionNumber.Value = this.serverConsulting.ExtensionNumber;
 
             this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
             this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
