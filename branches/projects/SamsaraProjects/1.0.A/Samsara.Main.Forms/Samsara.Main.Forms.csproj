@@ -178,11 +178,15 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SchemeForm.cs" />
+    <Compile Include="Forms\SchemeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\SchemeForm.designer.cs">
       <DependentUpon>SchemeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserForm.cs" />
+    <Compile Include="Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\UserForm.designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
@@ -192,11 +196,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\SchemeSearchForm.cs" />
+    <Compile Include="Templates\SchemeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Templates\SchemeSearchForm.designer.cs">
       <DependentUpon>SchemeSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UserSearchForm.cs" />
+    <Compile Include="Templates\UserSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Templates\UserSearchForm.designer.cs">
       <DependentUpon>UserSearchForm.cs</DependentUpon>
     </Compile>
