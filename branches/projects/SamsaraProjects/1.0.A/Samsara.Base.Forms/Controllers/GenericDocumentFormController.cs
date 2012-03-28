@@ -175,8 +175,8 @@ namespace Samsara.Base.Forms.Controllers
             {
                 this.FormStatus = FormStatusEnum.Edition;
                 this.ClearDetailFields();
-                this.LoadDetail();
                 this.ReadOnlyDetailFields(false);
+                this.LoadDetail();
                 this.ProcessDetailButtons();
                 this.ShowDetail(true);
             }

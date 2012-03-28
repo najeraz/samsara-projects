@@ -57,6 +57,9 @@ namespace Samsara.TIConsulting.Forms.Forms
                     case "btnDetExportSummaryToExcel":
                         this.ctrlServerConsultingForm.ExportSummaryToExcel();
                         break;
+                    case "btnDetCopySummary":
+                        this.ctrlServerConsultingForm.SendSummaryToClipboard();
+                        break;
                     default:
                         break;
                 }
