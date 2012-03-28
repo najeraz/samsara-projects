@@ -142,6 +142,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
         public override void ClearSearchFields()
         {
             this.frmServerConsulting.txtSchOrganizationName.Value = null;
+            this.frmServerConsulting.txtSchContact.Value = null;
         }
 
         public override void ReturnSelectedEntity()
@@ -231,11 +232,10 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
             this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly
-                || FullServerUptimeRequired;
+                && FullServerUptimeRequired;
             this.frmServerConsulting.txtDetNumberOfUsers.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.ReadOnly = readOnly
                 || !this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly;
             this.frmServerConsulting.uosDetFirstServer.Enabled = !readOnly;
             this.frmServerConsulting.uosDetFullServerUptimeRequired.Enabled = !readOnly;
             this.frmServerConsulting.uosDetHasServer.Enabled = !readOnly;
@@ -263,7 +263,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.ServerTypePreference = (this.frmServerConsulting.txtDetServerTypePreference.Value as string);
             this.serverConsulting.ServerUsage = (this.frmServerConsulting.txtDetServerUsage.Value as string);
             this.serverConsulting.Contact = (this.frmServerConsulting.txtDetContact.Value as string);
-            this.serverConsulting.ExtensionNumber = (this.frmServerConsulting.txtDetExtensionNumber.Value as string);
+            this.serverConsulting.ExtensionNumber = this.frmServerConsulting.txtDetExtensionNumber.Value.ToString();
 
             this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
             this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
@@ -430,6 +430,15 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 row["Description"] = this.serverConsulting.OrganizationName;
             }
 
+            if (this.serverConsulting.Contact != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = "Contacto";
+                row["Description"] = this.serverConsulting.Contact;
+            }
+
             if (this.serverConsulting.Email != null)
             {
                 DataRow row = dtSummary.NewRow();
@@ -446,6 +455,15 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
                 row["Data"] = "Teléfono";
                 row["Description"] = this.serverConsulting.PhoneNumber;
+            }
+
+            if (this.serverConsulting.ExtensionNumber != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = "Extensión";
+                row["Description"] = this.serverConsulting.ExtensionNumber;
             }
 
             if (Convert.ToBoolean(this.serverConsulting.HasServer))
@@ -616,6 +634,14 @@ Especificaciones: {3}
             ExcelUtil.ExportToExcel(this.frmServerConsulting.grdDetSummary);
         }
 
+        internal void SendSummaryToClipboard()
+        {
+            this.frmServerConsulting.grdDetSummary.Selected.Rows.AddRange(
+                (UltraGridRow[])this.frmServerConsulting.grdDetSummary.Rows.All);
+
+            this.frmServerConsulting.grdDetSummary.PerformAction(UltraGridAction.Copy);
+        }
+
         #endregion Internal
 
         #endregion Methods
@@ -642,8 +668,11 @@ Especificaciones: {3}
             UltraGridBand band = layout.Bands[0];
 
             layout.Override.AllowUpdate = DefaultableBoolean.False;
+            layout.Override.AllowMultiCellOperations = AllowMultiCellOperation.CopyWithHeaders;
             layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+            
             band.Override.RowSizing = RowSizing.AutoFixed;
+            
             band.Columns["Description"].CellMultiLine = DefaultableBoolean.True;
         }
 

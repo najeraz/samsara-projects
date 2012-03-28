@@ -12,7 +12,7 @@ namespace Samsara.Base.Controls.Controls
         private static string phoneNumberMask = "(###)###-####";
         private static string integerMask = "-nnnnnnnnnnnn";
         private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
-        private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
+        private static string naturalQuantityMask = "nnnnnnnnnnnn";
         private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
         private static string percentageMask = "nnn.nn %";
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
