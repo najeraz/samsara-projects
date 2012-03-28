@@ -213,7 +213,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 || !FullServerUptimeRequired;
             this.frmServerConsulting.txtDetBrandPreference.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetBudget.ReadOnly = readOnly
-                || this.frmServerConsulting.uchkDetHaveBudget.Checked;
+                || !this.frmServerConsulting.uchkDetHaveBudget.Checked;
             this.frmServerConsulting.txtDetCurrentProblem.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetCurrentStorageVolume.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetEmail.ReadOnly = readOnly;
@@ -376,6 +376,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetOrganizationName.Value = this.serverConsulting.OrganizationName;
             this.frmServerConsulting.txtDetPhoneNumber.Value = this.serverConsulting.PhoneNumber;
 
+            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
+            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
+            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
+            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
+            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
+            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
+            this.frmServerConsulting.uchkDetHaveBudget.Checked = this.serverConsulting.Budget != null;
             this.frmServerConsulting.txtDetArrayDisks.Value = this.serverConsulting.ArrayDisks;
             this.frmServerConsulting.txtDetBrandPreference.Value = this.serverConsulting.BrandPreference;
             this.frmServerConsulting.txtDetBudget.Value = this.serverConsulting.Budget;
@@ -386,13 +394,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = this.serverConsulting.FutureNumberOfUsers;
             this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
-            this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.HasServer;
-            this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
-            this.frmServerConsulting.uosDetFirstServer.Value = this.serverConsulting.FirstServer;
-            this.frmServerConsulting.uosDetFullServerUptimeRequired.Value = this.serverConsulting.FullServerUptimeRequired;
-            this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
-            this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = this.serverConsulting.RedundantPowerSupply.Value;
-            this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = this.serverConsulting.NumberOfUsersWillGrow.Value;
 
             this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
             this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
