@@ -936,6 +936,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             this.frmTender.uosSchDates.Value = -1;
             this.frmTender.dteSchMaxDate.DateTime = DateTime.Now;
             this.frmTender.dteSchMinDate.DateTime = DateTime.Now;
+            this.frmTender.stwcSchDocumentTypeWarranty.Value = null;
         }
 
         private void ClearPreresultsControls()
