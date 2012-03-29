@@ -106,6 +106,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeFormControls()
         {
+            this.frmServerConsulting.uchkDetOtherServerComputerType.CheckedChanged
+                += new EventHandler(uchkDetOtherServerComputerType_CheckedChanged);
             this.frmServerConsulting.uchkDetHaveBudget.CheckedChanged
                 += new EventHandler(uchkDetHaveBudget_CheckedChanged);
             this.frmServerConsulting.uosDetHasServer.ValueChanged 
@@ -124,6 +126,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
             this.frmServerConsulting.grdDetSummary.DataSource = null;
             this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
+
+            this.frmServerConsulting.sctcDetServerComputerType.Refresh();
 
             this.frmServerConsulting.btnSchShowDetail.Text = "Resumen";
         }
@@ -228,7 +232,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerComputerType.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerModel.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerSpecs.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetServerComputerTypePreference.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetOtherServerComputerTypePreference.ReadOnly = readOnly
+                || !this.frmServerConsulting.uchkDetOtherServerComputerType.Checked;
             this.frmServerConsulting.sctcDetServerComputerType.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
             this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = !readOnly;
@@ -263,7 +268,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.CurrentProblem = (this.frmServerConsulting.txtDetCurrentProblem.Value as string);
             this.serverConsulting.ArrayDisks = (this.frmServerConsulting.txtDetArrayDisks.Value as string);
             this.serverConsulting.BrandPreference = (this.frmServerConsulting.txtDetBrandPreference.Value as string);
-            this.serverConsulting.ServerComputerTypePreference = (this.frmServerConsulting.txtDetServerComputerTypePreference.Value as string);
+            this.serverConsulting.OtherServerComputerTypePreference = (this.frmServerConsulting.txtDetOtherServerComputerTypePreference.Value as string);
             this.serverConsulting.ServerUsage = (this.frmServerConsulting.txtDetServerUsage.Value as string);
             this.serverConsulting.Contact = (this.frmServerConsulting.txtDetContact.Value as string);
             this.serverConsulting.ExtensionNumber = this.frmServerConsulting.txtDetExtensionNumber.Value.ToString();
@@ -362,8 +367,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerComputerType.Value = null;
             this.frmServerConsulting.txtDetServerModel.Value = null;
             this.frmServerConsulting.txtDetServerSpecs.Value = null;
-            this.frmServerConsulting.txtDetServerComputerTypePreference.Value = null;
-            this.frmServerConsulting.sctcDetServerComputerType.Value = null;
+            this.frmServerConsulting.txtDetOtherServerComputerTypePreference.Value = null;
             this.frmServerConsulting.txtDetServerUsage.Value = null;
             this.frmServerConsulting.txtDetNumberOfUsers.Value = null;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = null;
@@ -371,12 +375,16 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetExtensionNumber.Value = null;
             this.frmServerConsulting.txtDetOperativeSystem.Value = null;
 
+            this.frmServerConsulting.sctcDetServerComputerType.Value = null;
+
             this.frmServerConsulting.uchkDetFutureStorageVolume.Checked = false;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked = false;
             this.frmServerConsulting.uchkDetHaveBudget.Checked = false;
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked = false;
             this.frmServerConsulting.uchkDetDataBackup.Checked = false;
             this.frmServerConsulting.uchkDetDataMigration.Checked = false;
+            this.frmServerConsulting.uchkDetOtherServerComputerType.Checked = false;
+
             this.frmServerConsulting.uosDetHasServer.Value = null;
             this.frmServerConsulting.uosDetHaveSite.Value = null;
             this.frmServerConsulting.uosDetFirstServer.Value = null;
@@ -385,6 +393,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.uchkDetFutureStorageVolume_CheckedChanged(null, null);
             this.uchkDetHaveBudget_CheckedChanged(null, null);
             this.uchkDetNumberOfUsersWillGrow_CheckedChanged(null, null);
+            this.uchkDetOtherServerComputerType_CheckedChanged(null, null);
 
             this.uosDetHasServer_ValueChanged(null, null);
             this.uosDetFullServerUptimeRequired_ValueChanged(null, null);
@@ -416,7 +425,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetCurrentProblem.Value = this.serverConsulting.CurrentProblem;
             this.frmServerConsulting.txtDetCurrentStorageVolume.Value = this.serverConsulting.CurrentStorageVolume;
             this.frmServerConsulting.txtDetFutureStorageVolume.Value = this.serverConsulting.FutureStorageVolume;
-            this.frmServerConsulting.txtDetServerComputerTypePreference.Value = this.serverConsulting.ServerComputerTypePreference;
+            this.frmServerConsulting.txtDetOtherServerComputerTypePreference.Value = this.serverConsulting.OtherServerComputerTypePreference;
             this.frmServerConsulting.txtDetServerUsage.Value = this.serverConsulting.ServerUsage;
             this.frmServerConsulting.txtDetNumberOfUsersWillGrow.Value = this.serverConsulting.FutureNumberOfUsers;
             this.frmServerConsulting.txtDetNumberOfUsers.Value = this.serverConsulting.NumberOfUsers;
@@ -630,13 +639,22 @@ Especificaciones: {4}
                 row["Description"] = this.frmServerConsulting.uosDetHaveSite.Text;
             }
 
-            if (this.serverConsulting.ServerComputerTypePreference != null)
+            if (this.serverConsulting.ServerComputerType != null)
             {
                 DataRow row = dtSummary.NewRow();
                 dtSummary.Rows.Add(row);
 
                 row["Data"] = "Tipo de Servidor Preferido";
-                row["Description"] = this.serverConsulting.ServerComputerTypePreference;
+                row["Description"] = this.serverConsulting.ServerComputerType.Name;
+            }
+
+            if (this.serverConsulting.OtherServerComputerTypePreference != null)
+            {
+                DataRow row = dtSummary.NewRow();
+                dtSummary.Rows.Add(row);
+
+                row["Data"] = "Tipo de Servidor Preferido";
+                row["Description"] = this.serverConsulting.OtherServerComputerTypePreference;
             }
 
             if (this.serverConsulting.DataMigration != null)
@@ -739,6 +757,17 @@ Especificaciones: {4}
 
             this.frmServerConsulting.txtDetBudget.Value = null;
             this.frmServerConsulting.txtDetBudget.ReadOnly = !haveBudget;
+        }
+
+        private void uchkDetOtherServerComputerType_CheckedChanged(object sender, System.EventArgs e)
+        {
+            bool otherServerComputerType = this.frmServerConsulting.uchkDetOtherServerComputerType.Checked;
+
+            this.frmServerConsulting.txtDetOtherServerComputerTypePreference.Value = null;
+            this.frmServerConsulting.sctcDetServerComputerType.Value = null;
+
+            this.frmServerConsulting.sctcDetServerComputerType.ReadOnly = otherServerComputerType;
+            this.frmServerConsulting.txtDetOtherServerComputerTypePreference.ReadOnly = !otherServerComputerType;
         }
 
         #endregion Events
