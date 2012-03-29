@@ -17,8 +17,8 @@
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
-    <property name="CreatedOn"/>
-    <property name="UpdatedOn"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
     <property name="Activated"/>
     <property name="Deleted"/>
 
