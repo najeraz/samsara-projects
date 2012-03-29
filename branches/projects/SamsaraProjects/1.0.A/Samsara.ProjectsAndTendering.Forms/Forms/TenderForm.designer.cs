@@ -38,6 +38,18 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance152 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance153 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance154 = new Infragistics.Win.Appearance();
+            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
+            Samsara.ProjectsAndTendering.Core.Parameters.DocumentTypeWarrantyParameters documentTypeWarrantyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DocumentTypeWarrantyParameters();
+            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.Appearance appearance61 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance62 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance63 = new Infragistics.Win.Appearance();
@@ -179,22 +191,34 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             Infragistics.Win.Appearance appearance47 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance48 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TenderForm));
-            Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters dependencyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DependencyParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters bidderParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.BidderParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters asesorParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.AsesorParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters tenderStatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderStatusParameters();
-            Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters tenderSubstatusParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.TenderSubstatusParameters();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.Appearance appearance141 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.Appearance appearance140 = new Infragistics.Win.Appearance();
-            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem12 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem13 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem14 = new Infragistics.Win.ValueListItem();
-            Samsara.ProjectsAndTendering.Core.Parameters.DocumentTypeWarrantyParameters documentTypeWarrantyParameters1 = new Samsara.ProjectsAndTendering.Core.Parameters.DocumentTypeWarrantyParameters();
+            this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.pnlSchPrincipalSearchParameters = new System.Windows.Forms.Panel();
+            this.lblSchAsesor = new System.Windows.Forms.Label();
+            this.lblSchTenderName = new System.Windows.Forms.Label();
+            this.lblSchBidder = new System.Windows.Forms.Label();
+            this.acSchAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
+            this.lblSchDependency = new System.Windows.Forms.Label();
+            this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
+            this.txtSchTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
+            this.bcSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
+            this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
+            this.dcSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl();
+            this.lblSchTenderStatus = new System.Windows.Forms.Label();
+            this.ultraTabPageControl4 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.pnlSchOthersSearchParameters = new System.Windows.Forms.Panel();
+            this.stwcSchDocumentTypeWarranty = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DocumentTypeWarrantyChooserControl();
+            this.lblSchDocumentTypeWarranty = new System.Windows.Forms.Label();
+            this.ubgxSchFechas = new Infragistics.Win.Misc.UltraGroupBox();
+            this.dteSchMinDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
+            this.lblSchMinDate = new System.Windows.Forms.Label();
+            this.dteSchMaxDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
+            this.lblSchEndDate = new System.Windows.Forms.Label();
+            this.uosSchDates = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.tabDetDetail = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.upDetControls = new Infragistics.Win.Misc.UltraPanel();
@@ -341,36 +365,22 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upSeparatorCreateTenderFile = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnDetNewTenderFile = new Infragistics.Win.Misc.UltraButton();
             this.upSeparatorTenderFiles = new Infragistics.Win.Misc.UltraPanel();
-            this.txtSchTenderName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblSchDependency = new System.Windows.Forms.Label();
-            this.lblSchAsesor = new System.Windows.Forms.Label();
-            this.lblSchTenderName = new System.Windows.Forms.Label();
-            this.lblSchBidder = new System.Windows.Forms.Label();
-            this.lblSchTenderStatus = new System.Windows.Forms.Label();
-            this.dcSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl();
-            this.bcSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
-            this.acSchAsesor = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.AsesorChooserControl();
-            this.tscSchTenderStatus = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.TenderStatusChooserControl();
-            this.tscSchTenderSubstatus = new Samsara.ProjectsAndTendering.Controls.Controls.TenderSubstatusChooserControl();
-            this.lblSchTenderSubstatus = new System.Windows.Forms.Label();
             this.utabSchSearchParameters = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.ultraTabPageControl4 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.ubgxSchFechas = new Infragistics.Win.Misc.UltraGroupBox();
-            this.dteSchMinDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
-            this.lblSchMinDate = new System.Windows.Forms.Label();
-            this.dteSchMaxDate = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
-            this.lblSchEndDate = new System.Windows.Forms.Label();
-            this.uosSchDates = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
-            this.lblSchDocumentTypeWarranty = new System.Windows.Forms.Label();
-            this.stwcSchDocumentTypeWarranty = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DocumentTypeWarrantyChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).BeginInit();
+            this.ultraTabPageControl3.SuspendLayout();
+            this.pnlSchPrincipalSearchParameters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).BeginInit();
+            this.ultraTabPageControl4.SuspendLayout();
+            this.pnlSchOthersSearchParameters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).BeginInit();
+            this.ubgxSchFechas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).BeginInit();
             this.tabDetDetail.SuspendLayout();
             this.Principal.SuspendLayout();
             this.upDetControls.ClientArea.SuspendLayout();
@@ -481,24 +491,13 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upnlDetSeparatorDownloadTenderFile.SuspendLayout();
             this.upSeparatorCreateTenderFile.SuspendLayout();
             this.upSeparatorTenderFiles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabSchSearchParameters)).BeginInit();
             this.utabSchSearchParameters.SuspendLayout();
-            this.ultraTabPageControl3.SuspendLayout();
-            this.ultraTabPageControl4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).BeginInit();
-            this.ubgxSchFechas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDetCtgButtons
             // 
             this.pnlDetCtgButtons.Location = new System.Drawing.Point(3, 448);
-            this.pnlDetCtgButtons.Size = new System.Drawing.Size(829, 25);
             // 
             // gbxSearchParameters
             // 
@@ -598,6 +597,325 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             // tabPrincipal
             // 
             this.tabPrincipal.Size = new System.Drawing.Size(843, 502);
+            // 
+            // ultraTabPageControl3
+            // 
+            this.ultraTabPageControl3.Controls.Add(this.pnlSchPrincipalSearchParameters);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl3.Name = "ultraTabPageControl3";
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(819, 89);
+            // 
+            // pnlSchPrincipalSearchParameters
+            // 
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.lblSchAsesor);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.lblSchTenderName);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.lblSchBidder);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.acSchAsesor);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.lblSchDependency);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.tscSchTenderSubstatus);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.txtSchTenderName);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.tscSchTenderStatus);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.bcSchBidder);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.lblSchTenderSubstatus);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.dcSchDependency);
+            this.pnlSchPrincipalSearchParameters.Controls.Add(this.lblSchTenderStatus);
+            this.pnlSchPrincipalSearchParameters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSchPrincipalSearchParameters.Location = new System.Drawing.Point(0, 0);
+            this.pnlSchPrincipalSearchParameters.Name = "pnlSchPrincipalSearchParameters";
+            this.pnlSchPrincipalSearchParameters.Size = new System.Drawing.Size(819, 89);
+            this.pnlSchPrincipalSearchParameters.TabIndex = 99;
+            // 
+            // lblSchAsesor
+            // 
+            this.lblSchAsesor.AutoSize = true;
+            this.lblSchAsesor.Location = new System.Drawing.Point(377, 10);
+            this.lblSchAsesor.Name = "lblSchAsesor";
+            this.lblSchAsesor.Size = new System.Drawing.Size(42, 13);
+            this.lblSchAsesor.TabIndex = 62;
+            this.lblSchAsesor.Text = "Asesor:";
+            // 
+            // lblSchTenderName
+            // 
+            this.lblSchTenderName.AutoSize = true;
+            this.lblSchTenderName.Location = new System.Drawing.Point(3, 11);
+            this.lblSchTenderName.Name = "lblSchTenderName";
+            this.lblSchTenderName.Size = new System.Drawing.Size(121, 13);
+            this.lblSchTenderName.TabIndex = 63;
+            this.lblSchTenderName.Text = "Número de la Licitación:";
+            // 
+            // lblSchBidder
+            // 
+            this.lblSchBidder.AutoSize = true;
+            this.lblSchBidder.Location = new System.Drawing.Point(3, 38);
+            this.lblSchBidder.Name = "lblSchBidder";
+            this.lblSchBidder.Size = new System.Drawing.Size(50, 13);
+            this.lblSchBidder.TabIndex = 64;
+            this.lblSchBidder.Text = "Licitante:";
+            // 
+            // acSchAsesor
+            // 
+            this.acSchAsesor.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.acSchAsesor.CustomParent = null;
+            this.acSchAsesor.DisplayMember = "Name";
+            this.acSchAsesor.Location = new System.Drawing.Point(461, 7);
+            this.acSchAsesor.Name = "acSchAsesor";
+            asesorParameters1.CreatedBy = null;
+            asesorParameters1.CreatedOn = null;
+            asesorParameters1.FullName = null;
+            asesorParameters1.Name = null;
+            asesorParameters1.ShowAll = null;
+            asesorParameters1.ShowApprovers = null;
+            asesorParameters1.UpdatedBy = null;
+            asesorParameters1.UpdatedOn = null;
+            this.acSchAsesor.Parameters = asesorParameters1;
+            this.acSchAsesor.ReadOnly = false;
+            this.acSchAsesor.Size = new System.Drawing.Size(226, 22);
+            this.acSchAsesor.TabIndex = 89;
+            this.acSchAsesor.Value = null;
+            this.acSchAsesor.ValueMember = "AsesorId";
+            this.acSchAsesor.Values = null;
+            // 
+            // lblSchDependency
+            // 
+            this.lblSchDependency.AutoSize = true;
+            this.lblSchDependency.Location = new System.Drawing.Point(3, 66);
+            this.lblSchDependency.Name = "lblSchDependency";
+            this.lblSchDependency.Size = new System.Drawing.Size(74, 13);
+            this.lblSchDependency.TabIndex = 61;
+            this.lblSchDependency.Text = "Dependencia:";
+            // 
+            // tscSchTenderSubstatus
+            // 
+            this.tscSchTenderSubstatus.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.tscSchTenderSubstatus.CustomParent = null;
+            this.tscSchTenderSubstatus.DisplayMember = "Name";
+            this.tscSchTenderSubstatus.Location = new System.Drawing.Point(461, 63);
+            this.tscSchTenderSubstatus.Name = "tscSchTenderSubstatus";
+            tenderSubstatusParameters1.CreatedBy = null;
+            tenderSubstatusParameters1.CreatedOn = null;
+            tenderSubstatusParameters1.Name = null;
+            tenderSubstatusParameters1.UpdatedBy = null;
+            tenderSubstatusParameters1.UpdatedOn = null;
+            this.tscSchTenderSubstatus.Parameters = tenderSubstatusParameters1;
+            this.tscSchTenderSubstatus.ReadOnly = false;
+            this.tscSchTenderSubstatus.Size = new System.Drawing.Size(226, 22);
+            this.tscSchTenderSubstatus.TabIndex = 98;
+            this.tscSchTenderSubstatus.Value = null;
+            this.tscSchTenderSubstatus.ValueMember = "TenderSubstatusId";
+            this.tscSchTenderSubstatus.Values = null;
+            // 
+            // txtSchTenderName
+            // 
+            this.txtSchTenderName.Location = new System.Drawing.Point(134, 7);
+            this.txtSchTenderName.Name = "txtSchTenderName";
+            this.txtSchTenderName.Size = new System.Drawing.Size(226, 21);
+            this.txtSchTenderName.TabIndex = 6;
+            // 
+            // tscSchTenderStatus
+            // 
+            this.tscSchTenderStatus.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.tscSchTenderStatus.CustomParent = null;
+            this.tscSchTenderStatus.DisplayMember = "Name";
+            this.tscSchTenderStatus.Location = new System.Drawing.Point(461, 35);
+            this.tscSchTenderStatus.Name = "tscSchTenderStatus";
+            tenderStatusParameters1.CreatedBy = null;
+            tenderStatusParameters1.CreatedOn = null;
+            tenderStatusParameters1.Name = null;
+            tenderStatusParameters1.UpdatedBy = null;
+            tenderStatusParameters1.UpdatedOn = null;
+            this.tscSchTenderStatus.Parameters = tenderStatusParameters1;
+            this.tscSchTenderStatus.ReadOnly = false;
+            this.tscSchTenderStatus.Size = new System.Drawing.Size(226, 22);
+            this.tscSchTenderStatus.TabIndex = 90;
+            this.tscSchTenderStatus.Value = null;
+            this.tscSchTenderStatus.ValueMember = "TenderStatusId";
+            this.tscSchTenderStatus.Values = null;
+            // 
+            // bcSchBidder
+            // 
+            this.bcSchBidder.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.bcSchBidder.CustomParent = null;
+            this.bcSchBidder.DisplayMember = "Name";
+            this.bcSchBidder.Location = new System.Drawing.Point(134, 34);
+            this.bcSchBidder.Name = "bcSchBidder";
+            bidderParameters1.BidderId = null;
+            bidderParameters1.BidderTypeId = null;
+            bidderParameters1.CreatedBy = null;
+            bidderParameters1.CreatedOn = null;
+            bidderParameters1.Name = null;
+            bidderParameters1.UpdatedBy = null;
+            bidderParameters1.UpdatedOn = null;
+            this.bcSchBidder.Parameters = bidderParameters1;
+            this.bcSchBidder.ReadOnly = false;
+            this.bcSchBidder.Size = new System.Drawing.Size(226, 22);
+            this.bcSchBidder.TabIndex = 86;
+            this.bcSchBidder.Value = null;
+            this.bcSchBidder.ValueMember = "BidderId";
+            this.bcSchBidder.Values = null;
+            // 
+            // lblSchTenderSubstatus
+            // 
+            this.lblSchTenderSubstatus.AutoSize = true;
+            this.lblSchTenderSubstatus.Location = new System.Drawing.Point(377, 66);
+            this.lblSchTenderSubstatus.Name = "lblSchTenderSubstatus";
+            this.lblSchTenderSubstatus.Size = new System.Drawing.Size(63, 13);
+            this.lblSchTenderSubstatus.TabIndex = 97;
+            this.lblSchTenderSubstatus.Text = "Subestatus:";
+            // 
+            // dcSchDependency
+            // 
+            this.dcSchDependency.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.dcSchDependency.CustomParent = null;
+            this.dcSchDependency.DisplayMember = "Name";
+            this.dcSchDependency.Location = new System.Drawing.Point(134, 62);
+            this.dcSchDependency.Name = "dcSchDependency";
+            dependencyParameters1.BidderId = null;
+            dependencyParameters1.CreatedBy = null;
+            dependencyParameters1.CreatedOn = null;
+            dependencyParameters1.Name = null;
+            dependencyParameters1.UpdatedBy = null;
+            dependencyParameters1.UpdatedOn = null;
+            this.dcSchDependency.Parameters = dependencyParameters1;
+            this.dcSchDependency.ReadOnly = false;
+            this.dcSchDependency.Size = new System.Drawing.Size(226, 22);
+            this.dcSchDependency.TabIndex = 87;
+            this.dcSchDependency.Value = null;
+            this.dcSchDependency.ValueMember = "DependencyId";
+            this.dcSchDependency.Values = null;
+            // 
+            // lblSchTenderStatus
+            // 
+            this.lblSchTenderStatus.AutoSize = true;
+            this.lblSchTenderStatus.Location = new System.Drawing.Point(377, 38);
+            this.lblSchTenderStatus.Name = "lblSchTenderStatus";
+            this.lblSchTenderStatus.Size = new System.Drawing.Size(45, 13);
+            this.lblSchTenderStatus.TabIndex = 66;
+            this.lblSchTenderStatus.Text = "Estatus:";
+            // 
+            // ultraTabPageControl4
+            // 
+            this.ultraTabPageControl4.Controls.Add(this.pnlSchOthersSearchParameters);
+            this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl4.Name = "ultraTabPageControl4";
+            this.ultraTabPageControl4.Size = new System.Drawing.Size(819, 89);
+            // 
+            // pnlSchOthersSearchParameters
+            // 
+            this.pnlSchOthersSearchParameters.Controls.Add(this.stwcSchDocumentTypeWarranty);
+            this.pnlSchOthersSearchParameters.Controls.Add(this.lblSchDocumentTypeWarranty);
+            this.pnlSchOthersSearchParameters.Controls.Add(this.ubgxSchFechas);
+            this.pnlSchOthersSearchParameters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSchOthersSearchParameters.Location = new System.Drawing.Point(0, 0);
+            this.pnlSchOthersSearchParameters.Name = "pnlSchOthersSearchParameters";
+            this.pnlSchOthersSearchParameters.Size = new System.Drawing.Size(819, 89);
+            this.pnlSchOthersSearchParameters.TabIndex = 72;
+            // 
+            // stwcSchDocumentTypeWarranty
+            // 
+            this.stwcSchDocumentTypeWarranty.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.stwcSchDocumentTypeWarranty.CustomParent = null;
+            this.stwcSchDocumentTypeWarranty.DisplayMember = "Name";
+            this.stwcSchDocumentTypeWarranty.Location = new System.Drawing.Point(132, 7);
+            this.stwcSchDocumentTypeWarranty.Name = "stwcSchDocumentTypeWarranty";
+            documentTypeWarrantyParameters1.CreatedBy = null;
+            documentTypeWarrantyParameters1.CreatedOn = null;
+            documentTypeWarrantyParameters1.Name = null;
+            documentTypeWarrantyParameters1.UpdatedBy = null;
+            documentTypeWarrantyParameters1.UpdatedOn = null;
+            this.stwcSchDocumentTypeWarranty.Parameters = documentTypeWarrantyParameters1;
+            this.stwcSchDocumentTypeWarranty.ReadOnly = false;
+            this.stwcSchDocumentTypeWarranty.Size = new System.Drawing.Size(226, 22);
+            this.stwcSchDocumentTypeWarranty.TabIndex = 74;
+            this.stwcSchDocumentTypeWarranty.Value = null;
+            this.stwcSchDocumentTypeWarranty.ValueMember = "DocumentTypeWarrantyId";
+            this.stwcSchDocumentTypeWarranty.Values = null;
+            // 
+            // lblSchDocumentTypeWarranty
+            // 
+            this.lblSchDocumentTypeWarranty.AutoSize = true;
+            this.lblSchDocumentTypeWarranty.Location = new System.Drawing.Point(3, 11);
+            this.lblSchDocumentTypeWarranty.Name = "lblSchDocumentTypeWarranty";
+            this.lblSchDocumentTypeWarranty.Size = new System.Drawing.Size(123, 13);
+            this.lblSchDocumentTypeWarranty.TabIndex = 73;
+            this.lblSchDocumentTypeWarranty.Text = "Tipo Documento Fianza:";
+            // 
+            // ubgxSchFechas
+            // 
+            this.ubgxSchFechas.Controls.Add(this.dteSchMinDate);
+            this.ubgxSchFechas.Controls.Add(this.lblSchMinDate);
+            this.ubgxSchFechas.Controls.Add(this.dteSchMaxDate);
+            this.ubgxSchFechas.Controls.Add(this.lblSchEndDate);
+            this.ubgxSchFechas.Controls.Add(this.uosSchDates);
+            this.ubgxSchFechas.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ubgxSchFechas.Location = new System.Drawing.Point(370, 0);
+            this.ubgxSchFechas.Name = "ubgxSchFechas";
+            this.ubgxSchFechas.Size = new System.Drawing.Size(449, 89);
+            this.ubgxSchFechas.TabIndex = 72;
+            this.ubgxSchFechas.Text = "Rango de Fechas:";
+            // 
+            // dteSchMinDate
+            // 
+            this.dteSchMinDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
+            this.dteSchMinDate.Location = new System.Drawing.Point(317, 31);
+            this.dteSchMinDate.Name = "dteSchMinDate";
+            this.dteSchMinDate.Size = new System.Drawing.Size(122, 21);
+            this.dteSchMinDate.TabIndex = 1;
+            this.dteSchMinDate.Value = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
+            // 
+            // lblSchMinDate
+            // 
+            this.lblSchMinDate.AutoSize = true;
+            this.lblSchMinDate.Location = new System.Drawing.Point(264, 35);
+            this.lblSchMinDate.Name = "lblSchMinDate";
+            this.lblSchMinDate.Size = new System.Drawing.Size(35, 13);
+            this.lblSchMinDate.TabIndex = 70;
+            this.lblSchMinDate.Text = "Inicio:";
+            // 
+            // dteSchMaxDate
+            // 
+            this.dteSchMaxDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
+            this.dteSchMaxDate.Location = new System.Drawing.Point(317, 57);
+            this.dteSchMaxDate.Name = "dteSchMaxDate";
+            this.dteSchMaxDate.Size = new System.Drawing.Size(122, 21);
+            this.dteSchMaxDate.TabIndex = 2;
+            this.dteSchMaxDate.Value = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
+            // 
+            // lblSchEndDate
+            // 
+            this.lblSchEndDate.AutoSize = true;
+            this.lblSchEndDate.Location = new System.Drawing.Point(265, 61);
+            this.lblSchEndDate.Name = "lblSchEndDate";
+            this.lblSchEndDate.Size = new System.Drawing.Size(24, 13);
+            this.lblSchEndDate.TabIndex = 69;
+            this.lblSchEndDate.Text = "Fin:";
+            // 
+            // uosSchDates
+            // 
+            this.uosSchDates.Dock = System.Windows.Forms.DockStyle.Left;
+            valueListItem9.DataValue = -1;
+            valueListItem9.DisplayText = "Ninguno";
+            valueListItem10.CheckState = System.Windows.Forms.CheckState.Checked;
+            valueListItem10.DataValue = 1;
+            valueListItem10.DisplayText = "Fecha de registro";
+            valueListItem11.DataValue = 2;
+            valueListItem11.DisplayText = "Fecha de entrega";
+            valueListItem12.DataValue = 3;
+            valueListItem12.DisplayText = "Fecha de fallo";
+            valueListItem13.DataValue = 4;
+            valueListItem13.DisplayText = "Fecha de aclaraciones";
+            valueListItem14.DataValue = 5;
+            valueListItem14.DisplayText = "Fecha de prerevisión";
+            this.uosSchDates.Items.AddRange(new Infragistics.Win.ValueListItem[] {
+            valueListItem9,
+            valueListItem10,
+            valueListItem11,
+            valueListItem12,
+            valueListItem13,
+            valueListItem14});
+            this.uosSchDates.Location = new System.Drawing.Point(3, 16);
+            this.uosSchDates.Name = "uosSchDates";
+            this.uosSchDates.Size = new System.Drawing.Size(254, 70);
+            this.uosSchDates.TabIndex = 0;
             // 
             // tabDetDetail
             // 
@@ -2743,173 +3061,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upSeparatorTenderFiles.Size = new System.Drawing.Size(16, 25);
             this.upSeparatorTenderFiles.TabIndex = 11;
             // 
-            // txtSchTenderName
-            // 
-            this.txtSchTenderName.Location = new System.Drawing.Point(134, 7);
-            this.txtSchTenderName.Name = "txtSchTenderName";
-            this.txtSchTenderName.Size = new System.Drawing.Size(226, 21);
-            this.txtSchTenderName.TabIndex = 6;
-            // 
-            // lblSchDependency
-            // 
-            this.lblSchDependency.AutoSize = true;
-            this.lblSchDependency.Location = new System.Drawing.Point(3, 66);
-            this.lblSchDependency.Name = "lblSchDependency";
-            this.lblSchDependency.Size = new System.Drawing.Size(74, 13);
-            this.lblSchDependency.TabIndex = 61;
-            this.lblSchDependency.Text = "Dependencia:";
-            // 
-            // lblSchAsesor
-            // 
-            this.lblSchAsesor.AutoSize = true;
-            this.lblSchAsesor.Location = new System.Drawing.Point(377, 10);
-            this.lblSchAsesor.Name = "lblSchAsesor";
-            this.lblSchAsesor.Size = new System.Drawing.Size(42, 13);
-            this.lblSchAsesor.TabIndex = 62;
-            this.lblSchAsesor.Text = "Asesor:";
-            // 
-            // lblSchTenderName
-            // 
-            this.lblSchTenderName.AutoSize = true;
-            this.lblSchTenderName.Location = new System.Drawing.Point(3, 11);
-            this.lblSchTenderName.Name = "lblSchTenderName";
-            this.lblSchTenderName.Size = new System.Drawing.Size(121, 13);
-            this.lblSchTenderName.TabIndex = 63;
-            this.lblSchTenderName.Text = "Número de la Licitación:";
-            // 
-            // lblSchBidder
-            // 
-            this.lblSchBidder.AutoSize = true;
-            this.lblSchBidder.Location = new System.Drawing.Point(3, 38);
-            this.lblSchBidder.Name = "lblSchBidder";
-            this.lblSchBidder.Size = new System.Drawing.Size(50, 13);
-            this.lblSchBidder.TabIndex = 64;
-            this.lblSchBidder.Text = "Licitante:";
-            // 
-            // lblSchTenderStatus
-            // 
-            this.lblSchTenderStatus.AutoSize = true;
-            this.lblSchTenderStatus.Location = new System.Drawing.Point(377, 38);
-            this.lblSchTenderStatus.Name = "lblSchTenderStatus";
-            this.lblSchTenderStatus.Size = new System.Drawing.Size(45, 13);
-            this.lblSchTenderStatus.TabIndex = 66;
-            this.lblSchTenderStatus.Text = "Estatus:";
-            // 
-            // dcSchDependency
-            // 
-            this.dcSchDependency.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.dcSchDependency.CustomParent = null;
-            this.dcSchDependency.DisplayMember = "Name";
-            this.dcSchDependency.Location = new System.Drawing.Point(134, 62);
-            this.dcSchDependency.Name = "dcSchDependency";
-            dependencyParameters1.BidderId = null;
-            dependencyParameters1.CreatedBy = null;
-            dependencyParameters1.CreatedOn = null;
-            dependencyParameters1.Name = null;
-            dependencyParameters1.UpdatedBy = null;
-            dependencyParameters1.UpdatedOn = null;
-            this.dcSchDependency.Parameters = dependencyParameters1;
-            this.dcSchDependency.ReadOnly = false;
-            this.dcSchDependency.Size = new System.Drawing.Size(226, 22);
-            this.dcSchDependency.TabIndex = 87;
-            this.dcSchDependency.Value = null;
-            this.dcSchDependency.ValueMember = "DependencyId";
-            this.dcSchDependency.Values = null;
-            // 
-            // bcSchBidder
-            // 
-            this.bcSchBidder.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.bcSchBidder.CustomParent = null;
-            this.bcSchBidder.DisplayMember = "Name";
-            this.bcSchBidder.Location = new System.Drawing.Point(134, 34);
-            this.bcSchBidder.Name = "bcSchBidder";
-            bidderParameters1.BidderId = null;
-            bidderParameters1.BidderTypeId = null;
-            bidderParameters1.CreatedBy = null;
-            bidderParameters1.CreatedOn = null;
-            bidderParameters1.Name = null;
-            bidderParameters1.UpdatedBy = null;
-            bidderParameters1.UpdatedOn = null;
-            this.bcSchBidder.Parameters = bidderParameters1;
-            this.bcSchBidder.ReadOnly = false;
-            this.bcSchBidder.Size = new System.Drawing.Size(226, 22);
-            this.bcSchBidder.TabIndex = 86;
-            this.bcSchBidder.Value = null;
-            this.bcSchBidder.ValueMember = "BidderId";
-            this.bcSchBidder.Values = null;
-            // 
-            // acSchAsesor
-            // 
-            this.acSchAsesor.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.acSchAsesor.CustomParent = null;
-            this.acSchAsesor.DisplayMember = "Name";
-            this.acSchAsesor.Location = new System.Drawing.Point(461, 7);
-            this.acSchAsesor.Name = "acSchAsesor";
-            asesorParameters1.CreatedBy = null;
-            asesorParameters1.CreatedOn = null;
-            asesorParameters1.FullName = null;
-            asesorParameters1.Name = null;
-            asesorParameters1.ShowAll = null;
-            asesorParameters1.ShowApprovers = null;
-            asesorParameters1.UpdatedBy = null;
-            asesorParameters1.UpdatedOn = null;
-            this.acSchAsesor.Parameters = asesorParameters1;
-            this.acSchAsesor.ReadOnly = false;
-            this.acSchAsesor.Size = new System.Drawing.Size(226, 22);
-            this.acSchAsesor.TabIndex = 89;
-            this.acSchAsesor.Value = null;
-            this.acSchAsesor.ValueMember = "AsesorId";
-            this.acSchAsesor.Values = null;
-            // 
-            // tscSchTenderStatus
-            // 
-            this.tscSchTenderStatus.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.tscSchTenderStatus.CustomParent = null;
-            this.tscSchTenderStatus.DisplayMember = "Name";
-            this.tscSchTenderStatus.Location = new System.Drawing.Point(461, 35);
-            this.tscSchTenderStatus.Name = "tscSchTenderStatus";
-            tenderStatusParameters1.CreatedBy = null;
-            tenderStatusParameters1.CreatedOn = null;
-            tenderStatusParameters1.Name = null;
-            tenderStatusParameters1.UpdatedBy = null;
-            tenderStatusParameters1.UpdatedOn = null;
-            this.tscSchTenderStatus.Parameters = tenderStatusParameters1;
-            this.tscSchTenderStatus.ReadOnly = false;
-            this.tscSchTenderStatus.Size = new System.Drawing.Size(226, 22);
-            this.tscSchTenderStatus.TabIndex = 90;
-            this.tscSchTenderStatus.Value = null;
-            this.tscSchTenderStatus.ValueMember = "TenderStatusId";
-            this.tscSchTenderStatus.Values = null;
-            // 
-            // tscSchTenderSubstatus
-            // 
-            this.tscSchTenderSubstatus.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.tscSchTenderSubstatus.CustomParent = null;
-            this.tscSchTenderSubstatus.DisplayMember = "Name";
-            this.tscSchTenderSubstatus.Location = new System.Drawing.Point(461, 63);
-            this.tscSchTenderSubstatus.Name = "tscSchTenderSubstatus";
-            tenderSubstatusParameters1.CreatedBy = null;
-            tenderSubstatusParameters1.CreatedOn = null;
-            tenderSubstatusParameters1.Name = null;
-            tenderSubstatusParameters1.UpdatedBy = null;
-            tenderSubstatusParameters1.UpdatedOn = null;
-            this.tscSchTenderSubstatus.Parameters = tenderSubstatusParameters1;
-            this.tscSchTenderSubstatus.ReadOnly = false;
-            this.tscSchTenderSubstatus.Size = new System.Drawing.Size(226, 22);
-            this.tscSchTenderSubstatus.TabIndex = 98;
-            this.tscSchTenderSubstatus.Value = null;
-            this.tscSchTenderSubstatus.ValueMember = "TenderSubstatusId";
-            this.tscSchTenderSubstatus.Values = null;
-            // 
-            // lblSchTenderSubstatus
-            // 
-            this.lblSchTenderSubstatus.AutoSize = true;
-            this.lblSchTenderSubstatus.Location = new System.Drawing.Point(377, 66);
-            this.lblSchTenderSubstatus.Name = "lblSchTenderSubstatus";
-            this.lblSchTenderSubstatus.Size = new System.Drawing.Size(63, 13);
-            this.lblSchTenderSubstatus.TabIndex = 97;
-            this.lblSchTenderSubstatus.Text = "Subestatus:";
-            // 
             // utabSchSearchParameters
             // 
             this.utabSchSearchParameters.Controls.Add(this.ultraTabSharedControlsPage1);
@@ -2941,158 +3092,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
             this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(819, 89);
             // 
-            // ultraTabPageControl3
-            // 
-            this.ultraTabPageControl3.Controls.Add(this.panel1);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabPageControl3.Name = "ultraTabPageControl3";
-            this.ultraTabPageControl3.Size = new System.Drawing.Size(819, 89);
-            // 
-            // ultraTabPageControl4
-            // 
-            this.ultraTabPageControl4.Controls.Add(this.panel2);
-            this.ultraTabPageControl4.Location = new System.Drawing.Point(1, 23);
-            this.ultraTabPageControl4.Name = "ultraTabPageControl4";
-            this.ultraTabPageControl4.Size = new System.Drawing.Size(819, 89);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lblSchAsesor);
-            this.panel1.Controls.Add(this.lblSchTenderName);
-            this.panel1.Controls.Add(this.lblSchBidder);
-            this.panel1.Controls.Add(this.acSchAsesor);
-            this.panel1.Controls.Add(this.lblSchDependency);
-            this.panel1.Controls.Add(this.tscSchTenderSubstatus);
-            this.panel1.Controls.Add(this.txtSchTenderName);
-            this.panel1.Controls.Add(this.tscSchTenderStatus);
-            this.panel1.Controls.Add(this.bcSchBidder);
-            this.panel1.Controls.Add(this.lblSchTenderSubstatus);
-            this.panel1.Controls.Add(this.dcSchDependency);
-            this.panel1.Controls.Add(this.lblSchTenderStatus);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(819, 89);
-            this.panel1.TabIndex = 99;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.stwcSchDocumentTypeWarranty);
-            this.panel2.Controls.Add(this.lblSchDocumentTypeWarranty);
-            this.panel2.Controls.Add(this.ubgxSchFechas);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(819, 89);
-            this.panel2.TabIndex = 72;
-            // 
-            // ubgxSchFechas
-            // 
-            this.ubgxSchFechas.Controls.Add(this.dteSchMinDate);
-            this.ubgxSchFechas.Controls.Add(this.lblSchMinDate);
-            this.ubgxSchFechas.Controls.Add(this.dteSchMaxDate);
-            this.ubgxSchFechas.Controls.Add(this.lblSchEndDate);
-            this.ubgxSchFechas.Controls.Add(this.uosSchDates);
-            this.ubgxSchFechas.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ubgxSchFechas.Location = new System.Drawing.Point(370, 0);
-            this.ubgxSchFechas.Name = "ubgxSchFechas";
-            this.ubgxSchFechas.Size = new System.Drawing.Size(449, 89);
-            this.ubgxSchFechas.TabIndex = 72;
-            this.ubgxSchFechas.Text = "Rango de Fechas:";
-            // 
-            // dteSchMinDate
-            // 
-            this.dteSchMinDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteSchMinDate.Location = new System.Drawing.Point(317, 31);
-            this.dteSchMinDate.Name = "dteSchMinDate";
-            this.dteSchMinDate.Size = new System.Drawing.Size(122, 21);
-            this.dteSchMinDate.TabIndex = 1;
-            this.dteSchMinDate.Value = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            // 
-            // lblSchMinDate
-            // 
-            this.lblSchMinDate.AutoSize = true;
-            this.lblSchMinDate.Location = new System.Drawing.Point(264, 35);
-            this.lblSchMinDate.Name = "lblSchMinDate";
-            this.lblSchMinDate.Size = new System.Drawing.Size(35, 13);
-            this.lblSchMinDate.TabIndex = 70;
-            this.lblSchMinDate.Text = "Inicio:";
-            // 
-            // dteSchMaxDate
-            // 
-            this.dteSchMaxDate.DateTime = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            this.dteSchMaxDate.Location = new System.Drawing.Point(317, 57);
-            this.dteSchMaxDate.Name = "dteSchMaxDate";
-            this.dteSchMaxDate.Size = new System.Drawing.Size(122, 21);
-            this.dteSchMaxDate.TabIndex = 2;
-            this.dteSchMaxDate.Value = new System.DateTime(2011, 7, 20, 0, 0, 0, 0);
-            // 
-            // lblSchEndDate
-            // 
-            this.lblSchEndDate.AutoSize = true;
-            this.lblSchEndDate.Location = new System.Drawing.Point(265, 61);
-            this.lblSchEndDate.Name = "lblSchEndDate";
-            this.lblSchEndDate.Size = new System.Drawing.Size(24, 13);
-            this.lblSchEndDate.TabIndex = 69;
-            this.lblSchEndDate.Text = "Fin:";
-            // 
-            // uosSchDates
-            // 
-            this.uosSchDates.Dock = System.Windows.Forms.DockStyle.Left;
-            valueListItem9.DataValue = -1;
-            valueListItem9.DisplayText = "Ninguno";
-            valueListItem10.CheckState = System.Windows.Forms.CheckState.Checked;
-            valueListItem10.DataValue = 1;
-            valueListItem10.DisplayText = "Fecha de registro";
-            valueListItem11.DataValue = 2;
-            valueListItem11.DisplayText = "Fecha de entrega";
-            valueListItem12.DataValue = 3;
-            valueListItem12.DisplayText = "Fecha de fallo";
-            valueListItem13.DataValue = 4;
-            valueListItem13.DisplayText = "Fecha de aclaraciones";
-            valueListItem14.DataValue = 5;
-            valueListItem14.DisplayText = "Fecha de prerevisión";
-            this.uosSchDates.Items.AddRange(new Infragistics.Win.ValueListItem[] {
-            valueListItem9,
-            valueListItem10,
-            valueListItem11,
-            valueListItem12,
-            valueListItem13,
-            valueListItem14});
-            this.uosSchDates.Location = new System.Drawing.Point(3, 16);
-            this.uosSchDates.Name = "uosSchDates";
-            this.uosSchDates.Size = new System.Drawing.Size(254, 70);
-            this.uosSchDates.TabIndex = 0;
-            // 
-            // lblSchDocumentTypeWarranty
-            // 
-            this.lblSchDocumentTypeWarranty.AutoSize = true;
-            this.lblSchDocumentTypeWarranty.Location = new System.Drawing.Point(3, 11);
-            this.lblSchDocumentTypeWarranty.Name = "lblSchDocumentTypeWarranty";
-            this.lblSchDocumentTypeWarranty.Size = new System.Drawing.Size(123, 13);
-            this.lblSchDocumentTypeWarranty.TabIndex = 73;
-            this.lblSchDocumentTypeWarranty.Text = "Tipo Documento Fianza:";
-            // 
-            // stwcSchDocumentTypeWarranty
-            // 
-            this.stwcSchDocumentTypeWarranty.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.stwcSchDocumentTypeWarranty.CustomParent = null;
-            this.stwcSchDocumentTypeWarranty.DisplayMember = "Name";
-            this.stwcSchDocumentTypeWarranty.Location = new System.Drawing.Point(132, 7);
-            this.stwcSchDocumentTypeWarranty.Name = "stwcSchDocumentTypeWarranty";
-            documentTypeWarrantyParameters1.CreatedBy = null;
-            documentTypeWarrantyParameters1.CreatedOn = null;
-            documentTypeWarrantyParameters1.Name = null;
-            documentTypeWarrantyParameters1.UpdatedBy = null;
-            documentTypeWarrantyParameters1.UpdatedOn = null;
-            this.stwcSchDocumentTypeWarranty.Parameters = documentTypeWarrantyParameters1;
-            this.stwcSchDocumentTypeWarranty.ReadOnly = false;
-            this.stwcSchDocumentTypeWarranty.Size = new System.Drawing.Size(226, 22);
-            this.stwcSchDocumentTypeWarranty.TabIndex = 74;
-            this.stwcSchDocumentTypeWarranty.Value = null;
-            this.stwcSchDocumentTypeWarranty.ValueMember = "DocumentTypeWarrantyId";
-            this.stwcSchDocumentTypeWarranty.Values = null;
-            // 
             // TenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3105,6 +3104,19 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.gbxSearchParameters.ResumeLayout(false);
             this.gbxDetDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdSchSearch)).EndInit();
+            this.ultraTabPageControl3.ResumeLayout(false);
+            this.pnlSchPrincipalSearchParameters.ResumeLayout(false);
+            this.pnlSchPrincipalSearchParameters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).EndInit();
+            this.ultraTabPageControl4.ResumeLayout(false);
+            this.pnlSchOthersSearchParameters.ResumeLayout(false);
+            this.pnlSchOthersSearchParameters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).EndInit();
+            this.ubgxSchFechas.ResumeLayout(false);
+            this.ubgxSchFechas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).EndInit();
             this.tabDetDetail.ResumeLayout(false);
             this.Principal.ResumeLayout(false);
             this.upDetControls.ClientArea.ResumeLayout(false);
@@ -3228,21 +3240,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.upnlDetSeparatorDownloadTenderFile.ResumeLayout(false);
             this.upSeparatorCreateTenderFile.ResumeLayout(false);
             this.upSeparatorTenderFiles.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSchTenderName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabSchSearchParameters)).EndInit();
             this.utabSchSearchParameters.ResumeLayout(false);
-            this.ultraTabPageControl3.ResumeLayout(false);
-            this.ultraTabPageControl4.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ubgxSchFechas)).EndInit();
-            this.ubgxSchFechas.ResumeLayout(false);
-            this.ubgxSchFechas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteSchMinDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteSchMaxDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uosSchDates)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3410,9 +3409,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
         private Infragistics.Win.UltraWinTabControl.UltraTabControl utabSchSearchParameters;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage1;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSchPrincipalSearchParameters;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl4;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlSchOthersSearchParameters;
         internal Controls.Controls.Choosers.DocumentTypeWarrantyChooserControl stwcSchDocumentTypeWarranty;
         private System.Windows.Forms.Label lblSchDocumentTypeWarranty;
         private Infragistics.Win.Misc.UltraGroupBox ubgxSchFechas;
