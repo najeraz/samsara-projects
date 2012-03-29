@@ -3,6 +3,7 @@ using System;
 using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.TIConsulting.Core.Entities
 {
@@ -154,7 +155,13 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual string ServerTypePreference
+        public virtual string ServerComputerTypePreference
+        {
+            get;
+            set;
+        }
+
+        public virtual ServerComputerType ServerComputerType
         {
             get;
             set;
