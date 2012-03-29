@@ -131,6 +131,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
         private void InitializeFormControls()
         {
+            //DocumentTypeWarranty
+            this.frmTender.stwcSchDocumentTypeWarranty.Refresh();
+
             // Asesor
             AsesorParameters pmtAsesor = new AsesorParameters();
 
