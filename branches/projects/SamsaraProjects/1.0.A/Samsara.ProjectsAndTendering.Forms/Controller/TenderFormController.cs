@@ -1192,15 +1192,17 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtTender.MinDate = (DateTime)this.frmTender.dteSchMinDate.Value;
             pmtTender.MaxDate = (DateTime)this.frmTender.dteSchMaxDate.Value;
             pmtTender.AsesorId = this.frmTender.acSchAsesor.Value == null ?
-                -1 : this.frmTender.acSchAsesor.Value.AsesorId;
+                ParameterConstants.IntDefault : this.frmTender.acSchAsesor.Value.AsesorId;
             pmtTender.BidderId = this.frmTender.bcSchBidder.Value == null ?
-                -1 : this.frmTender.bcSchBidder.Value.BidderId;
+                ParameterConstants.IntDefault : this.frmTender.bcSchBidder.Value.BidderId;
             pmtTender.DependencyId = this.frmTender.dcSchDependency.Value == null ?
-                -1 : this.frmTender.dcSchDependency.Value.DependencyId;
+                ParameterConstants.IntDefault : this.frmTender.dcSchDependency.Value.DependencyId;
             pmtTender.TenderStatusId = this.frmTender.tscSchTenderStatus.Value == null ?
-                -1 : this.frmTender.tscSchTenderStatus.Value.TenderStatusId;
+                ParameterConstants.IntDefault : this.frmTender.tscSchTenderStatus.Value.TenderStatusId;
             pmtTender.Name = "%" + this.frmTender.txtSchTenderName.Text + "%";
             pmtTender.DateTypeSearchId = (DateTypeSearchEnum)this.frmTender.uosSchDates.Value;
+            pmtTender.DocumentTypeWarrantyId = this.frmTender.stwcSchDocumentTypeWarranty.Value == null ? 
+                ParameterConstants.IntDefault : this.frmTender.stwcSchDocumentTypeWarranty.Value.DocumentTypeWarrantyId;
 
             DataTable dtTenders = srvTender.SearchByParameters(pmtTender);
 
