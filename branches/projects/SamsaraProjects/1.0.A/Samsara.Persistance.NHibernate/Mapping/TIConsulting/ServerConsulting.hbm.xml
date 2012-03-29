@@ -31,7 +31,8 @@
     <property name="ArrayDisks"/>
     <property name="Budget"/>
     <property name="HaveSite"/>
-    <property name="ServerTypePreference"/>
+    <property name="ServerComputerTypePreference"/>
+    <property name="ServerComputerTypeId"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>

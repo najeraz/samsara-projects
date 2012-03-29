@@ -78,7 +78,13 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 this.tcConfiguracion.Enabled = isConfigurable;
                 this.cbxAgenteMargenes_SelectedIndexChanged(null, null);
 
-                this.Text += "  -  " + WindowsIdentity.GetCurrent().Name;
+                this.Text += "  -  " + Session.User.Username;
+
+                int currentValue = Convert.ToInt32(this.cbxAgentes.SelectedValue);
+                this.cbxAgentes.SelectedValue = Session.User.UserId;
+
+                if (this.cbxAgentes.SelectedValue == null)
+                    this.cbxAgentes.SelectedValue = currentValue;
             }
             catch (SqlException ex)
             {
