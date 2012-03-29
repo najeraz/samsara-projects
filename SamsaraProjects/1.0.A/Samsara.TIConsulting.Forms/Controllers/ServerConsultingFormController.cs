@@ -118,18 +118,16 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 += new EventHandler(uchkDetFutureStorageVolume_CheckedChanged);
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged 
                 += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
-            this.frmServerConsulting.grdDetSummary.InitializeLayout 
+            this.frmServerConsulting.grdDetSummary.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetSummary_InitializeLayout);
 
-            DataTable dtSummary = this.srvServerConsulting.SearchByParameters(
-                "ServerConsulting.ServerConsultingSummary", null);
+            this.frmServerConsulting.btnSchShowDetail.Text = "Resumen";
+        }
 
-            this.frmServerConsulting.grdDetSummary.DataSource = null;
-            this.frmServerConsulting.grdDetSummary.DataSource = dtSummary;
+        public override void InitializeDetailFormControls()
+        {
 
             this.frmServerConsulting.sctcDetServerComputerType.Refresh();
-
-            this.frmServerConsulting.btnSchShowDetail.Text = "Resumen";
         }
 
         public override void Search()
@@ -252,6 +250,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetExtensionNumber.ReadOnly = readOnly;
             this.frmServerConsulting.uchkDetDataBackup.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetDataMigration.Enabled = !readOnly;
+            this.frmServerConsulting.txtDetOperativeSystem.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()

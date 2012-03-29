@@ -40,7 +40,7 @@
     <property name="Activated"/>
     <property name="Deleted"/>
 
-    <many-to-one name="ServerComputerType"
+    <many-to-one name="ServerComputerType" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.ServerComputerType, Samsara.CustomerContext.Core"
                  column="ServerComputerTypeId" />
 
