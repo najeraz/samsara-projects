@@ -71,8 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\LoginAttemptDao.cs" />
     <Compile Include="Impl\SchemeDao.cs" />
     <Compile Include="Impl\UserDao.cs" />
+    <Compile Include="Interfaces\ILoginAttemptDao.cs" />
     <Compile Include="Interfaces\ISchemeDao.cs" />
     <Compile Include="Interfaces\IUserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

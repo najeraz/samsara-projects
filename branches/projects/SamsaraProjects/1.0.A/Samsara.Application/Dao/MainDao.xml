@@ -10,6 +10,10 @@
           type="Samsara.Main.Dao.Impl.SchemeDao, Samsara.Main.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="ILoginAttemptDao"
+          type="Samsara.Main.Dao.Impl.LoginAttemptDao, Samsara.Main.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   
 </objects>
 
