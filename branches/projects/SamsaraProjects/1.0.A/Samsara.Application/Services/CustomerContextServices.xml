@@ -85,6 +85,10 @@
           type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureServerComputerService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ICustomerInfrastructureServerComputerDao"/>
   </object>
+  <object id="IServerComputerTypeService"
+          type="Samsara.CustomerContext.Service.Impl.ServerComputerTypeService, Samsara.CustomerContext.Service">
+    <property name="Dao" ref="IServerComputerTypeDao"/>
+  </object>
   <object id="ICustomerInfrastructureServerComputerDBMSService"
           type="Samsara.CustomerContext.Service.Impl.CustomerInfrastructureServerComputerDBMSService, Samsara.CustomerContext.Service">
     <property name="Dao" ref="ICustomerInfrastructureServerComputerDBMSDao"/>

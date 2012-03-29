@@ -46,12 +46,12 @@ namespace Samsara.TIConsulting.Forms.Forms
             Infragistics.Win.ValueListItem valueListItem4 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem7 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem8 = new Infragistics.Win.ValueListItem();
+            Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerConsultingForm));
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetOldServerDetail = new Infragistics.Win.Misc.UltraPanel();
             this.txtDetOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -84,8 +84,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetDataManagement = new Infragistics.Win.Misc.UltraGroupBox();
             this.uchkDetDataBackup = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.uchkDetDataMigration = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.ugbxDetServerTypePreference = new Infragistics.Win.Misc.UltraGroupBox();
-            this.txtDetServerComputerTypePreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ugbxDetServerComputerTypePreference = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uchkDetOtherServerComputerType = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.txtDetOtherServerComputerTypePreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.sctcDetServerComputerType = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
             this.utabDetOldServerDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.ugbxDetBudget = new Infragistics.Win.Misc.UltraGroupBox();
@@ -134,8 +136,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchOrganizationName = new Infragistics.Win.Misc.UltraLabel();
             this.txtSchContact = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchContact = new Infragistics.Win.Misc.UltraLabel();
-            this.sctcDetServerComputerType = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
-            this.uchkDetOtherServerComputerType = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -177,9 +177,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetDataManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataBackup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataMigration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerTypePreference)).BeginInit();
-            this.ugbxDetServerTypePreference.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerTypePreference)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerComputerTypePreference)).BeginInit();
+            this.ugbxDetServerComputerTypePreference.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetOtherServerComputerType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetOtherServerComputerTypePreference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetOldServerDetail)).BeginInit();
             this.utabDetOldServerDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).BeginInit();
@@ -222,7 +223,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetServerConsultingDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchContact)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetOtherServerComputerType)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -271,7 +271,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
             this.grdPrincipal.Location = new System.Drawing.Point(0, 101);
-            this.grdPrincipal.Size = new System.Drawing.Size(979, 422);
+            this.grdPrincipal.Size = new System.Drawing.Size(979, 426);
             // 
             // btnSchAccept
             // 
@@ -509,7 +509,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetHaveSite);
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetFullServerUptimeRequired);
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetDataManagement);
-            this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetServerTypePreference);
+            this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetServerComputerTypePreference);
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.utabDetOldServerDetail);
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetBudget);
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ugbxDetFutureStorageVolume);
@@ -675,23 +675,55 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uchkDetDataMigration.TabIndex = 0;
             this.uchkDetDataMigration.Text = "Requiere Migración de Datos";
             // 
-            // ugbxDetServerTypePreference
+            // ugbxDetServerComputerTypePreference
             // 
-            this.ugbxDetServerTypePreference.Controls.Add(this.uchkDetOtherServerComputerType);
-            this.ugbxDetServerTypePreference.Controls.Add(this.txtDetServerComputerTypePreference);
-            this.ugbxDetServerTypePreference.Controls.Add(this.sctcDetServerComputerType);
-            this.ugbxDetServerTypePreference.Location = new System.Drawing.Point(651, 289);
-            this.ugbxDetServerTypePreference.Name = "ugbxDetServerTypePreference";
-            this.ugbxDetServerTypePreference.Size = new System.Drawing.Size(313, 70);
-            this.ugbxDetServerTypePreference.TabIndex = 12;
-            this.ugbxDetServerTypePreference.Text = "12.- Tipo de Servidor";
+            this.ugbxDetServerComputerTypePreference.Controls.Add(this.uchkDetOtherServerComputerType);
+            this.ugbxDetServerComputerTypePreference.Controls.Add(this.txtDetOtherServerComputerTypePreference);
+            this.ugbxDetServerComputerTypePreference.Controls.Add(this.sctcDetServerComputerType);
+            this.ugbxDetServerComputerTypePreference.Location = new System.Drawing.Point(651, 289);
+            this.ugbxDetServerComputerTypePreference.Name = "ugbxDetServerComputerTypePreference";
+            this.ugbxDetServerComputerTypePreference.Size = new System.Drawing.Size(313, 70);
+            this.ugbxDetServerComputerTypePreference.TabIndex = 12;
+            this.ugbxDetServerComputerTypePreference.Text = "12.- Tipo de Servidor";
             // 
-            // txtDetServerComputerTypePreference
+            // uchkDetOtherServerComputerType
             // 
-            this.txtDetServerComputerTypePreference.Location = new System.Drawing.Point(113, 44);
-            this.txtDetServerComputerTypePreference.Name = "txtDetServerComputerTypePreference";
-            this.txtDetServerComputerTypePreference.Size = new System.Drawing.Size(194, 21);
-            this.txtDetServerComputerTypePreference.TabIndex = 2;
+            this.uchkDetOtherServerComputerType.AutoSize = true;
+            this.uchkDetOtherServerComputerType.Location = new System.Drawing.Point(61, 47);
+            this.uchkDetOtherServerComputerType.Name = "uchkDetOtherServerComputerType";
+            this.uchkDetOtherServerComputerType.Size = new System.Drawing.Size(46, 17);
+            this.uchkDetOtherServerComputerType.TabIndex = 1;
+            this.uchkDetOtherServerComputerType.Text = "Otro:";
+            // 
+            // txtDetOtherServerComputerTypePreference
+            // 
+            this.txtDetOtherServerComputerTypePreference.Location = new System.Drawing.Point(113, 44);
+            this.txtDetOtherServerComputerTypePreference.Name = "txtDetOtherServerComputerTypePreference";
+            this.txtDetOtherServerComputerTypePreference.Size = new System.Drawing.Size(194, 21);
+            this.txtDetOtherServerComputerTypePreference.TabIndex = 2;
+            // 
+            // sctcDetServerComputerType
+            // 
+            this.sctcDetServerComputerType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.sctcDetServerComputerType.CustomParent = null;
+            this.sctcDetServerComputerType.DisplayMember = "Name";
+            this.sctcDetServerComputerType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sctcDetServerComputerType.Location = new System.Drawing.Point(3, 16);
+            this.sctcDetServerComputerType.Name = "sctcDetServerComputerType";
+            serverComputerTypeParameters1.CreatedBy = null;
+            serverComputerTypeParameters1.CreatedOn = null;
+            serverComputerTypeParameters1.Description = null;
+            serverComputerTypeParameters1.Name = null;
+            serverComputerTypeParameters1.ServerComputerTypeId = null;
+            serverComputerTypeParameters1.UpdatedBy = null;
+            serverComputerTypeParameters1.UpdatedOn = null;
+            this.sctcDetServerComputerType.Parameters = serverComputerTypeParameters1;
+            this.sctcDetServerComputerType.ReadOnly = false;
+            this.sctcDetServerComputerType.Size = new System.Drawing.Size(307, 22);
+            this.sctcDetServerComputerType.TabIndex = 0;
+            this.sctcDetServerComputerType.Value = null;
+            this.sctcDetServerComputerType.ValueMember = "ServerComputerTypeId";
+            this.sctcDetServerComputerType.Values = null;
             // 
             // utabDetOldServerDetail
             // 
@@ -1185,38 +1217,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchContact.TabIndex = 3;
             this.ulblSchContact.Text = "Contacto:";
             // 
-            // sctcDetServerComputerType
-            // 
-            this.sctcDetServerComputerType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.sctcDetServerComputerType.CustomParent = null;
-            this.sctcDetServerComputerType.DisplayMember = "Name";
-            this.sctcDetServerComputerType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sctcDetServerComputerType.Location = new System.Drawing.Point(3, 16);
-            this.sctcDetServerComputerType.Name = "sctcDetServerComputerType";
-            serverComputerTypeParameters1.CreatedBy = null;
-            serverComputerTypeParameters1.CreatedOn = null;
-            serverComputerTypeParameters1.Description = null;
-            serverComputerTypeParameters1.Name = null;
-            serverComputerTypeParameters1.ServerComputerTypeId = null;
-            serverComputerTypeParameters1.UpdatedBy = null;
-            serverComputerTypeParameters1.UpdatedOn = null;
-            this.sctcDetServerComputerType.Parameters = serverComputerTypeParameters1;
-            this.sctcDetServerComputerType.ReadOnly = false;
-            this.sctcDetServerComputerType.Size = new System.Drawing.Size(307, 22);
-            this.sctcDetServerComputerType.TabIndex = 0;
-            this.sctcDetServerComputerType.Value = null;
-            this.sctcDetServerComputerType.ValueMember = "ServerComputerTypeId";
-            this.sctcDetServerComputerType.Values = null;
-            // 
-            // uchkDetOtherServerComputerType
-            // 
-            this.uchkDetOtherServerComputerType.AutoSize = true;
-            this.uchkDetOtherServerComputerType.Location = new System.Drawing.Point(61, 47);
-            this.uchkDetOtherServerComputerType.Name = "uchkDetOtherServerComputerType";
-            this.uchkDetOtherServerComputerType.Size = new System.Drawing.Size(46, 17);
-            this.uchkDetOtherServerComputerType.TabIndex = 1;
-            this.uchkDetOtherServerComputerType.Text = "Otro:";
-            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1273,10 +1273,11 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetDataManagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataBackup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataMigration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerTypePreference)).EndInit();
-            this.ugbxDetServerTypePreference.ResumeLayout(false);
-            this.ugbxDetServerTypePreference.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetServerComputerTypePreference)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerComputerTypePreference)).EndInit();
+            this.ugbxDetServerComputerTypePreference.ResumeLayout(false);
+            this.ugbxDetServerComputerTypePreference.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetOtherServerComputerType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetOtherServerComputerTypePreference)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetOldServerDetail)).EndInit();
             this.utabDetOldServerDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).EndInit();
@@ -1325,7 +1326,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetServerConsultingDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchOrganizationName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchContact)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetOtherServerComputerType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1339,7 +1339,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetCustomerData;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetEmail;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetOrganizationName;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerComputerTypePreference;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetOtherServerComputerTypePreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBrandPreference;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetCurrentProblem;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerUsage;
@@ -1380,7 +1380,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraLabel ulblSchOrganizationName;
         internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetServerConsultingDetail;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFullServerUptimeRequired;
-        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerTypePreference;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerComputerTypePreference;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetBudget;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFutureStorageVolume;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentStorageVolume;

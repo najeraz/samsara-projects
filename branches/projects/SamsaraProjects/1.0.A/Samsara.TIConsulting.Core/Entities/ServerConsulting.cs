@@ -155,7 +155,7 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual string ServerComputerTypePreference
+        public virtual string OtherServerComputerTypePreference
         {
             get;
             set;

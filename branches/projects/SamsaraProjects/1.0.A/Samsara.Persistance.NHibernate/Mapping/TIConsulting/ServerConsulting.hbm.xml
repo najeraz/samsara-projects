@@ -31,8 +31,7 @@
     <property name="ArrayDisks"/>
     <property name="Budget"/>
     <property name="HaveSite"/>
-    <property name="ServerComputerTypePreference"/>
-    <property name="ServerComputerTypeId"/>
+    <property name="OtherServerComputerTypePreference"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
@@ -40,6 +39,10 @@
     <property name="UpdatedOn"/>
     <property name="Activated"/>
     <property name="Deleted"/>
+
+    <many-to-one name="ServerComputerType"
+                 class="Samsara.CustomerContext.Core.Entities.ServerComputerType, Samsara.CustomerContext.Core"
+                 column="ServerComputerTypeId" />
 
     <set name="ServerConsultingOldServerComputers" table="TIConsulting.ServerConsultingOldServerComputers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
