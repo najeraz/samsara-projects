@@ -86,6 +86,10 @@
           type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureServerComputerDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IServerComputerTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.ServerComputerTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   <object id="ICustomerInfrastructureServerComputerDBMSDao"
           type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureServerComputerDBMSDao, Samsara.CustomerContext.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
