@@ -9,6 +9,10 @@
           type="Samsara.Main.Service.Impl.SchemeService, Samsara.Main.Service">
     <property name="Dao" ref="ISchemeDao"/>
   </object>
+  <object id="ILoginAttemptService"
+          type="Samsara.Main.Service.Impl.LoginAttemptService, Samsara.Main.Service">
+    <property name="Dao" ref="ILoginAttemptDao"/>
+  </object>
 
 </objects>
 
