@@ -6,9 +6,13 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.Base.Controls.EventsArgs;
+using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Base.Forms.Enums;
+using Samsara.CustomerContext.Core.Entities;
+using Samsara.CustomerContext.Core.Enums;
 using Samsara.Support.Util;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
@@ -106,6 +110,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeFormControls()
         {
+            this.frmServerConsulting.sctcDetServerComputerType.ValueChanged
+                += new SamsaraEntityChooserValueChangedEventHandler<ServerComputerType>(sctcDetServerComputerType_ValueChanged);
             this.frmServerConsulting.uchkDetOtherServerComputerType.CheckedChanged
                 += new EventHandler(uchkDetOtherServerComputerType_CheckedChanged);
             this.frmServerConsulting.uchkDetHaveBudget.CheckedChanged
@@ -251,6 +257,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetDataBackup.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetDataMigration.Enabled = !readOnly;
             this.frmServerConsulting.txtDetOperativeSystem.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetRackType.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()
@@ -272,6 +279,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.Contact = (this.frmServerConsulting.txtDetContact.Value as string);
             this.serverConsulting.ExtensionNumber = this.frmServerConsulting.txtDetExtensionNumber.Value.ToString();
             this.serverConsulting.ServerComputerType = this.frmServerConsulting.sctcDetServerComputerType.Value;
+            this.serverConsulting.RackType = (this.frmServerConsulting.txtDetRackType.Value as string);
 
             this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
             this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
@@ -373,6 +381,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetContact.Value = null;
             this.frmServerConsulting.txtDetExtensionNumber.Value = null;
             this.frmServerConsulting.txtDetOperativeSystem.Value = null;
+            this.frmServerConsulting.txtDetRackType.Value = null;
 
             this.frmServerConsulting.sctcDetServerComputerType.Value = null;
 
@@ -431,6 +440,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetContact.Value = this.serverConsulting.Contact;
             this.frmServerConsulting.txtDetExtensionNumber.Value = this.serverConsulting.ExtensionNumber;
             this.frmServerConsulting.sctcDetServerComputerType.Value = this.serverConsulting.ServerComputerType;
+            this.frmServerConsulting.txtDetRackType.Value = this.serverConsulting.RackType;
 
             this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
             this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
@@ -767,6 +777,13 @@ Especificaciones: {4}
 
             this.frmServerConsulting.sctcDetServerComputerType.ReadOnly = otherServerComputerType;
             this.frmServerConsulting.txtDetOtherServerComputerTypePreference.ReadOnly = !otherServerComputerType;
+        }
+
+        private void sctcDetServerComputerType_ValueChanged(object sender, 
+            SamsaraEntityChooserValueChangedEventArgs<ServerComputerType> e)
+        {
+            this.frmServerConsulting.txtDetRackType.ReadOnly
+                = e.NewValue == null || e.NewValue.ServerComputerTypeId != (int)ServerComputerTypeEnum.Rack;
         }
 
         #endregion Events
