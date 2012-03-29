@@ -147,12 +147,13 @@
       d.Name DependencyName, a.Name AsesorName, t.PreRevisionDate, t.Deadline, t.VerdictDate, 
       ts.Name TenderStatusName, ap.Name ApproverName, t.Comments
       FROM ProjectsAndTendering.Tenders t
-      INNER JOIN  ProjectsAndTendering.Bidders b	    		ON b.BidderId = t.BidderId AND b.Deleted = 0 and b.Activated = 1
-      LEFT JOIN   ProjectsAndTendering.Asesors a		    	ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
-      LEFT JOIN   ProjectsAndTendering.Dependencies d	  	ON d.DependencyId = t.DependencyId AND d.Deleted = 0 and d.Activated = 1
-      LEFT JOIN   ProjectsAndTendering.TenderStatuses ts	ON ts.TenderStatusId = t.TenderStatusId AND ts.Deleted = 0 and ts.Activated = 1
-      LEFT JOIN   ProjectsAndTendering.Asesors ap		    	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
-      LEFT JOIN	  ProjectsAndTendering.Tenders pt	  	  	ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
+      INNER JOIN  ProjectsAndTendering.Bidders b	    		          ON b.BidderId = t.BidderId AND b.Deleted = 0 and b.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Asesors a		    	          ON a.AsesorId = t.AsesorId AND a.Deleted = 0 and a.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Dependencies d	  	          ON d.DependencyId = t.DependencyId AND d.Deleted = 0 and d.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.TenderStatuses ts	          ON ts.TenderStatusId = t.TenderStatusId AND ts.Deleted = 0 and ts.Activated = 1
+      LEFT JOIN   ProjectsAndTendering.Asesors ap		              	ON ap.AsesorId = t.ApprovedBy AND ap.Deleted = 0 and ap.Activated = 1
+      LEFT JOIN	  ProjectsAndTendering.Tenders pt	  	  	          ON pt.TenderId = t.PreviousTenderId AND pt.Deleted = 0 and pt.Activated = 1
+      LEFT JOIN	  ProjectsAndTendering.TenderWarranties tw	  	  	ON tw.TenderId = t.TenderId AND tw.Deleted = 0 and tw.Activated = 1
       WHERE t.Deleted = 0 and t.Activated = 1
       AND t.Name like :Name
       AND (t.AsesorId = :AsesorId OR :AsesorId = -1)
