@@ -62,10 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\LoginAttemp.cs" />
     <Compile Include="Entities\Scheme.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\MainFormsEnum.cs" />
     <Compile Include="Enums\TaxEnum.cs" />
+    <Compile Include="Parameters\LoginAttemptParameters.cs" />
     <Compile Include="Parameters\SchemeParameters.cs" />
     <Compile Include="Parameters\UserParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
