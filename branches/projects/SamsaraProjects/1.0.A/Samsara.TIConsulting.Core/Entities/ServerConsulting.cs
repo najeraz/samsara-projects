@@ -161,6 +161,12 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual string RackType
+        {
+            get;
+            set;
+        }
+
         public virtual ServerComputerType ServerComputerType
         {
             get;
