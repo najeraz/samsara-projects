@@ -70,15 +70,20 @@ namespace Samsara.Commissions.Forms.Controllers
         {
             StaffParameters pmtStaff = new StaffParameters();
 
-            this.frmServicesManagement.sccDetStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
-            this.frmServicesManagement.sccDetStaff.DisplayMember = "Fullname";
-            this.frmServicesManagement.sccDetStaff.Parameters = pmtStaff;
-            this.frmServicesManagement.sccDetStaff.Refresh();
-
             this.frmServicesManagement.sccSchStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
             this.frmServicesManagement.sccSchStaff.DisplayMember = "Fullname";
             this.frmServicesManagement.sccSchStaff.Parameters = pmtStaff;
             this.frmServicesManagement.sccSchStaff.Refresh();
+        }
+
+        public override void InitializeDetailFormControls()
+        {
+            StaffParameters pmtStaff = new StaffParameters();
+
+            this.frmServicesManagement.sccDetStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
+            this.frmServicesManagement.sccDetStaff.DisplayMember = "Fullname";
+            this.frmServicesManagement.sccDetStaff.Parameters = pmtStaff;
+            this.frmServicesManagement.sccDetStaff.Refresh();
         }
 
         public override void Search()
