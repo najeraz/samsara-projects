@@ -108,6 +108,8 @@ namespace Samsara.Base.Forms.Controllers
 
         public abstract void Search();
 
+        public abstract void InitializeDetailFormControls();
+
         public abstract void ClearSearchFields();
 
         public abstract void ReturnSelectedEntity();
@@ -159,6 +161,7 @@ namespace Samsara.Base.Forms.Controllers
             if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
             {
                 this.FormStatus = FormStatusEnum.ShowDetail;
+                this.InitializeDetailFormControls();
                 this.ClearDetailFields();
                 this.LoadDetail();
                 this.ProcessDetailButtons();
@@ -174,6 +177,7 @@ namespace Samsara.Base.Forms.Controllers
             if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
             {
                 this.FormStatus = FormStatusEnum.Edition;
+                this.InitializeDetailFormControls();
                 this.ClearDetailFields();
                 this.ReadOnlyDetailFields(false);
                 this.LoadDetail();
@@ -196,6 +200,7 @@ namespace Samsara.Base.Forms.Controllers
         internal void CreateEntityProcess()
         {
             this.FormStatus = FormStatusEnum.Creation;
+            this.InitializeDetailFormControls();
             this.ClearDetailFields();
             this.ProcessDetailButtons();
             this.ReadOnlyDetailFields(false);
