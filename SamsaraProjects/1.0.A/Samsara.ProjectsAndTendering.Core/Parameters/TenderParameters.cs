@@ -43,6 +43,12 @@ namespace Samsara.ProjectsAndTendering.Core.Parameters
             set;
         }
 
+        public Nullable<int> DocumentTypeWarrantyId
+        {
+            get;
+            set;
+        }
+
         public DateTypeSearchEnum? DateTypeSearchId
         {
             get;
