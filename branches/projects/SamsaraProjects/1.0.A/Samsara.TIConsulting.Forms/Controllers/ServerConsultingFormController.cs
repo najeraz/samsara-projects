@@ -257,7 +257,9 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetDataBackup.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetDataMigration.Enabled = !readOnly;
             this.frmServerConsulting.txtDetOperativeSystem.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetRackType.ReadOnly = readOnly;
+            this.frmServerConsulting.txtDetRackType.ReadOnly = readOnly
+                || !(this.frmServerConsulting.sctcDetServerComputerType.Value != null
+                && this.frmServerConsulting.sctcDetServerComputerType.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
         }
 
         public override void LoadDetail()
