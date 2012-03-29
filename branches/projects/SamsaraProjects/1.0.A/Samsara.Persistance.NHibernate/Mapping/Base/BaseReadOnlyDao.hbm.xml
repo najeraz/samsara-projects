@@ -2,7 +2,7 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
 
   <sql-query name="BaseReadOnlyDao.GetServerDateTime" cacheable="false" read-only="true">
-    <return-scalar column="result" type="DateTime"/>
+    <return-scalar column="result" type="Timestamp"/>
     <![CDATA[
       SELECT GETDATE() result
     ]]>
