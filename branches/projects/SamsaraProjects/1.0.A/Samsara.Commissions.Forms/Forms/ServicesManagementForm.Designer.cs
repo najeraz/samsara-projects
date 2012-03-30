@@ -172,6 +172,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetServiceNumber.CustomParent = null;
             this.txtDetServiceNumber.Location = new System.Drawing.Point(89, 19);
             this.txtDetServiceNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetServiceNumber.MeasurementFileUnit = "MB";
             this.txtDetServiceNumber.Name = "txtDetServiceNumber";
             this.txtDetServiceNumber.ReadOnly = false;
             this.txtDetServiceNumber.Size = new System.Drawing.Size(150, 20);
@@ -183,6 +184,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetServiceAmount.CustomParent = null;
             this.txtDetServiceAmount.Location = new System.Drawing.Point(89, 45);
             this.txtDetServiceAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetServiceAmount.MeasurementFileUnit = "MB";
             this.txtDetServiceAmount.Name = "txtDetServiceAmount";
             this.txtDetServiceAmount.ReadOnly = false;
             this.txtDetServiceAmount.Size = new System.Drawing.Size(150, 20);
@@ -233,6 +235,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtSchServiceNumber.CustomParent = null;
             this.txtSchServiceNumber.Location = new System.Drawing.Point(96, 14);
             this.txtSchServiceNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtSchServiceNumber.MeasurementFileUnit = "MB";
             this.txtSchServiceNumber.Name = "txtSchServiceNumber";
             this.txtSchServiceNumber.ReadOnly = false;
             this.txtSchServiceNumber.Size = new System.Drawing.Size(150, 20);
@@ -274,7 +277,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 443);
             this.Name = "ServicesManagementForm";
-            this.Text = "Comisiones de Servicios";
+            this.Text = "ServicesManagementForm";
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
             this.gbxSchParameters.ResumeLayout(false);
             this.gbxSchParameters.PerformLayout();
