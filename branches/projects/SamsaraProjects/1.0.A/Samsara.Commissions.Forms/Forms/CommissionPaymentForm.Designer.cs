@@ -40,24 +40,24 @@ namespace Samsara.Commissions.Forms.Forms
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters1 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters2 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommissionPaymentForm));
             this.sccSchStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
             this.ulblSchAsesor = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetStaff = new Infragistics.Win.Misc.UltraLabel();
             this.sccDetStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
             this.txtDetAmount = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblDetAmount = new Infragistics.Win.Misc.UltraLabel();
-            this.uneDetYear = new Infragistics.Win.UltraWinEditors.UltraNumericEditor();
-            this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblDetYear = new Infragistics.Win.Misc.UltraLabel();
             this.uceDetMonth = new Samsara.Base.Controls.Controls.SamsaraUltraComboEditor();
             this.ulblDetMonths = new Infragistics.Win.Misc.UltraLabel();
             this.txtDetComments = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetComments = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtDetYear = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uneDetYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetComments)).BeginInit();
@@ -120,11 +120,11 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxDetDetail
             // 
+            this.gbxDetDetail.Controls.Add(this.txtDetYear);
             this.gbxDetDetail.Controls.Add(this.ugbxDetComments);
             this.gbxDetDetail.Controls.Add(this.uceDetMonth);
-            this.gbxDetDetail.Controls.Add(this.uneDetYear);
             this.gbxDetDetail.Controls.Add(this.txtDetAmount);
-            this.gbxDetDetail.Controls.Add(this.ultraLabel1);
+            this.gbxDetDetail.Controls.Add(this.ulblDetYear);
             this.gbxDetDetail.Controls.Add(this.ulblDetMonths);
             this.gbxDetDetail.Controls.Add(this.ulblDetAmount);
             this.gbxDetDetail.Controls.Add(this.ulblDetStaff);
@@ -206,23 +206,14 @@ namespace Samsara.Commissions.Forms.Forms
             this.ulblDetAmount.TabIndex = 3;
             this.ulblDetAmount.Text = "Monto:";
             // 
-            // uneDetYear
+            // ulblDetYear
             // 
-            this.uneDetYear.Location = new System.Drawing.Point(61, 102);
-            this.uneDetYear.MaxValue = 2050;
-            this.uneDetYear.MinValue = 2012;
-            this.uneDetYear.Name = "uneDetYear";
-            this.uneDetYear.Size = new System.Drawing.Size(100, 21);
-            this.uneDetYear.TabIndex = 5;
-            // 
-            // ultraLabel1
-            // 
-            this.ultraLabel1.AutoSize = true;
-            this.ultraLabel1.Location = new System.Drawing.Point(12, 106);
-            this.ultraLabel1.Name = "ultraLabel1";
-            this.ultraLabel1.Size = new System.Drawing.Size(27, 14);
-            this.ultraLabel1.TabIndex = 3;
-            this.ultraLabel1.Text = "Año:";
+            this.ulblDetYear.AutoSize = true;
+            this.ulblDetYear.Location = new System.Drawing.Point(12, 106);
+            this.ulblDetYear.Name = "ulblDetYear";
+            this.ulblDetYear.Size = new System.Drawing.Size(27, 14);
+            this.ulblDetYear.TabIndex = 3;
+            this.ulblDetYear.Text = "Año:";
             // 
             // uceDetMonth
             // 
@@ -246,7 +237,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetComments.Location = new System.Drawing.Point(3, 16);
             this.txtDetComments.Multiline = true;
             this.txtDetComments.Name = "txtDetComments";
-            this.txtDetComments.Size = new System.Drawing.Size(310, 65);
+            this.txtDetComments.Size = new System.Drawing.Size(269, 65);
             this.txtDetComments.TabIndex = 4;
             // 
             // ugbxDetComments
@@ -254,9 +245,21 @@ namespace Samsara.Commissions.Forms.Forms
             this.ugbxDetComments.Controls.Add(this.txtDetComments);
             this.ugbxDetComments.Location = new System.Drawing.Point(12, 129);
             this.ugbxDetComments.Name = "ugbxDetComments";
-            this.ugbxDetComments.Size = new System.Drawing.Size(316, 84);
+            this.ugbxDetComments.Size = new System.Drawing.Size(275, 84);
             this.ugbxDetComments.TabIndex = 7;
             this.ugbxDetComments.Text = "Comentarios:";
+            // 
+            // txtDetYear
+            // 
+            this.txtDetYear.CustomParent = this;
+            this.txtDetYear.Location = new System.Drawing.Point(61, 102);
+            this.txtDetYear.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetYear.MeasurementFileUnit = "MB";
+            this.txtDetYear.Name = "txtDetYear";
+            this.txtDetYear.ReadOnly = false;
+            this.txtDetYear.Size = new System.Drawing.Size(108, 20);
+            this.txtDetYear.TabIndex = 8;
+            this.txtDetYear.Value = ((object)(resources.GetObject("txtDetYear.Value")));
             // 
             // CommissionPaymentForm
             // 
@@ -272,7 +275,6 @@ namespace Samsara.Commissions.Forms.Forms
             this.gbxDetDetail.PerformLayout();
             this.pnlDetButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtDetAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uneDetYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetComments)).EndInit();
@@ -291,11 +293,11 @@ namespace Samsara.Commissions.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAmount;
         internal AlleatoERP.Controls.Controls.StaffChooserControl sccDetStaff;
         internal Base.Controls.Controls.SamsaraUltraComboEditor uceDetMonth;
-        internal Infragistics.Win.UltraWinEditors.UltraNumericEditor uneDetYear;
-        private Infragistics.Win.Misc.UltraLabel ultraLabel1;
+        private Infragistics.Win.Misc.UltraLabel ulblDetYear;
         private Infragistics.Win.Misc.UltraLabel ulblDetMonths;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetComments;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetComments;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetYear;
 
 
     }
