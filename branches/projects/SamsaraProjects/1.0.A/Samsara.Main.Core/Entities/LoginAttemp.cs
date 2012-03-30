@@ -29,5 +29,23 @@ namespace Samsara.Main.Core.Entities
             get;
             set;
         }
+
+        public virtual string Username
+        {
+            get;
+            set;
+        }
+
+        public virtual string DomainUser
+        {
+            get;
+            set;
+        }
+
+        public virtual string MacAddresses
+        {
+            get;
+            set;
+        }
     }
 }

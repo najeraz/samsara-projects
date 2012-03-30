@@ -10,6 +10,9 @@
     </id>
 
     <property name="Successful"/>
+    <property name="Username"/>
+    <property name="DomainUser"/>
+    <property name="MacAddresses"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
