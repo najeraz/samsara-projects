@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CommutatorBrandParameters : BaseParameters
     {
-        public CommutatorBrandParameters()
-        {
-        }
-
         public Nullable<int> CommutatorBrandId
         {
             get;

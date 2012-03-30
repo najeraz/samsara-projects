@@ -71,9 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CommissionPaymentDao.cs" />
     <Compile Include="Impl\CommissionTypeDao.cs" />
     <Compile Include="Impl\ServiceDao.cs" />
     <Compile Include="Impl\ServiceStaffDao.cs" />
+    <Compile Include="Interfaces\ICommissionPaymentDao.cs" />
     <Compile Include="Interfaces\ICommissionTypeDao.cs" />
     <Compile Include="Interfaces\IServiceDao.cs" />
     <Compile Include="Interfaces\IServiceStaffDao.cs" />

@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class PersonalComputerTypeParameters : BaseParameters
     {
-        public PersonalComputerTypeParameters()
-        {
-        }
-
         public Nullable<int> PersonalComputerTypeId
         {
             get;

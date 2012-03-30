@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class TelephonyLineTypeParameters : BaseParameters
     {
-        public TelephonyLineTypeParameters()
-        {
-        }
-
         public Nullable<int> TelephonyLineTypeId
         {
             get;

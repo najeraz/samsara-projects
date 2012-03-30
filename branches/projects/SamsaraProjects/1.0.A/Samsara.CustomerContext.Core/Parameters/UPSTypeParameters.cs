@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class UPSTypeParameters : BaseParameters
     {
-        public UPSTypeParameters()
-        {
-        }
-        
         public Nullable<int> UPSTypeId
         {
             get;

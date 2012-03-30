@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class SecuritySoftwareBrandParameters : BaseParameters
     {
-        public SecuritySoftwareBrandParameters()
-        {
-        }
-
         public Nullable<int> SecuritySoftwareBrandId
         {
             get;

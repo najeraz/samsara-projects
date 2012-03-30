@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructureCCTVParameters : BaseParameters
     {
-        public CustomerInfrastructureCCTVParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructureCCTVId
         {
             get;

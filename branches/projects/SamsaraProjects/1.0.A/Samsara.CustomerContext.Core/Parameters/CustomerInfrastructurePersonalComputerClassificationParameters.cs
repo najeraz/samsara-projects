@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructurePersonalComputerClassificationParameters : BaseParameters
     {
-        public CustomerInfrastructurePersonalComputerClassificationParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructurePersonalComputerClassificationParametersId
         {
             get;

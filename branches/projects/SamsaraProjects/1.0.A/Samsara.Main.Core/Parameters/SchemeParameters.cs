@@ -6,10 +6,6 @@ namespace Samsara.Main.Core.Parameters
 {
     public class SchemeParameters : BaseParameters
     {
-        public SchemeParameters()
-        {
-        }
-
         public Nullable<int> SchemeId
         {
             get;

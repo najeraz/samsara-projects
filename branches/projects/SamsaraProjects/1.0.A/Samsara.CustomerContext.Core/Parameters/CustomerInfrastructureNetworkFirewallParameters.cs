@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructureNetworkFirewallParameters : BaseParameters
     {
-        public CustomerInfrastructureNetworkFirewallParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructureNetworkFirewallId
         {
             get;

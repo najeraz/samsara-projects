@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructureUPSParameters : BaseParameters
     {
-        public CustomerInfrastructureUPSParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructureUPSId
         {
             get;

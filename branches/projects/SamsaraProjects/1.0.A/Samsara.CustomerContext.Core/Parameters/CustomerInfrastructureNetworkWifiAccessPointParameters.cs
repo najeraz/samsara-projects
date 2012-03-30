@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructureNetworkWifiAccessPointParameters : BaseParameters
     {
-        public CustomerInfrastructureNetworkWifiAccessPointParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructureNetworkWifiAccessPointId
         {
             get;

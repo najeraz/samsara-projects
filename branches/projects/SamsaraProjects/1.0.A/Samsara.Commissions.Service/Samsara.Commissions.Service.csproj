@@ -81,9 +81,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CommissionPaymentService.cs" />
     <Compile Include="Impl\CommissionTypeService.cs" />
     <Compile Include="Impl\ServiceService.cs" />
     <Compile Include="Impl\ServiceStaffService.cs" />
+    <Compile Include="Interfaces\ICommissionPaymentService.cs" />
     <Compile Include="Interfaces\ICommissionTypeService.cs" />
     <Compile Include="Interfaces\IServiceService.cs" />
     <Compile Include="Interfaces\IServiceStaffService.cs" />
