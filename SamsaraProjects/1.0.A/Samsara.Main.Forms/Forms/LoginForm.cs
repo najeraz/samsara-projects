@@ -1,7 +1,10 @@
 ﻿
 using System;
-using System.Diagnostics;
+using System.Security.Principal;
 using System.Windows.Forms;
+using Samsara.Base.Core.Context;
+using Samsara.Main.Core.Entities;
+using Samsara.Main.Service.Interfaces;
 using Samsara.Support.Util;
 
 namespace Samsara.Main.Forms.Forms
@@ -9,15 +12,16 @@ namespace Samsara.Main.Forms.Forms
     public partial class LoginForm : Form
     {
         private LoadingApplicationForm frmLoadingApplication = new LoadingApplicationForm();
+        private ILoginAttemptService srvLoginAttempt;
 
         public LoginForm()
         {
             try
             {
-                Random random = new Random();
-
                 frmLoadingApplication.Show();
-                Session.Session.Login(random.Next().ToString(), random.Next().ToString());
+
+                this.srvLoginAttempt = SamsaraAppContext.Resolve<ILoginAttemptService>();
+
                 frmLoadingApplication.Close();
 
                 InitializeComponent();
@@ -36,8 +40,19 @@ namespace Samsara.Main.Forms.Forms
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-                if (Session.Session.Login(this.txtUsername.Text, this.txtPassword.Text))
+
+                LoginAttempt loginAttempt = new LoginAttempt();
+
+                loginAttempt.Username = this.txtUsername.Text;
+                loginAttempt.MacAddresses = NetworkUtil.GetMACAddresses();
+                loginAttempt.DomainUser = WindowsIdentity.GetCurrent().Name;
+                loginAttempt.Successful = Session.Session.Login(this.txtUsername.Text, this.txtPassword.Text);
+
+                if (loginAttempt.Successful)
                 {
+                    loginAttempt.User = Session.Session.User;
+                    this.srvLoginAttempt.Save(loginAttempt);
+
                     this.Hide();
                     this.ClearFields();
 
@@ -52,7 +67,9 @@ namespace Samsara.Main.Forms.Forms
                 }
                 else
                 {
-                    MessageBox.Show("El usuario y/o contraseña son incorrectos", 
+                    this.srvLoginAttempt.Save(loginAttempt);
+
+                    MessageBox.Show("El usuario y/o contraseña son incorrectos",
                         "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.ClearFields();
                     return;
