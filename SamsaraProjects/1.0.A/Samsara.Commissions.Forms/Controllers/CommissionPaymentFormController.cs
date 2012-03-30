@@ -121,12 +121,12 @@ namespace Samsara.Commissions.Forms.Controllers
                 return false;
             }
 
-            if (this.frmCommissionPayment.uneDetYear.Value == null ||
-                string.IsNullOrEmpty(this.frmCommissionPayment.uneDetYear.Value.ToString()))
+            if (this.frmCommissionPayment.txtDetYear.Value == null ||
+                string.IsNullOrEmpty(this.frmCommissionPayment.txtDetYear.Value.ToString()))
             {
                 MessageBox.Show("Favor de asignar el Año del Pago.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmCommissionPayment.uneDetYear.Focus();
+                this.frmCommissionPayment.txtDetYear.Focus();
                 return false;
             }
 
@@ -151,7 +151,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.sccDetStaff.ReadOnly = readOnly;
             this.frmCommissionPayment.txtDetAmount.ReadOnly = readOnly;
             this.frmCommissionPayment.uceDetMonth.ReadOnly = readOnly;
-            this.frmCommissionPayment.uneDetYear.ReadOnly = readOnly;
+            this.frmCommissionPayment.txtDetYear.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()
@@ -160,7 +160,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.sccDetStaff.Value = this.commissionPayment.Staff;
             this.frmCommissionPayment.txtDetAmount.Value = this.commissionPayment.Amount;
             this.frmCommissionPayment.uceDetMonth.Value = this.commissionPayment.Month;
-            this.frmCommissionPayment.uneDetYear.Value = this.commissionPayment.Year;
+            this.frmCommissionPayment.txtDetYear.Value = this.commissionPayment.Year;
         }
 
         public override void SaveEntity()
@@ -169,7 +169,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.commissionPayment.Staff = this.frmCommissionPayment.sccDetStaff.Value;
             this.commissionPayment.Amount = Convert.ToDecimal(this.frmCommissionPayment.txtDetAmount.Value);
             this.commissionPayment.Month = Convert.ToInt32(this.frmCommissionPayment.uceDetMonth.Value);
-            this.commissionPayment.Year = Convert.ToInt32(this.frmCommissionPayment.uneDetYear.Value);
+            this.commissionPayment.Year = Convert.ToInt32(this.frmCommissionPayment.txtDetYear.Value);
 
             this.srvCommissionPayment.SaveOrUpdate(this.commissionPayment);
         }
@@ -180,7 +180,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.sccDetStaff.Value = null;
             this.frmCommissionPayment.txtDetAmount.Value = null;
             this.frmCommissionPayment.uceDetMonth.Value = null;
-            this.frmCommissionPayment.uneDetYear.Value = null;
+            this.frmCommissionPayment.txtDetYear.Value = null;
         }
 
         #endregion Public
