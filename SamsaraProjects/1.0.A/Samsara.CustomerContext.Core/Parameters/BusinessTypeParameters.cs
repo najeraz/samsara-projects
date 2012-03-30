@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class BusinessTypeParameters : BaseParameters
     {
-        public BusinessTypeParameters()
-        {
-        }
-
         public Nullable<int> BusinessTypeId
         {
             get;

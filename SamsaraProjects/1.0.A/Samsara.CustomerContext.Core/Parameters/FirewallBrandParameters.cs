@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class FirewallBrandParameters : BaseParameters
     {
-        public FirewallBrandParameters()
-        {
-        }
-
         public Nullable<int> FirewallBrandId
         {
             get;

@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructureNetworkSwitchParameters : BaseParameters
     {
-        public CustomerInfrastructureNetworkSwitchParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructureNetworkSwitchId
         {
             get;

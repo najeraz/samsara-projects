@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructurePrinterClassificationParameters : BaseParameters
     {
-        public CustomerInfrastructurePrinterClassificationParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructurePrinterClassificationParametersId
         {
             get;

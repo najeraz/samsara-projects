@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class ISPParameters : BaseParameters
     {
-        public ISPParameters()
-        {
-        }
-
         public Nullable<int> ISPId
         {
             get;

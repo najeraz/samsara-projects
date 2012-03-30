@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class UPSBrandParameters : BaseParameters
     {
-        public UPSBrandParameters()
-        {
-        }
-
         public Nullable<int> UPSBrandId
         {
             get;

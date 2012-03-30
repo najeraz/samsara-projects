@@ -13,6 +13,10 @@
           type="Samsara.Commissions.Service.Impl.CommissionTypeService, Samsara.Commissions.Service">
     <property name="Dao" ref="ICommissionTypeDao"/>
   </object>
+  <object id="ICommissionPaymentService"
+          type="Samsara.Commissions.Service.Impl.CommissionPaymentService, Samsara.Commissions.Service">
+    <property name="Dao" ref="ICommissionPaymentDao"/>
+  </object>
 
 </objects>
 

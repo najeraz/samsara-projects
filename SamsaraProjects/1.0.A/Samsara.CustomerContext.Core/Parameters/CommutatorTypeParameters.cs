@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CommutatorTypeParameters : BaseParameters
     {
-        public CommutatorTypeParameters()
-        {
-        }
-
         public Nullable<int> CommutatorTypeId
         {
             get;
