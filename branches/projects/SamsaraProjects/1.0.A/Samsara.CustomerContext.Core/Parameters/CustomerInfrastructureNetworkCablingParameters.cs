@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerInfrastructureNetworkCablingParameters : BaseParameters
     {
-        public CustomerInfrastructureNetworkCablingParameters()
-        {
-        }
-
         public Nullable<int> CustomerInfrastructureNetworkCablingId
         {
             get;

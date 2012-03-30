@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class DBMSParameters : BaseParameters
     {
-        public DBMSParameters()
-        {
-        }
-
         public Nullable<int> DBMSId
         {
             get;

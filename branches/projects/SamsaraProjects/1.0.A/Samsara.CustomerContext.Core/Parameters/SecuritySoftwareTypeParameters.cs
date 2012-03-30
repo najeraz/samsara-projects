@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class SecuritySoftwareTypeParameters : BaseParameters
     {
-        public SecuritySoftwareTypeParameters()
-        {
-        }
-
         public Nullable<int> SecuritySoftwareTypeId
         {
             get;

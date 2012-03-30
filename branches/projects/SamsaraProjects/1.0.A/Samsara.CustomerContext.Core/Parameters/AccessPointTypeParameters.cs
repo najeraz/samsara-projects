@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class AccessPointTypeParameters : BaseParameters
     {
-        public AccessPointTypeParameters()
-        {
-        }
-
         public Nullable<int> AccessPointTypeId
         {
             get;

@@ -6,10 +6,6 @@ namespace Samsara.Main.Core.Parameters
 {
     public class UserParameters : BaseParameters
     {
-        public UserParameters()
-        {
-        }
-
         public Nullable<int> UserId
         {
             get;

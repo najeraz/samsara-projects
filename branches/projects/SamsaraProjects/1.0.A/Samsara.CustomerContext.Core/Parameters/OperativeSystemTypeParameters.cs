@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class OperativeSystemTypeParameters : BaseParameters
     {
-        public OperativeSystemTypeParameters()
-        {
-        }
-
         public Nullable<int> OperativeSystemTypeId
         {
             get;

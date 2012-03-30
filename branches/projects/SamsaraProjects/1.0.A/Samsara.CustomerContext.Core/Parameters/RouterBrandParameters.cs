@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class RouterBrandParameters : BaseParameters
     {
-        public RouterBrandParameters()
-        {
-        }
-
         public Nullable<int> RouterBrandId
         {
             get;

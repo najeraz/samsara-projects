@@ -6,10 +6,6 @@ namespace Samsara.Commissions.Core.Parameters
 {
     public class ServiceParameters : BaseParameters
     {
-        public ServiceParameters()
-        {
-        }
-
         public Nullable<int> ServiceId
         {
             get;

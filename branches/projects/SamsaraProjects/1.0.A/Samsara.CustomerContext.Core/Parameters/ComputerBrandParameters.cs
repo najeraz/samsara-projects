@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class ComputerBrandParameters : BaseParameters
     {
-        public ComputerBrandParameters()
-        {
-        }
-
         public Nullable<int> ComputerBrandId
         {
             get;

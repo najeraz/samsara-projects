@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class TelephonyProviderParameters : BaseParameters
     {
-        public TelephonyProviderParameters()
-        {
-        }
-
         public Nullable<int> TelephonyProviderId
         {
             get;

@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class ServerComputerTypeParameters : BaseParameters
     {
-        public ServerComputerTypeParameters()
-        {
-        }
-
         public Nullable<int> ServerComputerTypeId
         {
             get;

@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerParameters : BaseParameters
     {
-        public CustomerParameters()
-        {
-        }
-
         public Nullable<int> CustomerId
         {
             get;

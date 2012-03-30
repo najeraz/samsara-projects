@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class AccessPointBrandParameters : BaseParameters
     {
-        public AccessPointBrandParameters()
-        {
-        }
-
         public Nullable<int> AccessPointBrandId
         {
             get;

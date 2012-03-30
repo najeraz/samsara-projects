@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class SwitchBrandParameters : BaseParameters
     {
-        public SwitchBrandParameters()
-        {
-        }
-
         public Nullable<int> SwitchBrandId
         {
             get;

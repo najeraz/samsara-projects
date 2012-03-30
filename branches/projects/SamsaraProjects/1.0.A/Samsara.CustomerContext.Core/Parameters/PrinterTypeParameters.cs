@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class PrinterTypeParameters : BaseParameters
     {
-        public PrinterTypeParameters()
-        {
-        }
-
         public Nullable<int> PrinterTypeId
         {
             get;

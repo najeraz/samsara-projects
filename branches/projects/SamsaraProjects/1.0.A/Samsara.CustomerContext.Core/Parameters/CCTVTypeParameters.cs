@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CCTVTypeParameters : BaseParameters
     {
-        public CCTVTypeParameters()
-        {
-        }
-
         public Nullable<int> CCTVTypeId
         {
             get;

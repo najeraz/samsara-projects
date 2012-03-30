@@ -6,10 +6,6 @@ namespace Samsara.Commissions.Core.Parameters
 {
     public class CommissionTypeParameters : BaseParameters
     {
-        public CommissionTypeParameters()
-        {
-        }
-
         public Nullable<int> CommissionTypeId
         {
             get;

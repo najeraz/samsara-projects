@@ -6,10 +6,6 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class RackTypeParameters : BaseParameters
     {
-        public RackTypeParameters()
-        {
-        }
-
         public Nullable<int> RackTypeId
         {
             get;
