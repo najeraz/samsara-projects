@@ -728,5 +728,19 @@ namespace Samsara.Main.Forms.Forms
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void pagosDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CommissionPaymentForm frmCommissionPayment = new CommissionPaymentForm();
+                frmCommissionPayment.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

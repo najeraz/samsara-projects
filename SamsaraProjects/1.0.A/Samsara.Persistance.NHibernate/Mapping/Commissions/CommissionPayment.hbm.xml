@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Commissions.Core" 
+  namespace="Samsara.Commissions.Core.Entities">
+  
+  <class name="CommissionPayment" table="Commissions.CommissionPayments">
+    
+    <id name="CommissionPaymentId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Amount"/>
+    <property name="Comments"/>
+    <property name="Month"/>
+    <property name="Year"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+  </class>
+
+  <query name="CommissionPayment.GetByParameters">
+    <![CDATA[
+        from CommissionPayment where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CommissionPayment.GetListByParameters">
+    <![CDATA[
+        from CommissionPayment where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CommissionPayment.SearchByParameters">
+    <![CDATA[
+        from CommissionPayment where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+
+</hibernate-mapping>

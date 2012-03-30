@@ -8,7 +8,7 @@ namespace Samsara.Support.Util
 {
     public class TimeUtil
     {
-        public enum Months
+        public enum MonthEnum
         {
             January = 1,
             February,
@@ -36,36 +36,55 @@ namespace Samsara.Support.Util
         private static string octoberName = "Octubre";
         private static string novemberName = "Noviembre";
         private static string decemberName = "Diciembre";
+        private static IDictionary<int, string> months;
 
-        public static string MonthName(Months month)
+        private static IDictionary<int, string> Months
+        {
+            get
+            {
+                if (months == null)
+                {
+                    months = new Dictionary<int, string>();
+
+                    foreach (int monthIndex in Enumerable.Range(1, 12))
+                    {
+                        months.Add(monthIndex, MonthName((MonthEnum)monthIndex));
+                    }
+                }
+
+                return months;
+            }
+        }
+
+        public static string MonthName(MonthEnum month)
         {
             string monthName = null;
 
             switch (month)
             {
-                case Months.January:
+                case MonthEnum.January:
                     return januaryName;
-                case Months.February:
+                case MonthEnum.February:
                     return februaryName;
-                case Months.March:
+                case MonthEnum.March:
                     return marchName;
-                case Months.April:
+                case MonthEnum.April:
                     return aprilName;
-                case Months.May:
+                case MonthEnum.May:
                     return mayName;
-                case Months.June:
+                case MonthEnum.June:
                     return juneName;
-                case Months.July:
+                case MonthEnum.July:
                     return julyName;
-                case Months.August:
+                case MonthEnum.August:
                     return augustName;
-                case Months.September:
+                case MonthEnum.September:
                     return septemberName;
-                case Months.October:
+                case MonthEnum.October:
                     return octoberName;
-                case Months.November:
+                case MonthEnum.November:
                     return novemberName;
-                case Months.December:
+                case MonthEnum.December:
                     return decemberName;
                 default:
                     break;
@@ -74,9 +93,9 @@ namespace Samsara.Support.Util
             return monthName;
         }
 
-        public static IList<Months> GetMonthsRange(DateTime startTime, DateTime endTime)
+        public static IList<MonthEnum> GetMonthsRange(DateTime startTime, DateTime endTime)
         {
-            IList<Months> monthsRange = new List<Months>();
+            IList<MonthEnum> monthsRange = new List<MonthEnum>();
 
             int monthsInterval = Convert.ToInt32(DateAndTime.DateDiff(DateInterval.Month, startTime, endTime));
 
@@ -84,12 +103,12 @@ namespace Samsara.Support.Util
             {
                 foreach (int monthIndex in Enumerable.Range(0, monthsInterval))
                 {
-                    monthsRange.Add((Months)((monthIndex + startTime.Month - 1) % 12 + 1));
+                    monthsRange.Add((MonthEnum)((monthIndex + startTime.Month - 1) % 12 + 1));
                 }
             }
             else
             {
-                monthsRange.Add((Months)startTime.Month);
+                monthsRange.Add((MonthEnum)startTime.Month);
             }
 
             return monthsRange;
