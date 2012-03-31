@@ -58,6 +58,7 @@
     <Compile Include="Entities\CommissionPayment.cs" />
     <Compile Include="Entities\ServiceStaff.cs" />
     <Compile Include="Entities\Service.cs" />
+    <Compile Include="Enums\CommissionPaymentFormUserPermissionEnum.cs" />
     <Compile Include="Enums\ServicesManagementFormUserPermissionEnum.cs" />
     <Compile Include="Parameters\CommissionTypeParameters.cs" />
     <Compile Include="Parameters\CommissionPaymentParameters.cs" />
