@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Commissions.Core.Entities;
@@ -44,7 +45,6 @@ namespace Samsara.Commissions.Forms.Controllers
         protected override void ReadOnlySearchFields(bool readOnly)
         {
             base.ReadOnlySearchFields(readOnly);
-
         }
 
         #endregion Protected
@@ -55,12 +55,18 @@ namespace Samsara.Commissions.Forms.Controllers
         {
             this.frmCommissionPayment.sccSchStaff.DisplayMember = "Fullname";
             this.frmCommissionPayment.sccSchStaff.Refresh();
+
+            this.frmCommissionPayment.grdPrincipal.InitializeLayout 
+                += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
         }
 
         public override void InitializeDetailFormControls()
         {
             this.frmCommissionPayment.sccDetStaff.DisplayMember = "Fullname";
             this.frmCommissionPayment.sccDetStaff.Refresh();
+
+            WindowsFormsUtil.LoadCombo(this.frmCommissionPayment.uceDetMonth,
+                TimeUtil.Months, "Index", "Name", "Seleccione", false);
         }
 
         public override void Search()
@@ -113,7 +119,7 @@ namespace Samsara.Commissions.Forms.Controllers
             }
 
             if (this.frmCommissionPayment.uceDetMonth.Value == null ||
-                string.IsNullOrEmpty(this.frmCommissionPayment.uceDetMonth.Value.ToString()))
+                Convert.ToInt32(this.frmCommissionPayment.uceDetMonth.Value) == -1)
             {
                 MessageBox.Show("Favor de asignar el Mes del Pago.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -179,7 +185,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.txtDetComments.Value = null;
             this.frmCommissionPayment.sccDetStaff.Value = null;
             this.frmCommissionPayment.txtDetAmount.Value = null;
-            this.frmCommissionPayment.uceDetMonth.Value = null;
+            this.frmCommissionPayment.uceDetMonth.Value = -1;
             this.frmCommissionPayment.txtDetYear.Value = null;
         }
 
@@ -188,6 +194,15 @@ namespace Samsara.Commissions.Forms.Controllers
         #endregion Methods
 
         #region Events
+
+        private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            WindowsFormsUtil.SetUltraGridValueList(layout, TimeUtil.Months, 
+                band.Columns["Month"], "Index", "Name", null);
+        }
 
         #endregion Events
     }
