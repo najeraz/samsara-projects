@@ -106,6 +106,31 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Public
 
+        public virtual bool ValidateCanEditEntity()
+        {
+            return true;
+        }
+
+        public virtual bool ValidateCanDeleteEntity()
+        {
+            return true;
+        }
+
+        public virtual bool ValidateCanCreateEntity()
+        {
+            return true;
+        }
+
+        public virtual bool ValidateCanSaveEntity()
+        {
+            return true;
+        }
+
+        public virtual bool ValidateCanShowDetail()
+        {
+            return true;
+        }
+
         public abstract void Search();
 
         public abstract void InitializeDetailFormControls();
@@ -158,7 +183,8 @@ namespace Samsara.Base.Forms.Controllers
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
 
-            if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
+            if (activeRow != null && this.ValidateCanShowDetail()
+                && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
             {
                 this.FormStatus = FormStatusEnum.ShowDetail;
                 this.InitializeDetailFormControls();
@@ -174,7 +200,8 @@ namespace Samsara.Base.Forms.Controllers
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
 
-            if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
+            if (activeRow != null && this.ValidateCanEditEntity() 
+                && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value)))
             {
                 this.FormStatus = FormStatusEnum.Edition;
                 this.InitializeDetailFormControls();
@@ -190,7 +217,8 @@ namespace Samsara.Base.Forms.Controllers
         {
             UltraGridRow activeRow = this.frmGenericDocument.grdPrincipal.ActiveRow;
 
-            if (activeRow != null && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value))
+            if (activeRow != null && this.ValidateCanDeleteEntity()
+                && this.LoadEntity(Convert.ToInt32(activeRow.Cells[0].Value))
                 && this.ConfirmDeleteEntity())
             {
                 this.DeleteEntity();
@@ -199,18 +227,21 @@ namespace Samsara.Base.Forms.Controllers
 
         internal void CreateEntityProcess()
         {
-            this.FormStatus = FormStatusEnum.Creation;
-            this.InitializeDetailFormControls();
-            this.ClearDetailFields();
-            this.ProcessDetailButtons();
-            this.ReadOnlyDetailFields(false);
-            this.ShowDetail(true);
-            this.CreateEntity();
+            if (this.ValidateCanCreateEntity())
+            {
+                this.FormStatus = FormStatusEnum.Creation;
+                this.InitializeDetailFormControls();
+                this.ClearDetailFields();
+                this.ProcessDetailButtons();
+                this.ReadOnlyDetailFields(false);
+                this.ShowDetail(true);
+                this.CreateEntity();
+            }
         }
 
         internal void SaveEntityProcess()
         {
-            if (this.ValidateFormInformation())
+            if (this.ValidateCanSaveEntity() && this.ValidateFormInformation())
             {
                 this.SaveEntity();
                 this.Search();

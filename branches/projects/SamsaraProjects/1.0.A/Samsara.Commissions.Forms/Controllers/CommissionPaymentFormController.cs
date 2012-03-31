@@ -6,6 +6,7 @@ using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Commissions.Core.Entities;
+using Samsara.Commissions.Core.Enums;
 using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
@@ -67,6 +68,24 @@ namespace Samsara.Commissions.Forms.Controllers
 
             WindowsFormsUtil.LoadCombo(this.frmCommissionPayment.uceDetMonth,
                 TimeUtil.Months, "Index", "Name", "Seleccione", false);
+        }
+
+        public override bool ValidateCanCreateEntity()
+        {
+            return this.HasPermission(CommissionPaymentFormUserPermissionEnum
+                .CanCreateEditOrDeleteCommissionsPayments);
+        }
+
+        public override bool ValidateCanEditEntity()
+        {
+            return this.HasPermission(CommissionPaymentFormUserPermissionEnum
+                .CanCreateEditOrDeleteCommissionsPayments);
+        }
+
+        public override bool ValidateCanDeleteEntity()
+        {
+            return this.HasPermission(CommissionPaymentFormUserPermissionEnum
+                .CanCreateEditOrDeleteCommissionsPayments);
         }
 
         public override void Search()
