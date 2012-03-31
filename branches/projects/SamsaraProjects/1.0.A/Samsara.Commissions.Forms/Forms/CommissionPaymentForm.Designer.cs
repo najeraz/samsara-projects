@@ -45,7 +45,6 @@ namespace Samsara.Commissions.Forms.Forms
             this.ulblSchAsesor = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetStaff = new Infragistics.Win.Misc.UltraLabel();
             this.sccDetStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
-            this.txtDetAmount = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblDetAmount = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetYear = new Infragistics.Win.Misc.UltraLabel();
             this.uceDetMonth = new Samsara.Base.Controls.Controls.SamsaraUltraComboEditor();
@@ -53,11 +52,11 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetComments = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetComments = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetYear = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtDetAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetComments)).BeginInit();
@@ -120,10 +119,10 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxDetDetail
             // 
+            this.gbxDetDetail.Controls.Add(this.txtDetAmount);
             this.gbxDetDetail.Controls.Add(this.txtDetYear);
             this.gbxDetDetail.Controls.Add(this.ugbxDetComments);
             this.gbxDetDetail.Controls.Add(this.uceDetMonth);
-            this.gbxDetDetail.Controls.Add(this.txtDetAmount);
             this.gbxDetDetail.Controls.Add(this.ulblDetYear);
             this.gbxDetDetail.Controls.Add(this.ulblDetMonths);
             this.gbxDetDetail.Controls.Add(this.ulblDetAmount);
@@ -190,13 +189,6 @@ namespace Samsara.Commissions.Forms.Forms
             this.sccDetStaff.ValueMember = "StaffId";
             this.sccDetStaff.Values = null;
             // 
-            // txtDetAmount
-            // 
-            this.txtDetAmount.Location = new System.Drawing.Point(61, 48);
-            this.txtDetAmount.Name = "txtDetAmount";
-            this.txtDetAmount.Size = new System.Drawing.Size(226, 21);
-            this.txtDetAmount.TabIndex = 4;
-            // 
             // ulblDetAmount
             // 
             this.ulblDetAmount.AutoSize = true;
@@ -261,6 +253,18 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetYear.TabIndex = 8;
             this.txtDetYear.Value = ((object)(resources.GetObject("txtDetYear.Value")));
             // 
+            // txtDetAmount
+            // 
+            this.txtDetAmount.CustomParent = this;
+            this.txtDetAmount.Location = new System.Drawing.Point(61, 46);
+            this.txtDetAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetAmount.MeasurementFileUnit = "MB";
+            this.txtDetAmount.Name = "txtDetAmount";
+            this.txtDetAmount.ReadOnly = false;
+            this.txtDetAmount.Size = new System.Drawing.Size(108, 20);
+            this.txtDetAmount.TabIndex = 9;
+            this.txtDetAmount.Value = ((object)(resources.GetObject("txtDetAmount.Value")));
+            // 
             // CommissionPaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,7 +278,6 @@ namespace Samsara.Commissions.Forms.Forms
             this.gbxDetDetail.ResumeLayout(false);
             this.gbxDetDetail.PerformLayout();
             this.pnlDetButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uceDetMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetComments)).EndInit();
@@ -290,7 +293,6 @@ namespace Samsara.Commissions.Forms.Forms
         private Infragistics.Win.Misc.UltraLabel ulblDetAmount;
         private Infragistics.Win.Misc.UltraLabel ulblDetStaff;
         internal AlleatoERP.Controls.Controls.StaffChooserControl sccSchStaff;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetAmount;
         internal AlleatoERP.Controls.Controls.StaffChooserControl sccDetStaff;
         internal Base.Controls.Controls.SamsaraUltraComboEditor uceDetMonth;
         private Infragistics.Win.Misc.UltraLabel ulblDetYear;
@@ -298,6 +300,7 @@ namespace Samsara.Commissions.Forms.Forms
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetComments;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetComments;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetYear;
+        internal Base.Controls.Controls.SamsaraTextEditor txtDetAmount;
 
 
     }
