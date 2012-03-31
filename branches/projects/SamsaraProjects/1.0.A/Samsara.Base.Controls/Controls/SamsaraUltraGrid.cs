@@ -35,11 +35,15 @@ namespace Samsara.Base.Controls.Controls
                 this.srvFormConfigurationGrid = SamsaraAppContext.Resolve<IFormConfigurationGridService>();
                 this.srvFormConfigurationGridColumn = SamsaraAppContext.Resolve<IFormConfigurationGridColumnService>();
             }
+
+            this.DisplayLayout.Grid.DisplayLayout.GroupByBox.Prompt
+                = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
         }
 
         protected override void OnInitializeLayout(InitializeLayoutEventArgs e)
         {
             base.OnInitializeLayout(e);
+
             e.Layout.Override.SummaryFooterCaptionVisible = DefaultableBoolean.False;   
 
             FormConfiguration formConfiguration = null;
