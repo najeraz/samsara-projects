@@ -55,8 +55,8 @@
           u0.Username CreatedByName, cp.CreatedOn, u1.Username UpdatedByName, cp.UpdatedOn
         FROM Commissions.CommissionPayments cp
         INNER JOIN AlleatoERP.Staffs s ON s.StaffId = cp.StaffId AND s.Deleted = 0 AND s.Activated = 1
-        INNER JOIN Main.Users u0 ON u0.UserId = cp.CreatedBy
-        INNER JOIN Main.Users u1 ON u1.UserId = cp.UpdatedBy
+        LEFT JOIN Main.Users u0 ON u0.UserId = cp.CreatedBy
+        LEFT JOIN Main.Users u1 ON u1.UserId = cp.UpdatedBy
         WHERE cp.Deleted = 0 AND cp.Activated = 1
         AND (cp.StaffId = :StaffId OR -1 = :StaffId)
     ]]>
