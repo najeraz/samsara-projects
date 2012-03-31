@@ -20,6 +20,10 @@
     <property name="UpdatedOn" type="Timestamp"/>
     <property name="Activated"/>
     <property name="Deleted"/>
+
+    <many-to-one name="Staff" lazy="false"
+                 class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
+                 column="StaffId"/>
     
   </class>
 
@@ -35,13 +39,28 @@
     ]]>
   </query>
 
-  <query name="CommissionPayment.SearchByParameters">
+  <sql-query name="CommissionPayment.SearchByParameters">
+    <return-scalar column="CommissionPaymentId" type="int"/>
+    <return-scalar column="StaffName" type="string"/>
+    <return-scalar column="Amount" type="decimal"/>
+    <return-scalar column="Month" type="int"/>
+    <return-scalar column="Year" type="int"/>
+    <return-scalar column="CreatedByName" type="string"/>
+    <return-scalar column="CreatedOn" type="DateTime"/>
+    <return-scalar column="UpdatedByName" type="string"/>
+    <return-scalar column="UpdatedOn" type="DateTime"/>
     <![CDATA[
-        from CommissionPayment
-        where Deleted = 0 and Activated = 1
-        and StaffId = :StaffId
+        SELECT 
+          cp.CommissionPaymentId, s.Fullname StaffName, cp.Amount, cp.Month, cp.Year, 
+          u0.Username CreatedByName, cp.CreatedOn, u1.Username UpdatedByName, cp.UpdatedOn
+        FROM Commissions.CommissionPayments cp
+        INNER JOIN AlleatoERP.Staffs s ON s.StaffId = cp.StaffId AND s.Deleted = 0 AND s.Activated = 1
+        INNER JOIN Main.Users u0 ON u0.UserId = cp.CreatedBy
+        INNER JOIN Main.Users u1 ON u1.UserId = cp.UpdatedBy
+        WHERE cp.Deleted = 0 AND cp.Activated = 1
+        AND (cp.StaffId = :StaffId OR -1 = :StaffId)
     ]]>
-  </query>
+  </sql-query>
 
 
 </hibernate-mapping>
