@@ -36,23 +36,42 @@ namespace Samsara.Support.Util
         private static string octoberName = "Octubre";
         private static string novemberName = "Noviembre";
         private static string decemberName = "Diciembre";
-        private static IDictionary<int, string> months;
 
-        private static IDictionary<int, string> Months
+        public class Month
+        {
+            public int Index
+            {
+                get;
+                set;
+            }
+
+            public string Name
+            {
+                get;
+                set;
+            }
+        }
+
+
+        private static IList<Month> months;
+
+        public static IList<Month> Months
         {
             get
             {
                 if (months == null)
                 {
-                    months = new Dictionary<int, string>();
+                    months = new List<Month>();
 
                     foreach (int monthIndex in Enumerable.Range(1, 12))
                     {
-                        months.Add(monthIndex, MonthName((MonthEnum)monthIndex));
+                        Month month = new Month() { Index = monthIndex, Name = MonthName((MonthEnum)monthIndex) };
+
+                        months.Add(month);
                     }
                 }
 
-                return months;
+                return new List<Month>(months);
             }
         }
 
