@@ -24,6 +24,13 @@
     <many-to-one name="Staff" lazy="false"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
                  column="StaffId"/>
+
+    <set name="CommissionPaymentStaff" table="Commissions.CommissionPaymentStaff" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="CommissionPaymentId"/>
+      <one-to-many
+        class="Samsara.Commissions.Core.Entities.CommissionPaymentStaff, Samsara.Commissions.Core"/>
+    </set>
     
   </class>
 
@@ -39,28 +46,11 @@
     ]]>
   </query>
 
-  <sql-query name="CommissionPayment.SearchByParameters">
-    <return-scalar column="CommissionPaymentId" type="int"/>
-    <return-scalar column="StaffName" type="string"/>
-    <return-scalar column="Amount" type="decimal"/>
-    <return-scalar column="Month" type="int"/>
-    <return-scalar column="Year" type="int"/>
-    <return-scalar column="CreatedByName" type="string"/>
-    <return-scalar column="CreatedOn" type="DateTime"/>
-    <return-scalar column="UpdatedByName" type="string"/>
-    <return-scalar column="UpdatedOn" type="DateTime"/>
+  <query name="CommissionPayment.SearchByParameters">
     <![CDATA[
-        SELECT 
-          cp.CommissionPaymentId, s.Fullname StaffName, cp.Amount, cp.Month, cp.Year, 
-          u0.Username CreatedByName, cp.CreatedOn, u1.Username UpdatedByName, cp.UpdatedOn
-        FROM Commissions.CommissionPayments cp
-        INNER JOIN AlleatoERP.Staffs s ON s.StaffId = cp.StaffId AND s.Deleted = 0 AND s.Activated = 1
-        LEFT JOIN Main.Users u0 ON u0.UserId = cp.CreatedBy
-        LEFT JOIN Main.Users u1 ON u1.UserId = cp.UpdatedBy
-        WHERE cp.Deleted = 0 AND cp.Activated = 1
-        AND (cp.StaffId = :StaffId OR -1 = :StaffId)
+        from CommissionPayment where Deleted = 0 and Activated = 1
     ]]>
-  </sql-query>
+  </query>
 
 
 </hibernate-mapping>

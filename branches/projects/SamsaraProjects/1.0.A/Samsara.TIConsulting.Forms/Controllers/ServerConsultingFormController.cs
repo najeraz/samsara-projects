@@ -784,6 +784,7 @@ Especificaciones: {4}
         private void sctcDetServerComputerType_ValueChanged(object sender, 
             SamsaraEntityChooserValueChangedEventArgs<ServerComputerType> e)
         {
+            this.frmServerConsulting.rtcDetRackType.Value = null;
             this.frmServerConsulting.rtcDetRackType.ReadOnly
                 = e.NewValue == null || e.NewValue.ServerComputerTypeId != (int)ServerComputerTypeEnum.Rack;
         }
