@@ -46,13 +46,13 @@ namespace Samsara.TIConsulting.Forms.Forms
             Infragistics.Win.ValueListItem valueListItem4 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem7 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem8 = new Infragistics.Win.ValueListItem();
+            Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
             Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerConsultingForm));
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetOldServerDetail = new Infragistics.Win.Misc.UltraPanel();
             this.txtDetOperativeSystem = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -86,6 +86,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uchkDetDataBackup = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.uchkDetDataMigration = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.ugbxDetServerComputerTypePreference = new Infragistics.Win.Misc.UltraGroupBox();
+            this.rtcDetRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
             this.uchkDetOtherServerComputerType = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.txtDetOtherServerComputerTypePreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.sctcDetServerComputerType = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
@@ -138,7 +139,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchOrganizationName = new Infragistics.Win.Misc.UltraLabel();
             this.txtSchContact = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchContact = new Infragistics.Win.Misc.UltraLabel();
-            this.rtcDetRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -690,7 +690,29 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetServerComputerTypePreference.Name = "ugbxDetServerComputerTypePreference";
             this.ugbxDetServerComputerTypePreference.Size = new System.Drawing.Size(313, 100);
             this.ugbxDetServerComputerTypePreference.TabIndex = 12;
-            this.ugbxDetServerComputerTypePreference.Text = "12.- Tipo de Servidor";
+            this.ugbxDetServerComputerTypePreference.Text = "12.- Tipo de Servidor que Prefiere el Cliente";
+            // 
+            // rtcDetRackType
+            // 
+            this.rtcDetRackType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.rtcDetRackType.CustomParent = null;
+            this.rtcDetRackType.DisplayMember = "Name";
+            this.rtcDetRackType.Location = new System.Drawing.Point(113, 72);
+            this.rtcDetRackType.Name = "rtcDetRackType";
+            rackTypeParameters1.CreatedBy = null;
+            rackTypeParameters1.CreatedOn = null;
+            rackTypeParameters1.Description = null;
+            rackTypeParameters1.Name = null;
+            rackTypeParameters1.RackTypeId = null;
+            rackTypeParameters1.UpdatedBy = null;
+            rackTypeParameters1.UpdatedOn = null;
+            this.rtcDetRackType.Parameters = rackTypeParameters1;
+            this.rtcDetRackType.ReadOnly = false;
+            this.rtcDetRackType.Size = new System.Drawing.Size(194, 22);
+            this.rtcDetRackType.TabIndex = 4;
+            this.rtcDetRackType.Value = null;
+            this.rtcDetRackType.ValueMember = "RackTypeId";
+            this.rtcDetRackType.Values = null;
             // 
             // uchkDetOtherServerComputerType
             // 
@@ -1232,28 +1254,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblSchContact.Size = new System.Drawing.Size(53, 14);
             this.ulblSchContact.TabIndex = 3;
             this.ulblSchContact.Text = "Contacto:";
-            // 
-            // rtcDetRackType
-            // 
-            this.rtcDetRackType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.rtcDetRackType.CustomParent = null;
-            this.rtcDetRackType.DisplayMember = "Name";
-            this.rtcDetRackType.Location = new System.Drawing.Point(113, 72);
-            this.rtcDetRackType.Name = "rtcDetRackType";
-            rackTypeParameters1.CreatedBy = null;
-            rackTypeParameters1.CreatedOn = null;
-            rackTypeParameters1.Description = null;
-            rackTypeParameters1.Name = null;
-            rackTypeParameters1.RackTypeId = null;
-            rackTypeParameters1.UpdatedBy = null;
-            rackTypeParameters1.UpdatedOn = null;
-            this.rtcDetRackType.Parameters = rackTypeParameters1;
-            this.rtcDetRackType.ReadOnly = false;
-            this.rtcDetRackType.Size = new System.Drawing.Size(194, 22);
-            this.rtcDetRackType.TabIndex = 4;
-            this.rtcDetRackType.Value = null;
-            this.rtcDetRackType.ValueMember = "RackTypeId";
-            this.rtcDetRackType.Values = null;
             // 
             // ServerConsultingForm
             // 
