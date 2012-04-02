@@ -132,7 +132,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeDetailFormControls()
         {
-
+            this.frmServerConsulting.rtcDetRackType.Refresh();
             this.frmServerConsulting.sctcDetServerComputerType.Refresh();
         }
 
@@ -257,7 +257,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetDataBackup.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetDataMigration.Enabled = !readOnly;
             this.frmServerConsulting.txtDetOperativeSystem.ReadOnly = readOnly;
-            this.frmServerConsulting.txtDetRackType.ReadOnly = readOnly
+            this.frmServerConsulting.rtcDetRackType.ReadOnly = readOnly
                 || !(this.frmServerConsulting.sctcDetServerComputerType.Value != null
                 && this.frmServerConsulting.sctcDetServerComputerType.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
         }
@@ -281,7 +281,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.Contact = (this.frmServerConsulting.txtDetContact.Value as string);
             this.serverConsulting.ExtensionNumber = this.frmServerConsulting.txtDetExtensionNumber.Value.ToString();
             this.serverConsulting.ServerComputerType = this.frmServerConsulting.sctcDetServerComputerType.Value;
-            this.serverConsulting.RackType = (this.frmServerConsulting.txtDetRackType.Value as string);
+            this.serverConsulting.RackType = this.frmServerConsulting.rtcDetRackType.Value;
 
             this.serverConsulting.NumberOfUsersWillGrow = this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.Checked;
             this.serverConsulting.RedundantPowerSupply = this.frmServerConsulting.uchkDetRedundantPowerSupply.Checked;
@@ -383,7 +383,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetContact.Value = null;
             this.frmServerConsulting.txtDetExtensionNumber.Value = null;
             this.frmServerConsulting.txtDetOperativeSystem.Value = null;
-            this.frmServerConsulting.txtDetRackType.Value = null;
+            this.frmServerConsulting.rtcDetRackType.Value = null;
 
             this.frmServerConsulting.sctcDetServerComputerType.Value = null;
 
@@ -442,7 +442,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetContact.Value = this.serverConsulting.Contact;
             this.frmServerConsulting.txtDetExtensionNumber.Value = this.serverConsulting.ExtensionNumber;
             this.frmServerConsulting.sctcDetServerComputerType.Value = this.serverConsulting.ServerComputerType;
-            this.frmServerConsulting.txtDetRackType.Value = this.serverConsulting.RackType;
+            this.frmServerConsulting.rtcDetRackType.Value = this.serverConsulting.RackType;
 
             this.frmServerConsulting.txtDetServerComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerBrand;
             this.frmServerConsulting.txtDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.First().ServerComputerType;
@@ -784,7 +784,7 @@ Especificaciones: {4}
         private void sctcDetServerComputerType_ValueChanged(object sender, 
             SamsaraEntityChooserValueChangedEventArgs<ServerComputerType> e)
         {
-            this.frmServerConsulting.txtDetRackType.ReadOnly
+            this.frmServerConsulting.rtcDetRackType.ReadOnly
                 = e.NewValue == null || e.NewValue.ServerComputerTypeId != (int)ServerComputerTypeEnum.Rack;
         }
 

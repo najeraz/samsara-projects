@@ -28,7 +28,6 @@
     <property name="RedundantPowerSupply"/>
     <property name="DataMigration"/>
     <property name="DataBackup"/>
-    <property name="RackType"/>
     <property name="ArrayDisks"/>
     <property name="Budget"/>
     <property name="HaveSite"/>
@@ -44,6 +43,10 @@
     <many-to-one name="ServerComputerType" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.ServerComputerType, Samsara.CustomerContext.Core"
                  column="ServerComputerTypeId" />
+
+    <many-to-one name="RackType" lazy="false"
+                 class="Samsara.CustomerContext.Core.Entities.RackType, Samsara.CustomerContext.Core"
+                 column="RackTypeId" />
 
     <set name="ServerConsultingOldServerComputers" table="TIConsulting.ServerConsultingOldServerComputers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
