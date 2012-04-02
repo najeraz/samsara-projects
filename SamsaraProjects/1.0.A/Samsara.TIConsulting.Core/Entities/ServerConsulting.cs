@@ -161,7 +161,7 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual string RackType
+        public virtual RackType RackType
         {
             get;
             set;
