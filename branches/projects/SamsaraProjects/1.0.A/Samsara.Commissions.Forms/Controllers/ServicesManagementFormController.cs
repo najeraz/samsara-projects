@@ -191,8 +191,7 @@ namespace Samsara.Commissions.Forms.Controllers
 
             foreach (ServiceStaff serviceStaff in this.service.ServiceStaff)
             {
-                serviceStaff.Activated = false;
-                serviceStaff.Deleted = true;
+                EntitiesUtil.SetAsDeleted(serviceStaff);
             }
 
             foreach (Staff staff in this.frmServicesManagement.sccDetStaff.Values)
