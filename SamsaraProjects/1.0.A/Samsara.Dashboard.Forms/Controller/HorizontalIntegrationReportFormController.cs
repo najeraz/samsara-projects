@@ -86,7 +86,7 @@ namespace Samsara.Dashboard.Forms.Controller
 
             int currentYear = startTime.Year;
 
-            foreach (TimeUtil.Months month in TimeUtil.GetMonthsRange(startTime, endTime))
+            foreach (TimeUtil.MonthEnum month in TimeUtil.GetMonthsRange(startTime, endTime))
             {
                 int currentMonth = Convert.ToInt32(month);
 
@@ -172,7 +172,7 @@ namespace Samsara.Dashboard.Forms.Controller
                 if (!int.TryParse(column.Header.Caption.Split(' ').First(), out index))
                     continue;
 
-                column.Header.Caption = TimeUtil.MonthName((TimeUtil.Months)index);
+                column.Header.Caption = TimeUtil.MonthName((TimeUtil.MonthEnum)index);
             }
 
             foreach (UltraGridColumn column in band.Columns

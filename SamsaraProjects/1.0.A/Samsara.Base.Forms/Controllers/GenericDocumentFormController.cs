@@ -81,7 +81,25 @@ namespace Samsara.Base.Forms.Controllers
                     x.FormConfigurationUserPermission.UserPermissionId == Convert.ToInt32(permission) &&
                 x.User.UserId == Session.User.UserId);
 
-            return formConfigurationUserPermissionUser != null;
+            FormConfigurationUserPermission formConfigurationUserPermission
+                = this.FormConfiguration.FormConfigurationUserPermissions
+                .Single(x => x.UserPermissionId == Convert.ToInt32(permission));
+
+            bool hasPermission = formConfigurationUserPermissionUser != null;
+            bool hasErrorMessage = formConfigurationUserPermission.PermissionDeniedErrorMessage != null;
+
+            if (!hasPermission && hasErrorMessage)
+            {
+                MessageBox.Show(formConfigurationUserPermission.PermissionDeniedErrorMessage, 
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No cuenta con el permiso para realizar esta acción.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return hasPermission;
         }
 
         protected virtual void ShowDetail(bool show)
