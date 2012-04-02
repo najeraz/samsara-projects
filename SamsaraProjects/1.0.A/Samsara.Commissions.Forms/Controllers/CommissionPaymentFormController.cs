@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Linq;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
@@ -11,6 +12,7 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.Support.Util;
+using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -182,7 +184,7 @@ namespace Samsara.Commissions.Forms.Controllers
         public override void LoadDetail()
         {
             this.frmCommissionPayment.txtDetComments.Value = this.commissionPayment.Comments;
-            this.frmCommissionPayment.sccDetStaff.Value = this.commissionPayment.Staff;
+            this.frmCommissionPayment.sccDetStaff.Values = this.commissionPayment.CommissionPaymentStaffs.Select(x => x.Staff).ToList();
             this.frmCommissionPayment.txtDetAmount.Value = this.commissionPayment.Amount;
             this.frmCommissionPayment.uceDetMonth.Value = this.commissionPayment.Month;
             this.frmCommissionPayment.txtDetYear.Value = this.commissionPayment.Year;
@@ -191,11 +193,26 @@ namespace Samsara.Commissions.Forms.Controllers
         public override void SaveEntity()
         {
             this.commissionPayment.Comments = this.frmCommissionPayment.txtDetComments.Value as string;
-            this.commissionPayment.Staff = this.frmCommissionPayment.sccDetStaff.Value;
             this.commissionPayment.Amount = Convert.ToDecimal(this.frmCommissionPayment.txtDetAmount.Value);
             this.commissionPayment.Month = Convert.ToInt32(this.frmCommissionPayment.uceDetMonth.Value);
             this.commissionPayment.Year = Convert.ToInt32(this.frmCommissionPayment.txtDetYear.Value);
 
+            foreach (CommissionPaymentStaff commissionPaymentStaff in this.commissionPayment.CommissionPaymentStaffs)
+            {
+                commissionPaymentStaff.Activated = false;
+                commissionPaymentStaff.Deleted = true;
+            }
+
+            foreach (Staff staff in this.frmCommissionPayment.sccDetStaff.Values)
+            {
+                CommissionPaymentStaff commissionPaymentStaff = new CommissionPaymentStaff();
+
+                commissionPaymentStaff.CommissionPayment = this.commissionPayment;
+                commissionPaymentStaff.Staff = staff;
+
+                this.commissionPayment.CommissionPaymentStaffs.Add(commissionPaymentStaff);
+            }
+                
             this.srvCommissionPayment.SaveOrUpdate(this.commissionPayment);
         }
 
