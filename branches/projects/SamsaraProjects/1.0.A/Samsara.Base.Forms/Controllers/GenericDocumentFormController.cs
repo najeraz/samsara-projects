@@ -88,15 +88,18 @@ namespace Samsara.Base.Forms.Controllers
             bool hasPermission = formConfigurationUserPermissionUser != null;
             bool hasErrorMessage = formConfigurationUserPermission.PermissionDeniedErrorMessage != null;
 
-            if (!hasPermission && hasErrorMessage)
+            if (!hasPermission)
             {
-                MessageBox.Show(formConfigurationUserPermission.PermissionDeniedErrorMessage, 
+                if (hasErrorMessage)
+                {
+                    MessageBox.Show(formConfigurationUserPermission.PermissionDeniedErrorMessage,
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("No cuenta con el permiso para realizar esta acción.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No cuenta con el permiso para realizar esta acción.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
             return hasPermission;
