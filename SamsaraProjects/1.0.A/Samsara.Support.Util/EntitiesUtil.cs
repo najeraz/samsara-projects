@@ -114,6 +114,12 @@ namespace Samsara.Support.Util
             return resultList;
         }
 
+        public static void SetAsDeleted(BaseEntity entity)
+        {
+            entity.Activated = false;
+            entity.Deleted = true;
+        }
+
         public static void ProcessAuditProperties(object entity, DateTime dtNow, IDictionary<int, string> auditedObjects, NHibernate.ISession nHibernateSession)
         {
             Type entityType = null;

@@ -199,8 +199,7 @@ namespace Samsara.Commissions.Forms.Controllers
 
             foreach (CommissionPaymentStaff commissionPaymentStaff in this.commissionPayment.CommissionPaymentStaffs)
             {
-                commissionPaymentStaff.Activated = false;
-                commissionPaymentStaff.Deleted = true;
+                EntitiesUtil.SetAsDeleted(commissionPaymentStaff);
             }
 
             foreach (Staff staff in this.frmCommissionPayment.sccDetStaff.Values)
