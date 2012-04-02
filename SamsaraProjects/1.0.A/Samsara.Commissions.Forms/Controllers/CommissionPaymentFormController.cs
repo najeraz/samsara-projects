@@ -1,9 +1,11 @@
 ﻿
 using System;
-using System.Linq;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.Base.Controls.Enums;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Commissions.Core.Entities;
@@ -12,7 +14,6 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.Support.Util;
-using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -65,6 +66,7 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override void InitializeDetailFormControls()
         {
+            this.frmCommissionPayment.sccDetStaff.ControlType = SamsaraEntityChooserControlTypeEnum.Multiple;
             this.frmCommissionPayment.sccDetStaff.DisplayMember = "Fullname";
             this.frmCommissionPayment.sccDetStaff.Refresh();
 
@@ -122,9 +124,9 @@ namespace Samsara.Commissions.Forms.Controllers
 
         public override bool ValidateFormInformation()
         {
-            if (this.frmCommissionPayment.sccDetStaff.Value == null)
+            if (this.frmCommissionPayment.sccDetStaff.Values.Count == 0)
             {
-                MessageBox.Show("Favor de asignar el Asesor de Venta.",
+                MessageBox.Show("Favor de asignar el Asesor(es) de Venta.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.frmCommissionPayment.sccDetStaff.Focus();
                 return false;
@@ -179,6 +181,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.txtDetAmount.ReadOnly = readOnly;
             this.frmCommissionPayment.uceDetMonth.ReadOnly = readOnly;
             this.frmCommissionPayment.txtDetYear.ReadOnly = readOnly;
+            this.frmCommissionPayment.uchkDetIsSalesRetail.Enabled = !readOnly;
         }
 
         public override void LoadDetail()
@@ -188,6 +191,7 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.txtDetAmount.Value = this.commissionPayment.Amount;
             this.frmCommissionPayment.uceDetMonth.Value = this.commissionPayment.Month;
             this.frmCommissionPayment.txtDetYear.Value = this.commissionPayment.Year;
+            this.frmCommissionPayment.uchkDetIsSalesRetail.Checked = this.commissionPayment.IsSalesRetail;
         }
 
         public override void SaveEntity()
@@ -196,6 +200,9 @@ namespace Samsara.Commissions.Forms.Controllers
             this.commissionPayment.Amount = Convert.ToDecimal(this.frmCommissionPayment.txtDetAmount.Value);
             this.commissionPayment.Month = Convert.ToInt32(this.frmCommissionPayment.uceDetMonth.Value);
             this.commissionPayment.Year = Convert.ToInt32(this.frmCommissionPayment.txtDetYear.Value);
+            this.commissionPayment.IsSalesRetail = this.frmCommissionPayment.uchkDetIsSalesRetail.Checked;
+            this.commissionPayment.StaffNames = string.Join(", ", 
+                this.frmCommissionPayment.sccDetStaff.Values.Select(x => x.Fullname).ToArray());
 
             foreach (CommissionPaymentStaff commissionPaymentStaff in this.commissionPayment.CommissionPaymentStaffs)
             {
@@ -218,10 +225,11 @@ namespace Samsara.Commissions.Forms.Controllers
         public override void ClearDetailFields()
         {
             this.frmCommissionPayment.txtDetComments.Value = null;
-            this.frmCommissionPayment.sccDetStaff.Value = null;
+            this.frmCommissionPayment.sccDetStaff.Values = null;
             this.frmCommissionPayment.txtDetAmount.Value = null;
             this.frmCommissionPayment.uceDetMonth.Value = -1;
             this.frmCommissionPayment.txtDetYear.Value = null;
+            this.frmCommissionPayment.uchkDetIsSalesRetail.Checked = false;
         }
 
         #endregion Public

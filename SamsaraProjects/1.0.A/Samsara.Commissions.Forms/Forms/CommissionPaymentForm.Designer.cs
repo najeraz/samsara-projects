@@ -53,6 +53,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.ugbxDetComments = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetYear = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.txtDetAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.uchkDetIsSalesRetail = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -61,6 +62,7 @@ namespace Samsara.Commissions.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetComments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetComments)).BeginInit();
             this.ugbxDetComments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsSalesRetail)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -71,6 +73,7 @@ namespace Samsara.Commissions.Forms.Forms
             this.grdPrincipal.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdPrincipal.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             this.grdPrincipal.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdPrincipal.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             this.grdPrincipal.DisplayLayout.MaxColScrollRegions = 1;
             this.grdPrincipal.DisplayLayout.MaxRowScrollRegions = 1;
             appearance2.BackColor = System.Drawing.SystemColors.Window;
@@ -119,6 +122,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // gbxDetDetail
             // 
+            this.gbxDetDetail.Controls.Add(this.uchkDetIsSalesRetail);
             this.gbxDetDetail.Controls.Add(this.txtDetAmount);
             this.gbxDetDetail.Controls.Add(this.txtDetYear);
             this.gbxDetDetail.Controls.Add(this.ugbxDetComments);
@@ -162,18 +166,18 @@ namespace Samsara.Commissions.Forms.Forms
             // ulblDetStaff
             // 
             this.ulblDetStaff.AutoSize = true;
-            this.ulblDetStaff.Location = new System.Drawing.Point(12, 22);
+            this.ulblDetStaff.Location = new System.Drawing.Point(15, 22);
             this.ulblDetStaff.Name = "ulblDetStaff";
-            this.ulblDetStaff.Size = new System.Drawing.Size(43, 14);
+            this.ulblDetStaff.Size = new System.Drawing.Size(55, 14);
             this.ulblDetStaff.TabIndex = 3;
-            this.ulblDetStaff.Text = "Asesor:";
+            this.ulblDetStaff.Text = "Asesores:";
             // 
             // sccDetStaff
             // 
             this.sccDetStaff.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
             this.sccDetStaff.CustomParent = null;
             this.sccDetStaff.DisplayMember = "Name";
-            this.sccDetStaff.Location = new System.Drawing.Point(61, 19);
+            this.sccDetStaff.Location = new System.Drawing.Point(73, 19);
             this.sccDetStaff.Name = "sccDetStaff";
             staffParameters2.CreatedBy = null;
             staffParameters2.CreatedOn = null;
@@ -192,7 +196,7 @@ namespace Samsara.Commissions.Forms.Forms
             // ulblDetAmount
             // 
             this.ulblDetAmount.AutoSize = true;
-            this.ulblDetAmount.Location = new System.Drawing.Point(12, 52);
+            this.ulblDetAmount.Location = new System.Drawing.Point(15, 49);
             this.ulblDetAmount.Name = "ulblDetAmount";
             this.ulblDetAmount.Size = new System.Drawing.Size(39, 14);
             this.ulblDetAmount.TabIndex = 3;
@@ -201,7 +205,7 @@ namespace Samsara.Commissions.Forms.Forms
             // ulblDetYear
             // 
             this.ulblDetYear.AutoSize = true;
-            this.ulblDetYear.Location = new System.Drawing.Point(12, 106);
+            this.ulblDetYear.Location = new System.Drawing.Point(15, 105);
             this.ulblDetYear.Name = "ulblDetYear";
             this.ulblDetYear.Size = new System.Drawing.Size(27, 14);
             this.ulblDetYear.TabIndex = 3;
@@ -209,7 +213,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             // uceDetMonth
             // 
-            this.uceDetMonth.Location = new System.Drawing.Point(61, 75);
+            this.uceDetMonth.Location = new System.Drawing.Point(73, 75);
             this.uceDetMonth.Name = "uceDetMonth";
             this.uceDetMonth.Size = new System.Drawing.Size(226, 21);
             this.uceDetMonth.TabIndex = 6;
@@ -217,7 +221,7 @@ namespace Samsara.Commissions.Forms.Forms
             // ulblDetMonths
             // 
             this.ulblDetMonths.AutoSize = true;
-            this.ulblDetMonths.Location = new System.Drawing.Point(12, 79);
+            this.ulblDetMonths.Location = new System.Drawing.Point(15, 78);
             this.ulblDetMonths.Name = "ulblDetMonths";
             this.ulblDetMonths.Size = new System.Drawing.Size(29, 14);
             this.ulblDetMonths.TabIndex = 3;
@@ -244,7 +248,7 @@ namespace Samsara.Commissions.Forms.Forms
             // txtDetYear
             // 
             this.txtDetYear.CustomParent = this;
-            this.txtDetYear.Location = new System.Drawing.Point(61, 102);
+            this.txtDetYear.Location = new System.Drawing.Point(73, 102);
             this.txtDetYear.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
             this.txtDetYear.MeasurementFileUnit = "MB";
             this.txtDetYear.Name = "txtDetYear";
@@ -256,7 +260,7 @@ namespace Samsara.Commissions.Forms.Forms
             // txtDetAmount
             // 
             this.txtDetAmount.CustomParent = this;
-            this.txtDetAmount.Location = new System.Drawing.Point(61, 46);
+            this.txtDetAmount.Location = new System.Drawing.Point(73, 46);
             this.txtDetAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
             this.txtDetAmount.MeasurementFileUnit = "MB";
             this.txtDetAmount.Name = "txtDetAmount";
@@ -264,6 +268,15 @@ namespace Samsara.Commissions.Forms.Forms
             this.txtDetAmount.Size = new System.Drawing.Size(108, 20);
             this.txtDetAmount.TabIndex = 9;
             this.txtDetAmount.Value = ((object)(resources.GetObject("txtDetAmount.Value")));
+            // 
+            // uchkDetIsSalesRetail
+            // 
+            this.uchkDetIsSalesRetail.AutoSize = true;
+            this.uchkDetIsSalesRetail.Location = new System.Drawing.Point(15, 219);
+            this.uchkDetIsSalesRetail.Name = "uchkDetIsSalesRetail";
+            this.uchkDetIsSalesRetail.Size = new System.Drawing.Size(121, 17);
+            this.uchkDetIsSalesRetail.TabIndex = 10;
+            this.uchkDetIsSalesRetail.Text = "Es Venta Mostrador";
             // 
             // CommissionPaymentForm
             // 
@@ -283,6 +296,7 @@ namespace Samsara.Commissions.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetComments)).EndInit();
             this.ugbxDetComments.ResumeLayout(false);
             this.ugbxDetComments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetIsSalesRetail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -301,6 +315,7 @@ namespace Samsara.Commissions.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetComments;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetYear;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetAmount;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetIsSalesRetail;
 
 
     }
