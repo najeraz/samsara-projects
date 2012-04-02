@@ -11,6 +11,7 @@
 
     <property name="Name"/>
     <property name="Description"/>
+    <property name="PermissionDeniedErrorMessage"/>
     <property name="UserPermissionId"/>
 
     <property name="UpdatedBy"/>
