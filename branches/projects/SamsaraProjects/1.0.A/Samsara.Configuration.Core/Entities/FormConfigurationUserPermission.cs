@@ -45,6 +45,12 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
+        public virtual string PermissionDeniedErrorMessage
+        {
+            get;
+            set;
+        }
+
         public virtual ISet<FormConfigurationUserPermissionUser> FormConfigurationUserPermissionUsers
         {
             get
