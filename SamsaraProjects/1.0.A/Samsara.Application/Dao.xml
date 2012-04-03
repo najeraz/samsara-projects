@@ -11,6 +11,7 @@
   <import resource="Dao\SamsaraStructureDao.xml"/>
   <import resource="Dao\TIConsultingDao.xml"/>
   <import resource="Dao\WebsiteDao.xml"/>
+  <import resource="Dao\System.xml"/>
 
 </objects>
 
