@@ -248,7 +248,7 @@
             // 
             this.steNumberOfClients.CustomParent = null;
             this.steNumberOfClients.Location = new System.Drawing.Point(448, 18);
-            this.steNumberOfClients.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steNumberOfClients.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.steNumberOfClients.Name = "steNumberOfClients";
             this.steNumberOfClients.ReadOnly = false;
             this.steNumberOfClients.Size = new System.Drawing.Size(226, 20);

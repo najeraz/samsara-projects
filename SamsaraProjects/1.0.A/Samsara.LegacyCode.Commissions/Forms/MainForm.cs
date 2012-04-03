@@ -1072,7 +1072,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             {
                 if (column.Header.Caption != "Comisión" && column.Header.Caption != "Concepto")
                 {
-                    WindowsFormsUtil.SetUltraColumnFormat(column, TextMaskFormatEnum.Currency);
+                    WindowsFormsUtil.SetUltraColumnFormat(column, TextFormatEnum.Currency);
                 }
             }
         }
@@ -1191,7 +1191,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             band.Columns["margen_minimo"].Header.Caption = "Margen Mínimo";
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_minimo"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
 
             band.Columns["familia"].Hidden = true;
             band.Columns["linea"].Hidden = true;
@@ -1216,7 +1216,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             band.Columns["familias_configuradas"].Header.Caption = "Familias Configuradas";
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_promedio"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
 
             band.Columns["linea"].Hidden = true;
         }
@@ -1233,7 +1233,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             band.Columns["familias_configuradas"].Header.Caption = "Familias Configuradas";
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_promedio"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
 
             band.Columns["sublinea"].Hidden = true;
             band.Columns["linea"].Hidden = true;
@@ -1381,25 +1381,25 @@ namespace Samsara.LegacyCode.Commissions.Forms
             band.Columns["saldo_a_pagar"].CellActivation = Activation.AllowEdit;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_general"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_Q"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_comision"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota_de_servicios"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota_de_productos"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["porcentaje_comision_servicios"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["porcentaje_comision_productos"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["monto_comision"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["saldo_a_pagar"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_pagado"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
         }
 
         private void grdResumenComisiones_BeforeCellUpdate(object sender, BeforeCellUpdateEventArgs e)

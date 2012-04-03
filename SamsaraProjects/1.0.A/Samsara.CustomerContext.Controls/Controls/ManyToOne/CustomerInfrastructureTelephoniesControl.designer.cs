@@ -236,7 +236,7 @@
             // 
             this.steNumberOfLines.CustomParent = null;
             this.steNumberOfLines.Location = new System.Drawing.Point(447, 19);
-            this.steNumberOfLines.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steNumberOfLines.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.steNumberOfLines.Name = "steNumberOfLines";
             this.steNumberOfLines.ReadOnly = false;
             this.steNumberOfLines.Size = new System.Drawing.Size(226, 20);

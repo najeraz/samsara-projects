@@ -14,6 +14,7 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Forms.Forms;
 using Samsara.Commissions.Service.Interfaces;
 using Samsara.Support.Util;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.Commissions.Forms.Controllers
 {
@@ -246,7 +247,7 @@ namespace Samsara.Commissions.Forms.Controllers
             WindowsFormsUtil.SetUltraGridValueList(layout, TimeUtil.Months, 
                 band.Columns["Month"], "Index", "Name", null);
 
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"], TextMaskFormatEnum.Currency);
+            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"], TextFormatEnum.Currency);
         }
 
         #endregion Events

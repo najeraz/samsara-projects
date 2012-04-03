@@ -222,7 +222,7 @@
             // 
             this.steBandwidth.CustomParent = null;
             this.steBandwidth.Location = new System.Drawing.Point(118, 36);
-            this.steBandwidth.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
+            this.steBandwidth.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.FileSize;
             this.steBandwidth.Name = "steBandwidth";
             this.steBandwidth.ReadOnly = false;
             this.steBandwidth.Size = new System.Drawing.Size(226, 20);

@@ -823,7 +823,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetBudget.CustomParent = null;
             this.txtDetBudget.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDetBudget.Location = new System.Drawing.Point(192, 29);
-            this.txtDetBudget.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetBudget.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
             this.txtDetBudget.MeasurementFileUnit = "GB";
             this.txtDetBudget.Name = "txtDetBudget";
             this.txtDetBudget.ReadOnly = false;
@@ -858,7 +858,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetFutureStorageVolume.CustomParent = null;
             this.txtDetFutureStorageVolume.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDetFutureStorageVolume.Location = new System.Drawing.Point(192, 29);
-            this.txtDetFutureStorageVolume.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
+            this.txtDetFutureStorageVolume.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.FileSize;
             this.txtDetFutureStorageVolume.MeasurementFileUnit = "GB";
             this.txtDetFutureStorageVolume.Name = "txtDetFutureStorageVolume";
             this.txtDetFutureStorageVolume.ReadOnly = false;
@@ -906,7 +906,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetCurrentStorageVolume.CustomParent = null;
             this.txtDetCurrentStorageVolume.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDetCurrentStorageVolume.Location = new System.Drawing.Point(192, 29);
-            this.txtDetCurrentStorageVolume.MaskType = Samsara.Support.Util.TextMaskFormatEnum.FileSize;
+            this.txtDetCurrentStorageVolume.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.FileSize;
             this.txtDetCurrentStorageVolume.MeasurementFileUnit = "GB";
             this.txtDetCurrentStorageVolume.Name = "txtDetCurrentStorageVolume";
             this.txtDetCurrentStorageVolume.ReadOnly = false;
@@ -928,7 +928,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetNumberOfUsers.CustomParent = null;
             this.txtDetNumberOfUsers.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDetNumberOfUsers.Location = new System.Drawing.Point(192, 16);
-            this.txtDetNumberOfUsers.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetNumberOfUsers.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.txtDetNumberOfUsers.MeasurementFileUnit = "GB";
             this.txtDetNumberOfUsers.Name = "txtDetNumberOfUsers";
             this.txtDetNumberOfUsers.ReadOnly = false;
@@ -970,7 +970,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetNumberOfUsersWillGrow.CustomParent = null;
             this.txtDetNumberOfUsersWillGrow.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDetNumberOfUsersWillGrow.Location = new System.Drawing.Point(192, 29);
-            this.txtDetNumberOfUsersWillGrow.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetNumberOfUsersWillGrow.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.txtDetNumberOfUsersWillGrow.MeasurementFileUnit = "GB";
             this.txtDetNumberOfUsersWillGrow.Name = "txtDetNumberOfUsersWillGrow";
             this.txtDetNumberOfUsersWillGrow.ReadOnly = false;
@@ -1137,7 +1137,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.txtDetExtensionNumber.CustomParent = null;
             this.txtDetExtensionNumber.Location = new System.Drawing.Point(637, 46);
-            this.txtDetExtensionNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetExtensionNumber.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.txtDetExtensionNumber.MeasurementFileUnit = "GB";
             this.txtDetExtensionNumber.Name = "txtDetExtensionNumber";
             this.txtDetExtensionNumber.ReadOnly = false;
@@ -1149,7 +1149,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.txtDetPhoneNumber.CustomParent = this;
             this.txtDetPhoneNumber.Location = new System.Drawing.Point(501, 46);
-            this.txtDetPhoneNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.PhoneNumber;
+            this.txtDetPhoneNumber.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.PhoneNumber;
             this.txtDetPhoneNumber.MeasurementFileUnit = "MB";
             this.txtDetPhoneNumber.Name = "txtDetPhoneNumber";
             this.txtDetPhoneNumber.ReadOnly = false;

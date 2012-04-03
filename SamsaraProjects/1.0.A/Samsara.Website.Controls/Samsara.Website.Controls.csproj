@@ -77,23 +77,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\ProductConfigurationChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ProductConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductConfigurationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ProductFamilyConfigurationChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ProductFamilyConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductFamilyConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductFamilyConfigurationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ProductLineConfigurationChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ProductLineConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductLineConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductLineConfigurationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductLineConfigurationSamsaraBusinessUnitChooserControl.designer.cs">
       <DependentUpon>ProductLineConfigurationSamsaraBusinessUnitChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ProductSublineConfigurationChooserControl.cs" />
+    <Compile Include="Controls\Choosers\ProductSublineConfigurationChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\Choosers\ProductSublineConfigurationChooserControl.designer.cs">
       <DependentUpon>ProductSublineConfigurationChooserControl.cs</DependentUpon>
     </Compile>

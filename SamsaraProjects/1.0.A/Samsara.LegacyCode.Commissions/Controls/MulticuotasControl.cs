@@ -444,9 +444,9 @@ namespace Samsara.LegacyCode.Commissions.Controls
             band.Columns["tipo"].Header.Caption = "Tipo";
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_inicial"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["comision"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
         }
 
         private void grdMultiquotaSchemes_ClickCell(object sender, ClickCellEventArgs e)
