@@ -73,6 +73,11 @@
       <HintPath>..\bin\Samsara.Base.Forms.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Base.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
@@ -109,6 +114,7 @@
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

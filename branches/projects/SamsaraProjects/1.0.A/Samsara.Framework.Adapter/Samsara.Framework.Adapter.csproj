@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5C3F7259-90D8-4A48-B665-98ADDA23EE6A}</ProjectGuid>
+    <ProjectGuid>{3989BD5C-77AF-4F83-8BC1-DEEEEFE00660}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.AlleatoERP.Service</RootNamespace>
-    <AssemblyName>Samsara.AlleatoERP.Service</AssemblyName>
+    <RootNamespace>Samsara.Framework.Adapter</RootNamespace>
+    <AssemblyName>Samsara.Framework.Adapter</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,22 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.AlleatoERP.Dao">
-      <HintPath>..\bin\Samsara.AlleatoERP.Dao.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Samsara.Base.Core">
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -54,19 +40,9 @@
       <HintPath>..\bin\Samsara.Base.Interfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+    <Reference Include="Samsara.Framework.Core">
+      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="Spring.Core">
-      <HintPath>..\lib\Spring.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Spring.Data">
-      <HintPath>..\lib\Spring.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Spring.Data.NHibernate32">
-      <HintPath>..\lib\Spring.Data.NHibernate32.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,25 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\ERPCustomerService.cs" />
-    <Compile Include="Impl\AlleatoERPService.cs" />
-    <Compile Include="Impl\ProductBrandService.cs" />
-    <Compile Include="Impl\ProductFamilyService.cs" />
-    <Compile Include="Impl\ProductLineService.cs" />
-    <Compile Include="Impl\ProductService.cs" />
-    <Compile Include="Impl\ProductSublineService.cs" />
-    <Compile Include="Impl\StaffService.cs" />
-    <Compile Include="Interfaces\IAlleatoERPService.cs" />
-    <Compile Include="Interfaces\IERPCustomerService.cs" />
-    <Compile Include="Interfaces\IProductBrandService.cs" />
-    <Compile Include="Interfaces\IProductFamilyService.cs" />
-    <Compile Include="Interfaces\IProductLineService.cs" />
-    <Compile Include="Interfaces\IProductService.cs" />
-    <Compile Include="Interfaces\IProductSublineService.cs" />
-    <Compile Include="Interfaces\IStaffService.cs" />
+    <Compile Include="Interfaces\ITextFormatService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
