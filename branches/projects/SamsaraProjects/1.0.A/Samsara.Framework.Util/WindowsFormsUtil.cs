@@ -76,6 +76,11 @@ namespace Samsara.Framework.Util
             combo.Value = -1;
         }
 
+        public static void SetUltraColumnFormat(UltraGridColumn column, TextFormatEnum textFormat)
+        {
+            //16912
+        }
+
         public static void SetUltraColumnFormat(UltraGridColumn column, TextFormat textFormat)
         {
             column.MaskInput = textFormat.Mask;

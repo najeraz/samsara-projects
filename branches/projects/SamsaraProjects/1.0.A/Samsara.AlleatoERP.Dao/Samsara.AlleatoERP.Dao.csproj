@@ -47,9 +47,9 @@
       <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Support.Util">
-      <HintPath>..\bin\Samsara.Support.Util.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Core">
       <HintPath>..\lib\Spring.Core.dll</HintPath>
