@@ -2,7 +2,7 @@
 using System;
 using Samsara.Base.Core.Parameters;
 
-namespace Samsara.System.Core.Parameters
+namespace Samsara.Framework.Core.Parameters
 {
     public class TextFormatParameters : BaseParameters
     {

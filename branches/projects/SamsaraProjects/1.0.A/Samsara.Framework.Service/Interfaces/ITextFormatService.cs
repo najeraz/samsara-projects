@@ -1,9 +1,9 @@
 ﻿
 using Samsara.Base.Service.Interfaces;
-using Samsara.System.Core.Entities;
-using Samsara.System.Core.Parameters;
+using Samsara.Framework.Core.Entities;
+using Samsara.Framework.Core.Parameters;
 
-namespace Samsara.System.Service.Interfaces
+namespace Samsara.Framework.Service.Interfaces
 {
     public interface ITextFormatService : IBaseService<TextFormat, int, TextFormatParameters>
     {

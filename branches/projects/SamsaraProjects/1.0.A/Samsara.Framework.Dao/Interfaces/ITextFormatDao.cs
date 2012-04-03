@@ -1,9 +1,9 @@
 ﻿
 using Samsara.Base.Dao.Interfaces;
-using Samsara.System.Core.Entities;
-using Samsara.System.Core.Parameters;
+using Samsara.Framework.Core.Entities;
+using Samsara.Framework.Core.Parameters;
 
-namespace Samsara.System.Dao.Interfaces
+namespace Samsara.Framework.Dao.Interfaces
 {
     public interface ITextFormatDao : IBaseDao<TextFormat, int, TextFormatParameters>
     {
