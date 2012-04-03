@@ -8,8 +8,8 @@
     <ProjectGuid>{1207D620-2C1A-4028-823C-3C9DB8B31BD0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.System.Dao</RootNamespace>
-    <AssemblyName>Samsara.System.Dao</AssemblyName>
+    <RootNamespace>Samsara.Framework.Dao</RootNamespace>
+    <AssemblyName>Samsara.Framework.Dao</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,9 +43,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
     </Reference>
-    <Reference Include="Samsara.System.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.System.Core.dll</HintPath>
+      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
