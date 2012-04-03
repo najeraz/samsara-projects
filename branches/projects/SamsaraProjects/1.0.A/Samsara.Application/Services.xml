@@ -11,7 +11,7 @@
   <import resource="Services\SamsaraStructureServices.xml"/>
   <import resource="Services\TIConsultingServices.xml"/>
   <import resource="Services\WebsiteServices.xml"/>
-  <import resource="Services\System.xml"/>
+  <import resource="Services\FrameworkServices.xml"/>
   
   <import resource="Services\TransactionProxyFactory.xml"/>
 

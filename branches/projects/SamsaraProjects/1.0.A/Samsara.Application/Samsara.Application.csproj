@@ -149,7 +149,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Dao\SystemDao.xml">
+    <Content Include="Dao\FrameworkDao.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -194,7 +194,7 @@
     <Content Include="Services\AlleatoERPServices.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Services\SystemServices.xml">
+    <Content Include="Services\FrameworkServices.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Services\WebsiteServices.xml">
