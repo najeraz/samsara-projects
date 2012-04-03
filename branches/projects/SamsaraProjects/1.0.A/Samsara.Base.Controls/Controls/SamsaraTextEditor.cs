@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
-using Samsara.System.Core.Enums;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.Base.Controls.Controls
 {
