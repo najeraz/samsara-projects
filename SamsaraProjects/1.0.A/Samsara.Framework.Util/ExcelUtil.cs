@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinGrid.ExcelExport;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class ExcelUtil
     {

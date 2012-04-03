@@ -6,8 +6,8 @@ using System.Data;
 using System.Linq;
 using NHibernate.Impl;
 using Samsara.Base.Dao.Interfaces;
+using Samsara.Framework.Util;
 using Samsara.Persistance.NHibernate.Transformers;
-using Samsara.Support.Util;
 using Spring.Data.NHibernate.Generic.Support;
 
 namespace Samsara.Base.Dao.Impl
@@ -78,7 +78,7 @@ namespace Samsara.Base.Dao.Impl
         protected virtual DetachedNamedQuery GetDetachedNamedQuery(string queryName, object parameters)
         {
             DetachedNamedQuery dnq = new DetachedNamedQuery(queryName);
-            Samsara.Support.Util.NHibernateUtil.SetDetachedNamedQueryParameters(dnq, parameters);
+            Samsara.Framework.Util.NHibernateUtil.SetDetachedNamedQueryParameters(dnq, parameters);
             return dnq;
         }
 
