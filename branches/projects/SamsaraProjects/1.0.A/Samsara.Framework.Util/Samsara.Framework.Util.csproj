@@ -8,8 +8,8 @@
     <ProjectGuid>{D4BB7166-F77E-420B-AE66-EA341BB104C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Samsara.Support.Util</RootNamespace>
-    <AssemblyName>Samsara.Support.Util</AssemblyName>
+    <RootNamespace>Samsara.Framework.Util</RootNamespace>
+    <AssemblyName>Samsara.Framework.Util</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>
