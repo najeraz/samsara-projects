@@ -1,9 +1,9 @@
 ﻿
-namespace Samsara.System.Core.Enums
+namespace Samsara.Framework.Core.Enums
 {
-    public enum TextMaskFormatEnum
+    public enum TextFormatEnum
     {
-        Currency,
+        Currency = 1,
         Rate,
         Percentage,
         NoLimitPercentage,
