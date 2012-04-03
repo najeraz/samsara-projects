@@ -1,6 +1,8 @@
 ﻿
+using Infragistics.Win.UltraWinMaskedEdit;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Infragistics.Win;
 
 namespace Samsara.Framework.Core.Entities
 {
@@ -25,6 +27,30 @@ namespace Samsara.Framework.Core.Entities
         }
 
         public virtual string Description
+        {
+            get;
+            set;
+        }
+
+        public virtual string Mask
+        {
+            get;
+            set;
+        }
+
+        public virtual MaskMode MaskMode
+        {
+            get;
+            set;
+        }
+
+        public virtual HAlign HAlign
+        {
+            get;
+            set;
+        }
+
+        public virtual char PromptChar
         {
             get;
             set;

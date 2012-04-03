@@ -11,6 +11,10 @@
 
     <property name="Name"/>
     <property name="Description"/>
+    <property name="Mask"/>
+    <property name="MaskMode"/>
+    <property name="HAlign"/>
+    <property name="PromptChar"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
