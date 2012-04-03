@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class ObjectsUtil
     {

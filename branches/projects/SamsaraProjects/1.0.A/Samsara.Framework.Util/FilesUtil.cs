@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class FilesUtil
     {

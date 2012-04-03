@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualBasic;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class TimeUtil
     {

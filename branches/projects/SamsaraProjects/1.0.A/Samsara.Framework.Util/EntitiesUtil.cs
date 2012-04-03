@@ -10,7 +10,7 @@ using Samsara.Base.Core.Context;
 using Samsara.Base.Core.Entities;
 using Samsara.Base.Core.Interfaces;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     /// <summary>
     /// Auxiliares para Entidades del Framework.

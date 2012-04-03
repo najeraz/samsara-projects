@@ -1,7 +1,7 @@
 ﻿
 using Samsara.Base.Core.Entities;
 using Samsara.Base.Dao.Interfaces;
-using Samsara.Support.Util;
+using Samsara.Framework.Util;
 
 namespace Samsara.Base.Dao.Impl
 {

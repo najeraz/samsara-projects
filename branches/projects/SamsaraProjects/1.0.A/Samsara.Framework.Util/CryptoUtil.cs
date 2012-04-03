@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class CryptoUtil
     {

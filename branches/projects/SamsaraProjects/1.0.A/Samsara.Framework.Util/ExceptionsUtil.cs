@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class ExceptionsUtil
     {
