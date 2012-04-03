@@ -11,6 +11,7 @@ using Samsara.Configuration.Code.Interfaces;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Configuration.Service.Interfaces;
+using Samsara.Framework.Util;
 using Samsara.Main.Core.Entities;
 using Samsara.Main.Core.Parameters;
 using Samsara.Main.Service.Interfaces;
@@ -162,6 +163,11 @@ namespace Samsara.Base.Controls.Controls
                         column.Hidden = !gridColumnConfiguration.Visible && !formGrid.IgnoreConfiguration;
                         column.Header.Caption = gridColumnConfiguration.ColumnEndUserName;
                         column.Header.VisiblePosition = index++;
+
+                        if (gridColumnConfiguration.TextFormat != null)
+                        {
+                            WindowsFormsUtil.SetUltraColumnFormat(column, gridColumnConfiguration.TextFormat);
+                        }
                     }
 
                     //band.SummaryFooterCaption = "Sumatorias";      
