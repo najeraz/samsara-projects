@@ -240,7 +240,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             this.txtProductsQuota.CustomParent = null;
             this.txtProductsQuota.Location = new System.Drawing.Point(494, 16);
-            this.txtProductsQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtProductsQuota.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
             this.txtProductsQuota.Name = "txtProductsQuota";
             this.txtProductsQuota.ReadOnly = false;
             this.txtProductsQuota.Size = new System.Drawing.Size(94, 20);
@@ -309,7 +309,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             this.txtServicesQuota.CustomParent = null;
             this.txtServicesQuota.Location = new System.Drawing.Point(493, 42);
-            this.txtServicesQuota.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtServicesQuota.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
             this.txtServicesQuota.Name = "txtServicesQuota";
             this.txtServicesQuota.ReadOnly = false;
             this.txtServicesQuota.Size = new System.Drawing.Size(94, 20);
@@ -486,7 +486,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             this.txtComissionPercent.CustomParent = null;
             this.txtComissionPercent.Location = new System.Drawing.Point(267, 18);
-            this.txtComissionPercent.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
+            this.txtComissionPercent.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Percentage;
             this.txtComissionPercent.Name = "txtComissionPercent";
             this.txtComissionPercent.ReadOnly = false;
             this.txtComissionPercent.Size = new System.Drawing.Size(78, 20);
@@ -497,7 +497,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             // 
             this.txtSegmentAmount.CustomParent = null;
             this.txtSegmentAmount.Location = new System.Drawing.Point(90, 18);
-            this.txtSegmentAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtSegmentAmount.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
             this.txtSegmentAmount.Name = "txtSegmentAmount";
             this.txtSegmentAmount.ReadOnly = false;
             this.txtSegmentAmount.Size = new System.Drawing.Size(94, 20);

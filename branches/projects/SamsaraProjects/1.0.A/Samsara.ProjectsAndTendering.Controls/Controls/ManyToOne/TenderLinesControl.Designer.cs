@@ -237,7 +237,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             // 
             this.steQuantity.CustomParent = null;
             this.steQuantity.Location = new System.Drawing.Point(87, 35);
-            this.steQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steQuantity.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.steQuantity.Name = "steQuantity";
             this.steQuantity.ReadOnly = false;
             this.steQuantity.Size = new System.Drawing.Size(96, 20);

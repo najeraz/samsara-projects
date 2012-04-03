@@ -249,7 +249,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             this.txtDetYear.CustomParent = this;
             this.txtDetYear.Location = new System.Drawing.Point(73, 102);
-            this.txtDetYear.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetYear.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.txtDetYear.MeasurementFileUnit = "MB";
             this.txtDetYear.Name = "txtDetYear";
             this.txtDetYear.ReadOnly = false;
@@ -261,7 +261,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             this.txtDetAmount.CustomParent = this;
             this.txtDetAmount.Location = new System.Drawing.Point(73, 46);
-            this.txtDetAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetAmount.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
             this.txtDetAmount.MeasurementFileUnit = "MB";
             this.txtDetAmount.Name = "txtDetAmount";
             this.txtDetAmount.ReadOnly = false;

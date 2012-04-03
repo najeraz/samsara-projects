@@ -9,6 +9,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinEditors;
 using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinMaskedEdit;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.Support.Util
 {
@@ -82,53 +83,53 @@ namespace Samsara.Support.Util
             combo.Value = -1;
         }
 
-        public static void SetUltraColumnFormat(UltraGridColumn column, TextMaskFormatEnum gridCellFormat)
+        public static void SetUltraColumnFormat(UltraGridColumn column, TextFormatEnum gridCellFormat)
         {
             switch (gridCellFormat)
             {
-                case TextMaskFormatEnum.Currency:
+                case TextFormatEnum.Currency:
                     column.MaskInput = currencyMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.NaturalQuantity:
+                case TextFormatEnum.NaturalQuantity:
                     column.MaskInput = naturalQuantityMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.Integer:
+                case TextFormatEnum.Integer:
                     column.MaskInput = integerMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.RealQuantity:
+                case TextFormatEnum.RealQuantity:
                     column.MaskInput = realQuantityMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.Rate:
+                case TextFormatEnum.Rate:
                     column.MaskInput = rateMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.Percentage:
+                case TextFormatEnum.Percentage:
                     column.MaskInput = percentageMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.NoLimitPercentage:
+                case TextFormatEnum.NoLimitPercentage:
                     column.MaskInput = noLimitPercentageMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;
                     column.PromptChar = ' ';
                     break;
-                case TextMaskFormatEnum.FileSize:
+                case TextFormatEnum.FileSize:
                     column.MaskInput = fileSizeMask;
                     column.MaskDisplayMode = MaskMode.IncludeBoth;
                     column.CellAppearance.TextHAlign = HAlign.Right;

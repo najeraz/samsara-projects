@@ -107,7 +107,7 @@
             // txtMargin
             // 
             this.txtMargin.Location = new System.Drawing.Point(61, 45);
-            this.txtMargin.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Percentage;
+            this.txtMargin.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Percentage;
             this.txtMargin.Name = "txtMargin";
             this.txtMargin.ReadOnly = false;
             this.txtMargin.Size = new System.Drawing.Size(99, 20);

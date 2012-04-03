@@ -250,7 +250,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.steNumberOfTrunks.CustomParent = null;
             this.steNumberOfTrunks.Location = new System.Drawing.Point(461, 19);
-            this.steNumberOfTrunks.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steNumberOfTrunks.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.steNumberOfTrunks.Name = "steNumberOfTrunks";
             this.steNumberOfTrunks.ReadOnly = false;
             this.steNumberOfTrunks.Size = new System.Drawing.Size(226, 20);
@@ -261,7 +261,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.steNumberOfExtensions.CustomParent = null;
             this.steNumberOfExtensions.Location = new System.Drawing.Point(461, 45);
-            this.steNumberOfExtensions.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.steNumberOfExtensions.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.steNumberOfExtensions.Name = "steNumberOfExtensions";
             this.steNumberOfExtensions.ReadOnly = false;
             this.steNumberOfExtensions.Size = new System.Drawing.Size(226, 20);
