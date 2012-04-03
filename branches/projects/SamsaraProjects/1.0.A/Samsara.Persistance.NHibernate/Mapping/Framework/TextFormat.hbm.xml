@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="Samsara.System.Core" 
-  namespace="Samsara.System.Core.Entities">
+  assembly="Samsara.Framework.Core" 
+  namespace="Samsara.Framework.Core.Entities">
   
-  <class name="TextFormat" table="System.TextFormats">
+  <class name="TextFormat" table="Framework.TextFormats">
     
     <id name="TextFormatId" type="int">
       <generator class="native"/>
