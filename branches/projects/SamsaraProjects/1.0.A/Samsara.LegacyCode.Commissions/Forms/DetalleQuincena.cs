@@ -9,6 +9,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.LegacyCode.Commissions.Util;
 using Samsara.Support.Util;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {
