@@ -74,6 +74,10 @@
       <HintPath>..\bin\Samsara.Configuration.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Main.Core.dll</HintPath>
@@ -149,7 +153,6 @@
       <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Controls\ManyToOneLevel1Control.resx">
       <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
