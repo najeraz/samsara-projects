@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class CollectionsUtil
     {

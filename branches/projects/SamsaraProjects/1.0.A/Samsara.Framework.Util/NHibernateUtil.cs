@@ -3,7 +3,7 @@ using System;
 using System.Reflection;
 using NHibernate.Impl;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class NHibernateUtil
     {

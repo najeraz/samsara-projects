@@ -11,7 +11,7 @@ using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinMaskedEdit;
 using Samsara.Framework.Core.Enums;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class WindowsFormsUtil
     {

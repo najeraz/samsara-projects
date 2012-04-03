@@ -1,5 +1,4 @@
 ﻿
-using System;
 
 namespace Samsara.Base.Controls.Controls
 {

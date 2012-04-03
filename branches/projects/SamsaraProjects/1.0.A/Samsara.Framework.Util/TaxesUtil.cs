@@ -2,7 +2,7 @@
 using System;
 using Samsara.Main.Core.Enums;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class TaxesUtil
     {

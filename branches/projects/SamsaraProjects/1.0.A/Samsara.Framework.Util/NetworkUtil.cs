@@ -1,8 +1,8 @@
 ﻿
-using System.Management;
 using System.Linq;
+using System.Management;
 
-namespace Samsara.Support.Util
+namespace Samsara.Framework.Util
 {
     public class NetworkUtil
     {

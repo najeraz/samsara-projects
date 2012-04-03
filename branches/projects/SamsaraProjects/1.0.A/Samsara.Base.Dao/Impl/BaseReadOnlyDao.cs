@@ -6,8 +6,8 @@ using System.Data;
 using System.Linq;
 using NHibernate.Impl;
 using Samsara.Base.Dao.Interfaces;
+using Samsara.Framework.Util;
 using Samsara.Persistance.NHibernate.Transformers;
-using Samsara.Support.Util;
 using Spring.Data.NHibernate.Generic.Support;
 
 namespace Samsara.Base.Dao.Impl
