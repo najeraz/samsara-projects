@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
-using Samsara.Support.Util;
+using Samsara.System.Core.Enums;
 
 namespace Samsara.Base.Controls.Controls
 {
@@ -18,7 +18,7 @@ namespace Samsara.Base.Controls.Controls
         private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
         private static string rateMask = "{double:4.12}";
 
-        private TextMaskFormatEnum maskType;
+        private TextFormatEnum maskType;
         private string measurementFileUnit = "MB";
         private string fileSizeSubmask = "nnn,nnn,nnn,nnn.nn ";
 
@@ -37,7 +37,7 @@ namespace Samsara.Base.Controls.Controls
         }
 
         [Description("Mascara del editor de texto")]
-        public TextMaskFormatEnum MaskType
+        public TextFormatEnum MaskType
         {
             get
             {
@@ -66,63 +66,63 @@ namespace Samsara.Base.Controls.Controls
 
                 switch (this.maskType)
                 {
-                    case TextMaskFormatEnum.Currency:
+                    case TextFormatEnum.Currency:
                         result = this.sumeValue.Value.ToString();
 
                         if (decimal.TryParse(result, out decimalParser))
                             return decimalParser;
                             
                         return null;
-                    case TextMaskFormatEnum.FileSize:
+                    case TextFormatEnum.FileSize:
                         result = this.sumeValue.Value.ToString().Replace(measurementFileUnit, "").Trim();
 
                         if (decimal.TryParse(result, out decimalParser))
                             return decimalParser;
 
                         return null;
-                    case TextMaskFormatEnum.NaturalQuantity:
+                    case TextFormatEnum.NaturalQuantity:
                         result = this.sumeValue.Value.ToString().Replace(",", "").Trim();
 
                         if (int.TryParse(result, out integerParser))
                             return integerParser;
 
                         return null;
-                    case TextMaskFormatEnum.NoLimitPercentage:
+                    case TextFormatEnum.NoLimitPercentage:
                         result = this.sumeValue.Value.ToString().Replace("%", "").Trim();
 
                         if (decimal.TryParse(result, out decimalParser))
                             return decimalParser;
 
                         return null;
-                    case TextMaskFormatEnum.Percentage:
+                    case TextFormatEnum.Percentage:
                         result = this.sumeValue.Value.ToString().Replace("%", "").Trim();
 
                         if (decimal.TryParse(result, out decimalParser))
                             return decimalParser;
 
                         return null;
-                    case TextMaskFormatEnum.Rate:
+                    case TextFormatEnum.Rate:
                         result = this.sumeValue.Value.ToString();
 
                         if (decimal.TryParse(result, out decimalParser))
                             return decimalParser;
 
                         return null;
-                    case TextMaskFormatEnum.RealQuantity:
+                    case TextFormatEnum.RealQuantity:
                         result = this.sumeValue.Value.ToString();
 
                         if (int.TryParse(result, out integerParser))
                             return integerParser;
 
                         return null;
-                    case TextMaskFormatEnum.Integer:
+                    case TextFormatEnum.Integer:
                         result = this.sumeValue.Value.ToString();
 
                         if (int.TryParse(result, out integerParser))
                             return integerParser;
 
                         return null;
-                    case TextMaskFormatEnum.PhoneNumber:
+                    case TextFormatEnum.PhoneNumber:
                         result = this.sumeValue.Value.ToString();
 
                         return result;
@@ -154,56 +154,56 @@ namespace Samsara.Base.Controls.Controls
             InitializeComponent();
         }
 
-        private void MaskTypeChanged(TextMaskFormatEnum newMask)
+        private void MaskTypeChanged(TextFormatEnum newMask)
         {
             this.SetMaskFormat(newMask);
         }
 
-        private void SetMaskFormat(TextMaskFormatEnum newMask)
+        private void SetMaskFormat(TextFormatEnum newMask)
         {
             switch (newMask)
             {
-                case TextMaskFormatEnum.Currency:
+                case TextFormatEnum.Currency:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = currencyMask;
                     break;
-                case TextMaskFormatEnum.NaturalQuantity:
+                case TextFormatEnum.NaturalQuantity:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = naturalQuantityMask;
                     break;
-                case TextMaskFormatEnum.RealQuantity:
+                case TextFormatEnum.RealQuantity:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = realQuantityMask;
                     break;
-                case TextMaskFormatEnum.Rate:
+                case TextFormatEnum.Rate:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = rateMask;
                     break;
-                case TextMaskFormatEnum.Percentage:
+                case TextFormatEnum.Percentage:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = percentageMask;
                     break;
-                case TextMaskFormatEnum.NoLimitPercentage:
+                case TextFormatEnum.NoLimitPercentage:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = noLimitPercentageMask;
                     break;
-                case TextMaskFormatEnum.FileSize:
+                case TextFormatEnum.FileSize:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = this.fileSizeSubmask + this.measurementFileUnit;
                     break;
-                case TextMaskFormatEnum.Integer:
+                case TextFormatEnum.Integer:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Right;
                     this.sumeValue.InputMask = integerMask;
                     break;
-                case TextMaskFormatEnum.PhoneNumber:
+                case TextFormatEnum.PhoneNumber:
                     this.sumeValue.DisplayMode = MaskMode.IncludeBoth;
                     this.sumeValue.Appearance.TextHAlign = HAlign.Left;
                     this.sumeValue.InputMask = phoneNumberMask;
