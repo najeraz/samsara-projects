@@ -246,8 +246,6 @@ namespace Samsara.Commissions.Forms.Controllers
 
             WindowsFormsUtil.SetUltraGridValueList(layout, TimeUtil.Months, 
                 band.Columns["Month"], "Index", "Name", null);
-
-            WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Amount"], TextFormatEnum.Currency);
         }
 
         #endregion Events

@@ -12,11 +12,24 @@ using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinMaskedEdit;
 using Samsara.Framework.Core.Entities;
 using Samsara.Framework.Core.Enums;
+using Samsara.Framework.Service.Interfaces;
+using Samsara.Base.Core.Context;
 
 namespace Samsara.Framework.Util
 {
     public class WindowsFormsUtil
     {
+        private static IDictionary<TextFormatEnum, TextFormat> textFormats;
+
+        public static IDictionary<TextFormatEnum, TextFormat> TextFormats
+        {
+            get
+            {
+                return textFormats = textFormats ?? SamsaraAppContext.Resolve<ITextFormatService>().GetAll()
+                    .ToDictionary(x => (TextFormatEnum)x.TextFormatId, x => x);
+            }
+        }
+
         public static void AddUltraGridSummary(UltraGridBand band, UltraGridColumn column)
         {
             try
@@ -78,7 +91,7 @@ namespace Samsara.Framework.Util
 
         public static void SetUltraColumnFormat(UltraGridColumn column, TextFormatEnum textFormat)
         {
-            //16912
+            SetUltraColumnFormat(column, TextFormats[textFormat]);
         }
 
         public static void SetUltraColumnFormat(UltraGridColumn column, TextFormat textFormat)

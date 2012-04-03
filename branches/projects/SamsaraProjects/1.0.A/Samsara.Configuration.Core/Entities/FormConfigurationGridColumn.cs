@@ -1,6 +1,7 @@
 ﻿
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Samsara.Framework.Core.Entities;
 
 namespace Samsara.Configuration.Core.Entities
 {
@@ -43,6 +44,12 @@ namespace Samsara.Configuration.Core.Entities
         }
 
         public virtual bool Visible
+        {
+            get;
+            set;
+        }
+
+        public virtual TextFormat TextFormat
         {
             get;
             set;
