@@ -14,6 +14,7 @@ using Samsara.LegacyCode.Commissions.Main;
 using Samsara.LegacyCode.Commissions.Util;
 using Samsara.Main.Session;
 using Samsara.Support.Util;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {

@@ -72,6 +72,11 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Main.Core.dll</HintPath>
@@ -103,7 +108,6 @@
     <Compile Include="NHibernateUtil.cs" />
     <Compile Include="CryptoUtil.cs" />
     <Compile Include="SQLUtil.cs" />
-    <Compile Include="TextMaskFormatEnum.cs" />
     <Compile Include="FilesUtil.cs" />
     <Compile Include="MoneyUtil.cs" />
     <Compile Include="TaxesUtil.cs" />
