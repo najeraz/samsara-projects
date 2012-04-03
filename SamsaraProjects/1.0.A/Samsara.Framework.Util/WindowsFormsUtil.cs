@@ -17,26 +17,6 @@ namespace Samsara.Framework.Util
 {
     public class WindowsFormsUtil
     {
-        //private static IList<TextFormat> textFormats;
-
-        //private static IList<TextFormat> TextFormats
-        //{
-        //    [DebuggerStepThrough]
-        //    get
-        //    {
-        //        return session = session ?? new Session();
-        //    }
-        //}
-
-        //private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
-        //private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
-        //private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
-        //private static string percentageMask = "nnn.nn %";
-        //private static string integerMask = "nnnnnnnnnnnn";
-        //private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
-        //private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
-        //private static string rateMask = "{double:4.12}";
-
         public static void AddUltraGridSummary(UltraGridBand band, UltraGridColumn column)
         {
             try
