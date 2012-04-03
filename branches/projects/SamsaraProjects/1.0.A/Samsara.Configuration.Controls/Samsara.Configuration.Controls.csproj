@@ -77,15 +77,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\FormConfigurationUserPermissionChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\FormConfigurationUserPermissionChooserControl.cs" />
     <Compile Include="Controls\Choosers\FormConfigurationUserPermissionChooserControl.designer.cs">
       <DependentUpon>FormConfigurationUserPermissionChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UserGroupChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\UserGroupChooserControl.cs" />
     <Compile Include="Controls\Choosers\UserGroupChooserControl.designer.cs">
       <DependentUpon>UserGroupChooserControl.cs</DependentUpon>
     </Compile>

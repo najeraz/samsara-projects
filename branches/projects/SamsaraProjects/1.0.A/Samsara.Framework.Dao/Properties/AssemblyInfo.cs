@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Samsara.System.Dao")]
+[assembly: AssemblyTitle("Samsara.Framework.Dao")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Samsara")]
-[assembly: AssemblyProduct("Samsara.System.Dao")]
+[assembly: AssemblyProduct("Samsara.Framework.Dao")]
 [assembly: AssemblyCopyright("Copyright © Samsara 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

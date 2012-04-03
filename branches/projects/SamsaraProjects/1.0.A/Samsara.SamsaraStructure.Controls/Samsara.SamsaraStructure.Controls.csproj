@@ -77,9 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\SamsaraBusinessUnitChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Controls\Choosers\SamsaraBusinessUnitChooserControl.cs" />
     <Compile Include="Controls\Choosers\SamsaraBusinessUnitChooserControl.designer.cs">
       <DependentUpon>SamsaraBusinessUnitChooserControl.cs</DependentUpon>
     </Compile>
