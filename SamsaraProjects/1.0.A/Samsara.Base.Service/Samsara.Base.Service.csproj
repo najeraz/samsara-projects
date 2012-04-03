@@ -58,6 +58,11 @@
       <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Base.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -76,10 +81,6 @@
     <Compile Include="Impl\BaseService.cs" />
     <Compile Include="Impl\GenericService.cs" />
     <Compile Include="Impl\GenericReadOnlyService.cs" />
-    <Compile Include="Interfaces\IGenericService.cs" />
-    <Compile Include="Interfaces\IGenericReadOnlyService.cs" />
-    <Compile Include="Interfaces\IBaseReadOnlyService.cs" />
-    <Compile Include="Interfaces\IBaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
