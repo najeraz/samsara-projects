@@ -3,26 +3,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinEditors;
 using Infragistics.Win.UltraWinGrid;
 using Infragistics.Win.UltraWinMaskedEdit;
+using Samsara.Framework.Core.Entities;
 using Samsara.Framework.Core.Enums;
 
 namespace Samsara.Framework.Util
 {
     public class WindowsFormsUtil
     {
-        private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
-        private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
-        private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
-        private static string percentageMask = "nnn.nn %";
-        private static string integerMask = "nnnnnnnnnnnn";
-        private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
-        private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
-        private static string rateMask = "{double:4.12}";
+        //private static IList<TextFormat> textFormats;
+
+        //private static IList<TextFormat> TextFormats
+        //{
+        //    [DebuggerStepThrough]
+        //    get
+        //    {
+        //        return session = session ?? new Session();
+        //    }
+        //}
+
+        //private static string currencyMask = "-nnn,nnn,nnn,nnn.nn";
+        //private static string naturalQuantityMask = "nnn,nnn,nnn,nnn";
+        //private static string realQuantityMask = "nnn,nnn,nnn,nnn.nnnn";
+        //private static string percentageMask = "nnn.nn %";
+        //private static string integerMask = "nnnnnnnnnnnn";
+        //private static string noLimitPercentageMask = "nnn,nnn,nnn,nnn.nn %";
+        //private static string fileSizeMask = "nnn,nnn,nnn,nnn.nn MB";
+        //private static string rateMask = "{double:4.12}";
 
         public static void AddUltraGridSummary(UltraGridBand band, UltraGridColumn column)
         {
@@ -83,61 +96,12 @@ namespace Samsara.Framework.Util
             combo.Value = -1;
         }
 
-        public static void SetUltraColumnFormat(UltraGridColumn column, TextFormatEnum gridCellFormat)
+        public static void SetUltraColumnFormat(UltraGridColumn column, TextFormat textFormat)
         {
-            switch (gridCellFormat)
-            {
-                case TextFormatEnum.Currency:
-                    column.MaskInput = currencyMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.NaturalQuantity:
-                    column.MaskInput = naturalQuantityMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.Integer:
-                    column.MaskInput = integerMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.RealQuantity:
-                    column.MaskInput = realQuantityMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.Rate:
-                    column.MaskInput = rateMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.Percentage:
-                    column.MaskInput = percentageMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.NoLimitPercentage:
-                    column.MaskInput = noLimitPercentageMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                case TextFormatEnum.FileSize:
-                    column.MaskInput = fileSizeMask;
-                    column.MaskDisplayMode = MaskMode.IncludeBoth;
-                    column.CellAppearance.TextHAlign = HAlign.Right;
-                    column.PromptChar = ' ';
-                    break;
-                default:
-                    break;
-            }
+            column.MaskInput = textFormat.Mask;
+            column.MaskDisplayMode = textFormat.MaskMode;
+            column.CellAppearance.TextHAlign = textFormat.HAlign;
+            column.PromptChar = textFormat.PromptChar;
         }
 
         public static void SetUltraGridValueList<T>(UltraGridLayout layout, IEnumerable<T> collection,
