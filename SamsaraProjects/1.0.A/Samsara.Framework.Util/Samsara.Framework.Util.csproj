@@ -72,6 +72,11 @@
       <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Base.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Framework.Adapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Samsara.Framework.Adapter.dll</HintPath>

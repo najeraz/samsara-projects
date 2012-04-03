@@ -19,6 +19,10 @@
     <many-to-one name="FormConfigurationGrid"
                  class="Samsara.Configuration.Core.Entities.FormConfigurationGrid, Samsara.Configuration.Core"
                  column="FormConfigurationGridId"/>
+
+    <many-to-one name="TextFormat"
+                 class="Samsara.Framework.Core.Entities.TextFormat, Samsara.Framework.Core"
+                 column="TextFormatId"/>
     
     <property name="ColumnName"/>
     <property name="ColumnEndUserName"/>
