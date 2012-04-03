@@ -227,7 +227,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             // 
             this.stePortsQuantity.CustomParent = null;
             this.stePortsQuantity.Location = new System.Drawing.Point(441, 19);
-            this.stePortsQuantity.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.stePortsQuantity.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.stePortsQuantity.Name = "stePortsQuantity";
             this.stePortsQuantity.ReadOnly = false;
             this.stePortsQuantity.Size = new System.Drawing.Size(226, 20);

@@ -13,6 +13,7 @@ using Samsara.Base.Forms.Controllers;
 using Samsara.Dashboard.Core.Parameters;
 using Samsara.Dashboard.Forms.Forms;
 using Samsara.Support.Util;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.Dashboard.Forms.Controller
 {
@@ -178,7 +179,7 @@ namespace Samsara.Dashboard.Forms.Controller
             foreach (UltraGridColumn column in band.Columns
                 .Cast<UltraGridColumn>().Where(x => x.Index >= 4))
             {
-                WindowsFormsUtil.SetUltraColumnFormat(column, TextMaskFormatEnum.Currency);
+                WindowsFormsUtil.SetUltraColumnFormat(column, TextFormatEnum.Currency);
                 column.Width = 100;
             }
 

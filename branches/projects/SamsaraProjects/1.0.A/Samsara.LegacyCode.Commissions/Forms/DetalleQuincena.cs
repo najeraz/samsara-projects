@@ -226,37 +226,37 @@ namespace Samsara.LegacyCode.Commissions.Forms
             e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["fiscal"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["factura"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["factura_original"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["costo"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad_comisionable"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["margen_utilidad"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_acumulado"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_cuota"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_comision"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["acumulado_comision_agente"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_pagado"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["porcentaje_comision"],
-                TextMaskFormatEnum.Percentage);
+                TextFormatEnum.Percentage);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cuota"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
 
             Parallel.ForEach(this.grdDetalleQuincena.Rows, row =>
             {
@@ -295,13 +295,13 @@ namespace Samsara.LegacyCode.Commissions.Forms
             e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["fiscal"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["factura"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["utilidad"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["total_acumulado"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
         }
     }
 }

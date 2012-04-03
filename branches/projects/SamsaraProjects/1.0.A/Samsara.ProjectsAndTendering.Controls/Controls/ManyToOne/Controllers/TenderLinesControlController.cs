@@ -16,6 +16,7 @@ using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 using Samsara.Support.Util;
+using Samsara.Framework.Core.Enums;
 
 namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 {
@@ -332,7 +333,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             band.Columns["Concept"].VertScrollBar = true;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["Quantity"],
-                TextMaskFormatEnum.NaturalQuantity);
+                TextFormatEnum.NaturalQuantity);
         }
 
         #endregion Events

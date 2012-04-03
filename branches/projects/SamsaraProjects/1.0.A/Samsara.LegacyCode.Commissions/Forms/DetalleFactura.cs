@@ -84,13 +84,13 @@ namespace Samsara.LegacyCode.Commissions.Forms
             e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
             
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["numero_linea"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["precio_pactado"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["costo_promedio"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["cantidad"],
-                TextMaskFormatEnum.NaturalQuantity);
+                TextFormatEnum.NaturalQuantity);
         }
 
         private void grdCredits_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
@@ -102,9 +102,9 @@ namespace Samsara.LegacyCode.Commissions.Forms
             e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
             
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["movimiento"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
         }
 
         private void grdCharges_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
@@ -116,9 +116,9 @@ namespace Samsara.LegacyCode.Commissions.Forms
             e.Layout.Override.HeaderClickAction = HeaderClickAction.Select;
 
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["movimiento"],
-                TextMaskFormatEnum.Integer);
+                TextFormatEnum.Integer);
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["importe"],
-                TextMaskFormatEnum.Currency);
+                TextFormatEnum.Currency);
         }
     }
 }

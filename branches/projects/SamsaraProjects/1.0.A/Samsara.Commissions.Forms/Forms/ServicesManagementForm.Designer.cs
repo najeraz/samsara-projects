@@ -171,7 +171,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             this.txtDetServiceNumber.CustomParent = null;
             this.txtDetServiceNumber.Location = new System.Drawing.Point(89, 19);
-            this.txtDetServiceNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtDetServiceNumber.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.txtDetServiceNumber.MeasurementFileUnit = "MB";
             this.txtDetServiceNumber.Name = "txtDetServiceNumber";
             this.txtDetServiceNumber.ReadOnly = false;
@@ -183,7 +183,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             this.txtDetServiceAmount.CustomParent = null;
             this.txtDetServiceAmount.Location = new System.Drawing.Point(89, 45);
-            this.txtDetServiceAmount.MaskType = Samsara.Support.Util.TextMaskFormatEnum.Currency;
+            this.txtDetServiceAmount.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
             this.txtDetServiceAmount.MeasurementFileUnit = "MB";
             this.txtDetServiceAmount.Name = "txtDetServiceAmount";
             this.txtDetServiceAmount.ReadOnly = false;
@@ -234,7 +234,7 @@ namespace Samsara.Commissions.Forms.Forms
             // 
             this.txtSchServiceNumber.CustomParent = null;
             this.txtSchServiceNumber.Location = new System.Drawing.Point(96, 14);
-            this.txtSchServiceNumber.MaskType = Samsara.Support.Util.TextMaskFormatEnum.NaturalQuantity;
+            this.txtSchServiceNumber.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
             this.txtSchServiceNumber.MeasurementFileUnit = "MB";
             this.txtSchServiceNumber.Name = "txtSchServiceNumber";
             this.txtSchServiceNumber.ReadOnly = false;
