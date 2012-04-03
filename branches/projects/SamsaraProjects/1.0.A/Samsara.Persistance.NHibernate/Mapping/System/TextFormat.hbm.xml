@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.System.Core" 
+  namespace="Samsara.System.Core.Entities">
+  
+  <class name="TextFormat" table="System.TextFormats">
+    
+    <id name="TextFormatId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+  </class>
+
+  <query name="TextFormat.GetByParameters">
+    <![CDATA[
+        from TextFormat where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="TextFormat.GetListByParameters">
+    <![CDATA[
+        from TextFormat where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="TextFormat.SearchByParameters">
+    <![CDATA[
+        from TextFormat where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>
