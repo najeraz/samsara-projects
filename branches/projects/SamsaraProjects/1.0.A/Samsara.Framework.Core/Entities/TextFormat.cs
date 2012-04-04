@@ -1,8 +1,8 @@
 ﻿
+using Infragistics.Win;
 using Infragistics.Win.UltraWinMaskedEdit;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
-using Infragistics.Win;
 
 namespace Samsara.Framework.Core.Entities
 {
