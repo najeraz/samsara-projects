@@ -51,9 +51,9 @@
       <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Samsara.Framework.Adapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Samsara.Framework.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Adapter.dll</HintPath>
+      <HintPath>..\bin\Samsara.Framework.Interfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
