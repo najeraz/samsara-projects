@@ -123,7 +123,6 @@
     <Compile Include="TaxesUtil.cs" />
     <Compile Include="EntitiesUtil.cs" />
     <Compile Include="ObjectsUtil.cs" />
-    <Compile Include="ParameterConstants.cs" />
     <Compile Include="TimeUtil.cs" />
     <Compile Include="WindowsFormsUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +146,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
