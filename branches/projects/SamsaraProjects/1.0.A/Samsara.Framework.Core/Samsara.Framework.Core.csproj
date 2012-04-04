@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\ParameterConstants.cs" />
     <Compile Include="Entities\TextFormat.cs" />
     <Compile Include="Enums\TextFormatEnum.cs" />
     <Compile Include="Parameters\TextFormatParameters.cs" />
@@ -58,6 +59,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

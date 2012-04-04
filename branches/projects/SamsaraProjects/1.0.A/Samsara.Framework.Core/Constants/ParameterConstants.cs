@@ -1,6 +1,6 @@
 ﻿
 
-namespace Samsara.Framework.Util
+namespace Samsara.Framework.Core.Constants
 {
     public class ParameterConstants
     {
