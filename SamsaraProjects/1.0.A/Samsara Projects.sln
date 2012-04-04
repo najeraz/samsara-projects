@@ -702,7 +702,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Framework.Util", "S
 		{23E9DCDF-F6EE-42CB-9BA8-18A351373730} = {23E9DCDF-F6EE-42CB-9BA8-18A351373730}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Framework.Adapter", "Samsara.Framework.Adapter\Samsara.Framework.Adapter.csproj", "{3989BD5C-77AF-4F83-8BC1-DEEEEFE00660}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samsara.Framework.Interfaces", "Samsara.Framework.Interfaces\Samsara.Framework.Interfaces.csproj", "{3989BD5C-77AF-4F83-8BC1-DEEEEFE00660}"
 	ProjectSection(ProjectDependencies) = postProject
 		{968F4740-8FC1-4994-8157-1EE39FF9B92C} = {968F4740-8FC1-4994-8157-1EE39FF9B92C}
 		{257F7EAE-7451-40D9-BA3C-8DD9D22FEC26} = {257F7EAE-7451-40D9-BA3C-8DD9D22FEC26}
