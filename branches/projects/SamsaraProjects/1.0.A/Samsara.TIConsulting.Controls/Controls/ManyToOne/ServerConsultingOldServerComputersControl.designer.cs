@@ -38,13 +38,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
-            this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.txtManufacturerNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtSerialNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
-            this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
-            this.lblManufacturerNumber = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmSpecs = new System.Windows.Forms.TabPage();
             this.gbxStorage = new System.Windows.Forms.GroupBox();
             this.txtStorage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -53,13 +46,20 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.lblCPU = new Infragistics.Win.Misc.UltraLabel();
             this.lblRAM = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDesciption = new System.Windows.Forms.TabPage();
-            this.gbxScalability = new System.Windows.Forms.GroupBox();
-            this.txtScalability = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.gbxUtilization = new System.Windows.Forms.GroupBox();
             this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.tabItmSoftware = new System.Windows.Forms.TabPage();
-            this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDBMS = new System.Windows.Forms.TabPage();
+            this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
+            this.lblManufacturerNumber = new Infragistics.Win.Misc.UltraLabel();
+            this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
+            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
+            this.txtSerialNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtManufacturerNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.txtScalability = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxScalability = new System.Windows.Forms.GroupBox();
+            this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -78,21 +78,20 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
             this.tabItmSpecs.SuspendLayout();
             this.gbxStorage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).BeginInit();
             this.tabItmDesciption.SuspendLayout();
-            this.gbxScalability.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtScalability)).BeginInit();
             this.gbxUtilization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
             this.tabItmSoftware.SuspendLayout();
-            this.tabItmDBMS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtScalability)).BeginInit();
+            this.gbxScalability.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -103,6 +102,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdRelations.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             this.grdRelations.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdRelations.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             this.grdRelations.DisplayLayout.MaxColScrollRegions = 1;
             this.grdRelations.DisplayLayout.MaxRowScrollRegions = 1;
             appearance2.BackColor = System.Drawing.SystemColors.Window;
@@ -244,63 +244,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             // 
             this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
             // 
-            // lblComputerBrand
-            // 
-            this.lblComputerBrand.AutoSize = true;
-            this.lblComputerBrand.Location = new System.Drawing.Point(13, 22);
-            this.lblComputerBrand.Name = "lblComputerBrand";
-            this.lblComputerBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblComputerBrand.TabIndex = 106;
-            this.lblComputerBrand.Text = "Marca:";
-            // 
-            // txtManufacturerNumber
-            // 
-            this.txtManufacturerNumber.Location = new System.Drawing.Point(124, 99);
-            this.txtManufacturerNumber.Name = "txtManufacturerNumber";
-            this.txtManufacturerNumber.Size = new System.Drawing.Size(226, 21);
-            this.txtManufacturerNumber.TabIndex = 114;
-            // 
-            // txtModel
-            // 
-            this.txtModel.Location = new System.Drawing.Point(124, 45);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(226, 21);
-            this.txtModel.TabIndex = 115;
-            // 
-            // txtSerialNumber
-            // 
-            this.txtSerialNumber.Location = new System.Drawing.Point(124, 72);
-            this.txtSerialNumber.Name = "txtSerialNumber";
-            this.txtSerialNumber.Size = new System.Drawing.Size(226, 21);
-            this.txtSerialNumber.TabIndex = 116;
-            // 
-            // lblModel
-            // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(13, 49);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(45, 14);
-            this.lblModel.TabIndex = 110;
-            this.lblModel.Text = "Modelo:";
-            // 
-            // lblSerialNumber
-            // 
-            this.lblSerialNumber.AutoSize = true;
-            this.lblSerialNumber.Location = new System.Drawing.Point(13, 76);
-            this.lblSerialNumber.Name = "lblSerialNumber";
-            this.lblSerialNumber.Size = new System.Drawing.Size(34, 14);
-            this.lblSerialNumber.TabIndex = 109;
-            this.lblSerialNumber.Text = "Serie:";
-            // 
-            // lblManufacturerNumber
-            // 
-            this.lblManufacturerNumber.AutoSize = true;
-            this.lblManufacturerNumber.Location = new System.Drawing.Point(13, 103);
-            this.lblManufacturerNumber.Name = "lblManufacturerNumber";
-            this.lblManufacturerNumber.Size = new System.Drawing.Size(104, 14);
-            this.lblManufacturerNumber.TabIndex = 111;
-            this.lblManufacturerNumber.Text = "Numero Fabricante:";
-            // 
             // tabItmSpecs
             // 
             this.tabItmSpecs.BackColor = System.Drawing.Color.Transparent;
@@ -378,26 +321,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.tabItmDesciption.TabIndex = 2;
             this.tabItmDesciption.Text = "Descripción";
             // 
-            // gbxScalability
-            // 
-            this.gbxScalability.Controls.Add(this.txtScalability);
-            this.gbxScalability.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxScalability.Location = new System.Drawing.Point(0, 86);
-            this.gbxScalability.Name = "gbxScalability";
-            this.gbxScalability.Size = new System.Drawing.Size(696, 86);
-            this.gbxScalability.TabIndex = 99;
-            this.gbxScalability.TabStop = false;
-            this.gbxScalability.Text = "Escalabilidad:";
-            // 
-            // txtScalability
-            // 
-            this.txtScalability.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtScalability.Location = new System.Drawing.Point(3, 16);
-            this.txtScalability.Multiline = true;
-            this.txtScalability.Name = "txtScalability";
-            this.txtScalability.Size = new System.Drawing.Size(690, 67);
-            this.txtScalability.TabIndex = 0;
-            // 
             // gbxUtilization
             // 
             this.gbxUtilization.Controls.Add(this.txtUtilization);
@@ -428,15 +351,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.tabItmSoftware.TabIndex = 3;
             this.tabItmSoftware.Text = "Software General";
             // 
-            // lblOperativeSystem
-            // 
-            this.lblOperativeSystem.AutoSize = true;
-            this.lblOperativeSystem.Location = new System.Drawing.Point(12, 18);
-            this.lblOperativeSystem.Name = "lblOperativeSystem";
-            this.lblOperativeSystem.Size = new System.Drawing.Size(100, 14);
-            this.lblOperativeSystem.TabIndex = 93;
-            this.lblOperativeSystem.Text = "Sistema Operativo:";
-            // 
             // tabItmDBMS
             // 
             this.tabItmDBMS.BackColor = System.Drawing.Color.Transparent;
@@ -445,6 +359,92 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.tabItmDBMS.Size = new System.Drawing.Size(696, 198);
             this.tabItmDBMS.TabIndex = 4;
             this.tabItmDBMS.Text = "Sistemas Gestores de Bases de Datos";
+            // 
+            // lblComputerBrand
+            // 
+            this.lblComputerBrand.AutoSize = true;
+            this.lblComputerBrand.Location = new System.Drawing.Point(13, 22);
+            this.lblComputerBrand.Name = "lblComputerBrand";
+            this.lblComputerBrand.Size = new System.Drawing.Size(39, 14);
+            this.lblComputerBrand.TabIndex = 106;
+            this.lblComputerBrand.Text = "Marca:";
+            // 
+            // lblManufacturerNumber
+            // 
+            this.lblManufacturerNumber.AutoSize = true;
+            this.lblManufacturerNumber.Location = new System.Drawing.Point(13, 103);
+            this.lblManufacturerNumber.Name = "lblManufacturerNumber";
+            this.lblManufacturerNumber.Size = new System.Drawing.Size(104, 14);
+            this.lblManufacturerNumber.TabIndex = 111;
+            this.lblManufacturerNumber.Text = "Numero Fabricante:";
+            // 
+            // lblSerialNumber
+            // 
+            this.lblSerialNumber.AutoSize = true;
+            this.lblSerialNumber.Location = new System.Drawing.Point(13, 76);
+            this.lblSerialNumber.Name = "lblSerialNumber";
+            this.lblSerialNumber.Size = new System.Drawing.Size(34, 14);
+            this.lblSerialNumber.TabIndex = 109;
+            this.lblSerialNumber.Text = "Serie:";
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Location = new System.Drawing.Point(13, 49);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(45, 14);
+            this.lblModel.TabIndex = 110;
+            this.lblModel.Text = "Modelo:";
+            // 
+            // txtSerialNumber
+            // 
+            this.txtSerialNumber.Location = new System.Drawing.Point(124, 72);
+            this.txtSerialNumber.Name = "txtSerialNumber";
+            this.txtSerialNumber.Size = new System.Drawing.Size(226, 21);
+            this.txtSerialNumber.TabIndex = 116;
+            // 
+            // txtModel
+            // 
+            this.txtModel.Location = new System.Drawing.Point(124, 45);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(226, 21);
+            this.txtModel.TabIndex = 115;
+            // 
+            // txtManufacturerNumber
+            // 
+            this.txtManufacturerNumber.Location = new System.Drawing.Point(124, 99);
+            this.txtManufacturerNumber.Name = "txtManufacturerNumber";
+            this.txtManufacturerNumber.Size = new System.Drawing.Size(226, 21);
+            this.txtManufacturerNumber.TabIndex = 114;
+            // 
+            // txtScalability
+            // 
+            this.txtScalability.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtScalability.Location = new System.Drawing.Point(3, 16);
+            this.txtScalability.Multiline = true;
+            this.txtScalability.Name = "txtScalability";
+            this.txtScalability.Size = new System.Drawing.Size(690, 67);
+            this.txtScalability.TabIndex = 0;
+            // 
+            // gbxScalability
+            // 
+            this.gbxScalability.Controls.Add(this.txtScalability);
+            this.gbxScalability.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxScalability.Location = new System.Drawing.Point(0, 86);
+            this.gbxScalability.Name = "gbxScalability";
+            this.gbxScalability.Size = new System.Drawing.Size(696, 86);
+            this.gbxScalability.TabIndex = 99;
+            this.gbxScalability.TabStop = false;
+            this.gbxScalability.Text = "Escalabilidad:";
+            // 
+            // lblOperativeSystem
+            // 
+            this.lblOperativeSystem.AutoSize = true;
+            this.lblOperativeSystem.Location = new System.Drawing.Point(12, 18);
+            this.lblOperativeSystem.Name = "lblOperativeSystem";
+            this.lblOperativeSystem.Size = new System.Drawing.Size(100, 14);
+            this.lblOperativeSystem.TabIndex = 93;
+            this.lblOperativeSystem.Text = "Sistema Operativo:";
             // 
             // ServerConsultingOldServerComputersControl
             // 
@@ -471,9 +471,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
             this.tabItmSpecs.ResumeLayout(false);
             this.tabItmSpecs.PerformLayout();
             this.gbxStorage.ResumeLayout(false);
@@ -482,28 +479,23 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).EndInit();
             this.tabItmDesciption.ResumeLayout(false);
-            this.gbxScalability.ResumeLayout(false);
-            this.gbxScalability.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtScalability)).EndInit();
             this.gbxUtilization.ResumeLayout(false);
             this.gbxUtilization.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
             this.tabItmSoftware.ResumeLayout(false);
             this.tabItmSoftware.PerformLayout();
-            this.tabItmDBMS.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtScalability)).EndInit();
+            this.gbxScalability.ResumeLayout(false);
+            this.gbxScalability.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraLabel lblComputerBrand;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtManufacturerNumber;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSerialNumber;
-        private Infragistics.Win.Misc.UltraLabel lblModel;
-        private Infragistics.Win.Misc.UltraLabel lblSerialNumber;
-        private Infragistics.Win.Misc.UltraLabel lblManufacturerNumber;
         private System.Windows.Forms.TabPage tabItmSpecs;
         private System.Windows.Forms.TabPage tabItmDesciption;
         private System.Windows.Forms.TabPage tabItmSoftware;
@@ -514,11 +506,18 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtCPU;
         private Infragistics.Win.Misc.UltraLabel lblCPU;
         private Infragistics.Win.Misc.UltraLabel lblRAM;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtScalability;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
-        private System.Windows.Forms.GroupBox gbxScalability;
         private System.Windows.Forms.GroupBox gbxUtilization;
+        private System.Windows.Forms.GroupBox gbxScalability;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtScalability;
+        private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtManufacturerNumber;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSerialNumber;
+        private Infragistics.Win.Misc.UltraLabel lblModel;
+        private Infragistics.Win.Misc.UltraLabel lblSerialNumber;
+        private Infragistics.Win.Misc.UltraLabel lblManufacturerNumber;
+        private Infragistics.Win.Misc.UltraLabel lblComputerBrand;
 
 
     }
