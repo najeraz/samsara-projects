@@ -95,7 +95,7 @@
     <Compile Include="Controls\ManyToOne\ServerConsultingOldServerComputersControl.designer.cs">
       <DependentUpon>ServerConsultingOldServerComputersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\Templates\ServerConsultingServerConsultingOldServerComputerControl.cs">
+    <Compile Include="Controls\ManyToOne\Templates\ServerConsultingOldServerComputerControlTemplate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

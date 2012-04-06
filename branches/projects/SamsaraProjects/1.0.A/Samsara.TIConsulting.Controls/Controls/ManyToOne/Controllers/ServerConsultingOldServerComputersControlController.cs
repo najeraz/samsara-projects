@@ -1,10 +1,6 @@
 ﻿
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controllers;
@@ -12,8 +8,6 @@ using Samsara.Base.Core.Context;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Service.Interfaces;
-using Samsara.Framework.Core.Constants;
-using Samsara.Framework.Util;
 
 namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 {
