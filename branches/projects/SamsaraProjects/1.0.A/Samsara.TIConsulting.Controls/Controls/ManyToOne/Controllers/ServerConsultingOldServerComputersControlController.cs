@@ -121,11 +121,11 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                 foreach (ServerConsultingOldServerComputer serverConsultingOldServerComputer
                     in this.ServerConsulting.ServerConsultingOldServerComputers)
                 {
-                    DataRow row = this.dtServerConsultingOldServerComputers.NewRow();
-                    this.dtServerConsultingOldServerComputers.Rows.Add(row);
+                    //DataRow row = this.dtServerConsultingOldServerComputers.NewRow();
+                    //this.dtServerConsultingOldServerComputers.Rows.Add(row);
 
-                    row["ServerConsultingOldServerComputerId"] = serverConsultingOldServerComputer
-                        .ServerConsultingOldServerComputerId;
+                    //row["ServerConsultingOldServerComputerId"] = serverConsultingOldServerComputer
+                    //    .ServerConsultingOldServerComputerId;
 
                     //row["ComputerBrandId"] = customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
                     //if (customerInfrastructureServerComputer.OperativeSystem == null)
@@ -190,37 +190,37 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         {
             base.DeleteEntity(entityId);
 
-            if (entityId <= 0)
-                this.customerInfrastructureServerComputer = this.ServerConsulting
-                    .ServerConsultingOldServerComputers
-                    .Single(x => -x.GetHashCode() == entityId);
-            else
-                this.customerInfrastructureServerComputer = this.ServerConsulting
-                    .ServerConsultingOldServerComputers
-                    .Single(x => x.ServerConsultingOldServerComputerId == entityId);
+            //if (entityId <= 0)
+            //    this.customerInfrastructureServerComputer = this.ServerConsulting
+            //        .ServerConsultingOldServerComputers
+            //        .Single(x => -x.GetHashCode() == entityId);
+            //else
+            //    this.customerInfrastructureServerComputer = this.ServerConsulting
+            //        .ServerConsultingOldServerComputers
+            //        .Single(x => x.ServerConsultingOldServerComputerId == entityId);
 
-            if (entityId <= 0)
-                this.ServerConsulting.ServerConsultingOldServerComputers
-                    .Remove(this.customerInfrastructureServerComputer);
-            else
-            {
-                this.customerInfrastructureServerComputer.Activated = false;
-                this.customerInfrastructureServerComputer.Deleted = true;
-            }
+            //if (entityId <= 0)
+            //    this.ServerConsulting.ServerConsultingOldServerComputers
+            //        .Remove(this.customerInfrastructureServerComputer);
+            //else
+            //{
+            //    this.customerInfrastructureServerComputer.Activated = false;
+            //    this.customerInfrastructureServerComputer.Deleted = true;
+            //}
         }
 
         protected override void LoadFromEntity(int entityId)
         {
             base.LoadFromEntity(entityId);
 
-            if (entityId <= 0)
-                this.customerInfrastructureServerComputer = this.ServerConsulting
-                    .ServerConsultingOldServerComputers
-                    .Single(x => -x.GetHashCode() == entityId);
-            else
-                this.customerInfrastructureServerComputer = this.ServerConsulting
-                    .ServerConsultingOldServerComputers
-                    .Single(x => x.ServerConsultingOldServerComputerId == entityId);
+            //if (entityId <= 0)
+            //    this.customerInfrastructureServerComputer = this.ServerConsulting
+            //        .ServerConsultingOldServerComputers
+            //        .Single(x => -x.GetHashCode() == entityId);
+            //else
+            //    this.customerInfrastructureServerComputer = this.ServerConsulting
+            //        .ServerConsultingOldServerComputers
+            //        .Single(x => x.ServerConsultingOldServerComputerId == entityId);
 
             //this.controlServerConsultingOldServerComputers.cbcComputerBrand.Value
             //    = this.customerInfrastructureServerComputer.ComputerBrand;
@@ -305,29 +305,29 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
             base.AddEntity();
 
-            if (this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId == -1)
-                row = this.dtServerConsultingOldServerComputers.AsEnumerable()
-                    .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
-                        == -(this.customerInfrastructureServerComputer as object).GetHashCode());
-            else
-                row = this.dtServerConsultingOldServerComputers.AsEnumerable()
-                    .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
-                        == this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId);
+            //if (this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId == -1)
+            //    row = this.dtServerConsultingOldServerComputers.AsEnumerable()
+            //        .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
+            //            == -(this.customerInfrastructureServerComputer as object).GetHashCode());
+            //else
+            //    row = this.dtServerConsultingOldServerComputers.AsEnumerable()
+            //        .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
+            //            == this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId);
 
-            if (row == null)
-            {
-                this.ServerConsulting.ServerConsultingOldServerComputers
-                    .Add(this.customerInfrastructureServerComputer);
+            //if (row == null)
+            //{
+            //    this.ServerConsulting.ServerConsultingOldServerComputers
+            //        .Add(this.customerInfrastructureServerComputer);
 
-                row = this.dtServerConsultingOldServerComputers.NewRow();
-                this.dtServerConsultingOldServerComputers.Rows.Add(row);
-            }
+            //    row = this.dtServerConsultingOldServerComputers.NewRow();
+            //    this.dtServerConsultingOldServerComputers.Rows.Add(row);
+            //}
 
-            if (this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId == -1)
-                row["ServerConsultingOldServerComputerId"] = -(this.customerInfrastructureServerComputer as object).GetHashCode();
-            else
-                row["ServerConsultingOldServerComputerId"] = this.customerInfrastructureServerComputer
-                    .ServerConsultingOldServerComputerId;
+            //if (this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId == -1)
+            //    row["ServerConsultingOldServerComputerId"] = -(this.customerInfrastructureServerComputer as object).GetHashCode();
+            //else
+            //    row["ServerConsultingOldServerComputerId"] = this.customerInfrastructureServerComputer
+            //        .ServerConsultingOldServerComputerId;
 
             //row["ComputerBrandId"] = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
             //if (this.customerInfrastructureServerComputer.OperativeSystem == null)
