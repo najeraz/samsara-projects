@@ -2,10 +2,11 @@
 using Samsara.Base.Controls.Controls;
 using Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers;
 using Samsara.TIConsulting.Core.Entities;
+using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Templates;
 
 namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
 {
-    public partial class ServerConsultingOldServerComputersControl : ManyToOneLevel1Control<ServerConsultingOldServerComputer>
+    public partial class ServerConsultingOldServerComputersControl : ServerConsultingServerConsultingOldServerComputerControl
     {
         #region Properties
 
