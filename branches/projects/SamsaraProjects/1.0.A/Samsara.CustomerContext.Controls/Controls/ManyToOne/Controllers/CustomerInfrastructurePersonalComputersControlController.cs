@@ -88,7 +88,10 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
                 this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Parameters = pmtPersonalComputerType;
                 this.controlCustomerInfrastructurePersonalComputers.pctcPersonalComputerType.Refresh();
 
-                OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
+                OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters()
+                {
+                    OperativeSystemTypeId = (int)OperativeSystemTypeEnum.Client
+                };
 
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
                 this.controlCustomerInfrastructurePersonalComputers.oscOperativeSystem.Refresh();
@@ -437,8 +440,11 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             IList<ComputerBrand> cctvBrands = this.srvComputerBrand.GetListByParameters(pmtComputerBrand);
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
                 band.Columns["ComputerBrandId"], "ComputerBrandId", "Name", "Seleccione");
-            
-            OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
+
+            OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters()
+            {
+                OperativeSystemTypeId = ParameterConstants.IntDefault
+            };
 
             IList<OperativeSystem> cctvOperativeSystems = this.srvOperativeSystem.GetListByParameters(pmtOperativeSystem);
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvOperativeSystems,

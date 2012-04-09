@@ -201,6 +201,11 @@ namespace Samsara.Base.Controls.Controllers
             this.control.upnlSeparatorSaveRelation.Visible = enabled;
         }
 
+        protected virtual DataRow GetEntityRow(T entity)
+        {
+            return null;
+        }
+
         protected virtual T GetEntity(int entityId)
         {
             return default(T);
