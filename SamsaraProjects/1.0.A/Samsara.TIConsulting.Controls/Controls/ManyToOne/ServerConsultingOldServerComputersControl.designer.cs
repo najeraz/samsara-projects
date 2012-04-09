@@ -38,28 +38,26 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
+            Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerConsultingOldServerComputersControl));
+            Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
+            Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
+            this.ugbxServerComputerType = new Infragistics.Win.Misc.UltraGroupBox();
+            this.rtcRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
+            this.sctcServerComputerType = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
+            this.ulblDetRackType = new Infragistics.Win.Misc.UltraLabel();
+            this.txtServerModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblServerModel = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblServerComputerBrand = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmSpecs = new System.Windows.Forms.TabPage();
-            this.gbxStorage = new System.Windows.Forms.GroupBox();
-            this.txtStorage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtRAM = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtCPU = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblCPU = new Infragistics.Win.Misc.UltraLabel();
-            this.lblRAM = new Infragistics.Win.Misc.UltraLabel();
-            this.tabItmDesciption = new System.Windows.Forms.TabPage();
-            this.gbxUtilization = new System.Windows.Forms.GroupBox();
-            this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.tabItmSoftware = new System.Windows.Forms.TabPage();
-            this.tabItmDBMS = new System.Windows.Forms.TabPage();
-            this.lblComputerBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.lblManufacturerNumber = new Infragistics.Win.Misc.UltraLabel();
-            this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
-            this.lblModel = new Infragistics.Win.Misc.UltraLabel();
-            this.txtSerialNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtManufacturerNumber = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.txtScalability = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.gbxScalability = new System.Windows.Forms.GroupBox();
-            this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
+            this.ugbxServerSpecs = new Infragistics.Win.Misc.UltraGroupBox();
+            this.txtServerSpecs = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.ulblServerQuantity = new Infragistics.Win.Misc.UltraLabel();
+            this.txtServerQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
+            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -78,20 +76,13 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.SuspendLayout();
             this.upnlSeparatorViewRelation.SuspendLayout();
             this.upnlSeparatorCloseRelation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxServerComputerType)).BeginInit();
+            this.ugbxServerComputerType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerModel)).BeginInit();
             this.tabItmSpecs.SuspendLayout();
-            this.gbxStorage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).BeginInit();
-            this.tabItmDesciption.SuspendLayout();
-            this.gbxUtilization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).BeginInit();
-            this.tabItmSoftware.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtScalability)).BeginInit();
-            this.gbxScalability.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxServerSpecs)).BeginInit();
+            this.ugbxServerSpecs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerSpecs)).BeginInit();
             this.SuspendLayout();
             // 
             // grdRelations
@@ -139,319 +130,308 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdRelations.Size = new System.Drawing.Size(710, 120);
+            this.grdRelations.Size = new System.Drawing.Size(657, 204);
             // 
             // upnDetailButtons
             // 
-            this.upnDetailButtons.Location = new System.Drawing.Point(0, 120);
-            this.upnDetailButtons.Size = new System.Drawing.Size(710, 25);
+            this.upnDetailButtons.Location = new System.Drawing.Point(0, 204);
+            this.upnDetailButtons.Size = new System.Drawing.Size(657, 25);
             // 
             // upnlSeparatorDeleteRelation
             // 
-            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(322, 0);
+            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(269, 0);
             // 
             // ubtnDeleteRelation
             // 
-            this.ubtnDeleteRelation.Location = new System.Drawing.Point(338, 0);
+            this.ubtnDeleteRelation.Location = new System.Drawing.Point(285, 0);
             // 
             // upnlSeparatorEditRelation
             // 
-            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(415, 0);
+            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(362, 0);
             // 
             // ubtnEditRelation
             // 
-            this.ubtnEditRelation.Location = new System.Drawing.Point(431, 0);
+            this.ubtnEditRelation.Location = new System.Drawing.Point(378, 0);
             // 
             // upnlSeparatorCreateRelation
             // 
-            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(601, 0);
+            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(548, 0);
             // 
             // ubtnCreateRelation
             // 
-            this.ubtnCreateRelation.Location = new System.Drawing.Point(617, 0);
+            this.ubtnCreateRelation.Location = new System.Drawing.Point(564, 0);
             // 
             // upnlSeparatorDetailButtons
             // 
-            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(694, 0);
+            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(641, 0);
             // 
             // gbxDetDetail
             // 
-            this.gbxDetDetail.Location = new System.Drawing.Point(0, 145);
-            this.gbxDetDetail.Size = new System.Drawing.Size(710, 243);
+            this.gbxDetDetail.Location = new System.Drawing.Point(0, 229);
+            this.gbxDetDetail.Size = new System.Drawing.Size(657, 159);
             // 
             // tabDetail
             // 
             this.tabDetail.Controls.Add(this.tabItmSpecs);
-            this.tabDetail.Controls.Add(this.tabItmDesciption);
-            this.tabDetail.Controls.Add(this.tabItmSoftware);
-            this.tabDetail.Controls.Add(this.tabItmDBMS);
-            this.tabDetail.Size = new System.Drawing.Size(704, 224);
-            this.tabDetail.Controls.SetChildIndex(this.tabItmDBMS, 0);
-            this.tabDetail.Controls.SetChildIndex(this.tabItmSoftware, 0);
-            this.tabDetail.Controls.SetChildIndex(this.tabItmDesciption, 0);
+            this.tabDetail.Size = new System.Drawing.Size(651, 140);
             this.tabDetail.Controls.SetChildIndex(this.tabItmSpecs, 0);
             this.tabDetail.Controls.SetChildIndex(this.tabItmPrincipal, 0);
             // 
             // tabItmPrincipal
             // 
-            this.tabItmPrincipal.Controls.Add(this.txtManufacturerNumber);
-            this.tabItmPrincipal.Controls.Add(this.txtModel);
-            this.tabItmPrincipal.Controls.Add(this.txtSerialNumber);
-            this.tabItmPrincipal.Controls.Add(this.lblModel);
-            this.tabItmPrincipal.Controls.Add(this.lblSerialNumber);
-            this.tabItmPrincipal.Controls.Add(this.lblManufacturerNumber);
-            this.tabItmPrincipal.Controls.Add(this.lblComputerBrand);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(696, 198);
+            this.tabItmPrincipal.Controls.Add(this.cbcComputerBrand);
+            this.tabItmPrincipal.Controls.Add(this.oscOperativeSystem);
+            this.tabItmPrincipal.Controls.Add(this.txtServerQuantity);
+            this.tabItmPrincipal.Controls.Add(this.ugbxServerComputerType);
+            this.tabItmPrincipal.Controls.Add(this.txtServerModel);
+            this.tabItmPrincipal.Controls.Add(this.ulblOperativeSystem);
+            this.tabItmPrincipal.Controls.Add(this.ulblServerQuantity);
+            this.tabItmPrincipal.Controls.Add(this.ulblServerModel);
+            this.tabItmPrincipal.Controls.Add(this.ulblServerComputerBrand);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(643, 114);
             // 
             // upnlButtons
             // 
             this.upnlButtons.Location = new System.Drawing.Point(0, 388);
-            this.upnlButtons.Size = new System.Drawing.Size(710, 25);
+            this.upnlButtons.Size = new System.Drawing.Size(657, 25);
             // 
             // upnlSeparatorSaveRelation
             // 
-            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(508, 0);
+            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(455, 0);
             // 
             // ubtnSaveRelation
             // 
-            this.ubtnSaveRelation.Location = new System.Drawing.Point(524, 0);
+            this.ubtnSaveRelation.Location = new System.Drawing.Point(471, 0);
             // 
             // upnlSeparatorCancelRelation
             // 
-            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(601, 0);
+            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(548, 0);
             // 
             // ubtnCancelRelation
             // 
-            this.ubtnCancelRelation.Location = new System.Drawing.Point(617, 0);
+            this.ubtnCancelRelation.Location = new System.Drawing.Point(564, 0);
             // 
             // upnlSeparatorButtons
             // 
-            this.upnlSeparatorButtons.Location = new System.Drawing.Point(694, 0);
+            this.upnlSeparatorButtons.Location = new System.Drawing.Point(641, 0);
             // 
             // upnlSeparatorViewRelation
             // 
-            this.upnlSeparatorViewRelation.Location = new System.Drawing.Point(508, 0);
+            this.upnlSeparatorViewRelation.Location = new System.Drawing.Point(455, 0);
             // 
             // ubtnViewRelation
             // 
-            this.ubtnViewRelation.Location = new System.Drawing.Point(524, 0);
+            this.ubtnViewRelation.Location = new System.Drawing.Point(471, 0);
             // 
             // upnlSeparatorCloseRelation
             // 
-            this.upnlSeparatorCloseRelation.Location = new System.Drawing.Point(415, 0);
+            this.upnlSeparatorCloseRelation.Location = new System.Drawing.Point(362, 0);
             // 
             // ubtnCloseRelation
             // 
-            this.ubtnCloseRelation.Location = new System.Drawing.Point(431, 0);
+            this.ubtnCloseRelation.Location = new System.Drawing.Point(378, 0);
+            // 
+            // ugbxServerComputerType
+            // 
+            this.ugbxServerComputerType.Controls.Add(this.rtcRackType);
+            this.ugbxServerComputerType.Controls.Add(this.sctcServerComputerType);
+            this.ugbxServerComputerType.Controls.Add(this.ulblDetRackType);
+            this.ugbxServerComputerType.Location = new System.Drawing.Point(324, 9);
+            this.ugbxServerComputerType.Name = "ugbxServerComputerType";
+            this.ugbxServerComputerType.Size = new System.Drawing.Size(313, 71);
+            this.ugbxServerComputerType.TabIndex = 21;
+            this.ugbxServerComputerType.Text = "Tipo de Servidor";
+            // 
+            // rtcRackType
+            // 
+            this.rtcRackType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.rtcRackType.CustomParent = null;
+            this.rtcRackType.DisplayMember = "Name";
+            this.rtcRackType.Location = new System.Drawing.Point(113, 44);
+            this.rtcRackType.Name = "rtcRackType";
+            rackTypeParameters1.CreatedBy = null;
+            rackTypeParameters1.CreatedOn = null;
+            rackTypeParameters1.Description = null;
+            rackTypeParameters1.Name = null;
+            rackTypeParameters1.RackTypeId = null;
+            rackTypeParameters1.UpdatedBy = null;
+            rackTypeParameters1.UpdatedOn = null;
+            this.rtcRackType.Parameters = rackTypeParameters1;
+            this.rtcRackType.ReadOnly = false;
+            this.rtcRackType.Size = new System.Drawing.Size(194, 22);
+            this.rtcRackType.TabIndex = 5;
+            this.rtcRackType.Value = null;
+            this.rtcRackType.ValueMember = "RackTypeId";
+            this.rtcRackType.Values = null;
+            // 
+            // sctcServerComputerType
+            // 
+            this.sctcServerComputerType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.sctcServerComputerType.CustomParent = null;
+            this.sctcServerComputerType.DisplayMember = "Name";
+            this.sctcServerComputerType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sctcServerComputerType.Location = new System.Drawing.Point(3, 16);
+            this.sctcServerComputerType.Name = "sctcServerComputerType";
+            serverComputerTypeParameters1.CreatedBy = null;
+            serverComputerTypeParameters1.CreatedOn = null;
+            serverComputerTypeParameters1.Description = null;
+            serverComputerTypeParameters1.Name = null;
+            serverComputerTypeParameters1.ServerComputerTypeId = null;
+            serverComputerTypeParameters1.UpdatedBy = null;
+            serverComputerTypeParameters1.UpdatedOn = null;
+            this.sctcServerComputerType.Parameters = serverComputerTypeParameters1;
+            this.sctcServerComputerType.ReadOnly = false;
+            this.sctcServerComputerType.Size = new System.Drawing.Size(307, 22);
+            this.sctcServerComputerType.TabIndex = 4;
+            this.sctcServerComputerType.Value = null;
+            this.sctcServerComputerType.ValueMember = "ServerComputerTypeId";
+            this.sctcServerComputerType.Values = null;
+            // 
+            // ulblDetRackType
+            // 
+            this.ulblDetRackType.AutoSize = true;
+            this.ulblDetRackType.Location = new System.Drawing.Point(33, 47);
+            this.ulblDetRackType.Name = "ulblDetRackType";
+            this.ulblDetRackType.Size = new System.Drawing.Size(74, 14);
+            this.ulblDetRackType.TabIndex = 3;
+            this.ulblDetRackType.Text = "Tipo de Rack:";
+            // 
+            // txtServerModel
+            // 
+            this.txtServerModel.Location = new System.Drawing.Point(69, 59);
+            this.txtServerModel.Name = "txtServerModel";
+            this.txtServerModel.Size = new System.Drawing.Size(249, 21);
+            this.txtServerModel.TabIndex = 17;
+            // 
+            // ulblOperativeSystem
+            // 
+            this.ulblOperativeSystem.AutoSize = true;
+            this.ulblOperativeSystem.Location = new System.Drawing.Point(8, 90);
+            this.ulblOperativeSystem.Name = "ulblOperativeSystem";
+            this.ulblOperativeSystem.Size = new System.Drawing.Size(27, 14);
+            this.ulblOperativeSystem.TabIndex = 18;
+            this.ulblOperativeSystem.Text = "S.O.";
+            // 
+            // ulblServerModel
+            // 
+            this.ulblServerModel.AutoSize = true;
+            this.ulblServerModel.Location = new System.Drawing.Point(7, 63);
+            this.ulblServerModel.Name = "ulblServerModel";
+            this.ulblServerModel.Size = new System.Drawing.Size(45, 14);
+            this.ulblServerModel.TabIndex = 16;
+            this.ulblServerModel.Text = "Modelo:";
+            // 
+            // ulblServerComputerBrand
+            // 
+            this.ulblServerComputerBrand.AutoSize = true;
+            this.ulblServerComputerBrand.Location = new System.Drawing.Point(7, 36);
+            this.ulblServerComputerBrand.Name = "ulblServerComputerBrand";
+            this.ulblServerComputerBrand.Size = new System.Drawing.Size(39, 14);
+            this.ulblServerComputerBrand.TabIndex = 14;
+            this.ulblServerComputerBrand.Text = "Marca:";
             // 
             // tabItmSpecs
             // 
             this.tabItmSpecs.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmSpecs.Controls.Add(this.gbxStorage);
-            this.tabItmSpecs.Controls.Add(this.txtRAM);
-            this.tabItmSpecs.Controls.Add(this.txtCPU);
-            this.tabItmSpecs.Controls.Add(this.lblCPU);
-            this.tabItmSpecs.Controls.Add(this.lblRAM);
+            this.tabItmSpecs.Controls.Add(this.ugbxServerSpecs);
             this.tabItmSpecs.Location = new System.Drawing.Point(4, 22);
             this.tabItmSpecs.Name = "tabItmSpecs";
-            this.tabItmSpecs.Size = new System.Drawing.Size(696, 198);
+            this.tabItmSpecs.Size = new System.Drawing.Size(643, 114);
             this.tabItmSpecs.TabIndex = 1;
             this.tabItmSpecs.Text = "Especificaciones";
             // 
-            // gbxStorage
+            // ugbxServerSpecs
             // 
-            this.gbxStorage.Controls.Add(this.txtStorage);
-            this.gbxStorage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbxStorage.Location = new System.Drawing.Point(0, 78);
-            this.gbxStorage.Name = "gbxStorage";
-            this.gbxStorage.Size = new System.Drawing.Size(696, 120);
-            this.gbxStorage.TabIndex = 104;
-            this.gbxStorage.TabStop = false;
-            this.gbxStorage.Text = "Sistema Almacenamiento:";
+            this.ugbxServerSpecs.Controls.Add(this.txtServerSpecs);
+            this.ugbxServerSpecs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ugbxServerSpecs.Location = new System.Drawing.Point(0, 0);
+            this.ugbxServerSpecs.Name = "ugbxServerSpecs";
+            this.ugbxServerSpecs.Size = new System.Drawing.Size(643, 114);
+            this.ugbxServerSpecs.TabIndex = 102;
+            this.ugbxServerSpecs.Text = "Especificaciones:";
             // 
-            // txtStorage
+            // txtServerSpecs
             // 
-            this.txtStorage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtStorage.Location = new System.Drawing.Point(3, 16);
-            this.txtStorage.Multiline = true;
-            this.txtStorage.Name = "txtStorage";
-            this.txtStorage.Size = new System.Drawing.Size(690, 101);
-            this.txtStorage.TabIndex = 0;
+            this.txtServerSpecs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtServerSpecs.Location = new System.Drawing.Point(3, 16);
+            this.txtServerSpecs.Multiline = true;
+            this.txtServerSpecs.Name = "txtServerSpecs";
+            this.txtServerSpecs.Size = new System.Drawing.Size(637, 95);
+            this.txtServerSpecs.TabIndex = 0;
             // 
-            // txtRAM
+            // ulblServerQuantity
             // 
-            this.txtRAM.Location = new System.Drawing.Point(65, 42);
-            this.txtRAM.Name = "txtRAM";
-            this.txtRAM.Size = new System.Drawing.Size(226, 21);
-            this.txtRAM.TabIndex = 103;
+            this.ulblServerQuantity.AutoSize = true;
+            this.ulblServerQuantity.Location = new System.Drawing.Point(7, 9);
+            this.ulblServerQuantity.Name = "ulblServerQuantity";
+            this.ulblServerQuantity.Size = new System.Drawing.Size(53, 14);
+            this.ulblServerQuantity.TabIndex = 14;
+            this.ulblServerQuantity.Text = "Cantidad:";
             // 
-            // txtCPU
+            // txtServerQuantity
             // 
-            this.txtCPU.Location = new System.Drawing.Point(65, 15);
-            this.txtCPU.Name = "txtCPU";
-            this.txtCPU.Size = new System.Drawing.Size(226, 21);
-            this.txtCPU.TabIndex = 102;
+            this.txtServerQuantity.CustomParent = null;
+            this.txtServerQuantity.Location = new System.Drawing.Point(69, 6);
+            this.txtServerQuantity.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
+            this.txtServerQuantity.MeasurementFileUnit = "MB";
+            this.txtServerQuantity.Name = "txtServerQuantity";
+            this.txtServerQuantity.ReadOnly = false;
+            this.txtServerQuantity.Size = new System.Drawing.Size(105, 20);
+            this.txtServerQuantity.TabIndex = 22;
+            this.txtServerQuantity.Value = ((object)(resources.GetObject("txtServerQuantity.Value")));
             // 
-            // lblCPU
+            // oscOperativeSystem
             // 
-            this.lblCPU.AutoSize = true;
-            this.lblCPU.Location = new System.Drawing.Point(14, 19);
-            this.lblCPU.Name = "lblCPU";
-            this.lblCPU.Size = new System.Drawing.Size(31, 14);
-            this.lblCPU.TabIndex = 100;
-            this.lblCPU.Text = "CPU:";
+            this.oscOperativeSystem.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.oscOperativeSystem.CustomParent = null;
+            this.oscOperativeSystem.DisplayMember = "Name";
+            this.oscOperativeSystem.Location = new System.Drawing.Point(69, 87);
+            this.oscOperativeSystem.Name = "oscOperativeSystem";
+            operativeSystemParameters1.CreatedBy = null;
+            operativeSystemParameters1.CreatedOn = null;
+            operativeSystemParameters1.Description = null;
+            operativeSystemParameters1.IsLegit = null;
+            operativeSystemParameters1.Name = null;
+            operativeSystemParameters1.OperativeSystemId = null;
+            operativeSystemParameters1.OperativeSystemTypeId = null;
+            operativeSystemParameters1.UpdatedBy = null;
+            operativeSystemParameters1.UpdatedOn = null;
+            this.oscOperativeSystem.Parameters = operativeSystemParameters1;
+            this.oscOperativeSystem.ReadOnly = false;
+            this.oscOperativeSystem.Size = new System.Drawing.Size(249, 22);
+            this.oscOperativeSystem.TabIndex = 23;
+            this.oscOperativeSystem.Value = null;
+            this.oscOperativeSystem.ValueMember = "OperativeSystemId";
+            this.oscOperativeSystem.Values = null;
             // 
-            // lblRAM
+            // cbcComputerBrand
             // 
-            this.lblRAM.AutoSize = true;
-            this.lblRAM.Location = new System.Drawing.Point(14, 46);
-            this.lblRAM.Name = "lblRAM";
-            this.lblRAM.Size = new System.Drawing.Size(32, 14);
-            this.lblRAM.TabIndex = 101;
-            this.lblRAM.Text = "RAM:";
-            // 
-            // tabItmDesciption
-            // 
-            this.tabItmDesciption.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmDesciption.Controls.Add(this.gbxScalability);
-            this.tabItmDesciption.Controls.Add(this.gbxUtilization);
-            this.tabItmDesciption.Location = new System.Drawing.Point(4, 22);
-            this.tabItmDesciption.Name = "tabItmDesciption";
-            this.tabItmDesciption.Size = new System.Drawing.Size(696, 198);
-            this.tabItmDesciption.TabIndex = 2;
-            this.tabItmDesciption.Text = "Descripción";
-            // 
-            // gbxUtilization
-            // 
-            this.gbxUtilization.Controls.Add(this.txtUtilization);
-            this.gbxUtilization.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxUtilization.Location = new System.Drawing.Point(0, 0);
-            this.gbxUtilization.Name = "gbxUtilization";
-            this.gbxUtilization.Size = new System.Drawing.Size(696, 86);
-            this.gbxUtilization.TabIndex = 98;
-            this.gbxUtilization.TabStop = false;
-            this.gbxUtilization.Text = "Utilización:";
-            // 
-            // txtUtilization
-            // 
-            this.txtUtilization.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUtilization.Location = new System.Drawing.Point(3, 16);
-            this.txtUtilization.Multiline = true;
-            this.txtUtilization.Name = "txtUtilization";
-            this.txtUtilization.Size = new System.Drawing.Size(690, 67);
-            this.txtUtilization.TabIndex = 0;
-            // 
-            // tabItmSoftware
-            // 
-            this.tabItmSoftware.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmSoftware.Controls.Add(this.lblOperativeSystem);
-            this.tabItmSoftware.Location = new System.Drawing.Point(4, 22);
-            this.tabItmSoftware.Name = "tabItmSoftware";
-            this.tabItmSoftware.Size = new System.Drawing.Size(696, 198);
-            this.tabItmSoftware.TabIndex = 3;
-            this.tabItmSoftware.Text = "Software General";
-            // 
-            // tabItmDBMS
-            // 
-            this.tabItmDBMS.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmDBMS.Location = new System.Drawing.Point(4, 22);
-            this.tabItmDBMS.Name = "tabItmDBMS";
-            this.tabItmDBMS.Size = new System.Drawing.Size(696, 198);
-            this.tabItmDBMS.TabIndex = 4;
-            this.tabItmDBMS.Text = "Sistemas Gestores de Bases de Datos";
-            // 
-            // lblComputerBrand
-            // 
-            this.lblComputerBrand.AutoSize = true;
-            this.lblComputerBrand.Location = new System.Drawing.Point(13, 22);
-            this.lblComputerBrand.Name = "lblComputerBrand";
-            this.lblComputerBrand.Size = new System.Drawing.Size(39, 14);
-            this.lblComputerBrand.TabIndex = 106;
-            this.lblComputerBrand.Text = "Marca:";
-            // 
-            // lblManufacturerNumber
-            // 
-            this.lblManufacturerNumber.AutoSize = true;
-            this.lblManufacturerNumber.Location = new System.Drawing.Point(13, 103);
-            this.lblManufacturerNumber.Name = "lblManufacturerNumber";
-            this.lblManufacturerNumber.Size = new System.Drawing.Size(104, 14);
-            this.lblManufacturerNumber.TabIndex = 111;
-            this.lblManufacturerNumber.Text = "Numero Fabricante:";
-            // 
-            // lblSerialNumber
-            // 
-            this.lblSerialNumber.AutoSize = true;
-            this.lblSerialNumber.Location = new System.Drawing.Point(13, 76);
-            this.lblSerialNumber.Name = "lblSerialNumber";
-            this.lblSerialNumber.Size = new System.Drawing.Size(34, 14);
-            this.lblSerialNumber.TabIndex = 109;
-            this.lblSerialNumber.Text = "Serie:";
-            // 
-            // lblModel
-            // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(13, 49);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(45, 14);
-            this.lblModel.TabIndex = 110;
-            this.lblModel.Text = "Modelo:";
-            // 
-            // txtSerialNumber
-            // 
-            this.txtSerialNumber.Location = new System.Drawing.Point(124, 72);
-            this.txtSerialNumber.Name = "txtSerialNumber";
-            this.txtSerialNumber.Size = new System.Drawing.Size(226, 21);
-            this.txtSerialNumber.TabIndex = 116;
-            // 
-            // txtModel
-            // 
-            this.txtModel.Location = new System.Drawing.Point(124, 45);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(226, 21);
-            this.txtModel.TabIndex = 115;
-            // 
-            // txtManufacturerNumber
-            // 
-            this.txtManufacturerNumber.Location = new System.Drawing.Point(124, 99);
-            this.txtManufacturerNumber.Name = "txtManufacturerNumber";
-            this.txtManufacturerNumber.Size = new System.Drawing.Size(226, 21);
-            this.txtManufacturerNumber.TabIndex = 114;
-            // 
-            // txtScalability
-            // 
-            this.txtScalability.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtScalability.Location = new System.Drawing.Point(3, 16);
-            this.txtScalability.Multiline = true;
-            this.txtScalability.Name = "txtScalability";
-            this.txtScalability.Size = new System.Drawing.Size(690, 67);
-            this.txtScalability.TabIndex = 0;
-            // 
-            // gbxScalability
-            // 
-            this.gbxScalability.Controls.Add(this.txtScalability);
-            this.gbxScalability.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxScalability.Location = new System.Drawing.Point(0, 86);
-            this.gbxScalability.Name = "gbxScalability";
-            this.gbxScalability.Size = new System.Drawing.Size(696, 86);
-            this.gbxScalability.TabIndex = 99;
-            this.gbxScalability.TabStop = false;
-            this.gbxScalability.Text = "Escalabilidad:";
-            // 
-            // lblOperativeSystem
-            // 
-            this.lblOperativeSystem.AutoSize = true;
-            this.lblOperativeSystem.Location = new System.Drawing.Point(12, 18);
-            this.lblOperativeSystem.Name = "lblOperativeSystem";
-            this.lblOperativeSystem.Size = new System.Drawing.Size(100, 14);
-            this.lblOperativeSystem.TabIndex = 93;
-            this.lblOperativeSystem.Text = "Sistema Operativo:";
+            this.cbcComputerBrand.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.cbcComputerBrand.CustomParent = null;
+            this.cbcComputerBrand.DisplayMember = "Name";
+            this.cbcComputerBrand.Location = new System.Drawing.Point(69, 31);
+            this.cbcComputerBrand.Name = "cbcComputerBrand";
+            computerBrandParameters1.ComputerBrandId = null;
+            computerBrandParameters1.CreatedBy = null;
+            computerBrandParameters1.CreatedOn = null;
+            computerBrandParameters1.Description = null;
+            computerBrandParameters1.Name = null;
+            computerBrandParameters1.UpdatedBy = null;
+            computerBrandParameters1.UpdatedOn = null;
+            this.cbcComputerBrand.Parameters = computerBrandParameters1;
+            this.cbcComputerBrand.ReadOnly = false;
+            this.cbcComputerBrand.Size = new System.Drawing.Size(249, 22);
+            this.cbcComputerBrand.TabIndex = 24;
+            this.cbcComputerBrand.Value = null;
+            this.cbcComputerBrand.ValueMember = "ComputerBrandId";
+            this.cbcComputerBrand.Values = null;
             // 
             // ServerConsultingOldServerComputersControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ServerConsultingOldServerComputersControl";
-            this.Size = new System.Drawing.Size(710, 413);
+            this.Size = new System.Drawing.Size(657, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
             this.upnDetailButtons.ResumeLayout(false);
@@ -471,25 +451,15 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.upnlSeparatorButtons.ResumeLayout(false);
             this.upnlSeparatorViewRelation.ResumeLayout(false);
             this.upnlSeparatorCloseRelation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxServerComputerType)).EndInit();
+            this.ugbxServerComputerType.ResumeLayout(false);
+            this.ugbxServerComputerType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerModel)).EndInit();
             this.tabItmSpecs.ResumeLayout(false);
-            this.tabItmSpecs.PerformLayout();
-            this.gbxStorage.ResumeLayout(false);
-            this.gbxStorage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStorage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRAM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCPU)).EndInit();
-            this.tabItmDesciption.ResumeLayout(false);
-            this.gbxUtilization.ResumeLayout(false);
-            this.gbxUtilization.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUtilization)).EndInit();
-            this.tabItmSoftware.ResumeLayout(false);
-            this.tabItmSoftware.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerialNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtModel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturerNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtScalability)).EndInit();
-            this.gbxScalability.ResumeLayout(false);
-            this.gbxScalability.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxServerSpecs)).EndInit();
+            this.ugbxServerSpecs.ResumeLayout(false);
+            this.ugbxServerSpecs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerSpecs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -497,27 +467,21 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
         #endregion
 
         private System.Windows.Forms.TabPage tabItmSpecs;
-        private System.Windows.Forms.TabPage tabItmDesciption;
-        private System.Windows.Forms.TabPage tabItmSoftware;
-        private System.Windows.Forms.TabPage tabItmDBMS;
-        private System.Windows.Forms.GroupBox gbxStorage;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtStorage;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtRAM;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtCPU;
-        private Infragistics.Win.Misc.UltraLabel lblCPU;
-        private Infragistics.Win.Misc.UltraLabel lblRAM;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
-        private System.Windows.Forms.GroupBox gbxUtilization;
-        private System.Windows.Forms.GroupBox gbxScalability;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtScalability;
-        private Infragistics.Win.Misc.UltraLabel lblOperativeSystem;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtManufacturerNumber;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtModel;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSerialNumber;
-        private Infragistics.Win.Misc.UltraLabel lblModel;
-        private Infragistics.Win.Misc.UltraLabel lblSerialNumber;
-        private Infragistics.Win.Misc.UltraLabel lblManufacturerNumber;
-        private Infragistics.Win.Misc.UltraLabel lblComputerBrand;
+        private Infragistics.Win.Misc.UltraGroupBox ugbxServerSpecs;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtServerSpecs;
+        private Base.Controls.Controls.SamsaraTextEditor txtServerQuantity;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxServerComputerType;
+        private Infragistics.Win.Misc.UltraLabel ulblDetRackType;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtServerModel;
+        private Infragistics.Win.Misc.UltraLabel ulblOperativeSystem;
+        private Infragistics.Win.Misc.UltraLabel ulblServerQuantity;
+        private Infragistics.Win.Misc.UltraLabel ulblServerModel;
+        private Infragistics.Win.Misc.UltraLabel ulblServerComputerBrand;
+        internal CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl rtcRackType;
+        internal CustomerContext.Controls.Controls.ServerComputerTypeChooserControl sctcServerComputerType;
+        internal CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl oscOperativeSystem;
+        internal CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl cbcComputerBrand;
+
 
 
     }

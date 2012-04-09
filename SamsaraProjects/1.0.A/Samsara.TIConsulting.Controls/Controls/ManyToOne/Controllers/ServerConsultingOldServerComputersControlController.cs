@@ -1,6 +1,7 @@
 ﻿
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controllers;
@@ -8,6 +9,13 @@ using Samsara.Base.Core.Context;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Service.Interfaces;
+using Samsara.CustomerContext.Core.Entities;
+using Samsara.CustomerContext.Core.Parameters;
+using Samsara.CustomerContext.Core.Enums;
+using Samsara.CustomerContext.Service.Interfaces;
+using System.Collections.Generic;
+using Samsara.Framework.Util;
+using System;
 
 namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 {
@@ -16,11 +24,11 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         #region Attributes
 
         private IServerConsultingOldServerComputerService srvServerConsultingOldServerComputer;
-        private ServerConsultingOldServerComputersControl controlServerConsultingOldServerComputers;
-        private ServerConsultingOldServerComputer customerInfrastructureServerComputer;
+        private ServerConsultingOldServerComputersControl ctlServerConsultingOldServerComputers;
+        private ServerConsultingOldServerComputer serverConsultingOldServerComputer;
         private IServerConsultingService srvServerConsulting;
-        //private IOperativeSystemService srvOperativeSystem;
-        //private IComputerBrandService srvComputerBrand;
+        private IOperativeSystemService srvOperativeSystem;
+        private IComputerBrandService srvComputerBrand;
 
         private DataTable dtServerConsultingOldServerComputers;
 
@@ -44,14 +52,14 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         public ServerConsultingOldServerComputersControlController(
             ServerConsultingOldServerComputersControl instance) : base(instance)  
         {
-            this.controlServerConsultingOldServerComputers = instance;
+            this.ctlServerConsultingOldServerComputers = instance;
 
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvServerConsultingOldServerComputer = SamsaraAppContext.Resolve<IServerConsultingOldServerComputerService>();
                 this.srvServerConsulting = SamsaraAppContext.Resolve<IServerConsultingService>();
-                //this.srvComputerBrand = SamsaraAppContext.Resolve<IComputerBrandService>();
-                //this.srvOperativeSystem = SamsaraAppContext.Resolve<IOperativeSystemService>();
+                this.srvOperativeSystem = SamsaraAppContext.Resolve<IOperativeSystemService>();
+                this.srvComputerBrand = SamsaraAppContext.Resolve<IComputerBrandService>();
             }
 
             this.InitializeControlControls();
@@ -67,17 +75,19 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         {
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                //ComputerBrandParameters pmtComputerBrand = new ComputerBrandParameters();
+                this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Refresh();
+                this.ctlServerConsultingOldServerComputers.rtcRackType.Refresh();
+                this.ctlServerConsultingOldServerComputers.cbcComputerBrand.Refresh();
 
-                //this.controlServerConsultingOldServerComputers.cbcComputerBrand.Parameters = pmtComputerBrand;
-                //this.controlServerConsultingOldServerComputers.cbcComputerBrand.Refresh();
+                OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters()
+                {
+                    OperativeSystemTypeId = (int)OperativeSystemTypeEnum.Server
+                };
 
-                //OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
+                this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
+                this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Refresh();
 
-                //this.controlServerConsultingOldServerComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
-                //this.controlServerConsultingOldServerComputers.oscOperativeSystem.Refresh();
-
-                this.controlServerConsultingOldServerComputers.grdRelations.InitializeLayout
+                this.ctlServerConsultingOldServerComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
         }
@@ -88,26 +98,14 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
         public void LoadControls()
         {
-            //this.controlServerConsultingOldServerComputers
-            //    .mtoServerConsultingOldServerComputerDBMSs.ServerConsultingOldServerComputer
-            //    = this.customerInfrastructureServerComputer;
-            //this.controlServerConsultingOldServerComputers
-            //    .mtoServerConsultingOldServerComputerDBMSs.CustomParent
-            //    = this.controlServerConsultingOldServerComputers;
-            //this.controlServerConsultingOldServerComputers
-            //    .mtoServerConsultingOldServerComputerDBMSs.LoadControls();
-
             ServerConsultingOldServerComputerParameters pmtServerConsultingOldServerComputer
                 = new ServerConsultingOldServerComputerParameters();
 
-            //pmtServerConsultingOldServerComputer.ServerConsultingId
-            //    = ParameterConstants.IntNone;
+            this.dtServerConsultingOldServerComputers = this.srvServerConsultingOldServerComputer
+                .SearchByParameters(pmtServerConsultingOldServerComputer);
 
-            //this.dtServerConsultingOldServerComputers = this.srvServerConsultingOldServerComputer
-            //    .SearchByParameters(pmtServerConsultingOldServerComputer);
-
-            this.controlServerConsultingOldServerComputers.grdRelations.DataSource = null;
-            this.controlServerConsultingOldServerComputers.grdRelations.DataSource
+            this.ctlServerConsultingOldServerComputers.grdRelations.DataSource = null;
+            this.ctlServerConsultingOldServerComputers.grdRelations.DataSource
                 = this.dtServerConsultingOldServerComputers;
 
             if (this.ServerConsulting != null)
@@ -115,25 +113,29 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                 foreach (ServerConsultingOldServerComputer serverConsultingOldServerComputer
                     in this.ServerConsulting.ServerConsultingOldServerComputers)
                 {
-                    //DataRow row = this.dtServerConsultingOldServerComputers.NewRow();
-                    //this.dtServerConsultingOldServerComputers.Rows.Add(row);
+                    DataRow row = this.dtServerConsultingOldServerComputers.NewRow();
+                    this.dtServerConsultingOldServerComputers.Rows.Add(row);
 
-                    //row["ServerConsultingOldServerComputerId"] = serverConsultingOldServerComputer
-                    //    .ServerConsultingOldServerComputerId;
+                    row["ServerConsultingOldServerComputerId"] = serverConsultingOldServerComputer
+                        .ServerConsultingOldServerComputerId;
 
-                    //row["ComputerBrandId"] = customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
-                    //if (customerInfrastructureServerComputer.OperativeSystem == null)
-                    //    row["OperativeSystemId"] = DBNull.Value;
-                    //else
-                    //    row["OperativeSystemId"] = customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
-                    //row["Utilization"] = customerInfrastructureServerComputer.Utilization;
-                    //row["CPU"] = customerInfrastructureServerComputer.CPU;
-                    //row["ManufacturerReferenceNumber"] = customerInfrastructureServerComputer.ManufacturerReferenceNumber;
-                    //row["ServerModel"] = customerInfrastructureServerComputer.ServerModel;
-                    //row["RAM"] = customerInfrastructureServerComputer.RAM;
-                    //row["Scalability"] = customerInfrastructureServerComputer.Scalability;
-                    //row["SerialNumber"] = customerInfrastructureServerComputer.SerialNumber;
-                    //row["StorageSystem"] = customerInfrastructureServerComputer.StorageSystem;
+                    if (serverConsultingOldServerComputer.OperativeSystem == null)
+                        row["OperativeSystemId"] = DBNull.Value;
+                    else
+                        row["OperativeSystemId"] = serverConsultingOldServerComputer.OperativeSystem.OperativeSystemId;
+
+                    if (serverConsultingOldServerComputer.ComputerBrand == null)
+                        row["ComputerBrandId"] = DBNull.Value;
+                    else
+                        row["ComputerBrandId"] = serverConsultingOldServerComputer.ComputerBrand.ComputerBrandId;
+
+                    if (serverConsultingOldServerComputer.RackType == null)
+                        row["RackTypeId"] = DBNull.Value;
+                    else
+                        row["RackTypeId"] = serverConsultingOldServerComputer.RackType.RackTypeId;
+
+                    row["ServerSpecs"] = serverConsultingOldServerComputer.ServerSpecs;
+                    row["ServerModel"] = serverConsultingOldServerComputer.ServerModel;
                 }
             }
         }
@@ -146,18 +148,12 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         {
             base.ClearDetailControls();
 
-            //this.controlServerConsultingOldServerComputers.cbcComputerBrand.Value = null;
-            //this.controlServerConsultingOldServerComputers.oscOperativeSystem.Value = null;
-            //this.controlServerConsultingOldServerComputers.txtUtilization.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtCPU.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtManufacturerNumber.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtModel.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtRAM.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtScalability.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtSerialNumber.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.txtStorage.Text = string.Empty;
-            //this.controlServerConsultingOldServerComputers.mtoServerConsultingOldServerComputerDBMSs.LoadControls();
-            //this.controlServerConsultingOldServerComputers.mtoServerConsultingOldServerComputerDBMSs.ClearControls();
+            this.ctlServerConsultingOldServerComputers.rtcRackType.Value = null;
+            this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Value = null;
+            this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Value = null;
+            this.ctlServerConsultingOldServerComputers.cbcComputerBrand.Value = null;
+            this.ctlServerConsultingOldServerComputers.txtServerModel.Value = null;
+            this.ctlServerConsultingOldServerComputers.txtServerSpecs.Value = null;
         }
 
         public override void ClearControls()
@@ -172,123 +168,76 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         {
             base.CreateRelation();
 
-            //this.customerInfrastructureServerComputer = new ServerConsultingOldServerComputer();
-            //this.customerInfrastructureServerComputer.ServerConsulting = this.ServerConsulting;
-            //this.controlServerConsultingOldServerComputers.mtoServerConsultingOldServerComputerDBMSs
-            //    .ServerConsultingOldServerComputer = this.customerInfrastructureServerComputer;
-            //this.customerInfrastructureServerComputer.Activated = true;
-            //this.customerInfrastructureServerComputer.Deleted = false;
+            this.serverConsultingOldServerComputer = new ServerConsultingOldServerComputer();
+            this.serverConsultingOldServerComputer.ServerConsulting = this.ServerConsulting;
+        }
+
+        protected override ServerConsultingOldServerComputer GetEntity(int entityId)
+        {
+            if (entityId <= 0)
+                return this.ServerConsulting.ServerConsultingOldServerComputers
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.ServerConsulting.ServerConsultingOldServerComputers
+                    .Single(x => x.ServerConsultingOldServerComputerId == entityId);
         }
 
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
 
-            //if (entityId <= 0)
-            //    this.customerInfrastructureServerComputer = this.ServerConsulting
-            //        .ServerConsultingOldServerComputers
-            //        .Single(x => -x.GetHashCode() == entityId);
-            //else
-            //    this.customerInfrastructureServerComputer = this.ServerConsulting
-            //        .ServerConsultingOldServerComputers
-            //        .Single(x => x.ServerConsultingOldServerComputerId == entityId);
+            this.serverConsultingOldServerComputer = this.GetEntity(entityId);
 
-            //if (entityId <= 0)
-            //    this.ServerConsulting.ServerConsultingOldServerComputers
-            //        .Remove(this.customerInfrastructureServerComputer);
-            //else
-            //{
-            //    this.customerInfrastructureServerComputer.Activated = false;
-            //    this.customerInfrastructureServerComputer.Deleted = true;
-            //}
+            if (entityId <= 0)
+            {
+                this.ServerConsulting.ServerConsultingOldServerComputers
+                    .Remove(this.serverConsultingOldServerComputer);
+            }
+            else
+            {
+                this.serverConsultingOldServerComputer.Activated = false;
+                this.serverConsultingOldServerComputer.Deleted = true;
+            }
         }
 
         protected override void LoadFromEntity(int entityId)
         {
             base.LoadFromEntity(entityId);
 
-            //if (entityId <= 0)
-            //    this.customerInfrastructureServerComputer = this.ServerConsulting
-            //        .ServerConsultingOldServerComputers
-            //        .Single(x => -x.GetHashCode() == entityId);
-            //else
-            //    this.customerInfrastructureServerComputer = this.ServerConsulting
-            //        .ServerConsultingOldServerComputers
-            //        .Single(x => x.ServerConsultingOldServerComputerId == entityId);
+            this.serverConsultingOldServerComputer = this.GetEntity(entityId);
 
-            //this.controlServerConsultingOldServerComputers.cbcComputerBrand.Value
-            //    = this.customerInfrastructureServerComputer.ComputerBrand;
+            this.ctlServerConsultingOldServerComputers.txtServerModel.Value = this.serverConsultingOldServerComputer.ServerModel;
+            this.ctlServerConsultingOldServerComputers.txtServerSpecs.Value = this.serverConsultingOldServerComputer.ServerSpecs;
 
-            //if (this.customerInfrastructureServerComputer.OperativeSystem == null)
-            //    this.controlServerConsultingOldServerComputers.oscOperativeSystem.Value = null;
-            //else
-            //    this.controlServerConsultingOldServerComputers.oscOperativeSystem.Value
-            //        = this.customerInfrastructureServerComputer.OperativeSystem;
-
-            //this.controlServerConsultingOldServerComputers.txtUtilization.Text
-            //    = this.customerInfrastructureServerComputer.Utilization;
-            //this.controlServerConsultingOldServerComputers.txtCPU.Text
-            //    = this.customerInfrastructureServerComputer.CPU;
-            //this.controlServerConsultingOldServerComputers.txtManufacturerNumber.Text
-            //    = this.customerInfrastructureServerComputer.ManufacturerReferenceNumber;
-            //this.controlServerConsultingOldServerComputers.txtModel.Text
-            //    = this.customerInfrastructureServerComputer.ServerModel;
-            //this.controlServerConsultingOldServerComputers.txtRAM.Text
-            //    = this.customerInfrastructureServerComputer.RAM;
-            //this.controlServerConsultingOldServerComputers.txtScalability.Text
-            //    = this.customerInfrastructureServerComputer.Scalability;
-            //this.controlServerConsultingOldServerComputers.txtSerialNumber.Text
-            //    = this.customerInfrastructureServerComputer.SerialNumber;
-            //this.controlServerConsultingOldServerComputers.txtStorage.Text
-            //    = this.customerInfrastructureServerComputer.StorageSystem;
-
-            //this.controlServerConsultingOldServerComputers.mtoServerConsultingOldServerComputerDBMSs
-            //    .ServerConsultingOldServerComputer = this.customerInfrastructureServerComputer;
-
-            //this.controlServerConsultingOldServerComputers.mtoServerConsultingOldServerComputerDBMSs
-            //    .LoadControls();
+            this.ctlServerConsultingOldServerComputers.rtcRackType.Value = this.serverConsultingOldServerComputer.RackType;
+            this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Value = this.serverConsultingOldServerComputer.ServerComputerType;
+            this.ctlServerConsultingOldServerComputers.cbcComputerBrand.Value = this.serverConsultingOldServerComputer.ComputerBrand;
+            this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Value = this.serverConsultingOldServerComputer.OperativeSystem;
         }
 
         protected override void LoadEntity()
         {
             base.LoadEntity();
 
-            //this.customerInfrastructureServerComputer.ComputerBrand 
-            //    = this.controlServerConsultingOldServerComputers.cbcComputerBrand.Value;
+            this.serverConsultingOldServerComputer.RackType
+                = this.ctlServerConsultingOldServerComputers.rtcRackType.Value;
+            this.serverConsultingOldServerComputer.ComputerBrand
+                = this.ctlServerConsultingOldServerComputers.cbcComputerBrand.Value;
+            this.serverConsultingOldServerComputer.OperativeSystem
+                = this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Value;
+            this.serverConsultingOldServerComputer.ServerComputerType
+                = this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Value;
 
-            //this.customerInfrastructureServerComputer.OperativeSystem 
-            //    = this.controlServerConsultingOldServerComputers.oscOperativeSystem.Value;
-
-            //this.customerInfrastructureServerComputer.Utilization
-            //    = this.controlServerConsultingOldServerComputers.txtUtilization.Text;
-            //this.customerInfrastructureServerComputer.CPU
-            //    = this.controlServerConsultingOldServerComputers.txtCPU.Text;
-            //this.customerInfrastructureServerComputer.ManufacturerReferenceNumber
-            //    = this.controlServerConsultingOldServerComputers.txtManufacturerNumber.Text;
-            //this.customerInfrastructureServerComputer.ServerModel
-            //    = this.controlServerConsultingOldServerComputers.txtModel.Text;
-            //this.customerInfrastructureServerComputer.RAM
-            //    = this.controlServerConsultingOldServerComputers.txtRAM.Text;
-            //this.customerInfrastructureServerComputer.Scalability
-            //    = this.controlServerConsultingOldServerComputers.txtScalability.Text;
-            //this.customerInfrastructureServerComputer.SerialNumber
-            //    = this.controlServerConsultingOldServerComputers.txtSerialNumber.Text;
-            //this.customerInfrastructureServerComputer.StorageSystem
-            //    = this.controlServerConsultingOldServerComputers.txtStorage.Text;
+            this.serverConsultingOldServerComputer.ServerSpecs
+                = this.ctlServerConsultingOldServerComputers.txtServerSpecs.Text;
+            this.serverConsultingOldServerComputer.ServerModel
+                = this.ctlServerConsultingOldServerComputers.txtServerModel.Text;
         }
 
         protected override bool ValidateControlsData()
         {
             if (!base.ValidateControlsData())
                 return false;
-
-            //if (this.controlServerConsultingOldServerComputers.cbcComputerBrand.Value == null)
-            //{
-            //    MessageBox.Show("Favor de seleccionar la Marca del Servidor.",
-            //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    this.controlServerConsultingOldServerComputers.cbcComputerBrand.Focus();
-            //    return false;
-            //}
 
             return true;
         }
@@ -299,43 +248,46 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
             base.AddEntity();
 
-            //if (this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId == -1)
-            //    row = this.dtServerConsultingOldServerComputers.AsEnumerable()
-            //        .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
-            //            == -(this.customerInfrastructureServerComputer as object).GetHashCode());
-            //else
-            //    row = this.dtServerConsultingOldServerComputers.AsEnumerable()
-            //        .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
-            //            == this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId);
+            row = this.GetEntityRow(this.serverConsultingOldServerComputer);
 
-            //if (row == null)
-            //{
-            //    this.ServerConsulting.ServerConsultingOldServerComputers
-            //        .Add(this.customerInfrastructureServerComputer);
+            if (row == null)
+            {
+                this.ServerConsulting.ServerConsultingOldServerComputers
+                    .Add(this.serverConsultingOldServerComputer);
 
-            //    row = this.dtServerConsultingOldServerComputers.NewRow();
-            //    this.dtServerConsultingOldServerComputers.Rows.Add(row);
-            //}
+                row = this.dtServerConsultingOldServerComputers.NewRow();
+                this.dtServerConsultingOldServerComputers.Rows.Add(row);
+            }
 
-            //if (this.customerInfrastructureServerComputer.ServerConsultingOldServerComputerId == -1)
-            //    row["ServerConsultingOldServerComputerId"] = -(this.customerInfrastructureServerComputer as object).GetHashCode();
-            //else
-            //    row["ServerConsultingOldServerComputerId"] = this.customerInfrastructureServerComputer
-            //        .ServerConsultingOldServerComputerId;
+            if (this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId == -1)
+                row["ServerConsultingOldServerComputerId"] = -(this.serverConsultingOldServerComputer as object).GetHashCode();
+            else
+                row["ServerConsultingOldServerComputerId"] = this.serverConsultingOldServerComputer
+                    .ServerConsultingOldServerComputerId;
 
-            //row["ComputerBrandId"] = this.customerInfrastructureServerComputer.ComputerBrand.ComputerBrandId;
-            //if (this.customerInfrastructureServerComputer.OperativeSystem == null)
-            //    row["OperativeSystemId"] = DBNull.Value;
-            //else
-            //    row["OperativeSystemId"] = this.customerInfrastructureServerComputer.OperativeSystem.OperativeSystemId;
-            //row["Utilization"] = this.customerInfrastructureServerComputer.Utilization;
-            //row["CPU"] = this.customerInfrastructureServerComputer.CPU;
-            //row["ManufacturerReferenceNumber"] = this.customerInfrastructureServerComputer.ManufacturerReferenceNumber;
-            //row["ServerModel"] = this.customerInfrastructureServerComputer.ServerModel;
-            //row["RAM"] = this.customerInfrastructureServerComputer.RAM;
-            //row["Scalability"] = this.customerInfrastructureServerComputer.Scalability;
-            //row["SerialNumber"] = this.customerInfrastructureServerComputer.SerialNumber;
-            //row["StorageSystem"] = this.customerInfrastructureServerComputer.StorageSystem;
+
+            if (this.serverConsultingOldServerComputer.OperativeSystem == null)
+                row["OperativeSystemId"] = DBNull.Value;
+            else
+                row["OperativeSystemId"] = this.serverConsultingOldServerComputer.OperativeSystem.OperativeSystemId;
+
+            if (this.serverConsultingOldServerComputer.ComputerBrand == null)
+                row["ComputerBrandId"] = DBNull.Value;
+            else
+                row["ComputerBrandId"] = this.serverConsultingOldServerComputer.ComputerBrand.ComputerBrandId;
+
+            if (this.serverConsultingOldServerComputer.ServerComputerType == null)
+                row["ServerComputerTypeId"] = DBNull.Value;
+            else
+                row["ServerComputerTypeId"] = this.serverConsultingOldServerComputer.ServerComputerType.ServerComputerTypeId;
+
+            if (this.serverConsultingOldServerComputer.RackType == null)
+                row["RackTypeId"] = DBNull.Value;
+            else
+                row["RackTypeId"] = this.serverConsultingOldServerComputer.RackType.RackTypeId;
+
+            row["ServerModel"] = this.serverConsultingOldServerComputer.ServerModel;
+            row["ServerSpecs"] = this.serverConsultingOldServerComputer.ServerSpecs;
 
             this.dtServerConsultingOldServerComputers.AcceptChanges();
         }
@@ -344,16 +296,24 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         {
             base.EnabledDetailControls(enabled);
 
-            //this.controlServerConsultingOldServerComputers.oscOperativeSystem.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.cbcComputerBrand.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtUtilization.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtCPU.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtManufacturerNumber.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtModel.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtRAM.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtScalability.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtSerialNumber.ReadOnly = !enabled;
-            //this.controlServerConsultingOldServerComputers.txtStorage.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.rtcRackType.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.sctcServerComputerType.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.oscOperativeSystem.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.cbcComputerBrand.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.txtServerModel.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.txtServerSpecs.ReadOnly = !enabled;
+        }
+
+        protected override DataRow GetEntityRow(ServerConsultingOldServerComputer entity)
+        {
+            if (this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId == -1)
+                return this.dtServerConsultingOldServerComputers.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
+                        == -(this.serverConsultingOldServerComputer as object).GetHashCode());
+            else
+                return this.dtServerConsultingOldServerComputers.AsEnumerable()
+                    .SingleOrDefault(x => Convert.ToInt32(x["ServerConsultingOldServerComputerId"])
+                        == this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId);
         }
 
         #endregion Protected
@@ -368,21 +328,21 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
             band.Override.AllowUpdate = DefaultableBoolean.False;
 
-            //ComputerBrandParameters pmtComputerBrand = new ComputerBrandParameters();
+            ComputerBrandParameters pmtComputerBrand = new ComputerBrandParameters();
 
-            //IList<ComputerBrand> cctvBrands = this.srvComputerBrand.GetListByParameters(pmtComputerBrand);
-            //WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
-            //    band.Columns["ComputerBrandId"], "ComputerBrandId", "Name", "Seleccione");
+            IList<ComputerBrand> cctvBrands = this.srvComputerBrand.GetListByParameters(pmtComputerBrand);
+            WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvBrands,
+                band.Columns["ComputerBrandId"], "ComputerBrandId", "Name", "Seleccione");
 
-            //OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters();
+            OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters()
+            {
+                OperativeSystemTypeId = (int)OperativeSystemTypeEnum.Server
+            };
 
-            //IList<OperativeSystem> cctvTypes = this.srvOperativeSystem.GetListByParameters(pmtOperativeSystem);
+            IList<OperativeSystem> operativeSystemTypes = this.srvOperativeSystem.GetListByParameters(pmtOperativeSystem);
 
-            //this.controlServerConsultingOldServerComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
-            //this.controlServerConsultingOldServerComputers.oscOperativeSystem.Refresh();
-
-            //WindowsFormsUtil.SetUltraGridValueList(e.Layout, cctvTypes,
-                //band.Columns["OperativeSystemId"], "OperativeSystemId", "Name", "Seleccione");
+            WindowsFormsUtil.SetUltraGridValueList(e.Layout, operativeSystemTypes,
+                band.Columns["OperativeSystemId"], "OperativeSystemId", "Name", "Seleccione");
         }
 
         #endregion Events
