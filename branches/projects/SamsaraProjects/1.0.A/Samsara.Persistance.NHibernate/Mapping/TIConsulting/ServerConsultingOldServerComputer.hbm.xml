@@ -9,9 +9,6 @@
       <generator class="native"/>
     </id>
 
-    <property name="ServerComputerType"/>
-    <property name="ServerComputerBrand"/>
-    <property name="OperativeSystem"/>
     <property name="ServerModel"/>
     <property name="ServerSpecs"/>
 
@@ -25,6 +22,22 @@
     <many-to-one name="ServerConsulting"
                  class="Samsara.TIConsulting.Core.Entities.ServerConsulting, Samsara.TIConsulting.Core"
                  column="ServerConsultingId" />
+
+    <many-to-one name="ServerComputerType"
+                 class="Samsara.CustomerContext.Core.Entities.ServerComputerType, Samsara.CustomerContext.Core"
+                 column="ServerComputerTypeId" />
+
+    <many-to-one name="ComputerBrand"
+                 class="Samsara.CustomerContext.Core.Entities.ComputerBrand, Samsara.CustomerContext.Core"
+                 column="ComputerBrandId" />
+
+    <many-to-one name="OperativeSystem"
+                 class="Samsara.CustomerContext.Core.Entities.OperativeSystem, Samsara.CustomerContext.Core"
+                 column="OperativeSystemId" />
+
+    <many-to-one name="RackType"
+                 class="Samsara.CustomerContext.Core.Entities.RackType, Samsara.CustomerContext.Core"
+                 column="RackTypeId" />
     
   </class>
 
@@ -43,7 +56,6 @@
   <query name="ServerConsultingOldServerComputer.SearchByParameters">
     <![CDATA[
         from ServerConsultingOldServerComputer where Deleted = 0 and Activated = 1
-        and Name like :Name
     ]]>
   </query>
 

@@ -136,7 +136,6 @@
     <Compile Include="Controllers\ISPFormController.cs" />
     <Compile Include="Controllers\NetworkCablingTypeFormController.cs" />
     <Compile Include="Controllers\OperativeSystemFormController.cs" />
-    <Compile Include="Controllers\OperativeSystemTypeFormController.cs" />
     <Compile Include="Controllers\PersonalComputerTypeFormController.cs" />
     <Compile Include="Controllers\PrinterBrandFormController.cs" />
     <Compile Include="Controllers\PrinterTypeFormController.cs" />
@@ -238,12 +237,6 @@
     </Compile>
     <Compile Include="Forms\OperativeSystemForm.designer.cs">
       <DependentUpon>OperativeSystemForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\OperativeSystemTypeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\OperativeSystemTypeForm.designer.cs">
-      <DependentUpon>OperativeSystemTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PersonalComputerTypeForm.cs">
       <SubType>Form</SubType>
@@ -414,12 +407,6 @@
     <Compile Include="Templates\OperativeSystemSearchForm.Designer.cs">
       <DependentUpon>OperativeSystemSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\OperativeSystemTypeSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Templates\OperativeSystemTypeSearchForm.Designer.cs">
-      <DependentUpon>OperativeSystemTypeSearchForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Templates\PersonalComputerTypeSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -533,9 +520,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OperativeSystemForm.resx">
       <DependentUpon>OperativeSystemForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\OperativeSystemTypeForm.resx">
-      <DependentUpon>OperativeSystemTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PersonalComputerTypeForm.resx">
       <DependentUpon>PersonalComputerTypeForm.cs</DependentUpon>
