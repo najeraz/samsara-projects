@@ -64,14 +64,21 @@ namespace Samsara.Framework.Util
                     PropertyInfo primaryKeyPropertyInfo = EntitiesUtil.GetPrimaryKeyPropertyInfo(propertyDescriptor.PropertyType);
                     object value = entity.GetType().GetProperty(propertyDescriptor.Name).GetValue(entity, null);
 
-                    if (primaryKeyPropertyInfo != null && value != null)
+                    if (primaryKeyPropertyInfo != null)
                     {
-                        object primaryKeyValue = value.GetType().GetProperty(primaryKeyPropertyInfo.Name).GetValue(value, null);
+                        if (value != null)
+                        {
+                            object primaryKeyValue = value.GetType().GetProperty(primaryKeyPropertyInfo.Name).GetValue(value, null);
 
-                        if (absoluteColumnNames)
-                            row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                            if (absoluteColumnNames)
+                                row[propertyDescriptor.Name + "." + primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                            else
+                                row[primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                        }
                         else
-                            row[primaryKeyPropertyInfo.Name] = primaryKeyValue;
+                        {
+                            row[primaryKeyPropertyInfo.Name] = DBNull.Value;
+                        }
                     }
                     else
                     {

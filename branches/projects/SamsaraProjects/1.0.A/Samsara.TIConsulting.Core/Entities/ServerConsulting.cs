@@ -155,12 +155,6 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual string OtherServerComputerTypePreference
-        {
-            get;
-            set;
-        }
-
         public virtual RackType RackType
         {
             get;
