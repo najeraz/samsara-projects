@@ -193,7 +193,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
         protected override int GetEntityId()
         {
-            return this.serverConsultingOldServerComputer == null ? base.GetEntityId()
+            return this.serverConsultingOldServerComputer == null ? -1
                 : this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId <= 0 ?
                 -this.serverConsultingOldServerComputer.GetHashCode() 
                 : this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId;
@@ -201,8 +201,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             this.serverConsultingOldServerComputer = this.GetEntity(entityId);
 
             if (entityId <= 0)
@@ -219,8 +217,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             this.serverConsultingOldServerComputer = this.GetEntity(entityId);
 
             this.ctlServerConsultingOldServerComputers.txtServerModel.Value = this.serverConsultingOldServerComputer.ServerModel;
@@ -235,8 +231,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.serverConsultingOldServerComputer.RackType
                 = this.ctlServerConsultingOldServerComputers.rtcRackType.Value;
             this.serverConsultingOldServerComputer.ComputerBrand
@@ -256,17 +250,12 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             return true;
         }
 
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             row = this.GetEntityRow(this.serverConsultingOldServerComputer);
 

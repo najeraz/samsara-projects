@@ -153,8 +153,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
                     .Single(x => -x.GetHashCode() == entityId);
@@ -173,8 +171,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureCCTV = this.CustomerInfrastructure.CustomerInfrastructureCCTVs
                     .Single(x => -x.GetHashCode() == entityId);
@@ -194,8 +190,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureCCTV.CCTVBrand = this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Value;
             this.customerInfrastructureCCTV.CCTVType = this.controlCustomerInfrastructureCCTVs.ctcCCTVType.Value;
             this.customerInfrastructureCCTV.Utilization = this.controlCustomerInfrastructureCCTVs.txtUtilization.Text;
@@ -203,9 +197,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del CCTV.",
@@ -228,8 +219,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId == -1)
                 row = this.dtCustomerInfrastructureCCTVs.AsEnumerable()
@@ -267,6 +256,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureCCTVs.ctcCCTVType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureCCTVs.cbcCCTVBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureCCTVs.txtUtilization.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureCCTV GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureCCTV entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

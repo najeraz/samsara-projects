@@ -160,8 +160,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.tenderLine = this.Tender.TenderLines
                     .Single(x => -x.GetHashCode() == entityId);
@@ -180,8 +178,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.tenderLine = this.Tender.TenderLines
                     .Single(x => -x.GetHashCode() == entityId);
@@ -197,8 +193,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.tenderLine.Product = this.controlTenderLines.pscProduct.Value;
             if (this.tenderLine.Product != null)
                 this.tenderLine.Description = this.tenderLine.Product.Name;
@@ -211,9 +205,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlTenderLines.steQuantity.Value == null)
             {
                 MessageBox.Show("Favor de agregar una Cantidad.",
@@ -245,8 +236,6 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.tenderLine.TenderLineId == -1)
                 row = this.dtTenderLines.AsEnumerable()
@@ -307,7 +296,12 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
                 return -this.tenderLine.GetHashCode();
             else
                 return this.tenderLine.TenderLineId;
-        } 
+        }
+
+        protected override DataRow GetEntityRow(TenderLine entity)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion Protected
 

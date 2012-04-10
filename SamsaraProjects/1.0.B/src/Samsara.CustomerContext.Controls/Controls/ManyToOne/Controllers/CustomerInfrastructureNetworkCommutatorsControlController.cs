@@ -159,8 +159,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkCommutator = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkCommutators
@@ -182,8 +180,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkCommutator = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkCommutators
@@ -208,8 +204,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkCommutator.CommutatorBrand 
                 = this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Value;
 
@@ -225,9 +219,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Conmutador.",
@@ -250,8 +241,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId == -1)
                 row = this.dtCustomerInfrastructureNetworkCommutators.AsEnumerable()
@@ -294,6 +283,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureNetworkCommutators.cbcCommutatorBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfTrunks.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkCommutators.steNumberOfExtensions.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkCommutator GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkCommutator entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

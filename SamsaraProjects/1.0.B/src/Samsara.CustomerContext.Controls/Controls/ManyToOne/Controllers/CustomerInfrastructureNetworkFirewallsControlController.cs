@@ -150,8 +150,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkFirewall = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkFirewalls
@@ -173,8 +171,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkFirewall = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkFirewalls
@@ -196,8 +192,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkFirewall.FirewallBrand 
                 = this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Value;
 
@@ -210,9 +204,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Firewall.",
@@ -227,8 +218,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId == -1)
                 row = this.dtCustomerInfrastructureNetworkFirewalls.AsEnumerable()
@@ -269,6 +258,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureNetworkFirewalls.txtFirewallModel.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkFirewalls.fbFirewallBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkFirewalls.txtDescription.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkFirewall GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkFirewall entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected
