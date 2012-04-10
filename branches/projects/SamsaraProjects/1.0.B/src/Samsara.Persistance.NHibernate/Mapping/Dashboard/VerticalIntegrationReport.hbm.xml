@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <sql-query name="VerticalIntegrationReport.SearchReportData" cacheable="false" read-only="true">
+    <return-scalar column="linea" type="int"/>
+    <return-scalar column="cliente" type="int"/>
+    <return-scalar column="total" type="decimal"/>
+    <return-scalar column="agente" type="int"/>
+    <![CDATA[
+      SELECT
+        CAST(l.linea AS int) linea, 
+        CAST(f.cliente AS int) cliente, 
+        SUM(dfc.precio_pactado * dfc.cantidad) total,
+        CAST(c.agente AS int) agente
+      FROM		Facturas_Clientes f
+      INNER JOIN	Detalles_Facturas_Clientes dfc 	ON dfc.factura = f.factura
+      INNER JOIN	Articulos a			      	        ON a.articulo = dfc.articulo
+      INNER JOIN	Clientes c			      	        ON c.cliente = f.cliente
+      INNER JOIN	familias_articulos fam        	ON fam.familia = a.familia
+      INNER JOIN	sublineas_articulos s           ON s.sublinea = fam.sublinea
+      INNER JOIN	lineas_articulos l	            ON l.linea = s.linea
+      INNER JOIN	personal p	                    ON p.persona = c.agente
+      WHERE f.sucursal = 1 AND p.fecha_baja IS NULL
+      AND	f.estado_actual != 'Cancelada'
+      AND f.fecha_factura >= :MinDate AND f.fecha_factura < dateadd(day, 1, :MaxDate)
+      GROUP BY l.linea, f.cliente, c.agente
+      ORDER BY c.agente ASC, CAST(f.cliente AS int) ASC
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>

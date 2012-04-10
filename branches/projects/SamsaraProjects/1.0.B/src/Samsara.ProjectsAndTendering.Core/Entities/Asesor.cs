@@ -1,0 +1,39 @@
+﻿
+using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
+
+namespace Samsara.ProjectsAndTendering.Core.Entities
+{
+    public class Asesor : BaseEntity
+    {
+        public Asesor()
+        {
+            AsesorId = -1;
+        }
+
+        [PrimaryKey]
+        public virtual int AsesorId
+        {
+            get;
+            set;
+        }
+
+        public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual string FullName
+        {
+            get;
+            set;
+        }
+
+        public virtual bool CanApprove
+        {
+            get;
+            set;
+        }
+    }
+}

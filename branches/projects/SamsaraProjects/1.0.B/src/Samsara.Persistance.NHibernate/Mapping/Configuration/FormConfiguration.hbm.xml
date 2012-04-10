@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="FormConfiguration" table="Configuration.FormConfigurations">
+
+    <id name="FormConfigurationId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="FormName" not-null="true"/>
+    <property name="FormEndUserName"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+
+    <many-to-one name="Scheme"
+                 class="Samsara.Main.Core.Entities.Scheme, Samsara.Main.Core"
+                 column="SchemeId"/>
+    
+
+    <set name="FormConfigurationGrids" table="Configuration.FormConfigurationGrids" cascade="all-delete-orphan">
+      <key column="FormConfigurationId"/>
+      <one-to-many
+        class="Samsara.Configuration.Core.Entities.FormConfigurationGrid, Samsara.Configuration.Core"/>
+    </set>
+
+    <set name="FormConfigurationUserPermissions" table="Configuration.FormConfigurationUserPermissions" cascade="all-delete-orphan">
+      <key column="FormConfigurationId"/>
+      <one-to-many
+        class="Samsara.Configuration.Core.Entities.FormConfigurationUserPermission, Samsara.Configuration.Core"/>
+    </set>
+    
+  </class>
+
+  <query name="FormConfiguration.GetByParameters">
+    <![CDATA[
+        from FormConfiguration where FormName = :FormName
+    ]]>
+  </query>
+
+</hibernate-mapping>

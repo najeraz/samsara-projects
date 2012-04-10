@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database">
+  
+  <object id="ICCTVBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.CCTVBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICCTVTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.CCTVTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICommutatorBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.CommutatorBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICommutatorTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.CommutatorTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IComputerBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.ComputerBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureCCTVDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureCCTVDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureISPDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureISPDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkCablingDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkCablingDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkCommutatorDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkCommutatorDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkFirewallDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkFirewallDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkRouterDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkRouterDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkSiteDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkSiteDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkSiteRackDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkSiteRackDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkSwitchDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkSwitchDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkWifiDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkWifiDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructurePersonalComputerDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePersonalComputerDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructurePrinterDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePrinterDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureServerComputerDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureServerComputerDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IServerComputerTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.ServerComputerTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureServerComputerDBMSDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureServerComputerDBMSDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureTelephonyDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureTelephonyDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureUPSDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureUPSDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IDBMSDao"
+          type="Samsara.CustomerContext.Dao.Impl.DBMSDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IFirewallBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.FirewallBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IISPDao"
+          type="Samsara.CustomerContext.Dao.Impl.ISPDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="INetworkCablingTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.NetworkCablingTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IOperativeSystemDao"
+          type="Samsara.CustomerContext.Dao.Impl.OperativeSystemDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IOperativeSystemTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.OperativeSystemTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IPersonalComputerTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.PersonalComputerTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IPrinterBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.PrinterBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IPrinterTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.PrinterTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IRackTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.RackTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IRouterBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.RouterBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ISwitchBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.SwitchBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITelephonyLineTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.TelephonyLineTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ITelephonyProviderDao"
+          type="Samsara.CustomerContext.Dao.Impl.TelephonyProviderDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUPSBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.UPSBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUPSTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.UPSTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IBusinessTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.BusinessTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IBackupSoftwareBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.BackupSoftwareBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureAdministationSoftwareDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureAdministationSoftwareDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureBackupSoftwareDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureBackupSoftwareDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureSecuritySoftwareDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureSecuritySoftwareDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ISecuritySoftwareBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.SecuritySoftwareBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ISecuritySoftwareTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.SecuritySoftwareTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IAccessPointBrandDao"
+          type="Samsara.CustomerContext.Dao.Impl.AccessPointBrandDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IAccessPointTypeDao"
+          type="Samsara.CustomerContext.Dao.Impl.AccessPointTypeDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructureNetworkWifiAccessPointDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructureNetworkWifiAccessPointDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructurePersonalComputerClassificationDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePersonalComputerClassificationDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="ICustomerInfrastructurePrinterClassificationDao"
+          type="Samsara.CustomerContext.Dao.Impl.CustomerInfrastructurePrinterClassificationDao, Samsara.CustomerContext.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+</objects>
+

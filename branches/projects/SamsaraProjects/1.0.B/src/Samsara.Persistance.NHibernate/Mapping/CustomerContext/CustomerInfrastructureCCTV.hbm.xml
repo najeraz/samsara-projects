@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureCCTV" table="CustomerContext.CustomerInfrastructureCCTVs">
+    
+    <id name="CustomerInfrastructureCCTVId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Utilization"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="CCTVType"
+                 class="Samsara.CustomerContext.Core.Entities.CCTVType, Samsara.CustomerContext.Core"
+                 column="CCTVTypeId"/>
+
+    <many-to-one name="CCTVBrand"
+                 class="Samsara.CustomerContext.Core.Entities.CCTVBrand, Samsara.CustomerContext.Core"
+                 column="CCTVBrandId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureCCTV.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureCCTV 
+        where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureCCTV.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureCCTV
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureCCTV.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureCCTV
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
+    ]]>
+  </query>
+
+</hibernate-mapping>

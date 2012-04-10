@@ -1,0 +1,39 @@
+﻿
+using Samsara.Base.Core.Attributes;
+using Samsara.Base.Core.Entities;
+
+namespace Samsara.CustomerContext.Core.Entities
+{
+    public class CustomerInfrastructureNetworkSiteRack : BaseEntity
+    {
+        public CustomerInfrastructureNetworkSiteRack()
+        {
+            CustomerInfrastructureNetworkSiteRackId = -1;
+        }
+
+        [PrimaryKey]
+        public virtual int CustomerInfrastructureNetworkSiteRackId
+        {
+            get;
+            set;
+        }
+
+        public virtual CustomerInfrastructureNetworkSite CustomerInfrastructureNetworkSite
+        {
+            get;
+            set;
+        }
+
+        public virtual RackType RackType
+        {
+            get;
+            set;
+        }
+
+        public virtual int Quantity
+        {
+            get;
+            set;
+        }
+    }
+}

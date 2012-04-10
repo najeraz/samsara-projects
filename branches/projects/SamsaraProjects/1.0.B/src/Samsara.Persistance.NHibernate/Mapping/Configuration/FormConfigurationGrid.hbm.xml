@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="FormConfigurationGrid" table="Configuration.FormConfigurationGrids">
+
+    <id name="FormConfigurationGridId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+    <many-to-one name="FormConfiguration" 
+                 class="Samsara.Configuration.Core.Entities.FormConfiguration, Samsara.Configuration.Core"
+                 column="FormConfigurationId"/>
+
+    <set name="FormConfigurationGridColumns" table="Configuration.FormConfigurationGridColumns" 
+         cascade="all-delete-orphan" fetch="join" order-by="FormConfigurationGridId">
+      <key column="FormConfigurationGridId"/>
+      <one-to-many
+        class="Samsara.Configuration.Core.Entities.FormConfigurationGridColumn, Samsara.Configuration.Core"/>
+    </set>
+
+    <property name="GridName"/>
+    <property name="IgnoreConfiguration"/>
+  </class>
+
+  <query name="FormConfigurationGrid.GetByParameters">
+    <![CDATA[
+        from FormConfigurationGrid grid where grid.GridName = :GridName
+        and grid.FormConfiguration.FormConfigurationId = :FormConfigurationId
+    ]]>
+  </query>
+
+</hibernate-mapping>

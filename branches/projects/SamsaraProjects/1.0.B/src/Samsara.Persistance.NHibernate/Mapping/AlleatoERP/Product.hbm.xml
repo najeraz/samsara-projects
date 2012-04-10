@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.AlleatoERP.Core" 
+  namespace="Samsara.AlleatoERP.Core.Entities">
+  
+  <class name="Product" table="AlleatoERP.Products">
+    
+    <id name="ProductId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Code"/>
+    <property name="Description"/>
+    <property name="CurrentStock"/>
+    <property name="CurrentPrice4"/>
+    <property name="CurrentPrice5"/>
+
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+
+    <many-to-one name="ProductBrand" lazy="false"
+                 class="Samsara.AlleatoERP.Core.Entities.ProductBrand, Samsara.AlleatoERP.Core"
+                 column="ProductBrandId"/>
+
+  </class>
+
+  <query name="Product.GetByParameters">
+    <![CDATA[
+        from Product where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="Product.GetListByParameters">
+    <![CDATA[
+        from Product where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <sql-query name="Product.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="ProductId" type="int"/>
+    <return-scalar column="ProductName" type="string"/>
+    <return-scalar column="BrandName" type="string"/>
+    <![CDATA[
+        SELECT
+            p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName, pb.Name BrandName
+        FROM        AlleatoERP.Products p
+        LEFT JOIN   AlleatoERP.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
+        WHERE       p.Deleted = 0 AND p.Activated = 1
+        AND         (CONTAINS(p.Name, :Name) OR :Name = '*')
+        AND         (p.ProductBrandId = :ProductBrandId OR :ProductBrandId = -1)
+    ]]>
+  </sql-query>
+
+  <sql-query name="Product.Search100Products" cacheable="false" read-only="true">
+    <return-scalar column="ProductId" type="int"/>
+    <return-scalar column="ProductName" type="string"/>
+    <return-scalar column="BrandName" type="string"/>
+    <![CDATA[
+        SELECT TOP 100
+            p.ProductId, LTRIM(RTRIM(p.Name)) as ProductName, pb.Name BrandName
+        FROM        AlleatoERP.Products p
+        LEFT JOIN   AlleatoERP.ProductBrands pb ON pb.ProductBrandId = p.ProductBrandId
+        WHERE       p.Deleted = 0 AND p.Activated = 1
+        AND         (CONTAINS(p.Name, :Name) OR :Name = '*')
+        AND         (p.ProductBrandId = :ProductBrandId OR :ProductBrandId = -1)
+    ]]>
+  </sql-query>
+  
+</hibernate-mapping>
