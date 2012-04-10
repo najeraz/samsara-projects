@@ -172,8 +172,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructurePrinter = this.CustomerInfrastructure.CustomerInfrastructurePrinters
                     .Single(x => -x.GetHashCode() == entityId);
@@ -192,8 +190,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructurePrinter = this.CustomerInfrastructure.CustomerInfrastructurePrinters
                     .Single(x => -x.GetHashCode() == entityId);
@@ -219,8 +215,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructurePrinter.PrinterBrand 
                 = this.controlCustomerInfrastructurePrinters.pbcPrinterBrand.Value;
 
@@ -243,9 +237,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructurePrinters.pbcPrinterBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca de Impresora.",
@@ -291,8 +282,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         {
             DataRow row = null;
 
-            base.AddEntity();
-
             if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId == -1)
                 row = this.dtCustomerInfrastructurePrinters.AsEnumerable()
                     .SingleOrDefault(x => Convert.ToInt32(x["CustomerInfrastructurePrinterId"])
@@ -331,6 +320,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructurePrinters.txtlSerialNumber.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePrinters.cipccCustomerInfrastructurePrinterClassification.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePrinters.steQuantity.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructurePrinter GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructurePrinter entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

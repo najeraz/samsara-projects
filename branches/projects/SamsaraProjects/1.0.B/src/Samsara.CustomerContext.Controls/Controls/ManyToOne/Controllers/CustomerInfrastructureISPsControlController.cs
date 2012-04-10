@@ -147,8 +147,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
                     .Single(x => -x.GetHashCode() == entityId);
@@ -167,8 +165,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureISP = this.CustomerInfrastructure.CustomerInfrastructureISPs
                     .Single(x => -x.GetHashCode() == entityId);
@@ -185,8 +181,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureISP.ISP = this.controlCustomerInfrastructureISPs.icISP.Value;
 
             //TODO - Corregir value debe ser decimal y no string con la mascara...
@@ -196,9 +190,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureISPs.icISP.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el ISP.",
@@ -213,8 +204,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureISP.CustomerInfrastructureISPId == -1)
                 row = this.dtCustomerInfrastructureISPs.AsEnumerable()
@@ -250,6 +239,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructureISPs.icISP.ReadOnly = !enabled;
             this.controlCustomerInfrastructureISPs.steBandwidth.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureISP GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureISP entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

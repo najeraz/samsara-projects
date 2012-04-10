@@ -162,8 +162,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkWifiAccessPoint = this.CustomerInfrastructureNetworkWifi
                     .CustomerInfrastructureNetworkWifiAccessPoints.Single(x => -x.GetHashCode() == entityId);
@@ -184,8 +182,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkWifiAccessPoint = this.CustomerInfrastructureNetworkWifi
                     .CustomerInfrastructureNetworkWifiAccessPoints.Single(x => -x.GetHashCode() == entityId);
@@ -212,8 +208,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkWifiAccessPoint.AccessPointBrand
                 = this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Value;
 
@@ -232,9 +226,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkWifiAccessPoints.apbcAccessPointBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Punto de Acceso.",
@@ -257,8 +248,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId == -1)
                 row = this.dtCustomerInfrastructureNetworkWifiAccessPoints.AsEnumerable()
@@ -303,6 +292,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtModel.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtBandWidth.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkWifiAccessPoints.txtDistance.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkWifiAccessPoint GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkWifiAccessPoint entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

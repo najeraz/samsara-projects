@@ -192,8 +192,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureServerComputer = this.CustomerInfrastructure
                     .CustomerInfrastructureServerComputers
@@ -215,8 +213,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureServerComputer = this.CustomerInfrastructure
                     .CustomerInfrastructureServerComputers
@@ -261,8 +257,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureServerComputer.ComputerBrand 
                 = this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Value;
 
@@ -289,9 +283,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureServerComputers.cbcComputerBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Servidor.",
@@ -306,8 +297,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureServerComputer.CustomerInfrastructureServerComputerId == -1)
                 row = this.dtCustomerInfrastructureServerComputers.AsEnumerable()
@@ -364,6 +353,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureServerComputers.txtScalability.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.txtSerialNumber.ReadOnly = !enabled;
             this.controlCustomerInfrastructureServerComputers.txtStorage.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureServerComputer GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureServerComputer entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

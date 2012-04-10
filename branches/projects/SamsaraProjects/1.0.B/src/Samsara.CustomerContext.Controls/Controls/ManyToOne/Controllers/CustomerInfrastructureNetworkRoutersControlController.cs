@@ -152,8 +152,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkRouter = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkRouters.Single(x => -x.GetHashCode() == entityId);
@@ -174,8 +172,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkRouter = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkRouters.Single(x => -x.GetHashCode() == entityId);
@@ -196,8 +192,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkRouter.RouterBrand
                 = this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Value;
 
@@ -210,9 +204,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Router.",
@@ -227,8 +218,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetworkRouterId == -1)
                 row = this.dtCustomerInfrastructureNetworkRouters.AsEnumerable()
@@ -269,6 +258,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureNetworkRouters.txtRouterModel.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkRouters.rbcRouterBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkRouters.txtDescription.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkRouter GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkRouter entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

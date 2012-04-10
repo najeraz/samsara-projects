@@ -147,8 +147,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkCabling = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkCablings
@@ -170,8 +168,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkCabling = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkCablings
@@ -190,8 +186,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkCabling.NetworkCablingType 
                 = this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Value;
 
@@ -200,9 +194,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo del Cable de Red.",
@@ -217,8 +208,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId == -1)
                 row = this.dtCustomerInfrastructureNetworkCablings.AsEnumerable()
@@ -257,6 +246,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructureNetworkCablings.nctcNetworkCablingType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkCablings.txtCategory.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkCabling GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkCabling entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

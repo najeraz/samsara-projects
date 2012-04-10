@@ -10,7 +10,7 @@ using Samsara.Base.Controls.EventsArgs;
 
 namespace Samsara.Base.Controls.Controllers
 {
-    public class ManyToOneLevel1ControlController<T>
+    abstract public class ManyToOneLevel1ControlController<T>
     {
         #region Attributes
 
@@ -79,10 +79,18 @@ namespace Samsara.Base.Controls.Controllers
             this.HideDetail();
         }
 
+        #endregion Public
+
+        #region Private
+
         private void InitializeControlControls()
         {
             this.HideDetail();
         }
+
+        #endregion Private
+
+        #region Protected
 
         protected virtual void DeleteRelation()
         {
@@ -121,9 +129,7 @@ namespace Samsara.Base.Controls.Controllers
             }
         }
 
-        protected virtual void AddEntity()
-        {
-        }
+        protected abstract void AddEntity();
 
         protected virtual void ViewRelation()
         {
@@ -174,22 +180,13 @@ namespace Samsara.Base.Controls.Controllers
             this.HideDetail();
         }
 
-        protected virtual void LoadEntity()
-        {
-        }
+        protected abstract void LoadEntity();
 
-        protected virtual void LoadFromEntity(int entityId)
-        {
-        }
+        protected abstract void LoadFromEntity(int entityId);
 
-        protected virtual void DeleteEntity(int entityId)
-        {
-        }
+        protected abstract void DeleteEntity(int entityId);
 
-        protected virtual bool ValidateControlsData()
-        {
-            return true;
-        }
+        protected abstract bool ValidateControlsData();
 
         protected virtual void EnabledDetailControls(bool enabled)
         {
@@ -201,22 +198,13 @@ namespace Samsara.Base.Controls.Controllers
             this.control.upnlSeparatorSaveRelation.Visible = enabled;
         }
 
-        protected virtual DataRow GetEntityRow(T entity)
-        {
-            return null;
-        }
+        protected abstract DataRow GetEntityRow(T entity);
 
-        protected virtual T GetEntity(int entityId)
-        {
-            return default(T);
-        }
+        protected abstract T GetEntity(int entityId);
 
-        protected virtual int GetEntityId()
-        {
-            return -1;
-        }
+        protected abstract int GetEntityId();
 
-        #endregion Public
+        #endregion Protected
 
         #endregion Methods
     }
