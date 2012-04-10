@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
@@ -6,17 +8,15 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
+using Samsara.CustomerContext.Core.Entities;
+using Samsara.CustomerContext.Core.Enums;
+using Samsara.CustomerContext.Core.Parameters;
+using Samsara.CustomerContext.Service.Interfaces;
+using Samsara.Framework.Core.Constants;
+using Samsara.Framework.Util;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Service.Interfaces;
-using Samsara.CustomerContext.Core.Entities;
-using Samsara.CustomerContext.Core.Parameters;
-using Samsara.CustomerContext.Core.Enums;
-using Samsara.CustomerContext.Service.Interfaces;
-using System.Collections.Generic;
-using Samsara.Framework.Util;
-using System;
-using Samsara.Framework.Core.Constants;
 
 namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 {

@@ -1,8 +1,8 @@
 ﻿
+using System;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 using Samsara.CustomerContext.Core.Entities;
-using System;
 
 namespace Samsara.TIConsulting.Core.Entities
 {
