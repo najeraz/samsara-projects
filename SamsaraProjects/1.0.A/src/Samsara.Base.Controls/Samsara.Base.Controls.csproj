@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\bin\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics2.Documents.Reports.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
@@ -45,58 +45,58 @@
     <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="nunit.framework">
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Samsara.Base.Core">
-      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Dao">
-      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Interface.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Service">
-      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Configuration.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Configuration.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Dao.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Configuration.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Configuration.Service.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Configuration.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Framework.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Framework.Util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Main.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Main.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Main.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Main.Service.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Main.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

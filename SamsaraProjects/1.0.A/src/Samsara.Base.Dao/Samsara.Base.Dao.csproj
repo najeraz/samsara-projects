@@ -39,7 +39,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,7 +48,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,41 +57,41 @@
   <ItemGroup>
     <Reference Include="NHibernate, Version=1.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\NHibernate.dll</HintPath>
+      <HintPath>..\..\lib\NHibernate.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Framework.Util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Persistance.NHibernate, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Persistance.NHibernate.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Persistance.NHibernate.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Spring.Core, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Spring.Core.dll</HintPath>
+      <HintPath>..\..\lib\Spring.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Spring.Data, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Spring.Data.dll</HintPath>
+      <HintPath>..\..\lib\Spring.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Spring.Data.NHibernate32, Version=0.0.0.35939, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Spring.Data.NHibernate32.dll</HintPath>
+      <HintPath>..\..\lib\Spring.Data.NHibernate32.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

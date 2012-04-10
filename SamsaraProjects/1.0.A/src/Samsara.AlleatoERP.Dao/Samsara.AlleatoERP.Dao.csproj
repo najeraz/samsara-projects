@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,34 +32,34 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NHibernate">
-      <HintPath>..\lib\NHibernate.dll</HintPath>
+      <HintPath>..\..\lib\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Core">
-      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Dao">
-      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Framework.Util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Spring.Core">
-      <HintPath>..\lib\Spring.Core.dll</HintPath>
+      <HintPath>..\..\lib\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Data">
-      <HintPath>..\lib\Spring.Data.dll</HintPath>
+      <HintPath>..\..\lib\Spring.Data.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Data.NHibernate32">
-      <HintPath>..\lib\Spring.Data.NHibernate32.dll</HintPath>
+      <HintPath>..\..\lib\Spring.Data.NHibernate32.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,32 +40,32 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Samsara.AlleatoERP.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.AlleatoERP.Service.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.AlleatoERP.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Controls.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Dao.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Interface.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Interface.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Base.Service.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Commissions.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -82,22 +82,22 @@
     </Reference>
     <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Framework.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Framework.Util.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Main.Core.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Main.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Main.Session, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Samsara.Main.Session.dll</HintPath>
+      <HintPath>..\..\bin\Samsara.Main.Session.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
