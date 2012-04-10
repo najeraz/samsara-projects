@@ -501,13 +501,6 @@
             this.sistemasOperativosToolStripMenuItem.Text = "Sistemas Operativos";
             this.sistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.sistemasOperativosToolStripMenuItem_Click);
             // 
-            // tiposDeSistemasOperativosToolStripMenuItem
-            // 
-            this.tiposDeSistemasOperativosToolStripMenuItem.Name = "tiposDeSistemasOperativosToolStripMenuItem";
-            this.tiposDeSistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.tiposDeSistemasOperativosToolStripMenuItem.Text = "Tipos de Sistemas Operativos";
-            this.tiposDeSistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeSistemasOperativosToolStripMenuItem_Click);
-            // 
             // firewallsToolStripMenuItem
             // 
             this.firewallsToolStripMenuItem.Name = "firewallsToolStripMenuItem";
