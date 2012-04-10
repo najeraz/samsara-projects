@@ -156,8 +156,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
                     .Single(x => -x.GetHashCode() == entityId);
@@ -176,8 +174,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
                     .Single(x => -x.GetHashCode() == entityId);
@@ -197,8 +193,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureTelephony.TelephonyProvider
                 = this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value;
 
@@ -211,9 +205,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Proveedor de Internet.",
@@ -236,8 +227,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId == -1)
                 row = this.dtCustomerInfrastructureTelephonies.AsEnumerable()
@@ -277,6 +266,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureTelephonies.tltcTelephonyLineType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.ReadOnly = !enabled;
             this.controlCustomerInfrastructureTelephonies.steNumberOfLines.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureTelephony GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureTelephony entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

@@ -151,8 +151,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkSwitch = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkSwitches.Single(x => -x.GetHashCode() == entityId);
@@ -173,8 +171,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkSwitch = this.CustomerInfrastructureNetwork
                     .CustomerInfrastructureNetworkSwitches.Single(x => -x.GetHashCode() == entityId);
@@ -195,8 +191,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkSwitch.SwitchBrand 
                 = this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Value;
 
@@ -209,9 +203,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Switch.",
@@ -226,8 +217,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetworkSwitchId == -1)
                 row = this.dtCustomerInfrastructureNetworkSwitches.AsEnumerable()
@@ -268,6 +257,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureNetworkSwitches.stePortsQuantity.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkSwitches.sbcSwitchBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkSwitches.txtSpeed.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkSwitch GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkSwitch entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

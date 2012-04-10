@@ -161,8 +161,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureSecuritySoftware = this.CustomerInfrastructure
                     .CustomerInfrastructureSecuritySoftwares
@@ -184,8 +182,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureSecuritySoftware = this.CustomerInfrastructure
                     .CustomerInfrastructureSecuritySoftwares
@@ -210,8 +206,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureSecuritySoftware.SecuritySoftwareBrand
                 = this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Value;
 
@@ -227,9 +221,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca del Software.",
@@ -252,8 +243,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId == -1)
                 row = this.dtCustomerInfrastructureSecuritySoftwares.AsEnumerable()
@@ -296,6 +285,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructureSecuritySoftwares.ssbSecuritySoftwareBrand.ReadOnly = !enabled;
             this.controlCustomerInfrastructureSecuritySoftwares.steNumberOfClients.ReadOnly = !enabled;
             this.controlCustomerInfrastructureSecuritySoftwares.uchkConsoleInstalled.Enabled = enabled;
+        }
+
+        protected override CustomerInfrastructureSecuritySoftware GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureSecuritySoftware entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

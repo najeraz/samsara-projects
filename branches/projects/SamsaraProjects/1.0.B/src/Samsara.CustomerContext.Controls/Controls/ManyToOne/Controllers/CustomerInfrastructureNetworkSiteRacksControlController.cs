@@ -149,8 +149,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkSiteRack = this.CustomerInfrastructureNetworkSite
                     .CustomerInfrastructureNetworkSiteRacks.Single(x => -x.GetHashCode() == entityId);
@@ -171,8 +169,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructureNetworkSiteRack = this.CustomerInfrastructureNetworkSite
                     .CustomerInfrastructureNetworkSiteRacks.Single(x => -x.GetHashCode() == entityId);
@@ -190,8 +186,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructureNetworkSiteRack.RackType
                 = this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Value;
 
@@ -201,9 +195,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar el Tipo de Rack.",
@@ -218,8 +209,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId == -1)
                 row = this.dtCustomerInfrastructureNetworkSiteRacks.AsEnumerable()
@@ -258,6 +247,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
             this.controlCustomerInfrastructureNetworkSiteRacks.rtcRackType.ReadOnly = !enabled;
             this.controlCustomerInfrastructureNetworkSiteRacks.steQuantity.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructureNetworkSiteRack GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructureNetworkSiteRack entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected

@@ -199,8 +199,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void DeleteEntity(int entityId)
         {
-            base.DeleteEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructurePersonalComputer = this.CustomerInfrastructure
                     .CustomerInfrastructurePersonalComputers
@@ -222,8 +220,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadFromEntity(int entityId)
         {
-            base.LoadFromEntity(entityId);
-
             if (entityId <= 0)
                 this.customerInfrastructurePersonalComputer = this.CustomerInfrastructure
                     .CustomerInfrastructurePersonalComputers
@@ -272,8 +268,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override void LoadEntity()
         {
-            base.LoadEntity();
-
             this.customerInfrastructurePersonalComputer.ComputerBrand
                 = this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value;
 
@@ -315,9 +309,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 
         protected override bool ValidateControlsData()
         {
-            if (!base.ValidateControlsData())
-                return false;
-
             if (this.controlCustomerInfrastructurePersonalComputers.cbcComputerBrand.Value == null)
             {
                 MessageBox.Show("Favor de seleccionar la Marca de la Computadora(s).",
@@ -362,8 +353,6 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
         protected override void AddEntity()
         {
             DataRow row = null;
-
-            base.AddEntity();
 
             if (this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId == -1)
                 row = this.dtCustomerInfrastructurePersonalComputers.AsEnumerable()
@@ -421,6 +410,21 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
             this.controlCustomerInfrastructurePersonalComputers
                 .cipcccCustomerInfrastructurePersonalComputerClassification.ReadOnly = !enabled;
             this.controlCustomerInfrastructurePersonalComputers.steQuantity.ReadOnly = !enabled;
+        }
+
+        protected override CustomerInfrastructurePersonalComputer GetEntity(int entityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override int GetEntityId()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override DataRow GetEntityRow(CustomerInfrastructurePersonalComputer entity)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Protected
