@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8FDE862D-54A8-4B3F-AB40-9DCCF52D8606}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Samsara.CustomerContext.Forms</RootNamespace>
+    <AssemblyName>Samsara.CustomerContext.Forms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Forms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Configuration.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.CustomerContext.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.CustomerContext.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.CustomerContext.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Framework.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Framework.Util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccessPointBrandFormController.cs" />
+    <Compile Include="Controllers\AccessPointTypeFormController.cs" />
+    <Compile Include="Controllers\BackupSoftwareBrandFormController.cs" />
+    <Compile Include="Controllers\BusinessTypeFormController.cs" />
+    <Compile Include="Controllers\CCTVBrandFormController.cs" />
+    <Compile Include="Controllers\CCTVTypeFormController.cs" />
+    <Compile Include="Controllers\CommutatorBrandFormController.cs" />
+    <Compile Include="Controllers\CommutatorTypeFormController.cs" />
+    <Compile Include="Controllers\ComputerBrandFormController.cs" />
+    <Compile Include="Controllers\CustomerFormController.cs" />
+    <Compile Include="Controllers\DBMSFormController.cs" />
+    <Compile Include="Controllers\FirewallBrandFormController.cs" />
+    <Compile Include="Controllers\ISPFormController.cs" />
+    <Compile Include="Controllers\NetworkCablingTypeFormController.cs" />
+    <Compile Include="Controllers\OperativeSystemFormController.cs" />
+    <Compile Include="Controllers\OperativeSystemTypeFormController.cs" />
+    <Compile Include="Controllers\PersonalComputerTypeFormController.cs" />
+    <Compile Include="Controllers\PrinterBrandFormController.cs" />
+    <Compile Include="Controllers\PrinterTypeFormController.cs" />
+    <Compile Include="Controllers\RackTypeFormController.cs" />
+    <Compile Include="Controllers\RouterBrandFormController.cs" />
+    <Compile Include="Controllers\SecuritySoftwareBrandFormController.cs" />
+    <Compile Include="Controllers\SecuritySoftwareTypeFormController.cs" />
+    <Compile Include="Controllers\SwitchBrandFormController.cs" />
+    <Compile Include="Controllers\TelephonyLineTypeFormController.cs" />
+    <Compile Include="Controllers\TelephonyProviderFormController.cs" />
+    <Compile Include="Controllers\UPSBrandFormController.cs" />
+    <Compile Include="Controllers\UPSTypeFormController.cs" />
+    <Compile Include="Forms\AccessPointBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccessPointBrandForm.designer.cs">
+      <DependentUpon>AccessPointBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AccessPointTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccessPointTypeForm.designer.cs">
+      <DependentUpon>AccessPointTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BackupSoftwareBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BackupSoftwareBrandForm.designer.cs">
+      <DependentUpon>BackupSoftwareBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BusinessTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BusinessTypeForm.designer.cs">
+      <DependentUpon>BusinessTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CCTVBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CCTVBrandForm.designer.cs">
+      <DependentUpon>CCTVBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CCTVTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CCTVTypeForm.designer.cs">
+      <DependentUpon>CCTVTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CommutatorBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommutatorBrandForm.designer.cs">
+      <DependentUpon>CommutatorBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CommutatorTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommutatorTypeForm.designer.cs">
+      <DependentUpon>CommutatorTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ComputerBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ComputerBrandForm.designer.cs">
+      <DependentUpon>ComputerBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForm.designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DBMSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DBMSForm.designer.cs">
+      <DependentUpon>DBMSForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FirewallBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FirewallBrandForm.designer.cs">
+      <DependentUpon>FirewallBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ISPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ISPForm.designer.cs">
+      <DependentUpon>ISPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NetworkCablingTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NetworkCablingTypeForm.designer.cs">
+      <DependentUpon>NetworkCablingTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperativeSystemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperativeSystemForm.designer.cs">
+      <DependentUpon>OperativeSystemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperativeSystemTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperativeSystemTypeForm.designer.cs">
+      <DependentUpon>OperativeSystemTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PersonalComputerTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PersonalComputerTypeForm.designer.cs">
+      <DependentUpon>PersonalComputerTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrinterBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PrinterBrandForm.designer.cs">
+      <DependentUpon>PrinterBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrinterTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PrinterTypeForm.designer.cs">
+      <DependentUpon>PrinterTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RackTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RackTypeForm.designer.cs">
+      <DependentUpon>RackTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RouterBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RouterBrandForm.designer.cs">
+      <DependentUpon>RouterBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandForm.designer.cs">
+      <DependentUpon>SecuritySoftwareBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareBrandSearchForm.designer.cs">
+      <DependentUpon>SecuritySoftwareBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SecuritySoftwareTypeForm.designer.cs">
+      <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SwitchBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SwitchBrandForm.designer.cs">
+      <DependentUpon>SwitchBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TelephonyLineTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TelephonyLineTypeForm.designer.cs">
+      <DependentUpon>TelephonyLineTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TelephonyProviderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TelephonyProviderForm.designer.cs">
+      <DependentUpon>TelephonyProviderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UPSBrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UPSBrandForm.designer.cs">
+      <DependentUpon>UPSBrandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UPSTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UPSTypeForm.designer.cs">
+      <DependentUpon>UPSTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\AccessPointBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\AccessPointBrandSearchForm.Designer.cs">
+      <DependentUpon>AccessPointBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\AccessPointTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\AccessPointTypeSearchForm.Designer.cs">
+      <DependentUpon>AccessPointTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\BackupSoftwareBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\BackupSoftwareBrandSearchForm.designer.cs">
+      <DependentUpon>BackupSoftwareBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\BusinessTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\BusinessTypeSearchForm.designer.cs">
+      <DependentUpon>BusinessTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CCTVBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\CCTVBrandSearchForm.Designer.cs">
+      <DependentUpon>CCTVBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CCTVTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\CCTVTypeSearchForm.Designer.cs">
+      <DependentUpon>CCTVTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CommutatorBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\CommutatorBrandSearchForm.Designer.cs">
+      <DependentUpon>CommutatorBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CommutatorTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\CommutatorTypeSearchForm.Designer.cs">
+      <DependentUpon>CommutatorTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ComputerBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\ComputerBrandSearchForm.Designer.cs">
+      <DependentUpon>ComputerBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\CustomerSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\CustomerSearchForm.Designer.cs">
+      <DependentUpon>CustomerSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\DBMSSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\DBMSSearchForm.Designer.cs">
+      <DependentUpon>DBMSSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\FirewallBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\FirewallBrandSearchForm.Designer.cs">
+      <DependentUpon>FirewallBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ISPSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\ISPSearchForm.Designer.cs">
+      <DependentUpon>ISPSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\NetworkCablingTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\NetworkCablingTypeSearchForm.Designer.cs">
+      <DependentUpon>NetworkCablingTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\OperativeSystemSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\OperativeSystemSearchForm.Designer.cs">
+      <DependentUpon>OperativeSystemSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\OperativeSystemTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\OperativeSystemTypeSearchForm.Designer.cs">
+      <DependentUpon>OperativeSystemTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\PersonalComputerTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\PersonalComputerTypeSearchForm.Designer.cs">
+      <DependentUpon>PersonalComputerTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\PrinterBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\PrinterBrandSearchForm.Designer.cs">
+      <DependentUpon>PrinterBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\PrinterTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\PrinterTypeSearchForm.Designer.cs">
+      <DependentUpon>PrinterTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\RackTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\RackTypeSearchForm.Designer.cs">
+      <DependentUpon>RackTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\RouterBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\RouterBrandSearchForm.Designer.cs">
+      <DependentUpon>RouterBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\SecuritySoftwareTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\SecuritySoftwareTypeSearchForm.Designer.cs">
+      <DependentUpon>SecuritySoftwareTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\SwitchBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\SwitchBrandSearchForm.Designer.cs">
+      <DependentUpon>SwitchBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TelephonyLineTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TelephonyLineTypeSearchForm.Designer.cs">
+      <DependentUpon>TelephonyLineTypeSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\TelephonyProviderSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\TelephonyProviderSearchForm.Designer.cs">
+      <DependentUpon>TelephonyProviderSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\UPSBrandSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\UPSBrandSearchForm.Designer.cs">
+      <DependentUpon>UPSBrandSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\UPSTypeSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\UPSTypeSearchForm.Designer.cs">
+      <DependentUpon>UPSTypeSearchForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\AccessPointBrandForm.resx">
+      <DependentUpon>AccessPointBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AccessPointTypeForm.resx">
+      <DependentUpon>AccessPointTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BackupSoftwareBrandForm.resx">
+      <DependentUpon>BackupSoftwareBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BusinessTypeForm.resx">
+      <DependentUpon>BusinessTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CCTVBrandForm.resx">
+      <DependentUpon>CCTVBrandForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CCTVTypeForm.resx">
+      <DependentUpon>CCTVTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommutatorBrandForm.resx">
+      <DependentUpon>CommutatorBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommutatorTypeForm.resx">
+      <DependentUpon>CommutatorTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ComputerBrandForm.resx">
+      <DependentUpon>ComputerBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DBMSForm.resx">
+      <DependentUpon>DBMSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FirewallBrandForm.resx">
+      <DependentUpon>FirewallBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ISPForm.resx">
+      <DependentUpon>ISPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NetworkCablingTypeForm.resx">
+      <DependentUpon>NetworkCablingTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperativeSystemForm.resx">
+      <DependentUpon>OperativeSystemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperativeSystemTypeForm.resx">
+      <DependentUpon>OperativeSystemTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PersonalComputerTypeForm.resx">
+      <DependentUpon>PersonalComputerTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PrinterBrandForm.resx">
+      <DependentUpon>PrinterBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PrinterTypeForm.resx">
+      <DependentUpon>PrinterTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RackTypeForm.resx">
+      <DependentUpon>RackTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RouterBrandForm.resx">
+      <DependentUpon>RouterBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SecuritySoftwareBrandForm.resx">
+      <DependentUpon>SecuritySoftwareBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SecuritySoftwareTypeForm.resx">
+      <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SwitchBrandForm.resx">
+      <DependentUpon>SwitchBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TelephonyLineTypeForm.resx">
+      <DependentUpon>TelephonyLineTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TelephonyProviderForm.resx">
+      <DependentUpon>TelephonyProviderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UPSBrandForm.resx">
+      <DependentUpon>UPSBrandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UPSTypeForm.resx">
+      <DependentUpon>UPSTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
