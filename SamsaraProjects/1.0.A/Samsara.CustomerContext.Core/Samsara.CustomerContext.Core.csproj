@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA08F49D-9BA7-4930-9A17-278DC73B75B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Samsara.CustomerContext.Core</RootNamespace>
+    <AssemblyName>Samsara.CustomerContext.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Core">
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\ComputerBrand.cs" />
+    <Compile Include="Entities\CCTVType.cs" />
+    <Compile Include="Entities\CCTVBrand.cs" />
+    <Compile Include="Entities\CommutatorType.cs" />
+    <Compile Include="Entities\CommutatorBrand.cs" />
+    <Compile Include="Entities\BusinessType.cs" />
+    <Compile Include="Entities\BackupSoftwareBrand.cs" />
+    <Compile Include="Entities\AccessPointBrand.cs" />
+    <Compile Include="Entities\AccessPointType.cs" />
+    <Compile Include="Entities\ServerComputerType.cs" />
+    <Compile Include="Entities\CustomerInfrastructurePrinterClassification.cs" />
+    <Compile Include="Entities\CustomerInfrastructurePersonalComputerClassification.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkWifi.cs" />
+    <Compile Include="Entities\SecuritySoftwareType.cs" />
+    <Compile Include="Entities\CustomerInfrastructureBackupSoftware.cs" />
+    <Compile Include="Entities\CustomerInfrastructureAdministationSoftware.cs" />
+    <Compile Include="Entities\SecuritySoftwareBrand.cs" />
+    <Compile Include="Entities\CustomerInfrastructureSecuritySoftware.cs" />
+    <Compile Include="Entities\CustomerInfrastructureServerComputerDBMS.cs" />
+    <Compile Include="Entities\PersonalComputerType.cs" />
+    <Compile Include="Entities\FirewallBrand.cs" />
+    <Compile Include="Entities\RouterBrand.cs" />
+    <Compile Include="Entities\NetworkCablingType.cs" />
+    <Compile Include="Entities\SwitchBrand.cs" />
+    <Compile Include="Entities\OperativeSystemType.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\RackType.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkSiteRack.cs" />
+    <Compile Include="Entities\CustomerInfrastructureCCTV.cs" />
+    <Compile Include="Entities\ISP.cs" />
+    <Compile Include="Entities\CustomerInfrastructureISP.cs" />
+    <Compile Include="Entities\TelephonyLineType.cs" />
+    <Compile Include="Entities\TelephonyProvider.cs" />
+    <Compile Include="Entities\CustomerInfrastructureTelephony.cs" />
+    <Compile Include="Entities\PrinterBrand.cs" />
+    <Compile Include="Entities\PrinterType.cs" />
+    <Compile Include="Entities\CustomerInfrastructurePrinter.cs" />
+    <Compile Include="Entities\UPSBrand.cs" />
+    <Compile Include="Entities\UPSType.cs" />
+    <Compile Include="Entities\CustomerInfrastructureUPS.cs" />
+    <Compile Include="Entities\DBMS.cs" />
+    <Compile Include="Entities\CustomerInfrastructureServerComputer.cs" />
+    <Compile Include="Entities\OperativeSystem.cs" />
+    <Compile Include="Entities\CustomerInfrastructurePersonalComputer.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkWifiAccessPoint.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkFirewall.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkRouter.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkCabling.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkCommutator.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkSwitch.cs" />
+    <Compile Include="Entities\CustomerInfrastructure.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetworkSite.cs" />
+    <Compile Include="Entities\CustomerInfrastructureNetwork.cs" />
+    <Compile Include="Enums\ServerComputerTypeEnum.cs" />
+    <Compile Include="Enums\CustomerInfrastructurePrinterClassificationEnum.cs" />
+    <Compile Include="Enums\CustomerInfrastructurePersonalComputerClassificationEnum.cs" />
+    <Compile Include="Parameters\BackupSoftwareBrandParameters.cs" />
+    <Compile Include="Parameters\CCTVBrandParameters.cs" />
+    <Compile Include="Parameters\CCTVTypeParameters.cs" />
+    <Compile Include="Parameters\CommutatorBrandParameters.cs" />
+    <Compile Include="Parameters\CommutatorTypeParameters.cs" />
+    <Compile Include="Parameters\ComputerBrandParameters.cs" />
+    <Compile Include="Parameters\BusinessTypeParameters.cs" />
+    <Compile Include="Parameters\AccessPointBrandParameters.cs" />
+    <Compile Include="Parameters\AccessPointTypeParameters.cs" />
+    <Compile Include="Parameters\ServerComputerTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePrinterClassificationParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePersonalComputerClassificationParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkWifiAccessPointParameters.cs" />
+    <Compile Include="Parameters\SecuritySoftwareTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureAdministationSoftwareParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureBackupSoftwarParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureCCTVParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureISPParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkCablingParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkCommutatorParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkFirewallParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkRouterParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkSiteParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkSiteRackParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkSwitchParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureNetworkWifiParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePersonalComputerParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructurePrinterParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureSecuritySoftwareParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureServerComputerDBMSParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureServerComputerParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureTelephonyParameters.cs" />
+    <Compile Include="Parameters\CustomerInfrastructureUPSParameters.cs" />
+    <Compile Include="Parameters\CustomerParameters.cs" />
+    <Compile Include="Parameters\DBMSParameters.cs" />
+    <Compile Include="Parameters\FirewallBrandParameters.cs" />
+    <Compile Include="Parameters\ISPParameters.cs" />
+    <Compile Include="Parameters\NetworkCablingTypeParameters.cs" />
+    <Compile Include="Parameters\OperativeSystemParameters.cs" />
+    <Compile Include="Parameters\OperativeSystemTypeParameters.cs" />
+    <Compile Include="Parameters\PersonalComputerTypeParameters.cs" />
+    <Compile Include="Parameters\PrinterBrandParameters.cs" />
+    <Compile Include="Parameters\PrinterTypeParameters.cs" />
+    <Compile Include="Parameters\RackTypeParameters.cs" />
+    <Compile Include="Parameters\RouterBrandParameters.cs" />
+    <Compile Include="Parameters\SecuritySoftwareBrandParameters.cs" />
+    <Compile Include="Parameters\SwitchBrandParameters.cs" />
+    <Compile Include="Parameters\TelephonyLineTypeParameters.cs" />
+    <Compile Include="Parameters\TelephonyProviderParameters.cs" />
+    <Compile Include="Parameters\UPSBrandParameters.cs" />
+    <Compile Include="Parameters\UPSTypeParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

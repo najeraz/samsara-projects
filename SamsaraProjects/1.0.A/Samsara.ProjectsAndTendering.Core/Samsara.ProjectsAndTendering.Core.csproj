@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3BBDCC62-2D70-48A7-B9CA-3A12CB2EDAC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Samsara.ProjectsAndTendering.Core</RootNamespace>
+    <AssemblyName>Samsara.ProjectsAndTendering.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Iesi.Collections.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Operation.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Samsara.Operation.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Asesor.cs" />
+    <Compile Include="Entities\Bidder.cs" />
+    <Compile Include="Entities\BidderType.cs" />
+    <Compile Include="Entities\Competitor.cs" />
+    <Compile Include="Entities\OfferedPriceType.cs" />
+    <Compile Include="Entities\TenderLineStatus.cs" />
+    <Compile Include="Entities\TenderSubstatus.cs" />
+    <Compile Include="Entities\TenderLineExtraCost.cs" />
+    <Compile Include="Entities\TenderFile.cs" />
+    <Compile Include="Entities\TenderLineCompetitor.cs" />
+    <Compile Include="Entities\PricingStrategy.cs" />
+    <Compile Include="Entities\TenderExchangeRate.cs" />
+    <Compile Include="Entities\DocumentTypeWarranty.cs" />
+    <Compile Include="Entities\WarrantyType.cs" />
+    <Compile Include="Entities\TenderWarranty.cs" />
+    <Compile Include="Entities\TenderLineWholesaler.cs" />
+    <Compile Include="Entities\TenderLineManufacturer.cs" />
+    <Compile Include="Entities\TenderWholesaler.cs" />
+    <Compile Include="Entities\Wholesaler.cs" />
+    <Compile Include="Entities\TenderCompetitor.cs" />
+    <Compile Include="Entities\OpportunityLog.cs" />
+    <Compile Include="Entities\TenderLog.cs" />
+    <Compile Include="Entities\OpportunityType.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\OpportunityStatus.cs" />
+    <Compile Include="Entities\Opportunity.cs" />
+    <Compile Include="Entities\EndUser.cs" />
+    <Compile Include="Entities\TenderManufacturer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\TenderStatus.cs" />
+    <Compile Include="Entities\TenderLine.cs" />
+    <Compile Include="Entities\Tender.cs" />
+    <Compile Include="Entities\Manufacturer.cs" />
+    <Compile Include="Entities\Dependency.cs" />
+    <Compile Include="Enums\OfferedPriceTypesEnum.cs" />
+    <Compile Include="Enums\TenderLineStatusesEnum.cs" />
+    <Compile Include="Enums\TenderSubstatusesEnum.cs" />
+    <Compile Include="Enums\TenderStatusesEnum.cs" />
+    <Compile Include="Enums\DateTypeSearchEnum.cs" />
+    <Compile Include="Enums\OpportunityTypeEnum.cs" />
+    <Compile Include="Parameters\BidderParameters.cs" />
+    <Compile Include="Parameters\AsesorParameters.cs" />
+    <Compile Include="Parameters\BidderTypeParameters.cs" />
+    <Compile Include="Parameters\CompetitorParameters.cs" />
+    <Compile Include="Parameters\OfferedPriceTypeParameters.cs" />
+    <Compile Include="Parameters\TenderLineStatusParameters.cs" />
+    <Compile Include="Parameters\TenderSubstatusParameters.cs" />
+    <Compile Include="Parameters\TenderFileExtraCostParameters.cs" />
+    <Compile Include="Parameters\TenderFileParameters.cs" />
+    <Compile Include="Parameters\PricingStrategyParameters.cs" />
+    <Compile Include="Parameters\TenderExchangeRateParameters.cs" />
+    <Compile Include="Parameters\DocumentWarrantyTypeParameters.cs" />
+    <Compile Include="Parameters\WarrantyTypeParameters.cs" />
+    <Compile Include="Parameters\TenderWarrantyParameters.cs" />
+    <Compile Include="Parameters\TenderWholesalerParameters.cs" />
+    <Compile Include="Parameters\WholesalerParameters.cs" />
+    <Compile Include="Parameters\TenderCompetitorParameters.cs" />
+    <Compile Include="Parameters\OpportunityLogParameters.cs" />
+    <Compile Include="Parameters\TenderLogParameters.cs" />
+    <Compile Include="Parameters\OpportunityTypeParameters.cs" />
+    <Compile Include="Parameters\OrganizationParameters.cs" />
+    <Compile Include="Parameters\OpportunityStatusParameters.cs" />
+    <Compile Include="Parameters\OpportunityParameters.cs" />
+    <Compile Include="Parameters\DependencyParameters.cs" />
+    <Compile Include="Parameters\EndUserParameters.cs" />
+    <Compile Include="Parameters\ManufacturerParameters.cs" />
+    <Compile Include="Parameters\TenderLineParameters.cs" />
+    <Compile Include="Parameters\TenderManufacturerParameters.cs" />
+    <Compile Include="Parameters\TenderParameters.cs" />
+    <Compile Include="Parameters\TenderStatusParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
