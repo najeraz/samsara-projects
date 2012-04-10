@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database">
+  
+  <object id="IFormConfigurationDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IFormConfigurationGridColumnDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationGridColumnDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IFormConfigurationGridDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationGridDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IUserGroupDao"
+          type="Samsara.Configuration.Dao.Impl.UserGroupDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  <object id="IFormConfigurationUserPermissionDao"
+          type="Samsara.Configuration.Dao.Impl.FormConfigurationUserPermissionDao, Samsara.Configuration.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
+  
+</objects>
+

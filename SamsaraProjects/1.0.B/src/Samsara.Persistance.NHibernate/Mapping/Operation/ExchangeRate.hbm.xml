@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Operation.Core" 
+  namespace="Samsara.Operation.Core.Entities">
+  
+  <class name="ExchangeRate" table="Operation.ExchangeRates">
+    
+    <id name="ExchangeRateId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Rate"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="SourceCurrency" lazy="false"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 column="SourceCurrencyId"/>
+    <many-to-one name="DestinyCurrency" lazy="false"
+                 class="Samsara.Operation.Core.Entities.Currency, Samsara.ProjectsAndTendering.Core"
+                 column="DestinyCurrencyId"/>
+
+  </class>
+
+  <query name="ExchangeRate.GetListByParameters">
+    <![CDATA[
+        from ExchangeRate where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ExchangeRate.SearchByParameters">
+    <![CDATA[
+        from ExchangeRate where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+  
+</hibernate-mapping>

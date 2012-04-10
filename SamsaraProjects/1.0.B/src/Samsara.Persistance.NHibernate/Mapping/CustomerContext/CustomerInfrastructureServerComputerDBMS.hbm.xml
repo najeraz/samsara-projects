@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureServerComputerDBMS" table="CustomerContext.CustomerInfrastructureServerComputerDBMSs">
+    
+    <id name="CustomerInfrastructureServerComputerDBMSId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Description"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+    <many-to-one name="CustomerInfrastructureServerComputer"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructureServerComputer, Samsara.ProjectsAndTendering.Core"
+                 column="CustomerInfrastructureServerComputerId"/>
+
+    <many-to-one name="DBMS"
+                 class="Samsara.CustomerContext.Core.Entities.DBMS, Samsara.ProjectsAndTendering.Core"
+                 column="DBMSId"/>
+    
+  </class>
+
+  <query name="CustomerInfrastructureServerComputerDBMS.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputerDBMS
+        where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureServerComputerDBMS.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputerDBMS
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureServerComputerId = :CustomerInfrastructureServerComputerId
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureServerComputerDBMS.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureServerComputerDBMS
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureServerComputerId = :CustomerInfrastructureServerComputerId
+    ]]>
+  </query>
+
+</hibernate-mapping>

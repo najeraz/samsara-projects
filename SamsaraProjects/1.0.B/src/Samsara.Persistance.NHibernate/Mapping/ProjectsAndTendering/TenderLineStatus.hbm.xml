@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="TenderLineStatus" table="ProjectsAndTendering.TenderLineStatuses">
+    
+    <id name="TenderLineStatusId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+  </class>
+
+  <query name="TenderLineStatus.GetListByParameters">
+    <![CDATA[
+        from TenderLineStatus where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <sql-query name="TenderLineStatus.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="TenderLineStatusId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <![CDATA[
+      SELECT ts.TenderLineStatusId, ts.Name
+      FROM ProjectsAndTendering.TenderLineStatuses ts
+      WHERE ts.Deleted = 0 and ts.Activated = 1
+      AND ts.Name like :Name
+    ]]>
+  </sql-query>
+  
+</hibernate-mapping>

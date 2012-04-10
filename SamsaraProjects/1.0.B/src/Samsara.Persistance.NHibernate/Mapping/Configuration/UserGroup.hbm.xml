@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="UserGroup" table="Configuration.UserGroups">
+    
+    <id name="UserGroupId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Deleted"/>
+    <property name="Activated"/>
+  </class>
+
+  <query name="UserGroup.GetByParameters">
+    <![CDATA[
+        from UserGroup where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="UserGroup.GetListByParameters">
+    <![CDATA[
+        from UserGroup where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="UserGroup.SearchByParameters">
+    <![CDATA[
+        from UserGroup where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>

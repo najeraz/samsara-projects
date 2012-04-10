@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="DocumentTypeWarranty" table="ProjectsAndTendering.DocumentTypeWarranties">
+    
+    <id name="DocumentTypeWarrantyId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+  </class>
+
+  <query name="DocumentTypeWarranty.GetListByParameters">
+    <![CDATA[
+        from DocumentTypeWarranty where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="DocumentTypeWarranty.SearchByParameters">
+    <![CDATA[
+        from DocumentTypeWarranty where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+  
+</hibernate-mapping>

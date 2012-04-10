@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  
+  <object id="IFormConfigurationService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationDao"/>
+  </object>
+  <object id="IFormConfigurationGridColumnService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationGridColumnService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationGridColumnDao"/>
+  </object>
+  <object id="IFormConfigurationGridService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationGridService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationGridDao"/>
+  </object>
+  <object id="IUserGroupService"
+          type="Samsara.Configuration.Service.Impl.UserGroupService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IUserGroupDao"/>
+  </object>
+  <object id="IFormConfigurationUserPermissionService"
+          type="Samsara.Configuration.Service.Impl.FormConfigurationUserPermissionService, Samsara.Configuration.Service">
+    <property name="Dao" ref="IFormConfigurationUserPermissionDao"/>
+  </object>
+
+</objects>
+

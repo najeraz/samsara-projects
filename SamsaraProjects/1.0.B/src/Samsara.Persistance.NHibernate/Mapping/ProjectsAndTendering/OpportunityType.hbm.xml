@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="OpportunityType" table="ProjectsAndTendering.OpportunityTypes">
+    
+    <id name="OpportunityTypeId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+  </class>
+
+  <query name="OpportunityType.GetListByParameters">
+    <![CDATA[
+        from OpportunityType where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <sql-query name="OpportunityType.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="OpportunityTypeId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <![CDATA[
+      SELECT ts.OpportunityTypeId, ts.Name
+      FROM ProjectsAndTendering.OpportunityTypes ts
+      WHERE ts.Deleted = 0 and ts.Activated = 1
+      AND ts.Name like :Name
+    ]]>
+  </sql-query>
+  
+</hibernate-mapping>
