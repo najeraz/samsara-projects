@@ -480,20 +480,6 @@ namespace Samsara.Main.Forms.Forms
             }
         }
 
-        private void tiposDeSistemasOperativosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                OperativeSystemTypeForm frmOperativeSystemType = new OperativeSystemTypeForm();
-                frmOperativeSystemType.Show();
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
         private void firewallsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
