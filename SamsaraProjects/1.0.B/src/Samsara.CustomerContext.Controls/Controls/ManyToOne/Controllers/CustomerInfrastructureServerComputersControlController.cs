@@ -10,11 +10,11 @@ using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controllers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
+using Samsara.CustomerContext.Core.Enums;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Framework.Core.Constants;
 using Samsara.Framework.Util;
-using Samsara.CustomerContext.Core.Enums;
 
 namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
 {
