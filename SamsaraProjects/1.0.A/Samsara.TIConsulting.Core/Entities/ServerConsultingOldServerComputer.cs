@@ -2,6 +2,7 @@
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 using Samsara.CustomerContext.Core.Entities;
+using System;
 
 namespace Samsara.TIConsulting.Core.Entities
 {
@@ -45,6 +46,12 @@ namespace Samsara.TIConsulting.Core.Entities
         }
 
         public virtual RackType RackType
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<int> ServersQuantity
         {
             get;
             set;

@@ -16,6 +16,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 using System.Collections.Generic;
 using Samsara.Framework.Util;
 using System;
+using Samsara.Framework.Core.Constants;
 
 namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 {
@@ -26,9 +27,11 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         private IServerConsultingOldServerComputerService srvServerConsultingOldServerComputer;
         private ServerConsultingOldServerComputersControl ctlServerConsultingOldServerComputers;
         private ServerConsultingOldServerComputer serverConsultingOldServerComputer;
+        private IServerComputerTypeService srvServerComputerType;
         private IServerConsultingService srvServerConsulting;
         private IOperativeSystemService srvOperativeSystem;
         private IComputerBrandService srvComputerBrand;
+        private IRackTypeService srvRackType;
 
         private DataTable dtServerConsultingOldServerComputers;
 
@@ -57,9 +60,11 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
                 this.srvServerConsultingOldServerComputer = SamsaraAppContext.Resolve<IServerConsultingOldServerComputerService>();
+                this.srvServerComputerType = SamsaraAppContext.Resolve<IServerComputerTypeService>();
                 this.srvServerConsulting = SamsaraAppContext.Resolve<IServerConsultingService>();
                 this.srvOperativeSystem = SamsaraAppContext.Resolve<IOperativeSystemService>();
                 this.srvComputerBrand = SamsaraAppContext.Resolve<IComputerBrandService>();
+                this.srvRackType = SamsaraAppContext.Resolve<IRackTypeService>();
             }
 
             this.InitializeControlControls();
@@ -99,7 +104,10 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
         public void LoadControls()
         {
             ServerConsultingOldServerComputerParameters pmtServerConsultingOldServerComputer
-                = new ServerConsultingOldServerComputerParameters();
+                = new ServerConsultingOldServerComputerParameters()
+                {
+                    ServerConsultingOldServerComputerId = ParameterConstants.IntNone
+                };
 
             this.dtServerConsultingOldServerComputers = this.srvServerConsultingOldServerComputer
                 .SearchByParameters(pmtServerConsultingOldServerComputer);
@@ -154,6 +162,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             this.ctlServerConsultingOldServerComputers.cbcComputerBrand.Value = null;
             this.ctlServerConsultingOldServerComputers.txtServerModel.Value = null;
             this.ctlServerConsultingOldServerComputers.txtServerSpecs.Value = null;
+            this.ctlServerConsultingOldServerComputers.txtServersQuantity.Value = null;
         }
 
         public override void ClearControls()
@@ -182,6 +191,14 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                     .Single(x => x.ServerConsultingOldServerComputerId == entityId);
         }
 
+        protected override int GetEntityId()
+        {
+            return this.serverConsultingOldServerComputer == null ? base.GetEntityId()
+                : this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId <= 0 ?
+                -this.serverConsultingOldServerComputer.GetHashCode() 
+                : this.serverConsultingOldServerComputer.ServerConsultingOldServerComputerId;
+        }
+
         protected override void DeleteEntity(int entityId)
         {
             base.DeleteEntity(entityId);
@@ -208,6 +225,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
             this.ctlServerConsultingOldServerComputers.txtServerModel.Value = this.serverConsultingOldServerComputer.ServerModel;
             this.ctlServerConsultingOldServerComputers.txtServerSpecs.Value = this.serverConsultingOldServerComputer.ServerSpecs;
+            this.ctlServerConsultingOldServerComputers.txtServersQuantity.Value = this.serverConsultingOldServerComputer.ServersQuantity;
 
             this.ctlServerConsultingOldServerComputers.rtcRackType.Value = this.serverConsultingOldServerComputer.RackType;
             this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Value = this.serverConsultingOldServerComputer.ServerComputerType;
@@ -232,6 +250,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                 = this.ctlServerConsultingOldServerComputers.txtServerSpecs.Text;
             this.serverConsultingOldServerComputer.ServerModel
                 = this.ctlServerConsultingOldServerComputers.txtServerModel.Text;
+            this.serverConsultingOldServerComputer.ServersQuantity
+                = Convert.ToInt32(this.ctlServerConsultingOldServerComputers.txtServerModel.Value);
         }
 
         protected override bool ValidateControlsData()
@@ -265,7 +285,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                 row["ServerConsultingOldServerComputerId"] = this.serverConsultingOldServerComputer
                     .ServerConsultingOldServerComputerId;
 
-
             if (this.serverConsultingOldServerComputer.OperativeSystem == null)
                 row["OperativeSystemId"] = DBNull.Value;
             else
@@ -288,6 +307,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
             row["ServerModel"] = this.serverConsultingOldServerComputer.ServerModel;
             row["ServerSpecs"] = this.serverConsultingOldServerComputer.ServerSpecs;
+            row["ServersQuantity"] = this.serverConsultingOldServerComputer.ServersQuantity;
 
             this.dtServerConsultingOldServerComputers.AcceptChanges();
         }
@@ -302,6 +322,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             this.ctlServerConsultingOldServerComputers.cbcComputerBrand.ReadOnly = !enabled;
             this.ctlServerConsultingOldServerComputers.txtServerModel.ReadOnly = !enabled;
             this.ctlServerConsultingOldServerComputers.txtServerSpecs.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.txtServersQuantity.ReadOnly = !enabled;
         }
 
         protected override DataRow GetEntityRow(ServerConsultingOldServerComputer entity)
@@ -343,6 +364,18 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, operativeSystemTypes,
                 band.Columns["OperativeSystemId"], "OperativeSystemId", "Name", "Seleccione");
+
+            ServerComputerTypeParameters pmtServerComputerType = new ServerComputerTypeParameters();
+
+            IList<ServerComputerType> serverComputerTypes = this.srvServerComputerType.GetListByParameters(pmtServerComputerType);
+            WindowsFormsUtil.SetUltraGridValueList(e.Layout, serverComputerTypes,
+                band.Columns["ServerComputerTypeId"], "ServerComputerTypeId", "Name", "Seleccione");
+
+            RackTypeParameters pmtRackType = new RackTypeParameters();
+
+            IList<RackType> rackTypes = this.srvRackType.GetListByParameters(pmtRackType);
+            WindowsFormsUtil.SetUltraGridValueList(e.Layout, rackTypes,
+                band.Columns["RackTypeId"], "RackTypeId", "Name", "Seleccione");
         }
 
         #endregion Events

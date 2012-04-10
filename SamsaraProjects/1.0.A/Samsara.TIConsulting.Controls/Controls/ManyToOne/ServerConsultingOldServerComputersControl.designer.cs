@@ -55,7 +55,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ugbxServerSpecs = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtServerSpecs = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblServerQuantity = new Infragistics.Win.Misc.UltraLabel();
-            this.txtServerQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.txtServersQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
             this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
@@ -181,7 +181,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             // 
             this.tabItmPrincipal.Controls.Add(this.cbcComputerBrand);
             this.tabItmPrincipal.Controls.Add(this.oscOperativeSystem);
-            this.tabItmPrincipal.Controls.Add(this.txtServerQuantity);
+            this.tabItmPrincipal.Controls.Add(this.txtServersQuantity);
             this.tabItmPrincipal.Controls.Add(this.ugbxServerComputerType);
             this.tabItmPrincipal.Controls.Add(this.txtServerModel);
             this.tabItmPrincipal.Controls.Add(this.ulblOperativeSystem);
@@ -368,17 +368,17 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ulblServerQuantity.TabIndex = 14;
             this.ulblServerQuantity.Text = "Cantidad:";
             // 
-            // txtServerQuantity
+            // txtServersQuantity
             // 
-            this.txtServerQuantity.CustomParent = null;
-            this.txtServerQuantity.Location = new System.Drawing.Point(69, 6);
-            this.txtServerQuantity.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
-            this.txtServerQuantity.MeasurementFileUnit = "MB";
-            this.txtServerQuantity.Name = "txtServerQuantity";
-            this.txtServerQuantity.ReadOnly = false;
-            this.txtServerQuantity.Size = new System.Drawing.Size(105, 20);
-            this.txtServerQuantity.TabIndex = 22;
-            this.txtServerQuantity.Value = ((object)(resources.GetObject("txtServerQuantity.Value")));
+            this.txtServersQuantity.CustomParent = null;
+            this.txtServersQuantity.Location = new System.Drawing.Point(69, 6);
+            this.txtServersQuantity.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.NaturalQuantity;
+            this.txtServersQuantity.MeasurementFileUnit = "MB";
+            this.txtServersQuantity.Name = "txtServersQuantity";
+            this.txtServersQuantity.ReadOnly = false;
+            this.txtServersQuantity.Size = new System.Drawing.Size(105, 20);
+            this.txtServersQuantity.TabIndex = 22;
+            this.txtServersQuantity.Value = ((object)(resources.GetObject("txtServersQuantity.Value")));
             // 
             // oscOperativeSystem
             // 
@@ -469,7 +469,6 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
         private System.Windows.Forms.TabPage tabItmSpecs;
         private Infragistics.Win.Misc.UltraGroupBox ugbxServerSpecs;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtServerSpecs;
-        private Base.Controls.Controls.SamsaraTextEditor txtServerQuantity;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxServerComputerType;
         private Infragistics.Win.Misc.UltraLabel ulblDetRackType;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtServerModel;
@@ -481,6 +480,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
         internal CustomerContext.Controls.Controls.ServerComputerTypeChooserControl sctcServerComputerType;
         internal CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl oscOperativeSystem;
         internal CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl cbcComputerBrand;
+        internal Base.Controls.Controls.SamsaraTextEditor txtServersQuantity;
 
 
 
