@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Commissions.Core" 
+  namespace="Samsara.Commissions.Core.Entities">
+  
+  <class name="Service" table="Commissions.Services">
+    
+    <id name="ServiceId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="ServiceNumber"/>
+    <property name="ServiceAmount"/>
+    <property name="StaffNames"/>
+    <property name="Authorized"/>
+    <property name="Processed"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <set name="ServiceStaff" table="Commissions.ServiceStaff" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="ServiceId"/>
+      <one-to-many
+        class="Samsara.Commissions.Core.Entities.ServiceStaff, Samsara.Commissions.Core"/>
+    </set>
+
+  </class>
+
+  <query name="Service.GetByParameters">
+    <![CDATA[
+        from Service where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="Service.GetListByParameters">
+    <![CDATA[
+        from Service where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+  
+  <sql-query name="Service.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="ServiceId" type="int"/>
+    <return-scalar column="ServiceNumber" type="string"/>
+    <return-scalar column="StaffNames" type="string"/>
+    <return-scalar column="CreatedBy" type="string"/>
+    <return-scalar column="CreatedOn" type="DateTime"/>
+    <return-scalar column="UpdatedBy" type="string"/>
+    <return-scalar column="UpdatedOn" type="DateTime"/>
+    <![CDATA[    
+      SELECT DISTINCT
+          s.ServiceId, s.ServiceNumber, s.StaffNames, uc.username CreatedBy, 
+          uu.username UpdatedBy, s.CreatedOn, s.UpdatedOn
+      FROM        Commissions.Services s
+      INNER JOIN  Commissions.ServiceStaffs ss    ON ss.ServiceId = s.ServiceId
+      LEFT JOIN  Main.Users uc                    ON uc.UserId = s.CreatedBy
+      LEFT JOIN  Main.Users uu                    ON uu.UserId = s.UpdatedBy
+      WHERE s.Deleted = 0 and s.Activated = 1 and ss.Deleted = 0 and ss.Activated = 1
+      AND (s.ServiceNumber = :ServiceNumber OR -1 = :ServiceNumber)
+      AND (ss.StaffId IN (SELECT data FROM Split(:StaffIds, ',')) OR '-1' = :StaffIds)
+      ORDER BY s.ServiceId
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>

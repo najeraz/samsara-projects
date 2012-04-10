@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Website.Core" 
+  namespace="Samsara.Website.Core.Entities">
+  
+  <class name="ProductFamilyConfiguration" table="Website.ProductFamilyConfigurations">
+    
+    <id name="ProductFamilyConfigurationId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+    <property name="Description"/>
+    <property name="Hidden"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+    
+  </class>
+
+  <query name="ProductFamilyConfiguration.GetByParameters">
+    <![CDATA[
+        from ProductFamilyConfiguration where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ProductFamilyConfiguration.GetListByParameters">
+    <![CDATA[
+        from ProductFamilyConfiguration where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ProductFamilyConfiguration.SearchByParameters">
+    <![CDATA[
+        from ProductFamilyConfiguration where Deleted = 0 and Activated = 1
+        and Name like :Name
+    ]]>
+  </query>
+
+</hibernate-mapping>

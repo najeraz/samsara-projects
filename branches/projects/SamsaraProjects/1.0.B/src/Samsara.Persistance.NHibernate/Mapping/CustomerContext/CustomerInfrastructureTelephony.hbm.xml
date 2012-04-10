@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.CustomerContext.Core" 
+  namespace="Samsara.CustomerContext.Core.Entities">
+  
+  <class name="CustomerInfrastructureTelephony" table="CustomerContext.CustomerInfrastructureTelephonies">
+    
+    <id name="CustomerInfrastructureTelephonyId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="NumberOfLines"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="CustomerInfrastructure"
+                 class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure, Samsara.CustomerContext.Core"
+                 column="CustomerInfrastructureId"/>
+
+    <many-to-one name="TelephonyProvider"
+                 class="Samsara.CustomerContext.Core.Entities.TelephonyProvider, Samsara.CustomerContext.Core"
+                 column="TelephonyProviderId"/>
+
+    <many-to-one name="TelephonyLineType"
+                 class="Samsara.CustomerContext.Core.Entities.TelephonyLineType, Samsara.CustomerContext.Core"
+                 column="TelephonyLineTypeId"/>
+
+  </class>
+
+  <query name="CustomerInfrastructureTelephony.GetByParameters">
+    <![CDATA[
+        from CustomerInfrastructureTelephony
+        where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureTelephony.GetListByParameters">
+    <![CDATA[
+        from CustomerInfrastructureTelephony
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
+    ]]>
+  </query>
+
+  <query name="CustomerInfrastructureTelephony.SearchByParameters">
+    <![CDATA[
+        from CustomerInfrastructureTelephony
+        where Deleted = 0 and Activated = 1
+        and CustomerInfrastructureId = :CustomerInfrastructureId
+    ]]>
+  </query>
+
+</hibernate-mapping>

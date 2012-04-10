@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="TenderFile" table="ProjectsAndTendering.TenderFiles">
+    
+    <id name="TenderFileId" type="int">
+      <generator class="native"/>
+    </id>
+    
+    <property name="File" column="[File]"/>
+    <property name="Filename"/>
+    <property name="Description"/>
+    <property name="TenderId"/>
+    <property name="FileSize"/>
+    
+  </class>
+
+  <query name="TenderFile.GetListByParameters">
+    <![CDATA[
+        from TenderFile where TenderId = :TenderId
+    ]]>
+  </query>
+
+  <sql-query name="GetTenderFileStreamContext">
+    <return-scalar column="PathName" type="string"/>
+    <return-scalar column="StreamContext" type="Byte[]"/>
+    <![CDATA[
+        SELECT [File].PathName() AS PathName, GET_FILESTREAM_TRANSACTION_CONTEXT() StreamContext
+        FROM ProjectsAndTendering.TenderFiles
+        WHERE TenderFileId = :TenderFileId
+    ]]>
+  </sql-query>
+
+  <sql-query name="TenderFile.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="TenderFileId" type="int"/>
+    <return-scalar column="TenderId" type="int"/>
+    <return-scalar column="File" type="string"/>
+    <return-scalar column="Filename" type="string"/>
+    <return-scalar column="Description" type="string"/>
+    <return-scalar column="FileSize" type="decimal"/>
+    <![CDATA[
+      SELECT  TenderFileId, TenderId, Filename, Description, FileSize / cast(1024 * 1024 as float) FileSize, '' [File]
+      FROM ProjectsAndTendering.TenderFiles
+      WHERE TenderId = :TenderId
+    ]]>
+  </sql-query>
+
+
+</hibernate-mapping>

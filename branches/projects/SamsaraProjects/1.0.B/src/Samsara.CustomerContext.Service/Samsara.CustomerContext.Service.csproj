@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4EDD472-2E4D-444B-B6D9-3B8FAAFDC0A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Samsara.CustomerContext.Service</RootNamespace>
+    <AssemblyName>Samsara.CustomerContext.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Samsara.Base.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Base.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Base.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Base.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.CustomerContext.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.CustomerContext.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.CustomerContext.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Impl\AccessPointBrandService.cs" />
+    <Compile Include="Impl\AccessPointTypeService.cs" />
+    <Compile Include="Impl\BackupSoftwareBrandService.cs" />
+    <Compile Include="Impl\BusinessTypeService.cs" />
+    <Compile Include="Impl\CCTVBrandService.cs" />
+    <Compile Include="Impl\CCTVTypeService.cs" />
+    <Compile Include="Impl\CommutatorBrandService.cs" />
+    <Compile Include="Impl\CommutatorTypeService.cs" />
+    <Compile Include="Impl\ComputerBrandService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureAdministationSoftwareService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureBackupSoftwareService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureCCTVService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureISPService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkCablingService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkCommutatorService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkFirewallService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkRouterService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkSiteRackService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkSiteService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkSwitchService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkWifiAccessPointService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureNetworkWifiService.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePersonalComputerClassificationService.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePersonalComputerService.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePrinterClassificationService.cs" />
+    <Compile Include="Impl\CustomerInfrastructurePrinterService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureSecuritySoftwareService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureServerComputerDBMSService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureServerComputerService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureTelephonyService.cs" />
+    <Compile Include="Impl\CustomerInfrastructureUPSService.cs" />
+    <Compile Include="Impl\CustomerService.cs" />
+    <Compile Include="Impl\DBMSService.cs" />
+    <Compile Include="Impl\FirewallBrandService.cs" />
+    <Compile Include="Impl\ISPService.cs" />
+    <Compile Include="Impl\NetworkCablingTypeService.cs" />
+    <Compile Include="Impl\OperativeSystemService.cs" />
+    <Compile Include="Impl\OperativeSystemTypeService.cs" />
+    <Compile Include="Impl\PersonalComputerTypeService.cs" />
+    <Compile Include="Impl\PrinterBrandService.cs" />
+    <Compile Include="Impl\PrinterTypeService.cs" />
+    <Compile Include="Impl\RackTypeService.cs" />
+    <Compile Include="Impl\RouterBrandService.cs" />
+    <Compile Include="Impl\SecuritySoftwareBrandService.cs" />
+    <Compile Include="Impl\SecuritySoftwareTypeService.cs" />
+    <Compile Include="Impl\ServerComputerTypeService.cs" />
+    <Compile Include="Impl\SwitchBrandService.cs" />
+    <Compile Include="Impl\TelephonyLineTypeService.cs" />
+    <Compile Include="Impl\TelephonyProviderService.cs" />
+    <Compile Include="Impl\UPSBrandService.cs" />
+    <Compile Include="Impl\UPSTypeService.cs" />
+    <Compile Include="Interfaces\IAccessPointBrandService.cs" />
+    <Compile Include="Interfaces\IAccessPointTypeService.cs" />
+    <Compile Include="Interfaces\IBackupSoftwareBrandService.cs" />
+    <Compile Include="Interfaces\IBusinessTypeService.cs" />
+    <Compile Include="Interfaces\ICCTVBrandService.cs" />
+    <Compile Include="Interfaces\ICCTVTypeService.cs" />
+    <Compile Include="Interfaces\ICommutatorBrandService.cs" />
+    <Compile Include="Interfaces\ICommutatorTypeService.cs" />
+    <Compile Include="Interfaces\IComputerBrandService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureAdministationSoftwareService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureBackupSoftwareService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureCCTVService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureISPService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkCablingService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkCommutatorService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkFirewallService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkRouterService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkSiteRackService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkSiteService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkSwitchService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiAccessPointService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureNetworkWifiService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerClassificationService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePersonalComputerService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePrinterClassificationService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructurePrinterService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureSecuritySoftwareService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureServerComputerDBMSService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureServerComputerService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureTelephonyService.cs" />
+    <Compile Include="Interfaces\ICustomerInfrastructureUPSService.cs" />
+    <Compile Include="Interfaces\ICustomerService.cs" />
+    <Compile Include="Interfaces\IDBMSService.cs" />
+    <Compile Include="Interfaces\IFirewallBrandService.cs" />
+    <Compile Include="Interfaces\IISPService.cs" />
+    <Compile Include="Interfaces\INetworkCablingTypeService.cs" />
+    <Compile Include="Interfaces\IOperativeSystemService.cs" />
+    <Compile Include="Interfaces\IOperativeSystemTypeService.cs" />
+    <Compile Include="Interfaces\IPersonalComputerTypeService.cs" />
+    <Compile Include="Interfaces\IPrinterBrandService.cs" />
+    <Compile Include="Interfaces\IPrinterTypeService.cs" />
+    <Compile Include="Interfaces\IRackTypeService.cs" />
+    <Compile Include="Interfaces\IRouterBrandService.cs" />
+    <Compile Include="Interfaces\ISecuritySoftwareBrandService.cs" />
+    <Compile Include="Interfaces\ISecuritySoftwareTypeService.cs" />
+    <Compile Include="Interfaces\IServerComputerTypeService.cs" />
+    <Compile Include="Interfaces\ISwitchBrandService.cs" />
+    <Compile Include="Interfaces\ITelephonyLineTypeService.cs" />
+    <Compile Include="Interfaces\ITelephonyProviderService.cs" />
+    <Compile Include="Interfaces\IUPSBrandService.cs" />
+    <Compile Include="Interfaces\IUPSTypeService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

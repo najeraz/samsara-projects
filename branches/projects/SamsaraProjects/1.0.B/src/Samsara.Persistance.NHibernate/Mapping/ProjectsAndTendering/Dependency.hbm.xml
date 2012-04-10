@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.ProjectsAndTendering.Core" 
+  namespace="Samsara.ProjectsAndTendering.Core.Entities">
+  
+  <class name="Dependency" table="ProjectsAndTendering.Dependencies">
+    
+    <id name="DependencyId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="Name"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="Bidder"
+                 class="Samsara.ProjectsAndTendering.Core.Entities.Bidder, Samsara.ProjectsAndTendering.Core"
+                 column="BidderId"/>
+  </class>
+
+  <query name="Dependency.GetListByParameters">
+    <![CDATA[
+        from Dependency where Deleted = 0 and Activated = 1
+        and (:BidderId = -1 or BidderId = :BidderId)
+    ]]>
+  </query>
+
+  <sql-query name="Dependency.SearchByParameters" cacheable="false" read-only="true">
+    <return-scalar column="DependencyId" type="int"/>
+    <return-scalar column="Name" type="string"/>
+    <return-scalar column="BidderName" type="string"/>
+    <![CDATA[
+      SELECT d.DependencyId, d.Name, b.Name BidderName
+      FROM ProjectsAndTendering.Dependencies d
+      INNER JOIN ProjectsAndTendering.Bidders b ON b.BidderId = d.BidderId
+      WHERE d.Deleted = 0 and d.Activated = 1 AND b.Deleted = 0 and b.Activated = 1
+      AND d.Name like :Name
+      AND (:BidderId = -1 OR d.BidderId = :BidderId)
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.TIConsulting.Core" 
+  namespace="Samsara.TIConsulting.Core.Entities">
+  
+  <class name="ServerConsulting" table="TIConsulting.ServerConsulting">
+    
+    <id name="ServerConsultingId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="OrganizationName"/>
+    <property name="Contact"/>
+    <property name="PhoneNumber"/>
+    <property name="ExtensionNumber"/>
+    <property name="Email"/>
+    <property name="HasServer"/>
+    <property name="FirstServer"/>
+    <property name="ServerUsage"/>
+    <property name="CurrentProblem"/>
+    <property name="NumberOfUsers"/>
+    <property name="NumberOfUsersWillGrow"/>
+    <property name="FutureNumberOfUsers"/>
+    <property name="CurrentStorageVolume"/>
+    <property name="FutureStorageVolume"/>
+    <property name="BrandPreference"/>
+    <property name="FullServerUptimeRequired"/>
+    <property name="RedundantPowerSupply"/>
+    <property name="DataMigration"/>
+    <property name="DataBackup"/>
+    <property name="ArrayDisks"/>
+    <property name="Budget"/>
+    <property name="HaveSite"/>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="ServerComputerType" lazy="false"
+                 class="Samsara.CustomerContext.Core.Entities.ServerComputerType, Samsara.CustomerContext.Core"
+                 column="ServerComputerTypeId" />
+
+    <many-to-one name="RackType" lazy="false"
+                 class="Samsara.CustomerContext.Core.Entities.RackType, Samsara.CustomerContext.Core"
+                 column="RackTypeId" />
+
+    <set name="ServerConsultingOldServerComputers" table="TIConsulting.ServerConsultingOldServerComputers" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="ServerConsultingId"/>
+      <one-to-many
+        class="Samsara.TIConsulting.Core.Entities.ServerConsultingOldServerComputer, Samsara.TIConsulting.Core"/>
+    </set>
+    
+  </class>
+
+  <query name="ServerConsulting.GetByParameters">
+    <![CDATA[
+        from ServerConsulting where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <query name="ServerConsulting.GetListByParameters">
+    <![CDATA[
+        from ServerConsulting where Deleted = 0 and Activated = 1
+    ]]>
+  </query>
+
+  <sql-query name="ServerConsulting.SearchByParameters">
+    <return-scalar column="ServerConsultingId" type="int"/>
+    <return-scalar column="OrganizationName" type="string"/>
+    <return-scalar column="Contact" type="string"/>
+    <return-scalar column="PhoneNumber" type="string"/>
+    <return-scalar column="Email" type="string"/>
+    <return-scalar column="HasServer" type="bool"/>
+    <return-scalar column="FirstServer" type="bool"/>
+    <return-scalar column="ServerUsage" type="string"/>
+    <return-scalar column="CurrentProblem" type="string"/>
+    <![CDATA[
+        SELECT 
+	        sc.ServerConsultingId, sc.OrganizationName, sc.Contact, sc.PhoneNumber, 
+          sc.Email, sc.HasServer, sc.FirstServer, sc.ServerUsage, sc.CurrentProblem
+        FROM TIConsulting.ServerConsulting sc
+        WHERE sc.Activated = 1 AND sc.Deleted = 0
+        AND sc.OrganizationName LIKE :OrganizationName
+        AND sc.Contact LIKE :Contact
+    ]]>
+  </sql-query>
+
+  <sql-query name="ServerConsulting.ServerConsultingSummary">
+    <return-scalar column="Data" type="string"/>
+    <return-scalar column="Description" type="string"/>
+    <![CDATA[
+        SELECT '' Data, '' Description
+    ]]>
+  </sql-query>
+
+</hibernate-mapping>

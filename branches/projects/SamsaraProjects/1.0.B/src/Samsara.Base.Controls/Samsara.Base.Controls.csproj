@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83F799A2-40CC-4E5B-A2F2-DE9B11F8973F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Samsara.Base.Controls</RootNamespace>
+    <AssemblyName>Samsara.Base.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Documents.Reports.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Shared.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.DocumentExport.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinMaskedEdit.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Samsara.Base.Core">
+      <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Dao">
+      <HintPath>..\..\bin\Samsara.Base.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Base.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Base.Service">
+      <HintPath>..\..\bin\Samsara.Base.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Configuration.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Configuration.Dao.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Configuration.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Configuration.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Framework.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Framework.Util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Main.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Main.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.Main.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Main.Service.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ManyToOneLevel1ControlController.cs" />
+    <Compile Include="Controls\ManyToOneLevel1Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ManyToOneLevel1Control.Designer.cs">
+      <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamsaraEntityChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraEntityChooserControl.designer.cs">
+      <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraComboEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraGrid.Designer.cs">
+      <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamsaraUltraMaskedEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraUserControl.Designer.cs">
+      <DependentUpon>SamsaraUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\SamsaraEntityChooserControlTypeEnum.cs" />
+    <Compile Include="EventsArgs\SamsaraEntityChooserValuesChangedEventArgs.cs" />
+    <Compile Include="EventsArgs\ManyToOneLevel1EntityChangedEventArgs.cs" />
+    <Compile Include="EventsArgs\SamsaraEntityChooserValueChangedEventArgs.cs" />
+    <Compile Include="EventsHandlers\SamsaraEntityChooserValuesChangedEventHandler.cs" />
+    <Compile Include="EventsHandlers\ManyToOneLevel1EntityChangedEventHandler.cs" />
+    <Compile Include="EventsHandlers\SamsaraEntityChooserValueChangedEventHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SamsaraTextEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SamsaraTextEditor.Designer.cs">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ManyToOneLevel1Control.resx">
+      <DependentUpon>ManyToOneLevel1Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraEntityChooserControl.resx">
+      <DependentUpon>SamsaraEntityChooserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraUltraGrid.resx">
+      <DependentUpon>SamsaraUltraGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraUserControl.resx">
+      <DependentUpon>SamsaraUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SamsaraTextEditor.resx">
+      <DependentUpon>SamsaraTextEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

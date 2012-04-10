@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="Samsara.Configuration.Core" 
+  namespace="Samsara.Configuration.Core.Entities">
+  
+  <class name="FormConfigurationGridColumn" table="Configuration.FormConfigurationGridColumns">
+
+    <id name="FormConfigurationGridColumnId" type="int">
+      <generator class="native"/>
+    </id>
+
+    <property name="UpdatedBy"/>
+    <property name="CreatedBy"/>
+    <property name="CreatedOn" type="Timestamp"/>
+    <property name="UpdatedOn" type="Timestamp"/>
+    <property name="Activated"/>
+    <property name="Deleted"/>
+
+    <many-to-one name="FormConfigurationGrid"
+                 class="Samsara.Configuration.Core.Entities.FormConfigurationGrid, Samsara.Configuration.Core"
+                 column="FormConfigurationGridId"/>
+
+    <many-to-one name="TextFormat"
+                 class="Samsara.Framework.Core.Entities.TextFormat, Samsara.Framework.Core"
+                 column="TextFormatId"/>
+    
+    <property name="ColumnName"/>
+    <property name="ColumnEndUserName"/>
+    <property name="BandKey"/>
+    <property name="Visible"/>
+
+  </class>
+
+</hibernate-mapping>

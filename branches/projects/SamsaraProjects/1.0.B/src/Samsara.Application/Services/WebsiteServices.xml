@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <object id="IProductSublineConfigurationService"
+          type="Samsara.Website.Service.Impl.ProductSublineConfigurationService, Samsara.Website.Service">
+    <property name="Dao" ref="IProductSublineConfigurationDao"/>
+  </object>
+  <object id="IProductFamilyConfigurationService"
+          type="Samsara.Website.Service.Impl.ProductFamilyConfigurationService, Samsara.Website.Service">
+    <property name="Dao" ref="IProductFamilyConfigurationDao"/>
+  </object>
+  <object id="IProductConfigurationService"
+          type="Samsara.Website.Service.Impl.ProductConfigurationService, Samsara.Website.Service">
+    <property name="Dao" ref="IProductConfigurationDao"/>
+  </object>
+  <object id="IProductLineConfigurationSamsaraBusinessUnitService"
+          type="Samsara.Website.Service.Impl.ProductLineConfigurationSamsaraBusinessUnitService, Samsara.Website.Service">
+    <property name="Dao" ref="IProductLineConfigurationSamsaraBusinessUnitDao"/>
+  </object>
+
+</objects>
+
