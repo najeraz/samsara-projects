@@ -24,19 +24,19 @@
                  class="Samsara.TIConsulting.Core.Entities.ServerConsulting, Samsara.TIConsulting.Core"
                  column="ServerConsultingId" />
 
-    <many-to-one name="ServerComputerType"
+    <many-to-one name="ServerComputerType" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.ServerComputerType, Samsara.CustomerContext.Core"
                  column="ServerComputerTypeId" />
 
-    <many-to-one name="ComputerBrand"
+    <many-to-one name="ComputerBrand" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.ComputerBrand, Samsara.CustomerContext.Core"
                  column="ComputerBrandId" />
 
-    <many-to-one name="OperativeSystem"
+    <many-to-one name="OperativeSystem" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.OperativeSystem, Samsara.CustomerContext.Core"
                  column="OperativeSystemId" />
 
-    <many-to-one name="RackType"
+    <many-to-one name="RackType" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.RackType, Samsara.CustomerContext.Core"
                  column="RackTypeId" />
     

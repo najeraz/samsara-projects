@@ -130,50 +130,61 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.grdRelations.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.grdRelations.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdRelations.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdRelations.Size = new System.Drawing.Size(657, 204);
+            this.grdRelations.Size = new System.Drawing.Size(634, 204);
+            this.grdRelations.TabIndex = 0;
             // 
             // upnDetailButtons
             // 
             this.upnDetailButtons.Location = new System.Drawing.Point(0, 204);
-            this.upnDetailButtons.Size = new System.Drawing.Size(657, 25);
+            this.upnDetailButtons.Size = new System.Drawing.Size(634, 25);
+            this.upnDetailButtons.TabIndex = 1;
             // 
             // upnlSeparatorDeleteRelation
             // 
-            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(269, 0);
+            this.upnlSeparatorDeleteRelation.Location = new System.Drawing.Point(246, 0);
+            this.upnlSeparatorDeleteRelation.TabIndex = 0;
             // 
             // ubtnDeleteRelation
             // 
-            this.ubtnDeleteRelation.Location = new System.Drawing.Point(285, 0);
+            this.ubtnDeleteRelation.Location = new System.Drawing.Point(262, 0);
+            this.ubtnDeleteRelation.TabIndex = 1;
             // 
             // upnlSeparatorEditRelation
             // 
-            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(362, 0);
+            this.upnlSeparatorEditRelation.Location = new System.Drawing.Point(339, 0);
+            this.upnlSeparatorEditRelation.TabIndex = 2;
             // 
             // ubtnEditRelation
             // 
-            this.ubtnEditRelation.Location = new System.Drawing.Point(378, 0);
+            this.ubtnEditRelation.Location = new System.Drawing.Point(355, 0);
+            this.ubtnEditRelation.TabIndex = 3;
             // 
             // upnlSeparatorCreateRelation
             // 
-            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(548, 0);
+            this.upnlSeparatorCreateRelation.Location = new System.Drawing.Point(525, 0);
+            this.upnlSeparatorCreateRelation.TabIndex = 6;
             // 
             // ubtnCreateRelation
             // 
-            this.ubtnCreateRelation.Location = new System.Drawing.Point(564, 0);
+            this.ubtnCreateRelation.Location = new System.Drawing.Point(541, 0);
+            this.ubtnCreateRelation.TabIndex = 7;
             // 
             // upnlSeparatorDetailButtons
             // 
-            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(641, 0);
+            this.upnlSeparatorDetailButtons.Location = new System.Drawing.Point(618, 0);
+            this.upnlSeparatorDetailButtons.TabIndex = 8;
             // 
             // gbxDetDetail
             // 
             this.gbxDetDetail.Location = new System.Drawing.Point(0, 229);
-            this.gbxDetDetail.Size = new System.Drawing.Size(657, 159);
+            this.gbxDetDetail.Size = new System.Drawing.Size(634, 159);
+            this.gbxDetDetail.TabIndex = 2;
             // 
             // tabDetail
             // 
             this.tabDetail.Controls.Add(this.tabItmSpecs);
-            this.tabDetail.Size = new System.Drawing.Size(651, 140);
+            this.tabDetail.Size = new System.Drawing.Size(628, 140);
+            this.tabDetail.TabIndex = 0;
             this.tabDetail.Controls.SetChildIndex(this.tabItmSpecs, 0);
             this.tabDetail.Controls.SetChildIndex(this.tabItmPrincipal, 0);
             // 
@@ -188,48 +199,58 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.tabItmPrincipal.Controls.Add(this.ulblServerQuantity);
             this.tabItmPrincipal.Controls.Add(this.ulblServerModel);
             this.tabItmPrincipal.Controls.Add(this.ulblServerComputerBrand);
-            this.tabItmPrincipal.Size = new System.Drawing.Size(643, 114);
+            this.tabItmPrincipal.Size = new System.Drawing.Size(620, 114);
             // 
             // upnlButtons
             // 
             this.upnlButtons.Location = new System.Drawing.Point(0, 388);
-            this.upnlButtons.Size = new System.Drawing.Size(657, 25);
+            this.upnlButtons.Size = new System.Drawing.Size(634, 25);
+            this.upnlButtons.TabIndex = 3;
             // 
             // upnlSeparatorSaveRelation
             // 
-            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(455, 0);
+            this.upnlSeparatorSaveRelation.Location = new System.Drawing.Point(432, 0);
+            this.upnlSeparatorSaveRelation.TabIndex = 2;
             // 
             // ubtnSaveRelation
             // 
-            this.ubtnSaveRelation.Location = new System.Drawing.Point(471, 0);
+            this.ubtnSaveRelation.Location = new System.Drawing.Point(448, 0);
+            this.ubtnSaveRelation.TabIndex = 3;
             // 
             // upnlSeparatorCancelRelation
             // 
-            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(548, 0);
+            this.upnlSeparatorCancelRelation.Location = new System.Drawing.Point(525, 0);
+            this.upnlSeparatorCancelRelation.TabIndex = 4;
             // 
             // ubtnCancelRelation
             // 
-            this.ubtnCancelRelation.Location = new System.Drawing.Point(564, 0);
+            this.ubtnCancelRelation.Location = new System.Drawing.Point(541, 0);
+            this.ubtnCancelRelation.TabIndex = 5;
             // 
             // upnlSeparatorButtons
             // 
-            this.upnlSeparatorButtons.Location = new System.Drawing.Point(641, 0);
+            this.upnlSeparatorButtons.Location = new System.Drawing.Point(618, 0);
+            this.upnlSeparatorButtons.TabIndex = 6;
             // 
             // upnlSeparatorViewRelation
             // 
-            this.upnlSeparatorViewRelation.Location = new System.Drawing.Point(455, 0);
+            this.upnlSeparatorViewRelation.Location = new System.Drawing.Point(432, 0);
+            this.upnlSeparatorViewRelation.TabIndex = 4;
             // 
             // ubtnViewRelation
             // 
-            this.ubtnViewRelation.Location = new System.Drawing.Point(471, 0);
+            this.ubtnViewRelation.Location = new System.Drawing.Point(448, 0);
+            this.ubtnViewRelation.TabIndex = 5;
             // 
             // upnlSeparatorCloseRelation
             // 
-            this.upnlSeparatorCloseRelation.Location = new System.Drawing.Point(362, 0);
+            this.upnlSeparatorCloseRelation.Location = new System.Drawing.Point(339, 0);
+            this.upnlSeparatorCloseRelation.TabIndex = 0;
             // 
             // ubtnCloseRelation
             // 
-            this.ubtnCloseRelation.Location = new System.Drawing.Point(378, 0);
+            this.ubtnCloseRelation.Location = new System.Drawing.Point(355, 0);
+            this.ubtnCloseRelation.TabIndex = 1;
             // 
             // ugbxServerComputerType
             // 
@@ -238,8 +259,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ugbxServerComputerType.Controls.Add(this.ulblDetRackType);
             this.ugbxServerComputerType.Location = new System.Drawing.Point(324, 9);
             this.ugbxServerComputerType.Name = "ugbxServerComputerType";
-            this.ugbxServerComputerType.Size = new System.Drawing.Size(313, 71);
-            this.ugbxServerComputerType.TabIndex = 21;
+            this.ugbxServerComputerType.Size = new System.Drawing.Size(292, 71);
+            this.ugbxServerComputerType.TabIndex = 8;
             this.ugbxServerComputerType.Text = "Tipo de Servidor";
             // 
             // rtcRackType
@@ -258,8 +279,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             rackTypeParameters1.UpdatedOn = null;
             this.rtcRackType.Parameters = rackTypeParameters1;
             this.rtcRackType.ReadOnly = false;
-            this.rtcRackType.Size = new System.Drawing.Size(194, 22);
-            this.rtcRackType.TabIndex = 5;
+            this.rtcRackType.Size = new System.Drawing.Size(176, 22);
+            this.rtcRackType.TabIndex = 2;
             this.rtcRackType.Value = null;
             this.rtcRackType.ValueMember = "RackTypeId";
             this.rtcRackType.Values = null;
@@ -281,8 +302,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             serverComputerTypeParameters1.UpdatedOn = null;
             this.sctcServerComputerType.Parameters = serverComputerTypeParameters1;
             this.sctcServerComputerType.ReadOnly = false;
-            this.sctcServerComputerType.Size = new System.Drawing.Size(307, 22);
-            this.sctcServerComputerType.TabIndex = 4;
+            this.sctcServerComputerType.Size = new System.Drawing.Size(286, 22);
+            this.sctcServerComputerType.TabIndex = 0;
             this.sctcServerComputerType.Value = null;
             this.sctcServerComputerType.ValueMember = "ServerComputerTypeId";
             this.sctcServerComputerType.Values = null;
@@ -293,7 +314,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ulblDetRackType.Location = new System.Drawing.Point(33, 47);
             this.ulblDetRackType.Name = "ulblDetRackType";
             this.ulblDetRackType.Size = new System.Drawing.Size(74, 14);
-            this.ulblDetRackType.TabIndex = 3;
+            this.ulblDetRackType.TabIndex = 1;
             this.ulblDetRackType.Text = "Tipo de Rack:";
             // 
             // txtServerModel
@@ -301,7 +322,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.txtServerModel.Location = new System.Drawing.Point(69, 59);
             this.txtServerModel.Name = "txtServerModel";
             this.txtServerModel.Size = new System.Drawing.Size(249, 21);
-            this.txtServerModel.TabIndex = 17;
+            this.txtServerModel.TabIndex = 5;
             // 
             // ulblOperativeSystem
             // 
@@ -309,7 +330,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ulblOperativeSystem.Location = new System.Drawing.Point(8, 90);
             this.ulblOperativeSystem.Name = "ulblOperativeSystem";
             this.ulblOperativeSystem.Size = new System.Drawing.Size(27, 14);
-            this.ulblOperativeSystem.TabIndex = 18;
+            this.ulblOperativeSystem.TabIndex = 6;
             this.ulblOperativeSystem.Text = "S.O.";
             // 
             // ulblServerModel
@@ -318,7 +339,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ulblServerModel.Location = new System.Drawing.Point(7, 63);
             this.ulblServerModel.Name = "ulblServerModel";
             this.ulblServerModel.Size = new System.Drawing.Size(45, 14);
-            this.ulblServerModel.TabIndex = 16;
+            this.ulblServerModel.TabIndex = 4;
             this.ulblServerModel.Text = "Modelo:";
             // 
             // ulblServerComputerBrand
@@ -327,7 +348,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ulblServerComputerBrand.Location = new System.Drawing.Point(7, 36);
             this.ulblServerComputerBrand.Name = "ulblServerComputerBrand";
             this.ulblServerComputerBrand.Size = new System.Drawing.Size(39, 14);
-            this.ulblServerComputerBrand.TabIndex = 14;
+            this.ulblServerComputerBrand.TabIndex = 2;
             this.ulblServerComputerBrand.Text = "Marca:";
             // 
             // tabItmSpecs
@@ -336,7 +357,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.tabItmSpecs.Controls.Add(this.ugbxServerSpecs);
             this.tabItmSpecs.Location = new System.Drawing.Point(4, 22);
             this.tabItmSpecs.Name = "tabItmSpecs";
-            this.tabItmSpecs.Size = new System.Drawing.Size(643, 114);
+            this.tabItmSpecs.Size = new System.Drawing.Size(620, 114);
             this.tabItmSpecs.TabIndex = 1;
             this.tabItmSpecs.Text = "Especificaciones";
             // 
@@ -365,7 +386,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.ulblServerQuantity.Location = new System.Drawing.Point(7, 9);
             this.ulblServerQuantity.Name = "ulblServerQuantity";
             this.ulblServerQuantity.Size = new System.Drawing.Size(53, 14);
-            this.ulblServerQuantity.TabIndex = 14;
+            this.ulblServerQuantity.TabIndex = 0;
             this.ulblServerQuantity.Text = "Cantidad:";
             // 
             // txtServersQuantity
@@ -377,7 +398,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.txtServersQuantity.Name = "txtServersQuantity";
             this.txtServersQuantity.ReadOnly = false;
             this.txtServersQuantity.Size = new System.Drawing.Size(105, 20);
-            this.txtServersQuantity.TabIndex = 22;
+            this.txtServersQuantity.TabIndex = 1;
             this.txtServersQuantity.Value = ((object)(resources.GetObject("txtServersQuantity.Value")));
             // 
             // oscOperativeSystem
@@ -399,7 +420,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.oscOperativeSystem.Parameters = operativeSystemParameters1;
             this.oscOperativeSystem.ReadOnly = false;
             this.oscOperativeSystem.Size = new System.Drawing.Size(249, 22);
-            this.oscOperativeSystem.TabIndex = 23;
+            this.oscOperativeSystem.TabIndex = 7;
             this.oscOperativeSystem.Value = null;
             this.oscOperativeSystem.ValueMember = "OperativeSystemId";
             this.oscOperativeSystem.Values = null;
@@ -421,7 +442,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.cbcComputerBrand.Parameters = computerBrandParameters1;
             this.cbcComputerBrand.ReadOnly = false;
             this.cbcComputerBrand.Size = new System.Drawing.Size(249, 22);
-            this.cbcComputerBrand.TabIndex = 24;
+            this.cbcComputerBrand.TabIndex = 3;
             this.cbcComputerBrand.Value = null;
             this.cbcComputerBrand.ValueMember = "ComputerBrandId";
             this.cbcComputerBrand.Values = null;
@@ -431,7 +452,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ServerConsultingOldServerComputersControl";
-            this.Size = new System.Drawing.Size(657, 413);
+            this.Size = new System.Drawing.Size(634, 413);
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).EndInit();
             this.upnDetailButtons.ClientArea.ResumeLayout(false);
             this.upnDetailButtons.ResumeLayout(false);

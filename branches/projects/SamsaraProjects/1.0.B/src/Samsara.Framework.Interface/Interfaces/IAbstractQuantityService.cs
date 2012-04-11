@@ -5,7 +5,7 @@ using Samsara.Framework.Core.Parameters;
 
 namespace Samsara.Framework.Service.Interfaces
 {
-    public interface ITextFormatService : IBaseService<TextFormat, int, TextFormatParameters>
+    public interface IAbstractQuantityService : IBaseService<AbstractQuantity, int, AbstractQuantityParameters>
     {
 	}
 }

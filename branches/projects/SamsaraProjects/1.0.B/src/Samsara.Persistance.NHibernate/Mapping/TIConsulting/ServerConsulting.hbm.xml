@@ -85,7 +85,7 @@
         FROM TIConsulting.ServerConsulting sc
         WHERE sc.Activated = 1 AND sc.Deleted = 0
         AND sc.OrganizationName LIKE :OrganizationName
-        AND sc.Contact LIKE :Contact
+        AND (sc.Contact LIKE :Contact OR Contact IS NULL)
     ]]>
   </sql-query>
 

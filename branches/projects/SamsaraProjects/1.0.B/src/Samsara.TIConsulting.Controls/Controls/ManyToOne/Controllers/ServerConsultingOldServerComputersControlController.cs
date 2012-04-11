@@ -245,7 +245,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             this.serverConsultingOldServerComputer.ServerModel
                 = this.ctlServerConsultingOldServerComputers.txtServerModel.Text;
             this.serverConsultingOldServerComputer.ServersQuantity
-                = Convert.ToInt32(this.ctlServerConsultingOldServerComputers.txtServerModel.Value);
+                = Convert.ToInt32(this.ctlServerConsultingOldServerComputers.txtServersQuantity.Value);
         }
 
         protected override bool ValidateControlsData()
