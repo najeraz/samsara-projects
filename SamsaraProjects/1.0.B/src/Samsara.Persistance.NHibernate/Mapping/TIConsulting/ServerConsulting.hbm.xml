@@ -14,7 +14,6 @@
     <property name="PhoneNumber"/>
     <property name="ExtensionNumber"/>
     <property name="Email"/>
-    <property name="HasServer"/>
     <property name="FirstServer"/>
     <property name="ServerUsage"/>
     <property name="CurrentProblem"/>
@@ -46,6 +45,10 @@
     <many-to-one name="RackType" lazy="false"
                  class="Samsara.CustomerContext.Core.Entities.RackType, Samsara.CustomerContext.Core"
                  column="RackTypeId" />
+
+    <many-to-one name="AbstractQuantity" lazy="false"
+                 class="Samsara.Framework.Core.Entities.AbstractQuantity, Samsara.Framework.Core"
+                 column="AbstractQuantityId" />
 
     <set name="ServerConsultingOldServerComputers" table="TIConsulting.ServerConsultingOldServerComputers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
