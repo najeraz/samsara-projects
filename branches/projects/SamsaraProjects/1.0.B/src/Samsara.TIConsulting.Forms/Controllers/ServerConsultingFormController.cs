@@ -18,6 +18,7 @@ using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
 using Samsara.TIConsulting.Service.Interfaces;
+using Samsara.CustomerContext.Core.Parameters;
 
 namespace Samsara.TIConsulting.Forms.Controllers
 {
@@ -28,7 +29,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
         private ServerConsultingForm frmServerConsulting;
         private IServerConsultingService srvServerConsulting;
         private ServerConsulting serverConsulting;
-        private Nullable<HasServerEnum> hasServer;
 
         private enum HasServerEnum
         {
@@ -40,6 +40,15 @@ namespace Samsara.TIConsulting.Forms.Controllers
         #endregion Attributes
 
         #region Properties
+
+        private Nullable<HasServerEnum> HasServer
+        {
+            get
+            {
+                return this.frmServerConsulting.uosDetHasServer.Value == null ? null
+                : (Nullable<HasServerEnum>)Convert.ToInt32(this.frmServerConsulting.uosDetHasServer.Value);
+            }
+        }
         
         private bool FullServerUptimeRequired
         {
@@ -131,6 +140,18 @@ namespace Samsara.TIConsulting.Forms.Controllers
         {
             this.frmServerConsulting.rtcDetRackTypePreference.Refresh();
             this.frmServerConsulting.sctcDetServerComputerTypePreference.Refresh();
+
+            this.frmServerConsulting.rtcDetRackType.Refresh();
+            this.frmServerConsulting.sctcDetServerComputerType.Refresh();
+            this.frmServerConsulting.cbcDetComputerBrand.Refresh();
+
+            OperativeSystemParameters pmtOperativeSystem = new OperativeSystemParameters()
+            {
+                OperativeSystemTypeId = (int)OperativeSystemTypeEnum.Server
+            };
+
+            this.frmServerConsulting.oscDetOperativeSystem.Parameters = pmtOperativeSystem;
+            this.frmServerConsulting.oscDetOperativeSystem.Refresh();
         }
 
         public override void Search()
@@ -700,6 +721,27 @@ Especificaciones: {4}
             this.frmServerConsulting.grdDetSummary.PerformAction(UltraGridAction.Copy);
         }
 
+        internal void NextTab()
+        {
+            if (this.frmServerConsulting.utabDetStatusQUO.SelectedTab != null)
+            {
+                this.frmServerConsulting.utabDetStatusQUO.SelectedTab = this.frmServerConsulting.utabDetStatusQUO.Tabs[
+                    (this.frmServerConsulting.utabDetStatusQUO.SelectedTab.Index + 1)
+                    % this.frmServerConsulting.utabDetStatusQUO.Tabs.Count];
+            }
+        }
+
+        internal void PreviousTab()
+        {
+            if (this.frmServerConsulting.utabDetStatusQUO.SelectedTab != null)
+            {
+                this.frmServerConsulting.utabDetStatusQUO.SelectedTab = this.frmServerConsulting.utabDetStatusQUO.Tabs[
+                    (this.frmServerConsulting.utabDetStatusQUO.SelectedTab.Index - 1)
+                    < 0 ? this.frmServerConsulting.utabDetStatusQUO.Tabs.Count - 1
+                    : this.frmServerConsulting.utabDetStatusQUO.SelectedTab.Index - 1];
+            }
+        }
+
         #endregion Internal
 
         #endregion Methods
@@ -708,12 +750,14 @@ Especificaciones: {4}
 
         private void uosDetHasServer_ValueChanged(object sender, EventArgs e)
         {
-            hasServer = this.frmServerConsulting.uosDetHasServer.Value == null ? null 
-                : (Nullable<HasServerEnum>)Convert.ToInt32(this.frmServerConsulting.uosDetHasServer.Value);
+            if (this.HasServer == HasServerEnum.Several)
+            {
+                this.frmServerConsulting.scoscDetOldServerComputers.ClearControls();
+            }
 
-            this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = hasServer == null || hasServer == HasServerEnum.One;
-            this.frmServerConsulting.utabDetOldServerDetail.Tabs["MultipleServers"].Visible = hasServer == HasServerEnum.Several;
-            this.frmServerConsulting.utabDetOldServerDetail.Tabs["NewServer"].Visible = hasServer == HasServerEnum.None;
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = this.HasServer == HasServerEnum.One;
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["MultipleServers"].Visible = this.HasServer == HasServerEnum.Several;
+            this.frmServerConsulting.utabDetOldServerDetail.Tabs["NewServer"].Visible = this.HasServer == HasServerEnum.None;
         }
 
         private void uchkDetNumberOfUsersWillGrow_CheckedChanged(object sender, EventArgs e)
