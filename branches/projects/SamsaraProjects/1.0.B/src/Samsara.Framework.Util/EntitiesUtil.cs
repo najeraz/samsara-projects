@@ -120,6 +120,15 @@ namespace Samsara.Framework.Util
             entity.Deleted = true;
         }
 
+        public static void SetAsDeleted(IEnumerable<BaseEntity> entities)
+        {
+            foreach (BaseEntity entity in entities)
+            {
+                entity.Activated = false;
+                entity.Deleted = true;
+            }
+        }
+
         public static void ProcessAuditProperties(object entity, DateTime dtNow, IDictionary<int, string> auditedObjects, NHibernate.ISession nHibernateSession)
         {
             Type entityType = null;

@@ -7,6 +7,8 @@ namespace Samsara.Base.Core.Entities
     {
         public BaseEntity()
         {
+            this.Activated = true;
+            this.Deleted = false;
         }
 
         public virtual Nullable<bool> Deleted
