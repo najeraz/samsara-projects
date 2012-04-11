@@ -54,6 +54,12 @@ namespace Samsara.TIConsulting.Forms.Forms
 
                 switch (btn.Name)
                 {
+                    case "btnDetNextTab":
+                        this.ctrlServerConsultingForm.NextTab();
+                        break;
+                    case "btnDetPreviousTab":
+                        this.ctrlServerConsultingForm.PreviousTab();
+                        break;
                     case "btnDetExportSummaryToExcel":
                         this.ctrlServerConsultingForm.ExportSummaryToExcel();
                         break;
