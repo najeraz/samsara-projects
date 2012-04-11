@@ -51,8 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\ParameterConstants.cs" />
+    <Compile Include="Entities\AbstractQuantity.cs" />
     <Compile Include="Entities\TextFormat.cs" />
+    <Compile Include="Enums\AbstractQuantityEnum.cs" />
     <Compile Include="Enums\TextFormatEnum.cs" />
+    <Compile Include="Parameters\AbstractQuantityParameters.cs" />
     <Compile Include="Parameters\TextFormatParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

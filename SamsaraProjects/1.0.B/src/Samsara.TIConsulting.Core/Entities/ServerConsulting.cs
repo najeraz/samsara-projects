@@ -4,6 +4,7 @@ using Iesi.Collections.Generic;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 using Samsara.CustomerContext.Core.Entities;
+using Samsara.Framework.Core.Entities;
 
 namespace Samsara.TIConsulting.Core.Entities
 {
@@ -53,7 +54,7 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual Nullable<bool> HasServer
+        public virtual AbstractQuantity AbstractQuantity
         {
             get;
             set;

@@ -71,7 +71,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\AbstractQuantityDao.cs" />
     <Compile Include="Impl\TextFormatDao.cs" />
+    <Compile Include="Interfaces\IAbstractQuantityDao.cs" />
     <Compile Include="Interfaces\ITextFormatDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
