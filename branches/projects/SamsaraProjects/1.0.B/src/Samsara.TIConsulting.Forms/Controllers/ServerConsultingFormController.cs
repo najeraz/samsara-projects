@@ -281,13 +281,13 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetDataBackup.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetDataMigration.Enabled = !readOnly;
             this.frmServerConsulting.oscDetOperativeSystem.ReadOnly = readOnly;
+            this.frmServerConsulting.scoscDetOldServerComputers.ReadOnly = readOnly;
             this.frmServerConsulting.rtcDetRackTypePreference.ReadOnly = readOnly
                 || !(this.frmServerConsulting.sctcDetServerComputerTypePreference.Value != null
                 && this.frmServerConsulting.sctcDetServerComputerTypePreference.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
             this.frmServerConsulting.rtcDetRackType.ReadOnly = readOnly
                 || !(this.frmServerConsulting.sctcDetServerComputerType.Value != null
                 && this.frmServerConsulting.sctcDetServerComputerType.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
-            this.frmServerConsulting.scoscDetOldServerComputers.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()
