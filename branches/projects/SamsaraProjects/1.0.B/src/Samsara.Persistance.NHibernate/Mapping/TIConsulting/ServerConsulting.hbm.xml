@@ -22,7 +22,6 @@
     <property name="FutureNumberOfUsers"/>
     <property name="CurrentStorageVolume"/>
     <property name="FutureStorageVolume"/>
-    <property name="BrandPreference"/>
     <property name="FullServerUptimeRequired"/>
     <property name="RedundantPowerSupply"/>
     <property name="DataMigration"/>
