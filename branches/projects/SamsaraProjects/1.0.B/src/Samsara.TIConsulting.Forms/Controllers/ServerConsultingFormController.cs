@@ -312,11 +312,18 @@ namespace Samsara.TIConsulting.Forms.Controllers
             EntitiesUtil.SetAsDeleted(this.serverConsulting.ServerConsultingComputerBrands);
             foreach (ComputerBrand computerBrand in this.frmServerConsulting.cbcDetComputerBrandPreference.Values)
             {
-                ServerConsultingComputerBrand serverConsultingComputerBrand = new ServerConsultingComputerBrand()
+                ServerConsultingComputerBrand serverConsultingComputerBrand
+                    = this.serverConsulting.ServerConsultingComputerBrands
+                    .SingleOrDefault(x => x.ComputerBrand.ComputerBrandId == computerBrand.ComputerBrandId);
+
+                if (serverConsultingComputerBrand == null)
                 {
-                    ServerConsulting = this.serverConsulting,
-                    ComputerBrand = computerBrand
-                };
+                    serverConsultingComputerBrand = new ServerConsultingComputerBrand()
+                    {
+                        ServerConsulting = this.serverConsulting,
+                        ComputerBrand = computerBrand
+                    };
+                }
 
                 this.serverConsulting.ServerConsultingComputerBrands.Add(serverConsultingComputerBrand);
             }
