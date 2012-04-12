@@ -262,6 +262,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetServerModel.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerSpecs.ReadOnly = readOnly;
             this.frmServerConsulting.sctcDetServerComputerTypePreference.ReadOnly = readOnly;
+            this.frmServerConsulting.sctcDetServerComputerType.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetServerUsage.ReadOnly = readOnly;
             this.frmServerConsulting.uchkDetFutureStorageVolume.Enabled = !readOnly;
             this.frmServerConsulting.uchkDetRedundantPowerSupply.Enabled = !readOnly
@@ -283,6 +284,10 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.rtcDetRackTypePreference.ReadOnly = readOnly
                 || !(this.frmServerConsulting.sctcDetServerComputerTypePreference.Value != null
                 && this.frmServerConsulting.sctcDetServerComputerTypePreference.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
+            this.frmServerConsulting.rtcDetRackType.ReadOnly = readOnly
+                || !(this.frmServerConsulting.sctcDetServerComputerType.Value != null
+                && this.frmServerConsulting.sctcDetServerComputerType.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
+            this.frmServerConsulting.scoscDetOldServerComputers.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()
@@ -304,7 +309,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.ServerComputerType = this.frmServerConsulting.sctcDetServerComputerTypePreference.Value;
             this.serverConsulting.RackType = this.frmServerConsulting.rtcDetRackTypePreference.Value;
             
-            //this.serverConsulting.ServerConsultingComputerBrands = this.frmServerConsulting.cbcDetComputerBrandPreference.Values;
             EntitiesUtil.SetAsDeleted(this.serverConsulting.ServerConsultingComputerBrands);
             foreach (ComputerBrand computerBrand in this.frmServerConsulting.cbcDetComputerBrandPreference.Values)
             {
@@ -458,7 +462,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.uchkDetDataMigration.Checked = this.serverConsulting.DataMigration.Value;
             this.frmServerConsulting.uchkDetHaveBudget.Checked = this.serverConsulting.Budget != null;
             this.frmServerConsulting.txtDetArrayDisks.Value = this.serverConsulting.ArrayDisks;
-            this.frmServerConsulting.cbcDetComputerBrandPreference.Values 
+            this.frmServerConsulting.cbcDetComputerBrandPreference.Values
                 = this.serverConsulting.ServerConsultingComputerBrands.Select(x => x.ComputerBrand).ToList();
             this.frmServerConsulting.txtDetBudget.Value = this.serverConsulting.Budget;
             this.frmServerConsulting.txtDetCurrentProblem.Value = this.serverConsulting.CurrentProblem;
@@ -472,12 +476,22 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.sctcDetServerComputerTypePreference.Value = this.serverConsulting.ServerComputerType;
             this.frmServerConsulting.rtcDetRackTypePreference.Value = this.serverConsulting.RackType;
 
-            this.frmServerConsulting.cbcDetComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ComputerBrand;
-            this.frmServerConsulting.sctcDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ServerComputerType;
-            this.frmServerConsulting.rtcDetRackType.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().RackType;
-            this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ServerModel;
-            this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ServerSpecs;
-            this.frmServerConsulting.oscDetOperativeSystem.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().OperativeSystem;
+            if (this.HasServer.Value == AbstractQuantityEnum.One)
+            {
+                this.frmServerConsulting.cbcDetComputerBrand.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ComputerBrand;
+                this.frmServerConsulting.sctcDetServerComputerType.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ServerComputerType;
+                this.frmServerConsulting.rtcDetRackType.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().RackType;
+                this.frmServerConsulting.txtDetServerModel.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ServerModel;
+                this.frmServerConsulting.txtDetServerSpecs.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().ServerSpecs;
+                this.frmServerConsulting.oscDetOperativeSystem.Value = this.serverConsulting.ServerConsultingOldServerComputers.Single().OperativeSystem;
+            }
+
+            if (this.HasServer.Value == AbstractQuantityEnum.Several)
+            {
+                this.frmServerConsulting.scoscDetOldServerComputers.ServerConsulting = this.serverConsulting;
+                this.frmServerConsulting.scoscDetOldServerComputers.CustomParent = this.frmServerConsulting;
+                this.frmServerConsulting.scoscDetOldServerComputers.LoadControls();
+            }
         }
 
         private void LoadServerConsultingSummary()
@@ -555,14 +569,15 @@ namespace Samsara.TIConsulting.Forms.Controllers
 Tipo:   {0}
 Marca:  {1}
 Modelo: {2}
-Sistema Operativo: {3}
-Tipo de Rack: {4}
+Sistema Operativo: {3} {4}
 Especificaciones: {5}
                     ", serverConsultingOldServerComputer.ServerComputerType.Name,
                      serverConsultingOldServerComputer.ComputerBrand.Name,
                      serverConsultingOldServerComputer.ServerModel,
                      serverConsultingOldServerComputer.OperativeSystem.Name,
-                     serverConsultingOldServerComputer.RackType.Name,
+                     serverConsultingOldServerComputer.RackType != null ? 
+                     Environment.NewLine + "Tipo de Rack: " 
+                     + serverConsultingOldServerComputer.RackType.Name + Environment.NewLine: string.Empty,
                      serverConsultingOldServerComputer.ServerSpecs).Trim();
             }
 
@@ -782,7 +797,7 @@ Especificaciones: {5}
         private void uosDetHasServer_ValueChanged(object sender, EventArgs e)
         {
             if (this.hasServerLastValue.HasValue && (this.hasServerLastValue.Value == AbstractQuantityEnum.One
-                || this.hasServerLastValue.Value == AbstractQuantityEnum.Several 
+                || this.hasServerLastValue.Value == AbstractQuantityEnum.Several
                 && this.serverConsulting.ServerConsultingOldServerComputers
                 .Where(x => !x.Deleted.Value).Count() > 0))
             {
@@ -790,15 +805,11 @@ Especificaciones: {5}
                     this.hasServerLastValue.Value == AbstractQuantityEnum.One ? "los datos del Servidor" : "los Servidores"),
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (this.hasServerLastValue.Value == AbstractQuantityEnum.Several)
-                {
-                    EntitiesUtil.SetAsDeleted(this.serverConsulting.ServerConsultingOldServerComputers);
-                    this.frmServerConsulting.scoscDetOldServerComputers.LoadControls();
-                }
-                else
-                {
-                    this.ClearOldServerFields();
-                }
+                EntitiesUtil.SetAsDeleted(this.serverConsulting.ServerConsultingOldServerComputers);
+                this.frmServerConsulting.scoscDetOldServerComputers.ServerConsulting = this.serverConsulting;
+                this.frmServerConsulting.scoscDetOldServerComputers.CustomParent = this.frmServerConsulting;
+                this.frmServerConsulting.scoscDetOldServerComputers.LoadControls();
+                this.ClearOldServerFields();
             }
 
             this.frmServerConsulting.utabDetOldServerDetail.Tabs["ActualServer"].Visible = this.HasServer == AbstractQuantityEnum.One;
