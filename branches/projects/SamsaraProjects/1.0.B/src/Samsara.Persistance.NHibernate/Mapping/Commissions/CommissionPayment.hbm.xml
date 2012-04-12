@@ -12,6 +12,7 @@
     <property name="Amount"/>
     <property name="Comments"/>
     <property name="Month"/>
+    <property name="ExternalPaymentId"/>
     <property name="Year"/>
     <property name="StaffNames"/>
     <property name="IsSalesRetail"/>

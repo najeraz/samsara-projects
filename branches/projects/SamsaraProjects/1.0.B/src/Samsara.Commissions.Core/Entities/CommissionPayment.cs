@@ -21,6 +21,12 @@ namespace Samsara.Commissions.Core.Entities
             set;
         }
 
+        public virtual int ExternalPaymentId
+        {
+            get;
+            set;
+        }
+
         public virtual decimal Amount
         {
             get;

@@ -31,6 +31,11 @@ namespace Samsara.Base.Service.Impl
             return Dao.GetById(id);
         }
 
+        public T LoadById(TId id)
+        {
+            return Dao.LoadById(id);
+        }
+
         public T GetByParameters(Tpmt parameters)
         {
             return Dao.GetByParameters(parameters);
