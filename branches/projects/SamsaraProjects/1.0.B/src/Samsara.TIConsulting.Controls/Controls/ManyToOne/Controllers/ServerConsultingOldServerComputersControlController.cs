@@ -119,7 +119,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             if (this.ServerConsulting != null)
             {
                 foreach (ServerConsultingOldServerComputer serverConsultingOldServerComputer
-                    in this.ServerConsulting.ServerConsultingOldServerComputers)
+                    in this.ServerConsulting.ServerConsultingOldServerComputers.Where(x => !x.Deleted.Value))
                 {
                     DataRow row = this.dtServerConsultingOldServerComputers.NewRow();
                     this.dtServerConsultingOldServerComputers.Rows.Add(row);

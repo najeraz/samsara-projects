@@ -12,12 +12,30 @@ namespace Samsara.Base.Controls.Controls
     {
         #region Attributes
 
+        private bool readOnly;
         public ManyToOneLevel1ControlController<T> controller;
-
+        
         #endregion Attributes
 
+        #region Properties
+
+        public bool ReadOnly
+        {
+            get
+            {
+                return this.readOnly;
+            }
+            set
+            {
+                this.controller.SetReadOnlyButtons(value);
+                this.readOnly = value;
+            }
+        }
+
+        #endregion Properties
+
         #region EventHandlers
-        
+
         public event ManyToOneLevel1EntityChangedEventHandler<T> EntityChanged;
 
         #endregion EventHandlers
@@ -26,6 +44,7 @@ namespace Samsara.Base.Controls.Controls
 
         public ManyToOneLevel1Control()
         {
+            this.readOnly = false;
             InitializeComponent();
         }
 
