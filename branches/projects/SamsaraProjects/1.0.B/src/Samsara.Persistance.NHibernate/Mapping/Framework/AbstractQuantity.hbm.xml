@@ -3,7 +3,7 @@
   assembly="Samsara.Framework.Core" 
   namespace="Samsara.Framework.Core.Entities">
   
-  <class name="AbstractQuantity" table="Framework.AbstractQuantitys">
+  <class name="AbstractQuantity" table="Framework.AbstractQuantities">
     
     <id name="AbstractQuantityId" type="int">
       <generator class="native"/>

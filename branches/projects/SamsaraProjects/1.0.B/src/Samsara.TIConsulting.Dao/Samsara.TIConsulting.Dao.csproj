@@ -71,8 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\ServerConsultingComputerBrandDao.cs" />
     <Compile Include="Impl\ServerConsultingDao.cs" />
     <Compile Include="Impl\ServerConsultingOldServerComputerDao.cs" />
+    <Compile Include="Interfaces\IServerConsultingComputerBrandDao.cs" />
     <Compile Include="Interfaces\IServerConsultingDao.cs" />
     <Compile Include="Interfaces\IServerConsultingOldServerComputerDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

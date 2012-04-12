@@ -59,8 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ServerConsultingComputerBrand.cs" />
     <Compile Include="Entities\ServerConsultingOldServerComputer.cs" />
     <Compile Include="Entities\ServerConsulting.cs" />
+    <Compile Include="Parameters\ServerConsultingComputerBrandParameters.cs" />
     <Compile Include="Parameters\ServerConsultingOldServerComputerParameters.cs" />
     <Compile Include="Parameters\ServerConsultingParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
