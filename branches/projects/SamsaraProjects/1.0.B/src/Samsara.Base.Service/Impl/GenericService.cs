@@ -18,29 +18,29 @@ namespace Samsara.Base.Service.Impl
 
         #region Methods
 
-        public virtual void Save<T>(T entity)
+        public virtual void Save(object entity)
         {
-            this.Dao.Save<T>(entity);
+            this.Dao.Save(entity);
         }
 
-        public virtual void SaveOrUpdate<T>(T entity)
+        public virtual void SaveOrUpdate(object entity)
         {
-            this.Dao.SaveOrUpdate<T>(entity);
+            this.Dao.SaveOrUpdate(entity);
         }
 
-        public virtual void Update<T>(T entity)
+        public virtual void Update(object entity)
         {
-            this.Dao.Update<T>(entity);
+            this.Dao.Update(entity);
         }
 
-        public virtual void Delete<T>(T entity)
+        public virtual void Delete(object entity)
         {
-            this.Dao.Delete<T>(entity);
+            this.Dao.Delete(entity);
         }
 
-        public virtual void Refresh<T>(T entity)
+        public virtual void Refresh(object entity)
         {
-            this.Dao.Refresh<T>(entity);
+            this.Dao.Refresh(entity);
         }
 
         #endregion Methods

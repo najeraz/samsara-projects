@@ -1165,6 +1165,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
                 commissionPayment.CommissionPaymentStaffs.Add(commissionPaymentStaff);
             }
+
+            this.srvGeneric.Save(commissionPayment);
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)
