@@ -50,6 +50,13 @@
                  class="Samsara.Framework.Core.Entities.AbstractQuantity, Samsara.Framework.Core"
                  column="AbstractQuantityId" />
 
+    <set name="ServerConsultingComputerBrands" table="TIConsulting.ServerConsultingComputerBrands" where="Deleted = 0 AND Activated = 1"
+         cascade="all-delete-orphan" lazy="false">
+      <key column="ServerConsultingId"/>
+      <one-to-many
+        class="Samsara.TIConsulting.Core.Entities.ServerConsultingComputerBrand, Samsara.TIConsulting.Core"/>
+    </set>
+
     <set name="ServerConsultingOldServerComputers" table="TIConsulting.ServerConsultingOldServerComputers" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="ServerConsultingId"/>
@@ -77,14 +84,14 @@
     <return-scalar column="Contact" type="string"/>
     <return-scalar column="PhoneNumber" type="string"/>
     <return-scalar column="Email" type="string"/>
-    <return-scalar column="HasServer" type="bool"/>
+    <return-scalar column="AbstractQuantityId" type="int"/>
     <return-scalar column="FirstServer" type="bool"/>
     <return-scalar column="ServerUsage" type="string"/>
     <return-scalar column="CurrentProblem" type="string"/>
     <![CDATA[
         SELECT 
 	        sc.ServerConsultingId, sc.OrganizationName, sc.Contact, sc.PhoneNumber, 
-          sc.Email, sc.HasServer, sc.FirstServer, sc.ServerUsage, sc.CurrentProblem
+          sc.Email, sc.AbstractQuantityId, sc.FirstServer, sc.ServerUsage, sc.CurrentProblem
         FROM TIConsulting.ServerConsulting sc
         WHERE sc.Activated = 1 AND sc.Deleted = 0
         AND sc.OrganizationName LIKE :OrganizationName

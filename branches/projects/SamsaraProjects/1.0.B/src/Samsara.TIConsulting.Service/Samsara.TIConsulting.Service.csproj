@@ -86,8 +86,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\ServerConsultingComputerBrandService.cs" />
     <Compile Include="Impl\ServerConsultingOldServerComputerService.cs" />
     <Compile Include="Impl\ServerConsultingService.cs" />
+    <Compile Include="Interfaces\IServerConsultingComputerBrandService.cs" />
     <Compile Include="Interfaces\IServerConsultingOldServerComputerService.cs" />
     <Compile Include="Interfaces\IServerConsultingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
