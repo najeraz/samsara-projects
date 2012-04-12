@@ -6,6 +6,11 @@
           type="Samsara.Framework.Dao.Impl.TextFormatDao, Samsara.Framework.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+
+  <object id="IAbstractQuantityDao"
+          type="Samsara.Framework.Dao.Impl.AbstractQuantityDao, Samsara.Framework.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   
 </objects>
 
