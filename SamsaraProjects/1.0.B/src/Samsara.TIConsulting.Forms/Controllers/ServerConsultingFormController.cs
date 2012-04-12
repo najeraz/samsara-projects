@@ -140,6 +140,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeDetailFormControls()
         {
+            this.frmServerConsulting.cbcDetComputerBrandPreference.Refresh();
             this.frmServerConsulting.rtcDetRackTypePreference.Refresh();
             this.frmServerConsulting.sctcDetServerComputerTypePreference.Refresh();
 
@@ -360,10 +361,16 @@ namespace Samsara.TIConsulting.Forms.Controllers
             if (this.HasServer.Value == AbstractQuantityEnum.One)
             {
                 ServerConsultingOldServerComputer serverConsultingOldServerComputer
-                    = new ServerConsultingOldServerComputer()
-                    {
-                        ServerConsulting = this.serverConsulting
-                    };
+                    = this.serverConsulting.ServerConsultingOldServerComputers.SingleOrDefault();
+
+                if (serverConsultingOldServerComputer == null)
+                {
+                    serverConsultingOldServerComputer = new ServerConsultingOldServerComputer()
+                        {
+                            ServerConsulting = this.serverConsulting
+                        };
+                    this.serverConsulting.ServerConsultingOldServerComputers.Add(serverConsultingOldServerComputer);
+                }
 
                 serverConsultingOldServerComputer.ServersQuantity = 1;
                 serverConsultingOldServerComputer.ComputerBrand = this.frmServerConsulting.cbcDetComputerBrand.Value;
@@ -382,8 +389,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
                     serverConsultingOldServerComputer.ServerSpecs = this.frmServerConsulting.txtDetServerSpecs.Value.ToString();
                 else
                     serverConsultingOldServerComputer.ServerSpecs = null;
-
-                this.serverConsulting.ServerConsultingOldServerComputers.Add(serverConsultingOldServerComputer);
             }
 
             this.srvServerConsulting.SaveOrUpdate(this.serverConsulting);
