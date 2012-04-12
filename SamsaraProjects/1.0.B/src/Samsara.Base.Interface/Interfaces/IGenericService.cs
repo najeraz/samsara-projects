@@ -9,31 +9,31 @@ namespace Samsara.Base.Service.Interfaces
         /// Saves an entity
         /// </summary>
         /// <param name="entity">The entity</param>
-        void Save<T>(T entity);
+        void Save(object entity);
 
         /// <summary>
         /// Saves or updates an entity
         /// </summary>
         /// <param name="entity">The entity</param>
-        void SaveOrUpdate<T>(T entity);
+        void SaveOrUpdate(object entity);
 
         /// <summary>
         /// Updates an entity
         /// </summary>
         /// <param name="entity">The entity</param>
-        void Update<T>(T entity);
+        void Update(object entity);
 
         /// <summary>
         /// Deletes an entity
         /// </summary>
         /// <param name="entity">The entity</param>
-        void Delete<T>(T entity);
+        void Delete(object entity);
 
         /// <summary>
         /// Refresh an entity
         /// </summary>
         /// <param name="entity">The entity</param>
-        void Refresh<T>(T entity);
+        void Refresh(object entity);
 
         #endregion Methods
     }
