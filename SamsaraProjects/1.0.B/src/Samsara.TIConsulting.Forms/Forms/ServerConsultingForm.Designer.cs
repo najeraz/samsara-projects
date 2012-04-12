@@ -64,6 +64,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
+            Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters2 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetOldServerDetail = new Infragistics.Win.Misc.UltraPanel();
             this.ugbxDetServerSpecs = new Infragistics.Win.Misc.UltraGroupBox();
@@ -84,7 +85,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetFirstServer = new Infragistics.Win.Misc.UltraLabel();
             this.uosDetFirstServer = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ultraTabPageControl10 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.scoscDetOldServerComputers = new Samsara.TIConsulting.Controls.Controls.ManyToOne.ServerConsultingOldServerComputersControl();
             this.ultraTabPageControl7 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetActualServers = new Infragistics.Win.Misc.UltraPanel();
             this.ugbxDetHasServer = new Infragistics.Win.Misc.UltraGroupBox();
@@ -99,7 +99,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetArrayDisks = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetArrayDisks = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetBrandPreference = new Infragistics.Win.Misc.UltraGroupBox();
-            this.txtDetBrandPreference = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetFutureStorageVolume = new Infragistics.Win.Misc.UltraGroupBox();
             this.uchkDetFutureStorageVolume = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.txtDetFutureStorageVolume = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
@@ -189,6 +188,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraOptionSet1 = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ultraTabControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage6 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.cbcDetComputerBrandPreference = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
+            this.scoscDetOldServerComputers = new Samsara.TIConsulting.Controls.Controls.ManyToOne.ServerConsultingOldServerComputersControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -229,7 +230,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetArrayDisks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBrandPreference)).BeginInit();
             this.ugbxDetBrandPreference.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetBrandPreference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetFutureStorageVolume)).BeginInit();
             this.ugbxDetFutureStorageVolume.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uchkDetFutureStorageVolume)).BeginInit();
@@ -412,7 +412,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // pnlDetButtons
             // 
             this.pnlDetButtons.Location = new System.Drawing.Point(0, 484);
-            this.pnlDetButtons.Size = new System.Drawing.Size(657, 25);
+            this.pnlDetButtons.Size = new System.Drawing.Size(0, 25);
             this.pnlDetButtons.TabIndex = 1;
             // 
             // btnDetSave
@@ -684,20 +684,10 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl10.Name = "ultraTabPageControl10";
             this.ultraTabPageControl10.Size = new System.Drawing.Size(639, 210);
             // 
-            // scoscDetOldServerComputers
-            // 
-            this.scoscDetOldServerComputers.CustomParent = null;
-            this.scoscDetOldServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoscDetOldServerComputers.Location = new System.Drawing.Point(0, 0);
-            this.scoscDetOldServerComputers.Name = "scoscDetOldServerComputers";
-            this.scoscDetOldServerComputers.ServerConsulting = null;
-            this.scoscDetOldServerComputers.Size = new System.Drawing.Size(639, 210);
-            this.scoscDetOldServerComputers.TabIndex = 0;
-            // 
             // ultraTabPageControl7
             // 
             this.ultraTabPageControl7.Controls.Add(this.upnlDetActualServers);
-            this.ultraTabPageControl7.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl7.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl7.Name = "ultraTabPageControl7";
             this.ultraTabPageControl7.Size = new System.Drawing.Size(643, 310);
             // 
@@ -778,7 +768,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl8
             // 
             this.ultraTabPageControl8.Controls.Add(this.upnlDetGroupA);
-            this.ultraTabPageControl8.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl8.Name = "ultraTabPageControl8";
             this.ultraTabPageControl8.Size = new System.Drawing.Size(643, 310);
             // 
@@ -857,20 +847,12 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             // ugbxDetBrandPreference
             // 
-            this.ugbxDetBrandPreference.Controls.Add(this.txtDetBrandPreference);
+            this.ugbxDetBrandPreference.Controls.Add(this.cbcDetComputerBrandPreference);
             this.ugbxDetBrandPreference.Location = new System.Drawing.Point(325, 134);
             this.ugbxDetBrandPreference.Name = "ugbxDetBrandPreference";
             this.ugbxDetBrandPreference.Size = new System.Drawing.Size(313, 42);
             this.ugbxDetBrandPreference.TabIndex = 11;
             this.ugbxDetBrandPreference.Text = "8.- Tiene alguna preferencia de marca?";
-            // 
-            // txtDetBrandPreference
-            // 
-            this.txtDetBrandPreference.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetBrandPreference.Location = new System.Drawing.Point(3, 16);
-            this.txtDetBrandPreference.Name = "txtDetBrandPreference";
-            this.txtDetBrandPreference.Size = new System.Drawing.Size(307, 21);
-            this.txtDetBrandPreference.TabIndex = 0;
             // 
             // ugbxDetFutureStorageVolume
             // 
@@ -1622,7 +1604,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraCheckEditor1.Dock = System.Windows.Forms.DockStyle.Left;
             this.ultraCheckEditor1.Location = new System.Drawing.Point(61, 29);
             this.ultraCheckEditor1.Name = "ultraCheckEditor1";
-            this.ultraCheckEditor1.Size = new System.Drawing.Size(31, 24);
+            this.ultraCheckEditor1.Size = new System.Drawing.Size(31, 17);
             this.ultraCheckEditor1.TabIndex = 1;
             this.ultraCheckEditor1.Text = "Si";
             // 
@@ -1709,7 +1691,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraCheckEditor2.Dock = System.Windows.Forms.DockStyle.Left;
             this.ultraCheckEditor2.Location = new System.Drawing.Point(61, 29);
             this.ultraCheckEditor2.Name = "ultraCheckEditor2";
-            this.ultraCheckEditor2.Size = new System.Drawing.Size(31, 24);
+            this.ultraCheckEditor2.Size = new System.Drawing.Size(31, 17);
             this.ultraCheckEditor2.TabIndex = 1;
             this.ultraCheckEditor2.Text = "Si";
             // 
@@ -1804,6 +1786,39 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabSharedControlsPage6.Name = "ultraTabSharedControlsPage6";
             this.ultraTabSharedControlsPage6.Size = new System.Drawing.Size(196, 77);
             // 
+            // cbcDetComputerBrandPreference
+            // 
+            this.cbcDetComputerBrandPreference.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Multiple;
+            this.cbcDetComputerBrandPreference.CustomParent = null;
+            this.cbcDetComputerBrandPreference.DisplayMember = "Name";
+            this.cbcDetComputerBrandPreference.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbcDetComputerBrandPreference.Location = new System.Drawing.Point(3, 16);
+            this.cbcDetComputerBrandPreference.Name = "cbcDetComputerBrandPreference";
+            computerBrandParameters2.ComputerBrandId = null;
+            computerBrandParameters2.CreatedBy = null;
+            computerBrandParameters2.CreatedOn = null;
+            computerBrandParameters2.Description = null;
+            computerBrandParameters2.Name = null;
+            computerBrandParameters2.UpdatedBy = null;
+            computerBrandParameters2.UpdatedOn = null;
+            this.cbcDetComputerBrandPreference.Parameters = computerBrandParameters2;
+            this.cbcDetComputerBrandPreference.ReadOnly = false;
+            this.cbcDetComputerBrandPreference.Size = new System.Drawing.Size(307, 23);
+            this.cbcDetComputerBrandPreference.TabIndex = 0;
+            this.cbcDetComputerBrandPreference.Value = null;
+            this.cbcDetComputerBrandPreference.ValueMember = "ComputerBrandId";
+            this.cbcDetComputerBrandPreference.Values = null;
+            // 
+            // scoscDetOldServerComputers
+            // 
+            this.scoscDetOldServerComputers.CustomParent = null;
+            this.scoscDetOldServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoscDetOldServerComputers.Location = new System.Drawing.Point(0, 0);
+            this.scoscDetOldServerComputers.Name = "scoscDetOldServerComputers";
+            this.scoscDetOldServerComputers.ServerConsulting = null;
+            this.scoscDetOldServerComputers.Size = new System.Drawing.Size(639, 210);
+            this.scoscDetOldServerComputers.TabIndex = 0;
+            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1858,8 +1873,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.txtDetArrayDisks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBrandPreference)).EndInit();
             this.ugbxDetBrandPreference.ResumeLayout(false);
-            this.ugbxDetBrandPreference.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetBrandPreference)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetFutureStorageVolume)).EndInit();
             this.ugbxDetFutureStorageVolume.ResumeLayout(false);
             this.ugbxDetFutureStorageVolume.PerformLayout();
@@ -2046,7 +2059,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetServerSpecs;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerSpecs;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetBrandPreference;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetBrandPreference;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFutureStorageVolume;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetFutureStorageVolume;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetFutureStorageVolume;
@@ -2087,6 +2099,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetStatusQUO;
         private Infragistics.Win.Misc.UltraPanel upnlDetActualServers;
         internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetOldServerDetail;
+        internal CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl cbcDetComputerBrandPreference;
 
 
 

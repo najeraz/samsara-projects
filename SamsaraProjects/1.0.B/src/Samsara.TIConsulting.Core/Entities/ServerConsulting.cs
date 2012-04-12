@@ -11,6 +11,7 @@ namespace Samsara.TIConsulting.Core.Entities
     public class ServerConsulting : BaseEntity
     {
         private ISet<ServerConsultingOldServerComputer> serverConsultingOldServerComputers;
+        private ISet<ServerConsultingComputerBrand> serverConsultingComputerBrands;
 
         public ServerConsulting()
         {
@@ -108,12 +109,6 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
-        public virtual string BrandPreference
-        {
-            get;
-            set;
-        }
-
         public virtual Nullable<bool> FullServerUptimeRequired
         {
             get;
@@ -166,6 +161,21 @@ namespace Samsara.TIConsulting.Core.Entities
         {
             get;
             set;
+        }
+
+        public virtual ISet<ServerConsultingComputerBrand> ServerConsultingComputerBrands
+        {
+            get
+            {
+                if (this.serverConsultingComputerBrands == null)
+                    this.serverConsultingComputerBrands = new HashedSet<ServerConsultingComputerBrand>();
+
+                return this.serverConsultingComputerBrands;
+            }
+            set
+            {
+                this.serverConsultingComputerBrands = value;
+            }
         }
 
         public virtual ISet<ServerConsultingOldServerComputer> ServerConsultingOldServerComputers
