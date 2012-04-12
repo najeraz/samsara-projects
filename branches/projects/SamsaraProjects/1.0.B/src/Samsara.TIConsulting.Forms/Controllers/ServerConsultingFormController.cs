@@ -438,7 +438,6 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         private void LoadServerConsultingDetail()
         {
-
             this.frmServerConsulting.txtDetEmail.Value = this.serverConsulting.Email;
             this.frmServerConsulting.txtDetOrganizationName.Value = this.serverConsulting.OrganizationName;
             this.frmServerConsulting.txtDetPhoneNumber.Value = this.serverConsulting.PhoneNumber;
