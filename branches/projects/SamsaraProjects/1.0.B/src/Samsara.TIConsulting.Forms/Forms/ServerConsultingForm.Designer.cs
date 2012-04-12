@@ -44,27 +44,26 @@ namespace Samsara.TIConsulting.Forms.Forms
             Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
             Infragistics.Win.ValueListItem valueListItem4 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem5 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem1 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem2 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem3 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.ValueListItem valueListItem1 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem2 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem3 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem6 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem7 = new Infragistics.Win.ValueListItem();
             Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters2 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerConsultingForm));
-            Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters2 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
-            Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters2 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
-            Infragistics.Win.ValueListItem valueListItem8 = new Infragistics.Win.ValueListItem();
-            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab5 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab6 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab7 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.ValueListItem valueListItem10 = new Infragistics.Win.ValueListItem();
             Infragistics.Win.ValueListItem valueListItem11 = new Infragistics.Win.ValueListItem();
+            Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters2 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
+            Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters serverComputerTypeParameters2 = new Samsara.CustomerContext.Core.Parameters.ServerComputerTypeParameters();
+            Infragistics.Win.ValueListItem valueListItem8 = new Infragistics.Win.ValueListItem();
+            Infragistics.Win.ValueListItem valueListItem9 = new Infragistics.Win.ValueListItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerConsultingForm));
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetOldServerDetail = new Infragistics.Win.Misc.UltraPanel();
             this.ugbxDetServerSpecs = new Infragistics.Win.Misc.UltraGroupBox();
@@ -85,13 +84,13 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetFirstServer = new Infragistics.Win.Misc.UltraLabel();
             this.uosDetFirstServer = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ultraTabPageControl10 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.scoscDetOldServerComputers = new Samsara.TIConsulting.Controls.Controls.ManyToOne.ServerConsultingOldServerComputersControl();
             this.ultraTabPageControl7 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetActualServers = new Infragistics.Win.Misc.UltraPanel();
-            this.ugbxDetHasServer = new Infragistics.Win.Misc.UltraGroupBox();
-            this.uosDetHasServer = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.utabDetOldServerDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.upnlDetHasServer = new Infragistics.Win.Misc.UltraPanel();
+            this.ugbxDetHasServer = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uosDetHasServer = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ultraTabPageControl8 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetGroupA = new Infragistics.Win.Misc.UltraPanel();
             this.ugbxDetFullServerUptimeRequired = new Infragistics.Win.Misc.UltraGroupBox();
@@ -117,31 +116,14 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetServerUsage = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ugbxDetCurrentProblem = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtDetCurrentProblem = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTabPageControl9 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.upnlDetGroupB = new Infragistics.Win.Misc.UltraPanel();
-            this.ugbxDetDataManagement = new Infragistics.Win.Misc.UltraGroupBox();
-            this.uchkDetDataBackup = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.uchkDetDataMigration = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.ugbxDetServerComputerTypePreference = new Infragistics.Win.Misc.UltraGroupBox();
-            this.rtcDetRackTypePreference = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
-            this.sctcDetServerComputerTypePreference = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
-            this.ulblDetRackTypePreference = new Infragistics.Win.Misc.UltraLabel();
-            this.ugbxDetHaveSite = new Infragistics.Win.Misc.UltraGroupBox();
-            this.uosDetHaveSite = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
-            this.ugbxDetBudget = new Infragistics.Win.Misc.UltraGroupBox();
-            this.uchkDetHaveBudget = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
-            this.upnlDetSeparatorHaveBudget = new Infragistics.Win.Misc.UltraPanel();
-            this.txtDetBudget = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ultraTabPageControl5 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upDetServerConsultingDetail = new Infragistics.Win.Misc.UltraPanel();
             this.utabDetStatusQUO = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage4 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.ultraPanel1 = new Infragistics.Win.Misc.UltraPanel();
-            this.ultraPanel2 = new Infragistics.Win.Misc.UltraPanel();
-            this.btnDetNextTab = new System.Windows.Forms.Button();
-            this.ultraPanel3 = new Infragistics.Win.Misc.UltraPanel();
-            this.btnDetPreviousTab = new System.Windows.Forms.Button();
-            this.ultraPanel7 = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetTabsButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparatorTabsButtons = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparatorBtnNextTab = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparatorBtnPreviousTab = new Infragistics.Win.Misc.UltraPanel();
             this.ultraTabPageControl6 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.apDetServerConsultingSummary = new Infragistics.Win.Misc.UltraPanel();
             this.grdDetSummary = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
@@ -190,7 +172,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraOptionSet1 = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ultraTabControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage6 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.upnlDetHasServer = new Infragistics.Win.Misc.UltraPanel();
+            this.ugbxDetDataManagement = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uchkDetDataBackup = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.uchkDetDataMigration = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.ugbxDetServerComputerTypePreference = new Infragistics.Win.Misc.UltraGroupBox();
+            this.rtcDetRackTypePreference = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
+            this.sctcDetServerComputerTypePreference = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
+            this.ulblDetRackTypePreference = new Infragistics.Win.Misc.UltraLabel();
+            this.ugbxDetHaveSite = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uosDetHaveSite = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
+            this.ugbxDetBudget = new Infragistics.Win.Misc.UltraGroupBox();
+            this.uchkDetHaveBudget = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
+            this.upnlDetSeparatorHaveBudget = new Infragistics.Win.Misc.UltraPanel();
+            this.txtDetBudget = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
+            this.scoscDetOldServerComputers = new Samsara.TIConsulting.Controls.Controls.ManyToOne.ServerConsultingOldServerComputersControl();
+            this.ubtnDetNextTab = new Infragistics.Win.Misc.UltraButton();
+            this.ubtnDetPreviousTab = new Infragistics.Win.Misc.UltraButton();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -214,11 +211,13 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl7.SuspendLayout();
             this.upnlDetActualServers.ClientArea.SuspendLayout();
             this.upnlDetActualServers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.utabDetOldServerDetail)).BeginInit();
+            this.utabDetOldServerDetail.SuspendLayout();
+            this.upnlDetHasServer.ClientArea.SuspendLayout();
+            this.upnlDetHasServer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetHasServer)).BeginInit();
             this.ugbxDetHasServer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uosDetHasServer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utabDetOldServerDetail)).BeginInit();
-            this.utabDetOldServerDetail.SuspendLayout();
             this.ultraTabPageControl8.SuspendLayout();
             this.upnlDetGroupA.ClientArea.SuspendLayout();
             this.upnlDetGroupA.SuspendLayout();
@@ -249,32 +248,16 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetCurrentProblem)).BeginInit();
             this.ugbxDetCurrentProblem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetCurrentProblem)).BeginInit();
-            this.ultraTabPageControl9.SuspendLayout();
-            this.upnlDetGroupB.ClientArea.SuspendLayout();
-            this.upnlDetGroupB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetDataManagement)).BeginInit();
-            this.ugbxDetDataManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataBackup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataMigration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerComputerTypePreference)).BeginInit();
-            this.ugbxDetServerComputerTypePreference.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetHaveSite)).BeginInit();
-            this.ugbxDetHaveSite.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uosDetHaveSite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).BeginInit();
-            this.ugbxDetBudget.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetHaveBudget)).BeginInit();
-            this.upnlDetSeparatorHaveBudget.SuspendLayout();
             this.ultraTabPageControl5.SuspendLayout();
             this.upDetServerConsultingDetail.ClientArea.SuspendLayout();
             this.upDetServerConsultingDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utabDetStatusQUO)).BeginInit();
             this.utabDetStatusQUO.SuspendLayout();
-            this.ultraPanel1.ClientArea.SuspendLayout();
-            this.ultraPanel1.SuspendLayout();
-            this.ultraPanel2.SuspendLayout();
-            this.ultraPanel3.SuspendLayout();
-            this.ultraPanel7.SuspendLayout();
+            this.upDetTabsButtons.ClientArea.SuspendLayout();
+            this.upDetTabsButtons.SuspendLayout();
+            this.upDetSeparatorTabsButtons.SuspendLayout();
+            this.upDetSeparatorBtnNextTab.SuspendLayout();
+            this.upDetSeparatorBtnPreviousTab.SuspendLayout();
             this.ultraTabPageControl6.SuspendLayout();
             this.apDetServerConsultingSummary.ClientArea.SuspendLayout();
             this.apDetServerConsultingSummary.SuspendLayout();
@@ -316,8 +299,19 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraGroupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraOptionSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).BeginInit();
-            this.upnlDetHasServer.ClientArea.SuspendLayout();
-            this.upnlDetHasServer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetDataManagement)).BeginInit();
+            this.ugbxDetDataManagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataBackup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataMigration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerComputerTypePreference)).BeginInit();
+            this.ugbxDetServerComputerTypePreference.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetHaveSite)).BeginInit();
+            this.ugbxDetHaveSite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uosDetHaveSite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).BeginInit();
+            this.ugbxDetBudget.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetHaveBudget)).BeginInit();
+            this.upnlDetSeparatorHaveBudget.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -367,35 +361,35 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.grdPrincipal.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.grdPrincipal.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
             this.grdPrincipal.Location = new System.Drawing.Point(0, 101);
-            this.grdPrincipal.Size = new System.Drawing.Size(657, 363);
+            this.grdPrincipal.Size = new System.Drawing.Size(977, 363);
             // 
             // btnSchAccept
             // 
-            this.btnSchAccept.Location = new System.Drawing.Point(111, 0);
+            this.btnSchAccept.Location = new System.Drawing.Point(431, 0);
             // 
             // btnSchClose
             // 
-            this.btnSchClose.Location = new System.Drawing.Point(202, 0);
+            this.btnSchClose.Location = new System.Drawing.Point(522, 0);
             // 
             // btnSchDelete
             // 
-            this.btnSchDelete.Location = new System.Drawing.Point(293, 0);
+            this.btnSchDelete.Location = new System.Drawing.Point(613, 0);
             // 
             // btnSchEdit
             // 
-            this.btnSchEdit.Location = new System.Drawing.Point(475, 0);
+            this.btnSchEdit.Location = new System.Drawing.Point(795, 0);
             // 
             // btnSchCreate
             // 
-            this.btnSchCreate.Location = new System.Drawing.Point(566, 0);
+            this.btnSchCreate.Location = new System.Drawing.Point(886, 0);
             // 
             // btnSchClear
             // 
-            this.btnSchClear.Location = new System.Drawing.Point(475, 0);
+            this.btnSchClear.Location = new System.Drawing.Point(795, 0);
             // 
             // btnSchSearch
             // 
-            this.btnSchSearch.Location = new System.Drawing.Point(566, 0);
+            this.btnSchSearch.Location = new System.Drawing.Point(886, 0);
             // 
             // gbxSchParameters
             // 
@@ -403,43 +397,43 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.gbxSchParameters.Controls.Add(this.ulblSchContact);
             this.gbxSchParameters.Controls.Add(this.txtSchOrganizationName);
             this.gbxSchParameters.Controls.Add(this.ulblSchOrganizationName);
-            this.gbxSchParameters.Size = new System.Drawing.Size(657, 76);
+            this.gbxSchParameters.Size = new System.Drawing.Size(977, 76);
             // 
             // gbxDetDetail
             // 
             this.gbxDetDetail.Controls.Add(this.utabDetServerConsultingDetail);
             this.gbxDetDetail.Controls.Add(this.ugbxDetCustomerData);
-            this.gbxDetDetail.Size = new System.Drawing.Size(657, 484);
+            this.gbxDetDetail.Size = new System.Drawing.Size(977, 484);
             this.gbxDetDetail.TabIndex = 0;
             // 
             // pnlDetButtons
             // 
             this.pnlDetButtons.Location = new System.Drawing.Point(0, 484);
-            this.pnlDetButtons.Size = new System.Drawing.Size(657, 25);
+            this.pnlDetButtons.Size = new System.Drawing.Size(977, 25);
             this.pnlDetButtons.TabIndex = 1;
             // 
             // btnDetSave
             // 
-            this.btnDetSave.Location = new System.Drawing.Point(384, 0);
+            this.btnDetSave.Location = new System.Drawing.Point(704, 0);
             // 
             // btnDetCancel
             // 
-            this.btnDetCancel.Location = new System.Drawing.Point(566, 0);
+            this.btnDetCancel.Location = new System.Drawing.Point(886, 0);
             // 
             // btnSchShowDetail
             // 
-            this.btnSchShowDetail.Location = new System.Drawing.Point(384, 0);
+            this.btnSchShowDetail.Location = new System.Drawing.Point(704, 0);
             // 
             // btnDetBackToSearch
             // 
-            this.btnDetBackToSearch.Location = new System.Drawing.Point(475, 0);
+            this.btnDetBackToSearch.Location = new System.Drawing.Point(795, 0);
             // 
             // ultraTabPageControl3
             // 
             this.ultraTabPageControl3.Controls.Add(this.upnlDetOldServerDetail);
             this.ultraTabPageControl3.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl3.Name = "ultraTabPageControl3";
-            this.ultraTabPageControl3.Size = new System.Drawing.Size(639, 199);
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(959, 199);
             // 
             // upnlDetOldServerDetail
             // 
@@ -451,7 +445,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upnlDetOldServerDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upnlDetOldServerDetail.Location = new System.Drawing.Point(0, 0);
             this.upnlDetOldServerDetail.Name = "upnlDetOldServerDetail";
-            this.upnlDetOldServerDetail.Size = new System.Drawing.Size(639, 199);
+            this.upnlDetOldServerDetail.Size = new System.Drawing.Size(959, 199);
             this.upnlDetOldServerDetail.TabIndex = 0;
             // 
             // ugbxDetServerSpecs
@@ -460,7 +454,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetServerSpecs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ugbxDetServerSpecs.Location = new System.Drawing.Point(327, 0);
             this.ugbxDetServerSpecs.Name = "ugbxDetServerSpecs";
-            this.ugbxDetServerSpecs.Size = new System.Drawing.Size(312, 199);
+            this.ugbxDetServerSpecs.Size = new System.Drawing.Size(632, 199);
             this.ugbxDetServerSpecs.TabIndex = 0;
             this.ugbxDetServerSpecs.Text = "Especificaciones:";
             // 
@@ -470,7 +464,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetServerSpecs.Location = new System.Drawing.Point(3, 16);
             this.txtDetServerSpecs.Multiline = true;
             this.txtDetServerSpecs.Name = "txtDetServerSpecs";
-            this.txtDetServerSpecs.Size = new System.Drawing.Size(306, 180);
+            this.txtDetServerSpecs.Size = new System.Drawing.Size(626, 180);
             this.txtDetServerSpecs.TabIndex = 0;
             // 
             // upnlDetActualServer
@@ -641,7 +635,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl4.Controls.Add(this.upnlDetFirstServer);
             this.ultraTabPageControl4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl4.Name = "ultraTabPageControl4";
-            this.ultraTabPageControl4.Size = new System.Drawing.Size(639, 199);
+            this.ultraTabPageControl4.Size = new System.Drawing.Size(959, 199);
             // 
             // upnlDetFirstServer
             // 
@@ -653,7 +647,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upnlDetFirstServer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upnlDetFirstServer.Location = new System.Drawing.Point(0, 0);
             this.upnlDetFirstServer.Name = "upnlDetFirstServer";
-            this.upnlDetFirstServer.Size = new System.Drawing.Size(639, 199);
+            this.upnlDetFirstServer.Size = new System.Drawing.Size(959, 199);
             this.upnlDetFirstServer.TabIndex = 0;
             // 
             // ulblDetFirstServer
@@ -685,25 +679,14 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl10.Controls.Add(this.scoscDetOldServerComputers);
             this.ultraTabPageControl10.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl10.Name = "ultraTabPageControl10";
-            this.ultraTabPageControl10.Size = new System.Drawing.Size(639, 199);
-            // 
-            // scoscDetOldServerComputers
-            // 
-            this.scoscDetOldServerComputers.CustomParent = null;
-            this.scoscDetOldServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoscDetOldServerComputers.Location = new System.Drawing.Point(0, 0);
-            this.scoscDetOldServerComputers.Name = "scoscDetOldServerComputers";
-            this.scoscDetOldServerComputers.ReadOnly = false;
-            this.scoscDetOldServerComputers.ServerConsulting = null;
-            this.scoscDetOldServerComputers.Size = new System.Drawing.Size(639, 199);
-            this.scoscDetOldServerComputers.TabIndex = 0;
+            this.ultraTabPageControl10.Size = new System.Drawing.Size(959, 199);
             // 
             // ultraTabPageControl7
             // 
             this.ultraTabPageControl7.Controls.Add(this.upnlDetActualServers);
-            this.ultraTabPageControl7.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl7.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl7.Name = "ultraTabPageControl7";
-            this.ultraTabPageControl7.Size = new System.Drawing.Size(643, 310);
+            this.ultraTabPageControl7.Size = new System.Drawing.Size(963, 310);
             // 
             // upnlDetActualServers
             // 
@@ -715,8 +698,53 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upnlDetActualServers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upnlDetActualServers.Location = new System.Drawing.Point(0, 0);
             this.upnlDetActualServers.Name = "upnlDetActualServers";
-            this.upnlDetActualServers.Size = new System.Drawing.Size(643, 310);
+            this.upnlDetActualServers.Size = new System.Drawing.Size(963, 310);
             this.upnlDetActualServers.TabIndex = 0;
+            // 
+            // utabDetOldServerDetail
+            // 
+            this.utabDetOldServerDetail.Controls.Add(this.ultraTabSharedControlsPage2);
+            this.utabDetOldServerDetail.Controls.Add(this.ultraTabPageControl3);
+            this.utabDetOldServerDetail.Controls.Add(this.ultraTabPageControl4);
+            this.utabDetOldServerDetail.Controls.Add(this.ultraTabPageControl10);
+            this.utabDetOldServerDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.utabDetOldServerDetail.Location = new System.Drawing.Point(0, 85);
+            this.utabDetOldServerDetail.Name = "utabDetOldServerDetail";
+            this.utabDetOldServerDetail.SharedControlsPage = this.ultraTabSharedControlsPage2;
+            this.utabDetOldServerDetail.Size = new System.Drawing.Size(963, 225);
+            this.utabDetOldServerDetail.TabIndex = 1;
+            ultraTab1.Key = "ActualServer";
+            ultraTab1.TabPage = this.ultraTabPageControl3;
+            ultraTab1.Text = "Servidor Actual";
+            ultraTab2.Key = "NewServer";
+            ultraTab2.TabPage = this.ultraTabPageControl4;
+            ultraTab2.Text = "Nuevo Servidor";
+            ultraTab2.Visible = false;
+            ultraTab3.Key = "MultipleServers";
+            ultraTab3.TabPage = this.ultraTabPageControl10;
+            ultraTab3.Text = "Servidores Actuales";
+            this.utabDetOldServerDetail.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab1,
+            ultraTab2,
+            ultraTab3});
+            // 
+            // ultraTabSharedControlsPage2
+            // 
+            this.ultraTabSharedControlsPage2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage2.Name = "ultraTabSharedControlsPage2";
+            this.ultraTabSharedControlsPage2.Size = new System.Drawing.Size(959, 199);
+            // 
+            // upnlDetHasServer
+            // 
+            // 
+            // upnlDetHasServer.ClientArea
+            // 
+            this.upnlDetHasServer.ClientArea.Controls.Add(this.ugbxDetHasServer);
+            this.upnlDetHasServer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upnlDetHasServer.Location = new System.Drawing.Point(0, 0);
+            this.upnlDetHasServer.Name = "upnlDetHasServer";
+            this.upnlDetHasServer.Size = new System.Drawing.Size(963, 85);
+            this.upnlDetHasServer.TabIndex = 2;
             // 
             // ugbxDetHasServer
             // 
@@ -746,51 +774,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uosDetHasServer.Size = new System.Drawing.Size(234, 46);
             this.uosDetHasServer.TabIndex = 0;
             // 
-            // utabDetOldServerDetail
-            // 
-            this.utabDetOldServerDetail.Controls.Add(this.ultraTabSharedControlsPage2);
-            this.utabDetOldServerDetail.Controls.Add(this.ultraTabPageControl3);
-            this.utabDetOldServerDetail.Controls.Add(this.ultraTabPageControl4);
-            this.utabDetOldServerDetail.Controls.Add(this.ultraTabPageControl10);
-            this.utabDetOldServerDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.utabDetOldServerDetail.Location = new System.Drawing.Point(0, 85);
-            this.utabDetOldServerDetail.Name = "utabDetOldServerDetail";
-            this.utabDetOldServerDetail.SharedControlsPage = this.ultraTabSharedControlsPage2;
-            this.utabDetOldServerDetail.Size = new System.Drawing.Size(643, 225);
-            this.utabDetOldServerDetail.TabIndex = 1;
-            ultraTab1.Key = "ActualServer";
-            ultraTab1.TabPage = this.ultraTabPageControl3;
-            ultraTab1.Text = "Servidor Actual";
-            ultraTab2.Key = "NewServer";
-            ultraTab2.TabPage = this.ultraTabPageControl4;
-            ultraTab2.Text = "Nuevo Servidor";
-            ultraTab2.Visible = false;
-            ultraTab3.Key = "MultipleServers";
-            ultraTab3.TabPage = this.ultraTabPageControl10;
-            ultraTab3.Text = "Servidores Actuales";
-            this.utabDetOldServerDetail.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
-            ultraTab1,
-            ultraTab2,
-            ultraTab3});
-            // 
-            // ultraTabSharedControlsPage2
-            // 
-            this.ultraTabSharedControlsPage2.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabSharedControlsPage2.Name = "ultraTabSharedControlsPage2";
-            this.ultraTabSharedControlsPage2.Size = new System.Drawing.Size(639, 199);
-            // 
             // ultraTabPageControl8
             // 
             this.ultraTabPageControl8.Controls.Add(this.upnlDetGroupA);
-            this.ultraTabPageControl8.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl8.Name = "ultraTabPageControl8";
-            this.ultraTabPageControl8.Size = new System.Drawing.Size(643, 310);
+            this.ultraTabPageControl8.Size = new System.Drawing.Size(963, 310);
             // 
             // upnlDetGroupA
             // 
             // 
             // upnlDetGroupA.ClientArea
             // 
+            this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetDataManagement);
+            this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetServerComputerTypePreference);
+            this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetHaveSite);
+            this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetBudget);
             this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetFullServerUptimeRequired);
             this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetBrandPreference);
             this.upnlDetGroupA.ClientArea.Controls.Add(this.ugbxDetFutureStorageVolume);
@@ -802,7 +801,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upnlDetGroupA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upnlDetGroupA.Location = new System.Drawing.Point(0, 0);
             this.upnlDetGroupA.Name = "upnlDetGroupA";
-            this.upnlDetGroupA.Size = new System.Drawing.Size(643, 310);
+            this.upnlDetGroupA.Size = new System.Drawing.Size(963, 310);
             this.upnlDetGroupA.TabIndex = 1;
             // 
             // ugbxDetFullServerUptimeRequired
@@ -1056,196 +1055,12 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.txtDetCurrentProblem.Size = new System.Drawing.Size(307, 64);
             this.txtDetCurrentProblem.TabIndex = 0;
             // 
-            // ultraTabPageControl9
-            // 
-            this.ultraTabPageControl9.Controls.Add(this.upnlDetGroupB);
-            this.ultraTabPageControl9.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabPageControl9.Name = "ultraTabPageControl9";
-            this.ultraTabPageControl9.Size = new System.Drawing.Size(643, 310);
-            // 
-            // upnlDetGroupB
-            // 
-            // 
-            // upnlDetGroupB.ClientArea
-            // 
-            this.upnlDetGroupB.ClientArea.Controls.Add(this.ugbxDetDataManagement);
-            this.upnlDetGroupB.ClientArea.Controls.Add(this.ugbxDetServerComputerTypePreference);
-            this.upnlDetGroupB.ClientArea.Controls.Add(this.ugbxDetHaveSite);
-            this.upnlDetGroupB.ClientArea.Controls.Add(this.ugbxDetBudget);
-            this.upnlDetGroupB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.upnlDetGroupB.Location = new System.Drawing.Point(0, 0);
-            this.upnlDetGroupB.Name = "upnlDetGroupB";
-            this.upnlDetGroupB.Size = new System.Drawing.Size(643, 310);
-            this.upnlDetGroupB.TabIndex = 2;
-            // 
-            // ugbxDetDataManagement
-            // 
-            this.ugbxDetDataManagement.Controls.Add(this.uchkDetDataBackup);
-            this.ugbxDetDataManagement.Controls.Add(this.uchkDetDataMigration);
-            this.ugbxDetDataManagement.Location = new System.Drawing.Point(6, 243);
-            this.ugbxDetDataManagement.Name = "ugbxDetDataManagement";
-            this.ugbxDetDataManagement.Size = new System.Drawing.Size(313, 56);
-            this.ugbxDetDataManagement.TabIndex = 16;
-            this.ugbxDetDataManagement.Text = "13.- Manejo de Datos";
-            // 
-            // uchkDetDataBackup
-            // 
-            this.uchkDetDataBackup.AutoSize = true;
-            this.uchkDetDataBackup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uchkDetDataBackup.Location = new System.Drawing.Point(3, 33);
-            this.uchkDetDataBackup.Name = "uchkDetDataBackup";
-            this.uchkDetDataBackup.Size = new System.Drawing.Size(307, 17);
-            this.uchkDetDataBackup.TabIndex = 1;
-            this.uchkDetDataBackup.Text = "Requiere Respaldo de Datos";
-            // 
-            // uchkDetDataMigration
-            // 
-            this.uchkDetDataMigration.AutoSize = true;
-            this.uchkDetDataMigration.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uchkDetDataMigration.Location = new System.Drawing.Point(3, 16);
-            this.uchkDetDataMigration.Name = "uchkDetDataMigration";
-            this.uchkDetDataMigration.Size = new System.Drawing.Size(307, 17);
-            this.uchkDetDataMigration.TabIndex = 0;
-            this.uchkDetDataMigration.Text = "Requiere Migración de Datos";
-            // 
-            // ugbxDetServerComputerTypePreference
-            // 
-            this.ugbxDetServerComputerTypePreference.Controls.Add(this.rtcDetRackTypePreference);
-            this.ugbxDetServerComputerTypePreference.Controls.Add(this.sctcDetServerComputerTypePreference);
-            this.ugbxDetServerComputerTypePreference.Controls.Add(this.ulblDetRackTypePreference);
-            this.ugbxDetServerComputerTypePreference.Location = new System.Drawing.Point(6, 162);
-            this.ugbxDetServerComputerTypePreference.Name = "ugbxDetServerComputerTypePreference";
-            this.ugbxDetServerComputerTypePreference.Size = new System.Drawing.Size(313, 75);
-            this.ugbxDetServerComputerTypePreference.TabIndex = 15;
-            this.ugbxDetServerComputerTypePreference.Text = "12.- Tipo de Servidor que Prefiere el Cliente";
-            // 
-            // rtcDetRackTypePreference
-            // 
-            this.rtcDetRackTypePreference.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.rtcDetRackTypePreference.CustomParent = null;
-            this.rtcDetRackTypePreference.DisplayMember = "Name";
-            this.rtcDetRackTypePreference.Location = new System.Drawing.Point(116, 44);
-            this.rtcDetRackTypePreference.Name = "rtcDetRackTypePreference";
-            rackTypeParameters2.CreatedBy = null;
-            rackTypeParameters2.CreatedOn = null;
-            rackTypeParameters2.Description = null;
-            rackTypeParameters2.Name = null;
-            rackTypeParameters2.RackTypeId = null;
-            rackTypeParameters2.UpdatedBy = null;
-            rackTypeParameters2.UpdatedOn = null;
-            this.rtcDetRackTypePreference.Parameters = rackTypeParameters2;
-            this.rtcDetRackTypePreference.ReadOnly = false;
-            this.rtcDetRackTypePreference.Size = new System.Drawing.Size(194, 22);
-            this.rtcDetRackTypePreference.TabIndex = 4;
-            this.rtcDetRackTypePreference.Value = null;
-            this.rtcDetRackTypePreference.ValueMember = "RackTypeId";
-            this.rtcDetRackTypePreference.Values = null;
-            // 
-            // sctcDetServerComputerTypePreference
-            // 
-            this.sctcDetServerComputerTypePreference.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.sctcDetServerComputerTypePreference.CustomParent = null;
-            this.sctcDetServerComputerTypePreference.DisplayMember = "Name";
-            this.sctcDetServerComputerTypePreference.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sctcDetServerComputerTypePreference.Location = new System.Drawing.Point(3, 16);
-            this.sctcDetServerComputerTypePreference.Name = "sctcDetServerComputerTypePreference";
-            serverComputerTypeParameters2.CreatedBy = null;
-            serverComputerTypeParameters2.CreatedOn = null;
-            serverComputerTypeParameters2.Description = null;
-            serverComputerTypeParameters2.Name = null;
-            serverComputerTypeParameters2.ServerComputerTypeId = null;
-            serverComputerTypeParameters2.UpdatedBy = null;
-            serverComputerTypeParameters2.UpdatedOn = null;
-            this.sctcDetServerComputerTypePreference.Parameters = serverComputerTypeParameters2;
-            this.sctcDetServerComputerTypePreference.ReadOnly = false;
-            this.sctcDetServerComputerTypePreference.Size = new System.Drawing.Size(307, 22);
-            this.sctcDetServerComputerTypePreference.TabIndex = 0;
-            this.sctcDetServerComputerTypePreference.Value = null;
-            this.sctcDetServerComputerTypePreference.ValueMember = "ServerComputerTypeId";
-            this.sctcDetServerComputerTypePreference.Values = null;
-            // 
-            // ulblDetRackTypePreference
-            // 
-            this.ulblDetRackTypePreference.AutoSize = true;
-            this.ulblDetRackTypePreference.Location = new System.Drawing.Point(36, 47);
-            this.ulblDetRackTypePreference.Name = "ulblDetRackTypePreference";
-            this.ulblDetRackTypePreference.Size = new System.Drawing.Size(74, 14);
-            this.ulblDetRackTypePreference.TabIndex = 3;
-            this.ulblDetRackTypePreference.Text = "Tipo de Rack:";
-            // 
-            // ugbxDetHaveSite
-            // 
-            this.ugbxDetHaveSite.Controls.Add(this.uosDetHaveSite);
-            this.ugbxDetHaveSite.Location = new System.Drawing.Point(6, 71);
-            this.ugbxDetHaveSite.Name = "ugbxDetHaveSite";
-            this.ugbxDetHaveSite.Size = new System.Drawing.Size(313, 85);
-            this.ugbxDetHaveSite.TabIndex = 14;
-            this.ugbxDetHaveSite.Text = "11.- Cuenta con un Site(lugar dedicado idealmente con temperatura Fria) y  Rack p" +
-                "ara sus equipos de infraestructura?";
-            // 
-            // uosDetHaveSite
-            // 
-            valueListItem8.CheckState = System.Windows.Forms.CheckState.Checked;
-            valueListItem8.DataValue = true;
-            valueListItem8.DisplayText = "Si";
-            valueListItem9.DataValue = false;
-            valueListItem9.DisplayText = "No";
-            this.uosDetHaveSite.Items.AddRange(new Infragistics.Win.ValueListItem[] {
-            valueListItem8,
-            valueListItem9});
-            this.uosDetHaveSite.Location = new System.Drawing.Point(16, 44);
-            this.uosDetHaveSite.Name = "uosDetHaveSite";
-            this.uosDetHaveSite.Size = new System.Drawing.Size(39, 32);
-            this.uosDetHaveSite.TabIndex = 0;
-            // 
-            // ugbxDetBudget
-            // 
-            this.ugbxDetBudget.Controls.Add(this.uchkDetHaveBudget);
-            this.ugbxDetBudget.Controls.Add(this.upnlDetSeparatorHaveBudget);
-            this.ugbxDetBudget.Controls.Add(this.txtDetBudget);
-            this.ugbxDetBudget.Location = new System.Drawing.Point(6, 10);
-            this.ugbxDetBudget.Name = "ugbxDetBudget";
-            this.ugbxDetBudget.Size = new System.Drawing.Size(313, 55);
-            this.ugbxDetBudget.TabIndex = 13;
-            this.ugbxDetBudget.Text = "10.- Cuentan con algun presupuesto asignado para el equipo?";
-            // 
-            // uchkDetHaveBudget
-            // 
-            this.uchkDetHaveBudget.AutoSize = true;
-            this.uchkDetHaveBudget.Dock = System.Windows.Forms.DockStyle.Left;
-            this.uchkDetHaveBudget.Location = new System.Drawing.Point(61, 29);
-            this.uchkDetHaveBudget.Name = "uchkDetHaveBudget";
-            this.uchkDetHaveBudget.Size = new System.Drawing.Size(31, 23);
-            this.uchkDetHaveBudget.TabIndex = 1;
-            this.uchkDetHaveBudget.Text = "Si";
-            // 
-            // upnlDetSeparatorHaveBudget
-            // 
-            this.upnlDetSeparatorHaveBudget.Dock = System.Windows.Forms.DockStyle.Left;
-            this.upnlDetSeparatorHaveBudget.Location = new System.Drawing.Point(3, 29);
-            this.upnlDetSeparatorHaveBudget.Name = "upnlDetSeparatorHaveBudget";
-            this.upnlDetSeparatorHaveBudget.Size = new System.Drawing.Size(58, 23);
-            this.upnlDetSeparatorHaveBudget.TabIndex = 0;
-            // 
-            // txtDetBudget
-            // 
-            this.txtDetBudget.CustomParent = null;
-            this.txtDetBudget.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtDetBudget.Location = new System.Drawing.Point(192, 29);
-            this.txtDetBudget.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
-            this.txtDetBudget.MeasurementFileUnit = "GB";
-            this.txtDetBudget.Name = "txtDetBudget";
-            this.txtDetBudget.ReadOnly = false;
-            this.txtDetBudget.Size = new System.Drawing.Size(118, 23);
-            this.txtDetBudget.TabIndex = 2;
-            this.txtDetBudget.Value = ((object)(resources.GetObject("txtDetBudget.Value")));
-            // 
             // ultraTabPageControl5
             // 
             this.ultraTabPageControl5.Controls.Add(this.upDetServerConsultingDetail);
             this.ultraTabPageControl5.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl5.Name = "ultraTabPageControl5";
-            this.ultraTabPageControl5.Size = new System.Drawing.Size(647, 361);
+            this.ultraTabPageControl5.Size = new System.Drawing.Size(967, 361);
             // 
             // upDetServerConsultingDetail
             // 
@@ -1253,11 +1068,11 @@ namespace Samsara.TIConsulting.Forms.Forms
             // upDetServerConsultingDetail.ClientArea
             // 
             this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.utabDetStatusQUO);
-            this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.ultraPanel1);
+            this.upDetServerConsultingDetail.ClientArea.Controls.Add(this.upDetTabsButtons);
             this.upDetServerConsultingDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.upDetServerConsultingDetail.Location = new System.Drawing.Point(0, 0);
             this.upDetServerConsultingDetail.Name = "upDetServerConsultingDetail";
-            this.upDetServerConsultingDetail.Size = new System.Drawing.Size(647, 361);
+            this.upDetServerConsultingDetail.Size = new System.Drawing.Size(967, 361);
             this.upDetServerConsultingDetail.TabIndex = 0;
             // 
             // utabDetStatusQUO
@@ -1265,12 +1080,11 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetStatusQUO.Controls.Add(this.ultraTabSharedControlsPage4);
             this.utabDetStatusQUO.Controls.Add(this.ultraTabPageControl7);
             this.utabDetStatusQUO.Controls.Add(this.ultraTabPageControl8);
-            this.utabDetStatusQUO.Controls.Add(this.ultraTabPageControl9);
             this.utabDetStatusQUO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.utabDetStatusQUO.Location = new System.Drawing.Point(0, 0);
             this.utabDetStatusQUO.Name = "utabDetStatusQUO";
             this.utabDetStatusQUO.SharedControlsPage = this.ultraTabSharedControlsPage4;
-            this.utabDetStatusQUO.Size = new System.Drawing.Size(647, 336);
+            this.utabDetStatusQUO.Size = new System.Drawing.Size(967, 336);
             this.utabDetStatusQUO.TabIndex = 0;
             ultraTab4.Key = "ActualServers";
             ultraTab4.TabPage = this.ultraTabPageControl7;
@@ -1278,83 +1092,59 @@ namespace Samsara.TIConsulting.Forms.Forms
             ultraTab5.Key = "GroupA";
             ultraTab5.TabPage = this.ultraTabPageControl8;
             ultraTab5.Text = "Pagina 2";
-            ultraTab6.Key = "GroupB";
-            ultraTab6.TabPage = this.ultraTabPageControl9;
-            ultraTab6.Text = "Pagina 3";
             this.utabDetStatusQUO.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
             ultraTab4,
-            ultraTab5,
-            ultraTab6});
+            ultraTab5});
             // 
             // ultraTabSharedControlsPage4
             // 
             this.ultraTabSharedControlsPage4.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage4.Name = "ultraTabSharedControlsPage4";
-            this.ultraTabSharedControlsPage4.Size = new System.Drawing.Size(643, 310);
+            this.ultraTabSharedControlsPage4.Size = new System.Drawing.Size(963, 310);
             // 
-            // ultraPanel1
+            // upDetTabsButtons
             // 
             // 
-            // ultraPanel1.ClientArea
+            // upDetTabsButtons.ClientArea
             // 
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraPanel2);
-            this.ultraPanel1.ClientArea.Controls.Add(this.btnDetNextTab);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraPanel3);
-            this.ultraPanel1.ClientArea.Controls.Add(this.btnDetPreviousTab);
-            this.ultraPanel1.ClientArea.Controls.Add(this.ultraPanel7);
-            this.ultraPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ultraPanel1.Location = new System.Drawing.Point(0, 336);
-            this.ultraPanel1.Name = "ultraPanel1";
-            this.ultraPanel1.Size = new System.Drawing.Size(647, 25);
-            this.ultraPanel1.TabIndex = 1;
+            this.upDetTabsButtons.ClientArea.Controls.Add(this.ubtnDetPreviousTab);
+            this.upDetTabsButtons.ClientArea.Controls.Add(this.ubtnDetNextTab);
+            this.upDetTabsButtons.ClientArea.Controls.Add(this.upDetSeparatorTabsButtons);
+            this.upDetTabsButtons.ClientArea.Controls.Add(this.upDetSeparatorBtnNextTab);
+            this.upDetTabsButtons.ClientArea.Controls.Add(this.upDetSeparatorBtnPreviousTab);
+            this.upDetTabsButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.upDetTabsButtons.Location = new System.Drawing.Point(0, 336);
+            this.upDetTabsButtons.Name = "upDetTabsButtons";
+            this.upDetTabsButtons.Size = new System.Drawing.Size(967, 25);
+            this.upDetTabsButtons.TabIndex = 1;
             // 
-            // ultraPanel2
+            // upDetSeparatorTabsButtons
             // 
-            this.ultraPanel2.Location = new System.Drawing.Point(444, 0);
-            this.ultraPanel2.Name = "ultraPanel2";
-            this.ultraPanel2.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel2.TabIndex = 4;
+            this.upDetSeparatorTabsButtons.Location = new System.Drawing.Point(604, 0);
+            this.upDetSeparatorTabsButtons.Name = "upDetSeparatorTabsButtons";
+            this.upDetSeparatorTabsButtons.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorTabsButtons.TabIndex = 4;
             // 
-            // btnDetNextTab
+            // upDetSeparatorBtnNextTab
             // 
-            this.btnDetNextTab.Location = new System.Drawing.Point(331, 0);
-            this.btnDetNextTab.Name = "btnDetNextTab";
-            this.btnDetNextTab.Size = new System.Drawing.Size(113, 25);
-            this.btnDetNextTab.TabIndex = 3;
-            this.btnDetNextTab.Text = ">> Siguiente >>";
-            this.btnDetNextTab.UseVisualStyleBackColor = true;
-            this.btnDetNextTab.Click += new System.EventHandler(this.btnClick);
+            this.upDetSeparatorBtnNextTab.Location = new System.Drawing.Point(475, 0);
+            this.upDetSeparatorBtnNextTab.Name = "upDetSeparatorBtnNextTab";
+            this.upDetSeparatorBtnNextTab.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorBtnNextTab.TabIndex = 2;
             // 
-            // ultraPanel3
+            // upDetSeparatorBtnPreviousTab
             // 
-            this.ultraPanel3.Location = new System.Drawing.Point(315, 0);
-            this.ultraPanel3.Name = "ultraPanel3";
-            this.ultraPanel3.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel3.TabIndex = 2;
-            // 
-            // btnDetPreviousTab
-            // 
-            this.btnDetPreviousTab.Location = new System.Drawing.Point(202, 0);
-            this.btnDetPreviousTab.Name = "btnDetPreviousTab";
-            this.btnDetPreviousTab.Size = new System.Drawing.Size(113, 25);
-            this.btnDetPreviousTab.TabIndex = 1;
-            this.btnDetPreviousTab.Text = "<< Anterior <<";
-            this.btnDetPreviousTab.UseVisualStyleBackColor = true;
-            this.btnDetPreviousTab.Click += new System.EventHandler(this.btnClick);
-            // 
-            // ultraPanel7
-            // 
-            this.ultraPanel7.Location = new System.Drawing.Point(186, 0);
-            this.ultraPanel7.Name = "ultraPanel7";
-            this.ultraPanel7.Size = new System.Drawing.Size(16, 25);
-            this.ultraPanel7.TabIndex = 0;
+            this.upDetSeparatorBtnPreviousTab.Location = new System.Drawing.Point(346, 0);
+            this.upDetSeparatorBtnPreviousTab.Name = "upDetSeparatorBtnPreviousTab";
+            this.upDetSeparatorBtnPreviousTab.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorBtnPreviousTab.TabIndex = 0;
             // 
             // ultraTabPageControl6
             // 
             this.ultraTabPageControl6.Controls.Add(this.apDetServerConsultingSummary);
             this.ultraTabPageControl6.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl6.Name = "ultraTabPageControl6";
-            this.ultraTabPageControl6.Size = new System.Drawing.Size(647, 361);
+            this.ultraTabPageControl6.Size = new System.Drawing.Size(967, 361);
             // 
             // apDetServerConsultingSummary
             // 
@@ -1366,7 +1156,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.apDetServerConsultingSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.apDetServerConsultingSummary.Location = new System.Drawing.Point(0, 0);
             this.apDetServerConsultingSummary.Name = "apDetServerConsultingSummary";
-            this.apDetServerConsultingSummary.Size = new System.Drawing.Size(647, 361);
+            this.apDetServerConsultingSummary.Size = new System.Drawing.Size(967, 361);
             this.apDetServerConsultingSummary.TabIndex = 1;
             // 
             // grdDetSummary
@@ -1376,7 +1166,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.grdDetSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdDetSummary.Location = new System.Drawing.Point(0, 0);
             this.grdDetSummary.Name = "grdDetSummary";
-            this.grdDetSummary.Size = new System.Drawing.Size(647, 336);
+            this.grdDetSummary.Size = new System.Drawing.Size(967, 336);
             this.grdDetSummary.TabIndex = 0;
             // 
             // upnlDetSummaryButtons
@@ -1392,7 +1182,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upnlDetSummaryButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.upnlDetSummaryButtons.Location = new System.Drawing.Point(0, 336);
             this.upnlDetSummaryButtons.Name = "upnlDetSummaryButtons";
-            this.upnlDetSummaryButtons.Size = new System.Drawing.Size(647, 25);
+            this.upnlDetSummaryButtons.Size = new System.Drawing.Size(967, 25);
             this.upnlDetSummaryButtons.TabIndex = 1;
             // 
             // upDetSeparatorBtnCopySummary
@@ -1481,7 +1271,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetCustomerData.Dock = System.Windows.Forms.DockStyle.Top;
             this.ugbxDetCustomerData.Location = new System.Drawing.Point(3, 16);
             this.ugbxDetCustomerData.Name = "ugbxDetCustomerData";
-            this.ugbxDetCustomerData.Size = new System.Drawing.Size(651, 78);
+            this.ugbxDetCustomerData.Size = new System.Drawing.Size(971, 78);
             this.ugbxDetCustomerData.TabIndex = 0;
             this.ugbxDetCustomerData.Text = "Datos del Cliente:";
             // 
@@ -1557,7 +1347,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.utabDetServerConsultingDetail.Location = new System.Drawing.Point(3, 94);
             this.utabDetServerConsultingDetail.Name = "utabDetServerConsultingDetail";
             this.utabDetServerConsultingDetail.SharedControlsPage = this.ultraTabSharedControlsPage3;
-            this.utabDetServerConsultingDetail.Size = new System.Drawing.Size(651, 387);
+            this.utabDetServerConsultingDetail.Size = new System.Drawing.Size(971, 387);
             this.utabDetServerConsultingDetail.TabIndex = 1;
             ultraTab7.Key = "StatusQUO";
             ultraTab7.TabPage = this.ultraTabPageControl5;
@@ -1573,7 +1363,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.ultraTabSharedControlsPage3.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage3.Name = "ultraTabSharedControlsPage3";
-            this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(647, 361);
+            this.ultraTabSharedControlsPage3.Size = new System.Drawing.Size(967, 361);
             // 
             // txtSchOrganizationName
             // 
@@ -1823,23 +1613,202 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabSharedControlsPage6.Name = "ultraTabSharedControlsPage6";
             this.ultraTabSharedControlsPage6.Size = new System.Drawing.Size(196, 77);
             // 
-            // upnlDetHasServer
+            // ugbxDetDataManagement
             // 
+            this.ugbxDetDataManagement.Controls.Add(this.uchkDetDataBackup);
+            this.ugbxDetDataManagement.Controls.Add(this.uchkDetDataMigration);
+            this.ugbxDetDataManagement.Location = new System.Drawing.Point(644, 243);
+            this.ugbxDetDataManagement.Name = "ugbxDetDataManagement";
+            this.ugbxDetDataManagement.Size = new System.Drawing.Size(313, 56);
+            this.ugbxDetDataManagement.TabIndex = 20;
+            this.ugbxDetDataManagement.Text = "13.- Manejo de Datos";
             // 
-            // upnlDetHasServer.ClientArea
+            // uchkDetDataBackup
             // 
-            this.upnlDetHasServer.ClientArea.Controls.Add(this.ugbxDetHasServer);
-            this.upnlDetHasServer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.upnlDetHasServer.Location = new System.Drawing.Point(0, 0);
-            this.upnlDetHasServer.Name = "upnlDetHasServer";
-            this.upnlDetHasServer.Size = new System.Drawing.Size(643, 85);
-            this.upnlDetHasServer.TabIndex = 2;
+            this.uchkDetDataBackup.AutoSize = true;
+            this.uchkDetDataBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uchkDetDataBackup.Location = new System.Drawing.Point(3, 33);
+            this.uchkDetDataBackup.Name = "uchkDetDataBackup";
+            this.uchkDetDataBackup.Size = new System.Drawing.Size(307, 17);
+            this.uchkDetDataBackup.TabIndex = 1;
+            this.uchkDetDataBackup.Text = "Requiere Respaldo de Datos";
+            // 
+            // uchkDetDataMigration
+            // 
+            this.uchkDetDataMigration.AutoSize = true;
+            this.uchkDetDataMigration.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uchkDetDataMigration.Location = new System.Drawing.Point(3, 16);
+            this.uchkDetDataMigration.Name = "uchkDetDataMigration";
+            this.uchkDetDataMigration.Size = new System.Drawing.Size(307, 17);
+            this.uchkDetDataMigration.TabIndex = 0;
+            this.uchkDetDataMigration.Text = "Requiere Migración de Datos";
+            // 
+            // ugbxDetServerComputerTypePreference
+            // 
+            this.ugbxDetServerComputerTypePreference.Controls.Add(this.rtcDetRackTypePreference);
+            this.ugbxDetServerComputerTypePreference.Controls.Add(this.sctcDetServerComputerTypePreference);
+            this.ugbxDetServerComputerTypePreference.Controls.Add(this.ulblDetRackTypePreference);
+            this.ugbxDetServerComputerTypePreference.Location = new System.Drawing.Point(644, 162);
+            this.ugbxDetServerComputerTypePreference.Name = "ugbxDetServerComputerTypePreference";
+            this.ugbxDetServerComputerTypePreference.Size = new System.Drawing.Size(313, 75);
+            this.ugbxDetServerComputerTypePreference.TabIndex = 19;
+            this.ugbxDetServerComputerTypePreference.Text = "12.- Tipo de Servidor que Prefiere el Cliente";
+            // 
+            // rtcDetRackTypePreference
+            // 
+            this.rtcDetRackTypePreference.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.rtcDetRackTypePreference.CustomParent = null;
+            this.rtcDetRackTypePreference.DisplayMember = "Name";
+            this.rtcDetRackTypePreference.Location = new System.Drawing.Point(116, 44);
+            this.rtcDetRackTypePreference.Name = "rtcDetRackTypePreference";
+            rackTypeParameters2.CreatedBy = null;
+            rackTypeParameters2.CreatedOn = null;
+            rackTypeParameters2.Description = null;
+            rackTypeParameters2.Name = null;
+            rackTypeParameters2.RackTypeId = null;
+            rackTypeParameters2.UpdatedBy = null;
+            rackTypeParameters2.UpdatedOn = null;
+            this.rtcDetRackTypePreference.Parameters = rackTypeParameters2;
+            this.rtcDetRackTypePreference.ReadOnly = false;
+            this.rtcDetRackTypePreference.Size = new System.Drawing.Size(194, 22);
+            this.rtcDetRackTypePreference.TabIndex = 4;
+            this.rtcDetRackTypePreference.Value = null;
+            this.rtcDetRackTypePreference.ValueMember = "RackTypeId";
+            this.rtcDetRackTypePreference.Values = null;
+            // 
+            // sctcDetServerComputerTypePreference
+            // 
+            this.sctcDetServerComputerTypePreference.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.sctcDetServerComputerTypePreference.CustomParent = null;
+            this.sctcDetServerComputerTypePreference.DisplayMember = "Name";
+            this.sctcDetServerComputerTypePreference.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sctcDetServerComputerTypePreference.Location = new System.Drawing.Point(3, 16);
+            this.sctcDetServerComputerTypePreference.Name = "sctcDetServerComputerTypePreference";
+            serverComputerTypeParameters2.CreatedBy = null;
+            serverComputerTypeParameters2.CreatedOn = null;
+            serverComputerTypeParameters2.Description = null;
+            serverComputerTypeParameters2.Name = null;
+            serverComputerTypeParameters2.ServerComputerTypeId = null;
+            serverComputerTypeParameters2.UpdatedBy = null;
+            serverComputerTypeParameters2.UpdatedOn = null;
+            this.sctcDetServerComputerTypePreference.Parameters = serverComputerTypeParameters2;
+            this.sctcDetServerComputerTypePreference.ReadOnly = false;
+            this.sctcDetServerComputerTypePreference.Size = new System.Drawing.Size(307, 22);
+            this.sctcDetServerComputerTypePreference.TabIndex = 0;
+            this.sctcDetServerComputerTypePreference.Value = null;
+            this.sctcDetServerComputerTypePreference.ValueMember = "ServerComputerTypeId";
+            this.sctcDetServerComputerTypePreference.Values = null;
+            // 
+            // ulblDetRackTypePreference
+            // 
+            this.ulblDetRackTypePreference.AutoSize = true;
+            this.ulblDetRackTypePreference.Location = new System.Drawing.Point(36, 47);
+            this.ulblDetRackTypePreference.Name = "ulblDetRackTypePreference";
+            this.ulblDetRackTypePreference.Size = new System.Drawing.Size(74, 14);
+            this.ulblDetRackTypePreference.TabIndex = 3;
+            this.ulblDetRackTypePreference.Text = "Tipo de Rack:";
+            // 
+            // ugbxDetHaveSite
+            // 
+            this.ugbxDetHaveSite.Controls.Add(this.uosDetHaveSite);
+            this.ugbxDetHaveSite.Location = new System.Drawing.Point(644, 71);
+            this.ugbxDetHaveSite.Name = "ugbxDetHaveSite";
+            this.ugbxDetHaveSite.Size = new System.Drawing.Size(313, 85);
+            this.ugbxDetHaveSite.TabIndex = 18;
+            this.ugbxDetHaveSite.Text = "11.- Cuenta con un Site(lugar dedicado idealmente con temperatura Fria) y  Rack p" +
+                "ara sus equipos de infraestructura?";
+            // 
+            // uosDetHaveSite
+            // 
+            valueListItem8.CheckState = System.Windows.Forms.CheckState.Checked;
+            valueListItem8.DataValue = true;
+            valueListItem8.DisplayText = "Si";
+            valueListItem9.DataValue = false;
+            valueListItem9.DisplayText = "No";
+            this.uosDetHaveSite.Items.AddRange(new Infragistics.Win.ValueListItem[] {
+            valueListItem8,
+            valueListItem9});
+            this.uosDetHaveSite.Location = new System.Drawing.Point(16, 44);
+            this.uosDetHaveSite.Name = "uosDetHaveSite";
+            this.uosDetHaveSite.Size = new System.Drawing.Size(39, 32);
+            this.uosDetHaveSite.TabIndex = 0;
+            // 
+            // ugbxDetBudget
+            // 
+            this.ugbxDetBudget.Controls.Add(this.uchkDetHaveBudget);
+            this.ugbxDetBudget.Controls.Add(this.upnlDetSeparatorHaveBudget);
+            this.ugbxDetBudget.Controls.Add(this.txtDetBudget);
+            this.ugbxDetBudget.Location = new System.Drawing.Point(644, 10);
+            this.ugbxDetBudget.Name = "ugbxDetBudget";
+            this.ugbxDetBudget.Size = new System.Drawing.Size(313, 55);
+            this.ugbxDetBudget.TabIndex = 17;
+            this.ugbxDetBudget.Text = "10.- Cuentan con algun presupuesto asignado para el equipo?";
+            // 
+            // uchkDetHaveBudget
+            // 
+            this.uchkDetHaveBudget.AutoSize = true;
+            this.uchkDetHaveBudget.Dock = System.Windows.Forms.DockStyle.Left;
+            this.uchkDetHaveBudget.Location = new System.Drawing.Point(61, 29);
+            this.uchkDetHaveBudget.Name = "uchkDetHaveBudget";
+            this.uchkDetHaveBudget.Size = new System.Drawing.Size(31, 23);
+            this.uchkDetHaveBudget.TabIndex = 1;
+            this.uchkDetHaveBudget.Text = "Si";
+            // 
+            // upnlDetSeparatorHaveBudget
+            // 
+            this.upnlDetSeparatorHaveBudget.Dock = System.Windows.Forms.DockStyle.Left;
+            this.upnlDetSeparatorHaveBudget.Location = new System.Drawing.Point(3, 29);
+            this.upnlDetSeparatorHaveBudget.Name = "upnlDetSeparatorHaveBudget";
+            this.upnlDetSeparatorHaveBudget.Size = new System.Drawing.Size(58, 23);
+            this.upnlDetSeparatorHaveBudget.TabIndex = 0;
+            // 
+            // txtDetBudget
+            // 
+            this.txtDetBudget.CustomParent = null;
+            this.txtDetBudget.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtDetBudget.Location = new System.Drawing.Point(192, 29);
+            this.txtDetBudget.MaskType = Samsara.Framework.Core.Enums.TextFormatEnum.Currency;
+            this.txtDetBudget.MeasurementFileUnit = "GB";
+            this.txtDetBudget.Name = "txtDetBudget";
+            this.txtDetBudget.ReadOnly = false;
+            this.txtDetBudget.Size = new System.Drawing.Size(118, 23);
+            this.txtDetBudget.TabIndex = 2;
+            this.txtDetBudget.Value = ((object)(resources.GetObject("txtDetBudget.Value")));
+            // 
+            // scoscDetOldServerComputers
+            // 
+            this.scoscDetOldServerComputers.CustomParent = null;
+            this.scoscDetOldServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoscDetOldServerComputers.Location = new System.Drawing.Point(0, 0);
+            this.scoscDetOldServerComputers.Name = "scoscDetOldServerComputers";
+            this.scoscDetOldServerComputers.ReadOnly = false;
+            this.scoscDetOldServerComputers.ServerConsulting = null;
+            this.scoscDetOldServerComputers.Size = new System.Drawing.Size(959, 199);
+            this.scoscDetOldServerComputers.TabIndex = 0;
+            // 
+            // ubtnDetNextTab
+            // 
+            this.ubtnDetNextTab.Location = new System.Drawing.Point(491, 0);
+            this.ubtnDetNextTab.Name = "ubtnDetNextTab";
+            this.ubtnDetNextTab.Size = new System.Drawing.Size(113, 25);
+            this.ubtnDetNextTab.TabIndex = 5;
+            this.ubtnDetNextTab.Text = ">> Siguiente >>";
+            this.ubtnDetNextTab.Click += new System.EventHandler(this.btnClick);
+            // 
+            // ubtnDetPreviousTab
+            // 
+            this.ubtnDetPreviousTab.Location = new System.Drawing.Point(362, 0);
+            this.ubtnDetPreviousTab.Name = "ubtnDetPreviousTab";
+            this.ubtnDetPreviousTab.Size = new System.Drawing.Size(113, 25);
+            this.ubtnDetPreviousTab.TabIndex = 5;
+            this.ubtnDetPreviousTab.Text = "<< Anterior <<";
+            this.ubtnDetPreviousTab.Click += new System.EventHandler(this.btnClick);
             // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 535);
+            this.ClientSize = new System.Drawing.Size(981, 535);
             this.Name = "ServerConsultingForm";
             this.Text = "ServerConsultingForm";
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).EndInit();
@@ -1870,11 +1839,13 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl7.ResumeLayout(false);
             this.upnlDetActualServers.ClientArea.ResumeLayout(false);
             this.upnlDetActualServers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utabDetOldServerDetail)).EndInit();
+            this.utabDetOldServerDetail.ResumeLayout(false);
+            this.upnlDetHasServer.ClientArea.ResumeLayout(false);
+            this.upnlDetHasServer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ugbxDetHasServer)).EndInit();
             this.ugbxDetHasServer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uosDetHasServer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utabDetOldServerDetail)).EndInit();
-            this.utabDetOldServerDetail.ResumeLayout(false);
             this.ultraTabPageControl8.ResumeLayout(false);
             this.upnlDetGroupA.ClientArea.ResumeLayout(false);
             this.upnlDetGroupA.ResumeLayout(false);
@@ -1911,35 +1882,16 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ugbxDetCurrentProblem.ResumeLayout(false);
             this.ugbxDetCurrentProblem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDetCurrentProblem)).EndInit();
-            this.ultraTabPageControl9.ResumeLayout(false);
-            this.upnlDetGroupB.ClientArea.ResumeLayout(false);
-            this.upnlDetGroupB.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetDataManagement)).EndInit();
-            this.ugbxDetDataManagement.ResumeLayout(false);
-            this.ugbxDetDataManagement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataBackup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataMigration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerComputerTypePreference)).EndInit();
-            this.ugbxDetServerComputerTypePreference.ResumeLayout(false);
-            this.ugbxDetServerComputerTypePreference.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetHaveSite)).EndInit();
-            this.ugbxDetHaveSite.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uosDetHaveSite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).EndInit();
-            this.ugbxDetBudget.ResumeLayout(false);
-            this.ugbxDetBudget.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uchkDetHaveBudget)).EndInit();
-            this.upnlDetSeparatorHaveBudget.ResumeLayout(false);
             this.ultraTabPageControl5.ResumeLayout(false);
             this.upDetServerConsultingDetail.ClientArea.ResumeLayout(false);
             this.upDetServerConsultingDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.utabDetStatusQUO)).EndInit();
             this.utabDetStatusQUO.ResumeLayout(false);
-            this.ultraPanel1.ClientArea.ResumeLayout(false);
-            this.ultraPanel1.ResumeLayout(false);
-            this.ultraPanel2.ResumeLayout(false);
-            this.ultraPanel3.ResumeLayout(false);
-            this.ultraPanel7.ResumeLayout(false);
+            this.upDetTabsButtons.ClientArea.ResumeLayout(false);
+            this.upDetTabsButtons.ResumeLayout(false);
+            this.upDetSeparatorTabsButtons.ResumeLayout(false);
+            this.upDetSeparatorBtnNextTab.ResumeLayout(false);
+            this.upDetSeparatorBtnPreviousTab.ResumeLayout(false);
             this.ultraTabPageControl6.ResumeLayout(false);
             this.apDetServerConsultingSummary.ClientArea.ResumeLayout(false);
             this.apDetServerConsultingSummary.ResumeLayout(false);
@@ -1985,8 +1937,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraGroupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraOptionSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).EndInit();
-            this.upnlDetHasServer.ClientArea.ResumeLayout(false);
-            this.upnlDetHasServer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetDataManagement)).EndInit();
+            this.ugbxDetDataManagement.ResumeLayout(false);
+            this.ugbxDetDataManagement.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataBackup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetDataMigration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetServerComputerTypePreference)).EndInit();
+            this.ugbxDetServerComputerTypePreference.ResumeLayout(false);
+            this.ugbxDetServerComputerTypePreference.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetHaveSite)).EndInit();
+            this.ugbxDetHaveSite.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uosDetHaveSite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ugbxDetBudget)).EndInit();
+            this.ugbxDetBudget.ResumeLayout(false);
+            this.ugbxDetBudget.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uchkDetHaveBudget)).EndInit();
+            this.upnlDetSeparatorHaveBudget.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2032,8 +1998,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage4;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl7;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl8;
-        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl9;
-        private Infragistics.Win.Misc.UltraPanel upnlDetGroupB;
         internal Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
         internal Infragistics.Win.Misc.UltraGroupBox ultraGroupBox2;
@@ -2089,6 +2053,21 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Base.Controls.Controls.SamsaraTextEditor txtDetNumberOfUsersWillGrow;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetCurrentStorageVolume;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetCurrentStorageVolume;
+        private Infragistics.Win.Misc.UltraPanel upnlDetActualServer;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFullServerUptimeRequired;
+        internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetFullServerUptimeRequired;
+        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetRedundantPowerSupply;
+        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetArrayDisks;
+        private Infragistics.Win.Misc.UltraPanel upDetTabsButtons;
+        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorTabsButtons;
+        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnNextTab;
+        private Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnPreviousTab;
+        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetStatusQUO;
+        private Infragistics.Win.Misc.UltraPanel upnlDetActualServers;
+        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetOldServerDetail;
+        internal CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl cbcDetComputerBrandPreference;
+        private Infragistics.Win.Misc.UltraPanel upnlDetHasServer;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetDataManagement;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetDataBackup;
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetDataMigration;
@@ -2102,23 +2081,8 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetHaveBudget;
         private Infragistics.Win.Misc.UltraPanel upnlDetSeparatorHaveBudget;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetBudget;
-        private Infragistics.Win.Misc.UltraPanel upnlDetActualServer;
-        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetFullServerUptimeRequired;
-        internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetFullServerUptimeRequired;
-        internal Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkDetRedundantPowerSupply;
-        internal Infragistics.Win.Misc.UltraGroupBox ugbxDetArrayDisks;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetArrayDisks;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel1;
-        internal Infragistics.Win.Misc.UltraPanel ultraPanel2;
-        public System.Windows.Forms.Button btnDetNextTab;
-        internal Infragistics.Win.Misc.UltraPanel ultraPanel3;
-        public System.Windows.Forms.Button btnDetPreviousTab;
-        private Infragistics.Win.Misc.UltraPanel ultraPanel7;
-        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetStatusQUO;
-        private Infragistics.Win.Misc.UltraPanel upnlDetActualServers;
-        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utabDetOldServerDetail;
-        internal CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl cbcDetComputerBrandPreference;
-        private Infragistics.Win.Misc.UltraPanel upnlDetHasServer;
+        private Infragistics.Win.Misc.UltraButton ubtnDetPreviousTab;
+        private Infragistics.Win.Misc.UltraButton ubtnDetNextTab;
 
 
 

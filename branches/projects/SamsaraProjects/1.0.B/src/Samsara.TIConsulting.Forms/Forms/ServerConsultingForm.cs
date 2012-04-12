@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Samsara.Base.Forms.Controllers;
@@ -44,20 +45,20 @@ namespace Samsara.TIConsulting.Forms.Forms
         #region Events
 
         [DebuggerStepThroughAttribute]
-        private void btnClick(object sender, System.EventArgs e)
+        private void btnClick(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
+            Control control = sender as Control;
 
             try
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                switch (btn.Name)
+                switch (control.Name)
                 {
-                    case "btnDetNextTab":
+                    case "ubtnDetNextTab":
                         this.ctrlServerConsultingForm.NextTab();
                         break;
-                    case "btnDetPreviousTab":
+                    case "ubtnDetPreviousTab":
                         this.ctrlServerConsultingForm.PreviousTab();
                         break;
                     case "btnDetExportSummaryToExcel":
