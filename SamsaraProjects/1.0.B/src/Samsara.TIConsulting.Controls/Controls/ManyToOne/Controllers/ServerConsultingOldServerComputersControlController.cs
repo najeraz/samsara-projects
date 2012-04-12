@@ -7,6 +7,8 @@ using System.Linq;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controllers;
+using Samsara.Base.Controls.EventsArgs;
+using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Enums;
@@ -92,6 +94,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                 this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Parameters = pmtOperativeSystem;
                 this.ctlServerConsultingOldServerComputers.oscOperativeSystem.Refresh();
 
+                this.ctlServerConsultingOldServerComputers.sctcServerComputerType.ValueChanged 
+                    += new SamsaraEntityChooserValueChangedEventHandler<ServerComputerType>(sctcServerComputerType_ValueChanged);
                 this.ctlServerConsultingOldServerComputers.grdRelations.InitializeLayout
                     += new InitializeLayoutEventHandler(grdRelations_InitializeLayout);
             }
@@ -137,6 +141,11 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
                     else
                         row["ComputerBrandId"] = serverConsultingOldServerComputer.ComputerBrand.ComputerBrandId;
 
+                    if (serverConsultingOldServerComputer.ServerComputerType == null)
+                        row["ServerComputerTypeId"] = DBNull.Value;
+                    else
+                        row["ServerComputerTypeId"] = serverConsultingOldServerComputer.ServerComputerType.ServerComputerTypeId;
+
                     if (serverConsultingOldServerComputer.RackType == null)
                         row["RackTypeId"] = DBNull.Value;
                     else
@@ -144,6 +153,7 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
 
                     row["ServerSpecs"] = serverConsultingOldServerComputer.ServerSpecs;
                     row["ServerModel"] = serverConsultingOldServerComputer.ServerModel;
+                    row["ServersQuantity"] = serverConsultingOldServerComputer.ServersQuantity;
                 }
             }
         }
@@ -312,6 +322,9 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             this.ctlServerConsultingOldServerComputers.txtServerModel.ReadOnly = !enabled;
             this.ctlServerConsultingOldServerComputers.txtServerSpecs.ReadOnly = !enabled;
             this.ctlServerConsultingOldServerComputers.txtServersQuantity.ReadOnly = !enabled;
+            this.ctlServerConsultingOldServerComputers.rtcRackType.ReadOnly = !enabled
+                || !(this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Value != null
+                && this.ctlServerConsultingOldServerComputers.sctcServerComputerType.Value.ServerComputerTypeId == (int)ServerComputerTypeEnum.Rack);
         }
 
         protected override DataRow GetEntityRow(ServerConsultingOldServerComputer entity)
@@ -365,6 +378,14 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
             IList<RackType> rackTypes = this.srvRackType.GetListByParameters(pmtRackType);
             WindowsFormsUtil.SetUltraGridValueList(e.Layout, rackTypes,
                 band.Columns["RackTypeId"], "RackTypeId", "Name", "Seleccione");
+        }
+
+        private void sctcServerComputerType_ValueChanged(object sender,
+            SamsaraEntityChooserValueChangedEventArgs<ServerComputerType> e)
+        {
+            this.ctlServerConsultingOldServerComputers.rtcRackType.Value = null;
+            this.ctlServerConsultingOldServerComputers.rtcRackType.ReadOnly
+                = e.NewValue == null || e.NewValue.ServerComputerTypeId != (int)ServerComputerTypeEnum.Rack;
         }
 
         #endregion Events
