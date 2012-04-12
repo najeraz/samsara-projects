@@ -11,30 +11,30 @@ namespace Samsara.Base.Dao.Impl
 
         #region Public
 
-        public virtual void SaveOrUpdate<T>(T entity)
+        public virtual void SaveOrUpdate(object entity)
         {
             EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
             this.HibernateTemplate.SaveOrUpdate(entity);
         }
 
-        public virtual void Save<T>(T entity)
+        public virtual void Save(object entity)
         {
             EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
             this.HibernateTemplate.Save(entity);
         }
 
-        public void Refresh<T>(T entity)
+        public void Refresh(object entity)
         {
             this.HibernateTemplate.Refresh(entity);
         }
 
-        public virtual void Update<T>(T entity)
+        public virtual void Update(object entity)
         {
             EntitiesUtil.ProcessAuditProperties(entity, this.GetServerDateTime(), null, this.Session);
             this.HibernateTemplate.Update(entity);
         }
 
-        public virtual void Delete<T>(T entity)
+        public virtual void Delete(object entity)
         {
             if (entity.GetType().IsSubclassOf(typeof(BaseEntity)))
             {
