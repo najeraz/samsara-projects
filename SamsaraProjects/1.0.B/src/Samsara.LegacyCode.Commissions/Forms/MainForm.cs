@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -9,11 +10,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.Base.Core.Context;
+using Samsara.Base.Service.Interfaces;
+using Samsara.Commissions.Core.Entities;
 using Samsara.Framework.Core.Enums;
 using Samsara.Framework.Util;
 using Samsara.LegacyCode.Commissions.Main;
 using Samsara.LegacyCode.Commissions.Util;
 using Samsara.Main.Session;
+using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {
@@ -40,7 +45,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
         private SqlDataAdapter da;
         private Dictionary<string, int> dicMeses = new Dictionary<string, int>();
         private SqlTransaction transacction = null;
-
+        private IGenericService srvGeneric;
         private DataTable dtDetalleComisiones;
         private DataTable dtResumenComisionesProductos;
         private DataTable dtResumenComisionesServicios;
@@ -54,6 +59,10 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
         public MainForm()
         {
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.srvGeneric = SamsaraAppContext.Resolve<IGenericService>();
+            }
             cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
             InitializeComponent();
             PostInitializeComponent();
@@ -684,6 +693,10 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 command.Transaction = this.transacction;
                 command.ExecuteNonQuery();
             }
+
+            this.SaveCommissionPayment(idAjuste, Convert.ToDecimal(this.txtTotalComisiones.Text), 
+                this.srvGeneric.GetServerDateTime(), this.dtDetalleComisiones.AsEnumerable()
+                .Select(x => Convert.ToInt32(x["agente"])).Distinct().ToList());
         }
 
         private void ProcesaFacturasPendientes()
@@ -1120,6 +1133,37 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 this.CalculaComisionesQ();
                 this.pnlAdmin.Enabled = false;
                 this.LoadAjustes();
+            }
+        }
+
+        private void SaveCommissionPayment(int externalPaymentId, decimal totalAmount, DateTime paymentDate, IList<int> staffIds)
+        {
+            DataTable dtStaff = this.cbxAgentes.DataSource as DataTable;
+
+            CommissionPayment commissionPayment = new CommissionPayment()
+            {
+                ExternalPaymentId = externalPaymentId,
+                Amount = totalAmount,
+                IsSalesRetail = false,
+                Month = paymentDate.Month,
+                Year = paymentDate.Year,
+                StaffNames = string.Join(", ", dtStaff.AsEnumerable()
+                .Where(x => staffIds.Contains(Convert.ToInt32(x["agente"])))
+                .Select(x => x["nombre_agente"].ToString()).OrderBy(x => x))
+            };
+
+
+            foreach (int staffId in staffIds)
+            {
+                Staff staff = this.srvGeneric.LoadById<Staff>(staffId);
+
+                CommissionPaymentStaff commissionPaymentStaff = new CommissionPaymentStaff()
+                {
+                    Staff = staff,
+                    CommissionPayment = commissionPayment
+                };
+
+                commissionPayment.CommissionPaymentStaffs.Add(commissionPaymentStaff);
             }
         }
 

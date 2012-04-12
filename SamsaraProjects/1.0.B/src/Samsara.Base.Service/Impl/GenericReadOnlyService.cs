@@ -31,6 +31,11 @@ namespace Samsara.Base.Service.Impl
             return ReadOnlyDao.GetById<T>(id);
         }
 
+        public T LoadById<T>(object id)
+        {
+            return ReadOnlyDao.LoadById<T>(id);
+        }
+
         public T GetByParameters<T>(object parameters)
         {
             return ReadOnlyDao.GetByParameters<T>(parameters);

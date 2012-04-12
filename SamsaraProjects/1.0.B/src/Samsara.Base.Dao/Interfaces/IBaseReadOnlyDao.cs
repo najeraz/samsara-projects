@@ -9,6 +9,7 @@ namespace Samsara.Base.Dao.Interfaces
     {
         IList<T> GetAll();
         T GetById(TId Id);
+        T LoadById(TId Id);
         DateTime GetServerDateTime();
         T GetByParameters(Tpmt parameters);
         DataTable SearchByParameters(Tpmt parameters);
