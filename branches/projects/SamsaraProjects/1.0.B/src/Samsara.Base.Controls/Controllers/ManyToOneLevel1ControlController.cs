@@ -65,6 +65,16 @@ namespace Samsara.Base.Controls.Controllers
             this.control.upnlButtons.Visible = true;
         }
 
+        internal void SetReadOnlyButtons(bool readOnly)
+        {
+            this.control.ubtnCreateRelation.Visible = !readOnly;
+            this.control.upnlSeparatorCreateRelation.Visible = !readOnly;
+            this.control.ubtnEditRelation.Visible = !readOnly;
+            this.control.upnlSeparatorEditRelation.Visible = !readOnly;
+            this.control.ubtnDeleteRelation.Visible = !readOnly;
+            this.control.upnlSeparatorDeleteRelation.Visible = !readOnly;
+        }
+
         #endregion Internal
 
         #region Public
@@ -129,8 +139,6 @@ namespace Samsara.Base.Controls.Controllers
             }
         }
 
-        protected abstract void AddEntity();
-
         protected virtual void ViewRelation()
         {
             UltraGridRow activeRow = this.control.grdRelations.ActiveRow;
@@ -180,14 +188,6 @@ namespace Samsara.Base.Controls.Controllers
             this.HideDetail();
         }
 
-        protected abstract void LoadEntity();
-
-        protected abstract void LoadFromEntity(int entityId);
-
-        protected abstract void DeleteEntity(int entityId);
-
-        protected abstract bool ValidateControlsData();
-
         protected virtual void EnabledDetailControls(bool enabled)
         {
             this.control.ubtnCloseRelation.Visible = !enabled;
@@ -197,6 +197,16 @@ namespace Samsara.Base.Controls.Controllers
             this.control.ubtnSaveRelation.Visible = enabled;
             this.control.upnlSeparatorSaveRelation.Visible = enabled;
         }
+
+        protected abstract void LoadEntity();
+
+        protected abstract void AddEntity();
+
+        protected abstract void LoadFromEntity(int entityId);
+
+        protected abstract void DeleteEntity(int entityId);
+
+        protected abstract bool ValidateControlsData();
 
         protected abstract DataRow GetEntityRow(T entity);
 
