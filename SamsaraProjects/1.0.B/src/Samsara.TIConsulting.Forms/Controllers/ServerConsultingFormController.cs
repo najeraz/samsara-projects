@@ -15,15 +15,14 @@ using Samsara.Base.Forms.Enums;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Enums;
 using Samsara.CustomerContext.Core.Parameters;
+using Samsara.Framework.Core.Entities;
 using Samsara.Framework.Core.Enums;
+using Samsara.Framework.Service.Interfaces;
 using Samsara.Framework.Util;
 using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
 using Samsara.TIConsulting.Service.Interfaces;
-using Samsara.Framework.Service.Interfaces;
-using Samsara.Framework.Core.Parameters;
-using Samsara.Framework.Core.Entities;
 
 namespace Samsara.TIConsulting.Forms.Controllers
 {
@@ -157,6 +156,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.oscDetOperativeSystem.Refresh();
 
             this.hasServerLastValue = null;
+            this.frmServerConsulting.utabDetStatusQUO.SelectedTab = this.frmServerConsulting.utabDetStatusQUO.Tabs[0];
         }
 
         public override void Search()
