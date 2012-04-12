@@ -23,6 +23,11 @@ namespace Samsara.Base.Dao.Impl
             return this.HibernateTemplate.LoadAll<T>();
         }
 
+        public virtual T LoadById<T>(object Id)
+        {
+            return this.HibernateTemplate.Load<T>(Id);
+        }
+
         public virtual T GetById<T>(object Id)
         {
             return this.HibernateTemplate.Get<T>(Id);

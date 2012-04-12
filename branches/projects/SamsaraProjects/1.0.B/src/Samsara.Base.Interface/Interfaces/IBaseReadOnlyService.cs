@@ -16,7 +16,14 @@ namespace Samsara.Base.Service.Interfaces
         DateTime GetServerDateTime();
 
         /// <summary>
-        /// Get entity  by Id
+        /// Load entity by Id
+        /// </summary>
+        /// <param name="id">The Id</param>
+        /// <returns>The entity</returns>
+        T LoadById(TId id);
+
+        /// <summary>
+        /// Get entity by Id
         /// </summary>
         /// <param name="id">The Id</param>
         /// <returns>The entity</returns>

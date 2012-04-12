@@ -228,8 +228,8 @@ namespace Samsara.Commissions.Forms.Controllers
             this.frmCommissionPayment.txtDetComments.Value = null;
             this.frmCommissionPayment.sccDetStaff.Values = null;
             this.frmCommissionPayment.txtDetAmount.Value = null;
-            this.frmCommissionPayment.uceDetMonth.Value = -1;
-            this.frmCommissionPayment.txtDetYear.Value = null;
+            this.frmCommissionPayment.uceDetMonth.Value = this.srvCommissionPayment.GetServerDateTime().Month;
+            this.frmCommissionPayment.txtDetYear.Value = this.srvCommissionPayment.GetServerDateTime().Year;
             this.frmCommissionPayment.uchkDetIsSalesRetail.Checked = false;
         }
 
