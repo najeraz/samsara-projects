@@ -5,6 +5,11 @@
           type="Samsara.Framework.Service.Impl.TextFormatService, Samsara.Framework.Service">
     <property name="Dao" ref="ITextFormatDao"/>
   </object>
+
+  <object id="IAbstractQuantityService"
+          type="Samsara.Framework.Service.Impl.AbstractQuantityService, Samsara.Framework.Service">
+    <property name="Dao" ref="IAbstractQuantityDao"/>
+  </object>
   
 </objects>
 
