@@ -70,7 +70,7 @@
     </set>
     
     <set name="TenderLines" table="ProjectsAndTendering.TenderLines" where="Deleted = 0 AND Activated = 1"
-         cascade="all-delete-orphan" lazy="false">
+         cascade="all-delete-orphan" fetch="join">
       <key column="TenderId"/>
       <one-to-many
         class="Samsara.ProjectsAndTendering.Core.Entities.TenderLine, Samsara.ProjectsAndTendering.Core"/>
