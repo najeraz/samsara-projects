@@ -313,7 +313,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             pmtPricingStrategy.PricingStrategyId = ParameterConstants.IntNone;
             this.dtPricingStrategy = this.srvPricingStrategy.SearchByParameters(pmtPricingStrategy);
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineId", typeof(int)));
-            this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineName", typeof(string)));
+            this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineNumber", typeof(int)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineQuantity", typeof(decimal)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("TenderLineDescription", typeof(string)));
             this.dtPricingStrategy.Columns.Add(new DataColumn("Warranties", typeof(decimal)));
@@ -440,17 +440,6 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (DataRow row in this.dtTenderLines.Rows)
             {
-                //if (Convert.ToInt32(row["ManufacturerId"]) == -1)
-                //{
-                //    MessageBox.Show("Debe seleccionar un fabricante por partida.",
-                //        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    this.frmTender.tabDetDetail.SelectedTab =
-                //        this.frmTender.tabDetDetail.TabPages["AnalysisAndResults"];
-                //    this.frmTender.tcDetTextControls.SelectedTab =
-                //        this.frmTender.tcDetTextControls.TabPages["TenderLines"];
-                //    return false;
-                //}
-
                 if (row["Quantity"].ToString().Trim() == string.Empty
                     || Convert.ToDecimal(row["Quantity"]) <= 0)
                 {
@@ -1053,6 +1042,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row["ManufacturerId"] = DBNull.Value;
                 else
                     row["ManufacturerId"] = tenderLine.Manufacturer.ManufacturerId;
+                row["TenderLineNumber"] = tenderLine.TenderLineNumber;
                 row["Name"] = tenderLine.Name;
                 row["Quantity"] = tenderLine.Quantity;
                 row["TenderId"] = tenderLine.Tender.TenderId;
@@ -1234,9 +1224,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtPriceComparison.Columns.Add(dc);
             }
 
-            if (!this.dtPriceComparison.Columns.Contains("TenderLineName"))
+            if (!this.dtPriceComparison.Columns.Contains("TenderLineNumber"))
             {
-                DataColumn dc = new DataColumn("TenderLineName", typeof(string));
+                DataColumn dc = new DataColumn("TenderLineNumber", typeof(int));
                 this.dtPriceComparison.Columns.Add(dc);
             }
 
@@ -1329,7 +1319,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     rowPC["TenderLineId"] = row["TenderLineId"];
                     rowPC["BestPriceCurrencyId"] = this.defaultCurrency.CurrencyId;
                     rowPC["SelectedWholesalerId"] = -1;
-                    rowPC["TenderLineName"] = row["Name"];
+                    rowPC["TenderLineNumber"] = row["TenderLineNumber"];
                     rowPC["TenderLineQuantity"] = row["Quantity"];
                     rowPC["TenderLineDescription"] = row["Description"];
                     rowPC["SelectBestChoise"] = "Seleccionar";
@@ -1351,10 +1341,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (DataRow drTenderLine in rows)
             {
-                string tenderLineName = drTenderLine["TenderLineName"].ToString();
+                string tenderLineNumber = drTenderLine["TenderLineNumber"].ToString();
 
                 if (!this.dtTenderLines.AsEnumerable()
-                    .Select(x => x["Name"].ToString()).Contains(tenderLineName))
+                    .Select(x => x["Name"].ToString()).Contains(tenderLineNumber))
                 {
                     foreach (TenderLineWholesaler tenderLineWholesaler in
                         this.tender.TenderLines.SelectMany(x => x.TenderLineWholesalers)
@@ -1428,9 +1418,9 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 this.dtPreresults.Columns.Add(dc);
             }
 
-            if (!this.dtPreresults.Columns.Contains("TenderLineName"))
+            if (!this.dtPreresults.Columns.Contains("TenderLineNumber"))
             {
-                DataColumn dc = new DataColumn("TenderLineName", typeof(string));
+                DataColumn dc = new DataColumn("TenderLineNumber", typeof(int));
                 this.dtPreresults.Columns.Add(dc);
             }
 
@@ -1493,7 +1483,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                 {
                     DataRow rowPC = this.dtPreresults.NewRow();
                     rowPC["TenderLineId"] = tenderLineId;
-                    rowPC["TenderLineName"] = tenderLine.Name;
+                    rowPC["TenderLineNumber"] = tenderLine.TenderLineNumber;
                     rowPC["TenderLineQuantity"] = tenderLine.Quantity;
                     rowPC["TenderLineDescription"] = tenderLine.Description;
                     if (tenderLine.CompetitorWon == null)
@@ -1518,10 +1508,10 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             foreach (DataRow drTenderLine in rows)
             {
-                string tenderLineName = drTenderLine["TenderLineName"].ToString();
+                string tenderLineNumber = drTenderLine["TenderLineNumber"].ToString();
 
                 if (!this.dtTenderLines.AsEnumerable()
-                    .Select(x => x["Name"].ToString()).Contains(tenderLineName))
+                    .Select(x => x["Name"].ToString()).Contains(tenderLineNumber))
                 {
                     foreach (TenderLineCompetitor tenderLineCompetitor in
                         this.tender.TenderLines.SelectMany(x => x.TenderLineCompetitors)
@@ -1707,7 +1697,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
                     row["TenderLineId"] = tenderLine.TenderLineId;
                 }
 
-                row["TenderLineName"] = tenderLine.Name;
+                row["TenderLineNumber"] = tenderLine.TenderLineNumber;
                 row["TenderLineQuantity"] = tenderLine.Quantity;
                 row["TenderLineDescription"] = tenderLine.Description;
                 row["ProfitMargin"] = pricingStrategy.ProfitMargin;
@@ -2189,8 +2179,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             int columnName;
 
             band.Columns["TenderLineId"].Hidden = true;
-            band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
-            band.Columns["TenderLineName"].Header.Caption = "Partida";
+            band.Columns["TenderLineNumber"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineNumber"].Header.Caption = "Partida";
             band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineQuantity"].Header.Caption = "Cantidad";
             WindowsFormsUtil.SetUltraColumnFormat(band.Columns["TenderLineQuantity"],
@@ -2663,8 +2653,8 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             int columnName;
 
             band.Columns["TenderLineId"].Hidden = true;
-            band.Columns["TenderLineName"].CellActivation = Activation.ActivateOnly;
-            band.Columns["TenderLineName"].Header.Caption = "Partida";
+            band.Columns["TenderLineNumber"].CellActivation = Activation.ActivateOnly;
+            band.Columns["TenderLineNumber"].Header.Caption = "Partida";
 
             band.Columns["TenderLineQuantity"].CellActivation = Activation.ActivateOnly;
             band.Columns["TenderLineQuantity"].Header.Caption = "Cantidad";
@@ -3140,21 +3130,21 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
 
             rowPC["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowPC["TenderLineDescription"] = e.EntityChanged.Description;
-            rowPC["TenderLineName"] = e.EntityChanged.Name;
+            rowPC["TenderLineNumber"] = e.EntityChanged.TenderLineNumber;
 
             rowPE = this.dtPriceComparison.AsEnumerable().Single(
                 x => Convert.ToInt32(x["TenderLineId"]) == tenderLineId);
 
             rowPE["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowPE["TenderLineDescription"] = e.EntityChanged.Description;
-            rowPE["TenderLineName"] = e.EntityChanged.Name;
+            rowPE["TenderLineNumber"] = e.EntityChanged.TenderLineNumber;
 
             rowP = this.dtPriceComparison.AsEnumerable().Single(
                 x => Convert.ToInt32(x["TenderLineId"]) == tenderLineId);
 
             rowP["TenderLineQuantity"] = e.EntityChanged.Quantity;
             rowP["TenderLineDescription"] = e.EntityChanged.Description;
-            rowP["TenderLineName"] = e.EntityChanged.Name;
+            rowP["TenderLineNumber"] = e.EntityChanged.TenderLineNumber;
         }
 
         public void optcDetOfferedPriceType_ValueChanged(object sender, 
