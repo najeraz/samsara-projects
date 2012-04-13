@@ -1033,7 +1033,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Controller
             }
 
             foreach (TenderLine tenderLine in this.tender.TenderLines
-                .Where(x => x.Activated.Value && !x.Deleted.Value).OrderBy(x => x.Name))
+                .Where(x => x.Activated.Value && !x.Deleted.Value).OrderBy(x => x.TenderLineNumber))
             {
                 DataRow row = this.dtTenderLines.NewRow();
 
