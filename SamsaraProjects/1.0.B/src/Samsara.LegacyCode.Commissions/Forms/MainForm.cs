@@ -19,6 +19,8 @@ using Samsara.LegacyCode.Commissions.Main;
 using Samsara.LegacyCode.Commissions.Util;
 using Samsara.Main.Session;
 using Samsara.AlleatoERP.Core.Entities;
+using Samsara.Commissions.Core.Parameters;
+using Samsara.Commissions.Service.Interfaces;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {
@@ -46,6 +48,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
         private Dictionary<string, int> dicMeses = new Dictionary<string, int>();
         private SqlTransaction transacction = null;
         private IGenericService srvGeneric;
+        private ICommissionPaymentService srvCommissionPayment;
         private DataTable dtDetalleComisiones;
         private DataTable dtResumenComisionesProductos;
         private DataTable dtResumenComisionesServicios;
@@ -61,7 +64,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
         {
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                this.srvGeneric = SamsaraAppContext.Resolve<IGenericService>();
+                //this.srvGeneric = SamsaraAppContext.Resolve<IGenericService>();
+                this.srvCommissionPayment = SamsaraAppContext.Resolve<ICommissionPaymentService>();
             }
             cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
             InitializeComponent();
@@ -630,7 +634,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
             }
         }
 
-        private void CreaAjuste()
+        private void CreaPago()
         {
             consulta = "INSERT INTO Ajustes (agente,fecha_ajuste, borrado, fecha_borrado, fecha_cierre) VALUES("
                 + this.lblAgente.Text + ",getdate(), 0, null, '" + this.dtpFin.Value.ToString("yyyyMMdd") + "')";
@@ -1117,13 +1121,13 @@ namespace Samsara.LegacyCode.Commissions.Forms
             {
                 cnn.Open();
                 transacction = cnn.BeginTransaction();
-                this.CreaAjuste();
+                this.CreaPago();
                 transacction.Commit();
             }
             catch (Exception ex)
             {
                 transacction.Rollback();
-                MessageBox.Show("No se pudo generar el ajuste de comisiones, consulte al administrador del sistema.\n"
+                MessageBox.Show("No se pudo generar el pago de comisiones, consulte al administrador del sistema.\n"
                     + ex.Message, "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -1184,8 +1188,8 @@ namespace Samsara.LegacyCode.Commissions.Forms
             string[] ajusteIds = this.grdAjustes.Selected.Rows.Cast<UltraGridRow>()
                 .Select(x => x.Cells["ajuste"].Value.ToString()).ToArray();
 
-            string pregunta = ajusteIds.Count() > 1 ? "¿Esta seguro de borrar los ajustes "
-                : "¿Esta seguro de borrar el ajuste ";
+            string pregunta = ajusteIds.Count() > 1 ? "¿Esta seguro de borrar los pagos "
+                : "¿Esta seguro de borrar el pago ";
 
             if (ajusteIds.Count() <= 0)
                 return;
@@ -1198,11 +1202,38 @@ namespace Samsara.LegacyCode.Commissions.Forms
                 + "fecha_borrado = getdate() where id in ("
                 + string.Join(", ", ajusteIds.ToArray()) + ")";
 
-            cnn.Open();
-            SqlCommand command = new SqlCommand(consulta, cnn);
-            command.Transaction = this.transacction;
-            command.ExecuteNonQuery();
-            cnn.Close();
+            try
+            {
+                cnn.Open();
+                transacction = cnn.BeginTransaction();
+                SqlCommand command = new SqlCommand(consulta, cnn);
+                command.Transaction = this.transacction;
+                command.ExecuteNonQuery();
+
+                foreach (int idPayment in ajusteIds.Select(x => Convert.ToInt32(x)))
+                {
+                    CommissionPaymentParameters pmtCommissionPayment = new CommissionPaymentParameters()
+                    {
+                        ExternalPaymentId = idPayment
+                    };
+
+                    this.srvCommissionPayment.Delete(this.srvCommissionPayment.GetById(
+                        this.srvCommissionPayment.GetByParameters(pmtCommissionPayment).CommissionPaymentId));
+                }
+
+                this.transacction.Commit();
+            }
+            catch(Exception ex)
+            {
+                this.transacction.Rollback();
+                MessageBox.Show((ajusteIds.Count() > 1 ? "No se pudo borrar el pago de comisiones, consulte al administrador del sistema.\n"
+                    : "No se pudo borrar los pagos de comisiones, consulte al administrador del sistema.\n")
+                    + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            finally
+            {
+                cnn.Close();
+            }
 
             this.LoadAjustes();
         }

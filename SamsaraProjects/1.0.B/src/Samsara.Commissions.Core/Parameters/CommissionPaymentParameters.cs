@@ -12,6 +12,12 @@ namespace Samsara.Commissions.Core.Parameters
             set;
         }
 
+        public Nullable<int> ExternalPaymentId
+        {
+            get;
+            set;
+        }
+
         public Nullable<int> StaffId
         {
             get;
