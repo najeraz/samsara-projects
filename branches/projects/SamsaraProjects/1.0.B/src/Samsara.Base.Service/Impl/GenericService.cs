@@ -6,16 +6,6 @@ namespace Samsara.Base.Service.Impl
 {
     public class GenericService : GenericReadOnlyService, IGenericService
     {
-        #region Properties
-
-        protected IGenericDao Dao
-        {
-            get;
-            set;
-        }
-
-        #endregion Properties
-
         #region Methods
 
         public virtual void Save(object entity)
