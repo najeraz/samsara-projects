@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Iesi.Collections.Generic;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Attributes;
@@ -62,6 +63,12 @@ namespace Samsara.ProjectsAndTendering.Core.Entities
         }
 
         public virtual Competitor CompetitorWon
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<int> TenderLineNumber
         {
             get;
             set;

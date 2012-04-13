@@ -13,6 +13,7 @@
     <property name="Quantity"/>
     <property name="Concept"/>
     <property name="Description"/>
+    <property name="TenderLineNumber"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>

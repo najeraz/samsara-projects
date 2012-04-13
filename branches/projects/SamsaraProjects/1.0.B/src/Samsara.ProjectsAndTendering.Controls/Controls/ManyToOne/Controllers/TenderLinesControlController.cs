@@ -114,6 +114,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
 
                     row["TenderLineId"] = tenderLine.TenderLineId;
                     row["Name"] = tenderLine.Name;
+                    row["TenderLineNumber"] = tenderLine.TenderLineNumber;
                     row["Quantity"] = tenderLine.Quantity;
                     row["Concept"] = tenderLine.Concept;
                     row["Description"] = tenderLine.Description;
@@ -134,9 +135,9 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             base.ClearDetailControls();
 
             this.controlTenderLines.pscProduct.Value = null;
-            this.controlTenderLines.txtName.Text = string.Empty;
+            this.controlTenderLines.txtTenderLineNumber.Value = null;
             this.controlTenderLines.txtConcept.Text = string.Empty;
-            this.controlTenderLines.steQuantity.Value = null;
+            this.controlTenderLines.txtQuantity.Value = null;
         }
 
         public override void ClearControls()
@@ -186,9 +187,9 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
                     .Single(x => x.TenderLineId == entityId);
 
             this.controlTenderLines.pscProduct.Value = this.tenderLine.Product;
-            this.controlTenderLines.txtName.Text = this.tenderLine.Name;
+            this.controlTenderLines.txtTenderLineNumber.Value = this.tenderLine.TenderLineNumber;
             this.controlTenderLines.txtConcept.Text = this.tenderLine.Concept;
-            this.controlTenderLines.steQuantity.Value = this.tenderLine.Quantity;
+            this.controlTenderLines.txtQuantity.Value = this.tenderLine.Quantity;
         }
 
         protected override void LoadEntity()
@@ -198,26 +199,26 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
                 this.tenderLine.Description = this.tenderLine.Product.Name;
             else
                 this.tenderLine.Description = string.Empty;
-            this.tenderLine.Quantity = Convert.ToDecimal(this.controlTenderLines.steQuantity.Value);
+            this.tenderLine.Quantity = Convert.ToDecimal(this.controlTenderLines.txtQuantity.Value);
             this.tenderLine.Concept = this.controlTenderLines.txtConcept.Text;
-            this.tenderLine.Name = this.controlTenderLines.txtName.Text;
+            this.tenderLine.TenderLineNumber = Convert.ToInt32(this.controlTenderLines.txtTenderLineNumber.Value);
         }
 
         protected override bool ValidateControlsData()
         {
-            if (this.controlTenderLines.steQuantity.Value == null)
+            if (this.controlTenderLines.txtQuantity.Value == null)
             {
                 MessageBox.Show("Favor de agregar una Cantidad.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlTenderLines.pscProduct.Focus();
+                this.controlTenderLines.txtQuantity.Focus();
                 return false;
             }
 
-            if (this.controlTenderLines.txtName.Value == null)
+            if (this.controlTenderLines.txtTenderLineNumber.Value == null)
             {
-                MessageBox.Show("Favor de asignar un Nombre a la Partida.",
+                MessageBox.Show("Favor de asignar el Número de la Partida.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlTenderLines.pscProduct.Focus();
+                this.controlTenderLines.txtTenderLineNumber.Focus();
                 return false;
             }
 
@@ -226,7 +227,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             {
                 MessageBox.Show("Favor de asignar un Concepto.",
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.controlTenderLines.pscProduct.Focus();
+                this.controlTenderLines.txtConcept.Focus();
                 return false;
             }
 
@@ -263,6 +264,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             else
                 row["ProductId"] = DBNull.Value;
             row["Name"] = this.tenderLine.Name;
+            row["TenderLineNumber"] = this.tenderLine.TenderLineNumber;
             row["Quantity"] = this.tenderLine.Quantity;
             row["Description"] = this.tenderLine.Description;
             row["Concept"] = this.tenderLine.Concept;
@@ -275,8 +277,8 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
             base.EnabledDetailControls(enabled);
 
             this.controlTenderLines.pscProduct.ReadOnly = !enabled;
-            this.controlTenderLines.txtName.ReadOnly = !enabled;
-            this.controlTenderLines.steQuantity.ReadOnly = !enabled;
+            this.controlTenderLines.txtTenderLineNumber.ReadOnly = !enabled;
+            this.controlTenderLines.txtQuantity.ReadOnly = !enabled;
             this.controlTenderLines.txtConcept.ReadOnly = !enabled;
         }
 
