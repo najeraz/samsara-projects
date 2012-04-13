@@ -4,6 +4,7 @@
   <object id="IGenericService"
           type="Samsara.Base.Service.Impl.GenericService, Samsara.Base.Service">
     <property name="Dao" ref="IGenericDao"/>
+    <property name="ReadOnlyDao" ref="IGenericDao"/>
   </object>
 
   <object id="IGenericReadOnlyService"
