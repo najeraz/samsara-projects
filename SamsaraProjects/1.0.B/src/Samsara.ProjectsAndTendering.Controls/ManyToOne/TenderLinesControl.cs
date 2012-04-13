@@ -1,9 +1,9 @@
 ﻿
-using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers;
-using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Templates;
+using Samsara.ProjectsAndTendering.Controls.ManyToOne.Controllers;
+using Samsara.ProjectsAndTendering.Controls.ManyToOne.Templates;
 using Samsara.ProjectsAndTendering.Core.Entities;
 
-namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
+namespace Samsara.ProjectsAndTendering.Controls.ManyToOne
 {
     public partial class TenderLinesControl : TenderTenderLinesControl
     {

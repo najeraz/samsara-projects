@@ -5,7 +5,7 @@ using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Dao.Interfaces;
 using Samsara.CustomerContext.Service.Interfaces;
 
-namespace Samsara.CustomerContext.Controls.Controls.Choosers
+namespace Samsara.CustomerContext.Controls.Choosers
 {
     public partial class CustomerInfrastructureNetworkRouterChooserControl : SamsaraEntityChooserControl<CustomerInfrastructureNetworkRouter, int, ICustomerInfrastructureNetworkRouterService, ICustomerInfrastructureNetworkRouterDao, CustomerInfrastructureNetworkRouterParameters>
     {

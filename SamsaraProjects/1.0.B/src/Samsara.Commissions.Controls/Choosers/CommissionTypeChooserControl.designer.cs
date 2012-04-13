@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.Commissions.Controls.Controls
+namespace Samsara.Commissions.Controls.Choosers
 {
     partial class CommissionTypeChooserControl
     {

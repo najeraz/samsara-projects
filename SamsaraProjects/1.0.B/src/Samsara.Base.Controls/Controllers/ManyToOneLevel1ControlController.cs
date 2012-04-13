@@ -8,7 +8,7 @@ using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Controls.Controls;
 using Samsara.Base.Controls.EventsArgs;
 
-namespace Samsara.Base.Controls.Controllers
+namespace Samsara.Base.Controls.ControlsControllers
 {
     abstract public class ManyToOneLevel1ControlController<T>
     {

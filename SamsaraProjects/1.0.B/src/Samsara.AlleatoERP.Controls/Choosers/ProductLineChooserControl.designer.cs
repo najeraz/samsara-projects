@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.AlleatoERP.Controls.Controls
+namespace Samsara.AlleatoERP.Controls
 {
     partial class ProductLineChooserControl
     {

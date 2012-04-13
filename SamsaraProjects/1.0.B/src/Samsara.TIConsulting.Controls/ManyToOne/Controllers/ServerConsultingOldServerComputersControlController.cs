@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using Samsara.Base.Controls.Controllers;
+using Samsara.Base.Controls.ControlsControllers;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
@@ -20,7 +20,7 @@ using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Service.Interfaces;
 
-namespace Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers
+namespace Samsara.TIConsulting.Controls.ManyToOne.Controllers
 {
     public class ServerConsultingOldServerComputersControlController : ManyToOneLevel1ControlController<ServerConsultingOldServerComputer>
     {

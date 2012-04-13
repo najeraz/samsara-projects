@@ -45,8 +45,8 @@
             this.lbDetName = new System.Windows.Forms.Label();
             this.lblSchBidder = new System.Windows.Forms.Label();
             this.lblDetBidder = new System.Windows.Forms.Label();
-            this.bccDetBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
-            this.bccSchBidder = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl();
+            this.bccDetBidder = new Samsara.ProjectsAndTendering.Controls.Choosers.BidderChooserControl();
+            this.bccSchBidder = new Samsara.ProjectsAndTendering.Controls.Choosers.BidderChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -265,7 +265,7 @@
         internal System.Windows.Forms.TextBox txtDetName;
         private System.Windows.Forms.Label lblSchBidder;
         private System.Windows.Forms.Label lblDetBidder;
-        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl bccDetBidder;
-        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.BidderChooserControl bccSchBidder;
+        internal Samsara.ProjectsAndTendering.Controls.Choosers.BidderChooserControl bccDetBidder;
+        internal Samsara.ProjectsAndTendering.Controls.Choosers.BidderChooserControl bccSchBidder;
     }
 }

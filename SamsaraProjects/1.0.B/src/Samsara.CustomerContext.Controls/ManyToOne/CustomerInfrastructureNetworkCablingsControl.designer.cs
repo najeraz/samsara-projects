@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkCablingsControl
     {
@@ -41,7 +41,7 @@
             this.lblNetworkCablingType = new Infragistics.Win.Misc.UltraLabel();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.lblCategory = new Infragistics.Win.Misc.UltraLabel();
-            this.nctcNetworkCablingType = new Samsara.CustomerContext.Controls.Controls.Choosers.NetworkCablingTypeChooserControl();
+            this.nctcNetworkCablingType = new Samsara.CustomerContext.Controls.Choosers.NetworkCablingTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

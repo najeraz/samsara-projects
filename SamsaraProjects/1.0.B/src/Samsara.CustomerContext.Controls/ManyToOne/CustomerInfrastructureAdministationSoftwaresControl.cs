@@ -1,9 +1,9 @@
 ﻿
 using Samsara.Base.Controls.Controls;
-using Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers;
+using Samsara.CustomerContext.Controls.ManyToOne.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     public partial class CustomerInfrastructureAdministationSoftwaresControl : ManyToOneLevel1Control<CustomerInfrastructureAdministationSoftware>
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using Samsara.Base.Controls.Controllers;
+using Samsara.Base.Controls.ControlsControllers;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Controls.EventsHandlers;
 

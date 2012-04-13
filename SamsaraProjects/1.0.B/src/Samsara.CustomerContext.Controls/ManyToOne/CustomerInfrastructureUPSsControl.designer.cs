@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureUPSsControl
     {
@@ -43,8 +43,8 @@
             this.lblUPSBrand = new Infragistics.Win.Misc.UltraLabel();
             this.txtCapacity = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblCapacity = new Infragistics.Win.Misc.UltraLabel();
-            this.ubcUPSBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.UPSBrandChooserControl();
-            this.utcUPSType = new Samsara.CustomerContext.Controls.Controls.Choosers.UPSTypeChooserControl();
+            this.ubcUPSBrand = new Samsara.CustomerContext.Controls.Choosers.UPSBrandChooserControl();
+            this.utcUPSType = new Samsara.CustomerContext.Controls.Choosers.UPSTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

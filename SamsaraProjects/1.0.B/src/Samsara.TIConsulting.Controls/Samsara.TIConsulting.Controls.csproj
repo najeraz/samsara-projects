@@ -105,26 +105,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ManyToOne\Controllers\ServerConsultingOldServerComputersControlController.cs" />
-    <Compile Include="Controls\ManyToOne\ServerConsultingOldServerComputersControl.cs">
+    <Compile Include="ManyToOne\Controllers\ServerConsultingOldServerComputersControlController.cs" />
+    <Compile Include="ManyToOne\ServerConsultingOldServerComputersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\ServerConsultingOldServerComputersControl.designer.cs">
+    <Compile Include="ManyToOne\ServerConsultingOldServerComputersControl.designer.cs">
       <DependentUpon>ServerConsultingOldServerComputersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\Templates\ServerConsultingOldServerComputerControlTemplate.cs">
+    <Compile Include="ManyToOne\Templates\ServerConsultingOldServerComputerControlTemplate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ManyToOne\ServerConsultingOldServerComputersControl.resx">
+    <EmbeddedResource Include="ManyToOne\ServerConsultingOldServerComputersControl.resx">
       <DependentUpon>ServerConsultingOldServerComputersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\Choosers\" />
+    <Folder Include="Choosers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

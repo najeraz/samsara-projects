@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
+namespace Samsara.ProjectsAndTendering.Controls.ManyToOne
 {
     partial class TenderLinesControl
     {
@@ -43,7 +43,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
             this.lblQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.txtQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.lblProduct = new Infragistics.Win.Misc.UltraLabel();
-            this.pscProduct = new Samsara.AlleatoERP.Controls.Controls.Search.ProductSearchControl();
+            this.pscProduct = new Samsara.AlleatoERP.Controls.Search.ProductSearchControl();
             this.ugbxConcept = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtConcept = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -341,7 +341,7 @@ namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel lblQuantity;
         internal Samsara.Base.Controls.Controls.SamsaraTextEditor txtQuantity;
         private Infragistics.Win.Misc.UltraLabel lblProduct;
-        internal Samsara.AlleatoERP.Controls.Controls.Search.ProductSearchControl pscProduct;
+        internal Samsara.AlleatoERP.Controls.Search.ProductSearchControl pscProduct;
         private Infragistics.Win.Misc.UltraGroupBox ugbxConcept;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtConcept;
         private System.Windows.Forms.Panel panel1;

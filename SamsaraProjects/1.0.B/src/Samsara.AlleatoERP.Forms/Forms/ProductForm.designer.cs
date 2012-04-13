@@ -45,9 +45,9 @@
             this.lblSchName = new System.Windows.Forms.Label();
             this.lblDetFullName = new System.Windows.Forms.Label();
             this.txtDetDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.pbcSchProductBrand = new Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl();
+            this.pbcSchProductBrand = new Samsara.AlleatoERP.Controls.ProductBrandChooserControl();
             this.lblSchProductBrand = new System.Windows.Forms.Label();
-            this.pbcDetProductBrand = new Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl();
+            this.pbcDetProductBrand = new Samsara.AlleatoERP.Controls.ProductBrandChooserControl();
             this.lblDetProductBrand = new System.Windows.Forms.Label();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
@@ -288,9 +288,9 @@
         private System.Windows.Forms.Label lblDetFullName;
         internal System.Windows.Forms.TextBox txtSchName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetDescription;
-        internal Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl pbcSchProductBrand;
+        internal Samsara.AlleatoERP.Controls.ProductBrandChooserControl pbcSchProductBrand;
         private System.Windows.Forms.Label lblSchProductBrand;
-        internal Samsara.AlleatoERP.Controls.Controls.ProductBrandChooserControl pbcDetProductBrand;
+        internal Samsara.AlleatoERP.Controls.ProductBrandChooserControl pbcDetProductBrand;
         private System.Windows.Forms.Label lblDetProductBrand;
     }
 }

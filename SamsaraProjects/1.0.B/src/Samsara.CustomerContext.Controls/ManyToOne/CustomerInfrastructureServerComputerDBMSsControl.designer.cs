@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureServerComputerDBMSsControl
     {
@@ -41,7 +41,7 @@
             this.lblDBMS = new Infragistics.Win.Misc.UltraLabel();
             this.gbxDescription = new System.Windows.Forms.GroupBox();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.dcDBMS = new Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl();
+            this.dcDBMS = new Samsara.CustomerContext.Controls.Choosers.DBMSChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
