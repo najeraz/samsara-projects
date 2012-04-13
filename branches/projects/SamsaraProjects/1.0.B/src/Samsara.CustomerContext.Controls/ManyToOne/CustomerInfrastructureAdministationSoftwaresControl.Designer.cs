@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureAdministationSoftwaresControl
     {
@@ -51,8 +51,8 @@
             this.gbxModules = new System.Windows.Forms.GroupBox();
             this.txtModules = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.steNumberOfUsers = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl();
-            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl();
+            this.dcDetDBMS = new Samsara.CustomerContext.Controls.Choosers.DBMSChooserControl();
+            this.cisccDetCustomerInfrastructureServerComputer = new Samsara.CustomerContext.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -417,8 +417,8 @@
         private System.Windows.Forms.GroupBox gbxDescription;
         private System.Windows.Forms.GroupBox gbxModules;
         internal Samsara.Base.Controls.Controls.SamsaraTextEditor steNumberOfUsers;
-        internal Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl cisccDetCustomerInfrastructureServerComputer;
-        internal Samsara.CustomerContext.Controls.Controls.Choosers.DBMSChooserControl dcDetDBMS;
+        internal Samsara.CustomerContext.Controls.Choosers.CustomerInfrastructureServerComputerChooserControl cisccDetCustomerInfrastructureServerComputer;
+        internal Samsara.CustomerContext.Controls.Choosers.DBMSChooserControl dcDetDBMS;
 
 
 

@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkWifiAccessPointsControl
     {
@@ -48,8 +48,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.txtBandWidth = new System.Windows.Forms.TextBox();
             this.lblDistance = new Infragistics.Win.Misc.UltraLabel();
             this.txtDistance = new System.Windows.Forms.TextBox();
-            this.apbcAccessPointBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.AccessPointBrandChooserControl();
-            this.aptcAccessPointType = new Samsara.CustomerContext.Controls.Controls.Choosers.AccessPointTypeChooserControl();
+            this.apbcAccessPointBrand = new Samsara.CustomerContext.Controls.Choosers.AccessPointBrandChooserControl();
+            this.aptcAccessPointType = new Samsara.CustomerContext.Controls.Choosers.AccessPointTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

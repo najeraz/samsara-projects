@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkSwitchesControl
     {
@@ -45,7 +45,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.stePortsQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.lblPortsQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.txtSpeed = new System.Windows.Forms.TextBox();
-            this.sbcSwitchBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.SwitchBrandChooserControl();
+            this.sbcSwitchBrand = new Samsara.CustomerContext.Controls.Choosers.SwitchBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

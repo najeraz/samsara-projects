@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
+namespace Samsara.TIConsulting.Controls.ManyToOne
 {
     partial class ServerConsultingOldServerComputersControl
     {
@@ -44,8 +44,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters2 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters2 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
             this.ugbxServerComputerType = new Infragistics.Win.Misc.UltraGroupBox();
-            this.rtcRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
-            this.sctcServerComputerType = new Samsara.CustomerContext.Controls.Controls.ServerComputerTypeChooserControl();
+            this.rtcRackType = new Samsara.CustomerContext.Controls.Choosers.RackTypeChooserControl();
+            this.sctcServerComputerType = new Samsara.CustomerContext.Controls.Choosers.ServerComputerTypeChooserControl();
             this.ulblDetRackType = new Infragistics.Win.Misc.UltraLabel();
             this.txtServerModel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
@@ -56,8 +56,8 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
             this.txtServerSpecs = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblServerQuantity = new Infragistics.Win.Misc.UltraLabel();
             this.txtServersQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
-            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Choosers.OperativeSystemChooserControl();
+            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Choosers.ComputerBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -497,10 +497,10 @@ namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel ulblServerQuantity;
         private Infragistics.Win.Misc.UltraLabel ulblServerModel;
         private Infragistics.Win.Misc.UltraLabel ulblServerComputerBrand;
-        internal CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl rtcRackType;
-        internal CustomerContext.Controls.Controls.ServerComputerTypeChooserControl sctcServerComputerType;
-        internal CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl oscOperativeSystem;
-        internal CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl cbcComputerBrand;
+        internal CustomerContext.Controls.Choosers.RackTypeChooserControl rtcRackType;
+        internal CustomerContext.Controls.Choosers.ServerComputerTypeChooserControl sctcServerComputerType;
+        internal CustomerContext.Controls.Choosers.OperativeSystemChooserControl oscOperativeSystem;
+        internal CustomerContext.Controls.Choosers.ComputerBrandChooserControl cbcComputerBrand;
         internal Base.Controls.Controls.SamsaraTextEditor txtServersQuantity;
 
 

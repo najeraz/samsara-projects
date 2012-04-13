@@ -63,7 +63,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
             this.upnlSeparatorCreateSegment = new Infragistics.Win.Misc.UltraPanel();
             this.ubtnCreateSegment = new Infragistics.Win.Misc.UltraButton();
             this.ugbxNewSegment = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ctccCommissionType = new Samsara.Commissions.Controls.Controls.CommissionTypeChooserControl();
+            this.ctccCommissionType = new Samsara.Commissions.Controls.Choosers.CommissionTypeChooserControl();
             this.txtComissionPercent = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.txtSegmentAmount = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.uplNewSegmentButtons = new Infragistics.Win.Misc.UltraPanel();
@@ -653,7 +653,7 @@ namespace Samsara.LegacyCode.Commissions.Controls
         private Infragistics.Win.Misc.UltraPanel upnlSeparatorEditScheme;
         private Infragistics.Win.Misc.UltraButton ubtnEditScheme;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor uchkServicesCommissions;
-        private Samsara.Commissions.Controls.Controls.CommissionTypeChooserControl ctccCommissionType;
+        private Samsara.Commissions.Controls.Choosers.CommissionTypeChooserControl ctccCommissionType;
         private Infragistics.Win.Misc.UltraLabel ulblCommissionType;
     }
 }

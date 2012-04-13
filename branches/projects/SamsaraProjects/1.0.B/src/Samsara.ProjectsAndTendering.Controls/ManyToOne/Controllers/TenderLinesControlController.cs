@@ -9,7 +9,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.AlleatoERP.Service.Interfaces;
-using Samsara.Base.Controls.Controllers;
+using Samsara.Base.Controls.ControlsControllers;
 using Samsara.Base.Core.Context;
 using Samsara.Controls.Interfaces;
 using Samsara.Framework.Core.Constants;
@@ -19,7 +19,7 @@ using Samsara.ProjectsAndTendering.Core.Entities;
 using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Controllers
+namespace Samsara.ProjectsAndTendering.Controls.ManyToOne.Controllers
 {
     public class TenderLinesControlController : ManyToOneLevel1ControlController<TenderLine>
     {

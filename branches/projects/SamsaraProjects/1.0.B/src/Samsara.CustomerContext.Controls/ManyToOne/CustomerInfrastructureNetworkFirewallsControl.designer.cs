@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkFirewallsControl
     {
@@ -44,7 +44,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtFirewallModel = new System.Windows.Forms.TextBox();
             this.lblFirewallModel = new Infragistics.Win.Misc.UltraLabel();
-            this.fbFirewallBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.FirewallBrandChooserControl();
+            this.fbFirewallBrand = new Samsara.CustomerContext.Controls.Choosers.FirewallBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

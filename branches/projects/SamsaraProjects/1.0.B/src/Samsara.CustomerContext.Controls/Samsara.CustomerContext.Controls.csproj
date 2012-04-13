@@ -86,448 +86,448 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePrinterClassificationChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePrinterClassificationChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePrinterClassificationChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePrinterClassificationChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructurePrinterClassificationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerClassificationChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePersonalComputerClassificationChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerClassificationChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePersonalComputerClassificationChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructurePersonalComputerClassificationChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\SecuritySoftwareTypeChooserControl.cs">
+    <Compile Include="Choosers\SecuritySoftwareTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\SecuritySoftwareTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\SecuritySoftwareTypeChooserControl.designer.cs">
       <DependentUpon>SecuritySoftwareTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.cs">
+    <Compile Include="Choosers\ServerComputerTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\ServerComputerTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\ServerComputerTypeChooserControl.designer.cs">
       <DependentUpon>ServerComputerTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetwotkWifiAccessPointsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkSiteRacksControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkSwitchesControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkRoutersControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkFirewallsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkCommutatorsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureNetworkCablingsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureServerComputerDBMSsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureServerComputersControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructurePersonalComputersControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureTelephoniesControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureUPSsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureSecuritySoftwaresControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureBackupSoftwaresControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureAdministationSoftwaresControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureISPsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructureCCTVsControlController.cs" />
-    <Compile Include="Controls\ManyToOne\Controllers\CustomerInfrastructurePrintersControlController.cs" />
-    <Compile Include="Controls\Choosers\AccessPointBrandChooserControl.cs">
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetwotkWifiAccessPointsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetworkSiteRacksControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetworkSwitchesControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetworkRoutersControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetworkFirewallsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetworkCommutatorsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureNetworkCablingsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureServerComputerDBMSsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureServerComputersControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructurePersonalComputersControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureTelephoniesControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureUPSsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureSecuritySoftwaresControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureBackupSoftwaresControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureAdministationSoftwaresControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureISPsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructureCCTVsControlController.cs" />
+    <Compile Include="ManyToOne\Controllers\CustomerInfrastructurePrintersControlController.cs" />
+    <Compile Include="Choosers\AccessPointBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\AccessPointBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\AccessPointBrandChooserControl.designer.cs">
       <DependentUpon>AccessPointBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\AccessPointTypeChooserControl.cs">
+    <Compile Include="Choosers\AccessPointTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\AccessPointTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\AccessPointTypeChooserControl.designer.cs">
       <DependentUpon>AccessPointTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\BackupSoftwareBrandChooserControl.cs">
+    <Compile Include="Choosers\BackupSoftwareBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\BackupSoftwareBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\BackupSoftwareBrandChooserControl.designer.cs">
       <DependentUpon>BackupSoftwareBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\BussinessTypeChooserControl.cs">
+    <Compile Include="Choosers\BussinessTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\BussinessTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\BussinessTypeChooserControl.designer.cs">
       <DependentUpon>BussinessTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CCTVBrandChooserControl.cs">
+    <Compile Include="Choosers\CCTVBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CCTVBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\CCTVBrandChooserControl.designer.cs">
       <DependentUpon>CCTVBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CCTVTypeChooserControl.cs">
+    <Compile Include="Choosers\CCTVTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CCTVTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\CCTVTypeChooserControl.designer.cs">
       <DependentUpon>CCTVTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CommutatorBrandChooserControl.cs">
+    <Compile Include="Choosers\CommutatorBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CommutatorBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\CommutatorBrandChooserControl.designer.cs">
       <DependentUpon>CommutatorBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CommutatorTypeChooserControl.cs">
+    <Compile Include="Choosers\CommutatorTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CommutatorTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\CommutatorTypeChooserControl.designer.cs">
       <DependentUpon>CommutatorTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ComputerBrandChooserControl.cs">
+    <Compile Include="Choosers\ComputerBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\ComputerBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\ComputerBrandChooserControl.designer.cs">
       <DependentUpon>ComputerBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerChooserControl.cs">
+    <Compile Include="Choosers\CustomerChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerChooserControl.designer.cs">
       <DependentUpon>CustomerChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureAdministationSoftwareChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureAdministationSoftwareChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureAdministationSoftwareChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureAdministationSoftwareChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureAdministationSoftwareChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureAdministationSoftwaresControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureAdministationSoftwaresControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureAdministationSoftwaresControl.Designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureAdministationSoftwaresControl.Designer.cs">
       <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureBackupSoftwareChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureBackupSoftwareChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureBackupSoftwareChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureBackupSoftwareChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureBackupSoftwareChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureBackupSoftwaresControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureBackupSoftwaresControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureBackupSoftwaresControl.Designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureBackupSoftwaresControl.Designer.cs">
       <DependentUpon>CustomerInfrastructureBackupSoftwaresControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureCCTVChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureCCTVChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureCCTVChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureCCTVChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureCCTVChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureCCTVsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureCCTVsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureCCTVsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureCCTVsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureISPChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureISPChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureISPChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureISPChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureISPChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureISPsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureISPsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureISPsControl.Designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureISPsControl.Designer.cs">
       <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCablingChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkCablingChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCablingChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkCablingChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkCablingChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkCablingsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkCablingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkCablingsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkCablingsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkCablingsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkCommutatorChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkCommutatorChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkCommutatorsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkCommutatorsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkCommutatorsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkCommutatorsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkCommutatorsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkFirewallChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkFirewallChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkFirewallChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkFirewallChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkFirewallChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkFirewallsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkFirewallsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkFirewallsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkFirewallsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkFirewallsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkRouterChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkRouterChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkRouterChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkRouterChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkRouterChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkRoutersControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkRoutersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkRoutersControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkRoutersControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkRoutersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkSiteChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkSiteChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkSiteChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkSiteChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkSiteChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkSiteRackChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkSiteRackChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkSiteRackChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkSiteRackChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkSiteRackChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkSiteRacksControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkSiteRacksControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkSiteRacksControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkSiteRacksControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkSiteRacksControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkSwitchChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkSwitchChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkSwitchChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkSwitchChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkSwitchChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkSwitchesControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkSwitchesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkSwitchesControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkSwitchesControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkSwitchesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkWifiAccessPointChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkWifiAccessPointChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkWifiAccessPointChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkWifiAccessPointChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkWifiAccessPointChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkWifiAccessPointsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkWifiAccessPointsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureNetworkWifiAccessPointsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureNetworkWifiAccessPointsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkWifiAccessPointsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkWifiChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkWifiChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureNetworkWifiChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureNetworkWifiChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureNetworkWifiChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePersonalComputerChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePersonalComputerChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePersonalComputerChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructurePersonalComputerChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructurePersonalComputersControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructurePersonalComputersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructurePersonalComputersControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructurePersonalComputersControl.designer.cs">
       <DependentUpon>CustomerInfrastructurePersonalComputersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePrinterChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePrinterChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructurePrinterChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructurePrinterChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructurePrinterChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructurePrintersControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructurePrintersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructurePrintersControl.Designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructurePrintersControl.Designer.cs">
       <DependentUpon>CustomerInfrastructurePrintersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureSecuritySoftwareChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureSecuritySoftwareChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureSecuritySoftwareChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureSecuritySoftwareChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureSecuritySoftwareChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureSecuritySoftwaresControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureSecuritySoftwaresControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureSecuritySoftwaresControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureSecuritySoftwaresControl.designer.cs">
       <DependentUpon>CustomerInfrastructureSecuritySoftwaresControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureServerComputerChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureServerComputerChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureServerComputerChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureServerComputerChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureServerComputerChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureServerComputerDBMSChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureServerComputerDBMSChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureServerComputerDBMSChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureServerComputerDBMSChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureServerComputerDBMSChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureServerComputerDBMSsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureServerComputerDBMSsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureServerComputerDBMSsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureServerComputerDBMSsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureServerComputerDBMSsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureServerComputersControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureServerComputersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureServerComputersControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureServerComputersControl.designer.cs">
       <DependentUpon>CustomerInfrastructureServerComputersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureTelephoniesControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureTelephoniesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureTelephoniesControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureTelephoniesControl.designer.cs">
       <DependentUpon>CustomerInfrastructureTelephoniesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureTelephonyChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureTelephonyChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureTelephonyChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureTelephonyChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureTelephonyChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureUPSChooserControl.cs">
+    <Compile Include="Choosers\CustomerInfrastructureUPSChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CustomerInfrastructureUPSChooserControl.designer.cs">
+    <Compile Include="Choosers\CustomerInfrastructureUPSChooserControl.designer.cs">
       <DependentUpon>CustomerInfrastructureUPSChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureUPSsControl.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureUPSsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ManyToOne\CustomerInfrastructureUPSsControl.designer.cs">
+    <Compile Include="ManyToOne\CustomerInfrastructureUPSsControl.designer.cs">
       <DependentUpon>CustomerInfrastructureUPSsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\DBMSChooserControl.cs">
+    <Compile Include="Choosers\DBMSChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\DBMSChooserControl.designer.cs">
+    <Compile Include="Choosers\DBMSChooserControl.designer.cs">
       <DependentUpon>DBMSChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\FirewallBrandChooserControl.cs">
+    <Compile Include="Choosers\FirewallBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\FirewallBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\FirewallBrandChooserControl.designer.cs">
       <DependentUpon>FirewallBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\ISPChooserControl.cs">
+    <Compile Include="Choosers\ISPChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\ISPChooserControl.designer.cs">
+    <Compile Include="Choosers\ISPChooserControl.designer.cs">
       <DependentUpon>ISPChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\NetworkCablingTypeChooserControl.cs">
+    <Compile Include="Choosers\NetworkCablingTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\NetworkCablingTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\NetworkCablingTypeChooserControl.designer.cs">
       <DependentUpon>NetworkCablingTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\OperativeSystemChooserControl.cs">
+    <Compile Include="Choosers\OperativeSystemChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\OperativeSystemChooserControl.designer.cs">
+    <Compile Include="Choosers\OperativeSystemChooserControl.designer.cs">
       <DependentUpon>OperativeSystemChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\OperativeSystemTypeChooserControl.cs">
+    <Compile Include="Choosers\OperativeSystemTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\OperativeSystemTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\OperativeSystemTypeChooserControl.designer.cs">
       <DependentUpon>OperativeSystemTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\PersonalComputerTypeChooserControl.cs">
+    <Compile Include="Choosers\PersonalComputerTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\PersonalComputerTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\PersonalComputerTypeChooserControl.designer.cs">
       <DependentUpon>PersonalComputerTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\PrinterBrandChooserControl.cs">
+    <Compile Include="Choosers\PrinterBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\PrinterBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\PrinterBrandChooserControl.designer.cs">
       <DependentUpon>PrinterBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\PrinterTypeChooserControl.cs">
+    <Compile Include="Choosers\PrinterTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\PrinterTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\PrinterTypeChooserControl.designer.cs">
       <DependentUpon>PrinterTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\RackTypeChooserControl.cs">
+    <Compile Include="Choosers\RackTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\RackTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\RackTypeChooserControl.designer.cs">
       <DependentUpon>RackTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\RouterBrandChooserControl.cs">
+    <Compile Include="Choosers\RouterBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\RouterBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\RouterBrandChooserControl.designer.cs">
       <DependentUpon>RouterBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\SecuritySoftwareBrandChooserControl.cs">
+    <Compile Include="Choosers\SecuritySoftwareBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\SecuritySoftwareBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\SecuritySoftwareBrandChooserControl.designer.cs">
       <DependentUpon>SecuritySoftwareBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\SwitchBrandChooserControl.cs">
+    <Compile Include="Choosers\SwitchBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\SwitchBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\SwitchBrandChooserControl.designer.cs">
       <DependentUpon>SwitchBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TelephonyLineTypeChooserControl.cs">
+    <Compile Include="Choosers\TelephonyLineTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\TelephonyLineTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\TelephonyLineTypeChooserControl.designer.cs">
       <DependentUpon>TelephonyLineTypeChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\TelephonyProviderChooserControl.cs">
+    <Compile Include="Choosers\TelephonyProviderChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\TelephonyProviderChooserControl.designer.cs">
+    <Compile Include="Choosers\TelephonyProviderChooserControl.designer.cs">
       <DependentUpon>TelephonyProviderChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UPSBrandChooserControl.cs">
+    <Compile Include="Choosers\UPSBrandChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\UPSBrandChooserControl.designer.cs">
+    <Compile Include="Choosers\UPSBrandChooserControl.designer.cs">
       <DependentUpon>UPSBrandChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UPSTypeChooserControl.cs">
+    <Compile Include="Choosers\UPSTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\UPSTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\UPSTypeChooserControl.designer.cs">
       <DependentUpon>UPSTypeChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -560,58 +560,58 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureAdministationSoftwaresControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureAdministationSoftwaresControl.resx">
       <DependentUpon>CustomerInfrastructureAdministationSoftwaresControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureBackupSoftwaresControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureBackupSoftwaresControl.resx">
       <DependentUpon>CustomerInfrastructureBackupSoftwaresControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureCCTVsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureCCTVsControl.resx">
       <DependentUpon>CustomerInfrastructureCCTVsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureISPsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureISPsControl.resx">
       <DependentUpon>CustomerInfrastructureISPsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkCablingsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkCablingsControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkCablingsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkCommutatorsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkCommutatorsControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkCommutatorsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkFirewallsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkFirewallsControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkFirewallsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkRoutersControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkRoutersControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkRoutersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkSiteRacksControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkSiteRacksControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkSiteRacksControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkSwitchesControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkSwitchesControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkSwitchesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureNetworkWifiAccessPointsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureNetworkWifiAccessPointsControl.resx">
       <DependentUpon>CustomerInfrastructureNetworkWifiAccessPointsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructurePersonalComputersControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructurePersonalComputersControl.resx">
       <DependentUpon>CustomerInfrastructurePersonalComputersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructurePrintersControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructurePrintersControl.resx">
       <DependentUpon>CustomerInfrastructurePrintersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureSecuritySoftwaresControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureSecuritySoftwaresControl.resx">
       <DependentUpon>CustomerInfrastructureSecuritySoftwaresControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureServerComputerDBMSsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureServerComputerDBMSsControl.resx">
       <DependentUpon>CustomerInfrastructureServerComputerDBMSsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureServerComputersControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureServerComputersControl.resx">
       <DependentUpon>CustomerInfrastructureServerComputersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureTelephoniesControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureTelephoniesControl.resx">
       <DependentUpon>CustomerInfrastructureTelephoniesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ManyToOne\CustomerInfrastructureUPSsControl.resx">
+    <EmbeddedResource Include="ManyToOne\CustomerInfrastructureUPSsControl.resx">
       <DependentUpon>CustomerInfrastructureUPSsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

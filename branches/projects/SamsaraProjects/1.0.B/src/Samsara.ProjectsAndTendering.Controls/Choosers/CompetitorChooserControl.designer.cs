@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.ProjectsAndTendering.Controls.Controls.Choosers
+namespace Samsara.ProjectsAndTendering.Controls.Choosers
 {
     partial class CompetitorChooserControl
     {

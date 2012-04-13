@@ -41,10 +41,10 @@ namespace Samsara.Commissions.Forms.Forms
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters1 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
             Samsara.AlleatoERP.Core.Parameters.StaffParameters staffParameters2 = new Samsara.AlleatoERP.Core.Parameters.StaffParameters();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommissionPaymentForm));
-            this.sccSchStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
+            this.sccSchStaff = new Samsara.AlleatoERP.Controls.StaffChooserControl();
             this.ulblSchAsesor = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetStaff = new Infragistics.Win.Misc.UltraLabel();
-            this.sccDetStaff = new Samsara.AlleatoERP.Controls.Controls.StaffChooserControl();
+            this.sccDetStaff = new Samsara.AlleatoERP.Controls.StaffChooserControl();
             this.ulblDetAmount = new Infragistics.Win.Misc.UltraLabel();
             this.ulblDetYear = new Infragistics.Win.Misc.UltraLabel();
             this.uceDetMonth = new Samsara.Base.Controls.Controls.SamsaraUltraComboEditor();
@@ -306,8 +306,8 @@ namespace Samsara.Commissions.Forms.Forms
         private Infragistics.Win.Misc.UltraLabel ulblSchAsesor;
         private Infragistics.Win.Misc.UltraLabel ulblDetAmount;
         private Infragistics.Win.Misc.UltraLabel ulblDetStaff;
-        internal AlleatoERP.Controls.Controls.StaffChooserControl sccSchStaff;
-        internal AlleatoERP.Controls.Controls.StaffChooserControl sccDetStaff;
+        internal AlleatoERP.Controls.StaffChooserControl sccSchStaff;
+        internal AlleatoERP.Controls.StaffChooserControl sccDetStaff;
         internal Base.Controls.Controls.SamsaraUltraComboEditor uceDetMonth;
         private Infragistics.Win.Misc.UltraLabel ulblDetYear;
         private Infragistics.Win.Misc.UltraLabel ulblDetMonths;

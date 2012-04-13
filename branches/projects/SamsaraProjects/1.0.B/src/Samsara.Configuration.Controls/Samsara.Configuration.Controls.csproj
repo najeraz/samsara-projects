@@ -82,16 +82,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\FormConfigurationUserPermissionChooserControl.cs">
+    <Compile Include="Choosers\FormConfigurationUserPermissionChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\FormConfigurationUserPermissionChooserControl.designer.cs">
+    <Compile Include="Choosers\FormConfigurationUserPermissionChooserControl.designer.cs">
       <DependentUpon>FormConfigurationUserPermissionChooserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Choosers\UserGroupChooserControl.cs">
+    <Compile Include="Choosers\UserGroupChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\UserGroupChooserControl.designer.cs">
+    <Compile Include="Choosers\UserGroupChooserControl.designer.cs">
       <DependentUpon>UserGroupChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

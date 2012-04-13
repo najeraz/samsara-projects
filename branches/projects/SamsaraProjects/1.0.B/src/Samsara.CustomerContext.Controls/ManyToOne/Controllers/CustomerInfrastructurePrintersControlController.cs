@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
-using Samsara.Base.Controls.Controllers;
+using Samsara.Base.Controls.ControlsControllers;
 using Samsara.Base.Controls.EventsArgs;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
@@ -17,7 +17,7 @@ using Samsara.CustomerContext.Service.Interfaces;
 using Samsara.Framework.Core.Constants;
 using Samsara.Framework.Util;
 
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne.Controllers
+namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 {
     public class CustomerInfrastructurePrintersControlController : ManyToOneLevel1ControlController<CustomerInfrastructurePrinter>
     {

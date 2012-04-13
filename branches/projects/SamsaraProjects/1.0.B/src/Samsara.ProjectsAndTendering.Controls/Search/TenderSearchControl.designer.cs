@@ -2,7 +2,7 @@
 using Samsara.Controls;
 using Samsara.ProjectsAndTendering.Core.Entities;
 
-namespace Samsara.ProjectsAndTendering.Controls.Controls.Search
+namespace Samsara.ProjectsAndTendering.Controls.Search
 {
     partial class TenderSearchControl
     {

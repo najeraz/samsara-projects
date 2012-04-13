@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureISPsControl
     {
@@ -42,7 +42,7 @@
             this.lblBandwidth = new Infragistics.Win.Misc.UltraLabel();
             this.lblISP = new Infragistics.Win.Misc.UltraLabel();
             this.steBandwidth = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.icISP = new Samsara.CustomerContext.Controls.Controls.Choosers.ISPChooserControl();
+            this.icISP = new Samsara.CustomerContext.Controls.Choosers.ISPChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

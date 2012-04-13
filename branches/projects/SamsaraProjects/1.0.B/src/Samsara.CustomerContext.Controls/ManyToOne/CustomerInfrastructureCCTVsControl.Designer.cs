@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureCCTVsControl
     {
@@ -44,8 +44,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblCCTVBrand = new Infragistics.Win.Misc.UltraLabel();
             this.gbxUtilization = new System.Windows.Forms.GroupBox();
             this.txtUtilization = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.cbcCCTVBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.CCTVBrandChooserControl();
-            this.ctcCCTVType = new Samsara.CustomerContext.Controls.Controls.Choosers.CCTVTypeChooserControl();
+            this.cbcCCTVBrand = new Samsara.CustomerContext.Controls.Choosers.CCTVBrandChooserControl();
+            this.ctcCCTVType = new Samsara.CustomerContext.Controls.Choosers.CCTVTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
@@ -313,8 +313,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
         private Infragistics.Win.Misc.UltraLabel lblCCTVBrand;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtUtilization;
         private System.Windows.Forms.GroupBox gbxUtilization;
-        internal Samsara.CustomerContext.Controls.Controls.Choosers.CCTVTypeChooserControl ctcCCTVType;
-        internal Samsara.CustomerContext.Controls.Controls.Choosers.CCTVBrandChooserControl cbcCCTVBrand;
+        internal Samsara.CustomerContext.Controls.Choosers.CCTVTypeChooserControl ctcCCTVType;
+        internal Samsara.CustomerContext.Controls.Choosers.CCTVBrandChooserControl cbcCCTVBrand;
 
 
     }

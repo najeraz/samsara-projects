@@ -90,9 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\Choosers\" />
-    <Folder Include="Controls\ManyToOne\Controllers\" />
-    <Folder Include="Controls\Search\" />
+    <Folder Include="Choosers\" />
+    <Folder Include="ManyToOne\Controllers\" />
+    <Folder Include="Search\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

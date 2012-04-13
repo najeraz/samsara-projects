@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructurePrintersControl
     {
@@ -45,9 +45,9 @@
             this.lblSerialNumber = new Infragistics.Win.Misc.UltraLabel();
             this.lblPrinterType = new Infragistics.Win.Misc.UltraLabel();
             this.lblPrinterBrand = new Infragistics.Win.Misc.UltraLabel();
-            this.ptcPrinterType = new Samsara.CustomerContext.Controls.Controls.Choosers.PrinterTypeChooserControl();
-            this.pbcPrinterBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.PrinterBrandChooserControl();
-            this.cipccCustomerInfrastructurePrinterClassification = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructurePrinterClassificationChooserControl();
+            this.ptcPrinterType = new Samsara.CustomerContext.Controls.Choosers.PrinterTypeChooserControl();
+            this.pbcPrinterBrand = new Samsara.CustomerContext.Controls.Choosers.PrinterBrandChooserControl();
+            this.cipccCustomerInfrastructurePrinterClassification = new Samsara.CustomerContext.Controls.Choosers.CustomerInfrastructurePrinterClassificationChooserControl();
             this.lblCustomerInfrastructurePrinterClassification = new Infragistics.Win.Misc.UltraLabel();
             this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ulblQuantity = new Infragistics.Win.Misc.UltraLabel();

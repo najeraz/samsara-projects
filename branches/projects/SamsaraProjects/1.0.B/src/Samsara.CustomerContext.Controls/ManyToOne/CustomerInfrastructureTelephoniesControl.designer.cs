@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureTelephoniesControl
     {
@@ -44,8 +44,8 @@
             this.lblTelephonyProvider = new Infragistics.Win.Misc.UltraLabel();
             this.lblNumberOfLines = new Infragistics.Win.Misc.UltraLabel();
             this.steNumberOfLines = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.tltcTelephonyLineType = new Samsara.CustomerContext.Controls.Controls.Choosers.TelephonyLineTypeChooserControl();
-            this.tpcTelephonyProvider = new Samsara.CustomerContext.Controls.Controls.Choosers.TelephonyProviderChooserControl();
+            this.tltcTelephonyLineType = new Samsara.CustomerContext.Controls.Choosers.TelephonyLineTypeChooserControl();
+            this.tpcTelephonyProvider = new Samsara.CustomerContext.Controls.Choosers.TelephonyProviderChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();
