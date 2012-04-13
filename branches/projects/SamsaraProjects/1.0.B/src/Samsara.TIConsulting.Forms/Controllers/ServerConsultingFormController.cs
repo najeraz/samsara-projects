@@ -372,7 +372,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
             if (this.HasServer.Value == AbstractQuantityEnum.One)
             {
                 ServerConsultingOldServerComputer serverConsultingOldServerComputer
-                    = this.serverConsulting.ServerConsultingOldServerComputers.SingleOrDefault();
+                    = this.serverConsulting.ServerConsultingOldServerComputers.SingleOrDefault(x => !x.Deleted.Value);
 
                 if (serverConsultingOldServerComputer == null)
                 {
