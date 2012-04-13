@@ -19,14 +19,8 @@ namespace Samsara.Base.Service.Impl
 
         protected IGenericReadOnlyDao ReadOnlyDao
         {
-            get
-            {
-                return this.Dao;
-            }
-            set
-            {
-                this.Dao = value as IGenericDao;
-            }
+            get;
+            set;
         }
 
         #endregion Properties
@@ -35,47 +29,47 @@ namespace Samsara.Base.Service.Impl
 
         public virtual DateTime GetServerDateTime()
         {
-            return this.Dao.GetServerDateTime();
+            return this.ReadOnlyDao.GetServerDateTime();
         }
 
         public T GetById<T>(object id)
         {
-            return this.Dao.GetById<T>(id);
+            return this.ReadOnlyDao.GetById<T>(id);
         }
 
         public T LoadById<T>(object id)
         {
-            return this.Dao.LoadById<T>(id);
+            return this.ReadOnlyDao.LoadById<T>(id);
         }
 
         public T GetByParameters<T>(object parameters)
         {
-            return this.Dao.GetByParameters<T>(parameters);
+            return this.ReadOnlyDao.GetByParameters<T>(parameters);
         }
 
         public IList<T> GetAll<T>()
         {
-            return this.Dao.GetAll<T>();
+            return this.ReadOnlyDao.GetAll<T>();
         }
 
         public DataTable SearchByParameters<T>(object parameters)
         {
-            return this.Dao.SearchByParameters<T>(parameters);
+            return this.ReadOnlyDao.SearchByParameters<T>(parameters);
         }
 
         public IList<T> GetListByParameters<T>(object parameters)
         {
-            return this.Dao.GetListByParameters<T>(parameters);
+            return this.ReadOnlyDao.GetListByParameters<T>(parameters);
         }
 
         public DataTable SearchByParameters(string queryName, object parameters, bool absoluteColumnNames)
         {
-            return this.Dao.SearchByParameters(queryName, parameters, absoluteColumnNames);
+            return this.ReadOnlyDao.SearchByParameters(queryName, parameters, absoluteColumnNames);
         }
 
         public DataTable SearchByParameters(string queryName, object parameters)
         {
-            return this.Dao.SearchByParameters(queryName, parameters);
+            return this.ReadOnlyDao.SearchByParameters(queryName, parameters);
         }
 
         #endregion Methods
