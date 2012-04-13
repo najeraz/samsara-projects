@@ -696,7 +696,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
 
             this.SaveCommissionPayment(idAjuste, Convert.ToDecimal(this.txtTotalComisiones.Text), 
                 this.srvGeneric.GetServerDateTime(), this.dtDetalleComisiones.AsEnumerable()
-                .Select(x => Convert.ToInt32(x["agente"])).Distinct().ToList());
+                .Select(x => Convert.ToInt32(x["agente_original"])).Distinct().ToList());
         }
 
         private void ProcesaFacturasPendientes()
