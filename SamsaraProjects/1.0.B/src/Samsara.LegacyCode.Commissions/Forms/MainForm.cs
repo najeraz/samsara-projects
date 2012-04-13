@@ -64,7 +64,7 @@ namespace Samsara.LegacyCode.Commissions.Forms
         {
             if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                //this.srvGeneric = SamsaraAppContext.Resolve<IGenericService>();
+                this.srvGeneric = SamsaraAppContext.Resolve<IGenericService>();
                 this.srvCommissionPayment = SamsaraAppContext.Resolve<ICommissionPaymentService>();
             }
             cnn = new SqlConnection(ConectionStrings.AlleatoConectionString);
@@ -1217,8 +1217,14 @@ namespace Samsara.LegacyCode.Commissions.Forms
                         ExternalPaymentId = idPayment
                     };
 
-                    this.srvCommissionPayment.Delete(this.srvCommissionPayment.GetById(
-                        this.srvCommissionPayment.GetByParameters(pmtCommissionPayment).CommissionPaymentId));
+                    CommissionPayment commissionPayment 
+                        = this.srvCommissionPayment.GetByParameters(pmtCommissionPayment);
+
+                    if (commissionPayment != null)
+                    {
+                        this.srvCommissionPayment.Delete(this.srvCommissionPayment
+                            .GetById(commissionPayment.CommissionPaymentId));
+                    }
                 }
 
                 this.transacction.Commit();
