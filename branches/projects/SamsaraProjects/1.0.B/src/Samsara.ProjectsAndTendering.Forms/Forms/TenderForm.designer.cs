@@ -546,6 +546,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.grdSchSearch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.grdSchSearch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             this.grdSchSearch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdSchSearch.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             this.grdSchSearch.DisplayLayout.MaxColScrollRegions = 1;
             this.grdSchSearch.DisplayLayout.MaxRowScrollRegions = 1;
             appearance147.BackColor = System.Drawing.SystemColors.Window;
@@ -982,6 +983,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             this.mtoDetTenderLines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mtoDetTenderLines.Location = new System.Drawing.Point(3, 3);
             this.mtoDetTenderLines.Name = "mtoDetTenderLines";
+            this.mtoDetTenderLines.ReadOnly = false;
             this.mtoDetTenderLines.Size = new System.Drawing.Size(381, 362);
             this.mtoDetTenderLines.TabIndex = 0;
             this.mtoDetTenderLines.Tender = null;
@@ -1013,6 +1015,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance63.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetTenderLinesExtraCosts.DisplayLayout.GroupByBox.BandLabelAppearance = appearance63;
             this.grdDetTenderLinesExtraCosts.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderLinesExtraCosts.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance64.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance64.BackColor2 = System.Drawing.SystemColors.Control;
             appearance64.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -1474,6 +1477,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance111.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetPriceComparison.DisplayLayout.GroupByBox.BandLabelAppearance = appearance111;
             this.grdDetPriceComparison.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPriceComparison.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance112.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance112.BackColor2 = System.Drawing.SystemColors.Control;
             appearance112.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -1585,6 +1589,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance99.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetExchangeRates.DisplayLayout.GroupByBox.BandLabelAppearance = appearance99;
             this.grdDetExchangeRates.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetExchangeRates.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance100.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance100.BackColor2 = System.Drawing.SystemColors.Control;
             appearance100.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -1662,6 +1667,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance51.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetPricingStrategy.DisplayLayout.GroupByBox.BandLabelAppearance = appearance51;
             this.grdDetPricingStrategy.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPricingStrategy.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance52.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance52.BackColor2 = System.Drawing.SystemColors.Control;
             appearance52.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -1826,6 +1832,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance75.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetPreresults.DisplayLayout.GroupByBox.BandLabelAppearance = appearance75;
             this.grdDetPreresults.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetPreresults.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance76.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance76.BackColor2 = System.Drawing.SystemColors.Control;
             appearance76.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -2182,6 +2189,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance123.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance123;
             this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderWholesalers.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance124.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance124.BackColor2 = System.Drawing.SystemColors.Control;
             appearance124.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -2312,6 +2320,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance15.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetTenderManufacturers.DisplayLayout.GroupByBox.BandLabelAppearance = appearance15;
             this.grdDetTenderManufacturers.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderManufacturers.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance16.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance16.BackColor2 = System.Drawing.SystemColors.Control;
             appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -2445,6 +2454,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetTenderCompetitors.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
             this.grdDetTenderCompetitors.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderCompetitors.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance4.BackColor2 = System.Drawing.SystemColors.Control;
             appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -2578,6 +2588,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance27.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetTenderWarranties.DisplayLayout.GroupByBox.BandLabelAppearance = appearance27;
             this.grdDetTenderWarranties.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderWarranties.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance28.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance28.BackColor2 = System.Drawing.SystemColors.Control;
             appearance28.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -2710,6 +2721,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance87.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetLog.DisplayLayout.GroupByBox.BandLabelAppearance = appearance87;
             this.grdDetLog.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetLog.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance88.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance88.BackColor2 = System.Drawing.SystemColors.Control;
             appearance88.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
@@ -2842,6 +2854,7 @@ namespace Samsara.ProjectsAndTendering.Forms.Forms
             appearance39.ForeColor = System.Drawing.SystemColors.GrayText;
             this.grdDetTenderFiles.DisplayLayout.GroupByBox.BandLabelAppearance = appearance39;
             this.grdDetTenderFiles.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.grdDetTenderFiles.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
             appearance40.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance40.BackColor2 = System.Drawing.SystemColors.Control;
             appearance40.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
