@@ -1,9 +1,9 @@
 ﻿
-using Samsara.ProjectsAndTendering.Controls.Controls.ManyToOne.Templates;
-using Samsara.TIConsulting.Controls.Controls.ManyToOne.Controllers;
+using Samsara.ProjectsAndTendering.Controls.ManyToOne.Templates;
+using Samsara.TIConsulting.Controls.ManyToOne.Controllers;
 using Samsara.TIConsulting.Core.Entities;
 
-namespace Samsara.TIConsulting.Controls.Controls.ManyToOne
+namespace Samsara.TIConsulting.Controls.ManyToOne
 {
     public partial class ServerConsultingOldServerComputersControl : ServerConsultingOldServerComputerControlTemplate
     {

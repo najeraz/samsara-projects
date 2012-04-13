@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkRoutersControl
     {
@@ -44,7 +44,7 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.txtRouterModel = new System.Windows.Forms.TextBox();
             this.lblRouterModel = new Infragistics.Win.Misc.UltraLabel();
-            this.rbcRouterBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.RouterBrandChooserControl();
+            this.rbcRouterBrand = new Samsara.CustomerContext.Controls.Choosers.RouterBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

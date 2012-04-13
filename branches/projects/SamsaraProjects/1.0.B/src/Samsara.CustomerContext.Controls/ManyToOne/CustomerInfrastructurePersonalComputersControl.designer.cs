@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructurePersonalComputersControl
     {
@@ -58,12 +58,12 @@
             this.lblCPU = new Infragistics.Win.Misc.UltraLabel();
             this.lblRAM = new Infragistics.Win.Misc.UltraLabel();
             this.Software = new System.Windows.Forms.TabPage();
-            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Choosers.OperativeSystemChooserControl();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
-            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
-            this.pctcPersonalComputerType = new Samsara.CustomerContext.Controls.Controls.Choosers.PersonalComputerTypeChooserControl();
+            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Choosers.ComputerBrandChooserControl();
+            this.pctcPersonalComputerType = new Samsara.CustomerContext.Controls.Choosers.PersonalComputerTypeChooserControl();
             this.ulblCustomerInfraestructurePersonalComputerClassification = new Infragistics.Win.Misc.UltraLabel();
-            this.cipcccCustomerInfrastructurePersonalComputerClassification = new Samsara.CustomerContext.Controls.Controls.Choosers.CustomerInfrastructurePersonalComputerClassificationChooserControl();
+            this.cipcccCustomerInfrastructurePersonalComputerClassification = new Samsara.CustomerContext.Controls.Choosers.CustomerInfrastructurePersonalComputerClassificationChooserControl();
             this.ulblClassification = new Infragistics.Win.Misc.UltraLabel();
             this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ulblQuantity = new Infragistics.Win.Misc.UltraLabel();

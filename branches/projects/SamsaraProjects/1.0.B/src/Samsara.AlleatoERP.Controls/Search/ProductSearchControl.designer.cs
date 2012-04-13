@@ -2,7 +2,7 @@
 using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Controls;
 
-namespace Samsara.AlleatoERP.Controls.Controls.Search
+namespace Samsara.AlleatoERP.Controls.Search
 {
     partial class ProductSearchControl
     {

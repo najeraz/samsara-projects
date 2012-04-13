@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkSiteRacksControl
     {
@@ -42,7 +42,7 @@
             this.lblRackType = new Infragistics.Win.Misc.UltraLabel();
             this.steQuantity = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
-            this.rtcRackType = new Samsara.CustomerContext.Controls.Controls.Choosers.RackTypeChooserControl();
+            this.rtcRackType = new Samsara.CustomerContext.Controls.Choosers.RackTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

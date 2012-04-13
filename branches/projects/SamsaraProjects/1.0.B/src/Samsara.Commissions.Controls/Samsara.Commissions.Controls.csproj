@@ -82,16 +82,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Choosers\CommissionTypeChooserControl.cs">
+    <Compile Include="Choosers\CommissionTypeChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Choosers\CommissionTypeChooserControl.designer.cs">
+    <Compile Include="Choosers\CommissionTypeChooserControl.designer.cs">
       <DependentUpon>CommissionTypeChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\ManyToOne\" />
+    <Folder Include="ManyToOne\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

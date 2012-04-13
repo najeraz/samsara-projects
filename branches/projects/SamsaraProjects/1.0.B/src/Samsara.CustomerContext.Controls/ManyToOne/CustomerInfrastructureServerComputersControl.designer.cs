@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureServerComputersControl
     {
@@ -61,9 +61,9 @@
             this.tabItmSoftware = new System.Windows.Forms.TabPage();
             this.lblOperativeSystem = new Infragistics.Win.Misc.UltraLabel();
             this.tabItmDBMS = new System.Windows.Forms.TabPage();
-            this.mtoCustomerInfrastructureServerComputerDBMSs = new Samsara.CustomerContext.Controls.Controls.ManyToOne.CustomerInfrastructureServerComputerDBMSsControl();
-            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.ComputerBrandChooserControl();
-            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Controls.Choosers.OperativeSystemChooserControl();
+            this.mtoCustomerInfrastructureServerComputerDBMSs = new Samsara.CustomerContext.Controls.ManyToOne.CustomerInfrastructureServerComputerDBMSsControl();
+            this.cbcComputerBrand = new Samsara.CustomerContext.Controls.Choosers.ComputerBrandChooserControl();
+            this.oscOperativeSystem = new Samsara.CustomerContext.Controls.Choosers.OperativeSystemChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

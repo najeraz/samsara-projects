@@ -5,7 +5,7 @@ using Samsara.ProjectsAndTendering.Core.Parameters;
 using Samsara.ProjectsAndTendering.Dao.Interfaces;
 using Samsara.ProjectsAndTendering.Service.Interfaces;
 
-namespace Samsara.ProjectsAndTendering.Controls.Controls
+namespace Samsara.ProjectsAndTendering.Controls.Choosers
 {
     public partial class TenderSubstatusChooserControl : SamsaraEntityChooserControl<TenderSubstatus, int, ITenderSubstatusService, ITenderSubstatusDao, TenderSubstatusParameters>
     {

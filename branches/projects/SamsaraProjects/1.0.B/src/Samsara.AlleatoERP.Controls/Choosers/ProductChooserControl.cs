@@ -5,7 +5,7 @@ using Samsara.AlleatoERP.Dao.Interfaces;
 using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Controls.Controls;
 
-namespace Samsara.AlleatoERP.Controls.Controls
+namespace Samsara.AlleatoERP.Controls
 {
     public partial class ProductChooserControl : SamsaraEntityChooserControl<Product, int, IProductService, IProductDao, ProductParameters>
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureNetworkCommutatorsControl
     {
@@ -47,8 +47,8 @@ namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
             this.lblNumberOfTrunks = new Infragistics.Win.Misc.UltraLabel();
             this.steNumberOfTrunks = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
             this.steNumberOfExtensions = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.ctcCommutatorType = new Samsara.CustomerContext.Controls.Controls.Choosers.CommutatorTypeChooserControl();
-            this.cbcCommutatorBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.CommutatorBrandChooserControl();
+            this.ctcCommutatorType = new Samsara.CustomerContext.Controls.Choosers.CommutatorTypeChooserControl();
+            this.cbcCommutatorBrand = new Samsara.CustomerContext.Controls.Choosers.CommutatorBrandChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

@@ -45,8 +45,8 @@
             this.txtDetName = new System.Windows.Forms.TextBox();
             this.lblDetDependency = new System.Windows.Forms.Label();
             this.lblDetName = new System.Windows.Forms.Label();
-            this.dccDetDependency = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl();
-            this.dccSchDependency = new Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl();
+            this.dccDetDependency = new Samsara.ProjectsAndTendering.Controls.Choosers.DependencyChooserControl();
+            this.dccSchDependency = new Samsara.ProjectsAndTendering.Controls.Choosers.DependencyChooserControl();
             this.pnlDetCtgButtons.SuspendLayout();
             this.gbxSearchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -266,7 +266,7 @@
         private System.Windows.Forms.Label lblDetName;
         internal System.Windows.Forms.TextBox txtSchName;
         internal System.Windows.Forms.TextBox txtDetName;
-        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl dccSchDependency;
-        internal Samsara.ProjectsAndTendering.Controls.Controls.Choosers.DependencyChooserControl dccDetDependency;
+        internal Samsara.ProjectsAndTendering.Controls.Choosers.DependencyChooserControl dccSchDependency;
+        internal Samsara.ProjectsAndTendering.Controls.Choosers.DependencyChooserControl dccDetDependency;
     }
 }

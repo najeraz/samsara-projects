@@ -5,7 +5,7 @@ using Samsara.Commissions.Core.Parameters;
 using Samsara.Commissions.Dao.Interfaces;
 using Samsara.Commissions.Service.Interfaces;
 
-namespace Samsara.Commissions.Controls.Controls
+namespace Samsara.Commissions.Controls.Choosers
 {
     public partial class CommissionTypeChooserControl : SamsaraEntityChooserControl<CommissionType, int, ICommissionTypeService, ICommissionTypeDao, CommissionTypeParameters>
     {

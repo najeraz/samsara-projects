@@ -1,4 +1,4 @@
-﻿namespace Samsara.CustomerContext.Controls.Controls.ManyToOne
+﻿namespace Samsara.CustomerContext.Controls.ManyToOne
 {
     partial class CustomerInfrastructureSecuritySoftwaresControl
     {
@@ -45,8 +45,8 @@
             this.uchkConsoleInstalled = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.lblNumberOfClients = new Infragistics.Win.Misc.UltraLabel();
             this.steNumberOfClients = new Samsara.Base.Controls.Controls.SamsaraTextEditor();
-            this.ssbSecuritySoftwareBrand = new Samsara.CustomerContext.Controls.Controls.Choosers.SecuritySoftwareBrandChooserControl();
-            this.sstcSecuritySoftwareType = new Samsara.CustomerContext.Controls.Controls.Choosers.SecuritySoftwareTypeChooserControl();
+            this.ssbSecuritySoftwareBrand = new Samsara.CustomerContext.Controls.Choosers.SecuritySoftwareBrandChooserControl();
+            this.sstcSecuritySoftwareType = new Samsara.CustomerContext.Controls.Choosers.SecuritySoftwareTypeChooserControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdRelations)).BeginInit();
             this.upnDetailButtons.ClientArea.SuspendLayout();
             this.upnDetailButtons.SuspendLayout();

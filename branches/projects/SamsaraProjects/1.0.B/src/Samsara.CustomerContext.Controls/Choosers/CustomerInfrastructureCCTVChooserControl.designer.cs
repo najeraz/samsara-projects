@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.CustomerContext.Controls.Controls.Choosers
+namespace Samsara.CustomerContext.Controls.Choosers
 {
     partial class CustomerInfrastructureCCTVChooserControl
     {
