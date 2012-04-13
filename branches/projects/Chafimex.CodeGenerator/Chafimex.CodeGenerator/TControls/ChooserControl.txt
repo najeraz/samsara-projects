@@ -6,7 +6,7 @@ using Samsara.#Schema#.Core.Parameters;
 using Samsara.#Schema#.Dao.Interfaces;
 using Samsara.#Schema#.Service.Interfaces;
 
-namespace Samsara.#Schema#.Controls.Controls
+namespace Samsara.#Schema#.Controls.Choosers
 {
     public partial class #EntityName#ChooserControl : SamsaraEntityChooserControl<#EntityName#, int, I#EntityName#Service, I#EntityName#Dao, #EntityName#Parameters>
     {

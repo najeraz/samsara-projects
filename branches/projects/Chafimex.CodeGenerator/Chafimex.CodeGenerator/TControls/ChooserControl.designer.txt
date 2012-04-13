@@ -1,5 +1,5 @@
 ﻿
-namespace Samsara.#Schema#.Controls.Controls
+namespace Samsara.#Schema#.Controls.Choosers
 {
     partial class #EntityName#ChooserControl
     {
