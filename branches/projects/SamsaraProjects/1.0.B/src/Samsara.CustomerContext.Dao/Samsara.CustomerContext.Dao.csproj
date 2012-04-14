@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Impl\CustomerDao.cs" />
     <Compile Include="Impl\AccessPointBrandDao.cs" />
     <Compile Include="Impl\AccessPointTypeDao.cs" />
     <Compile Include="Impl\BackupSoftwareBrandDao.cs" />
@@ -102,9 +103,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Impl\ComputerBrandDao.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Impl\CustomerDao.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Impl\CustomerInfrastructureCCTVDao.cs">

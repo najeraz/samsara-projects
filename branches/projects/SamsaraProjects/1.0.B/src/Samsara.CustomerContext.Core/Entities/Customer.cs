@@ -1,6 +1,8 @@
 ﻿
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
+using Samsara.CustomerContext.Core.Entities;
+using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.CustomerContext.Core.Entities
 {
@@ -25,6 +27,18 @@ namespace Samsara.CustomerContext.Core.Entities
         }
 
         public virtual string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual string ComercialName
+        {
+            get;
+            set;
+        }
+
+        public virtual Staff Staff
         {
             get;
             set;

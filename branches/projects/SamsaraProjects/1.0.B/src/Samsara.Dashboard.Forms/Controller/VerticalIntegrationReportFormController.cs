@@ -13,6 +13,8 @@ using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.Dashboard.Core.Parameters;
 using Samsara.Dashboard.Forms.Forms;
+using Samsara.CustomerContext.Service.Interfaces;
+using Samsara.CustomerContext.Core.Entities;
 
 namespace Samsara.Dashboard.Forms.Controller
 {
@@ -22,7 +24,7 @@ namespace Samsara.Dashboard.Forms.Controller
 
         private VerticalIntegrationReportForm frmVerticalIntegration;
         private DataTable dtGridReport;
-        private IERPCustomerService srvERPCustomer;
+        private ICustomerService srvCustomer;
         private IProductLineService srvProductLine;
         private IProductSublineService srvProductSubline;
         private IProductFamilyService srvProductFamily;
@@ -37,7 +39,7 @@ namespace Samsara.Dashboard.Forms.Controller
         {
             this.frmVerticalIntegration = frmVerticalIntegration;
 
-            this.srvERPCustomer = SamsaraAppContext.Resolve<IERPCustomerService>();
+            this.srvCustomer = SamsaraAppContext.Resolve<ICustomerService>();
             this.srvProductLine = SamsaraAppContext.Resolve<IProductLineService>();
             this.srvProductSubline = SamsaraAppContext.Resolve<IProductSublineService>();
             this.srvProductFamily = SamsaraAppContext.Resolve<IProductFamilyService>();
@@ -104,16 +106,16 @@ namespace Samsara.Dashboard.Forms.Controller
             IList<int> lstStaffIds = dtData.AsEnumerable().AsParallel()
                 .Select(x => Convert.ToInt32(x[3])).Distinct().ToList();
 
-            IList<ERPCustomer> lstCustomers = this.srvERPCustomer.GetAll()
+            IList<Customer> lstCustomers = this.srvCustomer.GetAll()
                 .AsParallel().Where(x => lstStaffIds.Contains(x.Staff.StaffId))
-                .OrderBy(x => x.Staff.Names).ThenBy(x => x.ERPCustomerId).ToList();
+                .OrderBy(x => x.Staff.Names).ThenBy(x => x.CustomerId).ToList();
 
-            foreach (ERPCustomer customer in lstCustomers)
+            foreach (Customer customer in lstCustomers)
             {
                 DataRow newRow = this.dtGridReport.NewRow();
                 this.dtGridReport.Rows.Add(newRow);
 
-                newRow["CustomerId"] = customer.ERPCustomerId;
+                newRow["CustomerId"] = customer.CustomerId;
                 newRow["CustomerName"] = customer.Name.Trim();
                 if (customer.ComercialName == null)
                     newRow["ComercialName"] = DBNull.Value;

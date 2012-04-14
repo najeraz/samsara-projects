@@ -10,6 +10,7 @@
     </id>
 
     <property name="Name"/>
+    <property name="ComercialName"/>
     <property name="Description"/>
 
     <property name="UpdatedBy"/>
@@ -26,6 +27,10 @@
     <many-to-one name="BusinessType"
                  class="Samsara.CustomerContext.Core.Entities.BusinessType, Samsara.CustomerContext.Core"
                  column="BusinessTypeId"/>
+
+    <many-to-one name="Staff" fetch="join"
+                 class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
+                 column="StaffId"/>
     
   </class>
 

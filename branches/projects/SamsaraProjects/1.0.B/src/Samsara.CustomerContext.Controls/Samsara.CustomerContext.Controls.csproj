@@ -39,6 +39,11 @@
     <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Base.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Samsara.Base.Controls.dll</HintPath>
@@ -86,6 +91,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Choosers\CustomerChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Choosers\CustomerChooserControl.designer.cs">
+      <DependentUpon>CustomerChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Choosers\CustomerInfrastructurePrinterClassificationChooserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,12 +192,6 @@
     </Compile>
     <Compile Include="Choosers\ComputerBrandChooserControl.designer.cs">
       <DependentUpon>ComputerBrandChooserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Choosers\CustomerChooserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Choosers\CustomerChooserControl.designer.cs">
-      <DependentUpon>CustomerChooserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Choosers\CustomerInfrastructureAdministationSoftwareChooserControl.cs">
       <SubType>UserControl</SubType>
