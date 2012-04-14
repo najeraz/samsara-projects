@@ -1,46 +1,70 @@
 ﻿
 using System;
-using Infragistics.Win.UltraWinGrid;
-using Samsara.Base.Core.Context;
-using Samsara.CustomerContext.Core.Entities;
-using Samsara.CustomerContext.Forms.Controller;
-using Samsara.CustomerContext.Forms.Templates;
-using Samsara.CustomerContext.Service.Interfaces;
+using System.Diagnostics;
+using System.Windows.Forms;
+using Samsara.Base.Forms.Controllers;
+using Samsara.Base.Forms.Forms;
+using Samsara.CustomerContext.Forms.Controllers;
 
 namespace Samsara.CustomerContext.Forms.Forms
 {
-    public partial class CustomerForm : CustomerSearchForm
+    public partial class CustomerForm : GenericDocumentForm
     {
         #region Attributes
 
         private CustomerFormController ctrlCustomerForm;
-        private ICustomerService srvCustomer;
 
         #endregion Attributes
+
+        #region Properties
+
+        protected override SamsaraFormController Controller
+        {
+            set
+            {
+                base.Controller = value;
+                this.ctrlCustomerForm = value as CustomerFormController;
+            }
+        }
+
+        #endregion Properties
+
+        #region Constructor
 
         public CustomerForm()
         {
             InitializeComponent();
-            this.ctrlCustomerForm = new CustomerFormController(this);
-            this.srvCustomer = SamsaraAppContext.Resolve<ICustomerService>();
+
+            this.Controller = new CustomerFormController(this);
+
+            this.ctrlCustomerForm.InitializeFormControls();
         }
 
-        #region Methods
+        #endregion Constructor
 
-        public override Customer GetSearchResult()
+        #region Events
+
+        [DebuggerStepThroughAttribute]
+        private void btnClick(object sender, EventArgs e)
         {
-            Customer Customer = null;
-            UltraGridRow activeRow = this.grdSchSearch.ActiveRow;
+            Control control = sender as Control;
 
-            if (activeRow != null)
+            try
             {
-                int CustomerId = Convert.ToInt32(activeRow.Cells[0].Value);
-                Customer = this.srvCustomer.GetById(CustomerId);
-            }
+                this.Cursor = Cursors.WaitCursor;
 
-            return Customer;
+                switch (control.Name)
+                {
+                    default:
+                        break;
+                }
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
-        #endregion Methods
+        #endregion Events
     }
 }
