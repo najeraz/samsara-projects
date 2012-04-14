@@ -1,24 +1,12 @@
 ﻿
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
-using Infragistics.Win;
-using Infragistics.Win.UltraWinGrid;
-using Samsara.Base.Controls.EventsArgs;
-using Samsara.Base.Controls.EventsHandlers;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
-using Samsara.Base.Forms.Enums;
 using Samsara.CustomerContext.Core.Entities;
-using Samsara.CustomerContext.Core.Enums;
 using Samsara.CustomerContext.Core.Parameters;
-using Samsara.Framework.Core.Entities;
-using Samsara.Framework.Core.Enums;
-using Samsara.Framework.Service.Interfaces;
-using Samsara.Framework.Util;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.CustomerContext.Service.Interfaces;
 
@@ -56,34 +44,6 @@ namespace Samsara.CustomerContext.Forms.Controllers
         #endregion Constructor
 
         #region Methods
-
-        #region Protected
-
-        protected override void ReadOnlySearchFields(bool readOnly)
-        {
-            base.ReadOnlySearchFields(readOnly);
-        }
-
-        protected override void ShowDetail(bool show)
-        {
-            base.ShowDetail(show);
-
-            if (show)
-            {
-                switch (this.FormStatus)
-                {
-                    case FormStatusEnum.Creation:
-                    case FormStatusEnum.Edition:
-                        break;
-                    case FormStatusEnum.ShowDetail:
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        #endregion Protected
 
         #region Public
 
