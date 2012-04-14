@@ -11,7 +11,6 @@
 
     <property name="Name"/>
     <property name="ComercialName"/>
-    <property name="Description"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>

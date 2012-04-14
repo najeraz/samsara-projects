@@ -49,11 +49,5 @@ namespace Samsara.CustomerContext.Core.Entities
             get;
             set;
         }
-
-        public virtual string Description
-        {
-            get;
-            set;
-        }
     }
 }
