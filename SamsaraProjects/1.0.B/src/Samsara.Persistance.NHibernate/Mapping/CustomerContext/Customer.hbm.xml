@@ -48,9 +48,10 @@
   <sql-query name="Customer.SearchByParameters" cacheable="false" read-only="true">
     <return-scalar column="CustomerId" type="int"/>
     <return-scalar column="Name" type="string"/>
+    <return-scalar column="ComercialName" type="string"/>
     <return-scalar column="BusinessTypeId" type="int"/>
     <![CDATA[
-        SELECT c.CustomerId, c.Name, c.BusinessTypeId
+        SELECT c.CustomerId, c.Name, c.ComercialName, c.BusinessTypeId
         FROM CustomerContext.Customers c 
         WHERE c.Deleted = 0 AND c.Activated = 1
         AND c.Name LIKE :Name
