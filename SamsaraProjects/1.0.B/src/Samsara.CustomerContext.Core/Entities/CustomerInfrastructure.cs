@@ -30,6 +30,13 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual Customer Customer
+        {
+            get;
+            set;
+        }
+
+
         public virtual CustomerInfrastructureNetwork CustomerInfrastructureNetwork
         {
             get;

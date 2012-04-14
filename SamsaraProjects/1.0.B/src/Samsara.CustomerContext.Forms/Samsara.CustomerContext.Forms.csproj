@@ -35,6 +35,7 @@
     <Reference Include="Infragistics2.Win.Misc.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics2.Win.UltraWinEditors.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinGrid.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinTabControl.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.v11.1, Version=11.1.20111.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
@@ -114,10 +115,18 @@
       <HintPath>..\..\bin\Samsara.Framework.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.Framework.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.Framework.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Samsara.Framework.Util.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Samsara.TIConsulting.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.TIConsulting.Controls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -140,7 +149,7 @@
     <Compile Include="Controllers\CommutatorBrandFormController.cs" />
     <Compile Include="Controllers\CommutatorTypeFormController.cs" />
     <Compile Include="Controllers\ComputerBrandFormController.cs" />
-    <Compile Include="Controllers\CustomerFormController.cs" />
+    <Compile Include="Controllers\CustomerForm0Controller.cs" />
     <Compile Include="Controllers\DBMSFormController.cs" />
     <Compile Include="Controllers\FirewallBrandFormController.cs" />
     <Compile Include="Controllers\ISPFormController.cs" />
@@ -153,6 +162,7 @@
     <Compile Include="Controllers\RouterBrandFormController.cs" />
     <Compile Include="Controllers\SecuritySoftwareBrandFormController.cs" />
     <Compile Include="Controllers\SecuritySoftwareTypeFormController.cs" />
+    <Compile Include="Controllers\CustomerFormController.cs" />
     <Compile Include="Controllers\SwitchBrandFormController.cs" />
     <Compile Include="Controllers\TelephonyLineTypeFormController.cs" />
     <Compile Include="Controllers\TelephonyProviderFormController.cs" />
@@ -212,11 +222,11 @@
     <Compile Include="Forms\ComputerBrandForm.designer.cs">
       <DependentUpon>ComputerBrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CustomerForm.cs">
+    <Compile Include="Forms\CustomerForm0.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CustomerForm.designer.cs">
-      <DependentUpon>CustomerForm.cs</DependentUpon>
+    <Compile Include="Forms\CustomerForm0.designer.cs">
+      <DependentUpon>CustomerForm0.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DBMSForm.cs">
       <SubType>Form</SubType>
@@ -295,6 +305,12 @@
     </Compile>
     <Compile Include="Forms\SecuritySoftwareTypeForm.designer.cs">
       <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SwitchBrandForm.cs">
       <SubType>Form</SubType>
@@ -381,11 +397,11 @@
     <Compile Include="Templates\ComputerBrandSearchForm.Designer.cs">
       <DependentUpon>ComputerBrandSearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Templates\CustomerSearchForm.cs">
+    <Compile Include="Templates\CustomerSearchForm0.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Templates\CustomerSearchForm.Designer.cs">
-      <DependentUpon>CustomerSearchForm.cs</DependentUpon>
+    <Compile Include="Templates\CustomerSearchForm0.Designer.cs">
+      <DependentUpon>CustomerSearchForm0.cs</DependentUpon>
     </Compile>
     <Compile Include="Templates\DBMSSearchForm.cs">
       <SubType>Form</SubType>
@@ -513,8 +529,8 @@
     <EmbeddedResource Include="Forms\ComputerBrandForm.resx">
       <DependentUpon>ComputerBrandForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerForm.resx">
-      <DependentUpon>CustomerForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CustomerForm0.resx">
+      <DependentUpon>CustomerForm0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DBMSForm.resx">
       <DependentUpon>DBMSForm.cs</DependentUpon>
@@ -551,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SecuritySoftwareTypeForm.resx">
       <DependentUpon>SecuritySoftwareTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SwitchBrandForm.resx">
       <DependentUpon>SwitchBrandForm.cs</DependentUpon>

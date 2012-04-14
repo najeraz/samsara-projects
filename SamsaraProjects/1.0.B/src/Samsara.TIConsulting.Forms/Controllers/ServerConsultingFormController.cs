@@ -26,7 +26,7 @@ using Samsara.TIConsulting.Service.Interfaces;
 
 namespace Samsara.TIConsulting.Forms.Controllers
 {
-    public class ServerConsultingFormController : GenericDocumentFormController
+    public class CustomerFormController : GenericDocumentFormController
     {
         #region Attributes
 
@@ -62,7 +62,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         #region Constructor
 
-        public ServerConsultingFormController(ServerConsultingForm frmServerConsulting)
+        public CustomerFormController(ServerConsultingForm frmServerConsulting)
             : base(frmServerConsulting)
         {
             this.frmServerConsulting = frmServerConsulting;
