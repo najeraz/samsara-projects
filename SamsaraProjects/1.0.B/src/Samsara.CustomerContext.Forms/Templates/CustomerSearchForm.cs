@@ -1,6 +1,7 @@
 ﻿
 using Samsara.Base.Forms.Forms;
 using Samsara.CustomerContext.Core.Entities;
+using Samsara.AlleatoERP.Core.Entities;
 
 namespace Samsara.CustomerContext.Forms.Templates
 {

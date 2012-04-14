@@ -6,13 +6,11 @@ namespace Samsara.CustomerContext.Core.Parameters
 {
     public class CustomerParameters : BaseParameters
     {
-        public Nullable<int> CustomerId
+        public CustomerParameters()
         {
-            get;
-            set;
         }
 
-        public Nullable<int> CustomerInfrastructureId
+        public Nullable<int> CustomerId
         {
             get;
             set;
@@ -24,13 +22,7 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
-        public string BusinessType
-        {
-            get;
-            set;
-        }
-
-        public string Description
+        public string CustomerIds
         {
             get;
             set;

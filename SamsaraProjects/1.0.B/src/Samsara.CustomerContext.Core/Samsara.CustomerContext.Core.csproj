@@ -34,6 +34,11 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\lib\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Samsara.AlleatoERP.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.AlleatoERP.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Samsara.Base.Core">
       <HintPath>..\..\bin\Samsara.Base.Core.dll</HintPath>
       <Private>False</Private>
@@ -56,6 +61,7 @@
     <Compile Include="Entities\BackupSoftwareBrand.cs" />
     <Compile Include="Entities\AccessPointBrand.cs" />
     <Compile Include="Entities\AccessPointType.cs" />
+    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\ServerComputerType.cs" />
     <Compile Include="Entities\CustomerInfrastructurePrinterClassification.cs" />
     <Compile Include="Entities\CustomerInfrastructurePersonalComputerClassification.cs" />
@@ -72,7 +78,6 @@
     <Compile Include="Entities\NetworkCablingType.cs" />
     <Compile Include="Entities\SwitchBrand.cs" />
     <Compile Include="Entities\OperativeSystemType.cs" />
-    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\RackType.cs" />
     <Compile Include="Entities\CustomerInfrastructureNetworkSiteRack.cs" />
     <Compile Include="Entities\CustomerInfrastructureCCTV.cs" />
@@ -113,6 +118,7 @@
     <Compile Include="Parameters\BusinessTypeParameters.cs" />
     <Compile Include="Parameters\AccessPointBrandParameters.cs" />
     <Compile Include="Parameters\AccessPointTypeParameters.cs" />
+    <Compile Include="Parameters\CustomerParameters.cs" />
     <Compile Include="Parameters\ServerComputerTypeParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructurePrinterClassificationParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructurePersonalComputerClassificationParameters.cs" />
@@ -139,7 +145,6 @@
     <Compile Include="Parameters\CustomerInfrastructureServerComputerParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureTelephonyParameters.cs" />
     <Compile Include="Parameters\CustomerInfrastructureUPSParameters.cs" />
-    <Compile Include="Parameters\CustomerParameters.cs" />
     <Compile Include="Parameters\DBMSParameters.cs" />
     <Compile Include="Parameters\FirewallBrandParameters.cs" />
     <Compile Include="Parameters\ISPParameters.cs" />

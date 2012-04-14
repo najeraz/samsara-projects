@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.AlleatoERP.Core.Entities;
+using Samsara.AlleatoERP.Core.Parameters;
+using Samsara.AlleatoERP.Service.Interfaces;
 using Samsara.Base.Core.Context;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
@@ -228,7 +231,7 @@ namespace Samsara.CustomerContext.Forms.Controller
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                     return;
                 this.LoadEntity();
-                this.srvCustomer.SaveOrUpdate(this.Customer);
+                //this.srvCustomer.SaveOrUpdate(this.Customer);
                 this.frmCustomer.HiddenDetail(true);
                 this.Search();
             }
@@ -237,7 +240,7 @@ namespace Samsara.CustomerContext.Forms.Controller
         private void CreateNullInstances()
         {
             this.Customer.CustomerInfrastructure = this.Customer.CustomerInfrastructure ?? new CustomerInfrastructure();
-            this.Customer.CustomerInfrastructure.Customer = this.Customer;
+            //this.Customer.CustomerInfrastructure.Customer = this.Customer;
 
             this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork
                 = this.Customer.CustomerInfrastructure.CustomerInfrastructureNetwork ?? new CustomerInfrastructureNetwork();
@@ -404,7 +407,7 @@ namespace Samsara.CustomerContext.Forms.Controller
             this.Customer = this.srvCustomer.GetById(CustomerId);
             this.Customer.Activated = false;
             this.Customer.Deleted = true;
-            this.srvCustomer.SaveOrUpdate(this.Customer);
+            //this.srvCustomer.SaveOrUpdate(this.Customer);
             this.Search();
         }
 
