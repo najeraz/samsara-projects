@@ -12,7 +12,7 @@ namespace Samsara.TIConsulting.Forms.Forms
     {
         #region Attributes
 
-        private ServerConsultingFormController ctrlServerConsultingForm;
+        private CustomerFormController ctrlServerConsultingForm;
 
         #endregion Attributes
 
@@ -23,7 +23,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             set
             {
                 base.Controller = value;
-                this.ctrlServerConsultingForm = value as ServerConsultingFormController;
+                this.ctrlServerConsultingForm = value as CustomerFormController;
             }
         }
 
@@ -35,7 +35,7 @@ namespace Samsara.TIConsulting.Forms.Forms
         {
             InitializeComponent();
 
-            this.Controller = new ServerConsultingFormController(this);
+            this.Controller = new CustomerFormController(this);
 
             this.ctrlServerConsultingForm.InitializeFormControls();
         }
