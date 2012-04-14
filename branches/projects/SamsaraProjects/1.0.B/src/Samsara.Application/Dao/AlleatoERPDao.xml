@@ -35,10 +35,6 @@
           type="Samsara.AlleatoERP.Dao.Impl.StaffDao, Samsara.AlleatoERP.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
-  <object id="IERPCustomerDao"
-          type="Samsara.AlleatoERP.Dao.Impl.ERPCustomerDao, Samsara.AlleatoERP.Dao">
-    <property name="HibernateTemplate" ref="HibernateTemplate"/>
-  </object>
   
 </objects>
 

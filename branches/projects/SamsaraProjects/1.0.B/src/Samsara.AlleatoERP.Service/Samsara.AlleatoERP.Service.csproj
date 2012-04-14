@@ -77,7 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\ERPCustomerService.cs" />
     <Compile Include="Impl\AlleatoERPService.cs" />
     <Compile Include="Impl\ProductBrandService.cs" />
     <Compile Include="Impl\ProductFamilyService.cs" />
@@ -86,7 +85,6 @@
     <Compile Include="Impl\ProductSublineService.cs" />
     <Compile Include="Impl\StaffService.cs" />
     <Compile Include="Interfaces\IAlleatoERPService.cs" />
-    <Compile Include="Interfaces\IERPCustomerService.cs" />
     <Compile Include="Interfaces\IProductBrandService.cs" />
     <Compile Include="Interfaces\IProductFamilyService.cs" />
     <Compile Include="Interfaces\IProductLineService.cs" />
