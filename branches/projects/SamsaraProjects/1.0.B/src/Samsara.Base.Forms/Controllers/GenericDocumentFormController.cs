@@ -24,6 +24,71 @@ namespace Samsara.Base.Forms.Controllers
 
         #region Properties
 
+        protected bool ShowShowDetailButton
+        {
+            get
+            {
+                return this.frmGenericDocument.btnSchShowDetail.Visible;
+            }
+            set
+            {
+                this.frmGenericDocument.btnSchShowDetail.Visible = value;
+                this.frmGenericDocument.upSchSeparatorShowDetail.Visible = value;
+            }
+        }
+
+        protected bool ShowDeleteButton
+        {
+            get
+            {
+                return this.frmGenericDocument.btnSchDelete.Visible;
+            }
+            set
+            {
+                this.frmGenericDocument.btnSchDelete.Visible = value;
+                this.frmGenericDocument.upSchSeparatorDelete.Visible = value;
+            }
+        }
+
+        protected bool ShowAcceptButton
+        {
+            get
+            {
+                return this.frmGenericDocument.btnSchAccept.Visible;
+            }
+            set
+            {
+                this.frmGenericDocument.btnSchEdit.Visible = value;
+                this.frmGenericDocument.upSchSeparatorEdit.Visible = value;
+            }
+        }
+
+        protected bool ShowEditButton
+        {
+            get
+            {
+                return this.frmGenericDocument.btnSchEdit.Visible;
+            }
+            set
+            {
+                this.frmGenericDocument.btnSchEdit.Visible = value;
+                this.frmGenericDocument.upSchSeparatorEdit.Visible = value;
+            }
+        }
+
+        protected bool ShowCreateButton
+        {
+            get
+            {
+                return this.frmGenericDocument.btnSchCreate.Visible;
+            }
+            set
+            {
+                this.frmGenericDocument.btnSchCreate.Visible = value;
+                this.frmGenericDocument.upSchSeparatorCreate.Visible = value;
+            }
+        }
+
         protected FormStatusEnum FormStatus
         {
             get;
