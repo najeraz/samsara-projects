@@ -355,11 +355,6 @@
     <EmbeddedResource Include="Mapping\AlleatoERP\Staff.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\AlleatoERP\Customer.hbm.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Mapping\Dashboard\HorizontalIntegrationReport.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
