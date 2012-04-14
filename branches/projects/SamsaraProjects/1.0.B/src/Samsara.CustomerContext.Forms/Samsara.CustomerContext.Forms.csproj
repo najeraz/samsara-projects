@@ -118,6 +118,7 @@
     <Reference Include="Samsara.Framework.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Samsara.Framework.Interface.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Samsara.Framework.Util, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -127,6 +128,7 @@
     <Reference Include="Samsara.TIConsulting.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Samsara.TIConsulting.Controls.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
