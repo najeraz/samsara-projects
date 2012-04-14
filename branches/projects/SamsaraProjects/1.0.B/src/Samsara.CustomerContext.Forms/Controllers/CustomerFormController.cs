@@ -89,6 +89,8 @@ namespace Samsara.CustomerContext.Forms.Controllers
 
         public override void InitializeFormControls()
         {
+            this.ShowCreateButton = false;
+            this.ShowDeleteButton = false;
         }
 
         public override void InitializeDetailFormControls()
@@ -266,6 +268,32 @@ namespace Samsara.CustomerContext.Forms.Controllers
 
         public override void ReadOnlyDetailFields(bool readOnly)
         {
+            this.frmCustomer.txtDetDescription.ReadOnly = readOnly;
+            this.frmCustomer.txtDetGroundedOutlet.ReadOnly = readOnly;
+            this.frmCustomer.txtDetName.ReadOnly = readOnly;
+            this.frmCustomer.txtDetSiteCooling.ReadOnly = readOnly;
+            this.frmCustomer.txtDetSiteDescription.ReadOnly = readOnly;
+            this.frmCustomer.txtDetSiteIsolatedRoom.ReadOnly = readOnly;
+            this.frmCustomer.txtDetTrainingAndCourses.ReadOnly = readOnly;
+            this.frmCustomer.btcDetBusinessType.ReadOnly = readOnly;
+
+            this.frmCustomer.mtoCustomerInfrastructureAdministationSoftwares.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureBackupSoftwares.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureCCTVs.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureISPs.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCablings.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkCommutators.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkFirewalls.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkRouters.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSiteRacks.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkSwitches.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureNetworkWifiAccessPoints.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructurePersonalComputers.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructurePrinters.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureSecuritySoftwares.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureServerComputers.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureTelephonies.ReadOnly = readOnly;
+            this.frmCustomer.mtoCustomerInfrastructureUPSs.ReadOnly = readOnly;
         }
 
         public override void LoadDetail()
