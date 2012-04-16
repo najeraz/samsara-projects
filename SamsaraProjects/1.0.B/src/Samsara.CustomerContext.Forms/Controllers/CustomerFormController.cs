@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Windows.Forms;
+using Infragistics.Win.UltraWinGrid;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Controllers;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Forms.Forms;
 using Samsara.CustomerContext.Service.Interfaces;
+using Samsara.Framework.Util;
 
 namespace Samsara.CustomerContext.Forms.Controllers
 {
@@ -51,6 +52,8 @@ namespace Samsara.CustomerContext.Forms.Controllers
         {
             this.ShowCreateButton = false;
             this.ShowDeleteButton = false;
+
+            this.frmCustomer.grdPrincipal.InitializeLayout += new InitializeLayoutEventHandler(grdPrincipal_InitializeLayout);
         }
 
         public override void InitializeDetailFormControls()
@@ -432,6 +435,15 @@ namespace Samsara.CustomerContext.Forms.Controllers
         #endregion Methods
 
         #region Events
+
+        private void grdPrincipal_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            WindowsFormsUtil.SetUltraGridValueList(layout, this.srvGeneric.GetListByParameters<BusinessType>(null), 
+                band.Columns["BusinessTypeId"], "BusinessTypeId", "Name", "Seleccione");
+        }
 
         #endregion Events
     }
