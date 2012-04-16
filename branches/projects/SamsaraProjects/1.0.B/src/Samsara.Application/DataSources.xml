@@ -98,7 +98,7 @@
 
   <object id="HibernateTemplateAlleatoERP" type="Spring.Data.NHibernate.Generic.HibernateTemplate">
     <property name="SessionFactory" ref="SessionFactoryAlleatoERP" />
-    <property name="TemplateFlushMode" value="Auto" />
+    <property name="TemplateFlushMode" value="Never" />
     <property name="CacheQueries" value="true"/>
   </object>
   

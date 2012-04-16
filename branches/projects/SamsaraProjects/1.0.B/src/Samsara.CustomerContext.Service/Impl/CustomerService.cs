@@ -7,7 +7,7 @@ using Samsara.Base.Service.Impl;
 
 namespace Samsara.CustomerContext.Service.Impl
 {
-    public class CustomerService : BaseReadOnlyService<Customer, int, ICustomerDao, CustomerParameters>, ICustomerService
+    public class CustomerService : BaseService<Customer, int, ICustomerDao, CustomerParameters>, ICustomerService
     {
     }
 }

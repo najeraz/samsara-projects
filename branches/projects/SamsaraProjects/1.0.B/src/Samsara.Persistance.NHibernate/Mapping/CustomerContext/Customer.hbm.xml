@@ -9,8 +9,8 @@
       <generator class="native"/>
     </id>
 
-    <property name="Name" access="readonly"/>
-    <property name="ComercialName" access="readonly"/>
+    <property name="Name"/>
+    <property name="ComercialName"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
@@ -21,13 +21,13 @@
     
     <many-to-one name="CustomerInfrastructure" 
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure" 
-                 column="CustomerInfrastructureId" not-null="true" cascade="all" unique="true" lazy="false" />
+                 column="CustomerInfrastructureId" cascade="all" unique="true" lazy="false" />
 
     <many-to-one name="BusinessType" 
                  class="Samsara.CustomerContext.Core.Entities.BusinessType, Samsara.CustomerContext.Core"
                  column="BusinessTypeId"/>
 
-    <many-to-one name="Staff" fetch="join" access="readonly"
+    <many-to-one name="Staff" lazy="false"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
                  column="StaffId"/>
     
@@ -55,6 +55,7 @@
         FROM CustomerContext.Customers c 
         WHERE c.Deleted = 0 AND c.Activated = 1
         AND c.Name LIKE :Name
+        AND (c.ComercialName LIKE :ComercialName OR :ComercialName = '%%' AND c.ComercialName IS NULL)
     ]]>
   </sql-query>
 
