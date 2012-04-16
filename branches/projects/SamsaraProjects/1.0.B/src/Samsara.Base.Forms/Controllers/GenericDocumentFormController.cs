@@ -1,12 +1,15 @@
 ﻿
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.Base.Core.Context;
 using Samsara.Base.Forms.Enums;
 using Samsara.Base.Forms.Forms;
+using Samsara.Base.Service.Interfaces;
 using Samsara.Configuration.Core.Entities;
 using Samsara.Configuration.Core.Parameters;
 using Samsara.Main.Session;
@@ -19,6 +22,7 @@ namespace Samsara.Base.Forms.Controllers
 
         private GenericDocumentForm frmGenericDocument;
         private DataTable dtSearchGrid;
+        protected IGenericService srvGeneric;
 
         #endregion Attributes
 
@@ -114,6 +118,12 @@ namespace Samsara.Base.Forms.Controllers
             if (this.FormConfiguration != null)
                 this.frmGenericDocument.Text = this.FormConfiguration.FormEndUserName;
 
+
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                this.srvGeneric = SamsaraAppContext.Resolve<IGenericService>();
+            }
+
             this.FormStatus = FormStatusEnum.Search;
             this.ShowDetail(false);
         }
@@ -182,6 +192,9 @@ namespace Samsara.Base.Forms.Controllers
                     break;
                 case FormStatusEnum.Edition:
                     this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Edición";
+                    break;
+                case FormStatusEnum.ShowDetail:
+                    this.frmGenericDocument.utcPrincipal.Tabs["tbDetail"].Text = "Detalle";
                     break;
                 default:
                     break;
