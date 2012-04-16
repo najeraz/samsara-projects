@@ -11,7 +11,7 @@ namespace Samsara.CustomerContext.Core.Entities
         private ISet<CustomerInfrastructureServerComputer> customerInfrastructureServerComputers;
         private ISet<CustomerInfrastructureUPS> customerInfrastructureUPSs;
         private ISet<CustomerInfrastructurePrinter> customerInfrastructurePrinters;
-        private ISet<CustomerInfrastructureTelephony> customerTelephonies;
+        private ISet<CustomerInfrastructureTelephony> customerInfrastructureTelephonies;
         private ISet<CustomerInfrastructureCCTV> customerInfrastructureCCTVs;
         private ISet<CustomerInfrastructureAdministationSoftware> customerInfrastructureAdministationSoftwares;
         private ISet<CustomerInfrastructureBackupSoftware> customerInfrastructureBackupSoftwares;
@@ -115,18 +115,18 @@ namespace Samsara.CustomerContext.Core.Entities
             }
         }
 
-        public virtual ISet<CustomerInfrastructureTelephony> CustomerTelephonies
+        public virtual ISet<CustomerInfrastructureTelephony> CustomerInfrastructureTelephonies
         {
             get
             {
-                if (this.customerTelephonies == null)
-                    this.customerTelephonies = new HashedSet<CustomerInfrastructureTelephony>();
+                if (this.customerInfrastructureTelephonies == null)
+                    this.customerInfrastructureTelephonies = new HashedSet<CustomerInfrastructureTelephony>();
 
-                return this.customerTelephonies;
+                return this.customerInfrastructureTelephonies;
             }
             set
             {
-                this.customerTelephonies = value;
+                this.customerInfrastructureTelephonies = value;
             }
         }
 

@@ -289,12 +289,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureSecuritySoftware GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructure.CustomerInfrastructureSecuritySoftwares
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructure.CustomerInfrastructureSecuritySoftwares
+                    .Single(x => x.CustomerInfrastructureSecuritySoftwareId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId <= 0)
+                return -this.customerInfrastructureSecuritySoftware.GetHashCode();
+            else
+                return this.customerInfrastructureSecuritySoftware.CustomerInfrastructureSecuritySoftwareId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureSecuritySoftware entity)

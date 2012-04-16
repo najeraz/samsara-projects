@@ -287,12 +287,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureNetworkCommutator GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCommutators
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCommutators
+                    .Single(x => x.CustomerInfrastructureNetworkCommutatorId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId <= 0)
+                return -this.customerInfrastructureNetworkCommutator.GetHashCode();
+            else
+                return this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetworkCommutatorId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureNetworkCommutator entity)
