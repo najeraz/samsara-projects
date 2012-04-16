@@ -22,6 +22,12 @@ namespace Samsara.CustomerContext.Core.Parameters
             set;
         }
 
+        public string ComercialName
+        {
+            get;
+            set;
+        }
+
         public string CustomerIds
         {
             get;

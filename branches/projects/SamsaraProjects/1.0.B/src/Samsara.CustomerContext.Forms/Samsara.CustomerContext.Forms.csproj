@@ -151,7 +151,6 @@
     <Compile Include="Controllers\CommutatorBrandFormController.cs" />
     <Compile Include="Controllers\CommutatorTypeFormController.cs" />
     <Compile Include="Controllers\ComputerBrandFormController.cs" />
-    <Compile Include="Controllers\CustomerForm0Controller.cs" />
     <Compile Include="Controllers\DBMSFormController.cs" />
     <Compile Include="Controllers\FirewallBrandFormController.cs" />
     <Compile Include="Controllers\ISPFormController.cs" />
@@ -223,12 +222,6 @@
     </Compile>
     <Compile Include="Forms\ComputerBrandForm.designer.cs">
       <DependentUpon>ComputerBrandForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerForm0.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerForm0.designer.cs">
-      <DependentUpon>CustomerForm0.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DBMSForm.cs">
       <SubType>Form</SubType>
@@ -530,9 +523,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ComputerBrandForm.resx">
       <DependentUpon>ComputerBrandForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerForm0.resx">
-      <DependentUpon>CustomerForm0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DBMSForm.resx">
       <DependentUpon>DBMSForm.cs</DependentUpon>
