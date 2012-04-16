@@ -168,6 +168,10 @@ namespace Samsara.Base.Controls.Controls
                         {
                             WindowsFormsUtil.SetUltraColumnFormat(column, gridColumnConfiguration.TextFormat);
                         }
+                        if (gridColumnConfiguration.Width.HasValue)
+                        {
+                            column.Width = gridColumnConfiguration.Width.Value;
+                        }
                     }
 
                     //band.SummaryFooterCaption = "Sumatorias";      

@@ -29,19 +29,19 @@ namespace Samsara.CustomerContext.Core.Entities
         public virtual string Name
         {
             get;
-            set;
+            protected set;
         }
 
         public virtual string ComercialName
         {
             get;
-            set;
+            protected set;
         }
 
         public virtual Staff Staff
         {
             get;
-            set;
+            protected set;
         }
 
         public virtual BusinessType BusinessType

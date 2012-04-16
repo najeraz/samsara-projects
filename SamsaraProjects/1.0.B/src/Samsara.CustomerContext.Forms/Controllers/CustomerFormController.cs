@@ -349,8 +349,6 @@ namespace Samsara.CustomerContext.Forms.Controllers
 
         public override void SaveEntity()
         {
-            this.customer.Name = this.frmCustomer.txtDetName.Text;
-
             this.customer.CustomerInfrastructure.GroundedOutlet = this.frmCustomer.txtDetGroundedOutlet.Text;
             this.customer.CustomerInfrastructure.TrainingAndCourses = this.frmCustomer.txtDetTrainingAndCourses.Text;
             this.customer.BusinessType = this.frmCustomer.btcDetBusinessType.Value;
