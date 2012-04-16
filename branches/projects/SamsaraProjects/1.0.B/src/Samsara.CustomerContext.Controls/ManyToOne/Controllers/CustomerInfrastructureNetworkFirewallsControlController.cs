@@ -262,12 +262,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureNetworkFirewall GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkFirewalls
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkFirewalls
+                    .Single(x => x.CustomerInfrastructureNetworkFirewallId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId <= 0)
+                return -this.customerInfrastructureNetworkFirewall.GetHashCode();
+            else
+                return this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetworkFirewallId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureNetworkFirewall entity)

@@ -296,12 +296,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureNetworkWifiAccessPoint GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructureNetworkWifi.CustomerInfrastructureNetworkWifiAccessPoints
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructureNetworkWifi.CustomerInfrastructureNetworkWifiAccessPoints
+                    .Single(x => x.CustomerInfrastructureNetworkWifiAccessPointId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId <= 0)
+                return -this.customerInfrastructureNetworkWifiAccessPoint.GetHashCode();
+            else
+                return this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifiAccessPointId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureNetworkWifiAccessPoint entity)

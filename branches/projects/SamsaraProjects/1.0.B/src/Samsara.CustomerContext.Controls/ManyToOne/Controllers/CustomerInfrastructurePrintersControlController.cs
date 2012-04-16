@@ -324,12 +324,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructurePrinter GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructure.CustomerInfrastructurePrinters
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructure.CustomerInfrastructurePrinters
+                    .Single(x => x.CustomerInfrastructurePrinterId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId <= 0)
+                return -this.customerInfrastructurePrinter.GetHashCode();
+            else
+                return this.customerInfrastructurePrinter.CustomerInfrastructurePrinterId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructurePrinter entity)

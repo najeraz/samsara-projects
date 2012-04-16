@@ -260,12 +260,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureCCTV GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructure.CustomerInfrastructureCCTVs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructure.CustomerInfrastructureCCTVs
+                    .Single(x => x.CustomerInfrastructureCCTVId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId <= 0)
+                return -this.customerInfrastructureCCTV.GetHashCode();
+            else
+                return this.customerInfrastructureCCTV.CustomerInfrastructureCCTVId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureCCTV entity)

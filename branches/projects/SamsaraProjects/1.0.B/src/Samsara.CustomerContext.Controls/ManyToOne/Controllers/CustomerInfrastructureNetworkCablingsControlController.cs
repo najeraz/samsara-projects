@@ -250,12 +250,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureNetworkCabling GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCablings
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkCablings
+                    .Single(x => x.CustomerInfrastructureNetworkCablingId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId <= 0)
+                return -this.customerInfrastructureNetworkCabling.GetHashCode();
+            else
+                return this.customerInfrastructureNetworkCabling.CustomerInfrastructureNetworkCablingId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureNetworkCabling entity)
