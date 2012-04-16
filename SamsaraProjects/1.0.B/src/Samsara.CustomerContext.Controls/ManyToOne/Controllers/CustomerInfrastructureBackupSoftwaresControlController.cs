@@ -162,8 +162,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureBackupSoftware = new CustomerInfrastructureBackupSoftware();
 
             this.customerInfrastructureBackupSoftware.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructureBackupSoftware.Activated = true;
-            this.customerInfrastructureBackupSoftware.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

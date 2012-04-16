@@ -149,8 +149,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureUPS = new CustomerInfrastructureUPS();
 
             this.customerInfrastructureUPS.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructureUPS.Activated = true;
-            this.customerInfrastructureUPS.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

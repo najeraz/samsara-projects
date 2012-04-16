@@ -147,8 +147,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureCCTV = new CustomerInfrastructureCCTV();
 
             this.customerInfrastructureCCTV.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructureCCTV.Activated = true;
-            this.customerInfrastructureCCTV.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

@@ -157,8 +157,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
             this.customerInfrastructureAdministationSoftware = new CustomerInfrastructureAdministationSoftware();
             this.customerInfrastructureAdministationSoftware.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructureAdministationSoftware.Activated = true;
-            this.customerInfrastructureAdministationSoftware.Deleted = false;
         }
 
         public override void ClearControls()

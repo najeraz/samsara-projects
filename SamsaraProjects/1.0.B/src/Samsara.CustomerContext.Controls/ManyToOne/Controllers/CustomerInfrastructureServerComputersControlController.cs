@@ -186,8 +186,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureServerComputer.CustomerInfrastructure = this.CustomerInfrastructure;
             this.controlCustomerInfrastructureServerComputers.mtoCustomerInfrastructureServerComputerDBMSs
                 .CustomerInfrastructureServerComputer = this.customerInfrastructureServerComputer;
-            this.customerInfrastructureServerComputer.Activated = true;
-            this.customerInfrastructureServerComputer.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

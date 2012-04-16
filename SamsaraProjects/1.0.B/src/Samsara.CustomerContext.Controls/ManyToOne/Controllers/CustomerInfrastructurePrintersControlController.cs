@@ -166,8 +166,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructurePrinter = new CustomerInfrastructurePrinter();
 
             this.customerInfrastructurePrinter.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructurePrinter.Activated = true;
-            this.customerInfrastructurePrinter.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)
