@@ -108,7 +108,7 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             if (this.CustomerInfrastructure != null)
             {
                 foreach (CustomerInfrastructureTelephony customerInfrastructureTelephony
-                    in this.CustomerInfrastructure.CustomerTelephonies)
+                    in this.CustomerInfrastructure.CustomerInfrastructureTelephonies)
                 {
                     DataRow row = this.dtCustomerInfrastructureTelephonies.NewRow();
                     this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
@@ -157,14 +157,14 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
         protected override void DeleteEntity(int entityId)
         {
             if (entityId <= 0)
-                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerInfrastructureTelephonies
                     .Single(x => -x.GetHashCode() == entityId);
             else
-                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerInfrastructureTelephonies
                     .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             if (entityId <= 0)
-                this.CustomerInfrastructure.CustomerTelephonies.Remove(this.customerInfrastructureTelephony);
+                this.CustomerInfrastructure.CustomerInfrastructureTelephonies.Remove(this.customerInfrastructureTelephony);
             else
             {
                 this.customerInfrastructureTelephony.Activated = false;
@@ -175,10 +175,10 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
         protected override void LoadFromEntity(int entityId)
         {
             if (entityId <= 0)
-                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerInfrastructureTelephonies
                     .Single(x => -x.GetHashCode() == entityId);
             else
-                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerTelephonies
+                this.customerInfrastructureTelephony = this.CustomerInfrastructure.CustomerInfrastructureTelephonies
                     .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
 
             this.controlCustomerInfrastructureTelephonies.tpcTelephonyProvider.Value
@@ -239,7 +239,7 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
             if (row == null)
             {
-                this.CustomerInfrastructure.CustomerTelephonies.Add(this.customerInfrastructureTelephony);
+                this.CustomerInfrastructure.CustomerInfrastructureTelephonies.Add(this.customerInfrastructureTelephony);
 
                 row = this.dtCustomerInfrastructureTelephonies.NewRow();
                 this.dtCustomerInfrastructureTelephonies.Rows.Add(row);
@@ -270,12 +270,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureTelephony GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructure.CustomerInfrastructureTelephonies
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructure.CustomerInfrastructureTelephonies
+                    .Single(x => x.CustomerInfrastructureTelephonyId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId <= 0)
+                return -this.customerInfrastructureTelephony.GetHashCode();
+            else
+                return this.customerInfrastructureTelephony.CustomerInfrastructureTelephonyId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureTelephony entity)

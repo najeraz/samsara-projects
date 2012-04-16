@@ -251,12 +251,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureNetworkSiteRack GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructureNetworkSite.CustomerInfrastructureNetworkSiteRacks
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructureNetworkSite.CustomerInfrastructureNetworkSiteRacks
+                    .Single(x => x.CustomerInfrastructureNetworkSiteRackId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId <= 0)
+                return -this.customerInfrastructureNetworkSiteRack.GetHashCode();
+            else
+                return this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSiteRackId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureNetworkSiteRack entity)

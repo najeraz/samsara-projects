@@ -266,12 +266,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureUPS GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructure.CustomerInfrastructureUPSs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructure.CustomerInfrastructureUPSs
+                    .Single(x => x.CustomerInfrastructureUPSId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureUPS.CustomerInfrastructureUPSId <= 0)
+                return -this.customerInfrastructureUPS.GetHashCode();
+            else
+                return this.customerInfrastructureUPS.CustomerInfrastructureUPSId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureUPS entity)

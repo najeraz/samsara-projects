@@ -262,12 +262,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructureServerComputerDBMS GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerDBMSs
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructureServerComputer.CustomerInfrastructureServerComputerDBMSs
+                    .Single(x => x.CustomerInfrastructureServerComputerDBMSId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId <= 0)
+                return -this.customerInfrastructureServerComputerDBMS.GetHashCode();
+            else
+                return this.customerInfrastructureServerComputerDBMS.CustomerInfrastructureServerComputerDBMSId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructureServerComputerDBMS entity)

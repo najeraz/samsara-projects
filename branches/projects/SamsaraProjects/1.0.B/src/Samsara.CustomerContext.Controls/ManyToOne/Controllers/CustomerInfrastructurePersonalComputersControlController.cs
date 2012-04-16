@@ -414,12 +414,20 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
         protected override CustomerInfrastructurePersonalComputer GetEntity(int entityId)
         {
-            throw new NotImplementedException();
+            if (entityId <= 0)
+                return this.CustomerInfrastructure.CustomerInfrastructurePersonalComputers
+                    .Single(x => -x.GetHashCode() == entityId);
+            else
+                return this.CustomerInfrastructure.CustomerInfrastructurePersonalComputers
+                    .Single(x => x.CustomerInfrastructurePersonalComputerId == entityId);
         }
 
         protected override int GetEntityId()
         {
-            throw new NotImplementedException();
+            if (this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId <= 0)
+                return -this.customerInfrastructurePersonalComputer.GetHashCode();
+            else
+                return this.customerInfrastructurePersonalComputer.CustomerInfrastructurePersonalComputerId;
         }
 
         protected override DataRow GetEntityRow(CustomerInfrastructurePersonalComputer entity)
