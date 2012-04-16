@@ -9,8 +9,8 @@
       <generator class="native"/>
     </id>
 
-    <property name="Name"/>
-    <property name="ComercialName"/>
+    <property name="Name" access="readonly"/>
+    <property name="ComercialName" access="readonly"/>
 
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
@@ -23,11 +23,11 @@
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure" 
                  column="CustomerInfrastructureId" not-null="true" cascade="all" unique="true" lazy="false" />
 
-    <many-to-one name="BusinessType"
+    <many-to-one name="BusinessType" 
                  class="Samsara.CustomerContext.Core.Entities.BusinessType, Samsara.CustomerContext.Core"
                  column="BusinessTypeId"/>
 
-    <many-to-one name="Staff" fetch="join"
+    <many-to-one name="Staff" fetch="join" access="readonly"
                  class="Samsara.AlleatoERP.Core.Entities.Staff, Samsara.AlleatoERP.Core"
                  column="StaffId"/>
     

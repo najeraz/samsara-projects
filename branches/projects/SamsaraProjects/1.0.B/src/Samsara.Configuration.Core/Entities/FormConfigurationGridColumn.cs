@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Samsara.Base.Core.Attributes;
 using Samsara.Base.Core.Entities;
 using Samsara.Framework.Core.Entities;
@@ -25,6 +26,18 @@ namespace Samsara.Configuration.Core.Entities
             set;
         }
 
+        public virtual TextFormat TextFormat
+        {
+            get;
+            set;
+        }
+
+        public virtual Nullable<int> Width
+        {
+            get;
+            set;
+        }
+
         public virtual string BandKey
         {
             get;
@@ -44,12 +57,6 @@ namespace Samsara.Configuration.Core.Entities
         }
 
         public virtual bool Visible
-        {
-            get;
-            set;
-        }
-
-        public virtual TextFormat TextFormat
         {
             get;
             set;
