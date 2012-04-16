@@ -146,8 +146,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
             this.customerInfrastructureNetworkRouter.CustomerInfrastructureNetwork 
                 = this.CustomerInfrastructureNetwork;
-            this.customerInfrastructureNetworkRouter.Activated = true;
-            this.customerInfrastructureNetworkRouter.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

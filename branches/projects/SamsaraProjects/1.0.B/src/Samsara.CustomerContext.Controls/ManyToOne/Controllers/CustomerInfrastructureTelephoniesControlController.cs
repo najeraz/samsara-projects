@@ -150,8 +150,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureTelephony = new CustomerInfrastructureTelephony();
 
             this.customerInfrastructureTelephony.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructureTelephony.Activated = true;
-            this.customerInfrastructureTelephony.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)
