@@ -31,8 +31,8 @@ namespace SamsaraProjectsUpdaterService
         private static int numProductFamiliesInsert = 50;
         private static int numStaffsInsert = 50;
         private static int numStaffsUpdate = 50;
-        private static int numERPCustomersUpdate = 50;
-        private static int numERPCustomersInsert = 50;
+        private static int numCustomersUpdate = 50;
+        private static int numCustomersInsert = 50;
 
         private SqlConnection alleatoErpConnection;
         private SqlDataAdapter alleatoErpDataAdapter;
@@ -232,21 +232,21 @@ namespace SamsaraProjectsUpdaterService
 
             try
             {
-                this.InsertNewERPCustomers();
+                this.InsertNewCustomers();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - InsertNewERPCustomers : " + ex.Message, EventLogEntryType.Error);
+                eventLog1.WriteEntry("ERROR - InsertNewCustomers : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
 
             try
             {
-                this.UpdateERPCustomers();
+                this.UpdateCustomers();
             }
             catch (Exception ex)
             {
-                eventLog1.WriteEntry("ERROR - UpdateERPCustomers : " + ex.Message, EventLogEntryType.Error);
+                eventLog1.WriteEntry("ERROR - UpdateCustomers : " + ex.Message, EventLogEntryType.Error);
                 return;
             }
 
@@ -1251,63 +1251,63 @@ namespace SamsaraProjectsUpdaterService
             }
         }
 
-        private void InsertNewERPCustomers()
+        private void InsertNewCustomers()
         {
             alleatoErpDataAdapter = new SqlDataAdapter(string.Format(@"
-                    SELECT CAST(cliente AS INT) ERPCustomerId FROM clientes
+                    SELECT CAST(cliente AS INT) CustomerId FROM clientes
                 "), this.alleatoErpConnection);
 
             DataSet ds = new DataSet();
-            alleatoErpDataAdapter.Fill(ds, "ERPCustomers");
+            alleatoErpDataAdapter.Fill(ds, "Customers");
 
-            IList<int> erpERPCustomersIds = ds.Tables["ERPCustomers"].AsEnumerable()
-                .Select(x => Convert.ToInt32(x["ERPCustomerId"])).ToList();
+            IList<int> erpCustomersIds = ds.Tables["Customers"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["CustomerId"])).ToList();
 
             this.samsaraProjectsDataAdapter = new SqlDataAdapter(
-                "SELECT ERPCustomerId FROM CustomerContext.Customers",
+                "SELECT CustomerId FROM CustomerContext.Customers",
                 this.samsaraProjectsConnection);
 
             ds = new DataSet();
-            this.samsaraProjectsDataAdapter.Fill(ds, "ERPCustomers");
+            this.samsaraProjectsDataAdapter.Fill(ds, "Customers");
 
-            IList<int> samsaraProjectsERPCustomersIds = ds.Tables["ERPCustomers"].AsEnumerable()
-                .Select(x => Convert.ToInt32(x["ERPCustomerId"])).ToList();
+            IList<int> samsaraProjectsCustomersIds = ds.Tables["Customers"].AsEnumerable()
+                .Select(x => Convert.ToInt32(x["CustomerId"])).ToList();
 
-            IList<int> erpCustomersToInsert = erpERPCustomersIds.Except(samsaraProjectsERPCustomersIds).ToList();
+            IList<int> erpCustomersToInsert = erpCustomersIds.Except(samsaraProjectsCustomersIds).ToList();
 
             if (erpCustomersToInsert.Count > 0)
                 eventLog1.WriteEntry("Customers To Insert : " + erpCustomersToInsert.Count, EventLogEntryType.Information);
 
             do
             {
-                IList<int> currentIds = erpCustomersToInsert.Take(numERPCustomersInsert).ToList();
+                IList<int> currentIds = erpCustomersToInsert.Take(numCustomersInsert).ToList();
 
                 if (currentIds.Count == 0)
                     break;
 
-                IList<int> erpCustomersIds = currentIds;
+                IList<int> customersIds = currentIds;
 
-                string erpCustomersStringIds = string.Join("','", erpCustomersIds.ToArray());
+                string erpCustomersStringIds = string.Join("','", customersIds.ToArray());
 
-                if (erpCustomersIds.Count > 0)
+                if (customersIds.Count > 0)
                 {
                     alleatoErpDataAdapter = new SqlDataAdapter(string.Format(@"
-                        SELECT CAST(cliente AS INT) ERPCustomerId, nombre_cliente Name, 
+                        SELECT CAST(cliente AS INT) CustomerId, nombre_cliente Name, 
                         nombre_comercial ComercialName, CAST(agente AS INT) StaffId
                         FROM clientes WHERE cast(cliente as int) IN ('{0}')",
                         erpCustomersStringIds), this.alleatoErpConnection);
 
                     ds = new DataSet();
-                    alleatoErpDataAdapter.Fill(ds, "ERPCustomers");
+                    alleatoErpDataAdapter.Fill(ds, "Customers");
 
                     string insertQuery = string.Empty;
-                    foreach (DataRow row in ds.Tables["ERPCustomers"].AsEnumerable())
+                    foreach (DataRow row in ds.Tables["Customers"].AsEnumerable())
                     {
                         insertQuery += string.Format(@"
-                            INSERT INTO CustomerContext.Customers (ERPCustomerId, Name, ComercialName, StaffId,
+                            INSERT INTO CustomerContext.Customers (CustomerId, Name, ComercialName, StaffId,
                             Activated, Deleted, CreatedOn, CreatedBy, UpdatedOn, UpdatedBy)
                             VALUES ({0}, '{1}', '{2}', '{3}', 1, 0, GETDATE(), 1, NULL, NULL);",
-                            row["ERPCustomerId"].ToString().Trim(),
+                            row["CustomerId"].ToString().Trim(),
                             row["Name"].ToString().Trim().Replace("'", "''"),
                             row["ComercialName"].ToString().Trim().Replace("'", "''"),
                             row["StaffId"].ToString().Trim().Replace("'", "''"));
@@ -1325,48 +1325,48 @@ namespace SamsaraProjectsUpdaterService
 
         }
 
-        private void UpdateERPCustomers()
+        private void UpdateCustomers()
         {
             alleatoErpDataAdapter = new SqlDataAdapter(string.Format(@"
-                    SELECT CAST(cliente AS INT) ERPCustomerId, nombre_cliente Name, 
+                    SELECT CAST(cliente AS INT) CustomerId, nombre_cliente Name, 
                         nombre_comercial ComercialName, CAST(agente AS INT) StaffId
                     FROM clientes
                 "), this.alleatoErpConnection);
 
             DataSet ds = new DataSet();
-            alleatoErpDataAdapter.Fill(ds, "ERPCustomers");
+            alleatoErpDataAdapter.Fill(ds, "Customers");
 
-            var currentERPCustomers = ds.Tables["ERPCustomers"].AsEnumerable()
+            var currentCustomers = ds.Tables["Customers"].AsEnumerable()
                 .Select(x => new
                 {
-                    ERPCustomerId = Convert.ToInt32(x["ERPCustomerId"]),
+                    CustomerId = Convert.ToInt32(x["CustomerId"]),
                     Name = x["Name"].ToString().Trim(),
                     StaffId = Convert.ToInt32(x["StaffId"]),
                     ComercialName = x["ComercialName"].ToString().Trim()
                 }).ToList();
 
             this.samsaraProjectsDataAdapter = new SqlDataAdapter(string.Format(@"
-                    SELECT ERPCustomerId, Name, ComercialName, StaffId, Activated, Deleted
+                    SELECT CustomerId, Name, ComercialName, StaffId, Activated, Deleted
                     FROM CustomerContext.Customers
                     WHERE Activated = 1 AND Deleted = 0
                 "), this.samsaraProjectsConnection);
 
             ds = new DataSet();
-            this.samsaraProjectsDataAdapter.Fill(ds, "ERPCustomers");
+            this.samsaraProjectsDataAdapter.Fill(ds, "Customers");
 
-            var oldERPCustomers = ds.Tables["ERPCustomers"].AsEnumerable()
+            var oldCustomers = ds.Tables["Customers"].AsEnumerable()
                 .Select(x => new
                 {
-                    ERPCustomerId = Convert.ToInt32(x["ERPCustomerId"]),
+                    CustomerId = Convert.ToInt32(x["CustomerId"]),
                     Name = x["Name"].ToString().Trim(),
                     StaffId = Convert.ToInt32(x["StaffId"]),
                     ComercialName = x["ComercialName"].ToString().Trim(),
                 }).ToList();
 
-            var eRPCustomersToUpdate = currentERPCustomers.AsParallel().Where(x => x.Name !=
-                oldERPCustomers.Single(y => y.ERPCustomerId == x.ERPCustomerId).Name ||
-                oldERPCustomers.Single(y => y.ERPCustomerId == x.ERPCustomerId).ComercialName != x.ComercialName ||
-                oldERPCustomers.Single(y => y.ERPCustomerId == x.ERPCustomerId).StaffId != x.StaffId)
+            var eRPCustomersToUpdate = currentCustomers.AsParallel().Where(x => x.Name !=
+                oldCustomers.Single(y => y.CustomerId == x.CustomerId).Name ||
+                oldCustomers.Single(y => y.CustomerId == x.CustomerId).ComercialName != x.ComercialName ||
+                oldCustomers.Single(y => y.CustomerId == x.CustomerId).StaffId != x.StaffId)
                 .ToList();
 
             if (eRPCustomersToUpdate.Count > 0)
@@ -1374,20 +1374,20 @@ namespace SamsaraProjectsUpdaterService
 
             do
             {
-                var groupERPCustomers = eRPCustomersToUpdate.Take(numERPCustomersUpdate).ToList();
+                var groupCustomers = eRPCustomersToUpdate.Take(numCustomersUpdate).ToList();
 
-                if (groupERPCustomers.Count == 0)
+                if (groupCustomers.Count == 0)
                     break;
 
                 string updateQuery = string.Empty;
 
-                foreach (var element in groupERPCustomers)
+                foreach (var element in groupCustomers)
                 {
                     updateQuery += string.Format(@"
                             UPDATE CustomerContext.Customers SET Name = '{0}', ComercialName = '{1}',
                             StaffId = {3}, UpdatedBy = 1, UpdatedOn = GETDATE()
-                            WHERE ERPCustomerId = {2};
-                        ", element.Name.Replace("'", "''"), element.ComercialName.Replace("'", "''"), element.ERPCustomerId,
+                            WHERE CustomerId = {2};
+                        ", element.Name.Replace("'", "''"), element.ComercialName.Replace("'", "''"), element.CustomerId,
                          element.StaffId);
                 }
 
@@ -1397,11 +1397,11 @@ namespace SamsaraProjectsUpdaterService
                     this.samsaraProjectsCommand.ExecuteNonQuery();
                 }
 
-                eRPCustomersToUpdate = eRPCustomersToUpdate.Except(groupERPCustomers).ToList();
+                eRPCustomersToUpdate = eRPCustomersToUpdate.Except(groupCustomers).ToList();
             } while (true);
 
-            IList<int> eRPCustomersToDelete = oldERPCustomers.Select(x => x.ERPCustomerId)
-                .Except(currentERPCustomers.Select(x => x.ERPCustomerId)).ToList();
+            IList<int> eRPCustomersToDelete = oldCustomers.Select(x => x.CustomerId)
+                .Except(currentCustomers.Select(x => x.CustomerId)).ToList();
 
             if (eRPCustomersToDelete.Count > 0)
             {
@@ -1410,7 +1410,7 @@ namespace SamsaraProjectsUpdaterService
                 string deleteQuery = string.Format(@"
                         UPDATE CustomerContext.Customers
                         SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
-                        WHERE ERPCustomerId in ({0});
+                        WHERE CustomerId in ({0});
                         ", string.Join<int>(",", eRPCustomersToDelete));
 
                 this.samsaraProjectsCommand = new SqlCommand(deleteQuery, this.samsaraProjectsConnection);
