@@ -56,7 +56,7 @@
         class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructurePrinter, Samsara.CustomerContext.Core"/>
     </set>
 
-    <set name="CustomerTelephonies" table="CustomerContext.CustomerTelephonies" 
+    <set name="CustomerInfrastructureTelephonies" table="CustomerContext.CustomerInfrastructureTelephonies" 
          where="Deleted = 0 AND Activated = 1" cascade="all-delete-orphan" lazy="false">
       <key column="CustomerInfrastructureId"/>
       <one-to-many
