@@ -26,6 +26,18 @@ namespace Samsara.CustomerContext.Core.Entities
             set;
         }
 
+        public virtual Staff Staff
+        {
+            get;
+            set;
+        }
+
+        public virtual BusinessType BusinessType
+        {
+            get;
+            set;
+        }
+
         public virtual string Name
         {
             get;
@@ -36,18 +48,6 @@ namespace Samsara.CustomerContext.Core.Entities
         {
             get;
             protected set;
-        }
-
-        public virtual Staff Staff
-        {
-            get;
-            protected set;
-        }
-
-        public virtual BusinessType BusinessType
-        {
-            get;
-            set;
         }
     }
 }

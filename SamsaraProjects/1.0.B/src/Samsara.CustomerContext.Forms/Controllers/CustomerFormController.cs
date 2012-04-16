@@ -136,6 +136,7 @@ namespace Samsara.CustomerContext.Forms.Controllers
             CustomerParameters pmtCustomer = new CustomerParameters();
 
             pmtCustomer.Name = "%" + this.frmCustomer.txtSchName.Text + "%";
+            pmtCustomer.ComercialName = "%" + this.frmCustomer.txtSchComercialName.Text + "%";
 
             DataTable dtCustomers = srvCustomer.SearchByParameters(pmtCustomer);
 
@@ -155,31 +156,19 @@ namespace Samsara.CustomerContext.Forms.Controllers
 
         public override void DeleteEntity()
         {
-            //if (serverConsulting != null)
-            //{
-            //    this.srvCustomer.Delete(serverConsulting);
-            //}
-
-            this.Search();
-        }
-
-        public override bool ValidateFormInformation()
-        {
-            if (this.frmCustomer.txtDetName.Text == null ||
-                this.frmCustomer.txtDetName.Text.Trim() == string.Empty)
+            if (this.customer != null)
             {
-                MessageBox.Show("Favor de elegir un nombre para el Cliente.",
-                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.frmCustomer.txtDetName.Focus();
-                return false;
+                this.srvCustomer.Delete(this.customer);
             }
 
-            return true;
+            this.Search();
         }
 
         public override bool LoadEntity(int serverConsultingId)
         {
             this.customer = this.srvCustomer.GetById(serverConsultingId);
+
+            this.CreateNullInstances();
 
             return this.customer != null;
         }
@@ -228,9 +217,9 @@ namespace Samsara.CustomerContext.Forms.Controllers
 
         public override void ReadOnlyDetailFields(bool readOnly)
         {
-            this.frmCustomer.txtDetDescription.ReadOnly = readOnly;
+            this.frmCustomer.txtDetComercialName.ReadOnly = true;
+            this.frmCustomer.txtDetName.ReadOnly = true;
             this.frmCustomer.txtDetGroundedOutlet.ReadOnly = readOnly;
-            this.frmCustomer.txtDetName.ReadOnly = readOnly;
             this.frmCustomer.txtDetSiteCooling.ReadOnly = readOnly;
             this.frmCustomer.txtDetSiteDescription.ReadOnly = readOnly;
             this.frmCustomer.txtDetSiteIsolatedRoom.ReadOnly = readOnly;
@@ -259,6 +248,7 @@ namespace Samsara.CustomerContext.Forms.Controllers
         public override void LoadDetail()
         {
             this.frmCustomer.txtDetName.Text = this.customer.Name;
+            this.frmCustomer.txtDetComercialName.Text = this.customer.ComercialName;
 
             if (this.customer.CustomerInfrastructure != null)
             {
@@ -367,13 +357,13 @@ namespace Samsara.CustomerContext.Forms.Controllers
             this.customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Activated = true;
             this.customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Deleted = false;
 
-            //this.srvCustomer.SaveOrUpdate(this.serverConsulting);
+            this.srvCustomer.SaveOrUpdate(this.customer);
         }
 
         public override void ClearDetailFields()
         {
             this.frmCustomer.txtDetName.Text = string.Empty;
-            this.frmCustomer.txtDetDescription.Text = string.Empty;
+            this.frmCustomer.txtDetComercialName.Text = string.Empty;
             this.frmCustomer.txtDetGroundedOutlet.Text = string.Empty;
             this.frmCustomer.txtDetTrainingAndCourses.Text = string.Empty;
             this.frmCustomer.txtDetSiteCooling.Text = string.Empty;
@@ -412,6 +402,11 @@ namespace Samsara.CustomerContext.Forms.Controllers
             this.frmCustomer.mtoCustomerInfrastructureUPSs.ClearControls();
         }
 
+        public override bool ValidateFormInformation()
+        {
+            return true;
+        }
+
         #endregion Public
 
         #region Private
@@ -440,10 +435,6 @@ namespace Samsara.CustomerContext.Forms.Controllers
         }
 
         #endregion Private
-
-        #region Internal
-
-        #endregion Internal
 
         #endregion Methods
 

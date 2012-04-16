@@ -45,7 +45,7 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.txtSchName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblSchOrganizationName = new Infragistics.Win.Misc.UltraLabel();
             this.txtSchComercialName = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ulblSchContact = new Infragistics.Win.Misc.UltraLabel();
+            this.ulblSchComercialName = new Infragistics.Win.Misc.UltraLabel();
             this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
             this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ultraGroupBox2 = new Infragistics.Win.Misc.UltraGroupBox();
@@ -70,19 +70,8 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.ultraTabSharedControlsPage6 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.tabCustomerDetail = new System.Windows.Forms.TabControl();
             this.tabItmDetPrincipal = new System.Windows.Forms.TabPage();
-            this.btcDetBusinessType = new Samsara.CustomerContext.Controls.Choosers.BusinessTypeChooserControl();
-            this.lblDetName = new System.Windows.Forms.Label();
-            this.lblDetBusinessType = new System.Windows.Forms.Label();
-            this.txtDetName = new System.Windows.Forms.TextBox();
-            this.txtDetDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.lblDetFullName = new System.Windows.Forms.Label();
             this.tabItmDetInfraestructure = new System.Windows.Forms.TabPage();
             this.tabDetInfrastructure = new System.Windows.Forms.TabControl();
-            this.tabItmPrincipal = new System.Windows.Forms.TabPage();
-            this.gbxDetGroundedOutlet = new System.Windows.Forms.GroupBox();
-            this.txtDetGroundedOutlet = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.gbxDetTrainingAndCourses = new System.Windows.Forms.GroupBox();
-            this.txtDetTrainingAndCourses = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.tabItmDetComputers = new System.Windows.Forms.TabPage();
             this.tabDetInfraestructureComputers = new System.Windows.Forms.TabControl();
             this.tabItmDetPersonalComputers = new System.Windows.Forms.TabPage();
@@ -142,10 +131,28 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.tabDetInfraestructureVideo = new System.Windows.Forms.TabControl();
             this.tabItmDetCCTV = new System.Windows.Forms.TabPage();
             this.mtoCustomerInfrastructureCCTVs = new Samsara.CustomerContext.Controls.ManyToOne.CustomerInfrastructureCCTVsControl();
+            this.tabItmPrincipal = new System.Windows.Forms.TabPage();
+            this.txtDetTrainingAndCourses = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxDetTrainingAndCourses = new System.Windows.Forms.GroupBox();
+            this.txtDetGroundedOutlet = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.gbxDetGroundedOutlet = new System.Windows.Forms.GroupBox();
+            this.btcDetBusinessType = new Samsara.CustomerContext.Controls.Choosers.BusinessTypeChooserControl();
+            this.lblDetName = new System.Windows.Forms.Label();
+            this.lblDetBusinessType = new System.Windows.Forms.Label();
+            this.txtDetComercialName = new System.Windows.Forms.TextBox();
+            this.txtDetName = new System.Windows.Forms.TextBox();
+            this.lblDetComercialName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
             this.pnlDetButtons.SuspendLayout();
+            this.upSeparatorAccept.SuspendLayout();
+            this.upSchSeparatorClose.SuspendLayout();
+            this.upSchSeparatorDelete.SuspendLayout();
+            this.upSchSeparatorEdit.SuspendLayout();
+            this.upSchSeparatorCreate.SuspendLayout();
+            this.upSchSeparatorBottons.SuspendLayout();
+            this.upSchSeparatorShowDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchComercialName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
@@ -173,14 +180,8 @@ namespace Samsara.CustomerContext.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).BeginInit();
             this.tabCustomerDetail.SuspendLayout();
             this.tabItmDetPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetDescription)).BeginInit();
             this.tabItmDetInfraestructure.SuspendLayout();
             this.tabDetInfrastructure.SuspendLayout();
-            this.tabItmPrincipal.SuspendLayout();
-            this.gbxDetGroundedOutlet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetGroundedOutlet)).BeginInit();
-            this.gbxDetTrainingAndCourses.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetTrainingAndCourses)).BeginInit();
             this.tabItmDetComputers.SuspendLayout();
             this.tabDetInfraestructureComputers.SuspendLayout();
             this.tabItmDetPersonalComputers.SuspendLayout();
@@ -223,6 +224,11 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.tabItmDetVideo.SuspendLayout();
             this.tabDetInfraestructureVideo.SuspendLayout();
             this.tabItmDetCCTV.SuspendLayout();
+            this.tabItmPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetTrainingAndCourses)).BeginInit();
+            this.gbxDetTrainingAndCourses.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetGroundedOutlet)).BeginInit();
+            this.gbxDetGroundedOutlet.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -274,26 +280,6 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.grdPrincipal.Location = new System.Drawing.Point(0, 101);
             this.grdPrincipal.Size = new System.Drawing.Size(977, 363);
             // 
-            // btnSchAccept
-            // 
-            this.btnSchAccept.Location = new System.Drawing.Point(431, 0);
-            // 
-            // btnSchClose
-            // 
-            this.btnSchClose.Location = new System.Drawing.Point(522, 0);
-            // 
-            // btnSchDelete
-            // 
-            this.btnSchDelete.Location = new System.Drawing.Point(613, 0);
-            // 
-            // btnSchEdit
-            // 
-            this.btnSchEdit.Location = new System.Drawing.Point(795, 0);
-            // 
-            // btnSchCreate
-            // 
-            this.btnSchCreate.Location = new System.Drawing.Point(886, 0);
-            // 
             // btnSchClear
             // 
             this.btnSchClear.Location = new System.Drawing.Point(795, 0);
@@ -305,7 +291,7 @@ namespace Samsara.CustomerContext.Forms.Forms
             // gbxSchParameters
             // 
             this.gbxSchParameters.Controls.Add(this.txtSchComercialName);
-            this.gbxSchParameters.Controls.Add(this.ulblSchContact);
+            this.gbxSchParameters.Controls.Add(this.ulblSchComercialName);
             this.gbxSchParameters.Controls.Add(this.txtSchName);
             this.gbxSchParameters.Controls.Add(this.ulblSchOrganizationName);
             this.gbxSchParameters.Size = new System.Drawing.Size(977, 76);
@@ -330,13 +316,61 @@ namespace Samsara.CustomerContext.Forms.Forms
             // 
             this.btnDetCancel.Location = new System.Drawing.Point(886, 0);
             // 
+            // btnDetBackToSearch
+            // 
+            this.btnDetBackToSearch.Location = new System.Drawing.Point(795, 0);
+            // 
+            // btnSchAccept
+            // 
+            this.btnSchAccept.Location = new System.Drawing.Point(431, 0);
+            // 
+            // btnSchClose
+            // 
+            this.btnSchClose.Location = new System.Drawing.Point(522, 0);
+            // 
+            // btnSchDelete
+            // 
+            this.btnSchDelete.Location = new System.Drawing.Point(613, 0);
+            // 
+            // btnSchEdit
+            // 
+            this.btnSchEdit.Location = new System.Drawing.Point(795, 0);
+            // 
+            // btnSchCreate
+            // 
+            this.btnSchCreate.Location = new System.Drawing.Point(886, 0);
+            // 
             // btnSchShowDetail
             // 
             this.btnSchShowDetail.Location = new System.Drawing.Point(704, 0);
             // 
-            // btnDetBackToSearch
+            // upSeparatorAccept
             // 
-            this.btnDetBackToSearch.Location = new System.Drawing.Point(795, 0);
+            this.upSeparatorAccept.Location = new System.Drawing.Point(415, 0);
+            // 
+            // upSchSeparatorClose
+            // 
+            this.upSchSeparatorClose.Location = new System.Drawing.Point(506, 0);
+            // 
+            // upSchSeparatorDelete
+            // 
+            this.upSchSeparatorDelete.Location = new System.Drawing.Point(597, 0);
+            // 
+            // upSchSeparatorEdit
+            // 
+            this.upSchSeparatorEdit.Location = new System.Drawing.Point(779, 0);
+            // 
+            // upSchSeparatorCreate
+            // 
+            this.upSchSeparatorCreate.Location = new System.Drawing.Point(870, 0);
+            // 
+            // upSchSeparatorBottons
+            // 
+            this.upSchSeparatorBottons.Location = new System.Drawing.Point(961, 0);
+            // 
+            // upSchSeparatorShowDetail
+            // 
+            this.upSchSeparatorShowDetail.Location = new System.Drawing.Point(688, 0);
             // 
             // txtSchName
             // 
@@ -361,14 +395,14 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.txtSchComercialName.Size = new System.Drawing.Size(283, 21);
             this.txtSchComercialName.TabIndex = 4;
             // 
-            // ulblSchContact
+            // ulblSchComercialName
             // 
-            this.ulblSchContact.AutoSize = true;
-            this.ulblSchContact.Location = new System.Drawing.Point(6, 50);
-            this.ulblSchContact.Name = "ulblSchContact";
-            this.ulblSchContact.Size = new System.Drawing.Size(102, 14);
-            this.ulblSchContact.TabIndex = 3;
-            this.ulblSchContact.Text = "Nombre Comercial:";
+            this.ulblSchComercialName.AutoSize = true;
+            this.ulblSchComercialName.Location = new System.Drawing.Point(6, 50);
+            this.ulblSchComercialName.Name = "ulblSchComercialName";
+            this.ulblSchComercialName.Size = new System.Drawing.Size(102, 14);
+            this.ulblSchComercialName.TabIndex = 3;
+            this.ulblSchComercialName.Text = "Nombre Comercial:";
             // 
             // ultraGroupBox1
             // 
@@ -603,79 +637,15 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.tabItmDetPrincipal.Controls.Add(this.btcDetBusinessType);
             this.tabItmDetPrincipal.Controls.Add(this.lblDetName);
             this.tabItmDetPrincipal.Controls.Add(this.lblDetBusinessType);
+            this.tabItmDetPrincipal.Controls.Add(this.txtDetComercialName);
             this.tabItmDetPrincipal.Controls.Add(this.txtDetName);
-            this.tabItmDetPrincipal.Controls.Add(this.txtDetDescription);
-            this.tabItmDetPrincipal.Controls.Add(this.lblDetFullName);
+            this.tabItmDetPrincipal.Controls.Add(this.lblDetComercialName);
             this.tabItmDetPrincipal.Location = new System.Drawing.Point(4, 22);
             this.tabItmDetPrincipal.Name = "tabItmDetPrincipal";
             this.tabItmDetPrincipal.Padding = new System.Windows.Forms.Padding(3);
             this.tabItmDetPrincipal.Size = new System.Drawing.Size(963, 439);
             this.tabItmDetPrincipal.TabIndex = 0;
             this.tabItmDetPrincipal.Text = "Principal";
-            // 
-            // btcDetBusinessType
-            // 
-            this.btcDetBusinessType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
-            this.btcDetBusinessType.CustomParent = null;
-            this.btcDetBusinessType.DisplayMember = "Name";
-            this.btcDetBusinessType.Location = new System.Drawing.Point(99, 94);
-            this.btcDetBusinessType.Name = "btcDetBusinessType";
-            businessTypeParameters1.BusinessTypeId = null;
-            businessTypeParameters1.CreatedBy = null;
-            businessTypeParameters1.CreatedOn = null;
-            businessTypeParameters1.Description = null;
-            businessTypeParameters1.Name = null;
-            businessTypeParameters1.UpdatedBy = null;
-            businessTypeParameters1.UpdatedOn = null;
-            this.btcDetBusinessType.Parameters = businessTypeParameters1;
-            this.btcDetBusinessType.ReadOnly = false;
-            this.btcDetBusinessType.Size = new System.Drawing.Size(226, 22);
-            this.btcDetBusinessType.TabIndex = 27;
-            this.btcDetBusinessType.Value = null;
-            this.btcDetBusinessType.ValueMember = "BusinessTypeId";
-            this.btcDetBusinessType.Values = null;
-            // 
-            // lblDetName
-            // 
-            this.lblDetName.AutoSize = true;
-            this.lblDetName.Location = new System.Drawing.Point(6, 9);
-            this.lblDetName.Name = "lblDetName";
-            this.lblDetName.Size = new System.Drawing.Size(47, 13);
-            this.lblDetName.TabIndex = 23;
-            this.lblDetName.Text = "Nombre:";
-            // 
-            // lblDetBusinessType
-            // 
-            this.lblDetBusinessType.AutoSize = true;
-            this.lblDetBusinessType.Location = new System.Drawing.Point(3, 98);
-            this.lblDetBusinessType.Name = "lblDetBusinessType";
-            this.lblDetBusinessType.Size = new System.Drawing.Size(87, 13);
-            this.lblDetBusinessType.TabIndex = 23;
-            this.lblDetBusinessType.Text = "Giro de Negocio:";
-            // 
-            // txtDetName
-            // 
-            this.txtDetName.Location = new System.Drawing.Point(99, 6);
-            this.txtDetName.Name = "txtDetName";
-            this.txtDetName.Size = new System.Drawing.Size(226, 20);
-            this.txtDetName.TabIndex = 24;
-            // 
-            // txtDetDescription
-            // 
-            this.txtDetDescription.Location = new System.Drawing.Point(99, 32);
-            this.txtDetDescription.Multiline = true;
-            this.txtDetDescription.Name = "txtDetDescription";
-            this.txtDetDescription.Size = new System.Drawing.Size(226, 56);
-            this.txtDetDescription.TabIndex = 26;
-            // 
-            // lblDetFullName
-            // 
-            this.lblDetFullName.AutoSize = true;
-            this.lblDetFullName.Location = new System.Drawing.Point(6, 35);
-            this.lblDetFullName.Name = "lblDetFullName";
-            this.lblDetFullName.Size = new System.Drawing.Size(66, 13);
-            this.lblDetFullName.TabIndex = 23;
-            this.lblDetFullName.Text = "Descripción:";
             // 
             // tabItmDetInfraestructure
             // 
@@ -704,57 +674,6 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.tabDetInfrastructure.SelectedIndex = 0;
             this.tabDetInfrastructure.Size = new System.Drawing.Size(957, 433);
             this.tabDetInfrastructure.TabIndex = 1;
-            // 
-            // tabItmPrincipal
-            // 
-            this.tabItmPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.tabItmPrincipal.Controls.Add(this.gbxDetGroundedOutlet);
-            this.tabItmPrincipal.Controls.Add(this.gbxDetTrainingAndCourses);
-            this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
-            this.tabItmPrincipal.Name = "tabItmPrincipal";
-            this.tabItmPrincipal.Size = new System.Drawing.Size(949, 407);
-            this.tabItmPrincipal.TabIndex = 7;
-            this.tabItmPrincipal.Text = "Principal";
-            // 
-            // gbxDetGroundedOutlet
-            // 
-            this.gbxDetGroundedOutlet.Controls.Add(this.txtDetGroundedOutlet);
-            this.gbxDetGroundedOutlet.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxDetGroundedOutlet.Location = new System.Drawing.Point(0, 84);
-            this.gbxDetGroundedOutlet.Name = "gbxDetGroundedOutlet";
-            this.gbxDetGroundedOutlet.Size = new System.Drawing.Size(949, 84);
-            this.gbxDetGroundedOutlet.TabIndex = 31;
-            this.gbxDetGroundedOutlet.TabStop = false;
-            this.gbxDetGroundedOutlet.Text = "Tierra Física:";
-            // 
-            // txtDetGroundedOutlet
-            // 
-            this.txtDetGroundedOutlet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetGroundedOutlet.Location = new System.Drawing.Point(3, 16);
-            this.txtDetGroundedOutlet.Multiline = true;
-            this.txtDetGroundedOutlet.Name = "txtDetGroundedOutlet";
-            this.txtDetGroundedOutlet.Size = new System.Drawing.Size(943, 65);
-            this.txtDetGroundedOutlet.TabIndex = 28;
-            // 
-            // gbxDetTrainingAndCourses
-            // 
-            this.gbxDetTrainingAndCourses.Controls.Add(this.txtDetTrainingAndCourses);
-            this.gbxDetTrainingAndCourses.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbxDetTrainingAndCourses.Location = new System.Drawing.Point(0, 0);
-            this.gbxDetTrainingAndCourses.Name = "gbxDetTrainingAndCourses";
-            this.gbxDetTrainingAndCourses.Size = new System.Drawing.Size(949, 84);
-            this.gbxDetTrainingAndCourses.TabIndex = 31;
-            this.gbxDetTrainingAndCourses.TabStop = false;
-            this.gbxDetTrainingAndCourses.Text = "Cursos y Entrenamiento:";
-            // 
-            // txtDetTrainingAndCourses
-            // 
-            this.txtDetTrainingAndCourses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDetTrainingAndCourses.Location = new System.Drawing.Point(3, 16);
-            this.txtDetTrainingAndCourses.Multiline = true;
-            this.txtDetTrainingAndCourses.Name = "txtDetTrainingAndCourses";
-            this.txtDetTrainingAndCourses.Size = new System.Drawing.Size(943, 65);
-            this.txtDetTrainingAndCourses.TabIndex = 30;
             // 
             // tabItmDetComputers
             // 
@@ -819,7 +738,7 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.mtoCustomerInfrastructureServerComputers.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureServerComputers.Name = "mtoCustomerInfrastructureServerComputers";
             this.mtoCustomerInfrastructureServerComputers.ReadOnly = false;
-            this.mtoCustomerInfrastructureServerComputers.Size = new System.Drawing.Size(722, 390);
+            this.mtoCustomerInfrastructureServerComputers.Size = new System.Drawing.Size(929, 369);
             this.mtoCustomerInfrastructureServerComputers.TabIndex = 0;
             // 
             // tabItmDetNetwork
@@ -1260,7 +1179,7 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.mtoCustomerInfrastructureSecuritySoftwares.Location = new System.Drawing.Point(3, 3);
             this.mtoCustomerInfrastructureSecuritySoftwares.Name = "mtoCustomerInfrastructureSecuritySoftwares";
             this.mtoCustomerInfrastructureSecuritySoftwares.ReadOnly = false;
-            this.mtoCustomerInfrastructureSecuritySoftwares.Size = new System.Drawing.Size(728, 396);
+            this.mtoCustomerInfrastructureSecuritySoftwares.Size = new System.Drawing.Size(935, 375);
             this.mtoCustomerInfrastructureSecuritySoftwares.TabIndex = 0;
             // 
             // tabItmDetBackupSoftware
@@ -1281,7 +1200,7 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.mtoCustomerInfrastructureBackupSoftwares.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureBackupSoftwares.Name = "mtoCustomerInfrastructureBackupSoftwares";
             this.mtoCustomerInfrastructureBackupSoftwares.ReadOnly = false;
-            this.mtoCustomerInfrastructureBackupSoftwares.Size = new System.Drawing.Size(734, 402);
+            this.mtoCustomerInfrastructureBackupSoftwares.Size = new System.Drawing.Size(941, 381);
             this.mtoCustomerInfrastructureBackupSoftwares.TabIndex = 0;
             // 
             // tabItmDetSuppliers
@@ -1345,7 +1264,7 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.mtoCustomerInfrastructureTelephonies.Location = new System.Drawing.Point(0, 0);
             this.mtoCustomerInfrastructureTelephonies.Name = "mtoCustomerInfrastructureTelephonies";
             this.mtoCustomerInfrastructureTelephonies.ReadOnly = false;
-            this.mtoCustomerInfrastructureTelephonies.Size = new System.Drawing.Size(734, 402);
+            this.mtoCustomerInfrastructureTelephonies.Size = new System.Drawing.Size(941, 381);
             this.mtoCustomerInfrastructureTelephonies.TabIndex = 0;
             // 
             // tabItmDetVideo
@@ -1390,6 +1309,120 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.mtoCustomerInfrastructureCCTVs.Size = new System.Drawing.Size(935, 375);
             this.mtoCustomerInfrastructureCCTVs.TabIndex = 0;
             // 
+            // tabItmPrincipal
+            // 
+            this.tabItmPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.tabItmPrincipal.Controls.Add(this.gbxDetGroundedOutlet);
+            this.tabItmPrincipal.Controls.Add(this.gbxDetTrainingAndCourses);
+            this.tabItmPrincipal.Location = new System.Drawing.Point(4, 22);
+            this.tabItmPrincipal.Name = "tabItmPrincipal";
+            this.tabItmPrincipal.Size = new System.Drawing.Size(949, 407);
+            this.tabItmPrincipal.TabIndex = 7;
+            this.tabItmPrincipal.Text = "Principal";
+            // 
+            // txtDetTrainingAndCourses
+            // 
+            this.txtDetTrainingAndCourses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetTrainingAndCourses.Location = new System.Drawing.Point(3, 16);
+            this.txtDetTrainingAndCourses.Multiline = true;
+            this.txtDetTrainingAndCourses.Name = "txtDetTrainingAndCourses";
+            this.txtDetTrainingAndCourses.Size = new System.Drawing.Size(943, 65);
+            this.txtDetTrainingAndCourses.TabIndex = 30;
+            // 
+            // gbxDetTrainingAndCourses
+            // 
+            this.gbxDetTrainingAndCourses.Controls.Add(this.txtDetTrainingAndCourses);
+            this.gbxDetTrainingAndCourses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxDetTrainingAndCourses.Location = new System.Drawing.Point(0, 0);
+            this.gbxDetTrainingAndCourses.Name = "gbxDetTrainingAndCourses";
+            this.gbxDetTrainingAndCourses.Size = new System.Drawing.Size(949, 84);
+            this.gbxDetTrainingAndCourses.TabIndex = 31;
+            this.gbxDetTrainingAndCourses.TabStop = false;
+            this.gbxDetTrainingAndCourses.Text = "Cursos y Entrenamiento:";
+            // 
+            // txtDetGroundedOutlet
+            // 
+            this.txtDetGroundedOutlet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDetGroundedOutlet.Location = new System.Drawing.Point(3, 16);
+            this.txtDetGroundedOutlet.Multiline = true;
+            this.txtDetGroundedOutlet.Name = "txtDetGroundedOutlet";
+            this.txtDetGroundedOutlet.Size = new System.Drawing.Size(943, 65);
+            this.txtDetGroundedOutlet.TabIndex = 28;
+            // 
+            // gbxDetGroundedOutlet
+            // 
+            this.gbxDetGroundedOutlet.Controls.Add(this.txtDetGroundedOutlet);
+            this.gbxDetGroundedOutlet.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxDetGroundedOutlet.Location = new System.Drawing.Point(0, 84);
+            this.gbxDetGroundedOutlet.Name = "gbxDetGroundedOutlet";
+            this.gbxDetGroundedOutlet.Size = new System.Drawing.Size(949, 84);
+            this.gbxDetGroundedOutlet.TabIndex = 31;
+            this.gbxDetGroundedOutlet.TabStop = false;
+            this.gbxDetGroundedOutlet.Text = "Tierra Física:";
+            // 
+            // btcDetBusinessType
+            // 
+            this.btcDetBusinessType.ControlType = Samsara.Base.Controls.Enums.SamsaraEntityChooserControlTypeEnum.Single;
+            this.btcDetBusinessType.CustomParent = null;
+            this.btcDetBusinessType.DisplayMember = "Name";
+            this.btcDetBusinessType.Location = new System.Drawing.Point(109, 61);
+            this.btcDetBusinessType.Name = "btcDetBusinessType";
+            businessTypeParameters1.BusinessTypeId = null;
+            businessTypeParameters1.CreatedBy = null;
+            businessTypeParameters1.CreatedOn = null;
+            businessTypeParameters1.Description = null;
+            businessTypeParameters1.Name = null;
+            businessTypeParameters1.UpdatedBy = null;
+            businessTypeParameters1.UpdatedOn = null;
+            this.btcDetBusinessType.Parameters = businessTypeParameters1;
+            this.btcDetBusinessType.ReadOnly = false;
+            this.btcDetBusinessType.Size = new System.Drawing.Size(226, 22);
+            this.btcDetBusinessType.TabIndex = 33;
+            this.btcDetBusinessType.Value = null;
+            this.btcDetBusinessType.ValueMember = "BusinessTypeId";
+            this.btcDetBusinessType.Values = null;
+            // 
+            // lblDetName
+            // 
+            this.lblDetName.AutoSize = true;
+            this.lblDetName.Location = new System.Drawing.Point(7, 12);
+            this.lblDetName.Name = "lblDetName";
+            this.lblDetName.Size = new System.Drawing.Size(47, 13);
+            this.lblDetName.TabIndex = 29;
+            this.lblDetName.Text = "Nombre:";
+            // 
+            // lblDetBusinessType
+            // 
+            this.lblDetBusinessType.AutoSize = true;
+            this.lblDetBusinessType.Location = new System.Drawing.Point(7, 65);
+            this.lblDetBusinessType.Name = "lblDetBusinessType";
+            this.lblDetBusinessType.Size = new System.Drawing.Size(87, 13);
+            this.lblDetBusinessType.TabIndex = 30;
+            this.lblDetBusinessType.Text = "Giro de Negocio:";
+            // 
+            // txtDetComercialName
+            // 
+            this.txtDetComercialName.Location = new System.Drawing.Point(109, 35);
+            this.txtDetComercialName.Name = "txtDetComercialName";
+            this.txtDetComercialName.Size = new System.Drawing.Size(277, 20);
+            this.txtDetComercialName.TabIndex = 32;
+            // 
+            // txtDetName
+            // 
+            this.txtDetName.Location = new System.Drawing.Point(109, 9);
+            this.txtDetName.Name = "txtDetName";
+            this.txtDetName.Size = new System.Drawing.Size(277, 20);
+            this.txtDetName.TabIndex = 31;
+            // 
+            // lblDetComercialName
+            // 
+            this.lblDetComercialName.AutoSize = true;
+            this.lblDetComercialName.Location = new System.Drawing.Point(7, 38);
+            this.lblDetComercialName.Name = "lblDetComercialName";
+            this.lblDetComercialName.Size = new System.Drawing.Size(96, 13);
+            this.lblDetComercialName.TabIndex = 28;
+            this.lblDetComercialName.Text = "Nombre Comercial:";
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1402,6 +1435,13 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.gbxSchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
             this.pnlDetButtons.ResumeLayout(false);
+            this.upSeparatorAccept.ResumeLayout(false);
+            this.upSchSeparatorClose.ResumeLayout(false);
+            this.upSchSeparatorDelete.ResumeLayout(false);
+            this.upSchSeparatorEdit.ResumeLayout(false);
+            this.upSchSeparatorCreate.ResumeLayout(false);
+            this.upSchSeparatorBottons.ResumeLayout(false);
+            this.upSchSeparatorShowDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchComercialName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
@@ -1433,16 +1473,8 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.tabCustomerDetail.ResumeLayout(false);
             this.tabItmDetPrincipal.ResumeLayout(false);
             this.tabItmDetPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetDescription)).EndInit();
             this.tabItmDetInfraestructure.ResumeLayout(false);
             this.tabDetInfrastructure.ResumeLayout(false);
-            this.tabItmPrincipal.ResumeLayout(false);
-            this.gbxDetGroundedOutlet.ResumeLayout(false);
-            this.gbxDetGroundedOutlet.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetGroundedOutlet)).EndInit();
-            this.gbxDetTrainingAndCourses.ResumeLayout(false);
-            this.gbxDetTrainingAndCourses.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDetTrainingAndCourses)).EndInit();
             this.tabItmDetComputers.ResumeLayout(false);
             this.tabDetInfraestructureComputers.ResumeLayout(false);
             this.tabItmDetPersonalComputers.ResumeLayout(false);
@@ -1488,6 +1520,13 @@ namespace Samsara.CustomerContext.Forms.Forms
             this.tabItmDetVideo.ResumeLayout(false);
             this.tabDetInfraestructureVideo.ResumeLayout(false);
             this.tabItmDetCCTV.ResumeLayout(false);
+            this.tabItmPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetTrainingAndCourses)).EndInit();
+            this.gbxDetTrainingAndCourses.ResumeLayout(false);
+            this.gbxDetTrainingAndCourses.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDetGroundedOutlet)).EndInit();
+            this.gbxDetGroundedOutlet.ResumeLayout(false);
+            this.gbxDetGroundedOutlet.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1497,7 +1536,7 @@ namespace Samsara.CustomerContext.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchName;
         private Infragistics.Win.Misc.UltraLabel ulblSchOrganizationName;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchComercialName;
-        internal Infragistics.Win.Misc.UltraLabel ulblSchContact;
+        internal Infragistics.Win.Misc.UltraLabel ulblSchComercialName;
         internal Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
         internal Infragistics.Win.Misc.UltraGroupBox ultraGroupBox2;
@@ -1522,19 +1561,8 @@ namespace Samsara.CustomerContext.Forms.Forms
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage6;
         internal System.Windows.Forms.TabControl tabCustomerDetail;
         private System.Windows.Forms.TabPage tabItmDetPrincipal;
-        internal Controls.Choosers.BusinessTypeChooserControl btcDetBusinessType;
-        private System.Windows.Forms.Label lblDetName;
-        private System.Windows.Forms.Label lblDetBusinessType;
-        internal System.Windows.Forms.TextBox txtDetName;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetDescription;
-        private System.Windows.Forms.Label lblDetFullName;
         private System.Windows.Forms.TabPage tabItmDetInfraestructure;
         internal System.Windows.Forms.TabControl tabDetInfrastructure;
-        private System.Windows.Forms.TabPage tabItmPrincipal;
-        private System.Windows.Forms.GroupBox gbxDetGroundedOutlet;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetGroundedOutlet;
-        private System.Windows.Forms.GroupBox gbxDetTrainingAndCourses;
-        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetTrainingAndCourses;
         private System.Windows.Forms.TabPage tabItmDetComputers;
         internal System.Windows.Forms.TabControl tabDetInfraestructureComputers;
         private System.Windows.Forms.TabPage tabItmDetPersonalComputers;
@@ -1594,6 +1622,17 @@ namespace Samsara.CustomerContext.Forms.Forms
         internal System.Windows.Forms.TabControl tabDetInfraestructureVideo;
         private System.Windows.Forms.TabPage tabItmDetCCTV;
         internal Controls.ManyToOne.CustomerInfrastructureCCTVsControl mtoCustomerInfrastructureCCTVs;
+        internal Controls.Choosers.BusinessTypeChooserControl btcDetBusinessType;
+        private System.Windows.Forms.Label lblDetName;
+        private System.Windows.Forms.Label lblDetBusinessType;
+        internal System.Windows.Forms.TextBox txtDetComercialName;
+        internal System.Windows.Forms.TextBox txtDetName;
+        private System.Windows.Forms.Label lblDetComercialName;
+        private System.Windows.Forms.TabPage tabItmPrincipal;
+        private System.Windows.Forms.GroupBox gbxDetGroundedOutlet;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetGroundedOutlet;
+        private System.Windows.Forms.GroupBox gbxDetTrainingAndCourses;
+        internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetTrainingAndCourses;
 
 
 
