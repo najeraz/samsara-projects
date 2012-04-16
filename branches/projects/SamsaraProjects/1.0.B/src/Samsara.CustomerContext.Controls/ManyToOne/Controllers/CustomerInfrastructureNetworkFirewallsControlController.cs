@@ -144,8 +144,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureNetworkFirewall = new CustomerInfrastructureNetworkFirewall();
 
             this.customerInfrastructureNetworkFirewall.CustomerInfrastructureNetwork = this.CustomerInfrastructureNetwork;
-            this.customerInfrastructureNetworkFirewall.Activated = true;
-            this.customerInfrastructureNetworkFirewall.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

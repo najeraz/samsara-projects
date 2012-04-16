@@ -193,8 +193,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructurePersonalComputer = new CustomerInfrastructurePersonalComputer();
 
             this.customerInfrastructurePersonalComputer.CustomerInfrastructure = this.CustomerInfrastructure;
-            this.customerInfrastructurePersonalComputer.Activated = true;
-            this.customerInfrastructurePersonalComputer.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

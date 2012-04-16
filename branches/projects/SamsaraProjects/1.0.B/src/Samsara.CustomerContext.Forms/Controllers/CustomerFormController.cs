@@ -350,13 +350,6 @@ namespace Samsara.CustomerContext.Forms.Controllers
             this.customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.SiteCooling
                 = this.frmCustomer.txtDetSiteCooling.Text;
 
-            this.customer.Activated = true;
-            this.customer.Deleted = false;
-            this.customer.CustomerInfrastructure.Activated = true;
-            this.customer.CustomerInfrastructure.Deleted = false;
-            this.customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Activated = true;
-            this.customer.CustomerInfrastructure.CustomerInfrastructureNetwork.CustomerInfrastructureNetworkSite.Deleted = false;
-
             this.srvCustomer.SaveOrUpdate(this.customer);
         }
 

@@ -156,8 +156,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
             this.customerInfrastructureNetworkWifiAccessPoint.CustomerInfrastructureNetworkWifi
                 = this.CustomerInfrastructureNetworkWifi;
-            this.customerInfrastructureNetworkWifiAccessPoint.Activated = true;
-            this.customerInfrastructureNetworkWifiAccessPoint.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

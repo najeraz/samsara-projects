@@ -143,8 +143,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
             this.customerInfrastructureNetworkSiteRack.CustomerInfrastructureNetworkSite 
                 = this.CustomerInfrastructureNetworkSite;
-            this.customerInfrastructureNetworkSiteRack.Activated = true;
-            this.customerInfrastructureNetworkSiteRack.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

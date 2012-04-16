@@ -145,8 +145,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
 
             this.customerInfrastructureNetworkSwitch.CustomerInfrastructureNetwork 
                 = this.CustomerInfrastructureNetwork;
-            this.customerInfrastructureNetworkSwitch.Activated = true;
-            this.customerInfrastructureNetworkSwitch.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)

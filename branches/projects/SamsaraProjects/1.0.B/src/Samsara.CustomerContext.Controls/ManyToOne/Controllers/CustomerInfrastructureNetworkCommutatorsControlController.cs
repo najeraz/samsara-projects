@@ -153,8 +153,6 @@ namespace Samsara.CustomerContext.Controls.ManyToOne.Controllers
             this.customerInfrastructureNetworkCommutator = new CustomerInfrastructureNetworkCommutator();
 
             this.customerInfrastructureNetworkCommutator.CustomerInfrastructureNetwork = this.CustomerInfrastructureNetwork;
-            this.customerInfrastructureNetworkCommutator.Activated = true;
-            this.customerInfrastructureNetworkCommutator.Deleted = false;
         }
 
         protected override void DeleteEntity(int entityId)
