@@ -9,6 +9,12 @@
       <generator class="native"/>
     </id>
 
+    <property name="ColumnName"/>
+    <property name="ColumnEndUserName"/>
+    <property name="BandKey"/>
+    <property name="Visible"/>
+    <property name="Width"/>
+
     <property name="UpdatedBy"/>
     <property name="CreatedBy"/>
     <property name="CreatedOn" type="Timestamp"/>
@@ -23,11 +29,6 @@
     <many-to-one name="TextFormat"
                  class="Samsara.Framework.Core.Entities.TextFormat, Samsara.Framework.Core"
                  column="TextFormatId"/>
-    
-    <property name="ColumnName"/>
-    <property name="ColumnEndUserName"/>
-    <property name="BandKey"/>
-    <property name="Visible"/>
 
   </class>
 
