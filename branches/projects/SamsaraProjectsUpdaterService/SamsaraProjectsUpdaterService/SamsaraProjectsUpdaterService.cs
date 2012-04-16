@@ -1264,7 +1264,7 @@ namespace SamsaraProjectsUpdaterService
                 .Select(x => Convert.ToInt32(x["ERPCustomerId"])).ToList();
 
             this.samsaraProjectsDataAdapter = new SqlDataAdapter(
-                "SELECT ERPCustomerId FROM AlleatoERP.ERPCustomers",
+                "SELECT ERPCustomerId FROM CustomerContext.Customers",
                 this.samsaraProjectsConnection);
 
             ds = new DataSet();
@@ -1304,7 +1304,7 @@ namespace SamsaraProjectsUpdaterService
                     foreach (DataRow row in ds.Tables["ERPCustomers"].AsEnumerable())
                     {
                         insertQuery += string.Format(@"
-                            INSERT INTO AlleatoERP.ERPCustomers (ERPCustomerId, Name, ComercialName, StaffId,
+                            INSERT INTO CustomerContext.Customers (ERPCustomerId, Name, ComercialName, StaffId,
                             Activated, Deleted, CreatedOn, CreatedBy, UpdatedOn, UpdatedBy)
                             VALUES ({0}, '{1}', '{2}', '{3}', 1, 0, GETDATE(), 1, NULL, NULL);",
                             row["ERPCustomerId"].ToString().Trim(),
@@ -1347,7 +1347,7 @@ namespace SamsaraProjectsUpdaterService
 
             this.samsaraProjectsDataAdapter = new SqlDataAdapter(string.Format(@"
                     SELECT ERPCustomerId, Name, ComercialName, StaffId, Activated, Deleted
-                    FROM AlleatoERP.ERPCustomers
+                    FROM CustomerContext.Customers
                     WHERE Activated = 1 AND Deleted = 0
                 "), this.samsaraProjectsConnection);
 
@@ -1384,7 +1384,7 @@ namespace SamsaraProjectsUpdaterService
                 foreach (var element in groupERPCustomers)
                 {
                     updateQuery += string.Format(@"
-                            UPDATE AlleatoERP.ERPCustomers SET Name = '{0}', ComercialName = '{1}',
+                            UPDATE CustomerContext.Customers SET Name = '{0}', ComercialName = '{1}',
                             StaffId = {3}, UpdatedBy = 1, UpdatedOn = GETDATE()
                             WHERE ERPCustomerId = {2};
                         ", element.Name.Replace("'", "''"), element.ComercialName.Replace("'", "''"), element.ERPCustomerId,
@@ -1408,7 +1408,7 @@ namespace SamsaraProjectsUpdaterService
                 eventLog1.WriteEntry("Customers To Delete : " + eRPCustomersToDelete.Count, EventLogEntryType.Information);
                 
                 string deleteQuery = string.Format(@"
-                        UPDATE AlleatoERP.ERPCustomers
+                        UPDATE CustomerContext.Customers
                         SET Deleted = 1, Activated = 0, UpdatedBy = 1, UpdatedOn = GETDATE()
                         WHERE ERPCustomerId in ({0});
                         ", string.Join<int>(",", eRPCustomersToDelete));
