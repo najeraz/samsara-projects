@@ -49,7 +49,6 @@
             this.marcasDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextoDelClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.catálogoDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.girosDeNegocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infraestructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,6 +102,8 @@
             this.servidoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ulblPrplUsername = new Infragistics.Win.Misc.UltraLabel();
             this.upnlPrplBottom = new Infragistics.Win.Misc.UltraPanel();
+            this.repositorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.upnlPrplBottom.ClientArea.SuspendLayout();
             this.upnlPrplBottom.SuspendLayout();
@@ -259,23 +260,15 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.catálogoDeClientesToolStripMenuItem,
             this.girosDeNegocioToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
-            // 
-            // catálogoDeClientesToolStripMenuItem
-            // 
-            this.catálogoDeClientesToolStripMenuItem.Name = "catálogoDeClientesToolStripMenuItem";
-            this.catálogoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.catálogoDeClientesToolStripMenuItem.Text = "Catálogo de Clientes";
-            this.catálogoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.catálogoDeClientesToolStripMenuItem_Click);
             // 
             // girosDeNegocioToolStripMenuItem
             // 
             this.girosDeNegocioToolStripMenuItem.Name = "girosDeNegocioToolStripMenuItem";
-            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.girosDeNegocioToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.girosDeNegocioToolStripMenuItem.Text = "Giros de Negocio";
             this.girosDeNegocioToolStripMenuItem.Click += new System.EventHandler(this.girosDeNegocioToolStripMenuItem_Click);
             // 
@@ -286,7 +279,7 @@
             this.softwareToolStripMenuItem,
             this.proveedoresToolStripMenuItem});
             this.infraestructuraToolStripMenuItem.Name = "infraestructuraToolStripMenuItem";
-            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.infraestructuraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.infraestructuraToolStripMenuItem.Text = "Infraestructura";
             // 
             // hardwareToolStripMenuItem
@@ -501,6 +494,11 @@
             this.sistemasOperativosToolStripMenuItem.Text = "Sistemas Operativos";
             this.sistemasOperativosToolStripMenuItem.Click += new System.EventHandler(this.sistemasOperativosToolStripMenuItem_Click);
             // 
+            // tiposDeSistemasOperativosToolStripMenuItem
+            // 
+            this.tiposDeSistemasOperativosToolStripMenuItem.Name = "tiposDeSistemasOperativosToolStripMenuItem";
+            this.tiposDeSistemasOperativosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            // 
             // firewallsToolStripMenuItem
             // 
             this.firewallsToolStripMenuItem.Name = "firewallsToolStripMenuItem";
@@ -590,7 +588,8 @@
             this.tableroDeControlToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
             this.comisionesToolStripMenuItem,
-            this.consultoriaTIToolStripMenuItem});
+            this.consultoriaTIToolStripMenuItem,
+            this.repositorioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(811, 24);
@@ -699,6 +698,21 @@
             this.upnlPrplBottom.Size = new System.Drawing.Size(811, 16);
             this.upnlPrplBottom.TabIndex = 2;
             // 
+            // repositorioToolStripMenuItem
+            // 
+            this.repositorioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem1});
+            this.repositorioToolStripMenuItem.Name = "repositorioToolStripMenuItem";
+            this.repositorioToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.repositorioToolStripMenuItem.Text = "Repositorio";
+            // 
+            // clientesToolStripMenuItem1
+            // 
+            this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem1.Text = "Clientes";
+            this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,7 +758,6 @@
         private System.Windows.Forms.ToolStripMenuItem monedasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contextoDelClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem catálogoDeClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infraestructuraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hardwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem computadorasToolStripMenuItem;
@@ -796,6 +809,8 @@
         private System.Windows.Forms.ToolStripMenuItem consultoriaTIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem servidoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosDeComisionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem repositorioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
     }
 }
 
