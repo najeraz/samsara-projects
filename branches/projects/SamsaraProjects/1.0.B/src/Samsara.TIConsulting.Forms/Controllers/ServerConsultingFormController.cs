@@ -882,21 +882,6 @@ Especificaciones: {5}
             dtGeneralQuestions.AcceptChanges();
         }
 
-        private void ShowQuestionTab(bool showQuestions)
-        {
-            if (showQuestions)
-            {
-                this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = true;
-                this.frmServerConsulting.utcPrincipal.SelectedTab
-                    = this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"];
-            }
-            else
-            {
-                this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = false;
-                this.BackToSearch();
-            }
-        }
-
         #endregion Private
 
         #region Internal
@@ -939,6 +924,21 @@ Especificaciones: {5}
         {
             this.ShowQuestionTab(true);
             this.LoadQuestionsGeneralGrid();
+        }
+
+        internal void ShowQuestionTab(bool showQuestions)
+        {
+            if (showQuestions)
+            {
+                this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = true;
+                this.frmServerConsulting.utcPrincipal.SelectedTab
+                    = this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"];
+            }
+            else
+            {
+                this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = false;
+                this.BackToSearch();
+            }
         }
 
         internal void SendQuestionsToClipboard()
