@@ -64,6 +64,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab7 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             this.ultraTabPageControl12 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.grdDetGeneralQuestions = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
             this.uplDetQuestions = new Infragistics.Win.Misc.UltraPanel();
             this.upDetSeparatorCloseQuestions = new Infragistics.Win.Misc.UltraPanel();
             this.btnDetCloseQuestions = new System.Windows.Forms.Button();
@@ -93,6 +94,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetFirstServer = new Infragistics.Win.Misc.UltraLabel();
             this.uosDetFirstServer = new Infragistics.Win.UltraWinEditors.UltraOptionSet();
             this.ultraTabPageControl10 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.scoscDetOldServerComputers = new Samsara.TIConsulting.Controls.ManyToOne.ServerConsultingOldServerComputersControl();
             this.ultraTabPageControl7 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetActualServers = new Infragistics.Win.Misc.UltraPanel();
             this.utabDetOldServerDetail = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
@@ -182,8 +184,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upSchSeparatorLeftBottons = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchQuestions = new System.Windows.Forms.Button();
             this.upSchSeparatorQuestions = new Infragistics.Win.Misc.UltraPanel();
-            this.grdDetGeneralQuestions = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
-            this.scoscDetOldServerComputers = new Samsara.TIConsulting.Controls.ManyToOne.ServerConsultingOldServerComputersControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
@@ -206,6 +206,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upDetSeparatorBtnCancel.SuspendLayout();
             this.upDetSeparatorBtnSave.SuspendLayout();
             this.ultraTabPageControl12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetGeneralQuestions)).BeginInit();
             this.uplDetQuestions.ClientArea.SuspendLayout();
             this.uplDetQuestions.SuspendLayout();
             this.upDetSeparatorCloseQuestions.SuspendLayout();
@@ -315,7 +316,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).BeginInit();
             this.upSchSeparatorLeftBottons.SuspendLayout();
             this.upSchSeparatorQuestions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetGeneralQuestions)).BeginInit();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -508,9 +508,19 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.ultraTabPageControl12.Controls.Add(this.grdDetGeneralQuestions);
             this.ultraTabPageControl12.Controls.Add(this.uplDetQuestions);
-            this.ultraTabPageControl12.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl12.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl12.Name = "ultraTabPageControl12";
             this.ultraTabPageControl12.Size = new System.Drawing.Size(977, 509);
+            // 
+            // grdDetGeneralQuestions
+            // 
+            this.grdDetGeneralQuestions.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
+            this.grdDetGeneralQuestions.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetGeneralQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetGeneralQuestions.Location = new System.Drawing.Point(0, 0);
+            this.grdDetGeneralQuestions.Name = "grdDetGeneralQuestions";
+            this.grdDetGeneralQuestions.Size = new System.Drawing.Size(977, 484);
+            this.grdDetGeneralQuestions.TabIndex = 5;
             // 
             // uplDetQuestions
             // 
@@ -857,10 +867,21 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ultraTabPageControl10.Name = "ultraTabPageControl10";
             this.ultraTabPageControl10.Size = new System.Drawing.Size(959, 199);
             // 
+            // scoscDetOldServerComputers
+            // 
+            this.scoscDetOldServerComputers.CustomParent = null;
+            this.scoscDetOldServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scoscDetOldServerComputers.Location = new System.Drawing.Point(0, 0);
+            this.scoscDetOldServerComputers.Name = "scoscDetOldServerComputers";
+            this.scoscDetOldServerComputers.ReadOnly = false;
+            this.scoscDetOldServerComputers.ServerConsulting = null;
+            this.scoscDetOldServerComputers.Size = new System.Drawing.Size(959, 199);
+            this.scoscDetOldServerComputers.TabIndex = 0;
+            // 
             // ultraTabPageControl7
             // 
             this.ultraTabPageControl7.Controls.Add(this.upnlDetActualServers);
-            this.ultraTabPageControl7.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl7.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl7.Name = "ultraTabPageControl7";
             this.ultraTabPageControl7.Size = new System.Drawing.Size(963, 310);
             // 
@@ -953,7 +974,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl8
             // 
             this.ultraTabPageControl8.Controls.Add(this.upnlDetGroupA);
-            this.ultraTabPageControl8.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl8.Name = "ultraTabPageControl8";
             this.ultraTabPageControl8.Size = new System.Drawing.Size(963, 310);
             // 
@@ -1396,7 +1417,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl5
             // 
             this.ultraTabPageControl5.Controls.Add(this.upDetServerConsultingDetail);
-            this.ultraTabPageControl5.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl5.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl5.Name = "ultraTabPageControl5";
             this.ultraTabPageControl5.Size = new System.Drawing.Size(967, 361);
             // 
@@ -1498,7 +1519,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl6
             // 
             this.ultraTabPageControl6.Controls.Add(this.apDetServerConsultingSummary);
-            this.ultraTabPageControl6.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl6.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl6.Name = "ultraTabPageControl6";
             this.ultraTabPageControl6.Size = new System.Drawing.Size(967, 361);
             // 
@@ -1558,6 +1579,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.btnDetCopySummary.TabIndex = 17;
             this.btnDetCopySummary.Text = "Copiar Resumen";
             this.btnDetCopySummary.UseVisualStyleBackColor = true;
+            this.btnDetCopySummary.Click += new System.EventHandler(this.btnClick);
             // 
             // upDetSeparatorBtnExportToExcel
             // 
@@ -1576,6 +1598,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.btnDetExportSummaryToExcel.TabIndex = 14;
             this.btnDetExportSummaryToExcel.Text = "Exportar Resumen a Excel";
             this.btnDetExportSummaryToExcel.UseVisualStyleBackColor = true;
+            this.btnDetExportSummaryToExcel.Click += new System.EventHandler(this.btnClick);
             // 
             // upDetSeparatorSumaryButtons
             // 
@@ -1815,27 +1838,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upSchSeparatorQuestions.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorQuestions.TabIndex = 17;
             // 
-            // grdDetGeneralQuestions
-            // 
-            this.grdDetGeneralQuestions.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
-            this.grdDetGeneralQuestions.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
-            this.grdDetGeneralQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdDetGeneralQuestions.Location = new System.Drawing.Point(0, 0);
-            this.grdDetGeneralQuestions.Name = "grdDetGeneralQuestions";
-            this.grdDetGeneralQuestions.Size = new System.Drawing.Size(977, 484);
-            this.grdDetGeneralQuestions.TabIndex = 5;
-            // 
-            // scoscDetOldServerComputers
-            // 
-            this.scoscDetOldServerComputers.CustomParent = null;
-            this.scoscDetOldServerComputers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scoscDetOldServerComputers.Location = new System.Drawing.Point(0, 0);
-            this.scoscDetOldServerComputers.Name = "scoscDetOldServerComputers";
-            this.scoscDetOldServerComputers.ReadOnly = false;
-            this.scoscDetOldServerComputers.ServerConsulting = null;
-            this.scoscDetOldServerComputers.Size = new System.Drawing.Size(959, 199);
-            this.scoscDetOldServerComputers.TabIndex = 0;
-            // 
             // ServerConsultingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1866,6 +1868,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upDetSeparatorBtnCancel.ResumeLayout(false);
             this.upDetSeparatorBtnSave.ResumeLayout(false);
             this.ultraTabPageControl12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetGeneralQuestions)).EndInit();
             this.uplDetQuestions.ClientArea.ResumeLayout(false);
             this.uplDetQuestions.ResumeLayout(false);
             this.upDetSeparatorCloseQuestions.ResumeLayout(false);
@@ -1989,7 +1992,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).EndInit();
             this.upSchSeparatorLeftBottons.ResumeLayout(false);
             this.upSchSeparatorQuestions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDetGeneralQuestions)).EndInit();
             this.ResumeLayout(false);
 
         }
