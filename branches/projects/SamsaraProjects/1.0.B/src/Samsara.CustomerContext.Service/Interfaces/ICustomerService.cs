@@ -1,7 +1,7 @@
 ﻿
+using Samsara.Base.Service.Interfaces;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
-using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.CustomerContext.Service.Interfaces
 {
