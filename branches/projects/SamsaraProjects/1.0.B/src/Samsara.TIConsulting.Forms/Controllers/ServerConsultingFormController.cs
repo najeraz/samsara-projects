@@ -135,6 +135,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 += new SamsaraEntityChooserValueChangedEventHandler<ServerComputerType>(sctcDetServerComputerType_ValueChanged);
 
             this.frmServerConsulting.btnSchShowDetail.Text = "Resumen";
+
+            this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = false;
         }
 
         public override void InitializeDetailFormControls()
@@ -757,6 +759,141 @@ Especificaciones: {5}
             this.frmServerConsulting.rtcDetRackType.Value = null;
         }
 
+        private void LoadQuestionsOldServersGrid()
+        {
+            DataTable dtOldServersQuestions = this.srvServerConsulting.SearchByParameters(
+                "ServerConsulting.ServerConsultingQuestions", null);
+
+            this.frmServerConsulting.grdDetOldServersQuestions.DataSource = null;
+            this.frmServerConsulting.grdDetOldServersQuestions.DataSource = dtOldServersQuestions;
+
+            dtOldServersQuestions.Rows.Clear();
+
+            DataRow row = dtOldServersQuestions.NewRow();
+            dtOldServersQuestions.Rows.Add(row);
+            row["Question"] = "Cantidad:";
+
+            row = dtOldServersQuestions.NewRow();
+            dtOldServersQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ulblDetServerComputerBrand.Text;
+
+            row = dtOldServersQuestions.NewRow();
+            dtOldServersQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ulblDetServerModel.Text;
+
+            row = dtOldServersQuestions.NewRow();
+            dtOldServersQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ulblDetOperativeSystem.Text;
+
+            row = dtOldServersQuestions.NewRow();
+            dtOldServersQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetServerComputerType.Text;
+
+            row = dtOldServersQuestions.NewRow();
+            dtOldServersQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ulblDetRackType.Text;
+
+            dtOldServersQuestions.AcceptChanges();
+        }
+
+        private void LoadQuestionsGeneralGrid()
+        {
+            DataTable dtGeneralQuestions = this.srvServerConsulting.SearchByParameters(
+                "ServerConsulting.ServerConsultingQuestions", null);
+
+            this.frmServerConsulting.grdDetGeneralQuestions.DataSource = null;
+            this.frmServerConsulting.grdDetGeneralQuestions.DataSource = dtGeneralQuestions;
+
+            dtGeneralQuestions.Rows.Clear();
+
+            DataRow row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetHasServer.Text;
+
+            {
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t" + this.frmServerConsulting.ulblDetFirstServer.Text;
+            }
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetServerUsage.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetCurrentProblem.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetNumberOfUsers.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetNumberOfUsersWillGrow.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetCurrentStorageVolume.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetFutureStorageVolume.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetBrandPreference.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetFullServerUptimeRequired.Text;
+
+            {
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t" + this.frmServerConsulting.uchkDetRedundantPowerSupply.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t" + this.frmServerConsulting.ugbxDetArrayDisks.Text;
+            }
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetBudget.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetHaveSite.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.ugbxDetServerComputerTypePreference.Text;
+
+            {
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t" + this.frmServerConsulting.ulblDetRackTypePreference.Text;
+            } 
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.uchkDetDataMigration.Text;
+
+            row = dtGeneralQuestions.NewRow();
+            dtGeneralQuestions.Rows.Add(row);
+            row["Question"] = this.frmServerConsulting.uchkDetDataBackup.Text;
+
+            dtGeneralQuestions.AcceptChanges();
+        }
+
+        private void ShowQuestionTab()
+        {
+            this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = true;
+            this.frmServerConsulting.utcPrincipal.SelectedTab
+                = this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"];
+        }
+
         #endregion Private
 
         #region Internal
@@ -793,6 +930,13 @@ Especificaciones: {5}
                     < 0 ? this.frmServerConsulting.utabDetStatusQUO.Tabs.Count - 1
                     : this.frmServerConsulting.utabDetStatusQUO.SelectedTab.Index - 1];
             }
+        }
+
+        internal void ShowQuestions()
+        {
+            this.ShowQuestionTab();
+            this.LoadQuestionsGeneralGrid();
+            this.LoadQuestionsOldServersGrid();
         }
 
         #endregion Internal
