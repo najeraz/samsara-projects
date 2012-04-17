@@ -77,7 +77,7 @@ namespace Samsara.TIConsulting.Forms.Forms
                         this.ctrlServerConsultingForm.SendQuestionsToClipboard();
                         break;
                     case "btnDetCloseQuestions":
-                        this.ctrlServerConsultingForm.BackToSearch();
+                        this.ctrlServerConsultingForm.ShowQuestionTab(false);
                         break;
                     default:
                         break;

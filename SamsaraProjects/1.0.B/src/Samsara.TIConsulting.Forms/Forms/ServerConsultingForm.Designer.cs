@@ -508,7 +508,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.ultraTabPageControl12.Controls.Add(this.grdDetGeneralQuestions);
             this.ultraTabPageControl12.Controls.Add(this.uplDetQuestions);
-            this.ultraTabPageControl12.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl12.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl12.Name = "ultraTabPageControl12";
             this.ultraTabPageControl12.Size = new System.Drawing.Size(977, 509);
             // 
@@ -602,7 +602,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.btnDetExportQuestionsToExcel.Name = "btnDetExportQuestionsToExcel";
             this.btnDetExportQuestionsToExcel.Size = new System.Drawing.Size(150, 25);
             this.btnDetExportQuestionsToExcel.TabIndex = 14;
-            this.btnDetExportQuestionsToExcel.Text = "Exportar Preguntas a Word";
+            this.btnDetExportQuestionsToExcel.Text = "Exportar Preguntas a Excel";
             this.btnDetExportQuestionsToExcel.UseVisualStyleBackColor = true;
             this.btnDetExportQuestionsToExcel.Click += new System.EventHandler(this.btnClick);
             // 
