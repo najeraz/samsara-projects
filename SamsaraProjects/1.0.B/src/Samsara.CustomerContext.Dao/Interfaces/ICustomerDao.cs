@@ -1,7 +1,7 @@
 ﻿
+using Samsara.Base.Dao.Interfaces;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
-using Samsara.Base.Dao.Interfaces;
 
 namespace Samsara.CustomerContext.Dao.Interfaces
 {

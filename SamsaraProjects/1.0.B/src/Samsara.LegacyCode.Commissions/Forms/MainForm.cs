@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using Samsara.AlleatoERP.Core.Entities;
 using Samsara.Base.Core.Context;
 using Samsara.Base.Service.Interfaces;
 using Samsara.Commissions.Core.Entities;
+using Samsara.Commissions.Core.Parameters;
+using Samsara.Commissions.Service.Interfaces;
 using Samsara.Framework.Core.Enums;
 using Samsara.Framework.Util;
 using Samsara.LegacyCode.Commissions.Main;
 using Samsara.LegacyCode.Commissions.Util;
 using Samsara.Main.Session;
-using Samsara.AlleatoERP.Core.Entities;
-using Samsara.Commissions.Core.Parameters;
-using Samsara.Commissions.Service.Interfaces;
 
 namespace Samsara.LegacyCode.Commissions.Forms
 {
