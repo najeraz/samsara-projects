@@ -38,6 +38,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab9 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters computerBrandParameters1 = new Samsara.CustomerContext.Core.Parameters.ComputerBrandParameters();
             Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters operativeSystemParameters1 = new Samsara.CustomerContext.Core.Parameters.OperativeSystemParameters();
             Samsara.CustomerContext.Core.Parameters.RackTypeParameters rackTypeParameters1 = new Samsara.CustomerContext.Core.Parameters.RackTypeParameters();
@@ -62,6 +63,16 @@ namespace Samsara.TIConsulting.Forms.Forms
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab5 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab7 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            this.ultraTabPageControl12 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.grdDetGeneralQuestions = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
+            this.grdDetOldServersQuestions = new Samsara.Base.Controls.Controls.SamsaraUltraGrid();
+            this.ultraPanel2 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel3 = new Infragistics.Win.Misc.UltraPanel();
+            this.ultraPanel4 = new Infragistics.Win.Misc.UltraPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ultraPanel5 = new Infragistics.Win.Misc.UltraPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.ultraPanel6 = new Infragistics.Win.Misc.UltraPanel();
             this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.upnlDetOldServerDetail = new Infragistics.Win.Misc.UltraPanel();
             this.ugbxDetServerSpecs = new Infragistics.Win.Misc.UltraGroupBox();
@@ -172,10 +183,12 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upSchSeparatorLeftBottons = new Infragistics.Win.Misc.UltraPanel();
             this.btnSchQuestions = new System.Windows.Forms.Button();
             this.upSchSeparatorQuestions = new Infragistics.Win.Misc.UltraPanel();
+            this.upDetSeparatorCloseQuestions = new Infragistics.Win.Misc.UltraPanel();
+            this.btnDetCloseQuestions = new System.Windows.Forms.Button();
+            this.upDetSeparatorQuestionsButtons = new Infragistics.Win.Misc.UltraPanel();
             ((System.ComponentModel.ISupportInitialize)(this.grdPrincipal)).BeginInit();
             this.gbxSchParameters.SuspendLayout();
             this.gbxDetDetail.SuspendLayout();
-            this.pnlDetButtons.SuspendLayout();
             this.upSchSeparatorClose.SuspendLayout();
             this.upSchSeparatorDelete.SuspendLayout();
             this.upSchSeparatorEdit.SuspendLayout();
@@ -187,6 +200,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upButtons.SuspendLayout();
             this.upSchSearchButtons.ClientArea.SuspendLayout();
             this.upSchSearchButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).BeginInit();
+            this.utcPrincipal.SuspendLayout();
+            this.pnlDetButtons.SuspendLayout();
+            this.upDetSeparator1.SuspendLayout();
+            this.upDetSeparatorBtnBackToSearch.SuspendLayout();
+            this.upDetSeparatorBtnCancel.SuspendLayout();
+            this.upDetSeparatorBtnSave.SuspendLayout();
+            this.ultraTabPageControl12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetGeneralQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetOldServersQuestions)).BeginInit();
+            this.ultraPanel2.SuspendLayout();
+            this.ultraPanel3.ClientArea.SuspendLayout();
+            this.ultraPanel3.SuspendLayout();
+            this.ultraPanel4.SuspendLayout();
+            this.ultraPanel5.SuspendLayout();
+            this.ultraPanel6.SuspendLayout();
             this.ultraTabPageControl3.SuspendLayout();
             this.upnlDetOldServerDetail.ClientArea.SuspendLayout();
             this.upnlDetOldServerDetail.SuspendLayout();
@@ -289,6 +318,8 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).BeginInit();
             this.upSchSeparatorLeftBottons.SuspendLayout();
             this.upSchSeparatorQuestions.SuspendLayout();
+            this.upDetSeparatorCloseQuestions.SuspendLayout();
+            this.upDetSeparatorQuestionsButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // grdPrincipal
@@ -362,12 +393,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.gbxDetDetail.Controls.Add(this.ugbxDetCustomerData);
             this.gbxDetDetail.Size = new System.Drawing.Size(977, 484);
             this.gbxDetDetail.TabIndex = 0;
-            // 
-            // pnlDetButtons
-            // 
-            this.pnlDetButtons.Location = new System.Drawing.Point(0, 484);
-            this.pnlDetButtons.Size = new System.Drawing.Size(977, 25);
-            this.pnlDetButtons.TabIndex = 1;
             // 
             // btnDetSave
             // 
@@ -448,6 +473,141 @@ namespace Samsara.TIConsulting.Forms.Forms
             // 
             this.upSchSearchButtons.Location = new System.Drawing.Point(0, 76);
             this.upSchSearchButtons.Size = new System.Drawing.Size(977, 25);
+            // 
+            // utcPrincipal
+            // 
+            this.utcPrincipal.Controls.Add(this.ultraTabPageControl12);
+            this.utcPrincipal.Size = new System.Drawing.Size(981, 535);
+            this.utcPrincipal.TabPageMargins.ForceSerialization = true;
+            ultraTab9.Key = "tbQuestions";
+            ultraTab9.TabPage = this.ultraTabPageControl12;
+            ultraTab9.Text = "Listado de Preguntas";
+            this.utcPrincipal.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab9});
+            this.utcPrincipal.Controls.SetChildIndex(this.ultraTabPageControl12, 0);
+            // 
+            // pnlDetButtons
+            // 
+            this.pnlDetButtons.Location = new System.Drawing.Point(0, 484);
+            this.pnlDetButtons.Size = new System.Drawing.Size(977, 25);
+            this.pnlDetButtons.TabIndex = 1;
+            // 
+            // upDetSeparator1
+            // 
+            this.upDetSeparator1.Location = new System.Drawing.Point(961, 0);
+            // 
+            // upDetSeparatorBtnBackToSearch
+            // 
+            this.upDetSeparatorBtnBackToSearch.Location = new System.Drawing.Point(779, 0);
+            // 
+            // upDetSeparatorBtnCancel
+            // 
+            this.upDetSeparatorBtnCancel.Location = new System.Drawing.Point(870, 0);
+            // 
+            // upDetSeparatorBtnSave
+            // 
+            this.upDetSeparatorBtnSave.Location = new System.Drawing.Point(688, 0);
+            // 
+            // ultraTabPageControl12
+            // 
+            this.ultraTabPageControl12.Controls.Add(this.grdDetGeneralQuestions);
+            this.ultraTabPageControl12.Controls.Add(this.grdDetOldServersQuestions);
+            this.ultraTabPageControl12.Controls.Add(this.ultraPanel2);
+            this.ultraTabPageControl12.Controls.Add(this.ultraPanel3);
+            this.ultraTabPageControl12.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl12.Name = "ultraTabPageControl12";
+            this.ultraTabPageControl12.Size = new System.Drawing.Size(977, 509);
+            // 
+            // grdDetGeneralQuestions
+            // 
+            this.grdDetGeneralQuestions.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
+            this.grdDetGeneralQuestions.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetGeneralQuestions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDetGeneralQuestions.Location = new System.Drawing.Point(0, 25);
+            this.grdDetGeneralQuestions.Name = "grdDetGeneralQuestions";
+            this.grdDetGeneralQuestions.Size = new System.Drawing.Size(654, 459);
+            this.grdDetGeneralQuestions.TabIndex = 5;
+            // 
+            // grdDetOldServersQuestions
+            // 
+            this.grdDetOldServersQuestions.DisplayLayout.GroupByBox.Prompt = "Arrastre un encabezado de la columna aquí para agrupar por esa columna";
+            this.grdDetOldServersQuestions.DisplayLayout.ViewStyle = Infragistics.Win.UltraWinGrid.ViewStyle.SingleBand;
+            this.grdDetOldServersQuestions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grdDetOldServersQuestions.Location = new System.Drawing.Point(654, 25);
+            this.grdDetOldServersQuestions.Name = "grdDetOldServersQuestions";
+            this.grdDetOldServersQuestions.Size = new System.Drawing.Size(323, 459);
+            this.grdDetOldServersQuestions.TabIndex = 7;
+            // 
+            // ultraPanel2
+            // 
+            this.ultraPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ultraPanel2.Location = new System.Drawing.Point(0, 0);
+            this.ultraPanel2.Name = "ultraPanel2";
+            this.ultraPanel2.Size = new System.Drawing.Size(977, 25);
+            this.ultraPanel2.TabIndex = 8;
+            // 
+            // ultraPanel3
+            // 
+            // 
+            // ultraPanel3.ClientArea
+            // 
+            this.ultraPanel3.ClientArea.Controls.Add(this.upDetSeparatorCloseQuestions);
+            this.ultraPanel3.ClientArea.Controls.Add(this.btnDetCloseQuestions);
+            this.ultraPanel3.ClientArea.Controls.Add(this.upDetSeparatorQuestionsButtons);
+            this.ultraPanel3.ClientArea.Controls.Add(this.ultraPanel4);
+            this.ultraPanel3.ClientArea.Controls.Add(this.button1);
+            this.ultraPanel3.ClientArea.Controls.Add(this.ultraPanel5);
+            this.ultraPanel3.ClientArea.Controls.Add(this.button2);
+            this.ultraPanel3.ClientArea.Controls.Add(this.ultraPanel6);
+            this.ultraPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ultraPanel3.Location = new System.Drawing.Point(0, 484);
+            this.ultraPanel3.Name = "ultraPanel3";
+            this.ultraPanel3.Size = new System.Drawing.Size(977, 25);
+            this.ultraPanel3.TabIndex = 9;
+            // 
+            // ultraPanel4
+            // 
+            this.ultraPanel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ultraPanel4.Location = new System.Drawing.Point(295, 0);
+            this.ultraPanel4.Name = "ultraPanel4";
+            this.ultraPanel4.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel4.TabIndex = 18;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.Location = new System.Drawing.Point(182, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 25);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Copiar Preguntas";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ultraPanel5
+            // 
+            this.ultraPanel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ultraPanel5.Location = new System.Drawing.Point(166, 0);
+            this.ultraPanel5.Name = "ultraPanel5";
+            this.ultraPanel5.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel5.TabIndex = 16;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button2.Location = new System.Drawing.Point(16, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 25);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Exportar Preguntas a Word";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // ultraPanel6
+            // 
+            this.ultraPanel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ultraPanel6.Location = new System.Drawing.Point(0, 0);
+            this.ultraPanel6.Name = "ultraPanel6";
+            this.ultraPanel6.Size = new System.Drawing.Size(16, 25);
+            this.ultraPanel6.TabIndex = 15;
             // 
             // ultraTabPageControl3
             // 
@@ -575,9 +735,9 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.ulblDetOperativeSystem.AutoSize = true;
             this.ulblDetOperativeSystem.Location = new System.Drawing.Point(7, 74);
             this.ulblDetOperativeSystem.Name = "ulblDetOperativeSystem";
-            this.ulblDetOperativeSystem.Size = new System.Drawing.Size(27, 14);
+            this.ulblDetOperativeSystem.Size = new System.Drawing.Size(24, 14);
             this.ulblDetOperativeSystem.TabIndex = 4;
-            this.ulblDetOperativeSystem.Text = "S.O.";
+            this.ulblDetOperativeSystem.Text = "SO:";
             // 
             // ugbxDetServerComputerType
             // 
@@ -716,7 +876,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl7
             // 
             this.ultraTabPageControl7.Controls.Add(this.upnlDetActualServers);
-            this.ultraTabPageControl7.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl7.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl7.Name = "ultraTabPageControl7";
             this.ultraTabPageControl7.Size = new System.Drawing.Size(963, 310);
             // 
@@ -809,7 +969,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             // ultraTabPageControl8
             // 
             this.ultraTabPageControl8.Controls.Add(this.upnlDetGroupA);
-            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl8.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl8.Name = "ultraTabPageControl8";
             this.ultraTabPageControl8.Size = new System.Drawing.Size(963, 310);
             // 
@@ -854,7 +1014,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uchkDetDataBackup.Name = "uchkDetDataBackup";
             this.uchkDetDataBackup.Size = new System.Drawing.Size(307, 17);
             this.uchkDetDataBackup.TabIndex = 1;
-            this.uchkDetDataBackup.Text = "Requiere Respaldo de Datos";
+            this.uchkDetDataBackup.Text = "Requiere Respaldo de Datos?";
             // 
             // uchkDetDataMigration
             // 
@@ -864,7 +1024,7 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.uchkDetDataMigration.Name = "uchkDetDataMigration";
             this.uchkDetDataMigration.Size = new System.Drawing.Size(307, 17);
             this.uchkDetDataMigration.TabIndex = 0;
-            this.uchkDetDataMigration.Text = "Requiere Migración de Datos";
+            this.uchkDetDataMigration.Text = "Requiere Migración de Datos?";
             // 
             // ugbxDetServerComputerTypePreference
             // 
@@ -1651,7 +1811,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upSchSeparatorLeftBottons.Name = "upSchSeparatorLeftBottons";
             this.upSchSeparatorLeftBottons.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorLeftBottons.TabIndex = 16;
-            this.upSchSeparatorLeftBottons.Visible = false;
             // 
             // btnSchQuestions
             // 
@@ -1662,7 +1821,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.btnSchQuestions.TabIndex = 15;
             this.btnSchQuestions.Text = "Listado de Preguntas";
             this.btnSchQuestions.UseVisualStyleBackColor = true;
-            this.btnSchQuestions.Visible = false;
             this.btnSchQuestions.Click += new System.EventHandler(this.btnClick);
             // 
             // upSchSeparatorQuestions
@@ -1672,7 +1830,32 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upSchSeparatorQuestions.Name = "upSchSeparatorQuestions";
             this.upSchSeparatorQuestions.Size = new System.Drawing.Size(16, 25);
             this.upSchSeparatorQuestions.TabIndex = 17;
-            this.upSchSeparatorQuestions.Visible = false;
+            // 
+            // upDetSeparatorCloseQuestions
+            // 
+            this.upDetSeparatorCloseQuestions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparatorCloseQuestions.Location = new System.Drawing.Point(870, 0);
+            this.upDetSeparatorCloseQuestions.Name = "upDetSeparatorCloseQuestions";
+            this.upDetSeparatorCloseQuestions.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorCloseQuestions.TabIndex = 20;
+            // 
+            // btnDetCloseQuestions
+            // 
+            this.btnDetCloseQuestions.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDetCloseQuestions.Location = new System.Drawing.Point(886, 0);
+            this.btnDetCloseQuestions.Name = "btnDetCloseQuestions";
+            this.btnDetCloseQuestions.Size = new System.Drawing.Size(75, 25);
+            this.btnDetCloseQuestions.TabIndex = 21;
+            this.btnDetCloseQuestions.Text = "Cerrar";
+            this.btnDetCloseQuestions.UseVisualStyleBackColor = true;
+            // 
+            // upDetSeparatorQuestionsButtons
+            // 
+            this.upDetSeparatorQuestionsButtons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.upDetSeparatorQuestionsButtons.Location = new System.Drawing.Point(961, 0);
+            this.upDetSeparatorQuestionsButtons.Name = "upDetSeparatorQuestionsButtons";
+            this.upDetSeparatorQuestionsButtons.Size = new System.Drawing.Size(16, 25);
+            this.upDetSeparatorQuestionsButtons.TabIndex = 19;
             // 
             // ServerConsultingForm
             // 
@@ -1685,7 +1868,6 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.gbxSchParameters.ResumeLayout(false);
             this.gbxSchParameters.PerformLayout();
             this.gbxDetDetail.ResumeLayout(false);
-            this.pnlDetButtons.ResumeLayout(false);
             this.upSchSeparatorClose.ResumeLayout(false);
             this.upSchSeparatorDelete.ResumeLayout(false);
             this.upSchSeparatorEdit.ResumeLayout(false);
@@ -1697,6 +1879,22 @@ namespace Samsara.TIConsulting.Forms.Forms
             this.upButtons.ResumeLayout(false);
             this.upSchSearchButtons.ClientArea.ResumeLayout(false);
             this.upSchSearchButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.utcPrincipal)).EndInit();
+            this.utcPrincipal.ResumeLayout(false);
+            this.pnlDetButtons.ResumeLayout(false);
+            this.upDetSeparator1.ResumeLayout(false);
+            this.upDetSeparatorBtnBackToSearch.ResumeLayout(false);
+            this.upDetSeparatorBtnCancel.ResumeLayout(false);
+            this.upDetSeparatorBtnSave.ResumeLayout(false);
+            this.ultraTabPageControl12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetGeneralQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDetOldServersQuestions)).EndInit();
+            this.ultraPanel2.ResumeLayout(false);
+            this.ultraPanel3.ClientArea.ResumeLayout(false);
+            this.ultraPanel3.ResumeLayout(false);
+            this.ultraPanel4.ResumeLayout(false);
+            this.ultraPanel5.ResumeLayout(false);
+            this.ultraPanel6.ResumeLayout(false);
             this.ultraTabPageControl3.ResumeLayout(false);
             this.upnlDetOldServerDetail.ClientArea.ResumeLayout(false);
             this.upnlDetOldServerDetail.ResumeLayout(false);
@@ -1813,14 +2011,14 @@ namespace Samsara.TIConsulting.Forms.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl3)).EndInit();
             this.upSchSeparatorLeftBottons.ResumeLayout(false);
             this.upSchSeparatorQuestions.ResumeLayout(false);
+            this.upDetSeparatorCloseQuestions.ResumeLayout(false);
+            this.upDetSeparatorQuestionsButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Infragistics.Win.Misc.UltraLabel ulblDetServerModel;
-        private Infragistics.Win.Misc.UltraLabel ulblDetServerComputerBrand;
         private Infragistics.Win.Misc.UltraGroupBox ugbxDetCustomerData;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetEmail;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetOrganizationName;
@@ -1854,7 +2052,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtSchContact;
         internal Infragistics.Win.Misc.UltraLabel ulblSchContact;
         internal Base.Controls.Controls.SamsaraTextEditor txtDetPhoneNumber;
-        private Infragistics.Win.Misc.UltraLabel ulblDetOperativeSystem;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage4;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl7;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl8;
@@ -1866,7 +2063,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerComputerType;
         internal CustomerContext.Controls.Choosers.RackTypeChooserControl rtcDetRackType;
         internal CustomerContext.Controls.Choosers.ServerComputerTypeChooserControl sctcDetServerComputerType;
-        private Infragistics.Win.Misc.UltraLabel ulblDetRackType;
         private Infragistics.Win.Misc.UltraPanel upnlDetGroupA;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerUsage;
         internal Infragistics.Win.UltraWinEditors.UltraTextEditor txtDetServerUsage;
@@ -1917,7 +2113,6 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetServerComputerTypePreference;
         internal CustomerContext.Controls.Choosers.RackTypeChooserControl rtcDetRackTypePreference;
         internal CustomerContext.Controls.Choosers.ServerComputerTypeChooserControl sctcDetServerComputerTypePreference;
-        private Infragistics.Win.Misc.UltraLabel ulblDetRackTypePreference;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetHaveSite;
         internal Infragistics.Win.UltraWinEditors.UltraOptionSet uosDetHaveSite;
         internal Infragistics.Win.Misc.UltraGroupBox ugbxDetBudget;
@@ -1929,6 +2124,24 @@ namespace Samsara.TIConsulting.Forms.Forms
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorQuestions;
         internal System.Windows.Forms.Button btnSchQuestions;
         internal Infragistics.Win.Misc.UltraPanel upSchSeparatorLeftBottons;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetRackTypePreference;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl12;
+        internal Base.Controls.Controls.SamsaraUltraGrid grdDetGeneralQuestions;
+        internal Base.Controls.Controls.SamsaraUltraGrid grdDetOldServersQuestions;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetServerModel;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetServerComputerBrand;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetOperativeSystem;
+        internal Infragistics.Win.Misc.UltraLabel ulblDetRackType;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel2;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel3;
+        internal Infragistics.Win.Misc.UltraPanel ultraPanel4;
+        public System.Windows.Forms.Button button1;
+        internal Infragistics.Win.Misc.UltraPanel ultraPanel5;
+        public System.Windows.Forms.Button button2;
+        private Infragistics.Win.Misc.UltraPanel ultraPanel6;
+        public Infragistics.Win.Misc.UltraPanel upDetSeparatorCloseQuestions;
+        public System.Windows.Forms.Button btnDetCloseQuestions;
+        public Infragistics.Win.Misc.UltraPanel upDetSeparatorQuestionsButtons;
 
 
 
