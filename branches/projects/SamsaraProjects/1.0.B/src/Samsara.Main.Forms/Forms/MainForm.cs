@@ -508,20 +508,6 @@ namespace Samsara.Main.Forms.Forms
             }
         }
 
-        private void catálogoDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Cursor = Cursors.WaitCursor;
-                CustomerForm frmCustomer = new CustomerForm();
-                frmCustomer.Show();
-            }
-            finally
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
         private void girosDeNegocioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -722,6 +708,20 @@ namespace Samsara.Main.Forms.Forms
                 this.Cursor = Cursors.WaitCursor;
                 CommissionPaymentForm frmCommissionPayment = new CommissionPaymentForm();
                 frmCommissionPayment.Show();
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                CustomerForm frmCustomer = new CustomerForm();
+                frmCustomer.Show();
             }
             finally
             {

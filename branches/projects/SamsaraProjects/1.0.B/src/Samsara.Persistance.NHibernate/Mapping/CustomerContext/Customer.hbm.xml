@@ -21,7 +21,7 @@
     
     <many-to-one name="CustomerInfrastructure" 
                  class="Samsara.CustomerContext.Core.Entities.CustomerInfrastructure" 
-                 column="CustomerInfrastructureId" cascade="all" unique="true" lazy="false" />
+                 column="CustomerInfrastructureId" not-null="true" cascade="all" unique="true" lazy="false" />
 
     <many-to-one name="BusinessType" 
                  class="Samsara.CustomerContext.Core.Entities.BusinessType, Samsara.CustomerContext.Core"

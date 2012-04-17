@@ -87,11 +87,14 @@
     <return-scalar column="FirstServer" type="bool"/>
     <return-scalar column="ServerUsage" type="string"/>
     <return-scalar column="CurrentProblem" type="string"/>
+    <return-scalar column="CreatedByName" type="string"/>
     <![CDATA[
         SELECT 
 	        sc.ServerConsultingId, sc.OrganizationName, sc.Contact, sc.PhoneNumber, 
-          sc.Email, sc.AbstractQuantityId, sc.FirstServer, sc.ServerUsage, sc.CurrentProblem
+          sc.Email, sc.AbstractQuantityId, sc.FirstServer, sc.ServerUsage, 
+          sc.CurrentProblem, u.Username CreatedByName
         FROM TIConsulting.ServerConsulting sc
+        LEFT JOIN Main.Users u ON u.UserId = sc.CreatedBy
         WHERE sc.Activated = 1 AND sc.Deleted = 0
         AND sc.OrganizationName LIKE :OrganizationName
         AND (sc.Contact LIKE :Contact OR sc.Contact IS NULL)
