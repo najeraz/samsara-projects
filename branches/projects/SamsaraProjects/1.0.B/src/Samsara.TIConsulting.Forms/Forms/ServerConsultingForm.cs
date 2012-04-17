@@ -70,6 +70,12 @@ namespace Samsara.TIConsulting.Forms.Forms
                     case "btnSchQuestions":
                         this.ctrlServerConsultingForm.ShowQuestions();
                         break;
+                    case "btnDetExportQuestionsToExcel":
+                        this.ctrlServerConsultingForm.ExportQuestionsToExcel();
+                        break;
+                    case "btnDetCopyQuestions":
+                        this.ctrlServerConsultingForm.SendQuestionsToClipboard();
+                        break;
                     default:
                         break;
                 }
