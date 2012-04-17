@@ -869,15 +869,21 @@ Especificaciones: {5}
                 row = dtGeneralQuestions.NewRow();
                 dtGeneralQuestions.Rows.Add(row);
                 row["Question"] = "\t" + this.frmServerConsulting.ulblDetRackTypePreference.Text;
-            } 
+            }
 
             row = dtGeneralQuestions.NewRow();
             dtGeneralQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.uchkDetDataMigration.Text;
+            row["Question"] = this.frmServerConsulting.ugbxDetDataManagement.Text;
 
-            row = dtGeneralQuestions.NewRow();
-            dtGeneralQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.uchkDetDataBackup.Text;
+            {
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t" + this.frmServerConsulting.uchkDetDataMigration.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t" + this.frmServerConsulting.uchkDetDataBackup.Text;
+            }
 
             dtGeneralQuestions.AcceptChanges();
         }
