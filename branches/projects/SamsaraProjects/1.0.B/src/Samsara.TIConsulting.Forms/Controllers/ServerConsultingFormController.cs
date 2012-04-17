@@ -95,12 +95,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 {
                     case FormStatusEnum.Creation:
                     case FormStatusEnum.Edition:
+                        this.ShowQuestionTab(false);
                         this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"].Visible = true;
                         this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["Summary"].Visible = false;
                         this.frmServerConsulting.utabDetServerConsultingDetail.SelectedTab
                             = this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"];
                         break;
                     case FormStatusEnum.ShowDetail:
+                        this.ShowQuestionTab(false);
                         this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["StatusQuo"].Visible = true;
                         this.frmServerConsulting.utabDetServerConsultingDetail.Tabs["Summary"].Visible = true;
                         this.frmServerConsulting.utabDetServerConsultingDetail.SelectedTab
@@ -129,6 +131,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 += new EventHandler(uchkDetFutureStorageVolume_CheckedChanged);
             this.frmServerConsulting.uchkDetNumberOfUsersWillGrow.CheckedChanged 
                 += new EventHandler(uchkDetNumberOfUsersWillGrow_CheckedChanged);
+            this.frmServerConsulting.grdDetGeneralQuestions.InitializeLayout
+                += new InitializeLayoutEventHandler(grdDetGeneralQuestions_InitializeLayout);
             this.frmServerConsulting.grdDetSummary.InitializeLayout
                 += new InitializeLayoutEventHandler(grdDetSummary_InitializeLayout);
             this.frmServerConsulting.sctcDetServerComputerType.ValueChanged 
@@ -878,11 +882,19 @@ Especificaciones: {5}
             dtGeneralQuestions.AcceptChanges();
         }
 
-        private void ShowQuestionTab()
+        private void ShowQuestionTab(bool showQuestions)
         {
-            this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = true;
-            this.frmServerConsulting.utcPrincipal.SelectedTab
-                = this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"];
+            if (showQuestions)
+            {
+                this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = true;
+                this.frmServerConsulting.utcPrincipal.SelectedTab
+                    = this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"];
+            }
+            else
+            {
+                this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = false;
+                this.BackToSearch();
+            }
         }
 
         #endregion Private
@@ -925,21 +937,21 @@ Especificaciones: {5}
 
         internal void ShowQuestions()
         {
-            this.ShowQuestionTab();
+            this.ShowQuestionTab(true);
             this.LoadQuestionsGeneralGrid();
         }
 
         internal void SendQuestionsToClipboard()
         {
-            ExcelUtil.ExportToExcel(this.frmServerConsulting.grdDetGeneralQuestions);
-        }
-
-        internal void ExportQuestionsToExcel()
-        {
             this.frmServerConsulting.grdDetGeneralQuestions.Selected.Rows.AddRange(
                 (UltraGridRow[])this.frmServerConsulting.grdDetGeneralQuestions.Rows.All);
 
             this.frmServerConsulting.grdDetGeneralQuestions.PerformAction(UltraGridAction.Copy);
+        }
+
+        internal void ExportQuestionsToExcel()
+        {
+            ExcelUtil.ExportToExcel(this.frmServerConsulting.grdDetGeneralQuestions);
         }
 
         #endregion Internal
@@ -992,6 +1004,16 @@ Especificaciones: {5}
 
             WindowsFormsUtil.SetUltraGridValueList(layout, lstAbstractQuantities, 
                 band.Columns["AbstractQuantityId"], "AbstractQuantityId", "Name", "Seleccione");
+        }
+
+        private void grdDetGeneralQuestions_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            UltraGridLayout layout = e.Layout;
+            UltraGridBand band = layout.Bands[0];
+
+            layout.Override.AllowUpdate = DefaultableBoolean.False;
+            layout.Override.AllowMultiCellOperations = AllowMultiCellOperation.All;
+            layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
         }
 
         private void grdDetSummary_InitializeLayout(object sender, InitializeLayoutEventArgs e)
