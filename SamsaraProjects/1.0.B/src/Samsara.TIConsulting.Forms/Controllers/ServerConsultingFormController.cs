@@ -943,7 +943,6 @@ Especificaciones: {5}
             else
             {
                 this.frmServerConsulting.utcPrincipal.Tabs["tbQuestions"].Visible = false;
-                this.BackToSearch();
             }
         }
 
