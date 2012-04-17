@@ -174,7 +174,14 @@ namespace Samsara.Base.Controls.Controls
                 case SamsaraEntityChooserControlTypeEnum.Single:
                     if (e.NewValue != null)
                     {
-                        this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValue<T>(e.NewValue);
+                        if (!EqualityComparer<T>.Default.Equals(this.value, e.NewValue))
+                        {
+                            this.suceEntities.Value = EntitiesUtil.GetPrimaryKeyPropertyValue<T>(e.NewValue);
+                            if (this.suceEntities.SelectedIndex == -1)
+                            {
+                                this.suceEntities.Value = -1;
+                            }
+                        }
                     }
                     else
                     {
