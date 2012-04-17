@@ -67,6 +67,9 @@ namespace Samsara.TIConsulting.Forms.Forms
                     case "btnDetCopySummary":
                         this.ctrlServerConsultingForm.SendSummaryToClipboard();
                         break;
+                    case "btnSchQuestions":
+                        this.ctrlServerConsultingForm.ShowQuestions();
+                        break;
                     default:
                         break;
                 }

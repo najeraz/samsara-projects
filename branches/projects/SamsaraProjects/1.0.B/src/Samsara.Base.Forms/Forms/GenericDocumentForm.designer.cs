@@ -122,7 +122,7 @@
             this.ultraTabPageControl1.Controls.Add(this.upSchSearchButtons);
             this.ultraTabPageControl1.Controls.Add(this.gbxSchParameters);
             this.ultraTabPageControl1.Controls.Add(this.upnlSchBottonControls);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(1, 23);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(636, 417);
             // 
@@ -477,7 +477,7 @@
             // 
             this.ultraTabPageControl2.Controls.Add(this.gbxDetDetail);
             this.ultraTabPageControl2.Controls.Add(this.pnlDetButtons);
-            this.ultraTabPageControl2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl2.Location = new System.Drawing.Point(1, 23);
             this.ultraTabPageControl2.Name = "ultraTabPageControl2";
             this.ultraTabPageControl2.Size = new System.Drawing.Size(636, 417);
             // 
@@ -657,16 +657,10 @@
         protected System.Windows.Forms.GroupBox gbxSchParameters;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl2;
         protected System.Windows.Forms.GroupBox gbxDetDetail;
-        internal Infragistics.Win.UltraWinTabControl.UltraTabControl utcPrincipal;
-        protected System.Windows.Forms.Panel pnlDetButtons;
         public System.Windows.Forms.Button btnDetSave;
         public System.Windows.Forms.Button btnDetCancel;
-        private Infragistics.Win.Misc.UltraPanel upDetSeparator1;
         internal Infragistics.Win.Misc.UltraLabel ulblSchUsernameTag;
         public System.Windows.Forms.Button btnDetBackToSearch;
-        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnBackToSearch;
-        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnCancel;
-        internal Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnSave;
         public System.Windows.Forms.Button btnSchAccept;
         public System.Windows.Forms.Button btnSchClose;
         public System.Windows.Forms.Button btnSchDelete;
@@ -682,5 +676,11 @@
         public Infragistics.Win.Misc.UltraPanel upSeparatorAccept;
         public Infragistics.Win.Misc.UltraPanel upButtons;
         public Infragistics.Win.Misc.UltraPanel upSchSearchButtons;
+        public Infragistics.Win.UltraWinTabControl.UltraTabControl utcPrincipal;
+        public System.Windows.Forms.Panel pnlDetButtons;
+        public Infragistics.Win.Misc.UltraPanel upDetSeparator1;
+        public Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnBackToSearch;
+        public Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnCancel;
+        public Infragistics.Win.Misc.UltraPanel upDetSeparatorBtnSave;
     }
 }
