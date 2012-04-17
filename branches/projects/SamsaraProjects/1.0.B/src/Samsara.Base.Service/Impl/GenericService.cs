@@ -1,5 +1,4 @@
 ﻿
-using Samsara.Base.Dao.Interfaces;
 using Samsara.Base.Service.Interfaces;
 
 namespace Samsara.Base.Service.Impl

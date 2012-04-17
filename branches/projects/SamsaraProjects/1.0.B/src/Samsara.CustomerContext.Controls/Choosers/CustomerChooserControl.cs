@@ -1,9 +1,9 @@
 ﻿
+using Samsara.Base.Controls.Controls;
 using Samsara.CustomerContext.Core.Entities;
 using Samsara.CustomerContext.Core.Parameters;
 using Samsara.CustomerContext.Dao.Interfaces;
 using Samsara.CustomerContext.Service.Interfaces;
-using Samsara.Base.Controls.Controls;
 
 namespace Samsara.CustomerContext.Controls
 {
