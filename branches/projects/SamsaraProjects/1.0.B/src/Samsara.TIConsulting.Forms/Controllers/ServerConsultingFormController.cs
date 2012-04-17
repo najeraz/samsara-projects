@@ -758,44 +758,7 @@ Especificaciones: {5}
             this.frmServerConsulting.sctcDetServerComputerType.Value = null;
             this.frmServerConsulting.rtcDetRackType.Value = null;
         }
-
-        private void LoadQuestionsOldServersGrid()
-        {
-            DataTable dtOldServersQuestions = this.srvServerConsulting.SearchByParameters(
-                "ServerConsulting.ServerConsultingQuestions", null);
-
-            this.frmServerConsulting.grdDetOldServersQuestions.DataSource = null;
-            this.frmServerConsulting.grdDetOldServersQuestions.DataSource = dtOldServersQuestions;
-
-            dtOldServersQuestions.Rows.Clear();
-
-            DataRow row = dtOldServersQuestions.NewRow();
-            dtOldServersQuestions.Rows.Add(row);
-            row["Question"] = "Cantidad:";
-
-            row = dtOldServersQuestions.NewRow();
-            dtOldServersQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.ulblDetServerComputerBrand.Text;
-
-            row = dtOldServersQuestions.NewRow();
-            dtOldServersQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.ulblDetServerModel.Text;
-
-            row = dtOldServersQuestions.NewRow();
-            dtOldServersQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.ulblDetOperativeSystem.Text;
-
-            row = dtOldServersQuestions.NewRow();
-            dtOldServersQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.ugbxDetServerComputerType.Text;
-
-            row = dtOldServersQuestions.NewRow();
-            dtOldServersQuestions.Rows.Add(row);
-            row["Question"] = this.frmServerConsulting.ulblDetRackType.Text;
-
-            dtOldServersQuestions.AcceptChanges();
-        }
-
+        
         private void LoadQuestionsGeneralGrid()
         {
             DataTable dtGeneralQuestions = this.srvServerConsulting.SearchByParameters(
@@ -814,6 +777,34 @@ Especificaciones: {5}
                 row = dtGeneralQuestions.NewRow();
                 dtGeneralQuestions.Rows.Add(row);
                 row["Question"] = "\t" + this.frmServerConsulting.ulblDetFirstServer.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\tEquipo Actual:";
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t\tCantidad:";
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t\t" + this.frmServerConsulting.ulblDetServerComputerBrand.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t\t" + this.frmServerConsulting.ulblDetServerModel.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t\t" + this.frmServerConsulting.ulblDetOperativeSystem.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t\t" + this.frmServerConsulting.ugbxDetServerComputerType.Text;
+
+                row = dtGeneralQuestions.NewRow();
+                dtGeneralQuestions.Rows.Add(row);
+                row["Question"] = "\t\t" + this.frmServerConsulting.ulblDetRackType.Text;
             }
 
             row = dtGeneralQuestions.NewRow();
@@ -936,7 +927,19 @@ Especificaciones: {5}
         {
             this.ShowQuestionTab();
             this.LoadQuestionsGeneralGrid();
-            this.LoadQuestionsOldServersGrid();
+        }
+
+        internal void SendQuestionsToClipboard()
+        {
+            ExcelUtil.ExportToExcel(this.frmServerConsulting.grdDetGeneralQuestions);
+        }
+
+        internal void ExportQuestionsToExcel()
+        {
+            this.frmServerConsulting.grdDetGeneralQuestions.Selected.Rows.AddRange(
+                (UltraGridRow[])this.frmServerConsulting.grdDetGeneralQuestions.Rows.All);
+
+            this.frmServerConsulting.grdDetGeneralQuestions.PerformAction(UltraGridAction.Copy);
         }
 
         #endregion Internal
