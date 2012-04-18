@@ -63,6 +63,8 @@
     <Compile Include="Entities\ServerConsultingOldServerComputer.cs" />
     <Compile Include="Entities\ServerConsulting.cs" />
     <Compile Include="Entities\ServerConsultingStatus.cs" />
+    <Compile Include="Enums\ServerConsultingFormUserPermissionEnum.cs" />
+    <Compile Include="Enums\ServerConsultingStatusesEnum.cs" />
     <Compile Include="Parameters\ServerConsultingStatusParameters.cs" />
     <Compile Include="Parameters\ServerConsultingComputerBrandParameters.cs" />
     <Compile Include="Parameters\ServerConsultingOldServerComputerParameters.cs" />

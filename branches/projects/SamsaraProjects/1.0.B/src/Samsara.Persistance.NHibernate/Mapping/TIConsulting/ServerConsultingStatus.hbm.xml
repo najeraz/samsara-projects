@@ -3,7 +3,7 @@
   assembly="Samsara.TIConsulting.Core" 
   namespace="Samsara.TIConsulting.Core.Entities">
   
-  <class name="ServerConsultingStatus" table="TIConsulting.ServerConsultingStatus">
+  <class name="ServerConsultingStatus" table="TIConsulting.ServerConsultingStatuses">
     
     <id name="ServerConsultingStatusId" type="int">
       <generator class="native"/>

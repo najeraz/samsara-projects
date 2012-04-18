@@ -10,6 +10,10 @@
           type="Samsara.TIConsulting.Dao.Impl.ServerConsultingOldServerComputerDao, Samsara.TIConsulting.Dao">
     <property name="HibernateTemplate" ref="HibernateTemplate"/>
   </object>
+  <object id="IServerConsultingStatusDao"
+          type="Samsara.TIConsulting.Dao.Impl.ServerConsultingStatusDao, Samsara.TIConsulting.Dao">
+    <property name="HibernateTemplate" ref="HibernateTemplate"/>
+  </object>
   
 </objects>
 
