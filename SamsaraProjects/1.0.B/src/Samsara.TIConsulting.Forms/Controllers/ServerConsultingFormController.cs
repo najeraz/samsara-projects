@@ -145,6 +145,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void InitializeDetailFormControls()
         {
+            this.frmServerConsulting.scscDetServerConsultingStatus.Refresh();
+
             this.frmServerConsulting.cbcDetComputerBrandPreference.Refresh();
             this.frmServerConsulting.rtcDetRackTypePreference.Refresh();
             this.frmServerConsulting.sctcDetServerComputerTypePreference.Refresh();
