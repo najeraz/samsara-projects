@@ -9,6 +9,10 @@
           type="Samsara.TIConsulting.Service.Impl.ServerConsultingOldServerComputerService, Samsara.TIConsulting.Service">
     <property name="Dao" ref="IServerConsultingOldServerComputerDao"/>
   </object>
+  <object id="IServerConsultingStatusService"
+          type="Samsara.TIConsulting.Service.Impl.ServerConsultingStatusService, Samsara.TIConsulting.Service">
+    <property name="Dao" ref="IServerConsultingStatusDao"/>
+  </object>
 
 </objects>
 
