@@ -23,6 +23,7 @@ using Samsara.TIConsulting.Core.Entities;
 using Samsara.TIConsulting.Core.Parameters;
 using Samsara.TIConsulting.Forms.Forms;
 using Samsara.TIConsulting.Service.Interfaces;
+using Samsara.TIConsulting.Core.Enums;
 
 namespace Samsara.TIConsulting.Forms.Controllers
 {
@@ -233,6 +234,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
                 return false;
             }
 
+            if (this.frmServerConsulting.scscDetServerConsultingStatus.Value == null)
+            {
+                MessageBox.Show("Favor de asignar el Estatus.",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.frmServerConsulting.scscDetServerConsultingStatus.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -254,6 +263,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
 
         public override void ReadOnlyDetailFields(bool readOnly)
         {
+            this.frmServerConsulting.scscDetServerConsultingStatus.ReadOnly = readOnly;
             this.frmServerConsulting.txtDetArrayDisks.ReadOnly = readOnly
                 || !FullServerUptimeRequired;
             this.frmServerConsulting.cbcDetComputerBrandPreference.ReadOnly = readOnly;
@@ -316,7 +326,8 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.serverConsulting.ExtensionNumber = this.frmServerConsulting.txtDetExtensionNumber.Value.ToString();
             this.serverConsulting.ServerComputerType = this.frmServerConsulting.sctcDetServerComputerTypePreference.Value;
             this.serverConsulting.RackType = this.frmServerConsulting.rtcDetRackTypePreference.Value;
-            
+            this.serverConsulting.ServerConsultingStatus = this.frmServerConsulting.scscDetServerConsultingStatus.Value;
+
             EntitiesUtil.SetAsDeleted(this.serverConsulting.ServerConsultingComputerBrands);
             foreach (ComputerBrand computerBrand in this.frmServerConsulting.cbcDetComputerBrandPreference.Values)
             {
@@ -417,6 +428,7 @@ namespace Samsara.TIConsulting.Forms.Controllers
         {
             this.ClearOldServerFields();
 
+            this.frmServerConsulting.scscDetServerConsultingStatus.Value = null;
             this.frmServerConsulting.txtDetArrayDisks.Value = null;
             this.frmServerConsulting.cbcDetComputerBrandPreference.Value = null;
             this.frmServerConsulting.txtDetBudget.Value = null;
@@ -465,6 +477,14 @@ namespace Samsara.TIConsulting.Forms.Controllers
             this.frmServerConsulting.txtDetEmail.Value = this.serverConsulting.Email;
             this.frmServerConsulting.txtDetOrganizationName.Value = this.serverConsulting.OrganizationName;
             this.frmServerConsulting.txtDetPhoneNumber.Value = this.serverConsulting.PhoneNumber;
+
+            this.frmServerConsulting.scscDetServerConsultingStatus.Value = this.serverConsulting.ServerConsultingStatus;
+
+            if (this.serverConsulting.ServerConsultingStatus == null)
+            {
+                this.serverConsulting.ServerConsultingStatus = this.srvGeneric
+                    .GetById<ServerConsultingStatus>((int)ServerConsultingStatusesEnum.Open);
+            }
 
             this.frmServerConsulting.uosDetHasServer.Value = this.serverConsulting.AbstractQuantity.AbstractQuantityId;
             this.frmServerConsulting.uosDetHaveSite.Value = this.serverConsulting.HaveSite;
