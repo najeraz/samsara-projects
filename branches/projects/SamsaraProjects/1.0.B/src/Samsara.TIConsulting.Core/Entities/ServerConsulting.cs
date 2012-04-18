@@ -25,6 +25,12 @@ namespace Samsara.TIConsulting.Core.Entities
             set;
         }
 
+        public virtual ServerConsultingStatus ServerConsultingStatus
+        {
+            get;
+            set;
+        }
+
         public virtual string OrganizationName
         {
             get;

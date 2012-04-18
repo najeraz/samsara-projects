@@ -88,6 +88,10 @@
       <HintPath>..\..\bin\Samsara.TIConsulting.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Samsara.TIConsulting.Dao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Samsara.TIConsulting.Dao.dll</HintPath>
+    </Reference>
     <Reference Include="Samsara.TIConsulting.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Samsara.TIConsulting.Service.dll</HintPath>
@@ -105,6 +109,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Choosers\ServerConsultingStatusChooserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Choosers\ServerConsultingStatusChooserControl.designer.cs">
+      <DependentUpon>ServerConsultingStatusChooserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManyToOne\Controllers\ServerConsultingOldServerComputersControlController.cs" />
     <Compile Include="ManyToOne\ServerConsultingOldServerComputersControl.cs">
       <SubType>UserControl</SubType>
@@ -123,9 +133,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Choosers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

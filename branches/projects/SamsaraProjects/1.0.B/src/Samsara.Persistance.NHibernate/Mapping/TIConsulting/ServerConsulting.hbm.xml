@@ -49,6 +49,10 @@
                  class="Samsara.Framework.Core.Entities.AbstractQuantity, Samsara.Framework.Core"
                  column="AbstractQuantityId" />
 
+    <many-to-one name="ServerConsultingStatus" lazy="false"
+                 class="Samsara.TIConsulting.Core.Entities.ServerConsultingStatus, Samsara.TIConsulting.Core"
+                 column="ServerConsultingStatusId" />
+
     <set name="ServerConsultingComputerBrands" table="TIConsulting.ServerConsultingComputerBrands" where="Deleted = 0 AND Activated = 1"
          cascade="all-delete-orphan" lazy="false">
       <key column="ServerConsultingId"/>
