@@ -220,7 +220,7 @@ namespace Samsara.Base.Controls.Controls
                     throw new NotImplementedException();
             }
 
-            if (this.ValueChanged != null)
+            if (this.ValuesChanged != null)
                 this.ValuesChanged(this, e);
         }
 
